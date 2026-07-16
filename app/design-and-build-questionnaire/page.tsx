@@ -12,7 +12,17 @@ export const metadata = pageMeta({
   path: '/design-and-build-questionnaire/',
 });
 
-export default function Page() {
+function formatMoney(v: string) {
+  const [low, high] = v.split('-').map((n) => parseInt(n, 10));
+  if (!Number.isFinite(low) || !Number.isFinite(high)) return null;
+  return `$${low.toLocaleString()} to $${high.toLocaleString()}`;
+}
+
+export default function Page({ searchParams }: { searchParams?: Record<string, string | string[] | undefined> }) {
+  const rangeParam = typeof searchParams?.range === 'string' ? searchParams.range : undefined;
+  const range = rangeParam ? formatMoney(rangeParam) : null;
+  const categoryParam = typeof searchParams?.category === 'string' ? searchParams.category : undefined;
+
   return (
     <>
       <PageHero
@@ -22,6 +32,19 @@ export default function Page() {
         image="/wp-content/uploads/2024/04/Timber-and-Love-Design-Build-Premier-Home-Remodeling-Contractors-in-Boise-1.jpg"
         height="short"
       />
+
+      {/* Estimator handoff summary — carried over so we do not re-ask. */}
+      {(range || categoryParam) && (
+        <section className="bg-bg-secondary py-6">
+          <div className="container-tl max-w-2xl">
+            <div className="surface-card p-5 text-sm text-text-secondary">
+              <p className="field-label mb-2">From your estimate</p>
+              {categoryParam && <p>Project type: {categoryParam.replace(/-/g, ' ')}</p>}
+              {range && <p className="mt-1">Preliminary range: <span className="text-cream">{range}</span> (preliminary, not a quote)</p>}
+            </div>
+          </div>
+        </section>
+      )}
 
       <PressStrip />
 

@@ -95,6 +95,23 @@ export default function Page() {
 
       <PressStrip />
 
+      {/* Estimator promo */}
+      <section className="border-y border-border-subtle bg-bg-secondary py-14 sm:py-16">
+        <div className="container-wide grid gap-6 lg:grid-cols-2 lg:items-center">
+          <Reveal>
+            <p className="eyebrow">Explore Your Investment Range</p>
+            <h2 className="h-display mt-3 text-2xl sm:text-4xl">See a Preliminary Estimate</h2>
+            <p className="text-lead mt-4">
+              Answer a few quick questions to see a realistic investment range for your project before you reach out. It
+              is a helpful starting point, not a formal quote.
+            </p>
+          </Reveal>
+          <div className="lg:text-right">
+            <Link href="/estimate/" className="btn-primary" data-track="dbpage_estimator">Estimate Your Project</Link>
+          </div>
+        </div>
+      </section>
+
       {/* Differentiators */}
       <section className="bg-ink py-20 sm:py-28">
         <div className="container-wide">
