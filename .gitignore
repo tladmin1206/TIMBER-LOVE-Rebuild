@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+.env*
+.DS_Store
+*.log
+_capture
+.vercel
+next-env.d.ts
+
+# Large binary assets — host these via CDN, not git
+public/wp-content/
+site/

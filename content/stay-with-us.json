@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "eyebrow": "",
+    "heading": "Stay With Us",
+    "subheading": "",
+    "image": ""
+  },
+  "intro": [],
+  "details": {
+    "location": "",
+    "bookingUrl": ""
+  },
+  "amenities": [],
+  "sections": [
+    {
+      "heading": "THE FIREHOUSE",
+      "paragraphs": [],
+      "image": ""
+    },
+    {
+      "heading": "THE CHALET",
+      "paragraphs": [],
+      "image": ""
+    },
+    {
+      "heading": "BEACH HOUSE",
+      "paragraphs": [],
+      "image": ""
+    },
+    {
+      "heading": "THE DARLA HOUSE",
+      "paragraphs": [],
+      "image": ""
+    }
+  ],
+  "gallery": [],
+  "propertyLinks": [
+    "/the-firehouse/",
+    "/timber-and-love-chalet/",
+    "/chinamans-ocean-front-beach-house/",
+    "/the-darla-house/"
+  ]
+}

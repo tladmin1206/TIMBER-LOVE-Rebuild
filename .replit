@@ -1,0 +1,24 @@
+# Workspace "Run" uses dev mode for a fast, hot-reloading preview.
+# Production deploys use the [deployment] build+start commands below.
+run = "npm run dev"
+entrypoint = "app/page.tsx"
+modules = ["nodejs-20"]
+hidden = [".next", "node_modules", "_capture"]
+
+[nix]
+channel = "stable-24_05"
+
+[env]
+NEXT_TELEMETRY_DISABLED = "1"
+
+[deployment]
+deploymentTarget = "autoscale"
+build = ["npm", "run", "build"]
+run = ["npm", "run", "start"]
+
+[[ports]]
+localPort = 3000
+externalPort = 80
+
+[agent]
+expertMode = true
