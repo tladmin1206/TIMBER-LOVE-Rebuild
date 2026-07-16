@@ -1,8 +1,13 @@
 import PageHero from '@/components/sections/PageHero';
+import TrustBar from '@/components/sections/TrustBar';
 import Reveal from '@/components/ui/Reveal';
 import Cta from '@/components/ui/Cta';
+import Stars from '@/components/ui/Stars';
 import { pageMeta } from '@/lib/seo';
 import { site } from '@/lib/site';
+import { clientReviews } from '@/lib/content/home';
+
+const realEstateReview = clientReviews.find((r) => r.role === 'Real Estate Client');
 
 export const metadata = pageMeta({
   title: 'Buy or Sell a Home in Boise',
@@ -51,6 +56,25 @@ export default function Page() {
           Sell a Home
         </Cta>
       </PageHero>
+
+      <TrustBar />
+
+      {/* Real estate client proof */}
+      {realEstateReview && (
+        <section className="bg-bg-primary py-14 sm:py-16" aria-label="Client review">
+          <div className="container-wide max-w-3xl text-center">
+            <Reveal>
+              <Stars rating={5} size="md" />
+              <blockquote className="mt-5 text-xl leading-relaxed text-cream sm:text-2xl">
+                “{realEstateReview.quote}”
+              </blockquote>
+              <figcaption className="mt-5 text-xs uppercase tracking-[0.16em] text-text-muted">
+                {realEstateReview.name} · {realEstateReview.role}
+              </figcaption>
+            </Reveal>
+          </div>
+        </section>
+      )}
 
       {/* What visitors will find on the linked site */}
       <section className="bg-bg-primary py-20 sm:py-28">

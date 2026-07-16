@@ -1,4 +1,5 @@
 import PageHero from '@/components/sections/PageHero';
+import TrustBar from '@/components/sections/TrustBar';
 import Reveal from '@/components/ui/Reveal';
 import Cta from '@/components/ui/Cta';
 import { pageMeta } from '@/lib/seo';
@@ -43,6 +44,8 @@ export default function Page() {
           Request a Cash Offer
         </Cta>
       </PageHero>
+
+      <TrustBar />
 
       {/* Who it is for */}
       <section className="bg-bg-primary py-20 sm:py-28">

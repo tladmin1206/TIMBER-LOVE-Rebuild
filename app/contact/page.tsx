@@ -1,4 +1,5 @@
 import PageHero from '@/components/sections/PageHero';
+import TrustBar from '@/components/sections/TrustBar';
 import Reveal from '@/components/ui/Reveal';
 import Cta from '@/components/ui/Cta';
 import ContactForm from '@/components/forms/ContactForm';
@@ -68,6 +69,8 @@ export default function Page() {
         subtitle="Pick the option closest to your goal and we will point you to the right place, or reach out directly and a member of our team will follow up."
         image="/wp-content/uploads/2024/04/Timber-and-Love-Design-Build-Premier-Home-Remodeling-Contractors-in-Boise-1.jpg"
       />
+
+      <TrustBar />
 
       {/* Choose Your Path — route each need to the correct destination */}
       <section className="bg-bg-primary py-20 sm:py-28">

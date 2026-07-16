@@ -1,4 +1,5 @@
 import PageHero from '@/components/sections/PageHero';
+import TrustBar from '@/components/sections/TrustBar';
 import Reveal from '@/components/ui/Reveal';
 import Cta from '@/components/ui/Cta';
 import { pageMeta } from '@/lib/seo';
@@ -44,6 +45,8 @@ export default function Page() {
           Explore Investment Opportunities
         </Cta>
       </PageHero>
+
+      <TrustBar />
 
       {/* What is available / who it is for / what happens next */}
       <section className="bg-bg-primary py-20 sm:py-28">
