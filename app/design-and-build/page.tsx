@@ -228,7 +228,7 @@ export default function Page() {
       )}
 
       {/* Testimonials — premium review wall with real, attributed reviews */}
-      <ReviewWall reviews={clientReviews} eyebrow="Testimonials" heading="Trusted by Boise Homeowners" background="bg-bg-primary" />
+      <ReviewWall reviews={clientReviews} eyebrow="Testimonials" heading="Trusted by Boise Homeowners" background="bg-bg-primary" moreHref="/reviews/" />
 
       {/* FAQ */}
       <section className="bg-ink py-20 sm:py-28">

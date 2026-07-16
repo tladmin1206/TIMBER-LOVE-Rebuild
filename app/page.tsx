@@ -192,7 +192,7 @@ export default function HomePage() {
       </section>
 
       {/* Client stories — premium review wall with real, attributed reviews */}
-      <ReviewWall reviews={clientReviews} />
+      <ReviewWall reviews={clientReviews} moreHref="/reviews/" />
 
       {/* Brand ecosystem — one brand, more ways to help */}
       <section className="bg-bg-secondary py-20 sm:py-24" aria-labelledby="ecosystem-heading">

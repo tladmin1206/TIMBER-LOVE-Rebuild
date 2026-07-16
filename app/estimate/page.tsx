@@ -1,4 +1,5 @@
 import PageHero from '@/components/sections/PageHero';
+import TrustBar from '@/components/sections/TrustBar';
 import Estimator from '@/components/estimator/Estimator';
 import { pageMeta } from '@/lib/seo';
 
@@ -20,6 +21,7 @@ export default function Page() {
         image="/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1.jpg"
         height="short"
       />
+      <TrustBar />
       <section className="bg-bg-primary py-16 sm:py-20">
         <div className="container-tl">
           <Estimator />

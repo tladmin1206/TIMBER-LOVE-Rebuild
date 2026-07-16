@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Reveal from '@/components/ui/Reveal';
 import Stars from '@/components/ui/Stars';
 import type { Testimonial } from '@/components/ui/Testimonials';
@@ -14,11 +15,14 @@ export default function ReviewWall({
   heading = 'What Our Clients Say',
   eyebrow = 'Client Stories',
   background = 'bg-bg-secondary',
+  moreHref,
 }: {
   reviews: Testimonial[];
   heading?: string;
   eyebrow?: string;
   background?: string;
+  /** When set, shows a "Read all reviews" link (e.g. to the dedicated /reviews/ page). */
+  moreHref?: string;
 }) {
   return (
     <section className={`${background} py-20 sm:py-24`} aria-labelledby="reviews-heading">
@@ -73,6 +77,12 @@ export default function ReviewWall({
             </Reveal>
           ))}
         </div>
+
+        {moreHref && (
+          <div className="mt-10">
+            <Link href={moreHref} className="btn-secondary" data-track="reviews_all">Read All Reviews</Link>
+          </div>
+        )}
       </div>
     </section>
   );
