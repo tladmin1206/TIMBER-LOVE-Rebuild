@@ -230,15 +230,41 @@ export const whyReasons = [
 ];
 
 /**
- * Verified customer reviews used as conversion proof. Fan comments and reviews
- * with a conflict of interest are intentionally excluded here and surfaced
- * separately as fan commentary. TEMP: replace with stronger, verified,
- * source-attributed customer reviews as they become available.
+ * Aggregate review rating, pulled from the business's Google / public review
+ * profile. TEMP: refresh periodically; confirm the exact live count.
+ */
+export const googleReviews = { rating: 4.9, count: 53, url: 'https://g.page/r/CRGHjvpIySGwEB0/review' };
+
+/**
+ * Verified, source-attributed customer reviews used as conversion proof (real
+ * current Google reviews). Fan comments are surfaced separately as commentary.
  */
 export const clientReviews: Testimonial[] = [
-  { name: 'Lara A.', role: 'Design + Build Client', quote: 'Highly recommend this team of trustworthy and reliable contractors. Looking forward to more great stories!' },
-  { name: 'Jace L.', role: 'Design + Build Client', quote: 'Incredible work — with an incredible heart behind what they do!' },
-  { name: 'Caleb R.', role: 'Design + Build Client', quote: 'Luke and Clint and the whole crew at Timber and Love are some of the most amazing people I’ve ever met. You can really see and feel the love that goes into the homes they transform.' },
+  {
+    name: 'Akbar Pirani',
+    role: 'Design + Build Client',
+    quote: 'Our family had outgrown our space completely and we were torn between moving or trying a major renovation. They showed us a vision for our current layout that we never thought was possible. They knocked out walls and added these gorgeous vaulted ceilings that completely resolved our space issues.',
+  },
+  {
+    name: 'Tracy Macglad',
+    role: 'Remodel Client',
+    quote: 'I was so worried our older house would lose its classic character during the remodel, but they blended the original charm with clean modern lines perfectly. Honestly, my kitchen looks like a work of art now and I couldn’t be happier.',
+  },
+  {
+    name: 'Jackie Miller',
+    role: 'Design + Build Client',
+    quote: 'Highly recommend! They are very professional and responsive. Their construction is exceptional quality. They take great pride in their work and it shows. I can’t say enough great things about this company.',
+  },
+  {
+    name: 'Justin Armuth',
+    role: 'Design + Build Client',
+    quote: 'If you’re looking for a construction company that prioritizes quality, excels in remodels, and brings strong design insight to the table, I highly recommend them. We would absolutely work with them again.',
+  },
+  {
+    name: 'Eric Smith',
+    role: 'Real Estate Client',
+    quote: 'Mira DiMaggio was our realtor for a recent purchase of a house in Boise. She was wonderful in just about every way. I could not recommend her more highly.',
+  },
 ];
 
 /** Boise Boys fan commentary — clearly labeled as viewer comments, never as client proof. */

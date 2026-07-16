@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Hero from '@/components/sections/Hero';
+import TrustBar from '@/components/sections/TrustBar';
 import PathwaySelector from '@/components/sections/PathwaySelector';
+import ReviewWall from '@/components/sections/ReviewWall';
 import Cta from '@/components/ui/Cta';
 import Reveal from '@/components/ui/Reveal';
 import StatCounter from '@/components/ui/StatCounter';
 import VideoBg from '@/components/ui/VideoBg';
-import RotatingTestimonial from '@/components/ui/RotatingTestimonial';
 import { site, pathways } from '@/lib/site';
 import {
   stats,
@@ -13,7 +14,6 @@ import {
   featuredProjects,
   whyReasons,
   clientReviews,
-  fanComments,
   brandEcosystem,
   sectionVideos,
   hgtvShows,
@@ -23,6 +23,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <TrustBar />
       <PathwaySelector />
 
       {/* Brand credibility — verified proof, calm media presentation */}
@@ -161,39 +162,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Client stories — verified reviews (fan comments kept separate) */}
-      <section className="relative overflow-hidden py-24 text-center sm:py-28" aria-labelledby="stories-heading">
-        <VideoBg videoId={sectionVideos.testimonials.id} poster={sectionVideos.testimonials.poster} overlay="bg-ink/80" />
-        <div className="container-wide relative z-10">
-          <Reveal>
-            <p className="eyebrow">Client Stories</p>
-            <h2 id="stories-heading" className="h-display mt-4 text-3xl sm:text-5xl">What Our Clients Say</h2>
-          </Reveal>
-          <div className="mt-10">
-            <RotatingTestimonial items={clientReviews} />
-          </div>
-          <div className="mt-10">
-            <a href={site.reviewUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary">
-              Read Reviews on Google ↗
-            </a>
-          </div>
-
-          {/* Fan comments — clearly distinguished from client testimonials */}
-          <div className="mx-auto mt-16 max-w-3xl border-t border-border-subtle pt-10">
-            <p className="text-xs uppercase tracking-[0.18em] text-text-muted">From Boise Boys Viewers</p>
-            <div className="mt-6 grid gap-4 sm:grid-cols-3">
-              {fanComments.map((f) => (
-                <figure key={f.name} className="surface-card p-5 text-left">
-                  <blockquote className="text-sm leading-relaxed text-text-secondary">“{f.quote}”</blockquote>
-                  <figcaption className="mt-3 text-xs uppercase tracking-[0.14em] text-text-muted">
-                    {f.name} · {f.role}
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Client stories — premium review wall with real, attributed reviews */}
+      <ReviewWall reviews={clientReviews} />
 
       {/* Brand ecosystem — one brand, more ways to help */}
       <section className="bg-bg-secondary py-20 sm:py-24" aria-labelledby="ecosystem-heading">

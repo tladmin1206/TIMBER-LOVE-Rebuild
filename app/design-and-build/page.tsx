@@ -3,7 +3,7 @@ import PageHero from '@/components/sections/PageHero';
 import Reveal from '@/components/ui/Reveal';
 import Gallery from '@/components/ui/Gallery';
 import VideoBg from '@/components/ui/VideoBg';
-import RotatingTestimonial from '@/components/ui/RotatingTestimonial';
+import ReviewWall from '@/components/sections/ReviewWall';
 import FAQ from '@/components/ui/FAQ';
 import PressStrip from '@/components/sections/PressStrip';
 import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
@@ -227,19 +227,8 @@ export default function Page() {
         </section>
       )}
 
-      {/* Testimonials — video background + centered rotating quote */}
-      <section className="relative overflow-hidden py-24 text-center sm:py-32">
-        <VideoBg videoId="928451971" poster="/video-posters/928451971.jpg" overlay="bg-ink/75" />
-        <div className="container-wide relative z-10">
-          <Reveal>
-            <p className="eyebrow">Testimonials</p>
-            <h2 className="h-display mt-4 text-4xl sm:text-6xl">See What Others Are Saying</h2>
-          </Reveal>
-          <div className="mt-12">
-            <RotatingTestimonial items={clientReviews} />
-          </div>
-        </div>
-      </section>
+      {/* Testimonials — premium review wall with real, attributed reviews */}
+      <ReviewWall reviews={clientReviews} eyebrow="Testimonials" heading="Trusted by Boise Homeowners" background="bg-bg-primary" />
 
       {/* FAQ */}
       <section className="bg-ink py-20 sm:py-28">
