@@ -2,9 +2,37 @@
   "hero": {
     "eyebrow": "Boise Vacation Rental",
     "heading": "The Darla House",
-    "subheading": "",
+    "subheading": "A cozy, modern North End cottage for the whole family.",
     "image": "/wp-content/uploads/2026/04/01-Exterior-Front-1024x683.jpg"
   },
+  "destination": "Boise North End, ID",
+  "overview": [
+    "This cozy, modern cottage in Boise's North End is a bright and happy place to stay. The renovated home keeps its original character while adding stainless steel appliances and stylish decor. The living area has a Roku-equipped TV and opens into a fully stocked kitchen.",
+    "This three-bedroom, one-bathroom home sits close to the best of Boise. With a king bed and two twin beds, it is a comfortable fit for the whole family. The entire home is yours during your stay, and the property is fenced with a small patio."
+  ],
+  "glance": {
+    "bedrooms": "3",
+    "bathrooms": "1",
+    "beds": "1 king, 2 twin",
+    "propertyType": "Cottage",
+    "wifi": "Free WiFi"
+  },
+  "amenityGroups": [
+    { "category": "Essentials", "items": ["Free WiFi", "Fully stocked kitchen", "Original character with modern updates"] },
+    { "category": "Entertainment", "items": ["Roku streaming TV"] },
+    { "category": "Outdoor", "items": ["Fenced yard", "Small patio"] }
+  ],
+  "sleeping": [
+    "Downstairs primary bedroom with a king bed",
+    "Twin bed at the bottom of the stairs (open area, not an enclosed room)",
+    "Twin bed upstairs"
+  ],
+  "thingsToKnow": [
+    "The downstairs primary bedroom has a low ceiling clearance, which may be an issue for guests over six feet tall. Most of the rest of the living space has tall, open ceilings.",
+    "No parties. The home has a zero-tolerance party policy out of respect for the neighbors.",
+    "The entire home is yours to use during your stay.",
+    "Booking, availability, house rules, and cancellation are managed through Airbnb."
+  ],
   "intro": [
     "This cozy and modern cottage is the perfect spot to stay in the North End. A renovated, bright and happy home includes stainless steel appliances, stylish decor, and original character. The living area includes TV set up with Roku and opens up into a fully stocked kitchen. This 3 bedroom, 1 bathroom home is located close to all the best places in the heart in Boise! With a king bed and two twin beds for the little ones– perfect for the whole family.The spaceThis is a one of kind space- the basement does have a low clearing, this maybe an issue for those that are over six feet tall. However, most of the living space has tall and open ceilings. The master is located downstairs, a twin at the bottom of the stairs (not in an enclosed room), and one twin bed is located upstairs.Guest accessThe entire house is yours to use while renting. Feel free to use anything like it’s your own, during your stay. The property is surrounded by a fence and has a small patio area as well.No parties-We have zero tolerance for parties and the neighbors don’t put up with it.Other things to noteThe downstairs (master) has a low clearing, this maybe an issue for those that are over six feet tall, but the majority of the living space has tall and open ceilings."
   ],

@@ -6,6 +6,23 @@
     "image": "/wp-content/uploads/2025/12/1-Oceanfront-Oahu-vacation-rental-exterior-with-direct-beach-access.png",
     "videoId": "928828721"
   },
+  "destination": "Oahu, HI",
+  "overview": [
+    "Freshly renovated in 2020, this luxury beach home has a one-of-a-kind location nestled between Kualoa Ranch and the Pacific Ocean, with breathtaking oceanfront views.",
+    "Wake up to sunrises without leaving your living room, take in the views of the world-renowned Chinaman’s Hat, and enjoy your own private beach. The home is set up comfortably for one or two families to connect and unwind."
+  ],
+  "glance": {
+    "propertyType": "Oceanfront beach home",
+    "guests": "Comfortable for 1 to 2 families"
+  },
+  "amenityGroups": [
+    { "category": "Outdoor", "items": ["Private beach access", "Oceanfront views"] },
+    { "category": "Location", "items": ["Near Kualoa Ranch", "Views of Chinaman’s Hat"] }
+  ],
+  "thingsToKnow": [
+    "This is a Timber and Love affiliated Oahu property. Booking and availability are handled through Vacation Rental Oahu (vacationrentaloahu.co).",
+    "Rates, house rules, and cancellation policies are shown at the booking site."
+  ],
   "intro": [
     "Freshly renovated in 2020 this luxury beach home with its one of kind location offers breathtaking views nestled in between Kualoa Ranch (Jurassic Park, Lost) and the Pacific Ocean. Wake up to enjoy the magical sunrises each and every morning without leaving the luxury of your living room. Take in the incredible views of the world renowned Chinamans Hat. Set up perfect for 1 or 2 families to connect and unwind while enjoying your own private beach."
   ],
