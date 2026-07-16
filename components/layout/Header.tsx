@@ -98,7 +98,7 @@ export default function Header() {
                 </button>
                 {openGroup === item.label && (
                   <div className="absolute left-1/2 top-full z-10 w-[22rem] -translate-x-1/2 pt-4">
-                    <div className="border border-border-subtle bg-ink/98 p-2 shadow-xl backdrop-blur">
+                    <div className="border border-border-subtle bg-ink/95 p-2 shadow-xl backdrop-blur">
                       {item.children.map((c) => (
                         <MegaLink key={c.label} item={c} />
                       ))}
@@ -144,7 +144,7 @@ export default function Header() {
       {mobileOpen && (
         <div
           id="mobile-menu"
-          className="fixed inset-0 top-[var(--header-h,60px)] z-40 h-[100dvh] overflow-y-auto border-t border-border-subtle bg-ink/98 xl:hidden"
+          className="fixed inset-x-0 top-[60px] z-40 h-[calc(100dvh-60px)] overflow-y-auto border-t border-border-subtle bg-ink xl:hidden"
         >
           <nav aria-label="Mobile" className="container-wide flex min-h-full flex-col py-4 text-sm uppercase tracking-[0.12em] text-cream">
             {mainNav.map((item) =>

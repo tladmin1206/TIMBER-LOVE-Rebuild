@@ -77,7 +77,7 @@ export default function PropertyGallery({ images }: { images: GalleryImage[] }) 
       {/* Lightbox */}
       {open && (
         <div
-          className="fixed inset-0 z-[120] flex flex-col bg-ink/97 animate-fadeIn"
+          className="fixed inset-0 z-[120] flex flex-col bg-ink/95 animate-fadeIn"
           role="dialog"
           aria-modal="true"
           aria-label="Property photo gallery"
