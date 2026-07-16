@@ -175,7 +175,10 @@ export default function Page() {
         <div className="container-wide max-w-2xl">
           <Reveal>
             <p className="eyebrow">Our Design + Build Process</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Streamlining Your Journey</h2>
+            <h2 className="h-display mt-4 text-3xl sm:text-5xl">How We Work</h2>
+            <p className="mt-6">
+              <Link href="/our-process/" className="text-sm uppercase tracking-[0.16em] text-cream link-underline">See the Full Step-by-Step Process →</Link>
+            </p>
           </Reveal>
         </div>
       </section>
