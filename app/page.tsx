@@ -7,6 +7,7 @@ import Cta from '@/components/ui/Cta';
 import Reveal from '@/components/ui/Reveal';
 import StatCounter from '@/components/ui/StatCounter';
 import VideoBg from '@/components/ui/VideoBg';
+import InlineVideo from '@/components/ui/InlineVideo';
 import { site, pathways } from '@/lib/site';
 import {
   stats,
@@ -17,6 +18,8 @@ import {
   brandEcosystem,
   sectionVideos,
   hgtvShows,
+  introVideoId,
+  introVideoPoster,
 } from '@/lib/content/home';
 
 export default function HomePage() {
@@ -24,6 +27,30 @@ export default function HomePage() {
     <>
       <Hero />
       <TrustBar />
+
+      {/* Intro + "Designing Beauty" inline video (the player that belongs below
+          the hero, matching the original homepage). */}
+      <section className="bg-bg-primary py-20 sm:py-28" aria-labelledby="intro-heading">
+        <div className="container-wide grid gap-10 lg:grid-cols-2 lg:gap-16">
+          <Reveal>
+            <p className="eyebrow">Design + Build</p>
+            <h2 id="intro-heading" className="h-display mt-4 text-4xl sm:text-6xl">Designing Beauty, Building Homes</h2>
+          </Reveal>
+          <Reveal delay={120} className="flex items-end">
+            <p className="text-lead">
+              Founded in {site.founded} by Luke Caldwell of HGTV&apos;s Boise Boys, Timber and Love is an award-winning
+              boutique team in Boise. We bring design, construction, real estate, and more under one trusted brand for
+              a streamlined, personal experience.
+            </p>
+          </Reveal>
+        </div>
+        <div className="container-wide mt-12">
+          <Reveal>
+            <InlineVideo videoId={introVideoId} poster={introVideoPoster} />
+          </Reveal>
+        </div>
+      </section>
+
       <PathwaySelector />
 
       {/* Brand credibility — verified proof, calm media presentation */}

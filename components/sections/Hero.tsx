@@ -1,6 +1,6 @@
 import HeroVideo from '@/components/ui/HeroVideo';
 import Cta from '@/components/ui/Cta';
-import { heroVideoId } from '@/lib/content/home';
+import { heroVideoId, heroVideoPoster } from '@/lib/content/home';
 
 /**
  * Homepage hero. Establishes the parent brand — not a remodeling-only firm —
@@ -12,8 +12,12 @@ import { heroVideoId } from '@/lib/content/home';
 export default function Hero() {
   return (
     <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-ink">
-      <HeroVideo videoId={heroVideoId} poster="/video-posters/953577619.jpg" />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/55 to-ink/90" />
+      <HeroVideo videoId={heroVideoId} poster={heroVideoPoster} />
+      {/* Original-style overlay: darkens behind the left-aligned content while
+          revealing the interior video toward the right, plus a soft vertical
+          vignette for legibility of the top nav and bottom marker. */}
+      <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-ink/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-ink/35" />
 
       <div className="relative z-10 flex flex-1 items-center">
         <div className="container-wide w-full pt-24 text-left">

@@ -1,8 +1,12 @@
 import type { Testimonial } from '@/components/ui/Testimonials';
 
-export const heroVideoId = '953577619'; // Vimeo
-export const introVideoId = '967117381'; // Vimeo — inline "Designing Beauty" player
-export const introVideoPoster = '/wp-content/uploads/2024/06/timber-and-love-intro-video.jpg';
+// Matches the original homepage: 967117381 is the full-bleed background hero
+// video (warm interior), and 953577619 is the inline "Designing Beauty" player
+// that sits in a section below the hero.
+export const heroVideoId = '967117381'; // Vimeo — hero background video
+export const heroVideoPoster = '/video-posters/967117381.jpg';
+export const introVideoId = '953577619'; // Vimeo — inline "Designing Beauty" player
+export const introVideoPoster = '/video-posters/953577619.jpg';
 
 // Full-bleed background videos used across homepage sections (Vimeo ids + local poster frames).
 export const sectionVideos = {
