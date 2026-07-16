@@ -157,7 +157,7 @@ export default function Page() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {serviceCategories.map((s, i) => (
               <Reveal key={s.heading} delay={i * 70} className="border border-cream/10 bg-ink p-7">
-                <div className="font-sans text-4xl tracking-brand text-cream/25">{String(i + 1).padStart(2, '0')}</div>
+                <div className="font-sans text-4xl tracking-brand text-accent/70">{String(i + 1).padStart(2, '0')}</div>
                 <h3 className="h-display mt-4 text-lg">{s.heading}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-body">{s.body}</p>
               </Reveal>
@@ -184,7 +184,7 @@ export default function Page() {
           <VideoBg videoId={p.videoId} poster={p.poster} overlay="bg-ink/70" />
           <div className="container-wide relative z-10">
             <Reveal className="max-w-xl">
-              <div className="font-sans text-5xl tracking-brand text-cream/40">{p.num}</div>
+              <div className="font-sans text-5xl tracking-brand text-accent/70">{p.num}</div>
               <h3 className="h-display mt-4 text-3xl sm:text-4xl">{p.title}</h3>
               <p className="mt-5 text-body">{p.body}</p>
               {i === processPhases.length - 1 && (

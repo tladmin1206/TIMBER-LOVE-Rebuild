@@ -73,7 +73,7 @@ export default function Page() {
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {steps.map((s, i) => (
               <Reveal key={s.num} delay={i * 90} className="surface-card p-8">
-                <div className="font-sans text-4xl tracking-brand text-text-muted">{s.num}</div>
+                <div className="font-sans text-4xl tracking-brand text-accent/70">{s.num}</div>
                 <h3 className="h-display mt-4 text-lg">{s.heading}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-text-secondary">{s.body}</p>
               </Reveal>

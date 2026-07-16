@@ -74,7 +74,7 @@ export default function Page() {
                   className="group block h-full surface-card p-7 transition-colors hover:border-cream/40"
                   data-track={`about_pathway_${p.key}`}
                 >
-                  <div className="font-sans text-4xl tracking-brand text-cream/25">
+                  <div className="font-sans text-4xl tracking-brand text-accent/70">
                     {String(i + 1).padStart(2, '0')}
                   </div>
                   <h3 className="h-display mt-4 text-xl">{p.title}</h3>
