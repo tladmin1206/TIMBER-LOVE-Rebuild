@@ -125,6 +125,35 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Estimator lead magnet — low-friction conversion */}
+      <section className="relative overflow-hidden py-16 sm:py-20" aria-labelledby="estimator-heading">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/wp-content/uploads/2024/03/TimberandLoveHomeRemodelingCompany-Design-BuildBackgroundImage-ezgif.com-webp-to-jpg-converter-1.jpg"
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="absolute inset-0 -z-10 h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/90 to-ink/70" />
+        <div className="container-wide">
+          <Reveal className="max-w-xl" as="div">
+            <p className="eyebrow">Plan With Confidence</p>
+            <h2 id="estimator-heading" className="h-display mt-4 text-3xl sm:text-4xl">
+              Curious What Your Project Might Cost?
+            </h2>
+            <p className="text-lead mt-4">
+              Answer a few quick questions and see a realistic preliminary investment range in about two minutes. No
+              pressure, no obligation, and no exact-quote guesswork.
+            </p>
+            <div className="mt-7 flex flex-wrap items-center gap-4">
+              <Cta href="/estimate/" variant="primary" track="home_estimator">Estimate Your Project</Cta>
+              <span className="text-xs uppercase tracking-[0.14em] text-text-muted">Free · Takes ~2 minutes</span>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* HGTV — editorial credibility */}
       <section className="bg-bg-primary py-20 sm:py-28" aria-labelledby="hgtv-heading">
         <div className="container-wide">
