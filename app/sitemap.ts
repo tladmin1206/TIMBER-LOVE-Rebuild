@@ -8,6 +8,8 @@ const paths: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/design-and-build/', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/design-and-build-questionnaire/', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/estimate/', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/financing/', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/reviews/', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/buy-or-sell/', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/sell-for-cash/', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/invest/', priority: 0.8, changeFrequency: 'monthly' },
