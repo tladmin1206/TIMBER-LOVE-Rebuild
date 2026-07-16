@@ -40,7 +40,7 @@ export default function ArticlePage({ article, path }: { article: Article; path:
         )}
         <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/70 to-ink/50" />
         <div className="container-tl max-w-3xl">
-          <Link href="/about/" className="eyebrow link-underline">Timber and Love Journal</Link>
+          <Link href="/journal/" className="eyebrow link-underline">Timber and Love Journal</Link>
           <h1 className="h-display mt-4 text-3xl text-cream sm:text-5xl">{article.title}</h1>
           {dateStr && <p className="mt-4 text-sm uppercase tracking-[0.16em] text-text-muted">{dateStr}</p>}
         </div>

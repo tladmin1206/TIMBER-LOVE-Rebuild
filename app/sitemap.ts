@@ -10,6 +10,7 @@ const paths: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/estimate/', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/financing/', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/reviews/', priority: 0.7, changeFrequency: 'monthly' },
+  { path: '/journal/', priority: 0.6, changeFrequency: 'weekly' },
   { path: '/buy-or-sell/', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/sell-for-cash/', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/invest/', priority: 0.8, changeFrequency: 'monthly' },
