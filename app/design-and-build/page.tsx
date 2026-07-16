@@ -8,6 +8,8 @@ import FAQ from '@/components/ui/FAQ';
 import PressStrip from '@/components/sections/PressStrip';
 import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
 import { pageMeta } from '@/lib/seo';
+import JsonLd from '@/components/JsonLd';
+import { serviceSchema, faqSchema, breadcrumbSchema } from '@/lib/schema';
 import { clientReviews } from '@/lib/content/home';
 import data from '@/content/design-and-build.json';
 import faq from '@/content/design-and-build-faq.json';
@@ -82,6 +84,21 @@ const galleryImgs = (data.gallery as string[]).map((src, i) => ({ src, alt: `Tim
 export default function Page() {
   return (
     <>
+      <JsonLd
+        schema={[
+          serviceSchema({
+            name: 'Design + Build',
+            description: 'Custom homes, additions, and whole-home renovations from one connected in-house design and construction team in Boise.',
+            path: '/design-and-build/',
+            serviceType: 'Design-build residential construction',
+          }),
+          faqSchema(faq as { q: string; a: string }[]),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Design + Build', path: '/design-and-build/' },
+          ]),
+        ]}
+      />
       <PageHero
         eyebrow="Design | Build"
         title="Timber and Love Design + Build"

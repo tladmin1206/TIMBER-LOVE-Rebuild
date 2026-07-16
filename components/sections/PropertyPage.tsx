@@ -3,6 +3,8 @@ import PageHero from '@/components/sections/PageHero';
 import PropertyGallery from '@/components/sections/PropertyGallery';
 import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/sections/CtaBand';
+import JsonLd from '@/components/JsonLd';
+import { lodgingSchema, breadcrumbSchema } from '@/lib/schema';
 
 export type PropertyContent = {
   hero: { eyebrow?: string; heading: string; subheading?: string; image: string; videoId?: string };
@@ -58,7 +60,9 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
   const overview = data.overview ?? data.intro ?? [];
   const images = (data.gallery || []).map((src, i) => ({ src, alt: `${data.hero.heading} — photo ${i + 1}` }));
   const glanceEntries = Object.entries(data.glance ?? {}).filter(([, v]) => v);
+  const self = RENTALS.find((r) => r.name === data.hero.heading);
   const related = RENTALS.filter((r) => r.name !== data.hero.heading).slice(0, 3);
+  const amenityList = data.amenityGroups?.flatMap((g) => g.items) ?? data.amenities ?? [];
 
   const BookButton = ({ className = 'btn-primary' }: { className?: string }) =>
     booking ? (
@@ -70,6 +74,25 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
 
   return (
     <>
+      {self && (
+        <JsonLd
+          schema={[
+            lodgingSchema({
+              name: data.hero.heading,
+              description: (data.overview ?? data.intro ?? [''])[0],
+              path: self.href,
+              image: data.hero.image,
+              region: data.destination?.includes('HI') ? 'HI' : 'ID',
+              amenities: amenityList,
+            }),
+            breadcrumbSchema([
+              { name: 'Home', path: '/' },
+              { name: 'Vacation Rentals', path: '/stay-with-us/' },
+              { name: data.hero.heading, path: self.href },
+            ]),
+          ]}
+        />
+      )}
       <PageHero
         eyebrow={data.destination || data.hero.eyebrow || 'Vacation Rental'}
         title={data.hero.heading}

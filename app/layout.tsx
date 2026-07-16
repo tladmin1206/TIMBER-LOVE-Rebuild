@@ -9,6 +9,8 @@ import ModalProvider from '@/components/ui/ModalProvider';
 import Modals from '@/components/ui/Modals';
 import Analytics from '@/components/Analytics';
 import AnalyticsEvents from '@/components/AnalyticsEvents';
+import JsonLd from '@/components/JsonLd';
+import { organizationSchema, websiteSchema, localBusinessSchema } from '@/lib/schema';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -64,37 +66,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const localBusiness = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'TIMBER AND LOVE',
-    url: `${site.url}/`,
-    telephone: site.phone,
-    image: `${site.url}/wp-content/uploads/2024/04/Timber-and-Love-Design-Build-Premier-Home-Remodeling-Contractors-in-Boise-1.jpg`,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: site.address.street,
-      addressLocality: site.address.city,
-      addressRegion: site.address.region,
-      postalCode: site.address.postalCode,
-    },
-    geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
-    hasMap: site.map,
-    contactPoint: {
-      '@type': 'ContactPoint',
-      contactType: 'customer service',
-      telephone: site.phone,
-    },
-    sameAs: [site.social.instagram, site.social.facebook],
-  };
-
   return (
     <html lang="en" className={montserrat.variable}>
       <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
-        />
+        <JsonLd schema={[organizationSchema, websiteSchema, localBusinessSchema]} />
         <a href="#content" className="skip-link">Skip to content</a>
         <ModalProvider>
           <Header />

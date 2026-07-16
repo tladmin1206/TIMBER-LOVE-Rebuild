@@ -5,6 +5,8 @@ import Gallery from '@/components/ui/Gallery';
 import Cta from '@/components/ui/Cta';
 import Reveal from '@/components/ui/Reveal';
 import { pageMeta } from '@/lib/seo';
+import JsonLd from '@/components/JsonLd';
+import { breadcrumbSchema } from '@/lib/schema';
 import { projects, getProject, relatedProjects } from '@/lib/content/projects';
 
 export function generateStaticParams() {
@@ -30,6 +32,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
+      <JsonLd
+        schema={breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Our Work', path: '/timber-and-love-gallery/' },
+          { name: project.title, path: `/projects/${project.slug}/` },
+        ])}
+      />
       <PageHero eyebrow={project.category} title={project.title} image={project.cover} height="tall">
         <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
         <Link href="/timber-and-love-gallery/" className="btn-secondary">All Projects</Link>
