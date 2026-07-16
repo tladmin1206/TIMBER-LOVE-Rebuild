@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
 import PageHero from '@/components/sections/PageHero';
 import Reveal from '@/components/ui/Reveal';
 import PressStrip from '@/components/sections/PressStrip';
 import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
+import ProjectInquiry from '@/components/forms/ProjectInquiry';
 import { processSteps } from '@/lib/content/home';
 import { pageMeta } from '@/lib/seo';
 
@@ -67,17 +69,12 @@ export default function Page({ searchParams }: { searchParams?: Record<string, s
         </div>
       </section>
 
-      {/* Embedded lead form (matches the live leads.timberandlove.com form) */}
-      <section className="border-t border-cream/10 bg-panel py-16 sm:py-24">
-        <div className="container-tl max-w-2xl">
-          <Reveal>
-            <iframe
-              src="https://leads.timberandlove.com/forms/combined?transparent=true"
-              title="Design + Build Questionnaire"
-              className="min-h-[860px] w-full border-0"
-              loading="lazy"
-            />
-          </Reveal>
+      {/* Native multi-step project inquiry */}
+      <section id="inquiry" className="border-t border-border-subtle bg-bg-secondary py-16 sm:py-24">
+        <div className="container-tl">
+          <Suspense fallback={<div className="mx-auto min-h-[500px] max-w-2xl" />}>
+            <ProjectInquiry />
+          </Suspense>
         </div>
       </section>
 
