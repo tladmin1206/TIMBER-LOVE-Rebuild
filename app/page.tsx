@@ -72,7 +72,7 @@ export default function HomePage() {
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {featuredProjects.map((p, i) => (
               <Reveal key={p.slug} delay={i * 100}>
-                <Link href={p.href} className="group block overflow-hidden border border-border-subtle" data-track={`featured_${p.slug}`}>
+                <Link href={p.href} className="group card-interactive block overflow-hidden" data-track={`featured_${p.slug}`}>
                   <div className="relative aspect-[16/10] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img

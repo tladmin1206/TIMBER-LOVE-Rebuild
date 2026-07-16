@@ -55,7 +55,7 @@ export default function Page() {
           </Reveal>
           <div className="grid gap-6 md:grid-cols-2">
             {projects.map((p) => (
-              <Link key={p.slug} href={`/projects/${p.slug}/`} className="group block overflow-hidden border border-border-subtle">
+              <Link key={p.slug} href={`/projects/${p.slug}/`} className="group card-interactive block overflow-hidden">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={p.cover} alt={`${p.title} — ${p.category}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />

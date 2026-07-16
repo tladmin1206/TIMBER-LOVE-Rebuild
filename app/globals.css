@@ -87,6 +87,11 @@
   .surface-card {
     @apply border border-border-subtle bg-surface/40;
   }
+  /* Interactive (clickable) card: subtle lift + border brighten on hover.
+     Stays true to the flat, editorial aesthetic (no heavy shadows). */
+  .card-interactive {
+    @apply border border-border-subtle transition-all duration-300 hover:-translate-y-1 hover:border-cream/40;
+  }
 
   /* --- Form controls --- */
   .field-label {

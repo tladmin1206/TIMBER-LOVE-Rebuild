@@ -56,7 +56,7 @@ export default function ProjectGrid() {
           <Link
             key={p.slug}
             href={`/projects/${p.slug}/`}
-            className="group block overflow-hidden border border-border-subtle"
+            className="group card-interactive block overflow-hidden"
             data-track={`project_${p.slug}`}
           >
             <div className="relative aspect-[16/10] overflow-hidden">

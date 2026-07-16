@@ -71,7 +71,7 @@ export default function Page() {
                 <Link
                   href={p.href}
                   {...(p.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="group block h-full surface-card p-7 transition-colors hover:border-cream/40"
+                  className="group card-interactive block h-full bg-surface/40 p-7"
                   data-track={`about_pathway_${p.key}`}
                 >
                   <div className="font-sans text-4xl tracking-brand text-accent/70">

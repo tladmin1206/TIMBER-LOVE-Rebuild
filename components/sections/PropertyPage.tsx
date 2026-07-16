@@ -242,7 +242,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
             </Reveal>
             <div className="grid gap-6 sm:grid-cols-3">
               {related.map((r) => (
-                <Link key={r.href} href={r.href} className="group block overflow-hidden border border-border-subtle">
+                <Link key={r.href} href={r.href} className="group card-interactive block overflow-hidden">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={r.image} alt={`${r.name} in ${r.destination}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />

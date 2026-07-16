@@ -14,7 +14,7 @@ import { pathways, type Pathway } from '@/lib/site';
 function PathwayCard({ pathway, featured = false }: { pathway: Pathway; featured?: boolean }) {
   return (
     <div
-      className={`group relative isolate flex min-h-[16rem] flex-col justify-end overflow-hidden border border-border-subtle ${
+      className={`group card-interactive relative isolate flex min-h-[16rem] flex-col justify-end overflow-hidden ${
         featured ? 'lg:col-span-2 lg:row-span-2 lg:min-h-full' : ''
       }`}
     >

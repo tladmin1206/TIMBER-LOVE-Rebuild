@@ -47,7 +47,7 @@ export default function RentalsGrid() {
     <div className="grid gap-8 md:grid-cols-2">
       {rentals.map((r, i) => (
         <Reveal key={r.href} delay={i * 90}>
-          <Link href={r.href} className="group block overflow-hidden border border-cream/10 bg-panel transition hover:border-cream/30">
+          <Link href={r.href} className="group card-interactive block overflow-hidden bg-surface/40">
             <div className="relative aspect-[16/10] overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={r.image} alt={r.name} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
