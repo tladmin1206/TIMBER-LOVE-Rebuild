@@ -54,7 +54,10 @@ export const localBusinessSchema = {
   address: postalAddress,
   geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
   hasMap: site.map,
-  areaServed: { '@type': 'City', name: 'Boise' },
+  areaServed: ['Boise', 'Meridian', 'Eagle', 'Nampa', 'Caldwell', 'Kuna', 'Star', 'Garden City', 'Middleton'].map((name) => ({
+    '@type': 'City',
+    name,
+  })),
   parentOrganization: { '@id': ORG_ID },
   sameAs: [site.social.instagram, site.social.facebook],
 };

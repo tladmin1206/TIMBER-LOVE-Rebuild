@@ -8,6 +8,7 @@ const WORDMARK =
 const company: { label: string; href: string; external?: boolean }[] = [
   { label: 'Our Story', href: '/about/' },
   { label: 'Our Process', href: '/our-process/' },
+  { label: 'Service Areas', href: '/service-areas/' },
   { label: 'Our Work', href: '/timber-and-love-gallery/' },
   { label: 'Reviews', href: '/reviews/' },
   { label: 'Financing', href: '/financing/' },
