@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { site } from '@/lib/site';
+import { projects } from '@/lib/content/projects';
 
 /** All indexable routes, preserving the original WordPress trailing-slash URLs. */
 const paths: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'] }[] = [
@@ -31,7 +32,12 @@ const paths: { path: string; priority: number; changeFrequency: MetadataRoute.Si
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  return paths.map((p) => ({
+  const projectPaths = projects.map((p) => ({
+    path: `/projects/${p.slug}/`,
+    priority: 0.7,
+    changeFrequency: 'monthly' as const,
+  }));
+  return [...paths, ...projectPaths].map((p) => ({
     url: `${site.url}${p.path}`,
     lastModified: now,
     changeFrequency: p.changeFrequency,

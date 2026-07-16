@@ -188,7 +188,7 @@ export const featuredProjects = [
     type: 'Whole-Home Remodel',
     summary: 'A full transformation featured on HGTV’s Boise Boys, with reimagined living, kitchen, and dining spaces in a warm, modern point of view.',
     cover: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg',
-    href: '/timber-and-love-gallery/',
+    href: '/projects/casa-de-boise/',
   },
   {
     slug: 'the-firehouse',
@@ -197,7 +197,7 @@ export const featuredProjects = [
     type: 'Historic Remodel',
     summary: 'A historic Boise property carefully restored and reimagined for modern living while preserving its original character.',
     cover: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg',
-    href: '/timber-and-love-gallery/',
+    href: '/projects/the-firehouse/',
   },
 ];
 
