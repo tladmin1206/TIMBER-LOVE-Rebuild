@@ -2,7 +2,6 @@ import PageHero from '@/components/sections/PageHero';
 import Gallery from '@/components/ui/Gallery';
 import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/sections/CtaBand';
-import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
 import Link from 'next/link';
 
 export type PropertyContent = {
@@ -10,6 +9,8 @@ export type PropertyContent = {
   intro?: string[];
   details?: { location?: string; bookingUrl?: string };
   amenities?: string[];
+  /** Important guest disclosures (accessibility limits, house rules, safety, etc.). */
+  thingsToKnow?: string[];
   sections?: { heading?: string; paragraphs?: string[]; image?: string }[];
   gallery?: string[];
 };
@@ -74,6 +75,25 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
         </section>
       )}
 
+      {/* Things to Know — important disclosures kept clear and visible. */}
+      {data.thingsToKnow && data.thingsToKnow.length > 0 && (
+        <section className="border-t border-border-subtle bg-bg-secondary py-16 sm:py-20">
+          <div className="container-tl max-w-3xl">
+            <Reveal>
+              <h2 className="h-display text-2xl sm:text-3xl">Things to Know</h2>
+              <ul className="mt-8 space-y-3 text-body">
+                {data.thingsToKnow.map((t, i) => (
+                  <li key={i} className="flex items-start gap-3 border-b border-border-subtle pb-3">
+                    <span aria-hidden="true" className="mt-0.5 text-accent">!</span>
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+        </section>
+      )}
+
       {/* Gallery */}
       {images.length > 0 && (
         <section className="bg-ink py-16 sm:py-24">
@@ -112,8 +132,6 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
           </Link>
         }
       />
-
-      <BeginJourneyCta />
     </>
   );
 }

@@ -1,23 +1,20 @@
 import Link from 'next/link';
 import Hero from '@/components/sections/Hero';
-import FullBleedPromo from '@/components/sections/FullBleedPromo';
-import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
+import PathwaySelector from '@/components/sections/PathwaySelector';
+import Cta from '@/components/ui/Cta';
 import Reveal from '@/components/ui/Reveal';
-import Gallery from '@/components/ui/Gallery';
+import StatCounter from '@/components/ui/StatCounter';
 import VideoBg from '@/components/ui/VideoBg';
 import RotatingTestimonial from '@/components/ui/RotatingTestimonial';
-import InlineVideo from '@/components/ui/InlineVideo';
-import ModalButton from '@/components/ui/ModalButton';
-import { site } from '@/lib/site';
+import { site, pathways } from '@/lib/site';
 import {
-  servicePromos,
-  values,
-  processSteps,
-  mission,
-  testimonials,
-  favoriteProjects,
-  introVideoId,
-  introVideoPoster,
+  stats,
+  pressLogos,
+  featuredProjects,
+  whyReasons,
+  clientReviews,
+  fanComments,
+  brandEcosystem,
   sectionVideos,
   hgtvShows,
 } from '@/lib/content/home';
@@ -26,57 +23,123 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <PathwaySelector />
 
-      {/* Intro / About — 2-col text + full-width inline video */}
-      <section className="bg-ink py-20 sm:py-28">
-        <div className="container-wide grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <Reveal>
-            <p className="eyebrow">Our Services</p>
-            <h2 className="h-display mt-4 text-4xl sm:text-6xl">Designing Beauty, Building Dreams</h2>
-          </Reveal>
-          <Reveal delay={120} className="flex items-end">
-            <p className="text-body">
-              Founded in 2015 by HGTV&apos;s Boise Boys, Luke Caldwell, we are an award-winning boutique team in Boise.
-              We offer a suite of real estate services, including design + build, new construction, realtor services,
-              property management, vacation rentals, cash home offers, and more. Committed to integrity and personalized
-              service, we cater to every aspect of your real estate needs, ensuring a streamlined and exclusive
-              experience.
+      {/* Brand credibility — verified proof, calm media presentation */}
+      <section className="bg-bg-secondary py-20 sm:py-24" aria-labelledby="proof-heading">
+        <div className="container-wide">
+          <Reveal className="max-w-2xl">
+            <p className="eyebrow">Why Trust Timber and Love</p>
+            <h2 id="proof-heading" className="h-display mt-4 text-3xl sm:text-4xl">
+              Founded in Boise in {site.founded}
+            </h2>
+            <p className="text-lead mt-4">
+              A boutique team led by Luke Caldwell of HGTV&apos;s Boise Boys, working across design, construction, and
+              real estate throughout the Treasure Valley.
             </p>
           </Reveal>
-        </div>
-        <div className="container-wide mt-12">
-          <Reveal>
-            <InlineVideo videoId={introVideoId} poster={introVideoPoster} />
-          </Reveal>
-          <div className="mt-10 text-center">
-            <ModalButton modal="connect" className="btn-outline">Get Started</ModalButton>
+
+          <div className="mt-12 grid max-w-2xl grid-cols-3 gap-x-8 gap-y-8">
+            {stats.map((s) => (
+              <StatCounter key={s.label} align="left" {...s} />
+            ))}
+          </div>
+
+          <div className="mt-16">
+            <p className="text-xs uppercase tracking-[0.18em] text-text-muted">Featured On</p>
+            <ul className="mt-6 flex flex-wrap items-center gap-x-10 gap-y-6">
+              {pressLogos.map((logo) => (
+                <li key={logo.alt}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={logo.src} alt={logo.alt} loading="lazy" className="h-7 w-auto opacity-70 sm:h-8" />
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* Expertise heading + full-bleed service promo blocks */}
-      <section className="bg-ink pb-8 pt-4 sm:pb-12 sm:pt-8">
-        <div className="container-wide">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">What We Do</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Our Expertise, Your Perfect Space</h2>
-          </Reveal>
-        </div>
-      </section>
-      {servicePromos.map(({ key, ...p }) => (
-        <FullBleedPromo key={key} {...p} />
-      ))}
-
-      {/* HGTV Shows — left header + video-background cards */}
-      <section className="bg-ink py-20 sm:py-28">
+      {/* Featured work — curated project case studies */}
+      <section className="bg-bg-primary py-20 sm:py-28" aria-labelledby="work-heading">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
-            <p className="eyebrow">Stream Us On Your TV</p>
-            <h2 className="h-display mt-4 text-4xl sm:text-6xl">HGTV&apos;s Boise Boys + Outgrown</h2>
+            <p className="eyebrow">See Our Work</p>
+            <h2 id="work-heading" className="h-display mt-4 text-3xl sm:text-5xl">
+              Featured Projects
+            </h2>
           </Reveal>
-          <div className="mt-14 grid gap-8 lg:grid-cols-2">
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {featuredProjects.map((p, i) => (
+              <Reveal key={p.slug} delay={i * 100}>
+                <Link href={p.href} className="group block overflow-hidden border border-border-subtle" data-track={`featured_${p.slug}`}>
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={p.cover}
+                      alt={`${p.name} — ${p.type} in ${p.location}`}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-[0.16em] text-accent">
+                      <span>{p.type}</span>
+                      <span className="text-text-muted">·</span>
+                      <span className="text-text-muted">{p.location}</span>
+                    </div>
+                    <h3 className="h-display mt-3 text-2xl">{p.name}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-text-secondary">{p.summary}</p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-cream">
+                      View Project
+                      <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+          <div className="mt-10">
+            <Cta href="/timber-and-love-gallery/" variant="secondary">View the Full Gallery</Cta>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Timber and Love — differentiated reasons */}
+      <section className="bg-bg-secondary py-20 sm:py-28" aria-labelledby="why-heading">
+        <div className="container-wide">
+          <Reveal className="max-w-2xl">
+            <p className="eyebrow">Why Choose Us</p>
+            <h2 id="why-heading" className="h-display mt-4 text-3xl sm:text-5xl">
+              One Team, Every Stage of Home
+            </h2>
+          </Reveal>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {whyReasons.map((r, i) => (
+              <Reveal key={r.title} delay={i * 70} className="surface-card p-7">
+                <h3 className="h-display text-lg">{r.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-text-secondary">{r.body}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* HGTV — editorial credibility */}
+      <section className="bg-bg-primary py-20 sm:py-28" aria-labelledby="hgtv-heading">
+        <div className="container-wide">
+          <Reveal className="max-w-2xl">
+            <p className="eyebrow">As Seen on HGTV</p>
+            <h2 id="hgtv-heading" className="h-display mt-4 text-3xl sm:text-5xl">
+              Boise Boys &amp; Outgrown
+            </h2>
+            <p className="text-lead mt-4">
+              Timber and Love&apos;s work has been documented across HGTV&apos;s Boise Boys and Outgrown. Watch the
+              transformations, then see how that same experience informs our work today.
+            </p>
+          </Reveal>
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
             {hgtvShows.map((show, i) => (
-              <Reveal key={show.title} delay={i * 120} className="relative aspect-[16/10] overflow-hidden">
+              <Reveal key={show.title} delay={i * 120} className="relative aspect-[16/10] overflow-hidden border border-border-subtle">
                 <VideoBg videoId={show.videoId} poster={show.poster} overlay="bg-ink/35" />
                 <div className="absolute inset-x-0 bottom-0 z-10 flex flex-wrap items-center gap-x-6 gap-y-2 p-7">
                   <h3 className="h-display text-2xl sm:text-3xl">{show.title}</h3>
@@ -86,156 +149,106 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                     className="text-xs uppercase tracking-[0.16em] text-cream link-underline"
                   >
-                    Watch on Discovery + →
+                    Watch on Discovery+ ↗
                   </a>
                 </div>
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Favorite projects gallery */}
-      <section className="bg-ink pb-20 sm:pb-28">
-        <div className="container-wide">
-          <Reveal className="max-w-2xl">
-            <p className="eyebrow">See Our Work</p>
-            <h2 className="h-display mt-4 text-4xl sm:text-6xl">Some Of Our Favorite Boise Boys Projects</h2>
-          </Reveal>
-          <div className="mt-14">
-            <Gallery images={favoriteProjects} columns={3} />
-          </div>
-          <div className="mt-10">
-            <Link href="/timber-and-love-gallery/" className="btn-outline">See All Images</Link>
+          <div className="mt-8">
+            <Cta href="/the-boise-boys/" variant="link">Read the HGTV Story →</Cta>
           </div>
         </div>
       </section>
 
-      {/* Values — full-bleed video background + left header + 2x2 grid */}
-      <section className="relative overflow-hidden py-24 sm:py-32">
-        <VideoBg videoId={sectionVideos.values.id} poster={sectionVideos.values.poster} overlay="bg-ink/75" />
-        <div className="container-wide relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
-          <Reveal>
-            <p className="eyebrow">Why Choose Us</p>
-            <h2 className="h-display mt-4 text-5xl sm:text-7xl">Our Values</h2>
-            <ModalButton modal="work-with-us" className="btn-outline mt-8">Work With Us</ModalButton>
-          </Reveal>
-          <div className="grid gap-5 sm:grid-cols-2">
-            {values.map((v, i) => (
-              <Reveal key={v.title} delay={i * 80} className="border border-cream/20 bg-ink/30 p-6 backdrop-blur-sm">
-                <h3 className="h-display text-lg">{v.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-cream/80">{v.body}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Mission — centered on dark */}
-      <section className="bg-ink py-24 text-center sm:py-32">
-        <div className="container-wide max-w-3xl">
-          <Reveal>
-            <p className="eyebrow">Commitment To Excellence</p>
-            <h2 className="h-display mt-4 text-4xl sm:text-6xl">Our Mission</h2>
-            <p className="mt-8 text-body">{mission}</p>
-            <ModalButton modal="work-with-us" className="btn-outline mt-10">Work With Us</ModalButton>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Testimonials — full-bleed video background + centered rotating quote */}
-      <section className="relative overflow-hidden py-24 text-center sm:py-32">
-        <VideoBg videoId={sectionVideos.testimonials.id} poster={sectionVideos.testimonials.poster} overlay="bg-ink/75" />
+      {/* Client stories — verified reviews (fan comments kept separate) */}
+      <section className="relative overflow-hidden py-24 text-center sm:py-28" aria-labelledby="stories-heading">
+        <VideoBg videoId={sectionVideos.testimonials.id} poster={sectionVideos.testimonials.poster} overlay="bg-ink/80" />
         <div className="container-wide relative z-10">
           <Reveal>
-            <p className="eyebrow">Testimonials</p>
-            <h2 className="h-display mt-4 text-4xl sm:text-6xl">See What Others Are Saying</h2>
+            <p className="eyebrow">Client Stories</p>
+            <h2 id="stories-heading" className="h-display mt-4 text-3xl sm:text-5xl">What Our Clients Say</h2>
           </Reveal>
-          <div className="mt-12">
-            <RotatingTestimonial items={testimonials} />
+          <div className="mt-10">
+            <RotatingTestimonial items={clientReviews} />
           </div>
-          <div className="mt-12">
-            <a href={site.map} target="_blank" rel="noopener noreferrer" className="btn-outline">We&apos;d Love Your Review</a>
-          </div>
-        </div>
-      </section>
-
-      {/* 3-step process — left header + bordered cards */}
-      <section className="bg-ink py-20 sm:py-28">
-        <div className="container-wide">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
-            <Reveal>
-              <p className="eyebrow">Let&apos;s Work Together</p>
-              <h2 className="h-display mt-4 text-4xl sm:text-6xl">Get Started In 3 Simple Steps</h2>
-            </Reveal>
-            <Reveal delay={120} className="flex items-end">
-              <p className="text-body">
-                Whether you&apos;re building, remodeling, buying, renting, or selling, it all begins with our 3-step
-                process. Then through collaboration, creativity, and precision, we execute!
-              </p>
-            </Reveal>
-          </div>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {processSteps.map((step, i) => (
-              <Reveal key={step.num} delay={i * 110} className="border border-cream/15 p-8">
-                <div className="font-sans text-5xl tracking-brand text-cream/25">{step.num}</div>
-                <h3 className="h-display mt-6 text-xl">{step.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-body">{step.body}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Book — text left (italic serif) + image right */}
-      <section className="bg-ink py-20 sm:py-28">
-        <div className="container-wide grid items-center gap-12 lg:grid-cols-2">
-          <Reveal>
-            <p className="eyebrow italic">Luke&apos;s Debut Design Book</p>
-            <h2 className="mt-4 font-serif text-5xl italic text-cream sm:text-7xl">Americana Soul</h2>
-            <p className="mt-6 text-body">
-              Designed with comfort and intention — Luke Caldwell&apos;s debut design book shares the philosophy and
-              spaces behind Timber and Love. Bring a piece of the T+L aesthetic into your own home.
-            </p>
-            <a
-              href={site.book.amazon}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-block text-sm italic uppercase tracking-[0.16em] text-cream link-underline"
-            >
-              Get Your Copy Today →
+          <div className="mt-10">
+            <a href={site.reviewUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary">
+              Read Reviews on Google ↗
             </a>
+          </div>
+
+          {/* Fan comments — clearly distinguished from client testimonials */}
+          <div className="mx-auto mt-16 max-w-3xl border-t border-border-subtle pt-10">
+            <p className="text-xs uppercase tracking-[0.18em] text-text-muted">From Boise Boys Viewers</p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              {fanComments.map((f) => (
+                <figure key={f.name} className="surface-card p-5 text-left">
+                  <blockquote className="text-sm leading-relaxed text-text-secondary">“{f.quote}”</blockquote>
+                  <figcaption className="mt-3 text-xs uppercase tracking-[0.14em] text-text-muted">
+                    {f.name} · {f.role}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Brand ecosystem — one brand, more ways to help */}
+      <section className="bg-bg-secondary py-20 sm:py-24" aria-labelledby="ecosystem-heading">
+        <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
+          <Reveal>
+            <p className="eyebrow">The Timber and Love Ecosystem</p>
+            <h2 id="ecosystem-heading" className="h-display mt-4 text-3xl sm:text-5xl">One Brand, More Ways to Help</h2>
+            <p className="text-lead mt-4">
+              Many of our clients move between services over time. However you start, one connected team can guide the
+              next step.
+            </p>
           </Reveal>
-          <Reveal delay={120} className="relative aspect-[4/3] overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1-775x1024.jpg"
-              alt="Luke Caldwell — Americana Soul"
-              className="h-full w-full object-cover"
-            />
+          <Reveal delay={120}>
+            <ul className="space-y-3">
+              {brandEcosystem.map((item) => (
+                <li key={item} className="flex items-start gap-3 border-b border-border-subtle pb-3 text-sm text-text-secondary">
+                  <span aria-hidden="true" className="mt-0.5 text-accent">·</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </Reveal>
         </div>
       </section>
 
-      {/* Partnerships */}
-      <section className="bg-ink pb-20 sm:pb-28">
-        <div className="container-wide max-w-3xl text-center">
+      {/* Final pathway CTA */}
+      <section className="relative overflow-hidden py-24 text-center sm:py-28" aria-labelledby="final-heading">
+        <VideoBg videoId={sectionVideos.finalCta.id} poster={sectionVideos.finalCta.poster} overlay="bg-ink/85" />
+        <div className="container-wide relative z-10 max-w-2xl">
           <Reveal>
-            <p className="eyebrow">Appearances | Partnerships | Press</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Partnership Opportunities</h2>
-            <p className="mt-6 text-body">
-              For appearances, partnerships, and press, reach out to our partnerships team. Is your project a good fit?
-              Let&apos;s talk.
+            <p className="eyebrow">Not Sure Where to Start?</p>
+            <h2 id="final-heading" className="h-display mt-4 text-3xl sm:text-5xl">
+              Choose the Option Closest to Your Goal
+            </h2>
+            <p className="text-lead mt-4">
+              Pick the pathway that fits best, or reach out and our team will point you in the right direction.
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-cream">
-              <a href={site.partnerships.phoneHref} className="link-underline">{site.partnerships.phone}</a>
-              <a href={`mailto:${site.partnerships.email}`} className="link-underline">{site.partnerships.email}</a>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              {pathways.map((p) => (
+                <Link
+                  key={p.key}
+                  href={p.href}
+                  {...(p.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  className="border border-border-subtle px-4 py-2 text-xs uppercase tracking-[0.14em] text-cream transition-colors hover:border-cream hover:bg-cream hover:text-ink"
+                >
+                  {p.label}
+                </Link>
+              ))}
+            </div>
+            <div className="mt-8">
+              <Cta href="/contact/" variant="primary" track="final_contact">Contact Timber and Love</Cta>
             </div>
           </Reveal>
         </div>
       </section>
-
-      <BeginJourneyCta />
     </>
   );
 }

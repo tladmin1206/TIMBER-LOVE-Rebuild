@@ -6,9 +6,9 @@ import { processSteps } from '@/lib/content/home';
 import { pageMeta } from '@/lib/seo';
 
 export const metadata = pageMeta({
-  title: 'Design + Build Questionnaire',
+  title: 'Start Your Design + Build Project',
   description:
-    'Ready to begin your journey? Tell us about your project and let’s determine if Timber and Love is the right fit for your design + build needs.',
+    'Tell us about your project and we will help determine whether Timber and Love is the right fit for your design and build needs.',
   path: '/design-and-build-questionnaire/',
 });
 
@@ -16,9 +16,9 @@ export default function Page() {
   return (
     <>
       <PageHero
-        eyebrow="Let's Work Together"
-        title="Begin Your Journey Here"
-        subtitle="Ready to begin your journey? We’d love to hear about your project! Reach out to us to see if we’re a good fit."
+        eyebrow="Start Your Project"
+        title="Tell Us About Your Project"
+        subtitle="Share a few details about your home and goals. We will review your project and follow up about next steps and whether we are a good fit."
         image="/wp-content/uploads/2024/04/Timber-and-Love-Design-Build-Premier-Home-Remodeling-Contractors-in-Boise-1.jpg"
         height="short"
       />
@@ -29,8 +29,8 @@ export default function Page() {
       <section className="bg-ink py-16 sm:py-24">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Let&apos;s Work Together</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Get Started In 3 Simple Steps</h2>
+            <p className="eyebrow">How It Works</p>
+            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Our Process in 3 Steps</h2>
           </Reveal>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {processSteps.map((step, i) => (

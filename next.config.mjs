@@ -11,9 +11,10 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Common legacy/typo aliases kept for SEO safety.
-      { source: '/terms-conditions', destination: '/terms-conditons/', permanent: true },
-      { source: '/contact', destination: '/#connect', permanent: false },
+      // The canonical route is now the correctly-spelled /terms-and-conditions/.
+      // Redirect the old misspelled URL and any variants to it (permanent).
+      { source: '/terms-conditons', destination: '/terms-and-conditions/', permanent: true },
+      { source: '/terms-conditions', destination: '/terms-and-conditions/', permanent: true },
     ];
   },
 };

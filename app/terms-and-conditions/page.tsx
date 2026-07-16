@@ -2,12 +2,12 @@ import BlockRenderer, { type Block } from '@/components/ui/BlockRenderer';
 import { pageMeta } from '@/lib/seo';
 import data from '@/content/terms.json';
 
-// Note: slug intentionally matches the original WordPress URL "/terms-conditons/"
-// (misspelled on the live site) to preserve existing links and SEO.
+// Canonical, correctly-spelled route. The old misspelled URL /terms-conditons/
+// permanently redirects here (see next.config.mjs).
 export const metadata = pageMeta({
   title: 'Terms & Conditions',
   description: 'Timber and Love terms and conditions of use.',
-  path: '/terms-conditons/',
+  path: '/terms-and-conditions/',
   noindex: true,
 });
 

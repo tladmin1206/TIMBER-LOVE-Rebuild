@@ -21,7 +21,7 @@ const rentals: Card[] = [
     location: 'McCall',
     href: '/timber-and-love-chalet/',
     image: (chalet as any).hero?.image || (chalet as any).gallery?.[0],
-    blurb: 'A charming cabin redesigned by Luke Caldwell and the Timber + Love team — an inviting mountain retreat.',
+    blurb: 'A charming cabin redesigned by Luke Caldwell and the Timber and Love team, an inviting mountain retreat.',
     booking: (chalet as any).details?.bookingUrl,
   },
   {
@@ -37,7 +37,7 @@ const rentals: Card[] = [
     location: 'Boise',
     href: '/the-darla-house/',
     image: (darla as any).hero?.image || (darla as any).gallery?.[0],
-    blurb: 'A cozy, modern North End cottage — bright, happy, and full of original character.',
+    blurb: 'A cozy, modern North End cottage that is bright, happy, and full of original character.',
     booking: (darla as any).details?.bookingUrl,
   },
 ];

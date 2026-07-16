@@ -1,8 +1,12 @@
 import type { Config } from 'tailwindcss';
 
 /**
- * Design tokens reverse-engineered from the live Elementor "kit" (post-30.css).
- * The brand is a dark editorial theme with uppercase Montserrat headings.
+ * Timber and Love design tokens.
+ *
+ * The brand is a premium, editorial dark theme with uppercase Montserrat
+ * headings and generous neutral space. Colors are expressed as semantic tokens
+ * (backed by the existing brand palette) so pages are styled through one system
+ * rather than independently.
  */
 const config: Config = {
   content: [
@@ -13,24 +17,54 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Elementor global palette
-        ink: '#0B0B0C', // secondary — primary dark background
-        panel: '#1D1D1D', // dark gray panels
-        cream: '#FAFAFA', // primary — off-white text/surfaces
+        // --- Raw brand palette (from the live Elementor kit) ---
+        ink: '#0B0B0C', // primary dark background
+        panel: '#1D1D1D', // dark gray raised panel
+        cream: '#FAFAFA', // off-white text / light surfaces
         graphite: '#4B4B4B', // muted gray
-        // Convenience text token (FAFAFA @ ~88% alpha)
+        // Warm brand accent used strategically for CTAs, active states, metadata.
+        accent: {
+          DEFAULT: '#B98A5E', // warm timber/brass tone
+          hover: '#A9764A',
+          soft: 'rgba(185,138,94,0.14)',
+        },
+        // --- Semantic tokens ---
+        'bg-primary': '#0B0B0C',
+        'bg-secondary': '#141416',
+        surface: '#1D1D1D',
+        'surface-inverse': '#FAFAFA',
+        'text-primary': '#FAFAFA',
+        'text-secondary': 'rgba(250,250,250,0.72)',
+        'text-muted': 'rgba(250,250,250,0.52)',
+        'border-subtle': 'rgba(250,250,250,0.14)',
+        success: '#5BA177',
+        error: '#D98B7A',
+        focus: '#B98A5E',
+        // Convenience text token (kept for existing usages).
         body: 'rgba(250,250,250,0.88)',
       },
       fontFamily: {
         sans: ['var(--font-montserrat)', 'Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         montserrat: ['var(--font-montserrat)', 'Montserrat', 'sans-serif'],
+        serif: ['Georgia', 'Cambria', 'Times New Roman', 'serif'],
+      },
+      fontSize: {
+        // Deliberate type scale (label: [size, lineHeight]).
+        eyebrow: ['0.75rem', { lineHeight: '1.1', letterSpacing: '0.2em' }],
+        'body-lg': ['1.125rem', { lineHeight: '1.7' }],
+        'body-sm': ['0.875rem', { lineHeight: '1.6' }],
+        h3: ['1.5rem', { lineHeight: '1.25' }],
+        h2: ['2.25rem', { lineHeight: '1.15' }],
+        h1: ['3rem', { lineHeight: '1.08' }],
+        display: ['4rem', { lineHeight: '1.02' }],
       },
       letterSpacing: {
         brand: '1.4px',
       },
       maxWidth: {
-        container: '1140px', // Elementor default boxed content width
+        container: '1140px',
         wide: '1300px',
+        prose: '68ch',
       },
       keyframes: {
         fadeUp: {

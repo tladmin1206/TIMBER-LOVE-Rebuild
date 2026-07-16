@@ -7,11 +7,24 @@ import RotatingTestimonial from '@/components/ui/RotatingTestimonial';
 import FAQ from '@/components/ui/FAQ';
 import PressStrip from '@/components/sections/PressStrip';
 import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
-import ModalButton from '@/components/ui/ModalButton';
 import { pageMeta } from '@/lib/seo';
-import { testimonials } from '@/lib/content/home';
+import { clientReviews } from '@/lib/content/home';
 import data from '@/content/design-and-build.json';
 import faq from '@/content/design-and-build-faq.json';
+
+// Accurate, consolidated design + build categories. The prior content pulled
+// mismatched descriptions from the extracted WordPress copy (e.g. "New Builds"
+// described as "Strategic layout designs"); these descriptions match their
+// headings. Developer/commercial work (subdivisions, multifamily) is handled as
+// a separate Development track, not a consumer-facing remodel category.
+const serviceCategories = [
+  { heading: 'Whole-Home Remodels', body: 'Comprehensive renovations that rework layout, systems, and finishes across an entire home.' },
+  { heading: 'Kitchens & Living Spaces', body: 'Focused remodels of the rooms where daily life happens, from kitchens to primary living areas.' },
+  { heading: 'Home Additions', body: 'Thoughtfully integrated additions that expand living space while matching your home’s existing character.' },
+  { heading: 'Custom Homes', body: 'One-of-a-kind new homes designed and built from the ground up around how you live.' },
+  { heading: 'New Construction', body: 'Ground-up residential construction with design and build coordinated under one in-house team.' },
+  { heading: 'Historic Restorations', body: 'Careful updates to older Boise homes that preserve original character while modernizing for daily life.' },
+];
 
 const processPhases = [
   {
@@ -63,7 +76,6 @@ function pick(headings: string[]): Section[] {
 
 const intro = (data.sections as Section[])[0]?.paragraphs?.[0] || '';
 const differentiators = pick(['In-House Team', 'Streamlined Processes', 'Personalized Service']);
-const serviceTypes = pick(['New Builds', 'Luxury New Construction', 'Surface Remodels', 'Major Remodels', 'Residential Subdivisions', 'Apartment Complexes']);
 const values = pick(['Integrity', 'Quality', 'Community', 'CLIENT-FOCUSED']);
 const galleryImgs = (data.gallery as string[]).map((src, i) => ({ src, alt: `Timber and Love design and build project ${i + 1}` }));
 
@@ -77,8 +89,8 @@ export default function Page() {
         videoId="928472719"
         image="/video-posters/928472719.jpg"
       >
-        <Link href="/design-and-build-questionnaire/" className="btn-solid">Get Started</Link>
-        <ModalButton modal="connect" className="btn-outline">Connect With Us</ModalButton>
+        <Link href="/design-and-build-questionnaire/" className="btn-solid">Start Your Project</Link>
+        <Link href="/timber-and-love-gallery/" className="btn-outline">View Design + Build Projects</Link>
       </PageHero>
 
       <PressStrip />
@@ -109,14 +121,18 @@ export default function Page() {
             <h2 className="h-display mt-4 text-3xl sm:text-4xl">Design + Build Services</h2>
           </Reveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {serviceTypes.map((s, i) => (
+            {serviceCategories.map((s, i) => (
               <Reveal key={s.heading} delay={i * 70} className="border border-cream/10 bg-ink p-7">
                 <div className="font-sans text-4xl tracking-brand text-cream/25">{String(i + 1).padStart(2, '0')}</div>
                 <h3 className="h-display mt-4 text-lg">{s.heading}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-body">{s.paragraphs?.[0]}</p>
+                <p className="mt-3 text-sm leading-relaxed text-body">{s.body}</p>
               </Reveal>
             ))}
           </div>
+          <p className="mt-10 text-sm text-text-muted">
+            Working on a subdivision, multifamily, or other development project?{' '}
+            <Link href="/contact/" className="text-cream link-underline">Contact our team about development work</Link>.
+          </p>
         </div>
       </section>
 
@@ -186,7 +202,7 @@ export default function Page() {
             <h2 className="h-display mt-4 text-4xl sm:text-6xl">See What Others Are Saying</h2>
           </Reveal>
           <div className="mt-12">
-            <RotatingTestimonial items={testimonials} />
+            <RotatingTestimonial items={clientReviews} />
           </div>
         </div>
       </section>
@@ -209,11 +225,10 @@ export default function Page() {
         <div className="container-wide max-w-3xl">
           <Reveal>
             <p className="text-lg leading-relaxed text-cream/90">
-              Choosing Timber and Love means choosing expertise, integrity, and a dedication to you and your project.
-              From concept to completion, our design + build approach ensures your project is managed efficiently and
-              with the highest standards. Let us bring your vision to life.
+              With one in-house team handling design and construction, your project stays coordinated from first concept
+              through final walkthrough. Tell us about your home and we will explain the next step and what to expect.
             </p>
-            <ModalButton modal="connect" className="btn-outline mt-10">Begin Your Journey</ModalButton>
+            <Link href="/design-and-build-questionnaire/" className="btn-solid mt-10 inline-flex">Tell Us About Your Project</Link>
           </Reveal>
         </div>
       </section>

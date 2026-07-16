@@ -8,6 +8,7 @@ import MobileBottomBar from '@/components/layout/MobileBottomBar';
 import ModalProvider from '@/components/ui/ModalProvider';
 import Modals from '@/components/ui/Modals';
 import Analytics from '@/components/Analytics';
+import AnalyticsEvents from '@/components/AnalyticsEvents';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -94,6 +95,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusiness) }}
         />
+        <a href="#content" className="skip-link">Skip to content</a>
         <ModalProvider>
           <Header />
           <main id="content">{children}</main>
@@ -102,6 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Modals />
         </ModalProvider>
         <Analytics />
+        <AnalyticsEvents />
       </body>
     </html>
   );

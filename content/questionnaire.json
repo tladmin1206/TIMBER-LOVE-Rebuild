@@ -42,7 +42,7 @@
         {
           "label": "How can we help?",
           "type": "textarea",
-          "placeholder": "Please let us know how how we can help (e.g., home remodel, new build, property management, investing, etc.). ",
+          "placeholder": "Please let us know how we can help (e.g., home remodel, new build, custom home, or new construction).",
           "required": true
         }
       ]

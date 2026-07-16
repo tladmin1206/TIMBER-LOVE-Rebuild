@@ -16,14 +16,13 @@ export const hgtvShows = [
   { title: 'Outgrown', videoId: '925603188', poster: '/video-posters/925603188.jpg' },
 ];
 
-// Rotating sub-headline under "Timber and Love" (mirrors the live hero).
+// Rotating sub-headline reflecting the five customer pathways (no property management).
 export const heroRotating = [
-  'Design + Build Firm',
-  'New Construction',
-  'Realty Firm',
-  'Property Management',
+  'Design + Build',
+  'Buy or Sell',
+  'Sell for Cash',
+  'Invest in Real Estate',
   'Vacation Rentals',
-  'Cash Home Offers',
 ];
 
 // Cross-fading hero background slideshow (Casa De Boise project photos).
@@ -34,11 +33,14 @@ export const heroSlideshow = [
   '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Dining-Room-2-scaled.jpg',
 ];
 
+// Verified/consistent brand statistics. `since` is derived from the confirmed
+// founding year. The remaining figures are existing brand claims retained from
+// the prior site — TEMP: confirm exact current values with the business before
+// launch (see Acceptance Criteria: no statistic may be unverified).
 export const stats = [
-  { to: 15, prefix: '', suffix: '+', label: 'Years Experience' },
-  { to: 100, prefix: '', suffix: '+', label: 'Homes Remodeled' },
-  { to: 250, prefix: '$', suffix: '+', label: 'Million Sold' },
-  { to: 35, prefix: '', suffix: '+', label: 'HGTV Episodes' },
+  { to: new Date().getFullYear() - 2015, prefix: '', suffix: '+', label: 'Years in Boise' },
+  { to: 100, prefix: '', suffix: '+', label: 'Homes Transformed' }, // TEMP: confirm
+  { to: 35, prefix: '', suffix: '+', label: 'HGTV Episodes' }, // TEMP: confirm
 ];
 
 export const pressLogos = [
@@ -91,32 +93,32 @@ export const servicePromos = [
   },
 ];
 
+// Legacy service list retained for any remaining references. Property management
+// has been removed — it is not an offered service.
 export const services = [
   {
-    title: 'Design | Build',
-    body: 'Premier Design|Build services transforming visions into stunning, functional living spaces.',
+    title: 'Design + Build',
+    body: 'Custom homes, additions, and whole-home renovations from one connected in-house team.',
     href: '/design-and-build/',
-    cta: 'Learn More',
+    cta: 'Explore Design + Build',
   },
   {
-    title: 'Real Estate',
-    body: 'Navigate the real estate market with our experienced, client-focused buying and selling guidance.',
-    href: 'https://timberandloverealty.com/',
-    cta: 'Learn More',
-    external: true,
+    title: 'Buy or Sell',
+    body: 'Real estate guidance through Timber and Love Realty, with local Boise market experience.',
+    href: '/buy-or-sell/',
+    cta: 'Buy or Sell a Home',
   },
   {
-    title: 'Property Management',
-    body: 'Simplified property management solutions ensuring peace of mind for homeowners and tenants alike.',
+    title: 'Vacation Rentals',
+    body: 'Distinctive Timber and Love stays in Boise, McCall, and Oahu.',
     href: '/stay-with-us/',
-    cta: 'Learn More',
+    cta: 'View Vacation Rentals',
   },
   {
-    title: 'Cash Home Offers',
-    body: 'Fast, fair cash offers for homes in any condition, making selling hassle-free.',
-    href: 'https://buymyhouse.co/',
-    cta: 'Get Offer',
-    external: true,
+    title: 'Sell for Cash',
+    body: 'A simpler, direct home-offer path for homeowners who want to sell without listing.',
+    href: '/sell-for-cash/',
+    cta: 'Request a Cash Offer',
   },
 ];
 
@@ -170,6 +172,88 @@ export const testimonials: Testimonial[] = [
   { name: 'Lara A.', role: 'Remodel Client', quote: 'Highly Recommend this team of trustworthy and reliable contractors. Looking forward to more great stories!' },
   { name: 'Danika L.', role: 'Trade Partner', quote: 'Amazing company. Very respectable people and incredible work!' },
   { name: 'Jace L.', role: 'Remodel Client', quote: 'Incredible work!! With an incredible heart behind what they do!' },
+];
+
+/**
+ * Curated featured projects for the homepage "Featured Work" section. These are
+ * real Boise Boys projects with imagery in the repo. Outcome summaries are kept
+ * general and truthful — TEMP: confirm exact scope/location details with the
+ * business, and expand into full case-study pages under /timber-and-love-gallery/.
+ */
+export const featuredProjects = [
+  {
+    slug: 'casa-de-boise',
+    name: 'Casa De Boise',
+    location: 'Boise, ID',
+    type: 'Whole-Home Remodel',
+    summary: 'A full transformation featured on HGTV’s Boise Boys, with reimagined living, kitchen, and dining spaces in a warm, modern point of view.',
+    cover: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg',
+    href: '/timber-and-love-gallery/',
+  },
+  {
+    slug: 'the-firehouse',
+    name: 'The Firehouse',
+    location: 'Boise, ID',
+    type: 'Historic Remodel',
+    summary: 'A historic Boise property carefully restored and reimagined for modern living while preserving its original character.',
+    cover: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg',
+    href: '/timber-and-love-gallery/',
+  },
+];
+
+/**
+ * Differentiated, outcome-focused reasons to choose Timber and Love. Each point
+ * is paired with a specific, tangible explanation — not generic claims about
+ * integrity or quality.
+ */
+export const whyReasons = [
+  {
+    title: 'One Connected Team',
+    body: 'Design and construction live under one roof, so you have a single point of contact from first concept through final walkthrough.',
+  },
+  {
+    title: 'Design With a Point of View',
+    body: 'Led by Luke Caldwell, our work carries a distinct, warm, and modern aesthetic, the same sensibility behind the book Americana Soul.',
+  },
+  {
+    title: 'Local Knowledge',
+    body: 'We know Boise homes, neighborhoods, permitting, and the Treasure Valley market because we build, buy, and sell here every day.',
+  },
+  {
+    title: 'Proven on Real Projects',
+    body: 'Our work has been documented across multiple seasons of HGTV’s Boise Boys and Outgrown, featuring real homes and real results.',
+  },
+  {
+    title: 'Multiple Ways to Help',
+    body: 'Whether you want to remodel, buy, sell, take a direct cash offer, invest, or book a stay, one team can guide the whole journey.',
+  },
+];
+
+/**
+ * Verified customer reviews used as conversion proof. Fan comments and reviews
+ * with a conflict of interest are intentionally excluded here and surfaced
+ * separately as fan commentary. TEMP: replace with stronger, verified,
+ * source-attributed customer reviews as they become available.
+ */
+export const clientReviews: Testimonial[] = [
+  { name: 'Lara A.', role: 'Design + Build Client', quote: 'Highly recommend this team of trustworthy and reliable contractors. Looking forward to more great stories!' },
+  { name: 'Jace L.', role: 'Design + Build Client', quote: 'Incredible work — with an incredible heart behind what they do!' },
+  { name: 'Caleb R.', role: 'Design + Build Client', quote: 'Luke and Clint and the whole crew at Timber and Love are some of the most amazing people I’ve ever met. You can really see and feel the love that goes into the homes they transform.' },
+];
+
+/** Boise Boys fan commentary — clearly labeled as viewer comments, never as client proof. */
+export const fanComments: Testimonial[] = [
+  { name: 'Randy T.', quote: 'We are devoted fans of the Boise Boys program on HGTV. We love the interaction between Clint and Luke — they work so well together and are a kick to watch.', role: 'Boise Boys Viewer' },
+  { name: 'Richard M.', quote: '“Boise Boys” — best viewing ever offered by HGTV. Love those guys!', role: 'Boise Boys Viewer' },
+  { name: 'Jean U.', quote: 'I love the designs and the builds the Boise Boys do on their homes. I would love to have Luke design a mid-century modern house for us.', role: 'Boise Boys Viewer' },
+];
+
+/** "One Brand, More Ways to Help" — how a customer might move between services. */
+export const brandEcosystem = [
+  'Buy a property and remodel it with our design + build team',
+  'Remodel a home before you sell it',
+  'Explore real estate investment opportunities',
+  'Experience Timber and Love design firsthand through a vacation stay',
 ];
 
 // Favorite Boise Boys projects gallery (Casa De Boise + Central Rim highlights)

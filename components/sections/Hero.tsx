@@ -1,42 +1,43 @@
 import HeroVideo from '@/components/ui/HeroVideo';
-import RotatingText from '@/components/ui/RotatingText';
-import StatCounter from '@/components/ui/StatCounter';
-import LogoMarquee from '@/components/ui/LogoMarquee';
-import { heroRotating, heroVideoId, stats, pressLogos } from '@/lib/content/home';
+import Cta from '@/components/ui/Cta';
+import { heroVideoId } from '@/lib/content/home';
 
+/**
+ * Homepage hero. Establishes the parent brand — not a remodeling-only firm —
+ * and routes visitors toward the service pathway selector. Deliberately
+ * restrained: one eyebrow, one H1, supporting copy, a primary + secondary CTA,
+ * and a single credibility marker. No stat overload, logo marquee, or six
+ * competing actions.
+ */
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-ink">
-      {/* Background Vimeo video + dark overlay (mirrors the live Elementor hero) */}
+    <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-ink">
       <HeroVideo videoId={heroVideoId} poster="/video-posters/953577619.jpg" />
-      <div className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/55 to-ink/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/55 to-ink/90" />
 
-      {/* Left-aligned hero content (mirrors the live hero) */}
       <div className="relative z-10 flex flex-1 items-center">
         <div className="container-wide w-full pt-24 text-left">
-          <h1 className="h-display animate-fadeUp text-5xl text-cream sm:text-7xl lg:text-8xl">Timber and Love</h1>
-          <p className="mt-4 animate-fadeUp text-lg uppercase tracking-brand text-cream/85 [animation-delay:120ms] sm:text-2xl">
-            <RotatingText words={heroRotating} />
+          <p className="eyebrow animate-fadeUp text-cream/80">Design. Build. Buy. Sell. Invest. Stay.</p>
+          <h1 className="h-display mt-5 max-w-4xl animate-fadeUp text-4xl text-cream [animation-delay:100ms] sm:text-6xl lg:text-7xl">
+            Every Stage of Home and Real Estate. One Trusted Team.
+          </h1>
+          <p className="mt-6 max-w-xl animate-fadeUp text-base text-cream/85 [animation-delay:200ms] sm:text-lg">
+            Timber and Love brings together design, construction, real estate, direct home offers, investment, and
+            distinctive vacation stays. One connected Boise team for every stage of home.
           </p>
 
-          {/* Inline stat counters */}
-          <div className="mt-10 grid max-w-2xl grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-4 sm:gap-x-6">
-            {stats.map((s) => (
-              <StatCounter key={s.label} align="left" {...s} />
-            ))}
+          <div className="mt-9 flex animate-fadeUp flex-wrap items-center gap-4 [animation-delay:300ms]">
+            <Cta href="#pathways" variant="primary" track="hero_find_service">
+              Find the Right Service
+            </Cta>
+            <Cta href="/timber-and-love-gallery/" variant="secondary" track="hero_explore_work">
+              Explore Our Work
+            </Cta>
           </div>
 
-          <p className="mt-10 max-w-xl animate-fadeUp text-sm text-cream/85 [animation-delay:240ms] sm:text-base">
-            Looking to build, remodel, buy, sell, or rent? Our team is here to help you every step of the way. Trust our
-            expertise to create your perfect, personalized space.
+          <p className="mt-8 animate-fadeUp text-xs uppercase tracking-[0.16em] text-cream/60 [animation-delay:400ms]">
+            Founded by Luke Caldwell of HGTV&apos;s Boise Boys
           </p>
-        </div>
-      </div>
-
-      {/* Press-logo strip pinned to the bottom of the hero */}
-      <div className="relative z-10 border-t border-cream/10 bg-ink/40 py-6 backdrop-blur-sm">
-        <div className="container-wide">
-          <LogoMarquee logos={pressLogos} />
         </div>
       </div>
     </section>

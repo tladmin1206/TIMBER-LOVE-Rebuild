@@ -52,16 +52,17 @@ export default function ContactForm({ source = 'website', compact = false }: Pro
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       <div className={compact ? 'space-y-4' : 'grid gap-4 sm:grid-cols-2'}>
-        <input className={inputCls} name="firstName" placeholder="First Name" required autoComplete="given-name" />
-        <input className={inputCls} name="lastName" placeholder="Last Name" required autoComplete="family-name" />
+        <input className={inputCls} name="firstName" placeholder="First Name" aria-label="First name" required autoComplete="given-name" />
+        <input className={inputCls} name="lastName" placeholder="Last Name" aria-label="Last name" required autoComplete="family-name" />
       </div>
-      <input className={inputCls} type="email" name="email" placeholder="Email" required autoComplete="email" />
-      <input className={inputCls} type="tel" name="phone" placeholder="Phone" autoComplete="tel" />
+      <input className={inputCls} type="email" name="email" placeholder="Email" aria-label="Email address" required autoComplete="email" />
+      <input className={inputCls} type="tel" name="phone" placeholder="Phone" aria-label="Phone number" autoComplete="tel" />
       <textarea
         className={inputCls}
         name="message"
         rows={4}
-        placeholder="Please let us know how we can help (e.g., home remodel, new build, property management, investing, etc.)."
+        aria-label="How can we help?"
+        placeholder="Please let us know how we can help (e.g., home remodel, new build, buying, selling, a cash offer, investing, or a vacation stay)."
       />
       <input type="hidden" name="source" value={source} />
       {/* Honeypot for spam bots */}
