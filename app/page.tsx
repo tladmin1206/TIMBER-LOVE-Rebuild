@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Hero from '@/components/sections/Hero';
 import FullBleedPromo from '@/components/sections/FullBleedPromo';
+import PartnershipsFeature from '@/components/sections/PartnershipsFeature';
 import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
 import Reveal from '@/components/ui/Reveal';
 import Gallery from '@/components/ui/Gallery';
@@ -186,53 +187,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Book — text left (italic serif) + image right */}
-      <section className="bg-ink py-20 sm:py-28">
-        <div className="container-wide grid items-center gap-12 lg:grid-cols-2">
-          <Reveal>
-            <p className="eyebrow italic">Luke&apos;s Debut Design Book</p>
-            <h2 className="mt-4 font-serif text-5xl italic text-cream sm:text-7xl">Americana Soul</h2>
-            <p className="mt-6 text-body">
-              Designed with comfort and intention, Luke Caldwell&apos;s debut design book shares the philosophy and
-              spaces behind Timber and Love. Bring a piece of the T+L aesthetic into your own home.
-            </p>
-            <a
-              href={site.book.amazon}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-block text-sm italic uppercase tracking-[0.16em] text-cream link-underline"
-            >
-              Get Your Copy Today →
-            </a>
-          </Reveal>
-          <Reveal delay={120} className="relative aspect-[4/3] overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1-775x1024.jpg"
-              alt="Luke Caldwell — Americana Soul"
-              className="h-full w-full object-cover"
-            />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Partnerships */}
-      <section className="bg-ink pb-20 sm:pb-28">
-        <div className="container-wide max-w-3xl text-center">
-          <Reveal>
-            <p className="eyebrow">Appearances | Partnerships | Press</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Partnership Opportunities</h2>
-            <p className="mt-6 text-body">
-              For appearances, partnerships, and press, reach out to our partnerships team. Is your project a good fit?
-              Let&apos;s talk.
-            </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-cream">
-              <a href={site.partnerships.phoneHref} className="link-underline">{site.partnerships.phone}</a>
-              <a href={`mailto:${site.partnerships.email}`} className="link-underline">{site.partnerships.email}</a>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      {/* Partnership Opportunities + Americana Soul — video-backed slider */}
+      <PartnershipsFeature />
 
       <BeginJourneyCta />
     </>
