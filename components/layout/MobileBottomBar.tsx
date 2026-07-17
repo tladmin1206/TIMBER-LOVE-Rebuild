@@ -30,7 +30,7 @@ function actionsFor(pathname: string): Action[] {
     return [call, { label: 'Contact', href: '/contact/' }, { label: 'Invest', href: site.external.invest, external: true, primary: true }];
   }
   // Default: help visitors self-select.
-  return [call, { label: 'Book a Stay', href: '/stay-with-us/' }, { label: 'How Can We Help?', href: '/contact/', primary: true }];
+  return [call, { label: 'Get a Quote', href: '/estimate/' }, { label: 'How Can We Help?', href: '/contact/', primary: true }];
 }
 
 function isRental(p: string) {
