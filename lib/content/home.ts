@@ -20,13 +20,14 @@ export const hgtvShows = [
   { title: 'Outgrown', videoId: '925603188', poster: '/video-posters/925603188.jpg' },
 ];
 
-// Rotating sub-headline reflecting the five customer pathways (no property management).
+// Rotating sub-headline under "Timber and Love" (matches the original hero's
+// service line; property management removed).
 export const heroRotating = [
-  'Design + Build',
-  'Buy or Sell',
-  'Sell for Cash',
-  'Invest in Real Estate',
+  'Design + Build Firm',
+  'New Construction',
+  'Realty Firm',
   'Vacation Rentals',
+  'Cash Home Offers',
 ];
 
 // Cross-fading hero background slideshow (Casa De Boise project photos).
@@ -37,14 +38,13 @@ export const heroSlideshow = [
   '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Dining-Room-2-scaled.jpg',
 ];
 
-// Verified/consistent brand statistics. `since` is derived from the confirmed
-// founding year. The remaining figures are existing brand claims retained from
-// the prior site — TEMP: confirm exact current values with the business before
-// launch (see Acceptance Criteria: no statistic may be unverified).
+// Hero statistics — the brand's established figures from the original live site.
+// TEMP: confirm exact current values with the business before launch.
 export const stats = [
-  { to: new Date().getFullYear() - 2015, prefix: '', suffix: '+', label: 'Years in Boise' },
-  { to: 100, prefix: '', suffix: '+', label: 'Homes Transformed' }, // TEMP: confirm
-  { to: 35, prefix: '', suffix: '+', label: 'HGTV Episodes' }, // TEMP: confirm
+  { to: 15, prefix: '', suffix: '+', label: 'Years Experience' },
+  { to: 100, prefix: '', suffix: '+', label: 'Homes Remodeled' },
+  { to: 250, prefix: '$', suffix: '+', label: 'Million Sold' },
+  { to: 35, prefix: '', suffix: '+', label: 'HGTV Episodes' },
 ];
 
 export const pressLogos = [

@@ -42,14 +42,18 @@ export default function StatCounter({
           setValue(0);
           const duration = 1600;
           const start = performance.now();
+          const finish = () => setAnimating(false); // falls back to the true value
           const tick = (now: number) => {
             const p = Math.min((now - start) / duration, 1);
             const eased = 1 - Math.pow(1 - p, 3);
             setValue(Math.round(eased * to));
             if (p < 1) requestAnimationFrame(tick);
-            else setAnimating(false);
+            else finish();
           };
           requestAnimationFrame(tick);
+          // Safety net: if rAF is throttled (e.g. the tab is backgrounded mid
+          // animation), guarantee the final value is shown.
+          window.setTimeout(finish, duration + 400);
         }
       },
       { threshold: 0.5 }

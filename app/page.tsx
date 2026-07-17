@@ -5,12 +5,10 @@ import PathwaySelector from '@/components/sections/PathwaySelector';
 import ReviewWall from '@/components/sections/ReviewWall';
 import Cta from '@/components/ui/Cta';
 import Reveal from '@/components/ui/Reveal';
-import StatCounter from '@/components/ui/StatCounter';
 import VideoBg from '@/components/ui/VideoBg';
 import InlineVideo from '@/components/ui/InlineVideo';
 import { site, pathways } from '@/lib/site';
 import {
-  stats,
   pressLogos,
   featuredProjects,
   whyReasons,
@@ -67,13 +65,7 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          <div className="mt-12 grid max-w-2xl grid-cols-3 gap-x-8 gap-y-8">
-            {stats.map((s) => (
-              <StatCounter key={s.label} align="left" {...s} />
-            ))}
-          </div>
-
-          <div className="mt-16">
+          <div className="mt-14">
             <p className="text-xs uppercase tracking-[0.18em] text-text-muted">Featured On</p>
             <ul className="mt-6 flex flex-wrap items-center gap-x-10 gap-y-6">
               {pressLogos.map((logo) => (
