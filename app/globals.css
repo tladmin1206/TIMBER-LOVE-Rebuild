@@ -13,7 +13,10 @@
   }
   body {
     @apply bg-bg-primary font-sans text-body antialiased;
-    overflow-x: hidden;
+    /* Prevent horizontal overflow WITHOUT turning <body> into a scroll
+       container (which `overflow-x: hidden` does — it breaks window scrolling,
+       sticky elements, and anchor jumps). `clip` avoids that. */
+    overflow-x: clip;
   }
   /* Brand headings: uppercase Montserrat, wide tracking, light (300) weight */
   h1, h2, h3, h4, h5, h6 {

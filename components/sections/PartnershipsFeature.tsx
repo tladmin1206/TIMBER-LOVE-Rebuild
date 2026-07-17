@@ -2,96 +2,126 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import VideoBg from '@/components/ui/VideoBg';
-import Reveal from '@/components/ui/Reveal';
 import { site } from '@/lib/site';
 
 /**
- * Cinematic, video-backed feature that slides between the Partnership
- * Opportunities and Americana Soul content — a refined recreation of the
- * original homepage's swiper section, with a background video playing behind.
+ * Cinematic, video-backed brand feature. Two slides — Americana Soul and
+ * Partnership Opportunities — share one editorial split layout (content beside
+ * a framed image) so the slider feels intentional and premium. Elegant labeled
+ * navigation, gentle auto-advance, and a bottom-weighted overlay for legibility.
  */
-const BOOK_IMAGE = '/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1-775x1024.jpg';
+const SLIDES = [
+  {
+    key: 'book',
+    nav: 'Americana Soul',
+    eyebrow: 'Luke Caldwell · Debut Design Book',
+    title: 'Americana Soul',
+    serif: true,
+    body: 'Designed with comfort and intention, Luke Caldwell’s debut design book shares the philosophy and spaces behind Timber and Love. Bring a piece of the T+L aesthetic into your own home.',
+    cta: { label: 'Get Your Copy', href: site.book.amazon },
+    image: '/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1-775x1024.jpg',
+    imageAlt: 'Americana Soul, the debut design book by Luke Caldwell',
+  },
+  {
+    key: 'partnerships',
+    nav: 'Partnerships',
+    eyebrow: 'Appearances · Partnerships · Press',
+    title: 'Partnership Opportunities',
+    serif: false,
+    body: 'For appearances, brand partnerships, and press, reach out to our partnerships team. If your project is a good fit, we would love to talk.',
+    image: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg',
+    imageAlt: 'A Timber and Love home featured on HGTV',
+  },
+] as const;
 
 export default function PartnershipsFeature({ videoId = '927976789', poster = '/video-posters/927976789.jpg' }: { videoId?: string; poster?: string }) {
-  const [i, setI] = useState(0);
-  const slides = 2;
-  const go = useCallback((n: number) => setI((n + slides) % slides), []);
+  const [active, setActive] = useState(0);
+  const go = useCallback((n: number) => setActive((n + SLIDES.length) % SLIDES.length), []);
 
-  // Gentle auto-advance (respects reduced motion).
   useEffect(() => {
     if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const t = setInterval(() => setI((v) => (v + 1) % slides), 9000);
+    const t = setInterval(() => setActive((v) => (v + 1) % SLIDES.length), 9000);
     return () => clearInterval(t);
   }, []);
 
   return (
-    <section className="relative isolate flex min-h-[80vh] items-center overflow-hidden py-24 sm:py-32" aria-roledescription="carousel" aria-label="Partnerships and Americana Soul">
-      <VideoBg videoId={videoId} poster={poster} overlay="bg-gradient-to-r from-ink via-ink/80 to-ink/50" />
+    <section className="relative isolate flex min-h-[92vh] items-center overflow-hidden py-24 sm:py-28" aria-roledescription="carousel" aria-label="Americana Soul and Partnerships">
+      <VideoBg videoId={videoId} poster={poster} overlay="bg-gradient-to-t from-ink via-ink/85 to-ink/60" />
 
-      <div className="container-wide relative z-10">
-        {/* Slide 1 — Partnership Opportunities */}
-        <div className={`transition-opacity duration-700 ${i === 0 ? 'opacity-100' : 'pointer-events-none absolute inset-0 flex items-center opacity-0'}`} aria-hidden={i !== 0}>
-          <div className="container-wide max-w-2xl">
-            <Reveal>
-              <p className="eyebrow">Appearances · Partnerships · Press</p>
-              <h2 className="h-display mt-4 text-4xl sm:text-6xl">Partnership Opportunities</h2>
-              <p className="mt-6 max-w-xl text-body">
-                For appearances, partnerships, and press, reach out to our partnerships team. Is your project a good
-                fit? Let&apos;s talk.
-              </p>
-              <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-cream">
-                <a href={site.partnerships.phoneHref} className="link-underline">{site.partnerships.phone}</a>
-                <a href={`mailto:${site.partnerships.email}`} className="link-underline">{site.partnerships.email}</a>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-
-        {/* Slide 2 — Americana Soul */}
-        <div className={`transition-opacity duration-700 ${i === 1 ? 'opacity-100' : 'pointer-events-none absolute inset-0 flex items-center opacity-0'}`} aria-hidden={i !== 1}>
-          <div className="container-wide grid items-center gap-10 lg:grid-cols-[1.4fr_1fr]">
-            <Reveal>
-              <p className="eyebrow italic">Luke&apos;s Debut Design Book</p>
-              <h2 className="mt-4 font-serif text-5xl italic text-cream sm:text-7xl">Americana Soul</h2>
-              <p className="mt-6 max-w-lg text-body">
-                Designed with comfort and intention, Luke Caldwell&apos;s debut design book shares the philosophy and
-                spaces behind Timber and Love. Bring a piece of the T+L aesthetic into your own home.
-              </p>
-              <a
-                href={site.book.amazon}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-block text-sm italic uppercase tracking-[0.16em] text-cream link-underline"
+      <div className="container-wide relative z-10 w-full">
+        {/* Slides — stacked, cross-fading, shared split layout */}
+        <div className="relative">
+          {SLIDES.map((s, idx) => {
+            const isActive = idx === active;
+            return (
+              <div
+                key={s.key}
+                aria-hidden={!isActive}
+                className={`grid items-center gap-10 transition-opacity duration-700 ease-out lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 ${
+                  isActive ? 'opacity-100' : 'pointer-events-none absolute inset-0 opacity-0'
+                }`}
               >
-                Get Your Copy Today →
-              </a>
-            </Reveal>
-            <Reveal delay={120} className="relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden border border-cream/15 shadow-2xl shadow-black/50">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={BOOK_IMAGE} alt="Americana Soul by Luke Caldwell" className="h-full w-full object-cover" loading="lazy" />
-            </Reveal>
-          </div>
+                {/* Content */}
+                <div>
+                  <p className="eyebrow">{s.eyebrow}</p>
+                  {s.serif ? (
+                    <h2 className="mt-5 font-serif text-6xl italic leading-none text-cream sm:text-7xl lg:text-8xl">{s.title}</h2>
+                  ) : (
+                    <h2 className="h-display mt-5 text-4xl text-cream sm:text-6xl">{s.title}</h2>
+                  )}
+                  <p className="mt-7 max-w-lg text-base leading-relaxed text-cream/80 sm:text-lg">{s.body}</p>
+
+                  {'cta' in s && s.cta ? (
+                    <a href={s.cta.href} target="_blank" rel="noopener noreferrer" className="btn-primary mt-9" data-track="americana_soul">
+                      {s.cta.label}
+                    </a>
+                  ) : (
+                    <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-10">
+                      <a href={site.partnerships.phoneHref} className="group inline-flex flex-col">
+                        <span className="text-[0.7rem] uppercase tracking-[0.18em] text-cream/50">Call</span>
+                        <span className="mt-1 text-lg text-cream link-underline">{site.partnerships.phone}</span>
+                      </a>
+                      <a href={`mailto:${site.partnerships.email}`} className="group inline-flex flex-col">
+                        <span className="text-[0.7rem] uppercase tracking-[0.18em] text-cream/50">Email</span>
+                        <span className="mt-1 text-lg text-cream link-underline">{site.partnerships.email}</span>
+                      </a>
+                    </div>
+                  )}
+                </div>
+
+                {/* Framed image */}
+                <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden border border-cream/15 shadow-2xl shadow-black/60">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={s.image} alt={s.imageAlt} className="h-full w-full object-cover" loading="lazy" />
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Controls */}
-        <div className="mt-12 flex items-center gap-5">
-          <button onClick={() => go(i - 1)} aria-label="Previous slide" className="grid h-11 w-11 place-items-center rounded-full border border-cream/30 text-cream/80 transition hover:border-cream hover:text-cream">
-            ‹
-          </button>
-          <div className="flex items-center gap-2">
-            {Array.from({ length: slides }).map((_, n) => (
-              <button
-                key={n}
-                onClick={() => go(n)}
-                aria-label={`Go to slide ${n + 1}`}
-                aria-current={i === n}
-                className={`h-1.5 rounded-full transition-all ${i === n ? 'w-8 bg-cream' : 'w-2 bg-cream/30 hover:bg-cream/60'}`}
-              />
-            ))}
+        {/* Labeled navigation */}
+        <div className="mt-14 flex items-center gap-8">
+          {SLIDES.map((s, idx) => (
+            <button
+              key={s.key}
+              onClick={() => go(idx)}
+              aria-current={idx === active}
+              className={`pb-1 text-xs uppercase tracking-[0.16em] transition-colors ${
+                idx === active ? 'border-b border-cream text-cream' : 'border-b border-transparent text-cream/40 hover:text-cream/75'
+              }`}
+            >
+              <span className="mr-2 text-cream/40">0{idx + 1}</span>
+              {s.nav}
+            </button>
+          ))}
+          <div className="ml-auto flex items-center gap-2">
+            <button onClick={() => go(active - 1)} aria-label="Previous slide" className="grid h-11 w-11 place-items-center rounded-full border border-cream/25 text-cream/80 transition hover:border-cream hover:text-cream">
+              ‹
+            </button>
+            <button onClick={() => go(active + 1)} aria-label="Next slide" className="grid h-11 w-11 place-items-center rounded-full border border-cream/25 text-cream/80 transition hover:border-cream hover:text-cream">
+              ›
+            </button>
           </div>
-          <button onClick={() => go(i + 1)} aria-label="Next slide" className="grid h-11 w-11 place-items-center rounded-full border border-cream/30 text-cream/80 transition hover:border-cream hover:text-cream">
-            ›
-          </button>
         </div>
       </div>
     </section>
