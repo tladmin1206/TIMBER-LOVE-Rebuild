@@ -5,7 +5,7 @@ import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
 import Reveal from '@/components/ui/Reveal';
 import Gallery from '@/components/ui/Gallery';
 import VideoBg from '@/components/ui/VideoBg';
-import RotatingTestimonial from '@/components/ui/RotatingTestimonial';
+import ReviewSlider from '@/components/ui/ReviewSlider';
 import InlineVideo from '@/components/ui/InlineVideo';
 import ModalButton from '@/components/ui/ModalButton';
 import { site } from '@/lib/site';
@@ -151,7 +151,7 @@ export default function HomePage() {
             <h2 className="h-display mt-4 text-4xl sm:text-6xl">See What Others Are Saying</h2>
           </Reveal>
           <div className="mt-12">
-            <RotatingTestimonial items={clientReviews} />
+            <ReviewSlider items={clientReviews} />
           </div>
           <div className="mt-12">
             <a href={site.reviewUrl} target="_blank" rel="noopener noreferrer" className="btn-outline">We&apos;d Love Your Review</a>
