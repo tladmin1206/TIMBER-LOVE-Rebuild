@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Hero from '@/components/sections/Hero';
-import FullBleedPromo from '@/components/sections/FullBleedPromo';
+import PathwaySelector from '@/components/sections/PathwaySelector';
 import PartnershipsFeature from '@/components/sections/PartnershipsFeature';
 import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
 import Reveal from '@/components/ui/Reveal';
@@ -8,15 +8,16 @@ import Gallery from '@/components/ui/Gallery';
 import VideoBg from '@/components/ui/VideoBg';
 import ReviewSlider from '@/components/ui/ReviewSlider';
 import InlineVideo from '@/components/ui/InlineVideo';
+import LogoMarquee from '@/components/ui/LogoMarquee';
 import ModalButton from '@/components/ui/ModalButton';
 import { site } from '@/lib/site';
 import {
-  servicePromos,
   values,
   processSteps,
   mission,
   clientReviews,
   favoriteProjects,
+  pressLogos,
   introVideoId,
   introVideoPoster,
   sectionVideos,
@@ -54,18 +55,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Expertise heading + full-bleed service promo blocks */}
-      <section className="bg-ink pb-8 pt-4 sm:pb-12 sm:pt-8">
+      {/* Featured On — press logos on a continuous slider */}
+      <section className="border-y border-cream/10 bg-ink py-10 sm:py-12">
         <div className="container-wide">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">What We Do</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Our Expertise, Your Perfect Space</h2>
-          </Reveal>
+          <p className="mb-8 text-center text-xs uppercase tracking-[0.2em] text-cream/50">As Featured On</p>
+          <LogoMarquee logos={pressLogos} />
         </div>
       </section>
-      {servicePromos.map(({ key, ...p }) => (
-        <FullBleedPromo key={key} {...p} />
-      ))}
+
+      {/* Services — pathway selector grid with a high-contrast CTA module */}
+      <PathwaySelector />
 
       {/* HGTV Shows — left header + video-background cards */}
       <section className="bg-ink py-20 sm:py-28">

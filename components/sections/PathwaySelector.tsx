@@ -71,6 +71,26 @@ export default function PathwaySelector() {
           {rest.map((p) => (
             <PathwayCard key={p.key} pathway={p} />
           ))}
+
+          {/* High-contrast CTA module — fills and balances the grid, and drives
+              visitors who are undecided toward a conversation. */}
+          <Link
+            href="/contact/"
+            data-track="pathway_help"
+            className="group relative flex min-h-[16rem] flex-col justify-between border border-cream/15 bg-surface p-7 transition-colors hover:border-cream/40"
+          >
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-cream/60">Not Sure Where to Start?</p>
+              <h3 className="h-display mt-4 text-2xl text-cream sm:text-3xl">Let&apos;s Find the Right Fit</h3>
+              <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream/70">
+                Tell us a little about your goals and our team will point you to the right service.
+              </p>
+            </div>
+            <span className="mt-6 inline-flex w-max items-center gap-2 bg-cream px-5 py-2.5 text-xs uppercase tracking-[0.16em] text-ink transition-colors group-hover:bg-cream/85">
+              Talk to Our Team
+              <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </span>
+          </Link>
         </div>
       </div>
     </section>
