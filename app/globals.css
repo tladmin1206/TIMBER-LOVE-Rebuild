@@ -49,7 +49,7 @@
 
   /* --- Typography helpers --- */
   .eyebrow {
-    @apply text-xs sm:text-sm uppercase tracking-[0.2em] text-accent font-medium;
+    @apply text-xs sm:text-sm uppercase tracking-[0.2em] text-cream/70 font-medium;
   }
   .h-display {
     @apply uppercase tracking-brand leading-tight;
@@ -63,9 +63,9 @@
   .btn {
     @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm uppercase tracking-[0.15em] font-medium transition-colors duration-300 cursor-pointer min-h-[44px];
   }
-  /* Primary — the main conversion action. */
+  /* Primary — the main conversion action: white button, dark text. */
   .btn-primary {
-    @apply btn bg-accent text-cream hover:bg-accent-hover;
+    @apply btn bg-cream text-ink hover:bg-cream/85;
   }
   /* Secondary — exploration. */
   .btn-secondary {
@@ -98,7 +98,7 @@
     @apply block text-xs uppercase tracking-[0.16em] text-text-secondary;
   }
   .field-input {
-    @apply w-full border border-border-subtle bg-transparent px-4 py-3 text-cream placeholder:text-text-muted transition-colors focus:border-accent focus:outline-none;
+    @apply w-full border border-border-subtle bg-transparent px-4 py-3 text-cream placeholder:text-text-muted transition-colors focus:border-cream/70 focus:outline-none;
   }
   .field-error {
     @apply text-sm text-error;

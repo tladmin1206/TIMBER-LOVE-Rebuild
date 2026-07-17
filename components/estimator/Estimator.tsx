@@ -400,7 +400,7 @@ function CheckGroup({
           <label key={o.value} className="cursor-pointer">
             <input type="checkbox" checked={on} onChange={() => onToggle(o.value)} aria-label={o.label} className="peer sr-only" />
             <span className="flex items-center gap-3 border border-border-subtle p-3 text-sm text-text-secondary transition-colors peer-checked:border-accent peer-checked:bg-accent-soft peer-checked:text-cream peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-focus">
-              <span aria-hidden="true" className={`grid h-4 w-4 place-items-center border ${on ? 'border-accent bg-accent text-cream' : 'border-border-subtle'}`}>
+              <span aria-hidden="true" className={`grid h-4 w-4 place-items-center border ${on ? 'border-cream bg-cream text-ink' : 'border-border-subtle'}`}>
                 {on ? '✓' : ''}
               </span>
               {o.label}

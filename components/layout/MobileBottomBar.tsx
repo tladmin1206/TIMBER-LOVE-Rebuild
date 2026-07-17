@@ -49,7 +49,7 @@ export default function MobileBottomBar() {
     >
       {items.map((it) => {
         const cls = `flex min-h-[48px] items-center justify-center px-1 py-3 text-center text-[10px] uppercase tracking-[0.12em] transition active:bg-cream/10 ${
-          it.primary ? 'bg-accent font-medium text-cream' : 'text-cream/85'
+          it.primary ? 'bg-cream font-medium text-ink' : 'text-cream/85'
         }`;
         return it.external ? (
           <a key={it.label} href={it.href} target="_blank" rel="noopener noreferrer" className={cls}>

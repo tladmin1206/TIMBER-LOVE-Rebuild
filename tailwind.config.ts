@@ -22,11 +22,13 @@ const config: Config = {
         panel: '#1D1D1D', // dark gray raised panel
         cream: '#FAFAFA', // off-white text / light surfaces
         graphite: '#4B4B4B', // muted gray
-        // Warm brand accent used strategically for CTAs, active states, metadata.
+        // Accent maps to the off-white cream so the brand reads clean and
+        // monochrome (white highlights on dark), matching the original site.
+        // `accent-soft` is a faint white tint used for subtle selected states.
         accent: {
-          DEFAULT: '#B98A5E', // warm timber/brass tone
-          hover: '#A9764A',
-          soft: 'rgba(185,138,94,0.14)',
+          DEFAULT: '#FAFAFA',
+          hover: 'rgba(250,250,250,0.85)',
+          soft: 'rgba(250,250,250,0.12)',
         },
         // --- Semantic tokens ---
         'bg-primary': '#0B0B0C',
@@ -39,7 +41,7 @@ const config: Config = {
         'border-subtle': 'rgba(250,250,250,0.14)',
         success: '#5BA177',
         error: '#D98B7A',
-        focus: '#B98A5E',
+        focus: '#FAFAFA',
         // Convenience text token (kept for existing usages).
         body: 'rgba(250,250,250,0.88)',
       },
