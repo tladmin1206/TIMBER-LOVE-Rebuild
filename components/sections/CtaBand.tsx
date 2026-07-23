@@ -16,13 +16,13 @@ export default function CtaBand({
   secondary?: React.ReactNode;
 }) {
   return (
-    <section className="relative isolate overflow-hidden py-24 sm:py-32">
+    <section className="relative isolate overflow-hidden section-feature">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={image} alt="" aria-hidden className="absolute inset-0 -z-10 h-full w-full object-cover" />
       <div className="absolute inset-0 -z-10 bg-ink/75" />
       <Reveal className="container-tl text-center">
         <p className="eyebrow">{eyebrow}</p>
-        <h2 className="h-display mx-auto mt-4 max-w-3xl text-3xl sm:text-5xl">{title}</h2>
+        <h2 className="h-section mx-auto mt-4 max-w-3xl">{title}</h2>
         <p className="mx-auto mt-5 max-w-2xl text-body">{body}</p>
         {(primary || secondary) && (
           <div className="mt-9 flex flex-wrap items-center justify-center gap-4">

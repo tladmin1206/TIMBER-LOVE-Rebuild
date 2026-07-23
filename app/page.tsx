@@ -36,11 +36,11 @@ export default function HomePage() {
       <TrustBar />
 
       {/* Intro / About — 2-col text + full-width inline video */}
-      <section className="bg-ink py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <p className="eyebrow">Our Services</p>
-            <h2 className="h-display mt-4 text-4xl sm:text-6xl">Designing Beauty, Building Dreams</h2>
+            <h2 className="h-section mt-4">Designing Beauty, Building Dreams</h2>
           </Reveal>
           <Reveal delay={120} className="flex items-end">
             <p className="text-body">
@@ -56,13 +56,13 @@ export default function HomePage() {
             <InlineVideo videoId={introVideoId} poster={introVideoPoster} />
           </Reveal>
           <div className="mt-10 text-center">
-            <ModalButton modal="connect" className="btn-outline">Get Started</ModalButton>
+            <ModalButton modal="connect" className="btn-secondary">Get Started</ModalButton>
           </div>
         </div>
       </section>
 
       {/* Featured On — press logos on a continuous slider */}
-      <section className="border-y border-cream/10 bg-ink py-10 sm:py-12">
+      <section className="border-y border-border-subtle bg-bg-primary section-tight">
         <div className="container-wide">
           <p className="mb-8 text-center text-xs uppercase tracking-[0.2em] text-cream/50">As Featured On</p>
           <LogoMarquee logos={pressLogos} />
@@ -73,18 +73,18 @@ export default function HomePage() {
       <PathwaySelector />
 
       {/* HGTV Shows — left header + video-background cards */}
-      <section className="bg-ink py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Stream Us On Your TV</p>
-            <h2 className="h-display mt-4 text-4xl sm:text-6xl">HGTV&apos;s Boise Boys + Outgrown</h2>
+            <h2 className="h-section mt-4">HGTV&apos;s Boise Boys + Outgrown</h2>
           </Reveal>
           <div className="mt-14 grid gap-8 lg:grid-cols-2">
             {hgtvShows.map((show, i) => (
               <Reveal key={show.title} delay={i * 120} className="relative aspect-[16/10] overflow-hidden">
                 <VideoBg videoId={show.videoId} poster={show.poster} overlay="bg-ink/35" />
                 <div className="absolute inset-x-0 bottom-0 z-10 flex flex-wrap items-center gap-x-6 gap-y-2 p-7">
-                  <h3 className="h-display text-2xl sm:text-3xl">{show.title}</h3>
+                  <h3 className="h-card">{show.title}</h3>
                   <a
                     href={i === 0 ? site.shows.boiseBoys : site.shows.outgrown}
                     target="_blank"
@@ -101,34 +101,34 @@ export default function HomePage() {
       </section>
 
       {/* Favorite projects gallery */}
-      <section className="bg-ink pb-20 sm:pb-28">
+      <section className="bg-bg-primary pb-20 sm:pb-28">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">See Our Work</p>
-            <h2 className="h-display mt-4 text-4xl sm:text-6xl">Some Of Our Favorite Boise Boys Projects</h2>
+            <h2 className="h-section mt-4">Some Of Our Favorite Boise Boys Projects</h2>
           </Reveal>
           <div className="mt-14">
             <Gallery images={favoriteProjects} columns={3} />
           </div>
           <div className="mt-10">
-            <Link href="/timber-and-love-gallery/" className="btn-outline">See All Images</Link>
+            <Link href="/timber-and-love-gallery/" className="btn-secondary">See All Images</Link>
           </div>
         </div>
       </section>
 
       {/* Values — full-bleed video background + left header + 2x2 grid */}
-      <section className="relative overflow-hidden py-24 sm:py-32">
+      <section className="relative overflow-hidden section-feature">
         <VideoBg videoId={sectionVideos.values.id} poster={sectionVideos.values.poster} overlay="bg-ink/75" />
         <div className="container-wide relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Why Choose Us</p>
-            <h2 className="h-display mt-4 text-5xl sm:text-7xl">Our Values</h2>
-            <ModalButton modal="work-with-us" className="btn-outline mt-8">Work With Us</ModalButton>
+            <h2 className="h-section mt-4">Our Values</h2>
+            <ModalButton modal="work-with-us" className="btn-secondary mt-8">Work With Us</ModalButton>
           </Reveal>
           <div className="grid gap-5 sm:grid-cols-2">
             {values.map((v, i) => (
-              <Reveal key={v.title} delay={i * 80} className="border border-cream/20 bg-ink/30 p-6 backdrop-blur-sm">
-                <h3 className="h-display text-lg">{v.title}</h3>
+              <Reveal key={v.title} delay={i * 80} className="surface-card-glass p-6">
+                <h3 className="h-card-sm">{v.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-cream/80">{v.body}</p>
               </Reveal>
             ))}
@@ -137,41 +137,41 @@ export default function HomePage() {
       </section>
 
       {/* Mission — centered on dark */}
-      <section className="bg-ink py-24 text-center sm:py-32">
+      <section className="bg-bg-primary text-center section-feature">
         <div className="container-wide max-w-3xl">
           <Reveal>
             <p className="eyebrow">Commitment To Excellence</p>
-            <h2 className="h-display mt-4 text-4xl sm:text-6xl">Our Mission</h2>
+            <h2 className="h-section mt-4">Our Mission</h2>
             <p className="mt-8 text-body">{mission}</p>
-            <ModalButton modal="work-with-us" className="btn-outline mt-10">Work With Us</ModalButton>
+            <ModalButton modal="work-with-us" className="btn-secondary mt-10">Work With Us</ModalButton>
           </Reveal>
         </div>
       </section>
 
       {/* Testimonials — full-bleed video background + centered rotating quote */}
-      <section className="relative overflow-hidden py-24 text-center sm:py-32">
+      <section className="relative overflow-hidden text-center section-feature">
         <VideoBg videoId={sectionVideos.testimonials.id} poster={sectionVideos.testimonials.poster} overlay="bg-ink/75" />
         <div className="container-wide relative z-10">
           <Reveal>
             <p className="eyebrow">Testimonials</p>
-            <h2 className="h-display mt-4 text-4xl sm:text-6xl">See What Others Are Saying</h2>
+            <h2 className="h-section mt-4">See What Others Are Saying</h2>
           </Reveal>
           <div className="mt-12">
             <ReviewSlider items={clientReviews} />
           </div>
           <div className="mt-12">
-            <a href={site.reviewUrl} target="_blank" rel="noopener noreferrer" className="btn-outline">We&apos;d Love Your Review</a>
+            <a href={site.reviewUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary">We&apos;d Love Your Review</a>
           </div>
         </div>
       </section>
 
       {/* 3-step process — left header + bordered cards */}
-      <section className="bg-ink py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
             <Reveal>
               <p className="eyebrow">Let&apos;s Work Together</p>
-              <h2 className="h-display mt-4 text-4xl sm:text-6xl">Get Started In 3 Simple Steps</h2>
+              <h2 className="h-section mt-4">Get Started In 3 Simple Steps</h2>
             </Reveal>
             <Reveal delay={120} className="flex items-end">
               <p className="text-body">
@@ -182,9 +182,9 @@ export default function HomePage() {
           </div>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {processSteps.map((step, i) => (
-              <Reveal key={step.num} delay={i * 110} className="border border-cream/15 p-8">
+              <Reveal key={step.num} delay={i * 110} className="surface-card p-8">
                 <div className="font-sans text-5xl tracking-brand text-accent/70">{step.num}</div>
-                <h3 className="h-display mt-6 text-xl">{step.title}</h3>
+                <h3 className="h-card mt-6">{step.title}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-body">{step.body}</p>
               </Reveal>
             ))}

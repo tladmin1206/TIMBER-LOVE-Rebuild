@@ -185,7 +185,7 @@ export default function Estimator() {
       <div className="mt-8" aria-live="polite">
         <fieldset className="border-0 p-0">
           <legend className="w-full">
-            <h2 ref={headingRef} tabIndex={-1} className="h-display text-2xl outline-none sm:text-3xl">
+            <h2 ref={headingRef} tabIndex={-1} className="h-card outline-none">
               {stepTitle(step.id, answers)}
             </h2>
           </legend>
@@ -528,7 +528,7 @@ function ResultView({
           on a page the visitor has to go looking for. */}
       <div className="surface-card mt-6 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="h-display text-lg">More Than You Expected?</p>
+          <p className="h-card-sm">More Than You Expected?</p>
           <p className="mt-2 max-w-md text-sm leading-relaxed text-text-secondary">
             Most projects are phased or financed. See how homeowners structure an investment like this one.
           </p>

@@ -87,11 +87,11 @@ export default function Page() {
       <TrustBar />
 
       {/* Ways to finance */}
-      <section className="bg-bg-primary py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Ways to Finance</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Common Ways Homeowners Pay for a Project</h2>
+            <h2 className="h-section mt-4">Common Ways Homeowners Pay for a Project</h2>
             <p className="text-lead mt-4">
               Every situation is different. These are the approaches we see most often, described at a high level to help
               you start the conversation with your lender.
@@ -101,7 +101,7 @@ export default function Page() {
             {options.map((o, i) => (
               <Reveal key={o.heading} delay={i * 70} className="surface-card p-7">
                 <div className="font-sans text-4xl tracking-brand text-accent/70">{String(i + 1).padStart(2, '0')}</div>
-                <h3 className="h-display mt-4 text-xl">{o.heading}</h3>
+                <h3 className="h-card mt-4">{o.heading}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">{o.body}</p>
               </Reveal>
             ))}
@@ -114,11 +114,11 @@ export default function Page() {
       </section>
 
       {/* How it fits the process */}
-      <section className="border-t border-border-subtle bg-bg-secondary py-20 sm:py-24">
+      <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Plan With Confidence</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Start With a Realistic Number</h2>
+            <h2 className="h-section mt-4">Start With a Realistic Number</h2>
             <p className="text-lead mt-4">
               Knowing a preliminary range early makes every financing conversation easier. Use our estimator to get a
               range in about two minutes, then bring that number to your lender or to us.
@@ -141,11 +141,11 @@ export default function Page() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-bg-primary py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">Financing FAQ</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Common Questions</h2>
+            <h2 className="h-section mt-4">Common Questions</h2>
           </Reveal>
           <div className="mt-12">
             <FAQ items={faq} />

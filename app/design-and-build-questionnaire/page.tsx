@@ -54,17 +54,17 @@ export default function Page({ searchParams }: { searchParams?: Record<string, s
       <PressStrip />
 
       {/* 3-step process */}
-      <section className="bg-ink py-16 sm:py-24">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">How It Works</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Our Process in 3 Steps</h2>
+            <h2 className="h-section mt-4">Our Process in 3 Steps</h2>
           </Reveal>
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {processSteps.map((step, i) => (
               <Reveal key={step.num} delay={i * 100} className="text-center">
                 <div className="font-sans text-5xl tracking-brand text-cream/30">{step.num}</div>
-                <h3 className="h-display mt-4 text-xl">{step.title}</h3>
+                <h3 className="h-card mt-4">{step.title}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-body">{step.body}</p>
               </Reveal>
             ))}
@@ -73,7 +73,7 @@ export default function Page({ searchParams }: { searchParams?: Record<string, s
       </section>
 
       {/* Native multi-step project inquiry */}
-      <section id="inquiry" className="border-t border-border-subtle bg-bg-secondary py-16 sm:py-24">
+      <section id="inquiry" className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-tl">
           <Suspense fallback={<div className="mx-auto min-h-[500px] max-w-2xl" />}>
             <ProjectInquiry />

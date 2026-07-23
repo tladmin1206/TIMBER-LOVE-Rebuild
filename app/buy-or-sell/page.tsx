@@ -63,7 +63,7 @@ export default function Page() {
 
       {/* Real estate client proof */}
       {realEstateReview && (
-        <section className="bg-bg-primary py-14 sm:py-16" aria-label="Client review">
+        <section className="bg-bg-primary section-tight" aria-label="Client review">
           <div className="container-wide max-w-3xl text-center">
             <Reveal>
               <Stars rating={5} size="md" />
@@ -79,11 +79,11 @@ export default function Page() {
       )}
 
       {/* What visitors will find on the linked site */}
-      <section className="bg-bg-primary py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">What You Will Find</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Continue to Timber and Love Realty</h2>
+            <h2 className="h-section mt-4">Continue to Timber and Love Realty</h2>
             <p className="text-lead mt-5">
               Timber and Love Realty is our affiliated real estate site. There you can browse current listings, learn
               about buying and selling in Boise, and connect with the team directly. This page introduces the site so
@@ -94,13 +94,13 @@ export default function Page() {
       </section>
 
       {/* Buying / Selling / Local / Who it serves */}
-      <section className="bg-bg-secondary py-20 sm:py-28">
+      <section className="bg-bg-secondary section">
         <div className="container-wide">
           <div className="grid gap-6 sm:grid-cols-2">
             {sections.map((s, i) => (
               <Reveal key={s.eyebrow} delay={i * 80} className="surface-card p-8">
                 <p className="eyebrow">{s.eyebrow}</p>
-                <h3 className="h-display mt-3 text-xl">{s.heading}</h3>
+                <h3 className="h-card mt-3">{s.heading}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-text-secondary">{s.body}</p>
               </Reveal>
             ))}
@@ -109,11 +109,11 @@ export default function Page() {
       </section>
 
       {/* Primary external CTA with affiliated-site note */}
-      <section className="bg-bg-primary py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide max-w-2xl text-center">
           <Reveal>
             <p className="eyebrow">Visit the Site</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Ready to Look at Homes?</h2>
+            <h2 className="h-section mt-4">Ready to Look at Homes?</h2>
             <p className="text-lead mt-5">
               Start browsing listings or begin a conversation about selling. You will continue to Timber and Love
               Realty, our affiliated real estate site, in a new tab.

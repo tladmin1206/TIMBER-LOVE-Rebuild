@@ -41,7 +41,7 @@ export default function Newsletter() {
         aria-label="Your email"
         className="w-full border border-cream/25 bg-transparent px-4 py-3 text-cream placeholder-cream/50 outline-none transition focus:border-cream/70"
       />
-      <button type="submit" disabled={status === 'loading'} className="btn-solid whitespace-nowrap disabled:opacity-60">
+      <button type="submit" disabled={status === 'loading'} className="btn-primary whitespace-nowrap disabled:opacity-60">
         {status === 'loading' ? 'Joining…' : 'Get Notified'}
       </button>
       {status === 'err' && <span className="text-xs text-red-300">Please enter a valid email.</span>}

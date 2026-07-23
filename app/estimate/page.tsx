@@ -24,7 +24,7 @@ export default function Page() {
         height="short"
       />
       <TrustBar />
-      <section className="bg-bg-primary py-16 sm:py-20">
+      <section className="bg-bg-primary section-tight">
         <div className="container-tl">
           <Estimator />
         </div>

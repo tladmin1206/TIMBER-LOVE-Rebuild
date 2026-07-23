@@ -148,7 +148,7 @@ export default function Header() {
       {mobileOpen && (
         <div
           id="mobile-menu"
-          className="fixed inset-x-0 top-[60px] z-40 h-[calc(100dvh-60px)] overflow-y-auto border-t border-border-subtle bg-ink xl:hidden"
+          className="fixed inset-x-0 top-[60px] z-40 h-[calc(100dvh-60px)] overflow-y-auto border-t border-border-subtle bg-bg-primary xl:hidden"
         >
           <nav aria-label="Mobile" className="container-wide flex min-h-full flex-col py-4 text-sm uppercase tracking-[0.12em] text-cream">
             {mainNav.map((item) =>

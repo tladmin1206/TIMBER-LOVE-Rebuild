@@ -33,11 +33,11 @@ export default function Page() {
       <TrustBar />
 
       {/* The story */}
-      <section className="bg-bg-primary py-16 sm:py-24">
+      <section className="bg-bg-primary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">The Story</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Boise Homes, on National Television</h2>
+            <h2 className="h-section mt-4">Boise Homes, on National Television</h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-lead">
@@ -50,11 +50,11 @@ export default function Page() {
       </section>
 
       {/* Featured television projects — link to full case studies */}
-      <section className="border-t border-border-subtle bg-bg-secondary py-16 sm:py-24">
+      <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mb-10 max-w-2xl">
             <p className="eyebrow">Featured Television Projects</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">From the Show</h2>
+            <h2 className="h-section mt-4">From the Show</h2>
           </Reveal>
           <div className="grid gap-6 md:grid-cols-2">
             {projects.map((p) => (
@@ -64,7 +64,7 @@ export default function Page() {
                   <img src={p.cover} alt={`${p.title} — ${p.category}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="p-6">
-                  <h3 className="h-display text-2xl">{p.title}</h3>
+                  <h3 className="h-card">{p.title}</h3>
                   {p.hgtv && <p className="mt-2 text-xs uppercase tracking-[0.14em] text-text-muted">{p.hgtv}</p>}
                   <span className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-cream">View Project <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span></span>
                 </div>
@@ -75,22 +75,22 @@ export default function Page() {
       </section>
 
       {/* More from the show — gallery */}
-      <section className="bg-bg-primary py-16 sm:py-24">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mb-10 max-w-2xl">
             <p className="eyebrow">More From the Show</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Project Photos</h2>
+            <h2 className="h-section mt-4">Project Photos</h2>
           </Reveal>
           <Gallery images={images} columns={4} />
         </div>
       </section>
 
       {/* Client proof — verified customer reviews only */}
-      <section className="border-t border-border-subtle bg-bg-secondary py-16 text-center sm:py-24">
+      <section className="border-t border-border-subtle bg-bg-secondary text-center section">
         <div className="container-wide">
           <Reveal>
             <p className="eyebrow">Client Stories</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">What Our Clients Say</h2>
+            <h2 className="h-section mt-4">What Our Clients Say</h2>
           </Reveal>
           <div className="mt-10">
             <RotatingTestimonial items={clientReviews} />
@@ -99,11 +99,11 @@ export default function Page() {
       </section>
 
       {/* Fan comments — clearly labeled as viewers, not clients */}
-      <section className="bg-bg-primary py-16 sm:py-20">
+      <section className="bg-bg-primary section-tight">
         <div className="container-wide">
           <Reveal className="mb-8 max-w-2xl">
             <p className="eyebrow">From the Fans</p>
-            <h2 className="h-display mt-4 text-2xl sm:text-4xl">What Viewers Say</h2>
+            <h2 className="h-section mt-4">What Viewers Say</h2>
           </Reveal>
           <div className="grid gap-4 sm:grid-cols-3">
             {fanComments.map((f) => (

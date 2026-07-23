@@ -25,7 +25,7 @@ function Shell({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="relative my-8 w-full max-w-lg border border-cream/15 bg-panel p-7 sm:p-9">
+      <div className="relative my-8 w-full max-w-lg border border-border-subtle bg-surface p-7 sm:p-9">
         <button
           onClick={onClose}
           aria-label="Close"
@@ -33,7 +33,7 @@ function Shell({
         >
           ×
         </button>
-        <h2 className="h-display text-2xl sm:text-3xl">{title}</h2>
+        <h2 className="h-card">{title}</h2>
         {subtitle && <p className="mt-2 text-sm text-body">{subtitle}</p>}
         <div className="mt-6">{children}</div>
       </div>

@@ -43,7 +43,7 @@ export default function Page() {
 
       <TrustBar />
 
-      <section className="bg-bg-primary py-16 sm:py-24">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           {/* Featured (latest) post */}
           {featured && (
@@ -59,7 +59,7 @@ export default function Page() {
                     <span className="text-text-muted">·</span>
                     <span className="text-text-muted">{fmt(featured.date)}</span>
                   </div>
-                  <h2 className="h-display mt-4 text-2xl sm:text-3xl">{featured.title}</h2>
+                  <h2 className="h-card mt-4">{featured.title}</h2>
                   <p className="mt-4 text-sm leading-relaxed text-text-secondary">{featured.excerpt}</p>
                   <span className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-cream">
                     Read the Story
@@ -85,7 +85,7 @@ export default function Page() {
                       <span className="text-text-muted">·</span>
                       <span className="text-text-muted">{fmt(p.date)}</span>
                     </div>
-                    <h3 className="h-display mt-3 text-lg leading-snug">{p.title}</h3>
+                    <h3 className="h-card-sm mt-3 leading-snug">{p.title}</h3>
                     <p className="mt-3 flex-1 text-sm leading-relaxed text-text-secondary">{p.excerpt}</p>
                     <span className="mt-4 text-xs uppercase tracking-[0.14em] text-cream link-underline">Read More</span>
                   </div>

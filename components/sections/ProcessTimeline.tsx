@@ -22,7 +22,7 @@ export default function ProcessTimeline({ phases }: { phases: ProcessPhase[] }) 
             {String(i + 1).padStart(2, '0')}
           </span>
           <div className="pt-1.5 sm:pt-2.5">
-            <h3 className="h-display text-lg sm:text-xl">{p.title}</h3>
+            <h3 className="h-card-sm sm:text-xl">{p.title}</h3>
             <p className="mt-2 text-sm leading-relaxed text-text-secondary">{p.body}</p>
             {p.receive && (
               <p className="mt-3 text-xs uppercase tracking-[0.12em] text-text-muted">

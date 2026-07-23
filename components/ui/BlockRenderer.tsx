@@ -16,7 +16,7 @@ export default function BlockRenderer({ blocks }: { blocks: Block[] }) {
         switch (b.type) {
           case 'h2':
             return (
-              <h2 key={i} className="h-display pt-6 text-2xl sm:text-3xl">
+              <h2 key={i} className="h-card pt-6">
                 {b.text}
               </h2>
             );

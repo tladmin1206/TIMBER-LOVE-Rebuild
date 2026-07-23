@@ -24,11 +24,11 @@ export default function Page() {
         image="/video-posters/928750123.jpg"
       />
       <TrustBar />
-      <section className="bg-bg-primary py-16 sm:py-24">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mb-12 max-w-2xl">
             <p className="eyebrow">Our Rentals</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Find Your Perfect Stay</h2>
+            <h2 className="h-section mt-4">Find Your Perfect Stay</h2>
           </Reveal>
           <RentalsGrid />
         </div>

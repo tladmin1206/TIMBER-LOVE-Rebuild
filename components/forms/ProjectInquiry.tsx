@@ -225,7 +225,7 @@ export default function ProjectInquiry() {
 
       <fieldset className="mt-8 border-0 p-0">
         <legend className="w-full">
-          <h2 ref={headingRef} tabIndex={-1} className="h-display text-2xl outline-none sm:text-3xl">
+          <h2 ref={headingRef} tabIndex={-1} className="h-card outline-none">
             {stepTitle(step.id)}
           </h2>
         </legend>
@@ -504,7 +504,7 @@ function SuccessScreen({ headingRef, answers }: { headingRef: React.RefObject<HT
   return (
     <div className="mx-auto max-w-2xl text-center" aria-live="polite">
       <p className="eyebrow">Inquiry Received</p>
-      <h2 ref={headingRef} tabIndex={-1} className="h-display mt-4 text-3xl outline-none sm:text-4xl">Thank You{answers.firstName ? `, ${answers.firstName}` : ''}</h2>
+      <h2 ref={headingRef} tabIndex={-1} className="h-section mt-4 outline-none">Thank You{answers.firstName ? `, ${answers.firstName}` : ''}</h2>
       <p className="text-lead mt-5">
         We have received your project details. A member of our team will review them and follow up
         {answers.contactMethod ? ` by ${answers.contactMethod.toLowerCase()}` : ''} about next steps.

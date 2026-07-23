@@ -107,8 +107,8 @@ export default function Page() {
         videoId="928472719"
         image="/video-posters/928472719.jpg"
       >
-        <Link href="/design-and-build-questionnaire/" className="btn-solid">Start Your Project</Link>
-        <Link href="/timber-and-love-gallery/" className="btn-outline">View Design + Build Projects</Link>
+        <Link href="/design-and-build-questionnaire/" className="btn-primary">Start Your Project</Link>
+        <Link href="/timber-and-love-gallery/" className="btn-secondary">View Design + Build Projects</Link>
       </PageHero>
 
       <TrustBar />
@@ -116,11 +116,11 @@ export default function Page() {
       <PressStrip />
 
       {/* Estimator promo */}
-      <section className="border-y border-border-subtle bg-bg-secondary py-14 sm:py-16">
+      <section className="border-y border-border-subtle bg-bg-secondary section-tight">
         <div className="container-wide grid gap-6 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Explore Your Investment Range</p>
-            <h2 className="h-display mt-3 text-2xl sm:text-4xl">See a Preliminary Estimate</h2>
+            <h2 className="h-section mt-3">See a Preliminary Estimate</h2>
             <p className="text-lead mt-4">
               Answer a few quick questions to see a realistic investment range for your project before you reach out. It
               is a helpful starting point, not a formal quote.
@@ -133,16 +133,16 @@ export default function Page() {
       </section>
 
       {/* Differentiators */}
-      <section className="bg-ink py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">Why Timber and Love</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">One Team, From Concept to Completion</h2>
+            <h2 className="h-section mt-4">One Team, From Concept to Completion</h2>
           </Reveal>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {differentiators.map((s, i) => (
-              <Reveal key={s.heading} delay={i * 90} className="border border-cream/10 bg-panel p-8">
-                <h3 className="h-display text-xl">{s.heading}</h3>
+              <Reveal key={s.heading} delay={i * 90} className="surface-card p-8">
+                <h3 className="h-card">{s.heading}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-body">{s.paragraphs?.[0]}</p>
               </Reveal>
             ))}
@@ -151,17 +151,17 @@ export default function Page() {
       </section>
 
       {/* Services we offer */}
-      <section className="border-t border-cream/10 bg-panel py-20 sm:py-28">
+      <section className="border-t border-border-subtle bg-surface section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">What We Build</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Design + Build Services</h2>
+            <h2 className="h-section mt-4">Design + Build Services</h2>
           </Reveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {serviceCategories.map((s, i) => (
-              <Reveal key={s.heading} delay={i * 70} className="border border-cream/10 bg-ink p-7">
+              <Reveal key={s.heading} delay={i * 70} className="surface-card p-7">
                 <div className="font-sans text-4xl tracking-brand text-accent/70">{String(i + 1).padStart(2, '0')}</div>
-                <h3 className="h-display mt-4 text-lg">{s.heading}</h3>
+                <h3 className="h-card-sm mt-4">{s.heading}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-body">{s.body}</p>
               </Reveal>
             ))}
@@ -174,11 +174,11 @@ export default function Page() {
       </section>
 
       {/* Process — 3 phases over background videos */}
-      <section className="bg-ink pt-20 text-center sm:pt-28">
+      <section className="bg-bg-primary pt-20 text-center sm:pt-28">
         <div className="container-wide max-w-2xl">
           <Reveal>
             <p className="eyebrow">Our Design + Build Process</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">How We Work</h2>
+            <h2 className="h-section mt-4">How We Work</h2>
             <p className="mt-6">
               <Link href="/our-process/" className="text-sm uppercase tracking-[0.16em] text-cream link-underline">See the Full Step-by-Step Process →</Link>
             </p>
@@ -191,10 +191,10 @@ export default function Page() {
           <div className="container-wide relative z-10">
             <Reveal className="max-w-xl">
               <div className="font-sans text-5xl tracking-brand text-accent/70">{p.num}</div>
-              <h3 className="h-display mt-4 text-3xl sm:text-4xl">{p.title}</h3>
+              <h3 className="h-section mt-4">{p.title}</h3>
               <p className="mt-5 text-body">{p.body}</p>
               {i === processPhases.length - 1 && (
-                <Link href="/design-and-build-questionnaire/" className="btn-outline mt-8">Start the Questionnaire</Link>
+                <Link href="/design-and-build-questionnaire/" className="btn-secondary mt-8">Start the Questionnaire</Link>
               )}
             </Reveal>
           </div>
@@ -202,17 +202,17 @@ export default function Page() {
       ))}
 
       {/* Values — full-bleed video background + left header + grid */}
-      <section className="relative overflow-hidden py-24 sm:py-32">
+      <section className="relative overflow-hidden section-feature">
         <VideoBg videoId="967110133" poster="/video-posters/967110133.jpg" overlay="bg-ink/75" />
         <div className="container-wide relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">What Drives Us</p>
-            <h2 className="h-display mt-4 text-5xl sm:text-7xl">Our Values</h2>
+            <h2 className="h-section mt-4">Our Values</h2>
           </Reveal>
           <div className="grid gap-5 sm:grid-cols-2">
             {values.map((s, i) => (
-              <Reveal key={s.heading} delay={i * 80} className="border border-cream/20 bg-ink/30 p-6 backdrop-blur-sm">
-                <h3 className="h-display text-lg capitalize">{s.heading?.toLowerCase()}</h3>
+              <Reveal key={s.heading} delay={i * 80} className="surface-card-glass p-6">
+                <h3 className="h-card-sm capitalize">{s.heading?.toLowerCase()}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-cream/80">{s.paragraphs?.[0]}</p>
               </Reveal>
             ))}
@@ -222,11 +222,11 @@ export default function Page() {
 
       {/* Gallery */}
       {galleryImgs.length > 0 && (
-        <section className="bg-ink py-20 sm:py-28">
+        <section className="bg-bg-primary section">
           <div className="container-wide">
             <Reveal className="mb-10">
               <p className="eyebrow">Our Work</p>
-              <h2 className="h-display mt-4 text-3xl sm:text-5xl">Design + Build Gallery</h2>
+              <h2 className="h-section mt-4">Design + Build Gallery</h2>
             </Reveal>
             <Gallery images={galleryImgs} columns={4} />
           </div>
@@ -237,11 +237,11 @@ export default function Page() {
       <ReviewWall reviews={clientReviews} eyebrow="Testimonials" heading="Trusted by Boise Homeowners" background="bg-bg-primary" moreHref="/reviews/" />
 
       {/* FAQ */}
-      <section className="bg-ink py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">FAQs</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Frequently Asked Questions</h2>
+            <h2 className="h-section mt-4">Frequently Asked Questions</h2>
           </Reveal>
           <div className="mt-12">
             <FAQ items={faq} />
@@ -250,14 +250,14 @@ export default function Page() {
       </section>
 
       {/* Closing statement */}
-      <section className="bg-ink pb-24 text-center">
+      <section className="bg-bg-primary pb-24 text-center">
         <div className="container-wide max-w-3xl">
           <Reveal>
             <p className="text-lg leading-relaxed text-cream/90">
               With one in-house team handling design and construction, your project stays coordinated from first concept
               through final walkthrough. Tell us about your home and we will explain the next step and what to expect.
             </p>
-            <Link href="/design-and-build-questionnaire/" className="btn-solid mt-10 inline-flex">Tell Us About Your Project</Link>
+            <Link href="/design-and-build-questionnaire/" className="btn-primary mt-10 inline-flex">Tell Us About Your Project</Link>
           </Reveal>
         </div>
       </section>

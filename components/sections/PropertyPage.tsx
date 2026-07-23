@@ -118,11 +118,11 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
       )}
 
       {/* Overview + booking panel */}
-      <section className="bg-bg-primary py-14 sm:py-20">
+      <section className="bg-bg-primary section-tight">
         <div className="container-wide grid gap-12 lg:grid-cols-[1.7fr_1fr]">
           <div>
             {data.destination && <p className="eyebrow">{data.destination}</p>}
-            <h2 className="h-display mt-3 text-3xl sm:text-4xl">{data.hero.heading}</h2>
+            <h2 className="h-section mt-3">{data.hero.heading}</h2>
 
             {/* At a glance */}
             {glanceEntries.length > 0 && (
@@ -171,10 +171,10 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
 
       {/* Amenities */}
       {(data.amenityGroups?.length || data.amenities?.length) && (
-        <section className="border-t border-border-subtle bg-bg-secondary py-14 sm:py-20">
+        <section className="border-t border-border-subtle bg-bg-secondary section-tight">
           <div className="container-wide">
             <Reveal className="mb-8">
-              <h2 className="h-display text-2xl sm:text-3xl">Amenities</h2>
+              <h2 className="h-card">Amenities</h2>
             </Reveal>
             {data.amenityGroups?.length ? (
               <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -202,10 +202,10 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
 
       {/* Sleeping arrangements */}
       {data.sleeping && data.sleeping.length > 0 && (
-        <section className="bg-bg-primary py-14 sm:py-20">
+        <section className="bg-bg-primary section-tight">
           <div className="container-wide">
             <Reveal className="mb-8">
-              <h2 className="h-display text-2xl sm:text-3xl">Sleeping Arrangements</h2>
+              <h2 className="h-card">Sleeping Arrangements</h2>
             </Reveal>
             <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {data.sleeping.map((s) => (
@@ -218,10 +218,10 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
 
       {/* Things to Know */}
       {data.thingsToKnow && data.thingsToKnow.length > 0 && (
-        <section className="border-t border-border-subtle bg-bg-secondary py-14 sm:py-20">
+        <section className="border-t border-border-subtle bg-bg-secondary section-tight">
           <div className="container-tl max-w-3xl">
             <Reveal>
-              <h2 className="h-display text-2xl sm:text-3xl">Things to Know</h2>
+              <h2 className="h-card">Things to Know</h2>
               <ul className="mt-8 space-y-3 text-body">
                 {data.thingsToKnow.map((t, i) => (
                   <li key={i} className="flex items-start gap-3 border-b border-border-subtle pb-3">
@@ -237,11 +237,11 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
 
       {/* Related properties */}
       {related.length > 0 && (
-        <section className="bg-bg-primary py-14 sm:py-20">
+        <section className="bg-bg-primary section-tight">
           <div className="container-wide">
             <Reveal className="mb-8">
               <p className="eyebrow">More Stays</p>
-              <h2 className="h-display mt-3 text-2xl sm:text-4xl">Other Timber and Love Rentals</h2>
+              <h2 className="h-section mt-3">Other Timber and Love Rentals</h2>
             </Reveal>
             <div className="grid gap-6 sm:grid-cols-3">
               {related.map((r) => (
@@ -251,7 +251,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
                     <img src={r.image} alt={`${r.name} in ${r.destination}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div className="p-5">
-                    <h3 className="h-display text-lg">{r.name}</h3>
+                    <h3 className="h-card-sm">{r.name}</h3>
                     <p className="mt-1 text-xs uppercase tracking-[0.14em] text-text-muted">{r.destination}</p>
                   </div>
                 </Link>

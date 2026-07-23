@@ -21,7 +21,7 @@ export default function PageHero({
 }) {
   return (
     <section
-      className={`relative isolate flex items-center justify-center overflow-hidden bg-ink ${
+      className={`relative isolate flex items-center justify-center overflow-hidden bg-bg-primary ${
         height === 'tall' ? 'min-h-[68vh] py-32' : 'min-h-[48vh] py-28'
       }`}
     >
@@ -40,9 +40,11 @@ export default function PageHero({
       )}
       {/* Center vignette guarantees legible headings over any image brightness. */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_65%_60%_at_center,rgba(11,11,12,0.55),transparent_75%)]" />
-      <Reveal className="container-tl pt-12 text-center">
+      {/* container-wide matches every page body below, so hero and content
+          share one left edge instead of stepping in and out on scroll. */}
+      <Reveal className="container-wide pt-12 text-center">
         {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-        <h1 className="h-display mx-auto mt-4 max-w-4xl text-4xl text-cream sm:text-6xl">{title}</h1>
+        <h1 className="h-page mx-auto mt-4 max-w-4xl text-cream">{title}</h1>
         {subtitle && <p className="mx-auto mt-5 max-w-2xl text-body">{subtitle}</p>}
         {children && <div className="mt-8 flex flex-wrap items-center justify-center gap-4">{children}</div>}
       </Reveal>

@@ -32,11 +32,11 @@ export default function Page() {
       <TrustBar />
 
       {/* Brand story */}
-      <section className="bg-bg-primary py-20 sm:py-28" aria-labelledby="story-heading">
+      <section className="bg-bg-primary section" aria-labelledby="story-heading">
         <div className="container-wide grid gap-12 lg:grid-cols-2 lg:items-start">
           <Reveal>
             <p className="eyebrow">Where We Started</p>
-            <h2 id="story-heading" className="h-display mt-4 text-3xl sm:text-5xl">
+            <h2 id="story-heading" className="h-section mt-4">
               Founded in Boise in {site.founded}
             </h2>
           </Reveal>
@@ -58,11 +58,11 @@ export default function Page() {
       </section>
 
       {/* Why one brand includes multiple services */}
-      <section className="bg-bg-secondary py-20 sm:py-28" aria-labelledby="brand-heading">
+      <section className="bg-bg-secondary section" aria-labelledby="brand-heading">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">One Brand, Five Pathways</p>
-            <h2 id="brand-heading" className="h-display mt-4 text-3xl sm:text-5xl">
+            <h2 id="brand-heading" className="h-section mt-4">
               Why One Brand Includes Multiple Home and Real Estate Services
             </h2>
             <p className="text-lead mt-4">
@@ -82,7 +82,7 @@ export default function Page() {
                   <div className="font-sans text-4xl tracking-brand text-accent/70">
                     {String(i + 1).padStart(2, '0')}
                   </div>
-                  <h3 className="h-display mt-4 text-xl">{p.title}</h3>
+                  <h3 className="h-card mt-4">{p.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-text-secondary">{p.blurb}</p>
                   <span className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-cream">
                     {p.cta}
@@ -98,11 +98,11 @@ export default function Page() {
       </section>
 
       {/* Luke Caldwell */}
-      <section className="bg-bg-primary py-20 sm:py-28" aria-labelledby="luke-heading">
+      <section className="bg-bg-primary section" aria-labelledby="luke-heading">
         <div className="container-wide grid gap-12 lg:grid-cols-2 lg:items-start">
           <Reveal>
             <p className="eyebrow">Who Leads the Work</p>
-            <h2 id="luke-heading" className="h-display mt-4 text-3xl sm:text-5xl">
+            <h2 id="luke-heading" className="h-section mt-4">
               Luke Caldwell
             </h2>
           </Reveal>
@@ -123,11 +123,11 @@ export default function Page() {
       </section>
 
       {/* Design philosophy */}
-      <section className="bg-bg-secondary py-20 sm:py-28" aria-labelledby="philosophy-heading">
+      <section className="bg-bg-secondary section" aria-labelledby="philosophy-heading">
         <div className="container-wide">
           <Reveal className="max-w-3xl">
             <p className="eyebrow">Our Point of View</p>
-            <h2 id="philosophy-heading" className="h-display mt-4 text-3xl sm:text-5xl">
+            <h2 id="philosophy-heading" className="h-section mt-4">
               Warm, Modern, and True to the House
             </h2>
             <p className="text-lead mt-5">
@@ -144,11 +144,11 @@ export default function Page() {
       </section>
 
       {/* HGTV history */}
-      <section className="bg-bg-primary py-20 sm:py-28" aria-labelledby="hgtv-heading">
+      <section className="bg-bg-primary section" aria-labelledby="hgtv-heading">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">As Seen on HGTV</p>
-            <h2 id="hgtv-heading" className="h-display mt-4 text-3xl sm:text-5xl">
+            <h2 id="hgtv-heading" className="h-section mt-4">
               A Story Documented on Screen
             </h2>
             <p className="text-lead mt-5">
@@ -164,7 +164,7 @@ export default function Page() {
       </section>
 
       {/* Americana Soul */}
-      <section id="americana-soul" className="bg-bg-secondary py-20 sm:py-28" aria-labelledby="book-heading">
+      <section id="americana-soul" className="bg-bg-secondary section" aria-labelledby="book-heading">
         <div className="container-wide grid gap-12 lg:grid-cols-[minmax(0,320px)_1fr] lg:items-center">
           <Reveal className="mx-auto w-full max-w-[320px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -177,7 +177,7 @@ export default function Page() {
           </Reveal>
           <Reveal delay={120}>
             <p className="eyebrow">The Book</p>
-            <h2 id="book-heading" className="h-display mt-4 text-3xl sm:text-5xl">
+            <h2 id="book-heading" className="h-section mt-4">
               {site.book.title}
             </h2>
             {/* TEMP: confirm the book description and any subtitle wording with the business */}
@@ -200,11 +200,11 @@ export default function Page() {
       </section>
 
       {/* Press & partnerships */}
-      <section className="bg-bg-primary py-16 sm:py-20" aria-labelledby="press-heading">
+      <section className="bg-bg-primary section-tight" aria-labelledby="press-heading">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Press &amp; Partnerships</p>
-            <h2 id="press-heading" className="h-display mt-4 text-2xl sm:text-3xl">
+            <h2 id="press-heading" className="h-card mt-4">
               Working With Us on a Story or Project
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-text-secondary">

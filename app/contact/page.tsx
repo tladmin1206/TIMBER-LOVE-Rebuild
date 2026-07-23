@@ -73,11 +73,11 @@ export default function Page() {
       <TrustBar />
 
       {/* Choose Your Path — route each need to the correct destination */}
-      <section className="bg-bg-primary py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">Choose Your Path</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Find the Right Starting Point</h2>
+            <h2 className="h-section mt-4">Find the Right Starting Point</h2>
             <p className="text-lead mt-5">
               Every inquiry has its own best route. Choose the path that matches what you need and we will
               take it from there.
@@ -86,7 +86,7 @@ export default function Page() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {paths.map((p, i) => (
               <Reveal key={p.title} delay={i * 70} className="surface-card flex flex-col p-8">
-                <h3 className="h-display text-xl">{p.title}</h3>
+                <h3 className="h-card">{p.title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-text-secondary">{p.line}</p>
                 <div className="mt-6">
                   <Cta href={p.href} variant="secondary" track={p.track} className="w-full">
@@ -100,11 +100,11 @@ export default function Page() {
       </section>
 
       {/* General inquiry — form plus primary customer contact details */}
-      <section id="general" className="border-t border-border-subtle bg-bg-secondary py-20 sm:py-28">
+      <section id="general" className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <p className="eyebrow">General Inquiry</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Send Us a Note</h2>
+            <h2 className="h-section mt-4">Send Us a Note</h2>
             <p className="text-lead mt-5">
               For general questions, send us a note and a member of our team will get back to you. If you
               already know which path fits, the options above will get you there faster.
@@ -141,11 +141,11 @@ export default function Page() {
 
       {/* Abandonment recovery — sets expectations and offers two lower-commitment
           alternatives for visitors who scrolled past the form without sending it. */}
-      <section className="border-t border-border-subtle bg-bg-primary py-20 sm:py-28">
+      <section className="border-t border-border-subtle bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">What Happens Next</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">No Pressure, No Obligation</h2>
+            <h2 className="h-section mt-4">No Pressure, No Obligation</h2>
             <p className="text-lead mt-5">
               Reaching out does not commit you to anything. Here is exactly what to expect.
             </p>
@@ -171,7 +171,7 @@ export default function Page() {
             ].map((s, i) => (
               <Reveal key={s.step} delay={i * 110} className="surface-card p-8">
                 <div className="font-sans text-4xl tracking-brand text-cream/40">{s.step}</div>
-                <h3 className="h-display mt-6 text-xl">{s.title}</h3>
+                <h3 className="h-card mt-6">{s.title}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-text-secondary">{s.body}</p>
               </Reveal>
             ))}
@@ -179,7 +179,7 @@ export default function Page() {
 
           <Reveal delay={120} className="surface-card mt-10 flex flex-col items-center gap-6 p-8 text-center sm:flex-row sm:justify-between sm:text-left">
             <div>
-              <h3 className="h-display text-xl">Not Ready to Talk Yet?</h3>
+              <h3 className="h-card">Not Ready to Talk Yet?</h3>
               <p className="mt-2 max-w-lg text-sm leading-relaxed text-text-secondary">
                 Get a preliminary investment range for your project in about two minutes. No contact details required
                 to see your number.
@@ -196,11 +196,11 @@ export default function Page() {
       </section>
 
       {/* Press & Partnerships — kept separate from customer contact routing */}
-      <section id="press" className="border-t border-border-subtle bg-bg-primary py-20 sm:py-28">
+      <section id="press" className="border-t border-border-subtle bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">Press & Partnerships</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Media, Brand & Appearance Inquiries</h2>
+            <h2 className="h-section mt-4">Media, Brand & Appearance Inquiries</h2>
             <p className="text-lead mt-5">
               For appearance requests, brand partnerships, and press, reach out to our partnerships contact
               below. This line is dedicated to media and collaboration inquiries.

@@ -29,7 +29,7 @@ export default function HeroVideo({
     `?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1&title=0&byline=0&portrait=0`;
 
   return (
-    <div className="absolute inset-0 overflow-hidden bg-ink" aria-hidden>
+    <div className="absolute inset-0 overflow-hidden bg-bg-primary" aria-hidden>
       {/* Poster / fallback */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img

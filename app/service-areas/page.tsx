@@ -54,11 +54,11 @@ export default function Page() {
       <TrustBar />
 
       {/* Communities */}
-      <section className="bg-bg-primary py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Communities We Serve</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Across the Treasure Valley</h2>
+            <h2 className="h-section mt-4">Across the Treasure Valley</h2>
             <p className="text-lead mt-4">
               Based in Boise since {site.founded}, our team knows the neighborhoods, the housing stock, and the way this
               market builds. We work with homeowners throughout the surrounding communities.
@@ -80,11 +80,11 @@ export default function Page() {
       </section>
 
       {/* Local knowledge */}
-      <section className="border-t border-border-subtle bg-bg-secondary py-20 sm:py-24">
+      <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Local Knowledge</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">A Team That Knows Boise Homes</h2>
+            <h2 className="h-section mt-4">A Team That Knows Boise Homes</h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-lead">

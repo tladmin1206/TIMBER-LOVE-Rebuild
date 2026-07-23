@@ -68,7 +68,7 @@ export default function PropertyGallery({ images }: { images: GalleryImage[] }) 
         ))}
         <button
           onClick={() => openAt(0)}
-          className="absolute bottom-4 right-4 z-10 border border-cream/60 bg-ink/70 px-4 py-2 text-xs uppercase tracking-[0.14em] text-cream backdrop-blur transition hover:bg-ink"
+          className="absolute bottom-4 right-4 z-10 border border-cream/60 bg-ink/70 px-4 py-2 text-xs uppercase tracking-[0.14em] text-cream backdrop-blur transition hover:bg-bg-primary"
         >
           Show All {images.length} Photos
         </button>

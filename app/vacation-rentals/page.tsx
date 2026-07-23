@@ -26,11 +26,11 @@ export default function Page() {
       </PageHero>
 
       <TrustBar />
-      <section className="bg-bg-primary py-16 sm:py-24">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Our Properties</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Timber and Love Vacation Rentals</h2>
+            <h2 className="h-section mt-4">Timber and Love Vacation Rentals</h2>
             <p className="text-lead mt-4">
               Each property is designed and cared for by our team, so a stay is the easiest way to experience the
               Timber and Love aesthetic in person.

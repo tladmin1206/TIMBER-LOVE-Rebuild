@@ -14,7 +14,7 @@ export type Promo = {
 export default function FullBleedPromo({ logo, logoAlt, bg, cta, href, external }: Promo) {
   const ext = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
   return (
-    <section className="relative flex min-h-[58vh] items-center overflow-hidden bg-ink">
+    <section className="relative flex min-h-[58vh] items-center overflow-hidden bg-bg-primary">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={bg} alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
       <div className="absolute inset-0 bg-ink/45" />
@@ -22,7 +22,7 @@ export default function FullBleedPromo({ logo, logoAlt, bg, cta, href, external 
         <div className="flex flex-wrap items-center gap-8 sm:gap-14">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={logo} alt={logoAlt} className="h-20 w-auto max-w-[210px] object-contain sm:h-24" />
-          <Link href={href} className="btn-outline" {...ext}>
+          <Link href={href} className="btn-secondary" {...ext}>
             {cta}
           </Link>
         </div>

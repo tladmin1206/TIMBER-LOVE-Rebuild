@@ -66,7 +66,7 @@ export default function ClosingCta({
   image = DEFAULT_IMAGE,
 }: ClosingCtaProps) {
   return (
-    <section className="relative isolate flex min-h-[52vh] items-center overflow-hidden py-20 sm:min-h-[56vh] sm:py-28">
+    <section className="relative isolate flex min-h-[52vh] items-center overflow-hidden sm:min-h-[56vh] section">
       {videoId ? (
         <VideoBg
           videoId={videoId}
@@ -85,7 +85,7 @@ export default function ClosingCta({
       <div className="container-wide relative z-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
         <Reveal>
           <p className="eyebrow">{eyebrow}</p>
-          <h2 className="h-display mt-4 text-3xl text-cream sm:text-5xl">{title}</h2>
+          <h2 className="h-section mt-4 text-cream">{title}</h2>
           <p className="text-lead mt-5 max-w-xl">{body}</p>
         </Reveal>
         <Reveal delay={100} className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:justify-end">

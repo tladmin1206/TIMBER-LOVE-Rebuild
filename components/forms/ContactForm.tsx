@@ -56,7 +56,7 @@ export default function ContactForm({ source = 'website', compact = false }: Pro
         tabIndex={-1}
         className="py-10 text-center focus:outline-none"
       >
-        <p className="h-display text-2xl text-cream">Message Sent</p>
+        <p className="h-card text-cream">Message Sent</p>
         <p className="mt-4 text-body">
           A member of our team reads every inquiry personally. Expect a reply within one business day.
         </p>

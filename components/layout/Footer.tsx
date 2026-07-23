@@ -39,7 +39,7 @@ function FooterLink({ label, href, external }: { label: string; href: string; ex
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border-subtle bg-ink">
+    <footer className="border-t border-border-subtle bg-bg-primary">
       <div className="container-wide grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4">
         {/* Brand */}
         <div>

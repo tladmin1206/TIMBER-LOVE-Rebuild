@@ -85,11 +85,11 @@ export default function Page() {
       <TrustBar />
 
       {/* Why design-build */}
-      <section className="bg-bg-primary py-20 sm:py-24">
+      <section className="bg-bg-primary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">The Design-Build Advantage</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Why One Team Makes the Difference</h2>
+            <h2 className="h-section mt-4">Why One Team Makes the Difference</h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-lead">
@@ -102,11 +102,11 @@ export default function Page() {
       </section>
 
       {/* The timeline */}
-      <section className="border-t border-border-subtle bg-bg-secondary py-20 sm:py-28">
+      <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto mb-14 max-w-2xl text-center">
             <p className="eyebrow">Step by Step</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">What Happens, and When</h2>
+            <h2 className="h-section mt-4">What Happens, and When</h2>
           </Reveal>
           <ProcessTimeline phases={phases} />
         </div>

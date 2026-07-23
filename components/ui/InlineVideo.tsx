@@ -15,7 +15,7 @@ export default function InlineVideo({
   const [playing, setPlaying] = useState(false);
 
   return (
-    <div className={`relative aspect-video w-full overflow-hidden bg-ink ${className}`}>
+    <div className={`relative aspect-video w-full overflow-hidden bg-bg-primary ${className}`}>
       {playing ? (
         <iframe
           src={`https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0&dnt=1`}

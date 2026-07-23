@@ -53,7 +53,7 @@ export default function RentalsGrid() {
               <img src={r.image} alt={r.name} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
             </div>
             <div className="p-7">
-              <h3 className="h-display text-xl">{r.name}</h3>
+              <h3 className="h-card">{r.name}</h3>
               <p className="mt-1 text-xs uppercase tracking-[0.18em] text-cream/60">{r.location}</p>
               <p className="mt-3 text-sm leading-relaxed text-body">{r.blurb}</p>
               <span className="mt-5 inline-block text-xs uppercase tracking-[0.16em] text-cream link-underline">View Details →</span>

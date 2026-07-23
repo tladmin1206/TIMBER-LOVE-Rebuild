@@ -74,7 +74,7 @@ export default function ProjectGrid() {
                 <span className="text-text-muted">·</span>
                 <span className="text-text-muted">{p.location}</span>
               </div>
-              <h3 className="h-display mt-3 text-2xl">{p.title}</h3>
+              <h3 className="h-card mt-3">{p.title}</h3>
               {p.hgtv && <p className="mt-2 text-xs uppercase tracking-[0.14em] text-text-muted">{p.hgtv}</p>}
               <p className="mt-3 text-sm leading-relaxed text-text-secondary">{p.summary}</p>
               <span className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-cream">

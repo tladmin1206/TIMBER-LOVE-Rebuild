@@ -50,11 +50,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       <TrustBar />
 
       {/* At a glance + story */}
-      <section className="bg-bg-primary py-16 sm:py-24">
+      <section className="bg-bg-primary section">
         <div className="container-wide grid gap-12 lg:grid-cols-[2fr_1fr]">
           <Reveal>
             <p className="eyebrow">About This Project</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">{project.scope} in {project.location}</h2>
+            <h2 className="h-section mt-4">{project.scope} in {project.location}</h2>
             <p className="text-lead mt-6">{project.summary}</p>
             <p className="mt-4 text-sm leading-relaxed text-text-secondary">
               Designed and built by the Timber and Love in-house team, this project reflects our warm, modern approach to
@@ -95,11 +95,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Full gallery */}
-      <section className="border-t border-border-subtle bg-bg-secondary py-16 sm:py-24">
+      <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mb-10">
             <p className="eyebrow">The Space</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Take a Look Inside</h2>
+            <h2 className="h-section mt-4">Take a Look Inside</h2>
           </Reveal>
           <Gallery images={project.gallery} columns={3} />
         </div>
@@ -107,11 +107,11 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
       {/* Related projects */}
       {related.length > 0 && (
-        <section className="bg-bg-primary py-16 sm:py-20">
+        <section className="bg-bg-primary section-tight">
           <div className="container-wide">
             <Reveal className="mb-8">
               <p className="eyebrow">More Work</p>
-              <h2 className="h-display mt-4 text-2xl sm:text-4xl">Related Projects</h2>
+              <h2 className="h-section mt-4">Related Projects</h2>
             </Reveal>
             <div className="grid gap-6 md:grid-cols-2">
               {related.map((r) => (
@@ -121,7 +121,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     <img src={r.cover} alt={`${r.title} — ${r.category}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div className="p-5">
-                    <h3 className="h-display text-xl">{r.title}</h3>
+                    <h3 className="h-card">{r.title}</h3>
                     <p className="mt-1 text-xs uppercase tracking-[0.14em] text-text-muted">{r.category} · {r.location}</p>
                   </div>
                 </Link>

@@ -23,7 +23,7 @@ export default function ReviewSlider({ items, duration = 55 }: { items: Testimon
           <figure
             key={i}
             aria-hidden={i >= items.length}
-            className="flex w-[300px] shrink-0 flex-col border border-border-subtle bg-ink/40 p-6 text-left backdrop-blur-sm sm:w-[380px]"
+            className="flex w-[300px] shrink-0 flex-col surface-card-glass p-6 text-left sm:w-[380px]"
           >
             <div className="flex items-center justify-between">
               <Stars rating={5} size="sm" />

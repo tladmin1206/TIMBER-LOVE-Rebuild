@@ -51,11 +51,11 @@ export default function Page() {
       <TrustBar />
 
       {/* What is available / who it is for / what happens next */}
-      <section className="bg-bg-primary py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">Before You Continue</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">What to Expect</h2>
+            <h2 className="h-section mt-4">What to Expect</h2>
             <p className="text-lead mt-5">
               This page introduces the affiliated site so you know what you are stepping into. Here is what is
               available, who it is intended for, and what happens when you head over.
@@ -65,7 +65,7 @@ export default function Page() {
             {sections.map((s, i) => (
               <Reveal key={s.eyebrow} delay={i * 90} className="surface-card p-8">
                 <p className="eyebrow">{s.eyebrow}</p>
-                <h3 className="h-display mt-3 text-lg">{s.heading}</h3>
+                <h3 className="h-card-sm mt-3">{s.heading}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-text-secondary">{s.body}</p>
               </Reveal>
             ))}
@@ -74,11 +74,11 @@ export default function Page() {
       </section>
 
       {/* Primary external CTA + affiliated-site note */}
-      <section className="bg-bg-secondary py-20 sm:py-28">
+      <section className="bg-bg-secondary section">
         <div className="container-wide max-w-2xl text-center">
           <Reveal>
             <p className="eyebrow">Take a Look</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Explore the Details</h2>
+            <h2 className="h-section mt-4">Explore the Details</h2>
             <p className="text-lead mt-5">
               Read more about how Timber and Love approaches real estate investment and reach out with your questions.
               You will continue to Timber and Love Realty, our affiliated site, in a new tab.
@@ -97,7 +97,7 @@ export default function Page() {
       </section>
 
       {/* Financial disclaimer */}
-      <section className="bg-bg-primary py-12 sm:py-16">
+      <section className="bg-bg-primary section-tight">
         <div className="container-wide max-w-3xl">
           <Reveal className="surface-card p-8">
             <p className="eyebrow">Disclaimer</p>

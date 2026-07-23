@@ -57,11 +57,11 @@ function PathwayCard({ pathway, featured = false }: { pathway: Pathway; featured
 export default function PathwaySelector() {
   const [featured, ...rest] = pathways;
   return (
-    <section id="pathways" className="bg-bg-primary py-20 sm:py-28" aria-labelledby="pathways-heading">
+    <section id="pathways" className="bg-bg-primary section" aria-labelledby="pathways-heading">
       <div className="container-wide">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">Find the Right Service</p>
-          <h2 id="pathways-heading" className="h-display mt-4 text-3xl sm:text-5xl">
+          <h2 id="pathways-heading" className="h-section mt-4">
             What Can We Help You Do?
           </h2>
         </Reveal>
@@ -77,11 +77,11 @@ export default function PathwaySelector() {
           <Link
             href="/contact/"
             data-track="pathway_help"
-            className="group relative flex min-h-[16rem] flex-col justify-between border border-cream/15 bg-surface p-7 transition-colors hover:border-cream/40"
+            className="group relative flex min-h-[16rem] flex-col justify-between border border-border-subtle bg-surface p-7 transition-colors hover:border-cream/40"
           >
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-cream/60">Not Sure Where to Start?</p>
-              <h3 className="h-display mt-4 text-2xl text-cream sm:text-3xl">Let&apos;s Find the Right Fit</h3>
+              <h3 className="h-card mt-4 text-cream">Let&apos;s Find the Right Fit</h3>
               <p className="mt-3 max-w-xs text-sm leading-relaxed text-cream/70">
                 Tell us a little about your goals and our team will point you to the right service.
               </p>

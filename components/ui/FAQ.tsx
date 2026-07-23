@@ -8,7 +8,7 @@ export type FaqItem = { q: string; a: string };
 export default function FAQ({ items }: { items: FaqItem[] }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <div className="mx-auto max-w-3xl divide-y divide-cream/10 border-y border-cream/10">
+    <div className="mx-auto max-w-3xl divide-y divide-cream/10 border-y border-border-subtle">
       {items.map((it, i) => {
         const isOpen = open === i;
         return (

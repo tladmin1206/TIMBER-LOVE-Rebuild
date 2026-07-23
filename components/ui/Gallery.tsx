@@ -51,7 +51,7 @@ export default function Gallery({
           <button
             key={img.src + i}
             onClick={() => setIndex(i)}
-            className="group relative aspect-[4/3] overflow-hidden bg-panel"
+            className="group relative aspect-[4/3] overflow-hidden bg-surface"
             aria-label={`View image: ${img.alt}`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}

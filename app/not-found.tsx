@@ -8,7 +8,7 @@ export default function NotFound() {
     <section className="flex min-h-[70vh] items-center bg-bg-primary py-32">
       <div className="container-tl max-w-2xl text-center">
         <p className="eyebrow">404</p>
-        <h1 className="h-display mt-4 text-4xl sm:text-6xl">We Couldn&apos;t Find That Page</h1>
+        <h1 className="h-page mt-4">We Couldn&apos;t Find That Page</h1>
         <p className="text-lead mt-5">
           The page you were looking for may have moved or no longer exists. Here are a few good places to pick back up.
         </p>

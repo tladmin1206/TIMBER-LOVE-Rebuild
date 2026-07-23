@@ -12,7 +12,7 @@ import { heroVideoId, heroVideoPoster, heroRotating, stats } from '@/lib/content
  */
 export default function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-ink">
+    <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-bg-primary">
       <HeroVideo videoId={heroVideoId} poster={heroVideoPoster} />
       {/* Original-style overlay: darkens behind the left-aligned content while
           revealing the interior video toward the right, plus a soft vertical
@@ -22,7 +22,7 @@ export default function Hero() {
 
       <div className="relative z-10 flex flex-1 items-center">
         <div className="container-wide w-full pt-24 text-left">
-          <h1 className="h-display animate-fadeUp text-5xl text-cream sm:text-7xl lg:text-8xl">Timber and Love</h1>
+          <h1 className="h-hero animate-fadeUp text-cream">Timber and Love</h1>
           <p className="mt-4 animate-fadeUp text-lg uppercase tracking-brand text-cream/85 [animation-delay:120ms] sm:text-2xl">
             <RotatingText words={heroRotating} />
           </p>

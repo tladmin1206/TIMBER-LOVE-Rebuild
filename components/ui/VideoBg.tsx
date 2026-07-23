@@ -40,7 +40,7 @@ export default function VideoBg({
     `?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1&title=0&byline=0&portrait=0`;
 
   return (
-    <div ref={ref} className="absolute inset-0 overflow-hidden bg-ink" aria-hidden>
+    <div ref={ref} className="absolute inset-0 overflow-hidden bg-bg-primary" aria-hidden>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={poster} alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
       {show && (

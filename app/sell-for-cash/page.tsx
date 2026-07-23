@@ -50,11 +50,11 @@ export default function Page() {
       <TrustBar />
 
       {/* Who it is for */}
-      <section className="bg-bg-primary py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide max-w-3xl">
           <Reveal>
             <p className="eyebrow">Who It Is For</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">A Simpler Way to Sell</h2>
+            <h2 className="h-section mt-4">A Simpler Way to Sell</h2>
             <p className="text-lead mt-5">
               A direct home offer can suit people who value a straightforward process over the traditional listing
               route. That might be an owner facing a move on a tight timeline, someone with a property that needs work,
@@ -66,17 +66,17 @@ export default function Page() {
       </section>
 
       {/* How the process works */}
-      <section className="bg-bg-secondary py-20 sm:py-28">
+      <section className="bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">How It Works</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">A High-Level Look at the Process</h2>
+            <h2 className="h-section mt-4">A High-Level Look at the Process</h2>
           </Reveal>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {steps.map((s, i) => (
               <Reveal key={s.num} delay={i * 90} className="surface-card p-8">
                 <div className="font-sans text-4xl tracking-brand text-accent/70">{s.num}</div>
-                <h3 className="h-display mt-4 text-lg">{s.heading}</h3>
+                <h3 className="h-card-sm mt-4">{s.heading}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-text-secondary">{s.body}</p>
               </Reveal>
             ))}
@@ -85,11 +85,11 @@ export default function Page() {
       </section>
 
       {/* What happens after clicking + external note */}
-      <section className="bg-bg-primary py-20 sm:py-28">
+      <section className="bg-bg-primary section">
         <div className="container-wide max-w-2xl text-center">
           <Reveal>
             <p className="eyebrow">What Happens Next</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Continue to Buy My House</h2>
+            <h2 className="h-section mt-4">Continue to Buy My House</h2>
             <p className="text-lead mt-5">
               When you request a cash offer, you continue to Buy My House at buymyhouse.co, an affiliated Timber and
               Love site. There you can share details about your home and start a conversation with their team. Nothing

@@ -25,12 +25,12 @@ export default function ReviewWall({
   moreHref?: string;
 }) {
   return (
-    <section className={`${background} py-20 sm:py-24`} aria-labelledby="reviews-heading">
+    <section className={`${background} section`} aria-labelledby="reviews-heading">
       <div className="container-wide">
         <Reveal className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
             <p className="eyebrow">{eyebrow}</p>
-            <h2 id="reviews-heading" className="h-display mt-4 text-3xl sm:text-5xl">{heading}</h2>
+            <h2 id="reviews-heading" className="h-section mt-4">{heading}</h2>
           </div>
           <div className="flex items-center gap-4">
             <div className="text-right">

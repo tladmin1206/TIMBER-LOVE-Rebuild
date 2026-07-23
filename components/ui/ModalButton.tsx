@@ -5,7 +5,7 @@ import { useModal } from './ModalProvider';
 /** A button that opens one of the global lead-capture modals. */
 export default function ModalButton({
   modal,
-  className = 'btn-solid',
+  className = 'btn-primary',
   children,
 }: {
   modal: 'connect' | 'work-with-us';

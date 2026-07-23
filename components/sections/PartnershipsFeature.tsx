@@ -45,7 +45,7 @@ export default function PartnershipsFeature({ videoId = '927976789', poster = '/
   }, []);
 
   return (
-    <section className="relative isolate flex min-h-[92vh] items-center overflow-hidden py-24 sm:py-28" aria-roledescription="carousel" aria-label="Americana Soul and Partnerships">
+    <section className="relative isolate flex min-h-[92vh] items-center overflow-hidden section-feature" aria-roledescription="carousel" aria-label="Americana Soul and Partnerships">
       <VideoBg videoId={videoId} poster={poster} overlay="bg-gradient-to-t from-ink via-ink/85 to-ink/60" />
 
       <div className="container-wide relative z-10 w-full">
@@ -67,7 +67,7 @@ export default function PartnershipsFeature({ videoId = '927976789', poster = '/
                   {s.serif ? (
                     <h2 className="mt-5 font-serif text-6xl italic leading-none text-cream sm:text-7xl lg:text-8xl">{s.title}</h2>
                   ) : (
-                    <h2 className="h-display mt-5 text-4xl text-cream sm:text-6xl">{s.title}</h2>
+                    <h2 className="h-section mt-5 text-cream">{s.title}</h2>
                   )}
                   <p className="mt-7 max-w-lg text-base leading-relaxed text-cream/80 sm:text-lg">{s.body}</p>
 
@@ -90,7 +90,7 @@ export default function PartnershipsFeature({ videoId = '927976789', poster = '/
                 </div>
 
                 {/* Framed image */}
-                <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden border border-cream/15 shadow-2xl shadow-black/60">
+                <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden border border-border-subtle shadow-2xl shadow-black/60">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={s.image} alt={s.imageAlt} className="h-full w-full object-cover" loading="lazy" />
                 </div>
