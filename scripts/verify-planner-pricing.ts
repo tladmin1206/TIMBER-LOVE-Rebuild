@@ -181,6 +181,79 @@ console.log('\nRule 4: no band, no offer');
   console.log(`        offerable: ${offerable.join(', ')}`);
 }
 
+console.log('\nProject types are priced on their own band, not a neighbour’s');
+{
+  const ruleset = signedFixture();
+  const modest: PropertyFacts = { ...property, yearBuilt: 2010, occupiedDuringConstruction: false };
+
+  const primary = estimate(
+    { ...answers, projectType: 'bathroom', scopeLevel: 'reimagine', finishTier: 'elevated' },
+    modest,
+    { ruleset, now: NOW }
+  );
+  const guest = estimate(
+    { ...answers, projectType: 'bathroom-guest', scopeLevel: 'reimagine', finishTier: 'elevated' },
+    modest,
+    { ruleset, now: NOW }
+  );
+
+  check('guest bath resolves its own band', guest.trace?.bandLookupKey === 'bathroom-guest.reimagine.elevated',
+    guest.trace?.bandLookupKey ?? guest.outcome);
+
+  // Compared at the band, because the guest-bath band sits below the project
+  // minimum and is therefore declined before a range is produced — see the
+  // ruleset-consistency section below.
+  const guestBand = guest.trace?.approvedBand;
+  const primaryBand = primary.trace?.approvedBand;
+  check('guest bath prices below a primary bath',
+    !!guestBand && !!primaryBand && guestBand.high < primaryBand.high,
+    `guest ${guestBand?.low}-${guestBand?.high} vs primary ${primaryBand?.low}-${primaryBand?.high}`);
+  check('guest bath is declined rather than priced above the minimum',
+    guest.outcome === 'below-minimum', guest.outcome);
+
+  // "More than one space" has no approved band and must not borrow whole-home's,
+  // which is per-square-foot and would price a two-room project as a full
+  // renovation.
+  const multi = estimate(
+    { ...answers, projectType: 'multiple' as never, scopeLevel: 'reimagine', finishTier: 'elevated' },
+    modest,
+    { ruleset, now: NOW }
+  );
+  check('an unpriced selection yields no range rather than a neighbour’s',
+    multi.range === null && multi.outcome === 'no-approved-band', multi.outcome);
+}
+
+console.log('\nRuleset self-consistency');
+{
+  // A band whose whole spread sits under the project minimum can never produce
+  // a range: every homeowner who selects it is declined. That is either a wrong
+  // band or a wrong minimum, and it is worth surfacing at build time rather
+  // than discovering it from a confused customer.
+  const r = DRAFT_RULESET;
+  const unreachable: string[] = [];
+  for (const [type, scopes] of Object.entries(r.bands)) {
+    for (const [scope, tiers] of Object.entries(scopes ?? {})) {
+      for (const [tier, band] of Object.entries(tiers ?? {})) {
+        if (!band || band.basis !== 'flat') continue;
+        const mid = (band.low + band.high) / 2;
+        if (mid < r.projectMinimum) {
+          unreachable.push(`${type}.${scope}.${tier} (mid $${mid.toLocaleString()} < min $${r.projectMinimum.toLocaleString()})`);
+        }
+      }
+    }
+  }
+
+  if (unreachable.length) {
+    console.log('  NOTE  bands that can never produce a range at the current project minimum:');
+    for (const u of unreachable) console.log(`          ${u}`);
+    console.log('        Appendix A must resolve each: correct the band, lower the minimum, or');
+    console.log('        withdraw the option from the planner.');
+  }
+  // Recorded rather than failed: the draft table is expected to be inconsistent,
+  // and this list is the question set for the approver.
+  check('unreachable bands are surfaced for the approver', true);
+}
+
 console.log('\nTransparency is generated, not authored (§ 6)');
 {
   const ruleset = signedFixture();

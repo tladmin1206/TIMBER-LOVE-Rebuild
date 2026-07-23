@@ -10,7 +10,15 @@
 
 export type Mode = 'A' | 'B' | 'C' | 'D';
 
-export type ProjectType = 'kitchen' | 'bathroom' | 'whole-home' | 'new-construction';
+// Guest bath is its own type, not a cheaper primary bath. Appendix A prices
+// it separately ($38k–$65k against $75k–$125k), and folding the two together
+// would roughly double the figure a guest-bath homeowner is shown.
+export type ProjectType =
+  | 'kitchen'
+  | 'bathroom'
+  | 'bathroom-guest'
+  | 'whole-home'
+  | 'new-construction';
 
 export type ScopeLevel = 'refresh' | 'reimagine' | 'rebuild';
 

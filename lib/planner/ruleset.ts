@@ -122,6 +122,11 @@ export const DRAFT_RULESET: Ruleset = {
         bespoke: { low: 150_000, high: 265_000, basis: 'flat' },
       },
     },
+    'bathroom-guest': {
+      reimagine: {
+        elevated: { low: 38_000, high: 65_000, basis: 'flat' },
+      },
+    },
     'whole-home': {
       refresh: {
         signature: { low: 95, high: 150, basis: 'per-sqft' },
@@ -144,12 +149,14 @@ export const DRAFT_RULESET: Ruleset = {
   absoluteFloor: {
     kitchen: 25_000,
     bathroom: 15_000,
+    'bathroom-guest': 10_000,
     'whole-home': 50_000,
     'new-construction': 200_000,
   },
   absoluteCeiling: {
     kitchen: 900_000,
     bathroom: 500_000,
+    'bathroom-guest': 250_000,
     'whole-home': 4_000_000,
     'new-construction': 8_000_000,
   },
@@ -168,6 +175,7 @@ export const DRAFT_RULESET: Ruleset = {
   timelines: {
     kitchen: { design: { low: 6, high: 10 }, construction: { low: 10, high: 16 } },
     bathroom: { design: { low: 4, high: 8 }, construction: { low: 6, high: 10 } },
+    'bathroom-guest': { design: { low: 4, high: 8 }, construction: { low: 6, high: 10 } },
     'whole-home': { design: { low: 10, high: 20 }, construction: { low: 20, high: 40 } },
     'new-construction': { design: { low: 16, high: 28 }, construction: { low: 40, high: 64 } },
   },
@@ -250,7 +258,7 @@ export function lookupBand(
 
 /** Project types that can currently be offered in the planner (rule 4). */
 export function offerableProjectTypes(ruleset: Ruleset): ProjectType[] {
-  const all: ProjectType[] = ['kitchen', 'bathroom', 'whole-home', 'new-construction'];
+  const all: ProjectType[] = ['kitchen', 'bathroom', 'bathroom-guest', 'whole-home', 'new-construction'];
   return all.filter((t) => {
     if (t === 'new-construction') {
       return Object.keys(ruleset.newConstruction.conditionedPerSqFt).length > 0;

@@ -187,9 +187,12 @@ function toAnswers(flow: FlowState): PlannerAnswers {
   const rawType = String(v.projectType ?? '');
   return {
     mode: (v.mode as PlannerAnswers['mode']) ?? 'A',
-    // Guest baths and multi-space projects have no band of their own; they are
-    // normalised to the nearest type that does, and the engine widens the range.
-    projectType: rawType === 'bathroom-guest' ? 'bathroom' : rawType === 'multiple' ? 'whole-home' : (rawType as PlannerAnswers['projectType']),
+    // Passed through as-is. Guest bath has its own Appendix A band, and
+    // "more than one space" deliberately has none — mapping it to whole-home
+    // would price a two-room project as a full renovation. With no band the
+    // engine declines to publish a figure (§ 9 rule 4), which routes the
+    // homeowner to a conversation instead of to a wrong number.
+    projectType: rawType as PlannerAnswers['projectType'],
     scopeLevel: v.scopeLevel as PlannerAnswers['scopeLevel'],
     finishTier: v.finishTier as PlannerAnswers['finishTier'],
     goals: (v.goals as string[]) ?? [],
