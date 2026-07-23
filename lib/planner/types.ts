@@ -147,6 +147,10 @@ export type PropertyFacts = {
   stories?: number;
   hasBasement?: boolean;
   estimatedValue?: number;
+  zoning?: string;
+  parcelId?: string;
+  lastSaleDate?: string;
+  lastSalePrice?: number;
   jurisdiction?: string;
   historicDistrict?: string;
   historicReviewRequired?: boolean;

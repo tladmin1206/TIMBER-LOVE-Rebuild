@@ -1,0 +1,190 @@
+// Investment Planner persistence. Spec Part II § 8.
+//
+// The load-bearing decision here is `Estimate.rulesetSnapshot`: every estimate
+// hard-copies the pricing configuration that produced it. A report generated in
+// March is reproducible in September after the table has changed, accuracy
+// analysis can segment by ruleset version, and a pricing correction never
+// retroactively alters a report a homeowner is already holding.
+//
+// Not wired to a database yet — DATABASE_URL is a procurement step. The schema
+// is here so the shape is settled and reviewable before that lands.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Mode {
+  A
+  B
+  C
+  D
+}
+
+enum Status {
+  STARTED
+  GATED
+  COMPLETED
+  ABANDONED
+}
+
+model Session {
+  id          String    @id @default(uuid())
+  mode        Mode
+  status      Status    @default(STARTED)
+  startedAt   DateTime  @default(now())
+  completedAt DateTime?
+  lastScreen  String
+  utmSource   String?
+  utmMedium   String?
+  utmCampaign String?
+  referrer    String?
+  device      String
+
+  contactId String?
+  contact   Contact?  @relation(fields: [contactId], references: [id])
+  property  Property?
+  estimate  Estimate?
+  answers   Answer[]
+  events    Event[]
+
+  @@index([status, startedAt])
+}
+
+model Answer {
+  id        String  @id @default(uuid())
+  sessionId String
+  session   Session @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  questionId String
+  value      Json
+  // Recorded per answer so the "which questions are badly written" analysis in
+  // § 2.5 can be run directly rather than inferred from events.
+  wasNotSure Boolean @default(false)
+
+  @@unique([sessionId, questionId])
+}
+
+model Property {
+  id               String  @id @default(uuid())
+  sessionId        String  @unique
+  session          Session @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  formattedAddress String
+  street           String?
+  city             String?
+  state            String?
+  zip              String?
+  county           String?
+  lat              Float?
+  lng              Float?
+  placeId          String?
+  parcelId         String?
+  jurisdiction     String?
+  serviceAreaBand  String
+  distanceMiles    Float?
+
+  yearBuilt     Int?
+  finishedSqFt  Int?
+  bedrooms      Int?
+  bathrooms     Float?
+  lotSizeSqFt   Int?
+  stories       Int?
+  hasBasement   Boolean?
+  lastSaleDate  DateTime?
+  lastSalePrice Int?
+  estimatedValue Int?
+  zoning        String?
+
+  enrichmentSource  String
+  enrichmentRaw     Json?
+  userCorrected     Boolean @default(false)
+  historicDistrict  String?
+  historicReviewReq Boolean @default(false)
+}
+
+model Estimate {
+  id        String  @id @default(uuid())
+  sessionId String  @unique
+  session   Session @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  // Immutable reproduction key. See the header note.
+  rulesetVersion  String
+  rulesetSnapshot Json
+
+  mode         Mode
+  projectTypes String[]
+  scopeLevel   String?
+  finishTier   String?
+
+  basis              String // SEGMENT_BAND | ASSEMBLY
+  lineItems          Json? // internal only, never shown to the homeowner
+  baseCost           Int?
+  multipliersApplied Json
+  feesApplied        Json?
+
+  rangeLow  Int?
+  rangeMid  Int?
+  rangeHigh Int?
+
+  confidenceScore Int
+  confidenceLabel String
+  bandWidthPct    Float
+
+  durationWeeksLow  Int?
+  durationWeeksHigh Int?
+  designWeeksLow    Int?
+  designWeeksHigh   Int?
+
+  inclusions  Json
+  assumptions Json
+  exclusions  Json
+  allowances  Json
+  variables   Json
+
+  outcome         String
+  overImprovement Boolean @default(false)
+  belowMinimum    Boolean @default(false)
+
+  // Post-validation LLM output, plus whether it survived (§ 10).
+  narrativeJson   Json?
+  narrativeSource String?
+
+  reportUrl String?
+  createdAt DateTime @default(now())
+
+  // Reconciliation, populated by ops after close. This is the field that makes
+  // the whole asset appreciate — § 8.4.
+  actualContractValue Int?
+  actualFinalCost     Int?
+  reconciledAt        DateTime?
+
+  @@index([rulesetVersion])
+  @@index([reconciledAt])
+}
+
+model Contact {
+  id           String    @id @default(uuid())
+  firstName    String
+  lastName     String
+  email        String    @unique
+  phoneE164    String?
+  ghlContactId String?
+  ghlOpptyId   String?
+  syncedAt     DateTime?
+  syncError    String?
+  sessions     Session[]
+}
+
+model Event {
+  id        String   @id @default(uuid())
+  sessionId String
+  session   Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  name      String
+  params    Json?
+  at        DateTime @default(now())
+
+  @@index([name, at])
+}

@@ -248,12 +248,70 @@ function Transparency({ blocks }: { blocks: TransparencyBlocks }) {
  * Beat 3 — what happens next.
  * ---------------------------------------------------------------- */
 
+/**
+ * § 5.5 — asked after the range, never before it.
+ *
+ * Asking for a budget up front suppresses completion, anchors low, and makes a
+ * homeowner feel qualified rather than helped. Asking for a reaction afterwards
+ * gets a higher response rate, better data, and gives the project manager the
+ * most useful sentence in the brief. It also opens the value-engineering
+ * conversation naturally rather than adversarially.
+ */
+function BudgetReaction() {
+  const [answer, setAnswer] = useState<string | null>(null);
+
+  const options = [
+    { value: 'expected', label: 'About what I expected' },
+    { value: 'higher', label: 'Higher than I hoped' },
+    { value: 'lower', label: 'Lower than I expected' },
+    { value: 'discuss', label: 'I’d rather discuss it' },
+  ];
+
+  if (answer) {
+    return (
+      <div className="surface-card p-8" role="status">
+        <p className="text-cream">Thank you — that is genuinely useful.</p>
+        <p className="mt-2 text-sm leading-relaxed text-text-secondary">
+          {answer === 'higher'
+            ? 'We will come to the call with options for phasing and where the money does the most work.'
+            : answer === 'lower'
+              ? 'We will come to the call with what a step up in finish or scope would actually buy you.'
+              : 'Your project manager will have this in front of them before the call.'}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="surface-card p-8">
+      <p className="field-label">One last question</p>
+      <p className="mt-3 text-lg text-cream">Does this range fit what you had in mind?</p>
+      <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        {options.map((o) => (
+          <button
+            key={o.value}
+            type="button"
+            onClick={() => setAnswer(o.value)}
+            className="border border-border-subtle p-4 text-left text-sm text-cream transition-colors hover:border-cream"
+          >
+            {o.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function NextSteps({ questions }: { questions: string[] }) {
   return (
     <section aria-labelledby="next-heading">
       <h2 id="next-heading" className="h-section">
         What Happens Next
       </h2>
+
+      <div className="mt-10">
+        <BudgetReaction />
+      </div>
 
       {questions.length > 0 && (
         <div className="surface-card mt-10 p-8">

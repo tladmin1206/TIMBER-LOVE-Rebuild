@@ -3,6 +3,7 @@ import { estimate } from '@/lib/planner/pricing/engine';
 import { DRAFT_RULESET } from '@/lib/planner/ruleset';
 import type { PlannerAnswers, PropertyFacts } from '@/lib/planner/types';
 import { isPlannerPreview } from '@/lib/planner/preview';
+import { generateNarrative } from '@/lib/planner/narrative/generate';
 
 /**
  * Estimate endpoint.
@@ -59,9 +60,16 @@ export async function POST(req: Request) {
     console.warn('[planner] estimate withheld', { outcome: result.outcome, diagnostics });
   }
 
+  // Narrative is generated after the figure, never alongside it. With no
+  // model configured this returns the deterministic template, which is a
+  // supported state rather than a degraded one.
+  const narrative = await generateNarrative(result, body.answers);
+
   return NextResponse.json({
     ...safe,
     preview,
+    narrative: narrative.summary,
+    narrativeSource: narrative.source,
     // The trace is retained for the report and reconciliation, but only the
     // homeowner-facing parts of it are exposed.
     rulesetVersion: trace?.rulesetVersion ?? null,
