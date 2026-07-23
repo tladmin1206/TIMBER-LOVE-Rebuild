@@ -6,6 +6,7 @@ import { pageMeta } from '@/lib/seo';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import TrustBar from '@/components/sections/TrustBar';
+import ProofSection from '@/components/sections/ProofSection';
 
 export const metadata = pageMeta({
   title: 'Vacation Rentals',
@@ -41,6 +42,8 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <ProofSection />
 
       <ClosingCta {...closingCta.vacationRentals} />
     </>

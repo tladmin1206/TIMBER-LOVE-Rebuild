@@ -26,17 +26,24 @@ import {
   hgtvShows,
 } from '@/lib/content/home';
 
+/**
+ * Homepage sequence: orient → route → prove → demonstrate → reassure → convert.
+ *
+ * The routing grid sits directly under the intro because sending a visitor into
+ * the right business line is this page's actual job, and proof follows straight
+ * after rather than at ~70% scroll depth where most visitors never reached it.
+ * CTA weight escalates down the page — exactly one primary action per screenful.
+ */
 export default function HomePage() {
   return (
     <>
       <Hero />
 
-      {/* Credibility immediately after the hero — rating, HGTV, local tenure.
-          These are the strongest assets on the site and previously appeared
-          nowhere on the highest-traffic page. */}
+      {/* Credibility immediately after the hero — rating, HGTV, local tenure. */}
       <TrustBar />
 
-      {/* Intro / About — 2-col text + full-width inline video */}
+      {/* Intro — who we are, then straight into the choice. No CTA here: the
+          pathway grid directly below is the action. */}
       <section className="bg-bg-primary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
@@ -56,13 +63,13 @@ export default function HomePage() {
           <Reveal>
             <InlineVideo videoId={introVideoId} poster={introVideoPoster} />
           </Reveal>
-          <div className="mt-10 text-center">
-            <ModalButton modal="connect" className="btn-secondary">Get Started</ModalButton>
-          </div>
         </div>
       </section>
 
-      {/* Featured On — press logos on a continuous slider */}
+      {/* Route the visitor — the page's primary job, and its primary CTA. */}
+      <PathwaySelector />
+
+      {/* Featured On — compact credibility directly after the choice. */}
       <section className="border-y border-border-subtle bg-bg-primary section-tight">
         <div className="container-wide">
           <p className="mb-8 text-center text-xs uppercase tracking-[0.2em] text-cream/50">As Featured On</p>
@@ -70,11 +77,51 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services — pathway selector grid with a high-contrast CTA module */}
-      <PathwaySelector />
+      {/* Proof — moved up from near the foot of the page so the 4.9 rating does
+          work for the majority of visitors, not just those who scroll to 70%. */}
+      <section className="relative overflow-hidden text-center section-feature">
+        <VideoBg videoId={sectionVideos.testimonials.id} poster={sectionVideos.testimonials.poster} overlay="bg-ink/75" />
+        <div className="container-wide relative z-10">
+          <Reveal>
+            <p className="eyebrow">Testimonials</p>
+            <h2 className="h-section mt-4">See What Others Are Saying</h2>
+          </Reveal>
+          <div className="mt-12">
+            <ReviewSlider items={clientReviews} />
+          </div>
+          {/* Tertiary: a request of the visitor, not an offer to them, so it
+              must not compete with the conversion actions. */}
+          <div className="mt-12">
+            <a
+              href={site.reviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-underline text-xs uppercase tracking-[0.16em] text-cream/70"
+            >
+              We&apos;d Love Your Review →
+            </a>
+          </div>
+        </div>
+      </section>
 
-      {/* HGTV Shows — left header + video-background cards */}
+      {/* Visual proof */}
       <section className="bg-bg-primary section">
+        <div className="container-wide">
+          <Reveal className="max-w-2xl">
+            <p className="eyebrow">See Our Work</p>
+            <h2 className="h-section mt-4">Some Of Our Favorite Boise Boys Projects</h2>
+          </Reveal>
+          <div className="mt-14">
+            <Gallery images={favoriteProjects} columns={3} />
+          </div>
+          <div className="mt-10">
+            <Link href="/timber-and-love-gallery/" className="btn-secondary">See All Images</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* HGTV Shows — the differentiator */}
+      <section className="bg-bg-primary pb-20 sm:pb-28">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Stream Us On Your TV</p>
@@ -101,29 +148,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Favorite projects gallery */}
-      <section className="bg-bg-primary pb-20 sm:pb-28">
-        <div className="container-wide">
-          <Reveal className="max-w-2xl">
-            <p className="eyebrow">See Our Work</p>
-            <h2 className="h-section mt-4">Some Of Our Favorite Boise Boys Projects</h2>
-          </Reveal>
-          <div className="mt-14">
-            <Gallery images={favoriteProjects} columns={3} />
-          </div>
-          <div className="mt-10">
-            <Link href="/timber-and-love-gallery/" className="btn-secondary">See All Images</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Values — full-bleed video background + left header + 2x2 grid */}
+      {/* Why us — Values, carrying the mission statement as its lede. Previously
+          these were two consecutive "about us" sections with duplicate buttons,
+          the second of which was a centred wall of text that stalled the scroll. */}
       <section className="relative overflow-hidden section-feature">
         <VideoBg videoId={sectionVideos.values.id} poster={sectionVideos.values.poster} overlay="bg-ink/75" />
         <div className="container-wide relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Why Choose Us</p>
             <h2 className="h-section mt-4">Our Values</h2>
+            <p className="text-lead mt-5 max-w-md">{mission}</p>
             <ModalButton modal="work-with-us" className="btn-secondary mt-8">Work With Us</ModalButton>
           </Reveal>
           <div className="grid gap-5 sm:grid-cols-2">
@@ -137,36 +171,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Mission — centered on dark */}
-      <section className="bg-bg-primary text-center section-feature">
-        <div className="container-wide max-w-3xl">
-          <Reveal>
-            <p className="eyebrow">Commitment To Excellence</p>
-            <h2 className="h-section mt-4">Our Mission</h2>
-            <p className="mt-8 text-body">{mission}</p>
-            <ModalButton modal="work-with-us" className="btn-secondary mt-10">Work With Us</ModalButton>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Testimonials — full-bleed video background + centered rotating quote */}
-      <section className="relative overflow-hidden text-center section-feature">
-        <VideoBg videoId={sectionVideos.testimonials.id} poster={sectionVideos.testimonials.poster} overlay="bg-ink/75" />
-        <div className="container-wide relative z-10">
-          <Reveal>
-            <p className="eyebrow">Testimonials</p>
-            <h2 className="h-section mt-4">See What Others Are Saying</h2>
-          </Reveal>
-          <div className="mt-12">
-            <ReviewSlider items={clientReviews} />
-          </div>
-          <div className="mt-12">
-            <a href={site.reviewUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary">We&apos;d Love Your Review</a>
-          </div>
-        </div>
-      </section>
-
-      {/* 3-step process — left header + bordered cards */}
+      {/* Remove friction immediately before the ask */}
       <section className="bg-bg-primary section">
         <div className="container-wide">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
@@ -193,7 +198,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Partnership Opportunities + Americana Soul — video-backed slider */}
+      {/* Brand depth */}
       <PartnershipsFeature />
 
       <ClosingCta {...closingCta.home} />

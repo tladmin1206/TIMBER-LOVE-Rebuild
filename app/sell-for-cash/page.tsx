@@ -6,6 +6,7 @@ import { pageMeta } from '@/lib/seo';
 import { site } from '@/lib/site';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
+import ProofSection from '@/components/sections/ProofSection';
 
 export const metadata = pageMeta({
   title: 'Sell Your Home for Cash',
@@ -107,6 +108,8 @@ export default function Page() {
           </Reveal>
         </div>
       </section>
+
+      <ProofSection />
 
       <ClosingCta {...closingCta.sellForCash} />
     </>

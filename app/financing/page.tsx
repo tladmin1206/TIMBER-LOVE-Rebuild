@@ -8,6 +8,7 @@ import { pageMeta } from '@/lib/seo';
 import { breadcrumbSchema, faqSchema } from '@/lib/schema';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
+import ProofSection from '@/components/sections/ProofSection';
 
 export const metadata = pageMeta({
   title: 'Financing Your Project',
@@ -152,6 +153,8 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <ProofSection />
 
       <ClosingCta {...closingCta.financing} />
     </>

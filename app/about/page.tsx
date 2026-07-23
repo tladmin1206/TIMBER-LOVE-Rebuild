@@ -7,6 +7,7 @@ import { pageMeta } from '@/lib/seo';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import TrustBar from '@/components/sections/TrustBar';
+import StatStrip from '@/components/sections/StatStrip';
 
 export const metadata = pageMeta({
   title: 'Our Story',
@@ -30,6 +31,8 @@ export default function Page() {
       </PageHero>
 
       <TrustBar />
+
+      <StatStrip />
 
       {/* Brand story */}
       <section className="bg-bg-primary section" aria-labelledby="story-heading">

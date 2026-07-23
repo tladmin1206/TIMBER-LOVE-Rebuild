@@ -9,6 +9,7 @@ import gallery from '@/content/gallery.json';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import TrustBar from '@/components/sections/TrustBar';
+import ProofSection from '@/components/sections/ProofSection';
 
 export const metadata = pageMeta({
   title: 'Our Work',
@@ -68,6 +69,8 @@ export default function Page() {
           <Gallery images={inspiration} columns={4} />
         </div>
       </section>
+
+      <ProofSection />
 
       <ClosingCta {...closingCta.designBuildGallery} />
     </>

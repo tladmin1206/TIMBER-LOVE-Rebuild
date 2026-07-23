@@ -11,6 +11,7 @@ import { projects, getProject, relatedProjects } from '@/lib/content/projects';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import TrustBar from '@/components/sections/TrustBar';
+import ProofSection from '@/components/sections/ProofSection';
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -130,6 +131,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
           </div>
         </section>
       )}
+
+      <ProofSection />
 
       <ClosingCta {...closingCta.projectDetail} />
     </>

@@ -71,8 +71,11 @@ export default function PartnershipsFeature({ videoId = '927976789', poster = '/
                   )}
                   <p className="mt-7 max-w-lg text-base leading-relaxed text-cream/80 sm:text-lg">{s.body}</p>
 
+                  {/* The book link is secondary: a purchase is brand affinity,
+                      not a lead, and this sits directly before the closing
+                      CTA's primary action. */}
                   {'cta' in s && s.cta ? (
-                    <a href={s.cta.href} target="_blank" rel="noopener noreferrer" className="btn-primary mt-9" data-track="americana_soul">
+                    <a href={s.cta.href} target="_blank" rel="noopener noreferrer" className="btn-secondary mt-9" data-track="americana_soul">
                       {s.cta.label}
                     </a>
                   ) : (

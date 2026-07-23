@@ -8,6 +8,7 @@ import { site } from '@/lib/site';
 import { clientReviews } from '@/lib/content/home';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
+import ProofSection from '@/components/sections/ProofSection';
 
 const realEstateReview = clientReviews.find((r) => r.role === 'Real Estate Client');
 
@@ -130,6 +131,8 @@ export default function Page() {
           </Reveal>
         </div>
       </section>
+
+      <ProofSection />
 
       <ClosingCta {...closingCta.buyOrSell} />
     </>

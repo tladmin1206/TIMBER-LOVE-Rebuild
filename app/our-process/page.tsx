@@ -8,6 +8,7 @@ import { pageMeta } from '@/lib/seo';
 import { breadcrumbSchema } from '@/lib/schema';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
+import ProofSection from '@/components/sections/ProofSection';
 
 export const metadata = pageMeta({
   title: 'Our Design-Build Process',
@@ -111,6 +112,8 @@ export default function Page() {
           <ProcessTimeline phases={phases} />
         </div>
       </section>
+
+      <ProofSection />
 
       <ClosingCta {...closingCta.ourProcess} />
     </>

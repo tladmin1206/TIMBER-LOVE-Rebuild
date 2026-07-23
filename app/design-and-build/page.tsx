@@ -15,6 +15,7 @@ import { clientReviews } from '@/lib/content/home';
 import data from '@/content/design-and-build.json';
 import faq from '@/content/design-and-build-faq.json';
 import TrustBar from '@/components/sections/TrustBar';
+import StatStrip from '@/components/sections/StatStrip';
 
 // Accurate, consolidated design + build categories. The prior content pulled
 // mismatched descriptions from the extracted WordPress copy (e.g. "New Builds"
@@ -113,6 +114,8 @@ export default function Page() {
       </PageHero>
 
       <TrustBar />
+
+      <StatStrip />
 
       <PressStrip />
 

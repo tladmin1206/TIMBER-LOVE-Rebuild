@@ -5,6 +5,7 @@ import Reveal from '@/components/ui/Reveal';
 import { pageMeta } from '@/lib/seo';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
+import ProofSection from '@/components/sections/ProofSection';
 
 export const metadata = pageMeta({
   title: 'Stay With Us',
@@ -33,6 +34,8 @@ export default function Page() {
           <RentalsGrid />
         </div>
       </section>
+
+      <ProofSection />
 
       <ClosingCta {...closingCta.stayWithUs} />
     </>
