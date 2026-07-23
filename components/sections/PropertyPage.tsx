@@ -261,6 +261,29 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
         </section>
       )}
 
+      {/* Guests who stay in one of these have physically experienced the work,
+          which makes them unusually warm design + build leads. Nothing on these
+          pages previously made that connection. */}
+      <section className="bg-bg-primary section-tight border-t border-border-subtle" aria-labelledby="built-by-heading">
+        <div className="container-wide">
+          <Reveal className="surface-card flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10">
+            <div>
+              <p className="eyebrow">Designed and Built by Our Team</p>
+              <h2 id="built-by-heading" className="h-card mt-3">
+                Love the Way This Place Feels?
+              </h2>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-text-secondary">
+                Every Timber and Love rental is a project our own team designed and built. If you want the same
+                thinking applied to your home, that is exactly what we do.
+              </p>
+            </div>
+            <Link href="/design-and-build/" className="btn-secondary shrink-0" data-track="rental_to_designbuild">
+              Explore Design + Build
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
       <ClosingCta
         eyebrow="Plan Your Stay"
         title="Make Yourself at Home"

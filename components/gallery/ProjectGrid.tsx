@@ -86,8 +86,19 @@ export default function ProjectGrid() {
         ))}
       </div>
 
+      {/* Empty state: says what happened, and offers a way out rather than
+          leaving the visitor at a dead end. */}
       {visible.length === 0 && (
-        <p className="mt-8 text-sm text-text-muted">No projects match this filter yet.</p>
+        <div className="surface-card mt-8 p-10 text-center" role="status">
+          <p className="h-card">Nothing Here Yet</p>
+          <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-text-secondary">
+            We have not published a project in this category yet. The rest of our work is worth a look in the
+            meantime.
+          </p>
+          <button type="button" onClick={() => select('all')} className="btn-secondary mt-6">
+            View All Projects
+          </button>
+        </div>
       )}
     </div>
   );

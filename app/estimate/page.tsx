@@ -4,6 +4,8 @@ import Estimator from '@/components/estimator/Estimator';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import { pageMeta } from '@/lib/seo';
+import FaqSection from '@/components/sections/FaqSection';
+import { faqs } from '@/lib/content/faqs';
 
 export const metadata = pageMeta({
   title: 'Design + Build Project Estimator',
@@ -29,6 +31,8 @@ export default function Page() {
           <Estimator />
         </div>
       </section>
+
+      <FaqSection items={faqs.estimate} />
 
       <ClosingCta {...closingCta.estimate} />
     </>

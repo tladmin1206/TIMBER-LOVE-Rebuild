@@ -6,6 +6,9 @@ import { pageMeta } from '@/lib/seo';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import ProofSection from '@/components/sections/ProofSection';
+import CrossPathways from '@/components/sections/CrossPathways';
+import FaqSection from '@/components/sections/FaqSection';
+import { faqs } from '@/lib/content/faqs';
 
 export const metadata = pageMeta({
   title: 'Stay With Us',
@@ -36,6 +39,10 @@ export default function Page() {
       </section>
 
       <ProofSection />
+
+      <CrossPathways keys={['design-build', 'invest']} />
+
+      <FaqSection items={faqs.stayWithUs} />
 
       <ClosingCta {...closingCta.stayWithUs} />
     </>

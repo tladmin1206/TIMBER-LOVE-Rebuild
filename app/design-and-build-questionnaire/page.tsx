@@ -5,6 +5,7 @@ import PressStrip from '@/components/sections/PressStrip';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import ProjectInquiry from '@/components/forms/ProjectInquiry';
+import WhatHappensNext from '@/components/sections/WhatHappensNext';
 import { processSteps } from '@/lib/content/home';
 import { pageMeta } from '@/lib/seo';
 import TrustBar from '@/components/sections/TrustBar';
@@ -76,6 +77,12 @@ export default function Page({ searchParams }: { searchParams?: Record<string, s
       {/* Native multi-step project inquiry */}
       <section id="inquiry" className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-tl">
+          {/* Expectations stated at the form itself, not on a separate page the
+              visitor would have to go and find. */}
+          <div className="mx-auto mb-12 max-w-2xl">
+            <p className="field-label mb-4">What Happens After You Submit</p>
+            <WhatHappensNext compact />
+          </div>
           <Suspense fallback={<div className="mx-auto min-h-[500px] max-w-2xl" />}>
             <ProjectInquiry />
           </Suspense>

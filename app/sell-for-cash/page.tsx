@@ -7,6 +7,9 @@ import { site } from '@/lib/site';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import ProofSection from '@/components/sections/ProofSection';
+import CrossPathways from '@/components/sections/CrossPathways';
+import FaqSection from '@/components/sections/FaqSection';
+import { faqs } from '@/lib/content/faqs';
 
 export const metadata = pageMeta({
   title: 'Sell Your Home for Cash',
@@ -110,6 +113,10 @@ export default function Page() {
       </section>
 
       <ProofSection />
+
+      <CrossPathways keys={['buy-sell', 'design-build']} />
+
+      <FaqSection items={faqs.sellForCash} />
 
       <ClosingCta {...closingCta.sellForCash} />
     </>

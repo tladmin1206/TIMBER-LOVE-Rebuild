@@ -7,6 +7,7 @@ import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import TrustBar from '@/components/sections/TrustBar';
 import ProofSection from '@/components/sections/ProofSection';
+import CrossPathways from '@/components/sections/CrossPathways';
 
 export const metadata = pageMeta({
   title: 'Vacation Rentals',
@@ -44,6 +45,8 @@ export default function Page() {
       </section>
 
       <ProofSection />
+
+      <CrossPathways keys={['design-build', 'invest']} />
 
       <ClosingCta {...closingCta.vacationRentals} />
     </>

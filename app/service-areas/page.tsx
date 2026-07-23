@@ -9,6 +9,8 @@ import { site } from '@/lib/site';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import ProofSection from '@/components/sections/ProofSection';
+import FaqSection from '@/components/sections/FaqSection';
+import { faqs } from '@/lib/content/faqs';
 
 export const metadata = pageMeta({
   title: 'Service Areas',
@@ -98,6 +100,8 @@ export default function Page() {
       </section>
 
       <ProofSection />
+
+      <FaqSection items={faqs.serviceAreas} />
 
       <ClosingCta {...closingCta.serviceAreas} />
     </>

@@ -3,6 +3,7 @@ import TrustBar from '@/components/sections/TrustBar';
 import Reveal from '@/components/ui/Reveal';
 import Cta from '@/components/ui/Cta';
 import ContactForm from '@/components/forms/ContactForm';
+import WhatHappensNext from '@/components/sections/WhatHappensNext';
 import { pageMeta } from '@/lib/seo';
 import { site } from '@/lib/site';
 
@@ -151,30 +152,8 @@ export default function Page() {
             </p>
           </Reveal>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {[
-              {
-                step: '01',
-                title: 'We Reply Within One Business Day',
-                body: 'A member of our team reads every inquiry personally. You will hear back from a person, not an autoresponder.',
-              },
-              {
-                step: '02',
-                title: 'A Short Conversation',
-                body: 'About twenty minutes to understand your home, your goals, and your budget — and to tell you honestly whether we are the right fit.',
-              },
-              {
-                step: '03',
-                title: 'A Clear Next Step',
-                body: 'If it makes sense to continue, we outline scope and process in writing. If it does not, we will tell you that too.',
-              },
-            ].map((s, i) => (
-              <Reveal key={s.step} delay={i * 110} className="surface-card p-8">
-                <div className="font-sans text-4xl tracking-brand text-cream/40">{s.step}</div>
-                <h3 className="h-card mt-6">{s.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-text-secondary">{s.body}</p>
-              </Reveal>
-            ))}
+          <div className="mt-14">
+            <WhatHappensNext />
           </div>
 
           <Reveal delay={120} className="surface-card mt-10 flex flex-col items-center gap-6 p-8 text-center sm:flex-row sm:justify-between sm:text-left">
