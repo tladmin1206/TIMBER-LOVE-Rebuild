@@ -4,6 +4,7 @@ import { DRAFT_RULESET } from '@/lib/planner/ruleset';
 import type { PlannerAnswers, PropertyFacts } from '@/lib/planner/types';
 import { isPlannerPreview } from '@/lib/planner/preview';
 import { generateNarrative } from '@/lib/planner/narrative/generate';
+import { sendLeadEmail } from '@/lib/leads/email';
 
 /**
  * Estimate endpoint.
@@ -17,9 +18,12 @@ import { generateNarrative } from '@/lib/planner/narrative/generate';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
+type Contact = { firstName?: string; lastName?: string; email?: string; phone?: string };
+
 type Body = {
   answers: PlannerAnswers;
   property: PropertyFacts;
+  contact?: Contact;
 };
 
 export async function POST(req: Request) {
@@ -65,6 +69,17 @@ export async function POST(req: Request) {
   // supported state rather than a degraded one.
   const narrative = await generateNarrative(result, body.answers);
 
+  // The gate collects a contact before any figure is shown, which makes every
+  // completed planner session a lead — and the richest one on the site, since
+  // it carries nine answers plus a property profile. Delivered here rather than
+  // by the client so it cannot be lost to a closed tab.
+  //
+  // Deliberately not awaited: § 9.1 requires that delivery failure never block
+  // the results screen.
+  if (body.contact?.email) {
+    void deliverPlannerLead(body.contact, body.answers, property, result);
+  }
+
   return NextResponse.json({
     ...safe,
     preview,
@@ -74,4 +89,56 @@ export async function POST(req: Request) {
     // homeowner-facing parts of it are exposed.
     rulesetVersion: trace?.rulesetVersion ?? null,
   });
+}
+
+/**
+ * Sends the planner lead. Composed as a project manager's brief rather than a
+ * field dump: the range and confidence first, then the answers, then whatever
+ * the homeowner was unsure about — which is the agenda for the first call.
+ */
+async function deliverPlannerLead(
+  contact: Contact,
+  answers: PlannerAnswers,
+  property: PropertyFacts,
+  result: ReturnType<typeof estimate>
+) {
+  const name = `${contact.firstName ?? ''} ${contact.lastName ?? ''}`.trim() || 'Unnamed';
+  const range = result.range
+    ? `$${result.range.low.toLocaleString('en-US')} – $${result.range.high.toLocaleString('en-US')} (typical $${result.range.mid.toLocaleString('en-US')})`
+    : `No range produced — ${result.outcome}`;
+
+  const lines = [
+    `PLANNER SUBMISSION — ${name}`,
+    '',
+    `Range:       ${range}`,
+    `Confidence:  ${result.confidence.label} (${result.confidence.score})`,
+    `Project:     ${answers.projectType} · ${answers.scopeLevel ?? '—'} · ${answers.finishTier ?? '—'}`,
+    `Timeline:    ${answers.timeline ?? '—'}`,
+    `Service area: ${property.serviceAreaBand}`,
+    '',
+    `Email:  ${contact.email}`,
+    `Phone:  ${contact.phone ?? '—'}`,
+    '',
+    `Property: ${property.yearBuilt ?? 'year unknown'}, ${property.finishedSqFt ? `${property.finishedSqFt.toLocaleString('en-US')} sq ft` : 'size unknown'} (${property.enrichmentSource})`,
+    `Goals: ${(answers.goals ?? []).join(', ') || '—'}`,
+    result.overImprovement ? 'FLAG: estimate is high relative to property value — raise gently.' : '',
+    '',
+    'Unsure about:',
+    ...(answers.notSure?.length ? answers.notSure.map((q) => `  · ${q}`) : ['  · nothing flagged']),
+    '',
+    'Assumptions flagged for verification:',
+    ...result.transparency.assumptions
+      .filter((a) => a.flaggedForVerification)
+      .map((a) => `  · ${a.text}${a.impactIfWrong ? ` (±$${a.impactIfWrong.low.toLocaleString('en-US')}–$${a.impactIfWrong.high.toLocaleString('en-US')})` : ''}`),
+  ].filter(Boolean);
+
+  const delivery = await sendLeadEmail({
+    subject: `Planner lead — ${name} — ${answers.projectType}`,
+    replyTo: contact.email,
+    text: lines.join('\n'),
+  });
+
+  if (!delivery.delivered && delivery.reason !== 'not-configured') {
+    console.error('[planner] LEAD NOT DELIVERED — follow up manually', { contact: contact.email, delivery });
+  }
 }

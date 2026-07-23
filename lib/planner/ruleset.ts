@@ -141,7 +141,15 @@ export const DRAFT_RULESET: Ruleset = {
     },
   },
 
-  projectMinimum: 75_000,
+  // Business decision: Timber and Love does not turn work away on size alone,
+  // so there is no project floor. Zero disables the guardrail rather than
+  // removing it — the code path is retained so a minimum can be reinstated by
+  // changing this one number.
+  //
+  // This also resolved a contradiction in the draft sheet, which priced a guest
+  // bath at $38k-$65k and a bathroom refresh at $45k-$75k while setting a $75k
+  // floor, so both options declined every homeowner who chose them.
+  projectMinimum: 0,
 
   // Mode A 0.25, Mode B 0.35, disabled for C and D (§5.4).
   overImprovementThreshold: { A: 0.25, B: 0.35 },

@@ -98,7 +98,8 @@ export function estimate(
   }
 
   // STEP 6 — guardrails.
-  const belowMinimum = mid < ruleset.projectMinimum;
+  // A minimum of zero disables the check entirely (see ruleset.projectMinimum).
+  const belowMinimum = ruleset.projectMinimum > 0 && mid < ruleset.projectMinimum;
 
   const threshold = ruleset.overImprovementThreshold[answers.mode];
   const ratio = property.estimatedValue ? mid / property.estimatedValue : null;

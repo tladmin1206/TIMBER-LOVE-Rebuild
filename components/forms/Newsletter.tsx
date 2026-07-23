@@ -15,7 +15,7 @@ export default function Newsletter() {
     }
     setStatus('loading');
     try {
-      await fetch('/api/contact', {
+      await fetch('/api/contact/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ firstName: 'Subscriber', email, source: 'newsletter', message: 'Newsletter signup' }),

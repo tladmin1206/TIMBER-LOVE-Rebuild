@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { sendLeadEmail } from '@/lib/leads/email';
 
 export const runtime = 'nodejs';
 
@@ -51,26 +52,25 @@ export async function POST(req: Request) {
   // Always record server-side so a lead is never lost.
   console.log('[lead]', JSON.stringify(lead));
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.LEAD_TO_EMAIL;
-  const from = process.env.LEAD_FROM_EMAIL;
-  if (apiKey && to && from) {
-    try {
-      await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          from,
-          to,
-          reply_to: lead.email,
-          subject: `New website lead (${lead.source}) — ${lead.name}`,
-          text: `Name: ${lead.name}\nEmail: ${lead.email}\nPhone: ${lead.phone}\nSource: ${lead.source}\n\n${lead.message}`,
-        }),
-      });
-    } catch (err) {
-      console.error('[lead] email forward failed', err);
-      // Still return ok — the lead is logged and the user shouldn't see a failure.
-    }
+  // Delivery is checked rather than assumed. A failure here is logged with a
+  // distinctive marker, but the response stays ok: the lead is recorded, and a
+  // homeowner should never see our mail provider's problem.
+  const delivery = await sendLeadEmail({
+    subject: `New website lead (${lead.source}) — ${lead.name}`,
+    replyTo: lead.email,
+    text: [
+      `Name: ${lead.name}`,
+      `Email: ${lead.email}`,
+      `Phone: ${lead.phone || '—'}`,
+      `Source: ${lead.source}`,
+      `Received: ${lead.receivedAt}`,
+      '',
+      lead.message || '(no message)',
+    ].join('\n'),
+  });
+
+  if (!delivery.delivered && delivery.reason !== 'not-configured') {
+    console.error('[lead] NOT DELIVERED — follow up manually', { lead, delivery });
   }
 
   return NextResponse.json({ ok: true });

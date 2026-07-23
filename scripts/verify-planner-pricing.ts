@@ -139,12 +139,17 @@ console.log('\nGuardrails (§ 5)');
 {
   const ruleset = signedFixture();
 
-  // Below minimum: force it by raising the minimum above any producible mid.
-  const highMinimum: Ruleset = { ...ruleset, projectMinimum: 10_000_000 };
-  const low = estimate(answers, property, { ruleset: highMinimum, now: NOW });
-  check('below-minimum outcome is returned', low.outcome === 'below-minimum', `outcome ${low.outcome}`);
-  check('below-minimum suppresses the range entirely', low.range === null);
-  check('below-minimum still returns disclosure for the PM', low.trace !== null);
+  // Minimums are disabled as a business decision, so nothing is declined on
+  // size. The code path is retained and still works if a minimum is reinstated.
+  const noMinimum = estimate(answers, property, { ruleset, now: NOW });
+  check('no project is declined on size while minimums are disabled',
+    noMinimum.outcome !== 'below-minimum' && ruleset.projectMinimum === 0, `outcome ${noMinimum.outcome}`);
+
+  const reinstated: Ruleset = { ...ruleset, projectMinimum: 10_000_000 };
+  const low = estimate(answers, property, { ruleset: reinstated, now: NOW });
+  check('reinstating a minimum still declines correctly', low.outcome === 'below-minimum', `outcome ${low.outcome}`);
+  check('a declined project suppresses the range entirely', low.range === null);
+  check('a declined project still returns disclosure for the PM', low.trace !== null);
 
   // Over-improvement: a large project against a modest property value.
   const over = estimate(
@@ -208,8 +213,14 @@ console.log('\nProject types are priced on their own band, not a neighbour’s')
   check('guest bath prices below a primary bath',
     !!guestBand && !!primaryBand && guestBand.high < primaryBand.high,
     `guest ${guestBand?.low}-${guestBand?.high} vs primary ${primaryBand?.low}-${primaryBand?.high}`);
-  check('guest bath is declined rather than priced above the minimum',
-    guest.outcome === 'below-minimum', guest.outcome);
+  // With minimums disabled, a small project is priced rather than declined.
+  check('guest bath is priced rather than declined', guest.outcome === 'ok', guest.outcome);
+  check('guest bath produces a materially smaller range than a primary bath',
+    !!guest.range && !!primary.range && guest.range.mid < primary.range.mid,
+    `guest ${guest.range?.mid} vs primary ${primary.range?.mid}`);
+  if (guest.range && primary.range) {
+    console.log(`        guest $${guest.range.mid.toLocaleString()} vs primary $${primary.range.mid.toLocaleString()}`);
+  }
 
   // "More than one space" has no approved band and must not borrow whole-home's,
   // which is per-square-foot and would price a two-room project as a full
@@ -231,12 +242,15 @@ console.log('\nRuleset self-consistency');
   // than discovering it from a confused customer.
   const r = DRAFT_RULESET;
   const unreachable: string[] = [];
+  if (r.projectMinimum === 0) {
+    console.log('  NOTE  project minimum is disabled — no band can be unreachable on size.');
+  }
   for (const [type, scopes] of Object.entries(r.bands)) {
     for (const [scope, tiers] of Object.entries(scopes ?? {})) {
       for (const [tier, band] of Object.entries(tiers ?? {})) {
         if (!band || band.basis !== 'flat') continue;
         const mid = (band.low + band.high) / 2;
-        if (mid < r.projectMinimum) {
+        if (r.projectMinimum > 0 && mid < r.projectMinimum) {
           unreachable.push(`${type}.${scope}.${tier} (mid $${mid.toLocaleString()} < min $${r.projectMinimum.toLocaleString()})`);
         }
       }
