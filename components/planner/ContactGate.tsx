@@ -24,9 +24,12 @@ type Errors = Partial<Record<keyof ContactDetails, string>>;
 export default function ContactGate({
   onSubmit,
   submitting,
+  pricingLive = false,
 }: {
   onSubmit: (c: ContactDetails) => void;
   submitting: boolean;
+  /** Whether an approved range exists to reveal. Drives the promise made here. */
+  pricingLive?: boolean;
 }) {
   const [values, setValues] = useState<ContactDetails>({ firstName: '', lastName: '', email: '', phone: '' });
   const [errors, setErrors] = useState<Errors>({});
@@ -62,6 +65,10 @@ export default function ContactGate({
     <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
       {/* The preview: real shape, obscured digits. */}
       <div aria-hidden="true" className="surface-card select-none p-8">
+        {!pricingLive ? (
+          <PreviewSummary />
+        ) : (
+        <>
         <p className="text-xs uppercase tracking-[0.18em] text-text-muted">Planning Investment Range</p>
         <p className="mt-4 blur-[7px]">
           <span className="stat-figure">$000,000</span>
@@ -74,12 +81,16 @@ export default function ContactGate({
           <span className="blur-[4px] text-sm text-text-secondary">Confidence: Good</span>
         </div>
         <p className="mt-6 blur-[5px] text-sm text-text-secondary">Estimated duration: 00 to 00 weeks</p>
+        </>
+        )}
       </div>
 
       <div>
-        <h2 className="h-section">Your planning report is ready.</h2>
+        <h2 className="h-section">{pricingLive ? 'Your planning report is ready.' : 'Your project summary is ready.'}</h2>
         <p className="text-lead mt-5 max-w-md">
-          We will send a copy you can keep, share with your partner, and bring to your consultation.
+          {pricingLive
+            ? 'We will send a copy you can keep, share with your partner, and bring to your consultation.'
+            : 'We will send a copy you can keep, and a member of our team will follow up with your investment range.'}
         </p>
 
         <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-4">
@@ -100,7 +111,7 @@ export default function ContactGate({
           />
 
           <button type="submit" disabled={submitting} className="btn-primary w-full disabled:opacity-60">
-            {submitting ? 'Preparing your report…' : 'Show my planning report'}
+            {submitting ? 'Preparing…' : pricingLive ? 'Show my planning report' : 'Show my project summary'}
           </button>
 
           {/* A statement, not a checkbox that blocks submission. */}
@@ -110,6 +121,21 @@ export default function ContactGate({
         </form>
       </div>
     </div>
+  );
+}
+
+/** Shown when no figure is coming: previews the summary, promises nothing false. */
+function PreviewSummary() {
+  return (
+    <>
+      <p className="text-xs uppercase tracking-[0.18em] text-text-muted">Your Project Summary</p>
+      <ul className="mt-5 space-y-3 text-sm text-text-secondary">
+        <li>· What we understand about your project</li>
+        <li>· The questions worth settling</li>
+        <li>· What happens next, and when</li>
+      </ul>
+      <p className="mt-6 text-sm text-text-muted">Your investment range comes from your project manager.</p>
+    </>
   );
 }
 

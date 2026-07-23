@@ -93,12 +93,14 @@ export default function Page() {
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Design + Build</p>
-            <h1 className="h-page mt-4 text-cream">What Will Your Project Cost?</h1>
+            <h1 className="h-page mt-4 text-cream">
+              {LAUNCHED ? 'What Will Your Project Cost?' : 'Plan Your Project'}
+            </h1>
             {/* Direct-answer block: self-contained and quotable, before any preamble. */}
             <p className="text-lead mt-5">
-              Answer nine questions about your home and goals, and see a planning-level investment range for your
-              Boise-area remodel or new build — along with every assumption behind it, what it excludes, and how long
-              it takes. It takes about three minutes and it is not a quote.
+              {LAUNCHED
+                ? 'Answer nine questions about your home and goals, and see a planning-level investment range for your Boise-area remodel or new build — along with every assumption behind it, what it excludes, and how long it takes. It takes about three minutes and it is not a quote.'
+                : 'Answer nine questions about your home and goals, and get a clear summary of your project, the questions worth settling, and a direct line to our team — who will follow up with your investment range. It takes about three minutes.'}
             </p>
           </Reveal>
         </div>
@@ -111,18 +113,15 @@ export default function Page() {
           <h2 id="planner-heading" className="sr-only">
             Investment planner
           </h2>
-          {LAUNCHED || PREVIEW ? (
-            <>
-              {!LAUNCHED && (
-                <p className="alert-error mx-auto mb-10 max-w-3xl" role="status">
-                  <span className="text-cream">Internal preview.</span> {PREVIEW_NOTICE}
-                </p>
-              )}
-              <Planner />
-            </>
-          ) : (
-            <PreLaunchNotice reasons={'reasons' in gate ? gate.reasons : []} />
+          {PREVIEW && !LAUNCHED && (
+            <p className="alert-error mx-auto mb-10 max-w-3xl" role="status">
+              <span className="text-cream">Internal preview.</span> {PREVIEW_NOTICE}
+            </p>
           )}
+          {/* The planner always runs. Only the *number* waits on sign-off:
+              without it the homeowner gets their project summary and a real
+              next step, which is honest and useful, rather than a guess. */}
+          <Planner pricingLive={LAUNCHED || PREVIEW} />
         </div>
       </section>
 
@@ -146,11 +145,17 @@ export default function Page() {
                 t: 'You Answer Nine Questions',
                 b: 'Mostly taps. Every question has a "not sure" option, and choosing it never blocks you or counts against you.',
               },
-              {
-                n: '03',
-                t: 'You See the Whole Picture',
-                b: 'The range, what it includes, what we assumed and why, what it excludes, and what could move it.',
-              },
+              LAUNCHED
+                ? {
+                    n: '03',
+                    t: 'You See the Whole Picture',
+                    b: 'The range, what it includes, what we assumed and why, what it excludes, and what could move it.',
+                  }
+                : {
+                    n: '03',
+                    t: 'You Get a Clear Summary',
+                    b: 'What we understand about your project, the questions worth settling, and what happens next.',
+                  },
             ].map((s, i) => (
               <Reveal key={s.n} delay={i * 110} className="surface-card p-8">
                 <div className="font-sans text-4xl tracking-brand text-cream/40">{s.n}</div>
@@ -171,38 +176,3 @@ export default function Page() {
   );
 }
 
-/**
- * Shown while Appendix A is unsigned. The planner is not a thing that can be
- * "mostly" launched: without approved bands it has no number to give, so it
- * says so plainly rather than collecting nine answers and disappointing.
- */
-function PreLaunchNotice({ reasons }: { reasons: string[] }) {
-  return (
-    <div className="surface-card mx-auto max-w-2xl p-8 sm:p-12">
-      <p className="eyebrow">Coming Soon</p>
-      <h3 className="h-section mt-4">The Planner Is Almost Ready</h3>
-      <p className="text-lead mt-5">
-        We are finishing the pricing behind this tool. Rather than show you a number we cannot stand behind, we would
-        rather talk it through — you will get the same answer, faster.
-      </p>
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a href="/contact/" className="btn-primary">
-          Talk to Our Team
-        </a>
-        <a href="/estimate/" className="btn-secondary">
-          Try Our Quick Estimator
-        </a>
-      </div>
-      {process.env.NODE_ENV !== 'production' && reasons.length > 0 && (
-        <div className="alert mt-8">
-          <p className="text-cream">Internal — why the planner is gated</p>
-          <ul className="mt-2 space-y-1">
-            {reasons.map((r) => (
-              <li key={r}>{r}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  );
-}

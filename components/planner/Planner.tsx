@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import ScreenRenderer from '@/components/planner/ScreenRenderer';
 import ContactGate, { type ContactDetails } from '@/components/planner/ContactGate';
 import Results from '@/components/planner/Results';
+import ProjectSummary from '@/components/planner/ProjectSummary';
 import {
   answer,
   answerNotSure,
@@ -25,12 +26,13 @@ type Stage = 'questions' | 'gate' | 'results';
  * then renders results. Position is a plain index into a sequence recomputed
  * from the answers, which is what keeps back navigation lossless.
  */
-export default function Planner() {
+export default function Planner({ pricingLive = false }: { pricingLive?: boolean }) {
   const [flow, setFlow] = useState<FlowState>(emptyFlow);
   const [index, setIndex] = useState(0);
   const [stage, setStage] = useState<Stage>('questions');
   const [estimate, setEstimate] = useState<Estimate | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [contact, setContact] = useState<ContactDetails | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [hybridNotice, setHybridNotice] = useState(false);
 
@@ -76,6 +78,7 @@ export default function Planner() {
   }
 
   async function submit(contact: ContactDetails) {
+    setContact(contact);
     setSubmitting(true);
     setError(null);
     try {
@@ -100,10 +103,33 @@ export default function Planner() {
     }
   }
 
-  if (stage === 'results' && estimate) {
+  if (stage === 'results') {
+    // A range is shown only when the engine actually produced one. Until
+    // pricing is approved it cannot, so the homeowner gets the summary instead
+    // of an invented figure.
+    const showRange = pricingLive && estimate?.range;
+    const v = flow.values as Record<string, unknown>;
+    const draft = v.propertyConfirmed as { yearBuilt?: number; finishedSqFt?: number } | undefined;
+
     return (
       <div ref={headingRef} tabIndex={-1} className="outline-none">
-        <Results estimate={estimate} consultationQuestions={consultationQuestions(flow)} />
+        {showRange && estimate ? (
+          <Results estimate={estimate} consultationQuestions={consultationQuestions(flow)} />
+        ) : (
+          <ProjectSummary
+            firstName={contact?.firstName}
+            questions={consultationQuestions(flow)}
+            answers={{
+              projectType: v.projectType as string | undefined,
+              scopeLevel: v.scopeLevel as string | undefined,
+              finishTier: v.finishTier as string | undefined,
+              timeline: v.timeline as string | undefined,
+              goals: v.goals as string[] | undefined,
+              yearBuilt: draft?.yearBuilt,
+              finishedSqFt: draft?.finishedSqFt,
+            }}
+          />
+        )}
       </div>
     );
   }
@@ -145,7 +171,7 @@ export default function Planner() {
           />
         )}
 
-        {stage === 'gate' && <ContactGate onSubmit={submit} submitting={submitting} />}
+        {stage === 'gate' && <ContactGate onSubmit={submit} submitting={submitting} pricingLive={pricingLive} />}
       </div>
 
       {error && (
@@ -165,7 +191,7 @@ export default function Planner() {
             Back
           </button>
           <button type="button" onClick={next} disabled={!canAdvance} className="btn-primary disabled:opacity-50">
-            {index === screens.length - 1 ? 'See my range' : 'Continue'}
+            {index === screens.length - 1 ? (pricingLive ? 'See my range' : 'See my summary') : 'Continue'}
           </button>
         </div>
       )}
