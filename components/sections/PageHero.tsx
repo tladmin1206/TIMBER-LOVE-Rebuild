@@ -22,7 +22,9 @@ export default function PageHero({
   return (
     <section
       className={`relative isolate flex items-center justify-center overflow-hidden bg-bg-primary ${
-        height === 'tall' ? 'min-h-[68vh] py-32' : 'min-h-[48vh] py-28'
+        height === 'tall'
+          ? 'min-h-[58vh] py-24 sm:min-h-[68vh] sm:py-32'
+          : 'min-h-[42vh] py-20 sm:min-h-[48vh] sm:py-28'
       }`}
     >
       {videoId ? (

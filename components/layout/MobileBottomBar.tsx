@@ -30,7 +30,7 @@ function actionsFor(pathname: string): Action[] {
     return [call, { label: 'Contact', href: '/contact/' }, { label: 'Invest', href: site.external.invest, external: true, primary: true }];
   }
   // Default: help visitors self-select.
-  return [call, { label: 'Get an Estimate', href: '/estimate/' }, { label: 'How Can We Help?', href: '/contact/', primary: true }];
+  return [call, { label: 'Get an Estimate', href: '/estimate/' }, { label: 'Contact Us', href: '/contact/', primary: true }];
 }
 
 function isRental(p: string) {
@@ -48,7 +48,7 @@ export default function MobileBottomBar() {
       style={{ gridTemplateColumns: `repeat(${items.length}, minmax(0, 1fr))`, paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
       {items.map((it) => {
-        const cls = `flex min-h-[48px] items-center justify-center px-1 py-3 text-center text-[10px] uppercase tracking-[0.12em] transition active:bg-cream/10 ${
+        const cls = `flex min-h-[48px] items-center justify-center px-1 py-3 text-center text-[11px] uppercase tracking-[0.1em] transition active:bg-cream/10 ${
           it.primary ? 'bg-cream font-medium text-ink' : 'text-cream/85'
         }`;
         return it.external ? (

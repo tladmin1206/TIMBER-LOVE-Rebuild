@@ -30,11 +30,15 @@
   a {
     text-decoration: none;
   }
-  /* Visible keyboard focus everywhere, without imposing on mouse users. */
+  /* Visible keyboard focus everywhere, without imposing on mouse users.
+     The dark box-shadow ring sits outside the white outline so focus stays
+     visible over bright video frames and light photography, where a plain
+     white outline can disappear entirely. */
   :focus-visible {
     outline: 2px solid theme('colors.focus');
     outline-offset: 2px;
     border-radius: 2px;
+    box-shadow: 0 0 0 4px rgba(11, 11, 12, 0.75);
   }
 }
 

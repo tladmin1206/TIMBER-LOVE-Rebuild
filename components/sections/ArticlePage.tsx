@@ -35,7 +35,7 @@ export default function ArticlePage({ article, path }: { article: Article; path:
       <JsonLd schema={jsonLd} />
 
       {/* Hero */}
-      <header className="relative isolate flex min-h-[52vh] items-end overflow-hidden bg-bg-primary pb-12 pt-36">
+      <header className="relative isolate flex min-h-[44vh] items-end overflow-hidden bg-bg-primary pb-10 pt-28 sm:min-h-[52vh] sm:pb-12 sm:pt-36">
         {article.heroImage && (
           // eslint-disable-next-line @next/next/no-img-element
           <img src={article.heroImage} alt="" aria-hidden className="absolute inset-0 -z-10 h-full w-full object-cover" />

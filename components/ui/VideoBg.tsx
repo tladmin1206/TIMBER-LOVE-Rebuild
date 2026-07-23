@@ -17,6 +17,7 @@ export default function VideoBg({
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
   const [show, setShow] = useState(false);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
@@ -49,7 +50,12 @@ export default function VideoBg({
           title=""
           tabIndex={-1}
           allow="autoplay; fullscreen"
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
+          onLoad={() => setReady(true)}
+          // Fades up over the poster once the player is actually ready, so a
+          // slow connection shows the still rather than a black rectangle.
+          className={`pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0 transition-opacity duration-700 ${
+            ready ? 'opacity-100' : 'opacity-0'
+          }`}
         />
       )}
       <div className={`absolute inset-0 ${overlay}`} />

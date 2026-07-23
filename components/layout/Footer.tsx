@@ -29,7 +29,9 @@ function FooterLink({ label, href, external }: { label: string; href: string; ex
     <Link
       href={href}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-      className="link-underline"
+      // inline-block + vertical padding lifts the tap target to a comfortable
+      // height on touch; list gaps alone left these well under 44px.
+      className="link-underline inline-block py-1.5"
     >
       {label}
       {external && <span aria-hidden="true" className="ml-0.5 text-[0.7em] opacity-70">↗</span>}

@@ -36,16 +36,27 @@ const SLIDES = [
 
 export default function PartnershipsFeature({ videoId = '927976789', poster = '/video-posters/927976789.jpg' }: { videoId?: string; poster?: string }) {
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
   const go = useCallback((n: number) => setActive((n + SLIDES.length) % SLIDES.length), []);
 
+  // Auto-advance stops on explicit pause, and never starts under reduced motion.
   useEffect(() => {
+    if (paused) return;
     if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const t = setInterval(() => setActive((v) => (v + 1) % SLIDES.length), 9000);
     return () => clearInterval(t);
-  }, []);
+  }, [paused]);
 
   return (
-    <section className="relative isolate flex min-h-[92vh] items-center overflow-hidden section-feature" aria-roledescription="carousel" aria-label="Americana Soul and Partnerships">
+    <section
+      className="relative isolate flex min-h-[70vh] items-center overflow-hidden section-feature sm:min-h-[92vh]"
+      aria-roledescription="carousel"
+      aria-label="Americana Soul and Partnerships"
+      // Choosing a slide or tabbing in stops the rotation, so content never
+      // changes out from under someone who is reading or interacting with it.
+      onFocusCapture={() => setPaused(true)}
+      onMouseEnter={() => setPaused(true)}
+    >
       <VideoBg videoId={videoId} poster={poster} overlay="bg-gradient-to-t from-ink via-ink/85 to-ink/60" />
 
       <div className="container-wide relative z-10 w-full">
@@ -57,6 +68,11 @@ export default function PartnershipsFeature({ videoId = '927976789', poster = '/
               <div
                 key={s.key}
                 aria-hidden={!isActive}
+                // `inert` keeps keyboard focus out of the invisible slide. Without
+                // it, tabbing landed on links that were announced as hidden and
+                // could not be seen — a genuine keyboard trap. Passed as a string
+                // because React 18 does not recognise it as a boolean DOM prop.
+                {...(!isActive ? ({ inert: '' } as Record<string, string>) : {})}
                 className={`grid items-center gap-10 transition-opacity duration-700 ease-out lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 ${
                   isActive ? 'opacity-100' : 'pointer-events-none absolute inset-0 opacity-0'
                 }`}
@@ -118,6 +134,14 @@ export default function PartnershipsFeature({ videoId = '927976789', poster = '/
             </button>
           ))}
           <div className="ml-auto flex items-center gap-2">
+            <button
+              onClick={() => setPaused((v) => !v)}
+              aria-pressed={paused}
+              aria-label={paused ? 'Resume automatic slide rotation' : 'Pause automatic slide rotation'}
+              className="grid h-11 w-11 place-items-center rounded-full border border-cream/25 text-cream/80 transition hover:border-cream hover:text-cream"
+            >
+              <span aria-hidden="true">{paused ? '▶' : '❙❙'}</span>
+            </button>
             <button onClick={() => go(active - 1)} aria-label="Previous slide" className="grid h-11 w-11 place-items-center rounded-full border border-cream/25 text-cream/80 transition hover:border-cream hover:text-cream">
               ‹
             </button>
