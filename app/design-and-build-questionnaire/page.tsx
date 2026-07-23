@@ -34,7 +34,7 @@ export default function Page({ searchParams }: { searchParams?: Record<string, s
         eyebrow="Start Your Project"
         title="Tell Us About Your Project"
         subtitle="Share a few details about your home and goals. We will review your project and follow up about next steps and whether we are a good fit."
-        image="/wp-content/uploads/2024/04/Timber-and-Love-Design-Build-Premier-Home-Remodeling-Contractors-in-Boise-1.jpg"
+        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Kitchen-1-scaled.jpg"
         height="short"
       />
 

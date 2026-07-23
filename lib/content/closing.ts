@@ -13,7 +13,7 @@ import type { ClosingCtaProps } from '@/components/sections/ClosingCta';
  */
 
 const IMG = {
-  remodel: '/wp-content/uploads/2024/04/Timber-and-Love-Design-Build-Premier-Home-Remodeling-Contractors-in-Boise-1.jpg',
+  remodel: '/wp-content/uploads/2024/03/TimberandLoveHomeRemodelingCompany-Design-BuildBackgroundImage-ezgif.com-webp-to-jpg-converter-1.jpg',
   kitchen: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Kitchen-1-scaled.jpg',
   living: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg',
   exterior: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg',
@@ -172,7 +172,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     eyebrow: 'Turn a Range Into a Plan',
     title: 'Let’s Talk Through Your Project',
     body: 'An estimate is a starting point. A conversation about your home, site, and selections is what turns it into a real scope.',
-    image: IMG.kitchen,
+    image: IMG.living,
     primary: { label: 'Start a Project Inquiry', href: '/design-and-build-questionnaire/' },
     secondary: { label: 'See How Financing Works', href: '/financing/' },
   },

@@ -26,7 +26,7 @@ export type ClosingCtaProps = {
 };
 
 const DEFAULT_IMAGE =
-  '/wp-content/uploads/2024/04/Timber-and-Love-Design-Build-Premier-Home-Remodeling-Contractors-in-Boise-1.jpg';
+  '/wp-content/uploads/2024/03/TimberandLoveHomeRemodelingCompany-Design-BuildBackgroundImage-ezgif.com-webp-to-jpg-converter-1.jpg';
 
 function Action({ action, variant }: { action: ClosingAction; variant: 'primary' | 'secondary' }) {
   const cls = variant === 'primary' ? 'btn-primary' : 'btn-secondary';
