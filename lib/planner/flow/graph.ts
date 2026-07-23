@@ -111,7 +111,11 @@ export function stepBack(state: FlowState, currentIndex: number): number {
  * hybrid branch adds screens, and that change is explained rather than silent.
  */
 export function progress(state: FlowState, currentIndex: number) {
-  const total = screensFor(state).length;
+  const resolved = resolveMode(state);
+  // Before a mode is chosen the sequence is just the router, and reporting
+  // "1 of 1" would promise a one-screen flow and then break that promise. Every
+  // mode is the same length, so show that length until the real one is known.
+  const total = resolved && resolved !== 'unsure' ? screensFor(state).length : SCREEN_CEILING;
   return { current: Math.min(currentIndex + 1, total), total, ceiling: SCREEN_CEILING };
 }
 
