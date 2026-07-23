@@ -119,9 +119,13 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Right primary CTA */}
-        <div className="hidden items-center xl:flex">
-          <Link href="/contact/" className="btn-primary !px-6 !py-2.5 text-xs">
+        {/* Right CTAs — the primary ask, paired with a lower-commitment option
+            so visitors who are not ready to talk still have somewhere to go. */}
+        <div className="hidden items-center gap-3 xl:flex">
+          <Link href="/estimate/" className="btn-secondary !px-5 !py-2.5 text-xs" data-track="header_estimate">
+            Get an Estimate
+          </Link>
+          <Link href="/contact/" className="btn-primary !px-6 !py-2.5 text-xs" data-track="header_contact">
             How Can We Help?
           </Link>
         </div>

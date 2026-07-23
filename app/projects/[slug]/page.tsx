@@ -8,6 +8,9 @@ import { pageMeta } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import { projects, getProject, relatedProjects } from '@/lib/content/projects';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
+import TrustBar from '@/components/sections/TrustBar';
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -43,6 +46,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
         <Link href="/timber-and-love-gallery/" className="btn-secondary">All Projects</Link>
       </PageHero>
+
+      <TrustBar />
 
       {/* At a glance + story */}
       <section className="bg-bg-primary py-16 sm:py-24">
@@ -126,20 +131,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </section>
       )}
 
-      {/* Service CTA */}
-      <section className="bg-bg-secondary py-20 text-center sm:py-24">
-        <div className="container-wide max-w-2xl">
-          <Reveal>
-            <p className="eyebrow">Design + Build</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Ready to Start Yours?</h2>
-            <p className="text-lead mt-4">Tell us about your home and goals, and our team will follow up about next steps.</p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
-              <Cta href="/estimate/" variant="secondary">Estimate Your Project</Cta>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <ClosingCta {...closingCta.projectDetail} />
     </>
   );
 }

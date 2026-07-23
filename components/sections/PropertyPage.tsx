@@ -5,6 +5,7 @@ import Reveal from '@/components/ui/Reveal';
 import CtaBand from '@/components/sections/CtaBand';
 import JsonLd from '@/components/JsonLd';
 import { lodgingSchema, breadcrumbSchema } from '@/lib/schema';
+import TrustBar from '@/components/sections/TrustBar';
 
 export type PropertyContent = {
   hero: { eyebrow?: string; heading: string; subheading?: string; image: string; videoId?: string };
@@ -104,6 +105,8 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
         <BookButton />
         <Link href="/stay-with-us/" className="btn-secondary">Back to All Stays</Link>
       </PageHero>
+
+      <TrustBar />
 
       {/* Gallery */}
       {images.length > 0 && (

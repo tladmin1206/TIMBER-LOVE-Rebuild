@@ -6,6 +6,7 @@ import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
 import ProjectInquiry from '@/components/forms/ProjectInquiry';
 import { processSteps } from '@/lib/content/home';
 import { pageMeta } from '@/lib/seo';
+import TrustBar from '@/components/sections/TrustBar';
 
 export const metadata = pageMeta({
   title: 'Start Your Design + Build Project',
@@ -34,6 +35,8 @@ export default function Page({ searchParams }: { searchParams?: Record<string, s
         image="/wp-content/uploads/2024/04/Timber-and-Love-Design-Build-Premier-Home-Remodeling-Contractors-in-Boise-1.jpg"
         height="short"
       />
+
+      <TrustBar />
 
       {/* Estimator handoff summary — carried over so we do not re-ask. */}
       {(range || categoryParam) && (

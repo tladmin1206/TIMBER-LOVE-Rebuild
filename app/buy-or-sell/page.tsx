@@ -6,6 +6,8 @@ import Stars from '@/components/ui/Stars';
 import { pageMeta } from '@/lib/seo';
 import { site } from '@/lib/site';
 import { clientReviews } from '@/lib/content/home';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
 
 const realEstateReview = clientReviews.find((r) => r.role === 'Real Estate Client');
 
@@ -129,24 +131,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Not the right path? */}
-      <section className="border-t border-border-subtle bg-bg-secondary py-16 sm:py-20">
-        <div className="container-wide max-w-2xl text-center">
-          <Reveal>
-            <p className="eyebrow">Not the Right Path?</p>
-            <h2 className="h-display mt-4 text-2xl sm:text-3xl">We Can Point You in the Right Direction</h2>
-            <p className="text-lead mt-5">
-              If buying or selling is not quite what you had in mind, reach out and we will help you find the right
-              part of Timber and Love.
-            </p>
-            <div className="mt-8 flex justify-center">
-              <Cta href="/contact/" variant="secondary" track="buy_sell_contact">
-                Contact Us
-              </Cta>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <ClosingCta {...closingCta.buyOrSell} />
     </>
   );
 }

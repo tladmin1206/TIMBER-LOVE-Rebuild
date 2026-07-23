@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
-import Cta from '@/components/ui/Cta';
 import Reveal from '@/components/ui/Reveal';
 import JsonLd from '@/components/JsonLd';
 import { pageMeta } from '@/lib/seo';
 import { breadcrumbSchema } from '@/lib/schema';
 import { journalPosts } from '@/lib/content/journal';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
+import TrustBar from '@/components/sections/TrustBar';
 
 export const metadata = pageMeta({
   title: 'Journal',
@@ -38,6 +40,8 @@ export default function Page() {
         image={featured?.image}
         height="short"
       />
+
+      <TrustBar />
 
       <section className="bg-bg-primary py-16 sm:py-24">
         <div className="container-wide">
@@ -92,20 +96,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="border-t border-border-subtle bg-bg-secondary py-20 text-center sm:py-24">
-        <div className="container-wide max-w-2xl">
-          <Reveal>
-            <p className="eyebrow">Work With Us</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Have a Project in Mind?</h2>
-            <p className="text-lead mt-4">From a single room to a custom home, our team can help you plan the next step.</p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
-              <Cta href="/timber-and-love-gallery/" variant="secondary">See Our Work</Cta>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <ClosingCta {...closingCta.journal} />
     </>
   );
 }

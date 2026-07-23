@@ -3,6 +3,7 @@ import BlockRenderer, { type Block } from '@/components/ui/BlockRenderer';
 import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
 import JsonLd from '@/components/JsonLd';
 import { site } from '@/lib/site';
+import TrustBar from '@/components/sections/TrustBar';
 
 export type Article = {
   title: string;
@@ -45,6 +46,8 @@ export default function ArticlePage({ article, path }: { article: Article; path:
           {dateStr && <p className="mt-4 text-sm uppercase tracking-[0.16em] text-text-muted">{dateStr}</p>}
         </div>
       </header>
+
+      <TrustBar />
 
       {/* Body */}
       <article className="bg-bg-primary py-16 sm:py-20">

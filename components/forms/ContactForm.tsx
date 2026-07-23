@@ -1,6 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+import { site } from '@/lib/site';
+
+const PHONE = site.phone;
+const PHONE_HREF = site.phoneHref;
 
 type Props = {
   /** Hidden field so we know which form/popup the lead came from */
@@ -13,6 +18,13 @@ type Status = 'idle' | 'submitting' | 'success' | 'error';
 export default function ContactForm({ source = 'website', compact = false }: Props) {
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState('');
+  const successRef = useRef<HTMLDivElement | null>(null);
+
+  // Move focus to the confirmation so keyboard and screen-reader users are told
+  // the send succeeded — otherwise the only signal is a visual swap they miss.
+  useEffect(() => {
+    if (status === 'success') successRef.current?.focus();
+  }, [status]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -31,17 +43,35 @@ export default function ContactForm({ source = 'website', compact = false }: Pro
       form.reset();
     } catch {
       setStatus('error');
-      setError('Something went wrong. Please call us at (208) 995-9516 or email connect@timberandlove.com.');
+      setError(`Your message did not send. Please try again, or reach us directly at ${PHONE} or ${site.email}.`);
     }
   }
 
   if (status === 'success') {
     return (
-      <div className="py-10 text-center">
-        <p className="text-2xl text-cream uppercase tracking-brand">Thank you!</p>
-        <p className="mt-3 text-body">
-          We&apos;ve received your message and a member of our team will reach out shortly.
+      <div
+        ref={successRef}
+        role="status"
+        aria-live="polite"
+        tabIndex={-1}
+        className="py-10 text-center focus:outline-none"
+      >
+        <p className="h-display text-2xl text-cream">Message Sent</p>
+        <p className="mt-4 text-body">
+          A member of our team reads every inquiry personally. Expect a reply within one business day.
         </p>
+        <p className="mt-2 text-sm text-text-muted">
+          Need something sooner? Call{' '}
+          <a href={PHONE_HREF} className="link-underline text-cream">
+            {PHONE}
+          </a>
+          .
+        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <Link href="/timber-and-love-gallery/" className="btn-secondary">
+            View Our Work
+          </Link>
+        </div>
       </div>
     );
   }
@@ -67,8 +97,8 @@ export default function ContactForm({ source = 'website', compact = false }: Pro
       <input type="hidden" name="source" value={source} />
       {/* Honeypot for spam bots */}
       <input type="text" name="company_website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
-      {status === 'error' && <p className="text-sm text-red-300">{error}</p>}
-      <button type="submit" disabled={status === 'submitting'} className="btn-solid w-full disabled:opacity-60">
+      {status === 'error' && <p className="field-error" role="alert">{error}</p>}
+      <button type="submit" disabled={status === 'submitting'} className="btn-primary w-full disabled:opacity-60">
         {status === 'submitting' ? 'Sending…' : 'Submit'}
       </button>
     </form>

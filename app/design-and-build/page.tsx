@@ -13,6 +13,7 @@ import { serviceSchema, faqSchema, breadcrumbSchema } from '@/lib/schema';
 import { clientReviews } from '@/lib/content/home';
 import data from '@/content/design-and-build.json';
 import faq from '@/content/design-and-build-faq.json';
+import TrustBar from '@/components/sections/TrustBar';
 
 // Accurate, consolidated design + build categories. The prior content pulled
 // mismatched descriptions from the extracted WordPress copy (e.g. "New Builds"
@@ -109,6 +110,8 @@ export default function Page() {
         <Link href="/design-and-build-questionnaire/" className="btn-solid">Start Your Project</Link>
         <Link href="/timber-and-love-gallery/" className="btn-outline">View Design + Build Projects</Link>
       </PageHero>
+
+      <TrustBar />
 
       <PressStrip />
 

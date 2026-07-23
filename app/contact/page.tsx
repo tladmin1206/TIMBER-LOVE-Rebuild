@@ -139,6 +139,62 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Abandonment recovery — sets expectations and offers two lower-commitment
+          alternatives for visitors who scrolled past the form without sending it. */}
+      <section className="border-t border-border-subtle bg-bg-primary py-20 sm:py-28">
+        <div className="container-wide">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">What Happens Next</p>
+            <h2 className="h-display mt-4 text-3xl sm:text-5xl">No Pressure, No Obligation</h2>
+            <p className="text-lead mt-5">
+              Reaching out does not commit you to anything. Here is exactly what to expect.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                step: '01',
+                title: 'We Reply Within One Business Day',
+                body: 'A member of our team reads every inquiry personally. You will hear back from a person, not an autoresponder.',
+              },
+              {
+                step: '02',
+                title: 'A Short Conversation',
+                body: 'About twenty minutes to understand your home, your goals, and your budget — and to tell you honestly whether we are the right fit.',
+              },
+              {
+                step: '03',
+                title: 'A Clear Next Step',
+                body: 'If it makes sense to continue, we outline scope and process in writing. If it does not, we will tell you that too.',
+              },
+            ].map((s, i) => (
+              <Reveal key={s.step} delay={i * 110} className="surface-card p-8">
+                <div className="font-sans text-4xl tracking-brand text-cream/40">{s.step}</div>
+                <h3 className="h-display mt-6 text-xl">{s.title}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-text-secondary">{s.body}</p>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal delay={120} className="surface-card mt-10 flex flex-col items-center gap-6 p-8 text-center sm:flex-row sm:justify-between sm:text-left">
+            <div>
+              <h3 className="h-display text-xl">Not Ready to Talk Yet?</h3>
+              <p className="mt-2 max-w-lg text-sm leading-relaxed text-text-secondary">
+                Get a preliminary investment range for your project in about two minutes. No contact details required
+                to see your number.
+              </p>
+            </div>
+            <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+              <Cta href="/estimate/" variant="primary" track="contact_recovery_estimate">Get an Estimate</Cta>
+              <a href={site.phoneHref} className="btn-secondary" data-track="contact_recovery_call">
+                Call {site.phone}
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Press & Partnerships — kept separate from customer contact routing */}
       <section id="press" className="border-t border-border-subtle bg-bg-primary py-20 sm:py-28">
         <div className="container-wide">

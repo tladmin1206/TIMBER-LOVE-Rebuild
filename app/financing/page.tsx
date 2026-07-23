@@ -6,6 +6,8 @@ import FAQ from '@/components/ui/FAQ';
 import JsonLd from '@/components/JsonLd';
 import { pageMeta } from '@/lib/seo';
 import { breadcrumbSchema, faqSchema } from '@/lib/schema';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
 
 export const metadata = pageMeta({
   title: 'Financing Your Project',
@@ -151,20 +153,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-bg-secondary py-20 text-center sm:py-24">
-        <div className="container-wide max-w-2xl">
-          <Reveal>
-            <p className="eyebrow">Ready When You Are</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Let&apos;s Talk Through Your Project</h2>
-            <p className="text-lead mt-4">Share a few details and we will help you plan a project that fits your goals and your budget.</p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
-              <Cta href="/contact/" variant="secondary">Contact Us</Cta>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <ClosingCta {...closingCta.financing} />
     </>
   );
 }

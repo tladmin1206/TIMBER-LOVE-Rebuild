@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
 import ReviewWall from '@/components/sections/ReviewWall';
 import Stars from '@/components/ui/Stars';
@@ -9,6 +8,9 @@ import { pageMeta } from '@/lib/seo';
 import { breadcrumbSchema } from '@/lib/schema';
 import { site } from '@/lib/site';
 import { clientReviews, googleReviews } from '@/lib/content/home';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
+import TrustBar from '@/components/sections/TrustBar';
 
 export const metadata = pageMeta({
   title: 'Reviews',
@@ -63,6 +65,8 @@ export default function Page() {
         </a>
       </PageHero>
 
+      <TrustBar />
+
       {/* Aggregate rating headline */}
       <section className="border-b border-border-subtle bg-bg-secondary py-14 text-center">
         <Reveal className="container-wide">
@@ -80,22 +84,7 @@ export default function Page() {
 
       <ReviewWall reviews={clientReviews} eyebrow="Client Stories" heading="What Our Clients Say" background="bg-bg-primary" />
 
-      {/* Closing CTA */}
-      <section className="bg-bg-secondary py-20 text-center sm:py-24">
-        <div className="container-wide max-w-2xl">
-          <Reveal>
-            <p className="eyebrow">Your Turn</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Let&apos;s Build Something You&apos;ll Rave About</h2>
-            <p className="text-lead mt-4">
-              Tell us about your home and goals, and see why Boise homeowners trust Timber and Love.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
-              <Link href="/timber-and-love-gallery/" className="btn-secondary">See Our Work</Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <ClosingCta {...closingCta.reviews} />
     </>
   );
 }

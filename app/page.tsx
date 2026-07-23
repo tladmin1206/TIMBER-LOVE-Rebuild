@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Hero from '@/components/sections/Hero';
+import TrustBar from '@/components/sections/TrustBar';
 import PathwaySelector from '@/components/sections/PathwaySelector';
 import PartnershipsFeature from '@/components/sections/PartnershipsFeature';
 import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
@@ -28,6 +29,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+
+      {/* Credibility immediately after the hero — rating, HGTV, local tenure.
+          These are the strongest assets on the site and previously appeared
+          nowhere on the highest-traffic page. */}
+      <TrustBar />
 
       {/* Intro / About — 2-col text + full-width inline video */}
       <section className="bg-ink py-20 sm:py-28">

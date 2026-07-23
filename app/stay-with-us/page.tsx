@@ -1,9 +1,10 @@
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
 import RentalsGrid from '@/components/sections/RentalsGrid';
-import Cta from '@/components/ui/Cta';
 import Reveal from '@/components/ui/Reveal';
 import { pageMeta } from '@/lib/seo';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
 
 export const metadata = pageMeta({
   title: 'Stay With Us',
@@ -33,22 +34,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Rental-appropriate closing CTA */}
-      <section className="border-t border-border-subtle bg-bg-secondary py-20 text-center sm:py-24">
-        <div className="container-wide max-w-2xl">
-          <Reveal>
-            <p className="eyebrow">Plan Your Stay</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-4xl">Not Sure Which Property Fits?</h2>
-            <p className="text-lead mt-4">
-              Tell us your dates and who is coming, and our team will help you choose the right Timber and Love stay.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Cta href="/contact/" variant="primary">Need Help Choosing?</Cta>
-              <Cta href="/the-firehouse/" variant="secondary">Explore a Property</Cta>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <ClosingCta {...closingCta.stayWithUs} />
     </>
   );
 }

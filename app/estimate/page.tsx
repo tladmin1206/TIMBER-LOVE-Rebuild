@@ -1,6 +1,8 @@
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
 import Estimator from '@/components/estimator/Estimator';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
 import { pageMeta } from '@/lib/seo';
 
 export const metadata = pageMeta({
@@ -27,6 +29,8 @@ export default function Page() {
           <Estimator />
         </div>
       </section>
+
+      <ClosingCta {...closingCta.estimate} />
     </>
   );
 }

@@ -4,6 +4,9 @@ import Reveal from '@/components/ui/Reveal';
 import Cta from '@/components/ui/Cta';
 import { site, pathways } from '@/lib/site';
 import { pageMeta } from '@/lib/seo';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
+import TrustBar from '@/components/sections/TrustBar';
 
 export const metadata = pageMeta({
   title: 'Our Story',
@@ -25,6 +28,8 @@ export default function Page() {
         <Cta href="/contact/" variant="primary" track="about_contact">Contact Our Team</Cta>
         <Cta href="/timber-and-love-gallery/" variant="secondary">See Our Work</Cta>
       </PageHero>
+
+      <TrustBar />
 
       {/* Brand story */}
       <section className="bg-bg-primary py-20 sm:py-28" aria-labelledby="story-heading">
@@ -213,35 +218,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Closing pathway selector */}
-      <section className="bg-bg-secondary py-20 sm:py-28 text-center" aria-labelledby="next-heading">
-        <div className="container-wide max-w-2xl">
-          <Reveal>
-            <p className="eyebrow">Where to Next</p>
-            <h2 id="next-heading" className="h-display mt-4 text-3xl sm:text-5xl">
-              Choose the Option Closest to Your Goal
-            </h2>
-            <p className="text-lead mt-4">
-              Pick the pathway that fits best, or reach out and our team will point you in the right direction.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              {pathways.map((p) => (
-                <Link
-                  key={p.key}
-                  href={p.href}
-                  {...(p.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="border border-border-subtle px-4 py-2 text-xs uppercase tracking-[0.14em] text-cream transition-colors hover:border-cream hover:bg-cream hover:text-ink"
-                >
-                  {p.label}
-                </Link>
-              ))}
-            </div>
-            <div className="mt-8">
-              <Cta href="/contact/" variant="primary" track="about_final_contact">Contact Timber and Love</Cta>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <ClosingCta {...closingCta.about} />
     </>
   );
 }

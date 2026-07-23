@@ -10,6 +10,7 @@ import { clientReviews, fanComments } from '@/lib/content/home';
 import { projects } from '@/lib/content/projects';
 import { pageMeta } from '@/lib/seo';
 import data from '@/content/the-boise-boys.json';
+import TrustBar from '@/components/sections/TrustBar';
 
 export const metadata = pageMeta({
   title: 'HGTV: The Boise Boys',
@@ -28,6 +29,8 @@ export default function Page() {
         <a href={site.shows.boiseBoys} target="_blank" rel="noopener noreferrer" className="btn-primary">Watch Boise Boys ↗</a>
         <a href={site.shows.outgrown} target="_blank" rel="noopener noreferrer" className="btn-secondary">Watch Outgrown ↗</a>
       </PageHero>
+
+      <TrustBar />
 
       {/* The story */}
       <section className="bg-bg-primary py-16 sm:py-24">

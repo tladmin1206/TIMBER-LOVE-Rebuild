@@ -4,6 +4,8 @@ import Reveal from '@/components/ui/Reveal';
 import Cta from '@/components/ui/Cta';
 import { pageMeta } from '@/lib/seo';
 import { site } from '@/lib/site';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
 
 export const metadata = pageMeta({
   title: 'Sell Your Home for Cash',
@@ -106,24 +108,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Not the right path? */}
-      <section className="border-t border-border-subtle bg-bg-secondary py-16 sm:py-20">
-        <div className="container-wide max-w-2xl text-center">
-          <Reveal>
-            <p className="eyebrow">Not the Right Path?</p>
-            <h2 className="h-display mt-4 text-2xl sm:text-3xl">Prefer to List Instead?</h2>
-            <p className="text-lead mt-5">
-              A direct offer is not the only option. If you would rather talk through selling on the open market or
-              explore something else, reach out and we will help you find the right part of Timber and Love.
-            </p>
-            <div className="mt-8 flex justify-center">
-              <Cta href="/contact/" variant="secondary" track="sell_cash_contact">
-                Contact Us
-              </Cta>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <ClosingCta {...closingCta.sellForCash} />
     </>
   );
 }

@@ -6,6 +6,8 @@ import Reveal from '@/components/ui/Reveal';
 import JsonLd from '@/components/JsonLd';
 import { pageMeta } from '@/lib/seo';
 import { breadcrumbSchema } from '@/lib/schema';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
 
 export const metadata = pageMeta({
   title: 'Our Design-Build Process',
@@ -110,22 +112,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-bg-primary py-20 text-center sm:py-24">
-        <div className="container-wide max-w-2xl">
-          <Reveal>
-            <p className="eyebrow">Ready to Begin?</p>
-            <h2 className="h-display mt-4 text-3xl sm:text-5xl">Start With a Conversation</h2>
-            <p className="text-lead mt-4">
-              Tell us about your home and goals. We will review your project and walk you through the first step.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
-              <Cta href="/design-and-build/" variant="secondary">Explore Design + Build</Cta>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <ClosingCta {...closingCta.ourProcess} />
     </>
   );
 }

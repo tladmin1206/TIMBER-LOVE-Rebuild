@@ -523,6 +523,21 @@ function ResultView({
         engineering, trade input, and confirmation of existing conditions.
       </p>
 
+      {/* The most common reaction to a range is "that is more than I expected".
+          Financing answers that objection, so it belongs here rather than only
+          on a page the visitor has to go looking for. */}
+      <div className="surface-card mt-6 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <p className="h-display text-lg">More Than You Expected?</p>
+          <p className="mt-2 max-w-md text-sm leading-relaxed text-text-secondary">
+            Most projects are phased or financed. See how homeowners structure an investment like this one.
+          </p>
+        </div>
+        <Link href="/financing/" className="btn-secondary shrink-0" data-track="estimator_financing">
+          See Financing Options
+        </Link>
+      </div>
+
       <div className="mt-6 flex flex-wrap gap-3">
         <Link href={inquiryHref} className="btn-primary" data-track="estimator_continue_inquiry">
           Continue to Project Inquiry
