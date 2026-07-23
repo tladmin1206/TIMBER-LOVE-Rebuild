@@ -52,7 +52,7 @@ export function estimate(
     }
   }
 
-  // STEP 1 + 2 — basis lookup and scaling to the property.
+  // STEP 1 + 2: basis lookup and scaling to the property.
   const resolved = basis.resolve(ruleset, answers, property);
   if (!resolved) {
     return blocked('no-approved-band', confidence, [
@@ -61,18 +61,16 @@ export function estimate(
     ]);
   }
 
-  // STEP 3 — condition and context multipliers, applied multiplicatively.
+  // STEP 3: condition and context multipliers, applied multiplicatively.
   const multipliers: AppliedMultiplier[] = [
     ageMultiplier(property.yearBuilt),
-    scopeMultiplier(answers.scopeLevel),
-    ...siteMultipliers(answers, property),
-    ...overlayMultipliers(property),
+    scopeMultiplier(answers.scopeLevel), ...siteMultipliers(answers, property), ...overlayMultipliers(property),
   ].filter((m): m is AppliedMultiplier => m !== null);
 
   const multiplierProduct = multipliers.reduce((acc, m) => acc * m.value, 1) * ruleset.escalationFactor;
   const adjusted = resolved.scaled * multiplierProduct;
 
-  // STEP 4 — direct adders, kept separate so each can be disclosed on its own.
+  // STEP 4: direct adders, kept separate so each can be disclosed on its own.
   const adders: AppliedAdder[] = directAdders(answers, property);
   const adderMid = adders.reduce((acc, a) => acc + (a.amount.low + a.amount.high) / 2, 0);
   const withAdders = adjusted + adderMid;
@@ -81,7 +79,7 @@ export function estimate(
   const contingency = contingencyPct(ruleset, answers, property);
   const expected = withAdders * (1 + contingency);
 
-  // STEP 5 — band width. Confidence may widen the approved spread; it may
+  // STEP 5: band width. Confidence may widen the approved spread; it may
   // never narrow the range below what leadership actually approved (§ 1A.4).
   const approvedLow = resolved.approvedBand.low * multiplierProduct + adderMid;
   const approvedHigh = resolved.approvedBand.high * multiplierProduct + adderMid;
@@ -89,7 +87,7 @@ export function estimate(
   const high = Math.max(approvedHigh, expected * (1 + confidence.bandWidth));
   const mid = expected;
 
-  // § 7.2 — too uncertain to be information.
+  // § 7.2: too uncertain to be information.
   if (isTooUncertainToPublish(confidence.score)) {
     return blocked('confidence-too-low', confidence, [
       ...diagnostics,
@@ -97,7 +95,7 @@ export function estimate(
     ]);
   }
 
-  // STEP 6 — guardrails.
+  // STEP 6: guardrails.
   // A minimum of zero disables the check entirely (see ruleset.projectMinimum).
   const belowMinimum = ruleset.projectMinimum > 0 && mid < ruleset.projectMinimum;
 
@@ -128,7 +126,7 @@ export function estimate(
   const transparency = buildTransparency({ answers, property, ruleset, trace });
 
   if (belowMinimum) {
-    // § 7.5 — do not show a range. Honest, fast, and it saves the PM a call.
+    // § 7.5: do not show a range. Honest, fast, and it saves the PM a call.
     return {
       outcome: 'below-minimum',
       range: null,
@@ -144,7 +142,7 @@ export function estimate(
     };
   }
 
-  // STEP 7 — rounding. $187,432 reads as a machine guessing; $185,000 reads as
+  // STEP 7: rounding. $187,432 reads as a machine guessing; $185,000 reads as
   // professional judgment.
   const rounded = {
     low: roundBand(low),
@@ -152,7 +150,7 @@ export function estimate(
     high: roundBand(high),
   };
 
-  // § 5.5 — sanity bounds. A missing range is recoverable; a wrong one is not.
+  // § 5.5: sanity bounds. A missing range is recoverable; a wrong one is not.
   const sanity = checkSanity(rounded, confidence.bandWidth, ruleset, answers);
   if (sanity.length) {
     return blocked('sanity-check-failed', confidence, [...diagnostics, ...sanity], trace, transparency);
@@ -176,7 +174,7 @@ export function estimate(
 }
 
 /**
- * § 5.4 — a forever-home client is allowed to over-improve. The notice is
+ * § 5.4, a forever-home client is allowed to over-improve. The notice is
  * softened rather than removed, so the suppression here only applies when the
  * homeowner has explicitly said this is their forever home and they are not
  * preparing to sell.

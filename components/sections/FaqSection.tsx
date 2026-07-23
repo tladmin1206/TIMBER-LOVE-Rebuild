@@ -7,7 +7,7 @@ import { faqSchema } from '@/lib/schema';
  * Objection-handling FAQ block, positioned just before the closing CTA.
  *
  * Emits FAQPage structured data alongside the visible accordion so the same
- * answers are eligible for rich results — these pages compete on exactly the
+ * answers are eligible for rich results: these pages compete on exactly the
  * questions being answered here.
  */
 export default function FaqSection({

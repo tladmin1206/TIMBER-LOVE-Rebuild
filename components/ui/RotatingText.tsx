@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-/** Cycles through phrases with a soft fade — mirrors the live hero sub-headline. */
+/** Cycles through phrases with a soft fade: mirrors the live hero sub-headline. */
 export default function RotatingText({
   words,
   interval = 2400,

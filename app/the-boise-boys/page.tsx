@@ -50,7 +50,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Featured television projects — link to full case studies */}
+      {/* Featured television projects: link to full case studies */}
       <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mb-10 max-w-2xl">
@@ -62,7 +62,7 @@ export default function Page() {
               <Link key={p.slug} href={`/projects/${p.slug}/`} className="group card-interactive block overflow-hidden">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.cover} alt={`${p.title} — ${p.category}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={p.cover} alt={`${p.title}: ${p.category}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="p-6">
                   <h3 className="h-card">{p.title}</h3>
@@ -75,7 +75,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* More from the show — gallery */}
+      {/* More from the show: gallery */}
       <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mb-10 max-w-2xl">
@@ -86,7 +86,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Client proof — verified customer reviews only */}
+      {/* Client proof: verified customer reviews only */}
       <section className="border-t border-border-subtle bg-bg-secondary text-center section">
         <div className="container-wide">
           <Reveal>
@@ -99,7 +99,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Fan comments — clearly labeled as viewers, not clients */}
+      {/* Fan comments: clearly labeled as viewers, not clients */}
       <section className="bg-bg-primary section-tight">
         <div className="container-wide">
           <Reveal className="mb-8 max-w-2xl">

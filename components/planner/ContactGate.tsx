@@ -72,7 +72,7 @@ export default function ContactGate({
         <p className="text-xs uppercase tracking-[0.18em] text-text-muted">Planning Investment Range</p>
         <p className="mt-4 blur-[7px]">
           <span className="stat-figure">$000,000</span>
-          <span className="mx-3 text-2xl text-text-muted">—</span>
+          <span className="mx-3 text-2xl text-text-muted">-</span>
           <span className="stat-figure">$000,000</span>
         </p>
         <p className="mt-6 blur-[5px] text-sm text-text-secondary">Typical for this project: $000,000</p>

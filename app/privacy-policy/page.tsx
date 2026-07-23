@@ -4,7 +4,7 @@ import data from '@/content/privacy-policy.json';
 
 export const metadata = pageMeta({
   title: 'Privacy Policy',
-  description: 'Timber and Love privacy policy — how we collect, use, and protect your information.',
+  description: 'Timber and Love privacy policy: how we collect, use, and protect your information.',
   path: '/privacy-policy/',
   noindex: true,
 });

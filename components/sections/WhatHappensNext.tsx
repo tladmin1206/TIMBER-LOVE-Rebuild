@@ -17,7 +17,7 @@ const DEFAULT_STEPS = [
   {
     step: '02',
     title: 'A Short Conversation',
-    body: 'About twenty minutes to understand your home, your goals and your budget — and to say honestly whether we are the right team for it.',
+    body: 'About twenty minutes to understand your home, your goals and your budget, and to say honestly whether we are the right team for it.',
   },
   {
     step: '03',

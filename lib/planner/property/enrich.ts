@@ -38,7 +38,7 @@ export interface PropertyProvider {
 
 /**
  * ATTOM adapter. Inert until ATTOM_API_KEY exists, which is a procurement step
- * rather than a code one — `isConfigured` lets the caller skip it cleanly
+ * rather than a code one: `isConfigured` lets the caller skip it cleanly
  * instead of discovering the gap through a failed request.
  */
 export class AttomProvider implements PropertyProvider {

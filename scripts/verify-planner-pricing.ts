@@ -5,7 +5,7 @@
  * Run: npx tsx scripts/verify-planner-pricing.ts
  *
  * These assert the properties that make the engine defensible rather than
- * merely functional — determinism, the sign-off gate, guardrails, and the
+ * merely functional: determinism, the sign-off gate, guardrails, and the
  * refusal to invent a band.
  */
 import { DRAFT_RULESET, assertPublishable, offerableProjectTypes, type Ruleset } from '../lib/planner/ruleset';
@@ -20,7 +20,7 @@ function check(name: string, cond: boolean, detail = '') {
     console.log(`  PASS  ${name}`);
   } else {
     failures += 1;
-    console.log(`  FAIL  ${name}${detail ? ` — ${detail}` : ''}`);
+    console.log(`  FAIL  ${name}${detail ? `: ${detail}` : ''}`);
   }
 }
 
@@ -206,7 +206,7 @@ console.log('\nProject types are priced on their own band, not a neighbour’s')
     guest.trace?.bandLookupKey ?? guest.outcome);
 
   // Compared at the band, because the guest-bath band sits below the project
-  // minimum and is therefore declined before a range is produced — see the
+  // minimum and is therefore declined before a range is produced: see the
   // ruleset-consistency section below.
   const guestBand = guest.trace?.approvedBand;
   const primaryBand = primary.trace?.approvedBand;
@@ -243,7 +243,7 @@ console.log('\nRuleset self-consistency');
   const r = DRAFT_RULESET;
   const unreachable: string[] = [];
   if (r.projectMinimum === 0) {
-    console.log('  NOTE  project minimum is disabled — no band can be unreachable on size.');
+    console.log('  NOTE  project minimum is disabled: no band can be unreachable on size.');
   }
   for (const [type, scopes] of Object.entries(r.bands)) {
     for (const [scope, tiers] of Object.entries(scopes ?? {})) {

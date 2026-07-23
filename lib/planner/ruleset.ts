@@ -45,7 +45,7 @@ export type Ruleset = {
   effectiveDate: string;
   /**
    * Null until Appendix A is corrected and signed. The engine refuses to
-   * produce a homeowner-facing figure while this is null — see `assertPublishable`.
+   * produce a homeowner-facing figure while this is null: see `assertPublishable`.
    */
   signOff: SignOff | null;
   /**
@@ -76,7 +76,7 @@ export type Ruleset = {
 };
 
 /**
- * DRAFT ruleset — Appendix A, transcribed verbatim.
+ * DRAFT ruleset: Appendix A, transcribed verbatim.
  *
  * Every figure below is a placeholder written by an outside party with no
  * access to Timber and Love job costing. The specification says they are
@@ -86,7 +86,7 @@ export type Ruleset = {
  *
  * `signOff: null` and `containsUncalibratedValues: true` together guarantee
  * these numbers cannot reach a homeowner. Do not set either field to make a
- * test pass — correct Appendix A and transcribe the signed values instead.
+ * test pass: correct Appendix A and transcribe the signed values instead.
  */
 export const DRAFT_RULESET: Ruleset = {
   version: '2026.07.0-draft',
@@ -143,7 +143,7 @@ export const DRAFT_RULESET: Ruleset = {
 
   // Business decision: Timber and Love does not turn work away on size alone,
   // so there is no project floor. Zero disables the guardrail rather than
-  // removing it — the code path is retained so a minimum can be reinstated by
+  // removing it, the code path is retained so a minimum can be reinstated by
   // changing this one number.
   //
   // This also resolved a contradiction in the draft sheet, which priced a guest
@@ -253,7 +253,7 @@ export function assertPublishable(ruleset: Ruleset, now: Date): PublishGate {
 
 /**
  * Rule 4: a project type with no approved band is not offered at all.
- * Returns the band, or null — never a default.
+ * Returns the band, or null: never a default.
  */
 export function lookupBand(
   ruleset: Ruleset,

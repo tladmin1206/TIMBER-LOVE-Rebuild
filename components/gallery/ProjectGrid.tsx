@@ -63,7 +63,7 @@ export default function ProjectGrid() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={p.cover}
-                alt={`${p.title} — ${p.category} in ${p.location}`}
+                alt={`${p.title}: ${p.category} in ${p.location}`}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />

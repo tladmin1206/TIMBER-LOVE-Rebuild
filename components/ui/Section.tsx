@@ -22,7 +22,7 @@ const BACKGROUND: Record<Background, string> = {
  * Owns background, vertical rhythm, top divider and container width so pages
  * compose sections rather than re-deriving them. Every section on the site
  * previously set these by hand, which is how ten padding values and seventeen
- * heading sizes accumulated — the primitive is what keeps that from recurring.
+ * heading sizes accumulated, the primitive is what keeps that from recurring.
  */
 export default function Section({
   children,
@@ -30,8 +30,7 @@ export default function Section({
   background = 'primary',
   width = 'wide',
   divider = false,
-  className = '',
-  ...rest
+  className = '', ...rest
 }: {
   children: React.ReactNode;
   rhythm?: Rhythm;

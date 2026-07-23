@@ -72,7 +72,7 @@ export default function Header() {
       }`}
     >
       <div className={`container-wide flex items-center justify-between gap-6 transition-all duration-300 ${scrolled ? 'py-2.5' : 'py-3.5 lg:py-5'}`}>
-        <Link href="/" aria-label="Timber and Love — home" className="flex shrink-0 items-center">
+        <Link href="/" aria-label="Timber and Love: home" className="flex shrink-0 items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={LOGO} alt="Timber and Love" className={`w-auto transition-all ${scrolled ? 'h-8' : 'h-9 lg:h-10'}`} width={300} height={126} />
         </Link>
@@ -119,7 +119,7 @@ export default function Header() {
           )}
         </nav>
 
-        {/* Right CTAs — the primary ask, paired with a lower-commitment option
+        {/* Right CTAs, the primary ask, paired with a lower-commitment option
             so visitors who are not ready to talk still have somewhere to go. */}
         <div className="hidden items-center gap-3 xl:flex">
           <Link href="/estimate/" className="btn-secondary !px-5 !py-2.5 text-xs" data-track="header_estimate">

@@ -8,7 +8,7 @@ import type { ClosingCtaProps } from '@/components/sections/ClosingCta';
  *  - The primary action names what happens ("Request a Cash Offer"), never
  *    "Get Started" or "Learn More".
  *  - Every entry carries a lower-commitment secondary so visitors who are not
- *    ready today still have somewhere to go — usually the estimator or work.
+ *    ready today still have somewhere to go: usually the estimator or work.
  *  - The body answers "why now" in one sentence, not a restatement of the page.
  */
 
@@ -32,7 +32,7 @@ const VIEW_WORK = { label: 'View Our Work', href: '/timber-and-love-gallery/' };
 export const CLOSING_VIDEO = { videoId: '927976789', poster: '/video-posters/927976789.jpg' };
 
 export const closingCta: Record<string, ClosingCtaProps> = {
-  /** Homepage and other hero-weight pages — video-backed. */
+  /** Homepage and other hero-weight pages: video-backed. */
   home: {
     ...CLOSING_VIDEO,
     eyebrow: 'Not Sure Where to Start?',
@@ -108,7 +108,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
   buyOrSell: {
     eyebrow: 'Timber and Love Realty',
     title: 'Make Your Next Move With Us',
-    body: 'Buying or selling in the Boise area, you get a team that also designs and builds — so you see a home’s potential, not just its listing.',
+    body: 'Buying or selling in the Boise area, you get a team that also designs and builds, so you see a home’s potential, not just its listing.',
     image: IMG.realty,
     primary: { label: 'Buy or Sell a Home', href: site.external.realty, external: true },
     secondary: { label: 'Talk to Our Team', href: '/contact/' },
@@ -117,7 +117,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
   sellForCash: {
     eyebrow: 'A Simpler Sale',
     title: 'See What We Would Offer',
-    body: 'No listing, no showings, no repairs. Find out what a direct cash offer on your home looks like — there is no obligation to accept it.',
+    body: 'No listing, no showings, no repairs. Find out what a direct cash offer on your home looks like: there is no obligation to accept it.',
     image: IMG.exterior,
     primary: { label: 'Request a Cash Offer', href: site.external.cashOffers, external: true },
     secondary: { label: 'Compare Selling Options', href: '/buy-or-sell/' },
@@ -135,7 +135,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
   stayWithUs: {
     eyebrow: 'Stay With Us',
     title: 'Book a Timber and Love Property',
-    body: 'Every rental we own was designed and built by our team — the easiest way to experience the work before you commission it.',
+    body: 'Every rental we own was designed and built by our team. It is the easiest way to experience the work before you commission it.',
     image: IMG.stay,
     primary: { label: 'View Available Stays', href: '/vacation-rentals/' },
     secondary: { label: 'Ask a Question', href: '/contact/' },

@@ -34,7 +34,7 @@ export const metadata = {
     path: '/investment-planner/',
   }),
   // Never index a planner that cannot publish a figure.
-  // Preview is still noindex — a walkable planner is not a launched one.
+  // Preview is still noindex, a walkable planner is not a launched one.
   ...(LAUNCHED ? {} : { robots: { index: false, follow: false } }),
 };
 
@@ -99,8 +99,8 @@ export default function Page() {
             {/* Direct-answer block: self-contained and quotable, before any preamble. */}
             <p className="text-lead mt-5">
               {LAUNCHED
-                ? 'Answer nine questions about your home and goals, and see a planning-level investment range for your Boise-area remodel or new build — along with every assumption behind it, what it excludes, and how long it takes. It takes about three minutes and it is not a quote.'
-                : 'Answer nine questions about your home and goals, and get a clear summary of your project, the questions worth settling, and a direct line to our team — who will follow up with your investment range. It takes about three minutes.'}
+                ? 'Answer nine questions about your home and goals, and see a planning-level investment range for your Boise-area remodel or new build: along with every assumption behind it, what it excludes, and how long it takes. It takes about three minutes and it is not a quote.'
+                : 'Answer nine questions about your home and goals, and get a clear summary of your project, the questions worth settling, and a direct line to our team: who will follow up with your investment range. It takes about three minutes.'}
             </p>
           </Reveal>
         </div>

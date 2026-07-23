@@ -10,7 +10,7 @@ import { site } from '@/lib/site';
 export const metadata = pageMeta({
   title: 'Contact',
   description:
-    'Reach the Timber and Love team in Boise. Pick the option closest to your goal — design and build, buying or selling, cash offers, investing, or a vacation stay — or send a general note.',
+    'Reach the Timber and Love team in Boise. Pick the option closest to your goal: design and build, buying or selling, cash offers, investing, or a vacation stay: or send a general note.',
   path: '/contact/',
 });
 
@@ -73,7 +73,7 @@ export default function Page() {
 
       <TrustBar />
 
-      {/* Choose Your Path — route each need to the correct destination */}
+      {/* Choose Your Path: route each need to the correct destination */}
       <section className="bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
@@ -100,7 +100,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* General inquiry — form plus primary customer contact details */}
+      {/* General inquiry: form plus primary customer contact details */}
       <section id="general" className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
@@ -140,7 +140,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Abandonment recovery — sets expectations and offers two lower-commitment
+      {/* Abandonment recovery: sets expectations and offers two lower-commitment
           alternatives for visitors who scrolled past the form without sending it. */}
       <section className="border-t border-border-subtle bg-bg-primary section">
         <div className="container-wide">
@@ -174,7 +174,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Press & Partnerships — kept separate from customer contact routing */}
+      {/* Press & Partnerships: kept separate from customer contact routing */}
       <section id="press" className="border-t border-border-subtle bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-3xl text-center">

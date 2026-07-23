@@ -19,7 +19,7 @@ export const metadata = pageMeta({
 });
 
 // General financing approaches homeowners commonly consider. Described at a high
-// level only — no rates, lenders, or terms are stated (those are personal and
+// level only: no rates, lenders, or terms are stated (those are personal and
 // change). TEMP: if Timber and Love establishes specific lending partners or
 // programs, add them here with approved details.
 const options = [

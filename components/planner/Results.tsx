@@ -31,7 +31,7 @@ export default function Results({
 }
 
 /* ---------------------------------------------------------------- *
- * Beat 1 — the range. Large, calm, singular.
+ * Beat 1, the range. Large, calm, singular.
  * ---------------------------------------------------------------- */
 
 function RangeCard({ estimate }: { estimate: Estimate }) {
@@ -48,7 +48,7 @@ function RangeCard({ estimate }: { estimate: Estimate }) {
       <div className="surface-card mt-10 p-8 sm:p-12">
         <p className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
           <span className="stat-figure">{money(r.low)}</span>
-          <span className="text-2xl text-text-muted">—</span>
+          <span className="text-2xl text-text-muted">-</span>
           <span className="stat-figure">{money(r.high)}</span>
         </p>
 
@@ -108,13 +108,13 @@ function RangeCard({ estimate }: { estimate: Estimate }) {
   );
 }
 
-/** § 7.4 — the advisory a good project manager gives and a calculator never does. */
+/** § 7.4, the advisory a good project manager gives and a calculator never does. */
 function OverImprovement({ ratio }: { ratio: number | null }) {
   return (
     <aside className="alert mt-8 max-w-2xl">
       <p className="text-cream">A note on value.</p>
       <p className="mt-2 leading-relaxed">
-        This range represents roughly {ratio ? Math.round(ratio * 100) : '—'}% of your home&apos;s current estimated
+        This range represents roughly {ratio ? Math.round(ratio * 100) : '-'}% of your home&apos;s current estimated
         value, which is above the typical range for this neighbourhood. It can still be exactly the right decision for
         a forever home. It is a different decision if you are planning to sell within five years. Worth talking
         through.
@@ -124,7 +124,7 @@ function OverImprovement({ ratio }: { ratio: number | null }) {
 }
 
 /* ---------------------------------------------------------------- *
- * Beat 2 — what it covers.
+ * Beat 2: what it covers.
  * ---------------------------------------------------------------- */
 
 function Transparency({ blocks }: { blocks: TransparencyBlocks }) {
@@ -201,7 +201,7 @@ function Transparency({ blocks }: { blocks: TransparencyBlocks }) {
                         {x.typicalMagnitude && (
                           <span className="text-text-muted">
                             {' '}
-                            — typically {money(x.typicalMagnitude.low)} to {money(x.typicalMagnitude.high)}
+                           : typically {money(x.typicalMagnitude.low)} to {money(x.typicalMagnitude.high)}
                           </span>
                         )}
                       </li>
@@ -213,7 +213,7 @@ function Transparency({ blocks }: { blocks: TransparencyBlocks }) {
                   <ul className="space-y-3">
                     {blocks.allowances.map((a, n) => (
                       <li key={n} className="text-sm leading-relaxed text-text-secondary">
-                        <span className="text-cream">{a.category}</span> — {money(a.amount.low)} to{' '}
+                        <span className="text-cream">{a.category}</span>: {money(a.amount.low)} to{' '}
                         {money(a.amount.high)}. {a.buys}
                       </li>
                     ))}
@@ -228,7 +228,7 @@ function Transparency({ blocks }: { blocks: TransparencyBlocks }) {
                         {v.magnitude && (
                           <span className="text-text-muted">
                             {' '}
-                            — {money(v.magnitude.low)} to {money(v.magnitude.high)}
+                           : {money(v.magnitude.low)} to {money(v.magnitude.high)}
                           </span>
                         )}
                       </li>
@@ -245,11 +245,11 @@ function Transparency({ blocks }: { blocks: TransparencyBlocks }) {
 }
 
 /* ---------------------------------------------------------------- *
- * Beat 3 — what happens next.
+ * Beat 3: what happens next.
  * ---------------------------------------------------------------- */
 
 /**
- * § 5.5 — asked after the range, never before it.
+ * § 5.5: asked after the range, never before it.
  *
  * Asking for a budget up front suppresses completion, anchors low, and makes a
  * homeowner feel qualified rather than helped. Asking for a reaction afterwards
@@ -270,7 +270,7 @@ function BudgetReaction() {
   if (answer) {
     return (
       <div className="surface-card p-8" role="status">
-        <p className="text-cream">Thank you — that is genuinely useful.</p>
+        <p className="text-cream">Thank you, that is genuinely useful.</p>
         <p className="mt-2 text-sm leading-relaxed text-text-secondary">
           {answer === 'higher'
             ? 'We will come to the call with options for phasing and where the money does the most work.'
@@ -346,7 +346,7 @@ function NextSteps({ questions }: { questions: string[] }) {
  * Non-range outcomes
  * ---------------------------------------------------------------- */
 
-/** § 7.5 — honest, fast, and it saves the project manager a call. */
+/** § 7.5: honest, fast, and it saves the project manager a call. */
 function BelowMinimum() {
   return (
     <section className="surface-card p-8 sm:p-12">
@@ -372,7 +372,7 @@ function BelowMinimum() {
 }
 
 /**
- * Shown when the engine declines to publish a figure — an unsigned band table,
+ * Shown when the engine declines to publish a figure, an unsigned band table,
  * a project type with no approved band, or confidence below the floor. The
  * homeowner is never told a number we cannot stand behind.
  */

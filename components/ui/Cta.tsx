@@ -13,7 +13,7 @@ const VARIANT_CLASS: Record<Variant, string> = {
  * Next <Link>; external/affiliated destinations render an <a> with secure rel,
  * an outbound-tracking hook, and a clear "opens an affiliated site" indicator.
  *
- * CTA wording must always describe the action or destination — never a vague
+ * CTA wording must always describe the action or destination: never a vague
  * "Get Started" / "Begin Your Journey".
  */
 export default function Cta({

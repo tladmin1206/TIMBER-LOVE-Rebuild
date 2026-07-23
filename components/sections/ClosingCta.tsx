@@ -51,7 +51,7 @@ function Action({ action, variant }: { action: ClosingAction; variant: 'primary'
 /**
  * The single closing CTA used at the foot of every non-legal page.
  *
- * One layout, two background modes — so the conversion moment looks and behaves
+ * One layout, two background modes, so the conversion moment looks and behaves
  * identically everywhere while still letting hero-weight pages carry video.
  * Copy and destinations are page-specific and live in `lib/content/closing.ts`.
  */

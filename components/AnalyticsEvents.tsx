@@ -6,7 +6,7 @@ import { useEffect } from 'react';
  * Privacy-safe click instrumentation. A single delegated listener fires a gtag
  * event for any element carrying `data-track`, and an `outbound_click` event for
  * affiliated external destinations (`data-external`). Only non-sensitive,
- * category-style values are sent — never form field values or personal data.
+ * category-style values are sent: never form field values or personal data.
  */
 declare global {
   interface Window {

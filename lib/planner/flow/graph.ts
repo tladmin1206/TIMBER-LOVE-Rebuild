@@ -22,7 +22,7 @@ export type FlowState = {
 export const emptyFlow = (): FlowState => ({ values: {}, notSure: [], hybrid: false });
 
 /**
- * § 3.1 — "I'm not sure yet" asks two disambiguating questions whose answers
+ * § 3.1: "I'm not sure yet" asks two disambiguating questions whose answers
  * resolve the mode deterministically. There is no guessing and no dead end.
  */
 export function resolveMode(state: FlowState): Mode | 'unsure' | null {
@@ -40,7 +40,7 @@ export function resolveMode(state: FlowState): Mode | 'unsure' | null {
 }
 
 /**
- * § 3.2 — a Mode A scope that requires new footprint appends the Mode B
+ * § 3.2, a Mode A scope that requires new footprint appends the Mode B
  * questions rather than restarting. Never restart a flow. Never lose data.
  */
 export function requiresFootprint(state: FlowState): boolean {
@@ -99,7 +99,7 @@ export function answerNotSure(state: FlowState, screen: Screen): FlowState {
 }
 
 /**
- * § 5.1 rule 7 — back is always available and lossless. Because the sequence is
+ * § 5.1 rule 7: back is always available and lossless. Because the sequence is
  * derived, stepping back is just an index change; nothing is discarded.
  */
 export function stepBack(state: FlowState, currentIndex: number): number {
@@ -107,7 +107,7 @@ export function stepBack(state: FlowState, currentIndex: number): number {
 }
 
 /**
- * § 5.1 rule 6 — an honest progress indicator. The total only changes when a
+ * § 5.1 rule 6, an honest progress indicator. The total only changes when a
  * hybrid branch adds screens, and that change is explained rather than silent.
  */
 export function progress(state: FlowState, currentIndex: number) {
@@ -128,7 +128,7 @@ export function consultationQuestions(state: FlowState): string[] {
 }
 
 /* ------------------------------------------------------------------ *
- * Flow validation — the spec's hard rules, as assertions
+ * Flow validation, the spec's hard rules, as assertions
  * ------------------------------------------------------------------ */
 
 export type FlowViolation = { mode: Mode; rule: string; detail: string };
@@ -148,7 +148,7 @@ export function validateFlows(): FlowViolation[] {
     if (screens.length > SCREEN_CEILING) {
       violations.push({
         mode,
-        rule: '§ 5.1 rule 1 — nine screens maximum before the contact gate',
+        rule: '§ 5.1 rule 1: nine screens maximum before the contact gate',
         detail: `${screens.length} screens defined`,
       });
     }
@@ -164,7 +164,7 @@ export function validateFlows(): FlowViolation[] {
       if (asksADecision && !s.notSure && !unsureInChoices) {
         violations.push({
           mode,
-          rule: '§ 5.1 rule 4 — every question needs a "not sure" path',
+          rule: '§ 5.1 rule 4: every question needs a "not sure" path',
           detail: `screen "${s.id}" has none`,
         });
       }

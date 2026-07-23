@@ -3,9 +3,9 @@ import type { Testimonial } from '@/lib/content/types';
 // Matches the original homepage: 967117381 is the full-bleed background hero
 // video (warm interior), and 953577619 is the inline "Designing Beauty" player
 // that sits in a section below the hero.
-export const heroVideoId = '967117381'; // Vimeo — hero background video
+export const heroVideoId = '967117381'; // Vimeo: hero background video
 export const heroVideoPoster = '/video-posters/967117381.jpg';
-export const introVideoId = '953577619'; // Vimeo — inline "Designing Beauty" player
+export const introVideoId = '953577619'; // Vimeo: inline "Designing Beauty" player
 export const introVideoPoster = '/video-posters/953577619.jpg';
 
 // Full-bleed background videos used across homepage sections (Vimeo ids + local poster frames).
@@ -38,7 +38,7 @@ export const heroSlideshow = [
   '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Dining-Room-2-scaled.jpg',
 ];
 
-// Hero statistics — the brand's established figures from the original live site.
+// Hero statistics, the brand's established figures from the original live site.
 // TEMP: confirm exact current values with the business before launch.
 export const stats = [
   { to: 15, prefix: '', suffix: '+', label: 'Years Experience' },
@@ -59,7 +59,7 @@ export const pressLogos = [
   { name: 'Airbnb', file: 'Airbnb-Logo-white-1-qmf5w6n7nznyl3m7nxgn9erdbpx9kgj0695ipbn4f4.png' },
 ].map((l) => ({ alt: `As seen on ${l.name}`, src: `/wp-content/uploads/elementor/thumbs/${l.file}` }));
 
-// Full-bleed service promo blocks (edge-to-edge media + brand logo + CTA) — matches the live homepage.
+// Full-bleed service promo blocks (edge-to-edge media + brand logo + CTA): matches the live homepage.
 export const servicePromos = [
   {
     key: 'design-build',
@@ -98,7 +98,7 @@ export const servicePromos = [
 ];
 
 // Legacy service list retained for any remaining references. Property management
-// has been removed — it is not an offered service.
+// has been removed, it is not an offered service.
 export const services = [
   {
     title: 'Design + Build',
@@ -181,7 +181,7 @@ export const testimonials: Testimonial[] = [
 /**
  * Curated featured projects for the homepage "Featured Work" section. These are
  * real Boise Boys projects with imagery in the repo. Outcome summaries are kept
- * general and truthful — TEMP: confirm exact scope/location details with the
+ * general and truthful: TEMP: confirm exact scope/location details with the
  * business, and expand into full case-study pages under /timber-and-love-gallery/.
  */
 export const featuredProjects = [
@@ -207,7 +207,7 @@ export const featuredProjects = [
 
 /**
  * Differentiated, outcome-focused reasons to choose Timber and Love. Each point
- * is paired with a specific, tangible explanation — not generic claims about
+ * is paired with a specific, tangible explanation: not generic claims about
  * integrity or quality.
  */
 export const whyReasons = [
@@ -271,14 +271,14 @@ export const clientReviews: Testimonial[] = [
   },
 ];
 
-/** Boise Boys fan commentary — clearly labeled as viewer comments, never as client proof. */
+/** Boise Boys fan commentary: clearly labeled as viewer comments, never as client proof. */
 export const fanComments: Testimonial[] = [
-  { name: 'Randy T.', quote: 'We are devoted fans of the Boise Boys program on HGTV. We love the interaction between Clint and Luke — they work so well together and are a kick to watch.', role: 'Boise Boys Viewer' },
-  { name: 'Richard M.', quote: '“Boise Boys” — best viewing ever offered by HGTV. Love those guys!', role: 'Boise Boys Viewer' },
+  { name: 'Randy T.', quote: 'We are devoted fans of the Boise Boys program on HGTV. We love the interaction between Clint and Luke. They work so well together and are a kick to watch.', role: 'Boise Boys Viewer' },
+  { name: 'Richard M.', quote: '“Boise Boys”: best viewing ever offered by HGTV. Love those guys!', role: 'Boise Boys Viewer' },
   { name: 'Jean U.', quote: 'I love the designs and the builds the Boise Boys do on their homes. I would love to have Luke design a mid-century modern house for us.', role: 'Boise Boys Viewer' },
 ];
 
-/** "One Brand, More Ways to Help" — how a customer might move between services. */
+/** "One Brand, More Ways to Help": how a customer might move between services. */
 export const brandEcosystem = [
   'Buy a property and remodel it with our design + build team',
   'Remodel a home before you sell it',
@@ -288,10 +288,10 @@ export const brandEcosystem = [
 
 // Favorite Boise Boys projects gallery (Casa De Boise + Central Rim highlights)
 export const favoriteProjects = [
-  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg', alt: 'Casa De Boise — Front Exterior' },
-  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg', alt: 'Casa De Boise — Living Room' },
-  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Dining-Room-2-scaled.jpg', alt: 'Casa De Boise — Dining Room' },
-  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Office-1-scaled.jpg', alt: 'Casa De Boise — Office' },
-  { src: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg', alt: 'The Firehouse — Kitchen' },
-  { src: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Living-Room-scaled.jpg', alt: 'The Firehouse — Living Room' },
+  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg', alt: 'Casa De Boise: Front Exterior' },
+  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg', alt: 'Casa De Boise: Living Room' },
+  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Dining-Room-2-scaled.jpg', alt: 'Casa De Boise: Dining Room' },
+  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Office-1-scaled.jpg', alt: 'Casa De Boise: Office' },
+  { src: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg', alt: 'The Firehouse: Kitchen' },
+  { src: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Living-Room-scaled.jpg', alt: 'The Firehouse: Living Room' },
 ];

@@ -27,9 +27,9 @@ const TYPE_LABEL: Record<string, string> = {
 };
 
 const SCOPE_LABEL: Record<string, string> = {
-  refresh: 'Refresh — new finishes, existing layout',
-  reimagine: 'Reimagine — new layout, same footprint',
-  rebuild: 'Rebuild — structural changes',
+  refresh: 'Refresh: new finishes, existing layout',
+  reimagine: 'Reimagine: new layout, same footprint',
+  rebuild: 'Rebuild: structural changes',
 };
 
 const TIER_LABEL: Record<string, string> = {
@@ -66,17 +66,17 @@ export default function ProjectSummary({
   firstName?: string;
 }) {
   const rows = [
-    ['Project', TYPE_LABEL[answers.projectType ?? ''] ?? '—'],
+    ['Project', TYPE_LABEL[answers.projectType ?? ''] ?? '-'],
     ['Scope', SCOPE_LABEL[answers.scopeLevel ?? ''] ?? 'To confirm together'],
     ['Finish level', TIER_LABEL[answers.finishTier ?? ''] ?? 'To confirm together'],
-    ['Timing', TIMELINE_LABEL[answers.timeline ?? ''] ?? '—'],
+    ['Timing', TIMELINE_LABEL[answers.timeline ?? ''] ?? '-'],
     [
       'Home',
       [answers.yearBuilt ? `Built ${answers.yearBuilt}` : null, answers.finishedSqFt ? `${answers.finishedSqFt.toLocaleString('en-US')} sq ft` : null]
         .filter(Boolean)
-        .join(' · ') || '—',
+        .join(' · ') || '-',
     ],
-  ].filter(([, v]) => v !== '—');
+  ].filter(([, v]) => v !== '-');
 
   return (
     <div className="space-y-16 sm:space-y-20">

@@ -8,7 +8,7 @@ export type ProcessPhase = {
 
 /**
  * Vertical process timeline. A connecting hairline with accent-numbered nodes
- * gives a clear, premium sense of "here is exactly what happens next" — the
+ * gives a clear, premium sense of "here is exactly what happens next", the
  * question that most often stalls a design-build inquiry.
  */
 export default function ProcessTimeline({ phases }: { phases: ProcessPhase[] }) {

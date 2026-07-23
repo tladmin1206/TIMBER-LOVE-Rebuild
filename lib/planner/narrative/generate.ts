@@ -44,7 +44,7 @@ export function templateNarrative(estimate: Estimate, answers: PlannerAnswers): 
 
   const first = `Based on what you have told us, ${what} in the Boise area typically falls between ${p.rangeLow} and ${p.rangeHigh}, with most projects of this scope landing near ${p.rangeMid}. That is a planning range rather than a quote, and it reflects the same reasoning a project manager would walk you through on a first call.`;
 
-  // "An 11%" but "A 5%" — spoken aloud, the article follows the digit.
+  // "An 11%" but "A 5%": spoken aloud, the article follows the digit.
   const article = /^(8|11|18)/.test(p.contingencyPct) ? 'An' : 'A';
   const second = `Allow ${p.designWeeks} for design and planning before construction begins, and ${p.constructionWeeks} for the construction itself. ${article} ${p.contingencyPct} planning contingency is included, because opening up an existing home reveals things nobody can see beforehand. If we do not use it, you do not pay it.`;
 
@@ -73,8 +73,8 @@ function describeProject(a: PlannerAnswers): string {
  * Produces the narrative, preferring the model and falling back on any doubt.
  *
  * `callModel` is injected so this is testable without a key and so the
- * transport can change without touching the guarantee. When it is absent — no
- * API key configured — the template is used directly, which is a supported
+ * transport can change without touching the guarantee. When it is absent: no
+ * API key configured, the template is used directly, which is a supported
  * state rather than an error.
  */
 export async function generateNarrative(

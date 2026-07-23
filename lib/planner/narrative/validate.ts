@@ -9,7 +9,7 @@
  * The rule: extract every currency, percentage, and duration token from the
  * model's output and assert each one appears in the input payload. On any
  * failure, discard the output and fall back to the deterministic template.
- * Fail closed, always, and log every failure — a rising failure rate means the
+ * Fail closed, always, and log every failure, a rising failure rate means the
  * prompt has drifted and needs attention.
  */
 
@@ -36,7 +36,7 @@ const PERCENTAGE = /\d+(?:\.\d+)?\s?(?:%|percent\b)/gi;
  * Captures each number paired with its unit so "10 to 16 weeks" yields both
  * 10 and 16 rather than a single opaque phrase.
  */
-const DURATION = /(\d+)(?:\s*(?:to|–|—|-)\s*(\d+))?\s*(week|month)s?\b/gi;
+const DURATION = /(\d+)(?:\s*(?:to|\u2013|\u2014|-)\s*(\d+))?\s*(week|month)s?\b/gi;
 
 /** Digits only, so "$185,000" and "185000" compare equal. */
 function digitsOf(s: string): string {
@@ -102,8 +102,7 @@ function allowedTokens(payload: NarrativePayload) {
     payload.rangeMid,
     payload.designWeeks,
     payload.constructionWeeks,
-    payload.contingencyPct,
-    ...(payload.additionalFigures ?? []),
+    payload.contingencyPct, ...(payload.additionalFigures ?? []),
   ].join(' ');
 
   return {
@@ -148,7 +147,7 @@ export function validateNarrative(output: string, payload: NarrativePayload): Va
 
 /**
  * The system prompt. Restates the prohibition in the model's own terms, which
- * reduces the failure rate — but the validator above is what actually enforces
+ * reduces the failure rate, but the validator above is what actually enforces
  * it, and this prompt is never the last line of defence.
  */
 export const NARRATIVE_SYSTEM_PROMPT = `You write short, warm, plain-language summaries for a design-build firm's planning report.

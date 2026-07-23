@@ -5,8 +5,8 @@ import VideoBg from '@/components/ui/VideoBg';
 import { site } from '@/lib/site';
 
 /**
- * Cinematic, video-backed brand feature. Two slides — Americana Soul and
- * Partnership Opportunities — share one editorial split layout (content beside
+ * Cinematic, video-backed brand feature. Two slides: Americana Soul and
+ * Partnership Opportunities: share one editorial split layout (content beside
  * a framed image) so the slider feels intentional and premium. Elegant labeled
  * navigation, gentle auto-advance, and a bottom-weighted overlay for legibility.
  */
@@ -60,7 +60,7 @@ export default function PartnershipsFeature({ videoId = '927976789', poster = '/
       <VideoBg videoId={videoId} poster={poster} overlay="bg-gradient-to-t from-ink via-ink/85 to-ink/60" />
 
       <div className="container-wide relative z-10 w-full">
-        {/* Slides — stacked, cross-fading, shared split layout */}
+        {/* Slides: stacked, cross-fading, shared split layout */}
         <div className="relative">
           {SLIDES.map((s, idx) => {
             const isActive = idx === active;
@@ -70,7 +70,7 @@ export default function PartnershipsFeature({ videoId = '927976789', poster = '/
                 aria-hidden={!isActive}
                 // `inert` keeps keyboard focus out of the invisible slide. Without
                 // it, tabbing landed on links that were announced as hidden and
-                // could not be seen — a genuine keyboard trap. Passed as a string
+                // could not be seen, a genuine keyboard trap. Passed as a string
                 // because React 18 does not recognise it as a boolean DOM prop.
                 {...(!isActive ? ({ inert: '' } as Record<string, string>) : {})}
                 className={`grid items-center gap-10 transition-opacity duration-700 ease-out lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 ${

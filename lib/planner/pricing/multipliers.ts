@@ -9,7 +9,7 @@ import type { Ruleset } from '../ruleset';
  * justified to a homeowner in one sentence does not belong here.
  */
 
-/** § 4.1 — home age drives systems risk more than any other property fact. */
+/** § 4.1: home age drives systems risk more than any other property fact. */
 export function ageMultiplier(yearBuilt?: number): AppliedMultiplier | null {
   if (!yearBuilt) return null;
   if (yearBuilt >= 2005)
@@ -27,7 +27,7 @@ export function ageMultiplier(yearBuilt?: number): AppliedMultiplier | null {
   };
 }
 
-/** § 4.2 — the largest single driver in Mode A. */
+/** § 4.2, the largest single driver in Mode A. */
 export function scopeMultiplier(scope?: string): AppliedMultiplier | null {
   switch (scope) {
     case 'refresh':
@@ -41,7 +41,7 @@ export function scopeMultiplier(scope?: string): AppliedMultiplier | null {
   }
 }
 
-/** § 4.4 — site and access. */
+/** § 4.4: site and access. */
 export function siteMultipliers(answers: PlannerAnswers, property: PropertyFacts): AppliedMultiplier[] {
   const out: AppliedMultiplier[] = [];
 
@@ -71,7 +71,7 @@ export function siteMultipliers(answers: PlannerAnswers, property: PropertyFacts
   return out;
 }
 
-/** § 4.5 — jurisdiction and overlay. */
+/** § 4.5: jurisdiction and overlay. */
 export function overlayMultipliers(property: PropertyFacts): AppliedMultiplier[] {
   const out: AppliedMultiplier[] = [];
 
@@ -93,7 +93,7 @@ export function overlayMultipliers(property: PropertyFacts): AppliedMultiplier[]
   return out;
 }
 
-/** § 5 — flat adders, disclosed individually rather than folded into the rate. */
+/** § 5: flat adders, disclosed individually rather than folded into the rate. */
 export function directAdders(answers: PlannerAnswers, property: PropertyFacts): AppliedAdder[] {
   const out: AppliedAdder[] = [];
 
@@ -128,7 +128,7 @@ export function directAdders(answers: PlannerAnswers, property: PropertyFacts): 
   return out;
 }
 
-/** § 5.2 — contingency varies by mode and scope, and is disclosed, not buried. */
+/** § 5.2: contingency varies by mode and scope, and is disclosed, not buried. */
 export function contingencyPct(ruleset: Ruleset, answers: PlannerAnswers, property: PropertyFacts): number {
   const exact = ruleset.contingency.find((c) => c.mode === answers.mode && c.scope === answers.scopeLevel);
   const modeOnly = ruleset.contingency.find((c) => c.mode === answers.mode && !c.scope);

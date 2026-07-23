@@ -40,7 +40,7 @@ export default function Page({ searchParams }: { searchParams?: Record<string, s
 
       <TrustBar />
 
-      {/* Estimator handoff summary — carried over so we do not re-ask. */}
+      {/* Estimator handoff summary: carried over so we do not re-ask. */}
       {(range || categoryParam) && (
         <section className="bg-bg-secondary py-6">
           <div className="container-tl max-w-2xl">

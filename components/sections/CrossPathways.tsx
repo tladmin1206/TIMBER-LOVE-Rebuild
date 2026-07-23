@@ -7,8 +7,8 @@ import { pathways } from '@/lib/site';
  *
  * Each pathway page was previously a silo: someone on /sell-for-cash who
  * realised they would rather remodel had no route to /design-and-build. That
- * left the strongest commercial argument — one team across every stage of a
- * home — unmade on exactly the pages where it matters.
+ * left the strongest commercial argument: one team across every stage of a
+ * home: unmade on exactly the pages where it matters.
  *
  * Pass the two pathway keys most adjacent to the current page.
  */

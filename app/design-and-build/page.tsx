@@ -177,7 +177,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Process — 3 phases over background videos */}
+      {/* Process: 3 phases over background videos */}
       <section className="bg-bg-primary pt-20 text-center sm:pt-28">
         <div className="container-wide max-w-2xl">
           <Reveal>
@@ -205,7 +205,7 @@ export default function Page() {
         </section>
       ))}
 
-      {/* Values — full-bleed video background + left header + grid */}
+      {/* Values: full-bleed video background + left header + grid */}
       <section className="relative overflow-hidden section-feature">
         <VideoBg videoId="967110133" poster="/video-posters/967110133.jpg" overlay="bg-ink/75" />
         <div className="container-wide relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
@@ -237,7 +237,7 @@ export default function Page() {
         </section>
       )}
 
-      {/* Testimonials — premium review wall with real, attributed reviews */}
+      {/* Testimonials: premium review wall with real, attributed reviews */}
       <ReviewWall reviews={clientReviews} eyebrow="Testimonials" heading="Trusted by Boise Homeowners" background="bg-bg-primary" moreHref="/reviews/" />
 
       {/* FAQ */}

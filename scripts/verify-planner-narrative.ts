@@ -15,7 +15,7 @@ function check(name: string, cond: boolean, detail = '') {
   if (cond) console.log(`  PASS  ${name}`);
   else {
     failures += 1;
-    console.log(`  FAIL  ${name}${detail ? ` — ${detail}` : ''}`);
+    console.log(`  FAIL  ${name}${detail ? `: ${detail}` : ''}`);
   }
 }
 
@@ -38,7 +38,7 @@ console.log('\nAccepts prose that only restates the payload');
   check('prose with no figures at all is accepted', validateNarrative(noFigures, payload).ok === true);
 }
 
-console.log('\nAdversarial cases — every one must be rejected');
+console.log('\nAdversarial cases: every one must be rejected');
 {
   const cases: [string, string][] = [
     ['invented a total', 'Your project will cost about $412,000 in total.'],

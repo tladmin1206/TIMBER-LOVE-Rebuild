@@ -16,6 +16,8 @@ import {
   type FlowState,
 } from '@/lib/planner/flow/graph';
 import type { Estimate, PlannerAnswers, PropertyFacts } from '@/lib/planner/types';
+import type { AddressSuggestion } from '@/lib/planner/property/freeLookup';
+import type { FoundProperty } from '@/components/planner/ScreenRenderer';
 
 type Stage = 'questions' | 'gate' | 'results';
 
@@ -35,6 +37,8 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
   const [contact, setContact] = useState<ContactDetails | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [hybridNotice, setHybridNotice] = useState(false);
+  const [found, setFound] = useState<FoundProperty | undefined>();
+  const [foundFacts, setFoundFacts] = useState<Partial<PropertyFacts>>({});
 
   const headingRef = useRef<HTMLDivElement | null>(null);
   const wasHybrid = useRef(false);
@@ -48,7 +52,7 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
     headingRef.current?.focus();
   }, [index, stage]);
 
-  // § 3.2 — a hybrid branch changes the total, and that change is explained
+  // § 3.2, a hybrid branch changes the total, and that change is explained
   // rather than silently animating the progress number.
   useEffect(() => {
     if (flow.hybrid && !wasHybrid.current) {
@@ -60,6 +64,37 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
   const value = flow.values[screen?.field ?? ''];
   const isNotSure = flow.notSure.includes(screen?.id ?? '');
   const canAdvance = value !== undefined || isNotSure || screen?.kind === 'address';
+
+  /**
+   * Looks the parcel up as soon as an address is chosen, so the confirmation
+   * screen already has its answer by the time the homeowner arrives. Failure is
+   * silent: they simply fill in the two fields themselves.
+   */
+  async function handleAddressSelect(s: AddressSuggestion) {
+    setFound(undefined);
+    try {
+      const res = await fetch('/api/planner/address/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ suggestion: s }),
+      });
+      if (!res.ok) return;
+      const data = (await res.json()) as {
+        facts?: Partial<PropertyFacts> & { matchedAddress?: string };
+        source?: string;
+      };
+      setFoundFacts(data.facts ?? {});
+      setFound({
+        matchedAddress: data.facts?.matchedAddress ?? s.label,
+        lotSizeSqFt: data.facts?.lotSizeSqFt,
+        zoning: data.facts?.zoning,
+        estimatedValue: data.facts?.estimatedValue,
+        source: data.source,
+      });
+    } catch {
+      /* the manual fields carry the flow */
+    }
+  }
 
   function next() {
     setHybridNotice(false);
@@ -83,7 +118,7 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
     setError(null);
     try {
       const answers = toAnswers(flow);
-      const property = toProperty(flow);
+      const property = { ...toProperty(flow), ...foundFacts } as PropertyFacts;
       // Trailing slash matters: the site sets `trailingSlash: true`, so the
       // bare path 308-redirects and costs an extra round trip on submission.
       const res = await fetch('/api/planner/estimate/', {
@@ -136,7 +171,7 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
 
   return (
     <div className="mx-auto max-w-3xl">
-      {/* § 5.1 rule 6 — honest progress. */}
+      {/* § 5.1 rule 6: honest progress. */}
       <div className="flex items-center justify-between text-xs uppercase tracking-[0.16em] text-text-muted">
         <span>{stage === 'gate' ? 'Last step' : `${current} of ${total}`}</span>
         {stage === 'questions' && screen?.costDriving && <span>Affects your range</span>}
@@ -168,6 +203,8 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
             isNotSure={isNotSure}
             onChange={(v) => setFlow(answer(flow, screen.id, screen.field, v))}
             onNotSure={() => setFlow(answerNotSure(flow, screen))}
+            onAddressSelect={handleAddressSelect}
+            found={found}
           />
         )}
 
@@ -214,7 +251,7 @@ function toAnswers(flow: FlowState): PlannerAnswers {
   return {
     mode: (v.mode as PlannerAnswers['mode']) ?? 'A',
     // Passed through as-is. Guest bath has its own Appendix A band, and
-    // "more than one space" deliberately has none — mapping it to whole-home
+    // "more than one space" deliberately has none: mapping it to whole-home
     // would price a two-room project as a full renovation. With no band the
     // engine declines to publish a figure (§ 9 rule 4), which routes the
     // homeowner to a conversation instead of to a wrong number.
@@ -248,7 +285,6 @@ function toProperty(flow: FlowState): PropertyFacts {
     occupiedDuringConstruction: true,
     difficultAccess: false,
     stories: 1,
-    slope: undefined,
-    ...(site.includes('slope') ? { difficultAccess: true } : {}),
+    slope: undefined, ...(site.includes('slope') ? { difficultAccess: true } : {}),
   } as PropertyFacts;
 }

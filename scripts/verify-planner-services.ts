@@ -15,7 +15,7 @@ function check(name: string, cond: boolean, detail = '') {
   if (cond) console.log(`  PASS  ${name}`);
   else {
     failures += 1;
-    console.log(`  FAIL  ${name}${detail ? ` — ${detail}` : ''}`);
+    console.log(`  FAIL  ${name}${detail ? `: ${detail}` : ''}`);
   }
 }
 
@@ -124,7 +124,7 @@ function runCrmChecks() {
   check('service area is tagged', tags.includes('area-core'));
 
   const oppty = opportunityFor({ firstName: 'Dana', lastName: 'Reyes', email: 'd@e.com', phone: '2085550142' }, answers, estimate, 'Boise');
-  check('opportunity is named per spec', oppty.name === 'Reyes — kitchen — Boise', oppty.name);
+  check('opportunity is named per spec', oppty.name === 'Reyes: kitchen: Boise', oppty.name);
   check('opportunity value is the midpoint', oppty.monetaryValue === 270_000);
 
   check('phone normalises to E.164', toE164('(208) 555-0142') === '+12085550142', toE164('(208) 555-0142'));

@@ -5,7 +5,7 @@ import Cta from '@/components/ui/Cta';
 import { heroVideoId, heroVideoPoster, heroRotating, stats } from '@/lib/content/home';
 
 /**
- * Homepage hero — restored to the original composition: the "Timber and Love"
+ * Homepage hero: restored to the original composition: the "Timber and Love"
  * headline with a rotating service line, the brand stat counters, and
  * supporting copy over the interior background video, with the original-style
  * left-weighted overlay. Primary/secondary CTAs are kept for conversion.

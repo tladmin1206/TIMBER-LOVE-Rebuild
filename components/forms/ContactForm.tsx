@@ -21,7 +21,7 @@ export default function ContactForm({ source = 'website', compact = false }: Pro
   const successRef = useRef<HTMLDivElement | null>(null);
 
   // Move focus to the confirmation so keyboard and screen-reader users are told
-  // the send succeeded — otherwise the only signal is a visual swap they miss.
+  // the send succeeded: otherwise the only signal is a visual swap they miss.
   useEffect(() => {
     if (status === 'success') successRef.current?.focus();
   }, [status]);

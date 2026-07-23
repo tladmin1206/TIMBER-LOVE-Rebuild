@@ -59,7 +59,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
   const booking = data.details?.bookingUrl;
   const host = bookingHost(booking);
   const overview = data.overview ?? data.intro ?? [];
-  const images = (data.gallery || []).map((src, i) => ({ src, alt: `${data.hero.heading} — photo ${i + 1}` }));
+  const images = (data.gallery || []).map((src, i) => ({ src, alt: `${data.hero.heading}: photo ${i + 1}` }));
   const glanceEntries = Object.entries(data.glance ?? {}).filter(([, v]) => v);
   const self = RENTALS.find((r) => r.name === data.hero.heading);
   const related = RENTALS.filter((r) => r.name !== data.hero.heading).slice(0, 3);

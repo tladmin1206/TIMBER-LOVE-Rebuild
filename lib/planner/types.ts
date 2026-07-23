@@ -1,5 +1,5 @@
 /**
- * Investment Planner — core types.
+ * Investment Planner: core types.
  *
  * Spec: TL-Investment-Planner-Master-Specification v2.0, Part III.
  *
@@ -50,7 +50,7 @@ export type Exclusion = {
 export type Allowance = {
   category: string;
   amount: Range;
-  /** "What this typically buys" — concrete, not aspirational. */
+  /** "What this typically buys": concrete, not aspirational. */
   buys: string;
 };
 
@@ -85,7 +85,7 @@ export type Confidence = {
   inputsTotal: number;
   /** Plain-language reasons the score is what it is (§7.3). */
   reasons: string[];
-  /** Specific things that would tighten the range — becomes the consult agenda. */
+  /** Specific things that would tighten the range: becomes the consult agenda. */
   wouldTighten: string[];
 };
 

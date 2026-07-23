@@ -3,12 +3,12 @@ import Reveal from '@/components/ui/Reveal';
 import { pathways, type Pathway } from '@/lib/site';
 
 /**
- * The service pathway selector — the primary way visitors self-select into a
+ * The service pathway selector, the primary way visitors self-select into a
  * focused, conversion-oriented experience. Each pathway is one large, clearly
  * labeled card: strong imagery, one sentence, a descriptive CTA, and an
  * entire-card click target with visible hover and keyboard focus states.
  *
- * The grid is intentionally asymmetric — Design + Build (the primary internal
+ * The grid is intentionally asymmetric: Design + Build (the primary internal
  * service) is given slightly more room without minimizing the others.
  */
 function PathwayCard({ pathway, featured = false }: { pathway: Pathway; featured?: boolean }) {
@@ -46,7 +46,7 @@ function PathwayCard({ pathway, featured = false }: { pathway: Pathway; featured
         {...(pathway.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         data-track={`pathway_${pathway.key}`}
         className="absolute inset-0 z-10 rounded-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-focus"
-        aria-label={`${pathway.title} — ${pathway.cta}${pathway.external ? ' (opens affiliated site)' : ''}`}
+        aria-label={`${pathway.title}: ${pathway.cta}${pathway.external ? ' (opens affiliated site)' : ''}`}
       >
         <span className="sr-only">{pathway.blurb}</span>
       </Link>
@@ -72,7 +72,7 @@ export default function PathwaySelector() {
             <PathwayCard key={p.key} pathway={p} />
           ))}
 
-          {/* High-contrast CTA module — fills and balances the grid, and drives
+          {/* High-contrast CTA module: fills and balances the grid, and drives
               visitors who are undecided toward a conversation. */}
           <Link
             href="/contact/"

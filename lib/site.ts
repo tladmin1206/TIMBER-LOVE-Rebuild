@@ -1,5 +1,5 @@
 /**
- * Central site configuration — brand facts, contact details, navigation.
+ * Central site configuration: brand facts, contact details, navigation.
  *
  * Timber and Love is presented as ONE parent brand connecting five customer
  * pathways: Design + Build, Buy or Sell, Sell for Cash, Invest, and Vacation
@@ -129,7 +129,7 @@ export type NavItem = {
 
 /**
  * Restrained primary navigation. The "What We Do" mega-menu exposes the five
- * pathways as large, clearly labeled routes — core service paths are never
+ * pathways as large, clearly labeled routes: core service paths are never
  * hidden inside confusing nested menus.
  */
 export const mainNav: NavItem[] = [

@@ -70,7 +70,7 @@ export default function ReviewSlider({ items, duration = 55 }: { items: Testimon
         <ul className="sr-only">
           {items.map((r) => (
             <li key={r.name}>
-              {r.quote} — {r.name}, {r.role}
+              {r.quote}: {r.name}, {r.role}
             </li>
           ))}
         </ul>

@@ -5,8 +5,7 @@
  *
  * Both flows previously implemented these independently and had already
  * drifted, so the site's two highest-intent surfaces did not feel like the same
- * product. The selected-state treatment in particular is defined once here —
- * it is the whole affordance for these controls.
+ * product. The selected-state treatment in particular is defined once here:  * it is the whole affordance for these controls.
  */
 
 /**
@@ -14,7 +13,7 @@
  *
  * The selected state is driven from React state rather than Tailwind's
  * `peer-checked:` variant. The variant approach silently lost the cascade to
- * the base `border-border-subtle` — selected options rendered identically to
+ * the base `border-border-subtle`: selected options rendered identically to
  * unselected ones, so the entire affordance was invisible on both the estimator
  * and the project inquiry. Resolving classes here keeps the state explicit and
  * immune to utility-ordering changes.

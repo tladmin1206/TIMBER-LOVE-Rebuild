@@ -7,14 +7,14 @@
  * The previous implementation awaited the Resend call and ignored its response,
  * which meant an expired key, an unverified sending domain, or a rate limit all
  * looked exactly like success. Resend returns 403 for an unverified `from`
- * domain — the single most common first-run failure — so that silence was the
+ * domain, the single most common first-run failure, so that silence was the
  * difference between "configured" and "working".
  */
 
 export type LeadEmail = {
   subject: string;
   text: string;
-  /** Where replies should go — the homeowner, not the site. */
+  /** Where replies should go, the homeowner, not the site. */
   replyTo?: string;
 };
 
@@ -52,8 +52,7 @@ export async function sendLeadEmail(mail: LeadEmail): Promise<DeliveryResult> {
         headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({
           from,
-          to,
-          ...(mail.replyTo ? { reply_to: mail.replyTo } : {}),
+          to, ...(mail.replyTo ? { reply_to: mail.replyTo } : {}),
           subject: mail.subject,
           text: mail.text,
         }),
@@ -65,7 +64,7 @@ export async function sendLeadEmail(mail: LeadEmail): Promise<DeliveryResult> {
       }
 
       const detail = await res.text().catch(() => '');
-      lastReason = `HTTP ${res.status}${detail ? ` — ${detail.slice(0, 200)}` : ''}`;
+      lastReason = `HTTP ${res.status}${detail ? `: ${detail.slice(0, 200)}` : ''}`;
 
       if (!isRetryable(res.status)) {
         // A distinctive marker so this is findable in a log search. An

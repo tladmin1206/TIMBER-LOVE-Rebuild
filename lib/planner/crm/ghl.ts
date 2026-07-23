@@ -8,8 +8,8 @@ import type { Estimate, PlannerAnswers, PropertyFacts } from '../types';
  * must not create a duplicate contact.
  *
  * Two design rules from the spec drive everything here. Twenty promoted fields
- * only — the ones that drive automation, filtering, or a project manager's
- * first ten seconds — with the complete payload in a single searchable notes
+ * only, the ones that drive automation, filtering, or a project manager's
+ * first ten seconds: with the complete payload in a single searchable notes
  * field rather than ninety custom fields nobody can maintain. And the push
  * never blocks the results screen: it is queued, retried, and its failures are
  * surfaced internally.
@@ -22,7 +22,7 @@ export type ContactDetails = {
   phone: string;
 };
 
-/** § 9.2 — the twenty promoted fields. */
+/** § 9.2, the twenty promoted fields. */
 export function customFields(
   answers: PlannerAnswers,
   property: PropertyFacts,
@@ -53,7 +53,7 @@ export function customFields(
   };
 }
 
-/** § 9.3 — tags drive workflow entry. */
+/** § 9.3: tags drive workflow entry. */
 export function tagsFor(answers: PlannerAnswers, property: PropertyFacts, estimate: Estimate): string[] {
   const tags = [
     'planner-submitted',
@@ -78,7 +78,7 @@ export function tagsFor(answers: PlannerAnswers, property: PropertyFacts, estima
   return tags;
 }
 
-/** § 9.4 — opportunity naming and value. */
+/** § 9.4: opportunity naming and value. */
 export function opportunityFor(
   contact: ContactDetails,
   answers: PlannerAnswers,
@@ -86,7 +86,7 @@ export function opportunityFor(
   city: string
 ) {
   return {
-    name: `${contact.lastName} — ${answers.projectType} — ${city || 'Boise'}`,
+    name: `${contact.lastName}: ${answers.projectType}: ${city || 'Boise'}`,
     monetaryValue: estimate.range?.mid ?? 0,
     pipeline: 'Design-Build',
     stage: 'Planner Submitted',
@@ -106,8 +106,8 @@ export function isConfigured(): boolean {
  * Pushes a submission to GHL with bounded retry.
  *
  * The caller must not await this before rendering results. A CRM outage is an
- * internal problem, and making the homeowner wait for it — or worse, showing
- * them an error because of it — turns an ops issue into a lost lead.
+ * internal problem, and making the homeowner wait for it: or worse, showing
+ * them an error because of it: turns an ops issue into a lost lead.
  */
 export async function syncToGhl(payload: {
   contact: ContactDetails;
@@ -136,7 +136,7 @@ export async function syncToGhl(payload: {
       reportUrl: payload.reportUrl,
       budgetReaction: payload.budgetReaction,
     }),
-    // § 9.2 — everything else lands here: searchable, complete, no field sprawl.
+    // § 9.2: everything else lands here: searchable, complete, no field sprawl.
     notes: payload.fullPayloadJson,
   };
 

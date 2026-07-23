@@ -134,7 +134,7 @@ export const PROPERTY_CONFIRM: Screen = {
 };
 
 /* ------------------------------------------------------------------ *
- * Mode A — Renovate
+ * Mode A: Renovate
  * ------------------------------------------------------------------ */
 
 const SPACE: Screen = {
@@ -257,7 +257,7 @@ const TIMING: Screen = {
 };
 
 /* ------------------------------------------------------------------ *
- * Mode B — Expand (appended for hybrids, § 3.2)
+ * Mode B: Expand (appended for hybrids, § 3.2)
  * ------------------------------------------------------------------ */
 
 export const FOOTPRINT_SCREENS: Screen[] = [
@@ -312,7 +312,7 @@ export const FOOTPRINT_SCREENS: Screen[] = [
 ];
 
 /* ------------------------------------------------------------------ *
- * Mode C — Build
+ * Mode C: Build
  * ------------------------------------------------------------------ */
 
 const SITE: Screen = {
@@ -329,7 +329,7 @@ const SITE: Screen = {
   notSure: {
     label: 'I don’t know these yet',
     appliesDefault: 'We plan for utilities at the street and a level lot, and flag both for verification.',
-    consultationQuestion: 'What are the site conditions — utilities, slope, and anything to remove?',
+    consultationQuestion: 'What are the site conditions: utilities, slope, and anything to remove?',
   },
 };
 
@@ -393,7 +393,7 @@ const BUILD_TIMING: Screen = {
 };
 
 /* ------------------------------------------------------------------ *
- * Mode D — Position
+ * Mode D: Position
  * ------------------------------------------------------------------ */
 
 const D_GOAL: Screen = {
@@ -468,5 +468,5 @@ export const MODE_SCREENS: Record<Mode, Screen[]> = {
   D: [MODE_ROUTER, ADDRESS, PROPERTY_CONFIRM, D_GOAL, D_CONDITION, D_CEILING, SCOPE_LEVEL, FINISH_TIER, TIMING],
 };
 
-/** § 5.1 rule 1 — nine screens maximum before the contact gate. */
+/** § 5.1 rule 1: nine screens maximum before the contact gate. */
 export const SCREEN_CEILING = 9;

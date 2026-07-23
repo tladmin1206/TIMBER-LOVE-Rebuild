@@ -3,8 +3,8 @@ import type { FaqItem } from '@/components/ui/FAQ';
 /**
  * Objection-handling FAQs, one set per pathway.
  *
- * These answer the questions that actually stop someone converting — cost,
- * timeline, commitment and "is this for me" — and they sit immediately before
+ * These answer the questions that actually stop someone converting: cost,
+ * timeline, commitment and "is this for me", and they sit immediately before
  * the closing CTA on each page. Unanswered objections are silent exits.
  *
  * Answers deliberately avoid inventing specifics the business has not
@@ -21,7 +21,7 @@ export const faqs: Record<string, FaqItem[]> = {
     },
     {
       q: 'Do I need to make repairs or clean before you look at it?',
-      a: 'No. We buy homes in their existing condition. Deferred maintenance, dated finishes, and repairs you were dreading are the normal case, not a problem — we account for condition in the offer rather than asking you to fix it first.',
+      a: 'No. We buy homes in their existing condition. Deferred maintenance, dated finishes, and repairs you were dreading are the normal case, not a problem. We account for condition in the offer rather than asking you to fix it first.',
     },
     {
       q: 'How is this different from listing with an agent?',
@@ -36,7 +36,7 @@ export const faqs: Record<string, FaqItem[]> = {
   buyOrSell: [
     {
       q: 'What makes you different from any other brokerage?',
-      a: 'We design and build homes as well as sell them. That means when we walk a property with you, we can tell you what a wall move, an addition or a kitchen reconfiguration would realistically involve — not just what the listing says.',
+      a: 'We design and build homes as well as sell them. That means when we walk a property with you, we can tell you what a wall move, an addition or a kitchen reconfiguration would realistically involve, not just what the listing says.',
     },
     {
       q: 'Do I have to use your construction team if I buy through you?',
@@ -66,7 +66,7 @@ export const faqs: Record<string, FaqItem[]> = {
   stayWithUs: [
     {
       q: 'Who designed and built these properties?',
-      a: 'Our own team. Every Timber and Love rental is a project we designed and built, which is why they feel consistent — staying in one is the easiest way to experience the work before commissioning any of your own.',
+      a: 'Our own team. Every Timber and Love rental is a project we designed and built, which is why they feel consistent: staying in one is the easiest way to experience the work before commissioning any of your own.',
     },
     {
       q: 'Where do I actually book?',
@@ -85,7 +85,7 @@ export const faqs: Record<string, FaqItem[]> = {
     },
     {
       q: 'Do I need to know exactly what I want first?',
-      a: 'No. Most people arrive with a room that is not working and a rough sense of budget. Turning that into a defined scope is the work — arriving with it already solved is the exception, not the expectation.',
+      a: 'No. Most people arrive with a room that is not working and a rough sense of budget. Turning that into a defined scope is the work: arriving with it already solved is the exception, not the expectation.',
     },
     {
       q: 'How involved will I be?',
@@ -96,7 +96,7 @@ export const faqs: Record<string, FaqItem[]> = {
   serviceAreas: [
     {
       q: 'Do you work outside Boise itself?',
-      a: 'Yes. We work throughout the Treasure Valley, including Meridian, Eagle, Nampa, Caldwell, Kuna, Star, Garden City and Middleton. If you are near the edge of that area, ask — the answer is often yes.',
+      a: 'Yes. We work throughout the Treasure Valley, including Meridian, Eagle, Nampa, Caldwell, Kuna, Star, Garden City and Middleton. If you are near the edge of that area, ask. The answer is often yes.',
     },
     {
       q: 'Does location change what a project costs?',
@@ -107,7 +107,7 @@ export const faqs: Record<string, FaqItem[]> = {
   estimate: [
     {
       q: 'Is this a quote?',
-      a: 'No. It is a preliminary range based on typical projects of a similar scope. Real pricing requires a property review, design development, selections, engineering and trade input — the estimator exists to tell you whether you are in the right ballpark before you invest time in a conversation.',
+      a: 'No. It is a preliminary range based on typical projects of a similar scope. Real pricing requires a property review, design development, selections, engineering and trade input. The estimator exists to tell you whether you are in the right ballpark before you invest time in a conversation.',
     },
     {
       q: 'Why is the range so wide?',

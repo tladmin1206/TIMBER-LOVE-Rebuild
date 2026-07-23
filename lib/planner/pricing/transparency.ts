@@ -80,7 +80,7 @@ function buildAssumptions(answers: PlannerAnswers, property: PropertyFacts, trac
   }
 
   // The pattern that does the trust work: a default, its origin, and what it
-  // costs if it turns out to be wrong — flagged when the property suggests risk.
+  // costs if it turns out to be wrong: flagged when the property suggests risk.
   const panelAtRisk = !!property.yearBuilt && property.yearBuilt < 1985;
   out.push({
     text: 'Your electrical panel has capacity for the added load.',

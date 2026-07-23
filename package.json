@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start -p ${PORT:-3000} -H 0.0.0.0",
     "lint": "next lint",
-    "verify:planner": "tsx scripts/verify-planner-pricing.ts && tsx scripts/verify-planner-flow.ts && tsx scripts/verify-planner-narrative.ts && tsx scripts/verify-planner-services.ts && tsx scripts/verify-lead-delivery.ts"
+    "verify:planner": "tsx scripts/verify-planner-pricing.ts && tsx scripts/verify-planner-flow.ts && tsx scripts/verify-planner-narrative.ts && tsx scripts/verify-planner-services.ts && tsx scripts/verify-lead-delivery.ts && tsx scripts/verify-no-em-dashes.ts"
   },
   "dependencies": {
     "next": "14.2.35",

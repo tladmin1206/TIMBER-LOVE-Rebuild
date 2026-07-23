@@ -1,5 +1,5 @@
 /**
- * Journal (blog) index — the existing editorial articles, surfaced as a hub for
+ * Journal (blog) index, the existing editorial articles, surfaced as a hub for
  * SEO and engagement. Sorted newest-first at read time. Titles, dates, images,
  * and excerpts mirror each article's own content (nothing invented).
  */

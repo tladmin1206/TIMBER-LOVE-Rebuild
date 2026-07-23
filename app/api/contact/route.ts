@@ -17,7 +17,7 @@ type Lead = {
  * Lead intake endpoint. Validates and logs the submission.
  *
  * To deliver leads by email, set these env vars in Replit Secrets and the
- * handler will forward via Resend (https://resend.com) — otherwise it just
+ * handler will forward via Resend (https://resend.com): otherwise it just
  * records the lead to the server log so nothing is lost:
  *   RESEND_API_KEY, LEAD_TO_EMAIL, LEAD_FROM_EMAIL
  */
@@ -56,12 +56,12 @@ export async function POST(req: Request) {
   // distinctive marker, but the response stays ok: the lead is recorded, and a
   // homeowner should never see our mail provider's problem.
   const delivery = await sendLeadEmail({
-    subject: `New website lead (${lead.source}) — ${lead.name}`,
+    subject: `New website lead (${lead.source}): ${lead.name}`,
     replyTo: lead.email,
     text: [
       `Name: ${lead.name}`,
       `Email: ${lead.email}`,
-      `Phone: ${lead.phone || '—'}`,
+      `Phone: ${lead.phone || '-'}`,
       `Source: ${lead.source}`,
       `Received: ${lead.receivedAt}`,
       '',
@@ -70,7 +70,7 @@ export async function POST(req: Request) {
   });
 
   if (!delivery.delivered && delivery.reason !== 'not-configured') {
-    console.error('[lead] NOT DELIVERED — follow up manually', { lead, delivery });
+    console.error('[lead] NOT DELIVERED: follow up manually', { lead, delivery });
   }
 
   return NextResponse.json({ ok: true });

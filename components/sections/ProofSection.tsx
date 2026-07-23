@@ -6,7 +6,7 @@ import { clientReviews, googleReviews } from '@/lib/content/home';
 /**
  * Standard social-proof block for pathway and service pages.
  *
- * Placed immediately before the closing CTA so proof precedes the ask — the
+ * Placed immediately before the closing CTA so proof precedes the ask, the
  * highest-leverage position for it. Pathway pages previously carried no
  * testimonials at all, which is where visitors decide whether to trust the firm
  * with a large sum.

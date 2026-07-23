@@ -7,8 +7,7 @@ type Logo = { src: string; alt: string };
 /**
  * Infinite horizontal marquee of press logos.
  *
- * Pauses on hover and on keyboard focus, and carries an explicit stop control —
- * auto-moving content lasting more than five seconds needs a pause mechanism,
+ * Pauses on hover and on keyboard focus, and carries an explicit stop control:  * auto-moving content lasting more than five seconds needs a pause mechanism,
  * and hover alone provides none on touch devices.
  */
 export default function LogoMarquee({ logos }: { logos: Logo[] }) {

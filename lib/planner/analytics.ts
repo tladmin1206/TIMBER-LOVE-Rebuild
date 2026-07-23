@@ -1,7 +1,7 @@
 /**
  * Planner analytics. Spec Part II § 13.
  *
- * Fired to GA4 and, in Phase 2, to a first-party events table — GA4 cannot do
+ * Fired to GA4 and, in Phase 2, to a first-party events table: GA4 cannot do
  * the accuracy and attribution analysis with the fidelity needed.
  *
  * The two highest-value events are `not_sure_selected` and `gate_abandoned`.
@@ -61,7 +61,7 @@ export function sessionId(): string {
     window.localStorage.setItem(KEY, id);
     return id;
   } catch {
-    // Private browsing or storage disabled — a per-load id still lets events
+    // Private browsing or storage disabled, a per-load id still lets events
     // within this session be correlated.
     return 'ephemeral';
   }

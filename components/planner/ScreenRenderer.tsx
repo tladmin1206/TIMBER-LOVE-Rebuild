@@ -2,6 +2,8 @@
 
 import { useId } from 'react';
 import type { Screen } from '@/lib/planner/flow/screens';
+import AddressAutocomplete from '@/components/planner/AddressAutocomplete';
+import type { AddressSuggestion } from '@/lib/planner/property/freeLookup';
 
 /**
  * Renders one screen of the planner.
@@ -27,12 +29,18 @@ export default function ScreenRenderer({
   isNotSure,
   onChange,
   onNotSure,
+  onAddressSelect,
+  found,
 }: {
   screen: Screen;
   value: ScreenValue;
   isNotSure: boolean;
   onChange: (v: ScreenValue) => void;
   onNotSure: () => void;
+  /** Fires when a suggestion is chosen, so the parent can look the parcel up. */
+  onAddressSelect?: (s: AddressSuggestion) => void;
+  /** What public records returned, shown on the confirmation screen. */
+  found?: FoundProperty;
 }) {
   const groupId = useId();
 
@@ -122,7 +130,7 @@ export default function ScreenRenderer({
           <div className="surface-card p-8">
             <p className="text-center">
               <span className="stat-figure">
-                {typeof value === 'number' ? value.toLocaleString('en-US') : '—'}
+                {typeof value === 'number' ? value.toLocaleString('en-US') : '-'}
               </span>
               <span className="ml-2 text-lg text-text-secondary">{screen.slider.unit}</span>
             </p>
@@ -146,35 +154,23 @@ export default function ScreenRenderer({
           </div>
         )}
 
-        {/* § 4.4 — confirmation, not entry. Where enrichment has returned
+        {/* § 4.4: confirmation, not entry. Where enrichment has returned
             something the homeowner confirms a card; where it has not, they get
             a compact three-field fallback. Enrichment failure never blocks. */}
         {screen.kind === 'confirmation' && (
-          <PropertyConfirmation value={value as PropertyDraft | undefined} onChange={onChange} />
+          <PropertyConfirmation value={value as PropertyDraft | undefined} onChange={onChange} found={found} />
         )}
 
         {screen.kind === 'address' && (
-          <div>
-            <label className="field-label" htmlFor={`${groupId}-address`}>
-              Property address
-            </label>
-            <input
-              id={`${groupId}-address`}
-              type="text"
-              className="field-input mt-2"
-              placeholder="Start typing your address"
-              value={typeof value === 'string' ? value : ''}
-              onChange={(e) => onChange(e.target.value)}
-              autoComplete="street-address"
-            />
-            <p className="mt-3 text-sm text-text-muted">
-              We look up public property records so you do not have to type the details.
-            </p>
-          </div>
+          <AddressAutocomplete
+            value={typeof value === 'string' ? value : ''}
+            onChange={onChange}
+            onSelect={(s) => onAddressSelect?.(s)}
+          />
         )}
       </div>
 
-      {/* § 5.1 rule 4 — never block progress on uncertainty. */}
+      {/* § 5.1 rule 4: never block progress on uncertainty. */}
       {screen.notSure && (
         <div className="mt-8">
           <button
@@ -187,7 +183,7 @@ export default function ScreenRenderer({
           </button>
           {isNotSure && (
             <p className="mt-3 max-w-xl text-sm leading-relaxed text-text-secondary" role="status">
-              No problem — {lowerFirst(screen.notSure.appliesDefault)} We will add this to the questions for your
+              No problem: {lowerFirst(screen.notSure.appliesDefault)} We will add this to the questions for your
               consultation.
             </p>
           )}
@@ -204,52 +200,85 @@ function lowerFirst(s: string): string {
 export type PropertyDraft = {
   yearBuilt?: number;
   finishedSqFt?: number;
-  bedrooms?: number;
   /** True once the homeowner has confirmed or corrected the details. */
   confirmed: boolean;
-  /** Records that these came from the homeowner, which lowers confidence. */
-  source: 'enriched' | 'manual';
 };
 
+/** What public records established, if anything. */
+export type FoundProperty = {
+  matchedAddress?: string;
+  lotSizeSqFt?: number;
+  zoning?: string;
+  estimatedValue?: number;
+  source?: string;
+};
+
+const SQ_FT_PER_ACRE = 43_560;
+
+/**
+ * § 4.4: confirmation, not entry.
+ *
+ * Whatever public records establish is shown as a card to confirm. The two
+ * facts no free source publishes: year built and finished area: are asked
+ * for plainly, because guessing them would quietly distort the estimate.
+ */
 function PropertyConfirmation({
   value,
   onChange,
+  found,
 }: {
   value: PropertyDraft | undefined;
   onChange: (v: PropertyDraft) => void;
+  found?: FoundProperty;
 }) {
-  const draft: PropertyDraft = value ?? { confirmed: false, source: 'manual' };
+  const draft: PropertyDraft = value ?? { confirmed: false };
 
-  const setField = (k: 'yearBuilt' | 'finishedSqFt' | 'bedrooms') => (e: React.ChangeEvent<HTMLInputElement>) => {
+  const setField = (k: 'yearBuilt' | 'finishedSqFt') => (e: React.ChangeEvent<HTMLInputElement>) => {
     const n = e.target.value === '' ? undefined : Number(e.target.value);
     onChange({ ...draft, [k]: Number.isFinite(n as number) ? n : undefined, confirmed: true });
   };
 
+  const facts = [
+    found?.lotSizeSqFt ? `${(found.lotSizeSqFt / SQ_FT_PER_ACRE).toFixed(2)} acre lot` : null,
+    found?.zoning ? `Zoned ${found.zoning}` : null,
+    found?.estimatedValue ? `Assessed at $${found.estimatedValue.toLocaleString('en-US')}` : null,
+  ].filter(Boolean) as string[];
+
   return (
     <div className="surface-card p-8">
-      <p className="text-sm leading-relaxed text-text-secondary">
-        We could not pull public records for this address yet, so these three details are all we need from you. They
-        are the only typing in the whole planner.
-      </p>
+      {facts.length > 0 ? (
+        <>
+          <p className="field-label">From public records</p>
+          {found?.matchedAddress && <p className="mt-3 text-lg text-cream">{found.matchedAddress}</p>}
+          <ul className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-text-secondary">
+            {facts.map((f) => (
+              <li key={f}>{f}</li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm leading-relaxed text-text-secondary">
+            Two things public records do not publish. Approximate is fine: we widen the range rather than block you.
+          </p>
+        </>
+      ) : (
+        <p className="text-sm leading-relaxed text-text-secondary">
+          We could not find a public record for this address, so these two details are all we need from you. They are
+          the only typing in the whole planner.
+        </p>
+      )}
 
-      <div className="mt-8 grid gap-6 sm:grid-cols-3">
+      <div className="mt-8 grid gap-6 sm:grid-cols-2">
         <NumberField label="Year built" value={draft.yearBuilt} onChange={setField('yearBuilt')} placeholder="1961" />
-        <NumberField label="Square feet" value={draft.finishedSqFt} onChange={setField('finishedSqFt')} placeholder="2340" />
-        <NumberField label="Bedrooms" value={draft.bedrooms} onChange={setField('bedrooms')} placeholder="4" />
+        <NumberField
+          label="Approximate square feet"
+          value={draft.finishedSqFt}
+          onChange={setField('finishedSqFt')}
+          placeholder="2340"
+        />
       </div>
 
-      <button
-        type="button"
-        onClick={() => onChange({ ...draft, confirmed: true })}
-        className="btn-secondary mt-8"
-      >
+      <button type="button" onClick={() => onChange({ ...draft, confirmed: true })} className="btn-secondary mt-8">
         {draft.confirmed ? 'Details confirmed' : 'These look right'}
       </button>
-
-      <p className="mt-4 text-xs leading-relaxed text-text-muted">
-        Not sure of the exact figures? Approximate is fine — we widen the range rather than block you, and flag it for
-        your consultation.
-      </p>
     </div>
   );
 }

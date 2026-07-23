@@ -119,7 +119,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 <Link key={r.slug} href={`/projects/${r.slug}/`} className="group card-interactive block overflow-hidden">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={r.cover} alt={`${r.title} — ${r.category}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <img src={r.cover} alt={`${r.title}: ${r.category}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div className="p-5">
                     <h3 className="h-card">{r.title}</h3>

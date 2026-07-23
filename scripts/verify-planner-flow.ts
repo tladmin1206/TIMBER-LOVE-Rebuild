@@ -23,7 +23,7 @@ function check(name: string, cond: boolean, detail = '') {
   if (cond) console.log(`  PASS  ${name}`);
   else {
     failures += 1;
-    console.log(`  FAIL  ${name}${detail ? ` — ${detail}` : ''}`);
+    console.log(`  FAIL  ${name}${detail ? `: ${detail}` : ''}`);
   }
 }
 
@@ -31,7 +31,7 @@ console.log('\nStructural rules (§ 5.1)');
 {
   const violations = validateFlows();
   check('no flow violates the declared rules', violations.length === 0);
-  for (const v of violations) console.log(`        ${v.mode}: ${v.rule} — ${v.detail}`);
+  for (const v of violations) console.log(`        ${v.mode}: ${v.rule}: ${v.detail}`);
 
   for (const mode of ['A', 'B', 'C', 'D'] as const) {
     check(

@@ -349,15 +349,15 @@ function stepTitle(id: StepId): string {
 
 function buildSummary(a: Answers, files: FileMeta[]): string {
   const lines = [
-    `Project type: ${a.projectType || '—'}`,
-    `Location: ${[a.address, a.city, a.zip].filter(Boolean).join(', ') || '—'}`,
-    `Owns property: ${a.owns || '—'}${a.occupied ? ' (occupied)' : ''}`,
-    `Home size: ${a.homeSize || '—'}`,
-    `Goals: ${a.goals || '—'}`,
+    `Project type: ${a.projectType || '-'}`,
+    `Location: ${[a.address, a.city, a.zip].filter(Boolean).join(', ') || '-'}`,
+    `Owns property: ${a.owns || '-'}${a.occupied ? ' (occupied)' : ''}`,
+    `Home size: ${a.homeSize || '-'}`,
+    `Goals: ${a.goals || '-'}`,
     a.details ? `Details: ${a.details}` : '',
-    `Timing: ${a.timing || '—'}`,
-    `Investment: ${a.investment || '—'}${a.financing ? ' (interested in financing)' : ''}`,
-    `Preferred contact: ${a.contactMethod || '—'}${a.bestTime ? `, best time ${a.bestTime}` : ''}`,
+    `Timing: ${a.timing || '-'}`,
+    `Investment: ${a.investment || '-'}${a.financing ? ' (interested in financing)' : ''}`,
+    `Preferred contact: ${a.contactMethod || '-'}${a.bestTime ? `, best time ${a.bestTime}` : ''}`,
     files.length ? `Attachments the client will share: ${files.map((f) => f.name).join(', ')}` : '',
   ];
   return lines.filter(Boolean).join('\n');
@@ -437,13 +437,13 @@ function FileStep({ files, onFiles, onRemove, error }: { files: FileMeta[]; onFi
 
 function ReviewStep({ answers, files, onEdit, consent, onConsent, consentError }: { answers: Answers; files: FileMeta[]; onEdit: (i: number) => void; consent: boolean; onConsent: (c: boolean) => void; consentError?: string }) {
   const rows: { label: string; value: string; step: number }[] = [
-    { label: 'Project type', value: answers.projectType || '—', step: 0 },
-    { label: 'Location', value: [answers.address, answers.city, answers.zip].filter(Boolean).join(', ') || '—', step: 1 },
-    { label: 'Home size', value: answers.homeSize || '—', step: 1 },
-    { label: 'Goals', value: answers.goals || '—', step: 2 },
-    { label: 'Timing', value: answers.timing || '—', step: 3 },
-    { label: 'Investment', value: answers.investment || '—', step: 4 },
-    { label: 'Contact', value: [`${answers.firstName || ''} ${answers.lastName || ''}`.trim(), answers.email, answers.phone].filter(Boolean).join(' · ') || '—', step: 5 },
+    { label: 'Project type', value: answers.projectType || '-', step: 0 },
+    { label: 'Location', value: [answers.address, answers.city, answers.zip].filter(Boolean).join(', ') || '-', step: 1 },
+    { label: 'Home size', value: answers.homeSize || '-', step: 1 },
+    { label: 'Goals', value: answers.goals || '-', step: 2 },
+    { label: 'Timing', value: answers.timing || '-', step: 3 },
+    { label: 'Investment', value: answers.investment || '-', step: 4 },
+    { label: 'Contact', value: [`${answers.firstName || ''} ${answers.lastName || ''}`.trim(), answers.email, answers.phone].filter(Boolean).join(' · ') || '-', step: 5 },
     { label: 'Attachments', value: files.length ? files.map((f) => f.name).join(', ') : 'None', step: 6 },
   ];
   return (

@@ -32,17 +32,17 @@ import {
  * The routing grid sits directly under the intro because sending a visitor into
  * the right business line is this page's actual job, and proof follows straight
  * after rather than at ~70% scroll depth where most visitors never reached it.
- * CTA weight escalates down the page — exactly one primary action per screenful.
+ * CTA weight escalates down the page: exactly one primary action per screenful.
  */
 export default function HomePage() {
   return (
     <>
       <Hero />
 
-      {/* Credibility immediately after the hero — rating, HGTV, local tenure. */}
+      {/* Credibility immediately after the hero: rating, HGTV, local tenure. */}
       <TrustBar />
 
-      {/* Intro — who we are, then straight into the choice. No CTA here: the
+      {/* Intro: who we are, then straight into the choice. No CTA here: the
           pathway grid directly below is the action. */}
       <section className="bg-bg-primary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:gap-16">
@@ -66,10 +66,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Route the visitor — the page's primary job, and its primary CTA. */}
+      {/* Route the visitor, the page's primary job, and its primary CTA. */}
       <PathwaySelector />
 
-      {/* Featured On — compact credibility directly after the choice. */}
+      {/* Featured On: compact credibility directly after the choice. */}
       <section className="border-y border-border-subtle bg-bg-primary section-tight">
         <div className="container-wide">
           <p className="mb-8 text-center text-xs uppercase tracking-[0.2em] text-cream/50">As Featured On</p>
@@ -77,7 +77,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Proof — moved up from near the foot of the page so the 4.9 rating does
+      {/* Proof: moved up from near the foot of the page so the 4.9 rating does
           work for the majority of visitors, not just those who scroll to 70%. */}
       <section className="relative overflow-hidden text-center section-feature">
         <VideoBg videoId={sectionVideos.testimonials.id} poster={sectionVideos.testimonials.poster} overlay="bg-ink/75" />
@@ -120,7 +120,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* HGTV Shows — the differentiator */}
+      {/* HGTV Shows, the differentiator */}
       <section className="bg-bg-primary pb-20 sm:pb-28">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
@@ -148,7 +148,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Why us — Values, carrying the mission statement as its lede. Previously
+      {/* Why us: Values, carrying the mission statement as its lede. Previously
           these were two consecutive "about us" sections with duplicate buttons,
           the second of which was a centred wall of text that stalled the scroll. */}
       <section className="relative overflow-hidden section-feature">

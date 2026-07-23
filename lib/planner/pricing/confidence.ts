@@ -97,7 +97,7 @@ export function scoreConfidence(input: ConfidenceInput): Confidence {
   score = Math.max(0, Math.min(100, score));
 
   let label = labelFor(score);
-  // § 1A.4 — a Phase 1 estimate can never present itself as statistically fit.
+  // § 1A.4, a Phase 1 estimate can never present itself as statistically fit.
   if (phase1 && label === 'Strong') {
     label = 'Good';
     reasons.push(
@@ -126,7 +126,7 @@ function labelFor(score: number): ConfidenceLabel {
   return 'Early';
 }
 
-/** § 7.2 — band width is derived from confidence, never chosen for comfort. */
+/** § 7.2: band width is derived from confidence, never chosen for comfort. */
 export function bandWidthFor(label: ConfidenceLabel): number {
   switch (label) {
     case 'Strong':
@@ -141,7 +141,7 @@ export function bandWidthFor(label: ConfidenceLabel): number {
 }
 
 /**
- * § 7.2 — below 40, no range is shown at all. A ±35% band on a $400,000
+ * § 7.2: below 40, no range is shown at all. A ±35% band on a $400,000
  * project spans $260,000 to $540,000, which is not information.
  */
 export function isTooUncertainToPublish(score: number): boolean {

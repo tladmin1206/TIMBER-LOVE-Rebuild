@@ -14,7 +14,7 @@
  * `noindex`, and preview is off unless the environment explicitly asks for it.
  *
  * Enable with PLANNER_PREVIEW=1 on a staging environment. Never set it in
- * production — the whole point of § 9 is that no flag turns real pricing on
+ * production, the whole point of § 9 is that no flag turns real pricing on
  * except a signed Appendix A.
  */
 export function isPlannerPreview(): boolean {

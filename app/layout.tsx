@@ -74,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ModalProvider>
           <Header />
           {/* Bottom padding clears the fixed mobile action bar so the last
-              element of every page — now always a CTA — is never covered. */}
+              element of every page: now always a CTA: is never covered. */}
           <main id="content" className="pb-[calc(48px+env(safe-area-inset-bottom))] xl:pb-0">
             {children}
           </main>
