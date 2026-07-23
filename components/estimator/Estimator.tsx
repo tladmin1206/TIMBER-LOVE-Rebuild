@@ -10,8 +10,14 @@ import {
   PRICING_APPROVED,
 } from '@/lib/estimator/config';
 import { calculateEstimate, formatRange, type EstimatorAnswers } from '@/lib/estimator/calculate';
+import { Field, RadioCard, CheckGroup, RadioList, ChipRow } from '@/components/forms/primitives';
 
 const STORAGE_KEY = 'tl-estimator-v1';
+
+/** The estimator presents its option lists stacked rather than two-up. */
+function RadioListCol(props: { options: string[]; value?: string; onChange: (v: string) => void }) {
+  return <RadioList name="col" columns={1} {...props} />;
+}
 
 const REMODEL_SCOPE: { value: string; label: string }[] = [
   { value: 'structural-changes', label: 'Structural changes' },
@@ -209,7 +215,7 @@ export default function Estimator() {
                   <input className="field-input" aria-label="ZIP code" inputMode="numeric" value={answers.zip ?? ''} onChange={(e) => set({ zip: e.target.value })} autoComplete="postal-code" />
                 </Field>
                 <Field label="Do you currently own the property?">
-                  <SelectRow options={['Yes', 'No', 'Under contract']} value={answers.owns} onChange={(v) => set({ owns: v })} />
+                  <ChipRow options={['Yes', 'No', 'Under contract']} value={answers.owns} onChange={(v) => set({ owns: v })} />
                 </Field>
                 <label className="flex items-center gap-3 text-sm text-text-secondary">
                   <input type="checkbox" checked={!!answers.occupied} onChange={(e) => set({ occupied: e.target.checked })} />
@@ -258,7 +264,7 @@ export default function Estimator() {
               />
             )}
 
-            {step.id === 'timing' && <SelectColumn options={TIMING} value={answers.timing} onChange={(v) => set({ timing: v })} />}
+            {step.id === 'timing' && <RadioListCol options={TIMING} value={answers.timing} onChange={(v) => set({ timing: v })} />}
 
             {step.id === 'investment' && (
               <>
@@ -266,7 +272,7 @@ export default function Estimator() {
                   This helps us compare your goals with the likely project scope. It does not lock you into a budget or
                   create a formal estimate.
                 </p>
-                <SelectColumn options={investmentRanges} value={answers.investment} onChange={(v) => set({ investment: v })} />
+                <RadioListCol options={investmentRanges} value={answers.investment} onChange={(v) => set({ investment: v })} />
               </>
             )}
 
@@ -329,15 +335,6 @@ function stepTitle(id: StepId, a: EstimatorAnswers): string {
 
 /* ---------- Presentational sub-components ---------- */
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
-  return (
-    <label className="block">
-      <span className="field-label mb-2">{label}</span>
-      {children}
-    </label>
-  );
-}
-
 function CardGroup({
   name,
   options,
@@ -355,90 +352,6 @@ function CardGroup({
         <RadioCard key={o.value} name={name} ariaLabel={o.label} checked={selected === o.value} onChange={() => onSelect(o.value)}>
           <span className="text-sm tracking-[0.08em] text-cream">{o.label}</span>
         </RadioCard>
-      ))}
-    </div>
-  );
-}
-
-function RadioCard({
-  name,
-  checked,
-  onChange,
-  children,
-  ariaLabel,
-}: {
-  name: string;
-  checked: boolean;
-  onChange: () => void;
-  children: React.ReactNode;
-  ariaLabel?: string;
-}) {
-  return (
-    <label className="cursor-pointer">
-      <input type="radio" name={name} checked={checked} onChange={onChange} aria-label={ariaLabel} className="peer sr-only" />
-      <span className="block border border-border-subtle p-4 transition-colors peer-checked:border-accent peer-checked:bg-accent-soft peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-focus">
-        {children}
-      </span>
-    </label>
-  );
-}
-
-function CheckGroup({
-  options,
-  selected,
-  onToggle,
-}: {
-  options: { value: string; label: string }[];
-  selected: string[];
-  onToggle: (v: string) => void;
-}) {
-  return (
-    <div className="grid gap-2 sm:grid-cols-2">
-      {options.map((o) => {
-        const on = selected.includes(o.value);
-        return (
-          <label key={o.value} className="cursor-pointer">
-            <input type="checkbox" checked={on} onChange={() => onToggle(o.value)} aria-label={o.label} className="peer sr-only" />
-            <span className="flex items-center gap-3 border border-border-subtle p-3 text-sm text-text-secondary transition-colors peer-checked:border-accent peer-checked:bg-accent-soft peer-checked:text-cream peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-focus">
-              <span aria-hidden="true" className={`grid h-4 w-4 place-items-center border ${on ? 'border-cream bg-cream text-ink' : 'border-border-subtle'}`}>
-                {on ? '✓' : ''}
-              </span>
-              {o.label}
-            </span>
-          </label>
-        );
-      })}
-    </div>
-  );
-}
-
-function SelectColumn({ options, value, onChange }: { options: string[]; value?: string; onChange: (v: string) => void }) {
-  return (
-    <div role="radiogroup" className="grid gap-2">
-      {options.map((o) => (
-        <RadioCard key={o} name="col" ariaLabel={o} checked={value === o} onChange={() => onChange(o)}>
-          <span className="text-sm text-cream">{o}</span>
-        </RadioCard>
-      ))}
-    </div>
-  );
-}
-
-function SelectRow({ options, value, onChange }: { options: string[]; value?: string; onChange: (v: string) => void }) {
-  return (
-    <div className="flex flex-wrap gap-2">
-      {options.map((o) => (
-        <button
-          key={o}
-          type="button"
-          onClick={() => onChange(o)}
-          aria-pressed={value === o}
-          className={`border px-4 py-2 text-sm transition-colors ${
-            value === o ? 'border-accent bg-accent-soft text-cream' : 'border-border-subtle text-text-secondary hover:border-cream'
-          }`}
-        >
-          {o}
-        </button>
       ))}
     </div>
   );

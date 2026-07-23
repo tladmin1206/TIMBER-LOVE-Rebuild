@@ -2,8 +2,9 @@ import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
 import Gallery from '@/components/ui/Gallery';
 import Reveal from '@/components/ui/Reveal';
-import CtaBand from '@/components/sections/CtaBand';
-import RotatingTestimonial from '@/components/ui/RotatingTestimonial';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
+import ReviewSlider from '@/components/ui/ReviewSlider';
 import Cta from '@/components/ui/Cta';
 import { site } from '@/lib/site';
 import { clientReviews, fanComments } from '@/lib/content/home';
@@ -93,7 +94,7 @@ export default function Page() {
             <h2 className="h-section mt-4">What Our Clients Say</h2>
           </Reveal>
           <div className="mt-10">
-            <RotatingTestimonial items={clientReviews} />
+            <ReviewSlider items={clientReviews} />
           </div>
         </div>
       </section>
@@ -116,14 +117,7 @@ export default function Page() {
         </div>
       </section>
 
-      <CtaBand
-        eyebrow="Bring the Look Home"
-        title="Bring Thoughtful Timber and Love Design to Your Home"
-        body="See how the design you love on screen translates to your own project."
-        image={images[0]?.src || data.hero.image}
-        primary={<Cta href="/design-and-build/" variant="primary">Explore Design + Build</Cta>}
-        secondary={<Cta href="/timber-and-love-gallery/" variant="secondary">View Projects</Cta>}
-      />
+      <ClosingCta {...closingCta.hgtv} />
     </>
   );
 }

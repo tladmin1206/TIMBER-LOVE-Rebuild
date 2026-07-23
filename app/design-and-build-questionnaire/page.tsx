@@ -2,7 +2,8 @@ import { Suspense } from 'react';
 import PageHero from '@/components/sections/PageHero';
 import Reveal from '@/components/ui/Reveal';
 import PressStrip from '@/components/sections/PressStrip';
-import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
 import ProjectInquiry from '@/components/forms/ProjectInquiry';
 import { processSteps } from '@/lib/content/home';
 import { pageMeta } from '@/lib/seo';
@@ -81,7 +82,7 @@ export default function Page({ searchParams }: { searchParams?: Record<string, s
         </div>
       </section>
 
-      <BeginJourneyCta />
+      <ClosingCta {...closingCta.questionnaire} />
     </>
   );
 }

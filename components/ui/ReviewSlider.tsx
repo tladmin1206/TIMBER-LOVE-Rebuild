@@ -1,7 +1,7 @@
 'use client';
 
 import Stars from '@/components/ui/Stars';
-import type { Testimonial } from '@/components/ui/Testimonials';
+import type { Testimonial } from '@/lib/content/types';
 
 /**
  * Continuous, seamless-loop slider of review cards (marquee style). The track is

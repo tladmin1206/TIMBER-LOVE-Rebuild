@@ -2,7 +2,7 @@ import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
 import PropertyGallery from '@/components/sections/PropertyGallery';
 import Reveal from '@/components/ui/Reveal';
-import CtaBand from '@/components/sections/CtaBand';
+import ClosingCta from '@/components/sections/ClosingCta';
 import JsonLd from '@/components/JsonLd';
 import { lodgingSchema, breadcrumbSchema } from '@/lib/schema';
 import TrustBar from '@/components/sections/TrustBar';
@@ -261,13 +261,21 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
         </section>
       )}
 
-      <CtaBand
+      <ClosingCta
         eyebrow="Plan Your Stay"
         title="Make Yourself at Home"
         body="Reserve your dates through our booking partner, or reach out and our team will help you find the right Timber and Love stay."
         image={data.hero.image || images[0]?.src}
-        primary={<BookButton />}
-        secondary={<Link href="/stay-with-us/" className="btn-secondary">Need Help Choosing a Property?</Link>}
+        primary={
+          booking
+            ? { label: 'Check Availability', href: booking, external: true }
+            : { label: 'Browse All Stays', href: '/stay-with-us/' }
+        }
+        secondary={
+          booking
+            ? { label: 'Need Help Choosing a Property?', href: '/stay-with-us/' }
+            : { label: 'Ask a Question', href: '/contact/' }
+        }
       />
     </>
   );

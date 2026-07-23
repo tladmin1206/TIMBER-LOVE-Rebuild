@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import BlockRenderer, { type Block } from '@/components/ui/BlockRenderer';
-import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
 import JsonLd from '@/components/JsonLd';
 import { site } from '@/lib/site';
 import TrustBar from '@/components/sections/TrustBar';
@@ -59,7 +60,7 @@ export default function ArticlePage({ article, path }: { article: Article; path:
         </div>
       </article>
 
-      <BeginJourneyCta />
+      <ClosingCta {...closingCta.article} />
     </>
   );
 }

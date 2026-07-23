@@ -3,7 +3,8 @@ import Hero from '@/components/sections/Hero';
 import TrustBar from '@/components/sections/TrustBar';
 import PathwaySelector from '@/components/sections/PathwaySelector';
 import PartnershipsFeature from '@/components/sections/PartnershipsFeature';
-import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
 import Reveal from '@/components/ui/Reveal';
 import Gallery from '@/components/ui/Gallery';
 import VideoBg from '@/components/ui/VideoBg';
@@ -195,7 +196,7 @@ export default function HomePage() {
       {/* Partnership Opportunities + Americana Soul — video-backed slider */}
       <PartnershipsFeature />
 
-      <BeginJourneyCta />
+      <ClosingCta {...closingCta.home} />
     </>
   );
 }

@@ -137,6 +137,60 @@
     @apply border border-border-subtle transition-all duration-300 hover:-translate-y-1 hover:border-cream/40;
   }
 
+  /* --- Primitives the system had never defined ---
+     These appeared ad hoc wherever a page happened to need one, so each
+     instance was a fresh invention. Defined here so future sections compose
+     rather than improvise. */
+
+  /* Small status / category label. */
+  .badge {
+    @apply inline-flex items-center border border-border-subtle px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.14em] text-text-secondary;
+  }
+  .badge-solid {
+    @apply inline-flex items-center bg-cream px-2.5 py-1 text-[0.7rem] font-medium uppercase tracking-[0.14em] text-ink;
+  }
+
+  /* Editorial data table: hairline rules, uppercase head, tabular figures. */
+  .table-brand {
+    @apply w-full border-collapse text-left text-sm;
+  }
+  .table-brand th {
+    @apply border-b border-border-subtle py-3 pr-4 text-xs uppercase tracking-[0.14em] text-text-muted font-medium;
+  }
+  .table-brand td {
+    @apply border-b border-border-subtle py-3 pr-4 text-text-secondary;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Inline message block. Semantic colour is separate from the brand accent. */
+  .alert {
+    @apply border-l-2 border-border-subtle bg-surface/40 px-4 py-3 text-sm text-text-secondary;
+  }
+  .alert-success {
+    @apply alert border-success text-cream;
+  }
+  .alert-error {
+    @apply alert border-error text-cream;
+  }
+
+  /* Underlined tab row. */
+  .tab {
+    @apply border-b border-transparent pb-1 text-xs uppercase tracking-[0.16em] text-text-muted transition-colors hover:text-cream;
+  }
+  .tab-active {
+    @apply border-cream text-cream;
+  }
+
+  /* Large figure + caption, for stat strips. */
+  .stat-figure {
+    @apply font-sans text-4xl tracking-brand text-cream sm:text-5xl;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-label {
+    @apply mt-2 text-xs uppercase tracking-[0.16em] text-text-muted;
+  }
+
   /* --- Form controls --- */
   .field-label {
     @apply block text-xs uppercase tracking-[0.16em] text-text-secondary;

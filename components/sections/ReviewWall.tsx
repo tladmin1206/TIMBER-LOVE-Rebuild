@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Reveal from '@/components/ui/Reveal';
 import Stars from '@/components/ui/Stars';
-import type { Testimonial } from '@/components/ui/Testimonials';
+import type { Testimonial } from '@/lib/content/types';
 import { googleReviews } from '@/lib/content/home';
 
 /**

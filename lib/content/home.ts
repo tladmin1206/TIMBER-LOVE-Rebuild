@@ -1,4 +1,4 @@
-import type { Testimonial } from '@/components/ui/Testimonials';
+import type { Testimonial } from '@/lib/content/types';
 
 // Matches the original homepage: 967117381 is the full-bleed background hero
 // video (warm interior), and 953577619 is the inline "Designing Beauty" player

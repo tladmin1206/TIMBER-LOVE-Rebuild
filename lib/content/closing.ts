@@ -28,7 +28,56 @@ const IMG = {
 const ESTIMATE = { label: 'Get an Estimate', href: '/estimate/' };
 const VIEW_WORK = { label: 'View Our Work', href: '/timber-and-love-gallery/' };
 
+/** The brand film used behind hero-weight closing CTAs. */
+export const CLOSING_VIDEO = { videoId: '927976789', poster: '/video-posters/927976789.jpg' };
+
 export const closingCta: Record<string, ClosingCtaProps> = {
+  /** Homepage and other hero-weight pages — video-backed. */
+  home: {
+    ...CLOSING_VIDEO,
+    eyebrow: 'Not Sure Where to Start?',
+    title: 'Tell Us About Your Home',
+    body: 'Choose the option closest to your goal, or reach out and our team will point you in the right direction.',
+    primary: { label: 'Contact Timber and Love', href: '/contact/' },
+    secondary: ESTIMATE,
+  },
+
+  designBuild: {
+    ...CLOSING_VIDEO,
+    eyebrow: 'Design + Build',
+    title: 'Start With a Conversation',
+    body: 'Tell us about your home, your goals, and your budget. We will tell you honestly whether we are the right team for it.',
+    primary: { label: 'Start a Project', href: '/design-and-build-questionnaire/' },
+    secondary: ESTIMATE,
+  },
+
+  questionnaire: {
+    ...CLOSING_VIDEO,
+    eyebrow: 'Prefer to Talk First?',
+    title: 'We Are Happy to Start There',
+    body: 'The questionnaire is the fastest route, but a phone call works just as well. Reach out however suits you.',
+    primary: { label: 'Contact Our Team', href: '/contact/' },
+    secondary: ESTIMATE,
+  },
+
+  article: {
+    ...CLOSING_VIDEO,
+    eyebrow: 'From Reading to Planning',
+    title: 'Thinking About Your Own Project?',
+    body: 'Our team can tell you what this would look like for your home, your site, and your budget.',
+    primary: { label: 'Talk to Our Team', href: '/contact/' },
+    secondary: ESTIMATE,
+  },
+
+  hgtv: {
+    eyebrow: 'Bring the Look Home',
+    title: 'Bring Thoughtful Timber and Love Design to Your Home',
+    body: 'See how the design you love on screen translates to your own project.',
+    image: IMG.firehouse,
+    primary: { label: 'Explore Design + Build', href: '/design-and-build/' },
+    secondary: VIEW_WORK,
+  },
+
   about: {
     eyebrow: 'Work With Our Team',
     title: 'Let’s Talk About Your Home',

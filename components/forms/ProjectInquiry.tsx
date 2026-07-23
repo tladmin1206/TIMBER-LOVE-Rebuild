@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
+import { FieldError, RadioList, ChipRow } from '@/components/forms/primitives';
 
 const STORAGE_KEY = 'tl-inquiry-v1';
 const MAX_FILE_MB = 10;
@@ -245,9 +246,9 @@ export default function ProjectInquiry() {
                 <TextField label="City" value={answers.city} onChange={(v) => set({ city: v })} autoComplete="address-level2" />
                 <TextField label="ZIP code" value={answers.zip} onChange={(v) => set({ zip: v })} autoComplete="postal-code" />
               </div>
-              <Chips label="Do you currently own the property?" options={['Yes', 'No', 'Under contract']} value={answers.owns} onChange={(v) => set({ owns: v })} />
+              <ChipRow label="Do you currently own the property?" options={['Yes', 'No', 'Under contract']} value={answers.owns} onChange={(v) => set({ owns: v })} />
               <Checkbox label="The home is occupied" checked={!!answers.occupied} onChange={(c) => set({ occupied: c })} />
-              <Chips label="Approximate home size" options={HOME_SIZES} value={answers.homeSize} onChange={(v) => set({ homeSize: v })} />
+              <ChipRow label="Approximate home size" options={HOME_SIZES} value={answers.homeSize} onChange={(v) => set({ homeSize: v })} />
             </div>
           )}
 
@@ -276,7 +277,7 @@ export default function ProjectInquiry() {
               </div>
               <TextField label="Email" required type="email" value={answers.email} onChange={(v) => set({ email: v })} error={errors.email} autoComplete="email" />
               <TextField label="Phone" type="tel" value={answers.phone} onChange={(v) => set({ phone: v })} autoComplete="tel" />
-              <Chips label="Preferred contact method" options={CONTACT_METHODS} value={answers.contactMethod} onChange={(v) => set({ contactMethod: v })} />
+              <ChipRow label="Preferred contact method" options={CONTACT_METHODS} value={answers.contactMethod} onChange={(v) => set({ contactMethod: v })} />
               <TextField label="Best time to reach you (optional)" value={answers.bestTime} onChange={(v) => set({ bestTime: v })} />
             </div>
           )}
@@ -391,41 +392,6 @@ function TextArea({ label, value, onChange }: { label: string; value?: string; o
       <span className="field-label mb-2">{label}</span>
       <textarea className="field-input min-h-[110px]" value={value ?? ''} onChange={(e) => onChange(e.target.value)} />
     </label>
-  );
-}
-
-function FieldError({ id, msg }: { id: string; msg?: string }) {
-  if (!msg) return null;
-  return <p id={id} className="field-error mt-2" role="alert">{msg}</p>;
-}
-
-function RadioList({ name, options, value, onChange, error }: { name: string; options: string[]; value?: string; onChange: (v: string) => void; error?: string }) {
-  return (
-    <div role="radiogroup" aria-invalid={!!error} className="grid gap-2 sm:grid-cols-2">
-      {options.map((o) => (
-        <label key={o} className="cursor-pointer">
-          <input type="radio" name={name} checked={value === o} onChange={() => onChange(o)} aria-label={o} className="peer sr-only" />
-          <span className="block border border-border-subtle p-4 text-sm text-cream transition-colors peer-checked:border-accent peer-checked:bg-accent-soft peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-focus">
-            {o}
-          </span>
-        </label>
-      ))}
-    </div>
-  );
-}
-
-function Chips({ label, options, value, onChange }: { label: string; options: string[]; value?: string; onChange: (v: string) => void }) {
-  return (
-    <div>
-      <span className="field-label mb-2 block">{label}</span>
-      <div className="flex flex-wrap gap-2">
-        {options.map((o) => (
-          <button key={o} type="button" onClick={() => onChange(o)} aria-pressed={value === o} className={`border px-4 py-2 text-sm transition-colors ${value === o ? 'border-accent bg-accent-soft text-cream' : 'border-border-subtle text-text-secondary hover:border-cream'}`}>
-            {o}
-          </button>
-        ))}
-      </div>
-    </div>
   );
 }
 

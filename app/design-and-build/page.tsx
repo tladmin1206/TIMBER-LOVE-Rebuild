@@ -6,7 +6,8 @@ import VideoBg from '@/components/ui/VideoBg';
 import ReviewWall from '@/components/sections/ReviewWall';
 import FAQ from '@/components/ui/FAQ';
 import PressStrip from '@/components/sections/PressStrip';
-import BeginJourneyCta from '@/components/sections/BeginJourneyCta';
+import ClosingCta from '@/components/sections/ClosingCta';
+import { closingCta } from '@/lib/content/closing';
 import { pageMeta } from '@/lib/seo';
 import JsonLd from '@/components/JsonLd';
 import { serviceSchema, faqSchema, breadcrumbSchema } from '@/lib/schema';
@@ -262,7 +263,7 @@ export default function Page() {
         </div>
       </section>
 
-      <BeginJourneyCta />
+      <ClosingCta {...closingCta.designBuild} />
     </>
   );
 }
