@@ -39,8 +39,13 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* Credibility immediately after the hero: rating, HGTV, local tenure. */}
-      <TrustBar />
+      {/* As Featured On: press credibility as the very first thing after the hero. */}
+      <section className="border-b border-border-subtle bg-bg-primary section-tight">
+        <div className="container-wide">
+          <p className="mb-8 text-center text-xs uppercase tracking-[0.2em] text-cream/50">As Featured On</p>
+          <LogoMarquee logos={pressLogos} />
+        </div>
+      </section>
 
       {/* Intro: who we are, then straight into the choice. No CTA here: the
           pathway grid directly below is the action. */}
@@ -69,13 +74,9 @@ export default function HomePage() {
       {/* Route the visitor, the page's primary job, and its primary CTA. */}
       <PathwaySelector />
 
-      {/* Featured On: compact credibility directly after the choice. */}
-      <section className="border-y border-border-subtle bg-bg-primary section-tight">
-        <div className="container-wide">
-          <p className="mb-8 text-center text-xs uppercase tracking-[0.2em] text-cream/50">As Featured On</p>
-          <LogoMarquee logos={pressLogos} />
-        </div>
-      </section>
+      {/* Trust strip: rating, HGTV, local tenure, as the lead-in to the reviews
+          rather than directly under the hero. */}
+      <TrustBar />
 
       {/* Proof: moved up from near the foot of the page so the 4.9 rating does
           work for the majority of visitors, not just those who scroll to 70%. */}
