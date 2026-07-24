@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { site } from './site';
 
-const DEFAULT_OG = '/wp-content/uploads/2024/04/Timber-and-Love-Design-Build-Premier-Home-Remodeling-Contractors-in-Boise-1.jpg';
+// Default share image: the light Timber and Love wordmark on the brand dark
+// background, generated at 1200x630 by app/og/route.tsx.
+const DEFAULT_OG = '/og/';
 
 /** Build per-page metadata with canonical + OG/Twitter, preserving live values. */
 export function pageMeta(opts: {

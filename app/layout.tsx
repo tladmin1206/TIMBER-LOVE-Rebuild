@@ -48,10 +48,10 @@ export const metadata: Metadata = {
     description: site.description,
     images: [
       {
-        url: '/wp-content/uploads/2024/04/Timber-and-Love-Design-Build-Premier-Home-Remodeling-Contractors-in-Boise-1.jpg',
-        width: 1000,
-        height: 1000,
-        alt: 'Timber and Love Design Build Premier Home Remodeling Contractors in Boise',
+        url: '/og/',
+        width: 1200,
+        height: 630,
+        alt: 'Timber and Love',
       },
     ],
   },
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Timber and Love | Boise's Premier Home Services by HGTV's Luke Caldwell",
     description: site.description,
-    images: ['/wp-content/uploads/2024/04/Timber-and-Love-Design-Build-Premier-Home-Remodeling-Contractors-in-Boise-1.jpg'],
+    images: ['/og/'],
   },
   icons: {
     icon: '/wp-content/uploads/2024/03/Timber-And-Love-Icon-White-Premier-Home-Remodeling-And-Design-Company-In-Boise-HGTVs-Boise-Boys-300x126.png',
