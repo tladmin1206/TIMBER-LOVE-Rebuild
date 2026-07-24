@@ -9,7 +9,8 @@ import type { AddressSuggestion } from '@/lib/planner/property/freeLookup';
  * Implemented as a combobox rather than a plain input so it is operable from
  * the keyboard alone: arrow keys move through options, Enter selects, Escape
  * dismisses. Suggestions are requested from our own endpoint after a short
- * pause in typing, and the field stays fully usable if that request fails:  * a homeowner can always type their address and continue.
+ * pause in typing, and the field stays fully usable if that request fails: a
+ * homeowner can always type their address and continue.
  */
 export default function AddressAutocomplete({
   value,

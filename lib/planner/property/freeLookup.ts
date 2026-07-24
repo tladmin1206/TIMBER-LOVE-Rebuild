@@ -174,6 +174,37 @@ export type ParcelFacts = Pick<
   'lotSizeSqFt' | 'estimatedValue' | 'zoning' | 'parcelId' | 'jurisdiction'
 > & { matchedAddress?: string };
 
+const HISTORIC_DISTRICTS =
+  'https://services1.arcgis.com/WHM6qC35aMtyAAlN/arcgis/rest/services/HistoricDistricts/FeatureServer/0/query';
+
+/**
+ * Boise historic-district check. Spec § 4.5.
+ *
+ * A point-in-polygon test against the City of Boise's public historic-district
+ * layer. A hit means exterior changes go through design review, which adds time
+ * to the front of a project and shapes some material choices, so it is a real
+ * planning factor rather than trivia. It also makes the planner feel locally
+ * expert: it knows something about the home the homeowner did not type.
+ */
+async function lookupHistoric(s: AddressSuggestion): Promise<string | null> {
+  const result = await withTimeout(async (signal) => {
+    const url = new URL(HISTORIC_DISTRICTS);
+    url.searchParams.set('geometry', `${s.lng},${s.lat}`);
+    url.searchParams.set('geometryType', 'esriGeometryPoint');
+    url.searchParams.set('inSR', '4326');
+    url.searchParams.set('spatialRel', 'esriSpatialRelIntersects');
+    url.searchParams.set('outFields', 'District_Name');
+    url.searchParams.set('returnGeometry', 'false');
+    url.searchParams.set('f', 'json');
+
+    const res = await fetch(url, { signal });
+    if (!res.ok) return null;
+    return (await res.json()) as { features?: { attributes: { District_Name?: string } }[] };
+  });
+
+  return result?.features?.[0]?.attributes?.District_Name?.trim() || null;
+}
+
 const SQ_FT_PER_ACRE = 43_560;
 
 export async function lookupParcel(s: AddressSuggestion): Promise<ParcelFacts | null> {
@@ -218,12 +249,15 @@ export async function lookupProperty(s: AddressSuggestion): Promise<{
   stillNeeded: ('yearBuilt' | 'finishedSqFt')[];
 }> {
   const area = qualify({ lat: s.lat, lng: s.lng });
-  const parcel = await lookupParcel(s);
+  // Parcel and historic checks are independent, so run them together.
+  const [parcel, historicDistrict] = await Promise.all([lookupParcel(s), lookupHistoric(s)]);
 
   return {
     facts: {
       serviceAreaBand: area.band,
-      jurisdiction: s.city, ...(parcel ?? {}),
+      jurisdiction: s.city,
+      ...(parcel ?? {}),
+      ...(historicDistrict ? { historicDistrict, historicReviewRequired: true } : {}),
     },
     // ASSESSOR when the county answered; the homeowner supplies the rest.
     source: parcel ? 'ASSESSOR' : 'NONE',

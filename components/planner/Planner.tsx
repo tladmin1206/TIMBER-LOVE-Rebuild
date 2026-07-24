@@ -89,6 +89,7 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
         lotSizeSqFt: data.facts?.lotSizeSqFt,
         zoning: data.facts?.zoning,
         estimatedValue: data.facts?.estimatedValue,
+        historicDistrict: (data.facts as { historicDistrict?: string })?.historicDistrict,
         source: data.source,
       });
     } catch {

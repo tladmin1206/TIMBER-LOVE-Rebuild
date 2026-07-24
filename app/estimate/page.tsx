@@ -6,8 +6,8 @@ import { pageMeta } from '@/lib/seo';
  *
  * The tool that lived here asked homeowners to self-diagnose construction scope
  * ("structural changes", "HVAC changes"), which is the work they are hiring us
- * to do, and then answered with ranges wide enough to alarm rather than inform
- *: labelled with a confidence it had not earned.
+ * to do, and then answered with ranges wide enough to alarm rather than inform,
+ * labelled with a confidence it had not earned.
  *
  * The planner replaces it: one visual question instead of a fifteen-item
  * checklist, and an engine that withholds a figure rather than guess at one.

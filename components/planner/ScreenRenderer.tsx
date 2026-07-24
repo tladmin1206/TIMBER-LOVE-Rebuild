@@ -210,6 +210,7 @@ export type FoundProperty = {
   lotSizeSqFt?: number;
   zoning?: string;
   estimatedValue?: number;
+  historicDistrict?: string;
   source?: string;
 };
 
@@ -255,6 +256,12 @@ function PropertyConfirmation({
               <li key={f}>{f}</li>
             ))}
           </ul>
+          {found?.historicDistrict && (
+            <p className="mt-4 text-sm leading-relaxed text-cream">
+              Your home sits in the {found.historicDistrict} historic district. Exterior changes go through design
+              review, which we build into the timeline. We handle that process routinely.
+            </p>
+          )}
           <p className="mt-6 text-sm leading-relaxed text-text-secondary">
             Two things public records do not publish. Approximate is fine: we widen the range rather than block you.
           </p>
