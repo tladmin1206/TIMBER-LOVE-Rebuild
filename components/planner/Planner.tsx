@@ -18,6 +18,7 @@ import {
 import type { Estimate, PlannerAnswers, PropertyFacts } from '@/lib/planner/types';
 import type { AddressSuggestion } from '@/lib/planner/property/freeLookup';
 import type { FoundProperty } from '@/components/planner/ScreenRenderer';
+import { scrollToStep } from '@/lib/scrollToStep';
 
 type Stage = 'questions' | 'gate' | 'results';
 
@@ -47,9 +48,10 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
   const screen = screens[Math.min(index, screens.length - 1)];
   const { current, total } = progress(flow, index);
 
-  // Move focus to the new screen so the flow is usable without a mouse.
+  // On every step change, scroll the heading clear of the sticky header and
+  // move focus to it, so the visitor never lands mid-form or behind the header.
   useEffect(() => {
-    headingRef.current?.focus();
+    scrollToStep(headingRef.current);
   }, [index, stage]);
 
   // § 3.2, a hybrid branch changes the total, and that change is explained

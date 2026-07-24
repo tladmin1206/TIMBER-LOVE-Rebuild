@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { scrollToStep } from '@/lib/scrollToStep';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { FieldError, RadioList, ChipRow } from '@/components/forms/primitives';
@@ -108,8 +109,9 @@ export default function ProjectInquiry() {
     }
   }, [answers]);
 
+  // Each step scrolls its heading clear of the sticky header, then takes focus.
   useEffect(() => {
-    headingRef.current?.focus();
+    scrollToStep(headingRef.current);
   }, [stepIndex, status]);
 
   const step = STEPS[stepIndex];

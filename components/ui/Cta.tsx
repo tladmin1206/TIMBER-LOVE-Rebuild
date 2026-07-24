@@ -56,6 +56,17 @@ export default function Cta({
     );
   }
 
+  // Same-page hash links use a native anchor. Next's App Router Link does not
+  // reliably scroll to an in-page target, and a native anchor also honours the
+  // global scroll-padding-top so it lands below the sticky header.
+  if (href.startsWith('#')) {
+    return (
+      <a href={href} className={cls} data-track={track} aria-label={ariaLabel}>
+        {children}
+      </a>
+    );
+  }
+
   return (
     <Link href={href} className={cls} data-track={track} aria-label={ariaLabel}>
       {children}

@@ -3,6 +3,7 @@ import { Montserrat } from 'next/font/google';
 import './globals.css';
 import { site } from '@/lib/site';
 import Header from '@/components/layout/Header';
+import HeaderOffset from '@/components/layout/HeaderOffset';
 import Footer from '@/components/layout/Footer';
 import MobileBottomBar from '@/components/layout/MobileBottomBar';
 import ModalProvider from '@/components/ui/ModalProvider';
@@ -73,8 +74,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#content" className="skip-link">Skip to content</a>
         <ModalProvider>
           <Header />
+          <HeaderOffset />
           {/* Bottom padding clears the fixed mobile action bar so the last
-              element of every page: now always a CTA: is never covered. */}
+              element of every page, now always a CTA, is never covered. */}
           <main id="content" className="pb-[calc(48px+env(safe-area-inset-bottom))] xl:pb-0">
             {children}
           </main>

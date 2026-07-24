@@ -10,6 +10,17 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    /* One offset drives every anchor jump, skip-link target, focus scroll, and
+       form-step transition so nothing ever lands behind the fixed header.
+       --header-h is measured live by HeaderOffset; the fallback covers the
+       first paint before it runs. */
+    scroll-padding-top: var(--header-h, 88px);
+  }
+  /* Reduced-motion users get immediate positioning, not a smooth glide. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
   body {
     @apply bg-bg-primary font-sans text-body antialiased;
