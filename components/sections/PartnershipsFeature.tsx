@@ -31,8 +31,8 @@ const SLIDES = [
     eyebrow: 'Appearances · Partnerships · Press',
     title: 'Partnership Opportunities',
     body: 'For appearances, brand partnerships, and press, reach out to our partnerships team. If your project is a good fit, we would love to talk.',
-    image: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg',
-    imageAlt: 'A Timber and Love home featured on HGTV',
+    image: '/wp-content/uploads/2024/04/Boise-Boys-Luke-Caldwell-and-Clint-Robertson-1-1024x633.jpg',
+    imageAlt: "Luke Caldwell and Clint Robertson of HGTV's Boise Boys",
   },
 ] as const;
 

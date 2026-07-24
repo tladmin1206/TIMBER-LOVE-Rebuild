@@ -28,9 +28,9 @@ export default function Hero() {
           </p>
 
           {/* Brand stat counters */}
-          <div className="mt-10 grid max-w-2xl grid-cols-2 gap-x-10 gap-y-8 sm:grid-cols-4 sm:gap-x-6">
+          <div className="mt-10 grid max-w-xl grid-cols-2 gap-x-8 gap-y-8 sm:max-w-2xl sm:grid-cols-4 sm:gap-x-10">
             {stats.map((s) => (
-              <StatCounter key={s.label} align="left" {...s} />
+              <StatCounter key={s.label} align="left" size="md" {...s} />
             ))}
           </div>
 

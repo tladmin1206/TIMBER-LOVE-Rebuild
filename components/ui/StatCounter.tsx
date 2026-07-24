@@ -16,12 +16,14 @@ export default function StatCounter({
   suffix = '+',
   label,
   align = 'center',
+  size = 'lg',
 }: {
   to: number;
   prefix?: string;
   suffix?: string;
   label: string;
   align?: 'center' | 'left';
+  size?: 'md' | 'lg';
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
   // Animated value shown only while the count-up is running.
@@ -65,9 +67,11 @@ export default function StatCounter({
   // Display the true value unless the count-up is actively running.
   const display = animating ? value : to;
 
+  const figureSize = size === 'md' ? 'text-3xl sm:text-4xl' : 'text-5xl sm:text-6xl';
+
   return (
     <div ref={ref} className={align === 'left' ? 'text-left' : 'text-center'}>
-      <div className="font-sans text-5xl tracking-brand text-cream sm:text-6xl">
+      <div className={`font-sans ${figureSize} tracking-brand text-cream`}>
         {prefix}
         {display}
         {suffix}
