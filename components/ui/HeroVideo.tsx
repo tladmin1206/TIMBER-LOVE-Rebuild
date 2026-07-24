@@ -45,7 +45,12 @@ export default function HeroVideo({
           title=""
           tabIndex={-1}
           allow="autoplay; fullscreen"
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0"
+          // Sized to cover the section as a 16:9 rectangle, then scaled up a
+          // little so the video always bleeds past every edge. Without the
+          // overscan the iframe sits exactly on the viewport edges at wide
+          // aspect ratios, and any hairline at the player's own boundary shows
+          // as a strip on the right. The overflow is clipped by the wrapper.
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2 scale-[1.2] border-0"
         />
       )}
     </div>
