@@ -200,7 +200,7 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
         </p>
       )}
 
-      <div ref={headingRef} tabIndex={-1} className="mt-10 outline-none">
+      <div ref={headingRef} tabIndex={-1} className="mt-6 outline-none sm:mt-8">
         {stage === 'questions' && screen && (
           <ScreenRenderer
             screen={screen}
@@ -231,7 +231,7 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
       )}
 
       {stage === 'questions' && (
-        <div className="mt-12 flex items-center justify-between gap-4">
+        <div className="sticky bottom-0 -mx-5 mt-8 flex items-center justify-between gap-4 border-t border-border-subtle bg-bg-primary px-5 py-4 sm:static sm:mx-0 sm:border-0 sm:bg-transparent sm:px-0 sm:py-0">
           <button
             type="button"
             onClick={back}

@@ -17,7 +17,7 @@ import type { AddressSuggestion } from '@/lib/planner/property/freeLookup';
  * produce one (§ 5.1 rule 5).
  */
 
-const OPTION_BASE = 'w-full text-left transition-colors border p-5 min-h-[64px]';
+const OPTION_BASE = 'w-full text-left transition-colors border p-4 min-h-[52px]';
 const OPTION_OFF = 'border-border-subtle hover:border-cream/50';
 const OPTION_ON = 'border-accent bg-accent-soft';
 
@@ -46,10 +46,10 @@ export default function ScreenRenderer({
 
   return (
     <div>
-      <h2 className="h-section">{screen.question}</h2>
-      {screen.help && <p className="text-lead mt-4 max-w-xl">{screen.help}</p>}
+      <h2 className="h-card sm:h-section">{screen.question}</h2>
+      {screen.help && <p className="mt-3 max-w-xl text-sm text-text-secondary sm:text-lead sm:mt-4">{screen.help}</p>}
 
-      <div className="mt-10">
+      <div className="mt-6 sm:mt-8">
         {(screen.kind === 'cards' || screen.kind === 'image-cards') && (
           <fieldset className="border-0 p-0">
             <legend className="sr-only">{screen.question}</legend>
@@ -84,7 +84,7 @@ export default function ScreenRenderer({
         {screen.kind === 'toggles' && (
           <fieldset className="border-0 p-0">
             <legend className="sr-only">{screen.question}</legend>
-            <div className="grid gap-3 sm:grid-cols-2">
+            <div className="grid grid-cols-2 gap-2.5">
               {screen.choices?.map((c) => {
                 const selected = Array.isArray(value) ? (value as string[]) : [];
                 const on = selected.includes(c.value);
@@ -172,7 +172,7 @@ export default function ScreenRenderer({
 
       {/* § 5.1 rule 4: never block progress on uncertainty. */}
       {screen.notSure && (
-        <div className="mt-8">
+        <div className="mt-6">
           <button
             type="button"
             onClick={onNotSure}
