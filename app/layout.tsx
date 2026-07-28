@@ -61,9 +61,6 @@ export const metadata: Metadata = {
     description: site.description,
     images: ['/og/'],
   },
-  icons: {
-    icon: '/wp-content/uploads/2024/03/Timber-And-Love-Icon-White-Premier-Home-Remodeling-And-Design-Company-In-Boise-HGTVs-Boise-Boys-300x126.png',
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
