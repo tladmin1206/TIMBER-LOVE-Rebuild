@@ -16,6 +16,12 @@ export type LeadEmail = {
   text: string;
   /** Where replies should go, the homeowner, not the site. */
   replyTo?: string;
+  /**
+   * Recipient override. Defaults to LEAD_TO_EMAIL (the internal team). Set this
+   * to the homeowner's address to send them their confirmation copy. Delivery
+   * still requires RESEND_API_KEY and LEAD_FROM_EMAIL to be configured.
+   */
+  to?: string;
 };
 
 export type DeliveryResult =
@@ -36,7 +42,10 @@ function isRetryable(status: number): boolean {
 
 export async function sendLeadEmail(mail: LeadEmail): Promise<DeliveryResult> {
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.LEAD_TO_EMAIL;
+  // A per-message recipient (the homeowner's confirmation) overrides the
+  // internal default. LEAD_TO_EMAIL is still required as the fallback so a
+  // misconfigured internal address is caught rather than silently skipped.
+  const to = mail.to ?? process.env.LEAD_TO_EMAIL;
   const from = process.env.LEAD_FROM_EMAIL;
 
   if (!apiKey || !to || !from) {

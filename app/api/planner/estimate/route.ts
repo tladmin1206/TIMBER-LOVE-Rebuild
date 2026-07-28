@@ -5,6 +5,9 @@ import type { PlannerAnswers, PropertyFacts } from '@/lib/planner/types';
 import { isPlannerPreview } from '@/lib/planner/preview';
 import { generateNarrative } from '@/lib/planner/narrative/generate';
 import { sendLeadEmail } from '@/lib/leads/email';
+import { syncToGhl } from '@/lib/planner/crm/ghl';
+import { internalBriefEmail, leadConfirmationEmail, fullPayloadJson, type PlannerContact } from '@/lib/planner/submission';
+import { randomUUID } from 'node:crypto';
 
 /**
  * Estimate endpoint.
@@ -18,7 +21,7 @@ import { sendLeadEmail } from '@/lib/leads/email';
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
-type Contact = { firstName?: string; lastName?: string; email?: string; phone?: string };
+type Contact = PlannerContact;
 
 type Body = {
   answers: PlannerAnswers;
@@ -92,9 +95,15 @@ export async function POST(req: Request) {
 }
 
 /**
- * Sends the planner lead. Composed as a project manager's brief rather than a
- * field dump: the range and confidence first, then the answers, then whatever
- * the homeowner was unsure about, which is the agenda for the first call.
+ * Delivers a completed planner submission three ways from one shared summary,
+ * so the results screen, both emails, and the CRM always agree:
+ *   1. an internal project-manager brief (full detail),
+ *   2. the homeowner's confirmation copy (range-only, no itemization), and
+ *   3. a GoHighLevel contact upsert with the complete payload.
+ *
+ * None of these block the results screen (the caller does not await this), and
+ * each degrades to a logged no-op when its provider is not configured, so a
+ * missing key never looks like success and never loses the results view.
  */
 async function deliverPlannerLead(
   contact: Contact,
@@ -102,41 +111,39 @@ async function deliverPlannerLead(
   property: PropertyFacts,
   result: ReturnType<typeof estimate>
 ) {
-  const name = `${contact.firstName ?? ''} ${contact.lastName ?? ''}`.trim() || 'Unnamed';
-  const range = result.range
-    ? `$${result.range.low.toLocaleString('en-US')} – $${result.range.high.toLocaleString('en-US')} (typical $${result.range.mid.toLocaleString('en-US')})`
-    : `No range produced: ${result.outcome}`;
+  const submittedAt = new Date().toISOString();
+  const sessionId = randomUUID();
 
-  const lines = [
-    `PLANNER SUBMISSION: ${name}`,
-    '',
-    `Range:       ${range}`,
-    `Confidence:  ${result.confidence.label} (${result.confidence.score})`,
-    `Project:     ${answers.projectType} · ${answers.scopeLevel ?? '-'} · ${answers.finishTier ?? '-'}`,
-    `Timeline:    ${answers.timeline ?? '-'}`,
-    `Service area: ${property.serviceAreaBand}`,
-    '',
-    `Email:  ${contact.email}`,
-    `Phone:  ${contact.phone ?? '-'}`,
-    '',
-    `Property: ${property.yearBuilt ?? 'year unknown'}, ${property.finishedSqFt ? `${property.finishedSqFt.toLocaleString('en-US')} sq ft` : 'size unknown'} (${property.enrichmentSource})`,
-    `Goals: ${(answers.goals ?? []).join(', ') || '-'}`,
-    result.overImprovement ? 'FLAG: estimate is high relative to property value: raise gently.' : '',
-    '',
-    'Unsure about:', ...(answers.notSure?.length ? answers.notSure.map((q) => `  · ${q}`) : ['  · nothing flagged']),
-    '',
-    'Assumptions flagged for verification:', ...result.transparency.assumptions
-      .filter((a) => a.flaggedForVerification)
-      .map((a) => `  · ${a.text}${a.impactIfWrong ? ` (±$${a.impactIfWrong.low.toLocaleString('en-US')}–$${a.impactIfWrong.high.toLocaleString('en-US')})` : ''}`),
-  ].filter(Boolean);
+  // 1. Internal brief to the team (always attempted).
+  const internal = internalBriefEmail(contact, answers, property, result, { submittedAt, source: 'investment-planner' });
+  const internalDelivery = await sendLeadEmail({ subject: internal.subject, text: internal.text, replyTo: contact.email });
+  if (!internalDelivery.delivered && internalDelivery.reason !== 'not-configured') {
+    console.error('[planner] INTERNAL LEAD NOT DELIVERED: follow up manually', { contact: contact.email, delivery: internalDelivery });
+  }
 
-  const delivery = await sendLeadEmail({
-    subject: `Planner lead: ${name}: ${answers.projectType}`,
-    replyTo: contact.email,
-    text: lines.join('\n'),
-  });
+  // 2. Confirmation copy to the homeowner (only if we have their address, and
+  //    only when a range was produced: we never email a non-range as a result).
+  if (contact.email && result.outcome === 'ok') {
+    const confirm = leadConfirmationEmail(contact, answers, property, result);
+    const confirmDelivery = await sendLeadEmail({ subject: confirm.subject, text: confirm.text, to: contact.email });
+    if (!confirmDelivery.delivered && confirmDelivery.reason !== 'not-configured') {
+      console.error('[planner] LEAD CONFIRMATION NOT SENT', { contact: contact.email, delivery: confirmDelivery });
+    }
+  }
 
-  if (!delivery.delivered && delivery.reason !== 'not-configured') {
-    console.error('[planner] LEAD NOT DELIVERED: follow up manually', { contact: contact.email, delivery });
+  // 3. CRM upsert with the complete payload in the notes field.
+  if (contact.firstName && contact.lastName && contact.email && contact.phone) {
+    const sync = await syncToGhl({
+      contact: { firstName: contact.firstName, lastName: contact.lastName, email: contact.email, phone: contact.phone },
+      answers,
+      property,
+      estimate: result,
+      sessionId,
+      fullPayloadJson: fullPayloadJson(contact, answers, property, result, { submittedAt, source: 'investment-planner' }),
+      city: contact.address,
+    });
+    if (sync.status === 'failed') {
+      console.error('[planner] CRM SYNC FAILED: follow up manually', { contact: contact.email, sync });
+    }
   }
 }
