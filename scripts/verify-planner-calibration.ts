@@ -73,6 +73,14 @@ const scenarios: Scenario[] = [
 // (the references contain no standalone kitchen or bath total).
 const derived: Scenario[] = [
   {
+    name: 'New home - signature (entry-level custom), 2,400 sf (modeled)',
+    answers: { mode: 'C', projectType: 'new-construction', finishTier: 'signature', targetSqFt: 2400, garageBays: 2 },
+    property: { ...core, enrichmentSource: 'NONE' },
+    realTotal: 2400 * 310,
+    validate: false,
+    note: 'no basic-new-home reference; modeled from tier structure (~$280-350/sf)',
+  },
+  {
     name: 'Kitchen - reimagine, elevated (derived)',
     answers: { mode: 'A', projectType: 'kitchen', scopeLevel: 'reimagine', finishTier: 'elevated', goals: [] },
     property: { ...core, yearBuilt: 1975, finishedSqFt: 2200, enrichmentSource: 'MANUAL' },

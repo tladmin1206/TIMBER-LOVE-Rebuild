@@ -287,8 +287,13 @@ export const CALIBRATED_RULESET: Ruleset = {
   newConstruction: {
     ...DRAFT_RULESET.newConstruction,
     conditionedPerSqFt: {
-      // signature is UNVALIDATED (no basic-new-home reference estimate).
-      signature: { low: 260, high: 330 },
+      // No basic-new-home reference exists, so signature is modeled from the
+      // tier structure: a new build is ~55-60% finish-independent shell and
+      // systems and ~40-45% tier-dependent finishes. Holding the shell and
+      // stepping the finish portion down one tier from elevated lands an
+      // entry-level custom home (TL quality, not tract) near $280-350/sf,
+      // which sits below the ADU (small homes cost more per sq ft).
+      signature: { low: 245, high: 325 },
       elevated: { low: 300, high: 400 }, // Markowich ADU ~$531k brackets here.
       bespoke: { low: 340, high: 455 }, // Workland ~$1.44M/3,200sf brackets here.
     },
