@@ -42,7 +42,27 @@ export class SegmentBandBasis implements PricingBasis {
 
   resolve(ruleset: Ruleset, answers: PlannerAnswers, property: PropertyFacts): BasisResult | null {
     const { projectType, scopeLevel, finishTier } = answers;
-    if (!scopeLevel || !finishTier) return null;
+    if (!finishTier) return null;
+
+    // New construction is priced per conditioned square foot from the dedicated
+    // newConstruction table, not the scope-keyed band table (a new home has no
+    // "refresh vs rebuild" axis). Garage, basement, and covered outdoor space
+    // are added on top as direct adders (see directAdders), so the per-sq-ft
+    // figure stays a clean conditioned-shell number.
+    if (projectType === 'new-construction') {
+      const perSqFt = ruleset.newConstruction.conditionedPerSqFt[finishTier];
+      const area = answers.targetSqFt;
+      if (!perSqFt || !area) return null;
+      const mid = (perSqFt.low + perSqFt.high) / 2;
+      return {
+        approvedBand: { low: perSqFt.low * area, high: perSqFt.high * area },
+        scaled: mid * area,
+        sizeFactor: area,
+        lookupKey: `new-construction.${finishTier}`,
+      };
+    }
+
+    if (!scopeLevel) return null;
 
     const band = lookupBand(ruleset, projectType, scopeLevel, finishTier);
     if (!band) return null;

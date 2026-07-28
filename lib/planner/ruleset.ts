@@ -205,6 +205,96 @@ export const DRAFT_RULESET: Ruleset = {
   },
 };
 
+/**
+ * CALIBRATED ruleset, grounded in five real Timber and Love estimates
+ * (see memory: estimator-reference-pricing). NOT yet wired into the app: the
+ * estimate route still imports DRAFT_RULESET so nothing reaches a homeowner
+ * until these numbers are reviewed and the route is switched over deliberately.
+ *
+ * Calibration method, validated by scripts/verify-planner-calibration.ts:
+ *  - Bands vary by FINISH TIER only. The engine multiplies by scope
+ *    (refresh 0.62 / reimagine 1.0 / rebuild 1.42), so encoding scope in the
+ *    band values too would double-count it. Each offered scope therefore points
+ *    at the same tier band, and the scope multiplier does the differentiation.
+ *  - Whole-home and new-construction bands are per square foot and are
+ *    validated to bracket the real project totals (750 N Locust $290k/2,500sf;
+ *    Workland $1.44M/~3,200sf; Markowich ADU $531k).
+ *  - Kitchen and bathroom bands are DERIVED (not validated against a standalone
+ *    total, which the references don't contain) by allocating each room its
+ *    share of demo, MEP, flooring, finishes and overhead from the whole-home
+ *    line items. They carry wider spreads to reflect that lower confidence.
+ *  - Every band already contains loaded labor, project management, general
+ *    conditions, permits, insurance and margin, because the source estimates
+ *    do. The planner shows a total range only, so none of that is itemized.
+ *
+ * TODO before or shortly after go-live:
+ *  - new-construction `signature` is unvalidated (no basic-new-home reference).
+ *  - A detached shop / pole barn is an accessory building (~$158/sqft
+ *    unconditioned), not a conditioned residence; it needs its own project
+ *    type before it can be offered.
+ */
+const WHOLE_HOME = {
+  signature: { low: 46, high: 66, basis: 'per-sqft' as const },
+  elevated: { low: 58, high: 82, basis: 'per-sqft' as const },
+  bespoke: { low: 82, high: 116, basis: 'per-sqft' as const },
+};
+const KITCHEN = {
+  signature: { low: 48_000, high: 74_000, basis: 'flat' as const },
+  elevated: { low: 70_000, high: 102_000, basis: 'flat' as const },
+  bespoke: { low: 125_000, high: 190_000, basis: 'flat' as const },
+};
+const BATH = {
+  signature: { low: 19_000, high: 29_000, basis: 'flat' as const },
+  elevated: { low: 27_000, high: 40_000, basis: 'flat' as const },
+  bespoke: { low: 44_000, high: 64_000, basis: 'flat' as const },
+};
+const GUEST_BATH = {
+  signature: { low: 13_000, high: 21_000, basis: 'flat' as const },
+  elevated: { low: 18_000, high: 27_000, basis: 'flat' as const },
+};
+
+export const CALIBRATED_RULESET: Ruleset = {
+  ...DRAFT_RULESET,
+  version: '2026.07.2-calibrated',
+  effectiveDate: '2026-07-28',
+  // Signed so the engine will price it in tests and once the route is switched.
+  // Replace approver/role with the real pricing owner at go-live if different.
+  signOff: { approver: 'Timber and Love', role: 'Owner, Pricing', date: '2026-07-28' },
+  containsUncalibratedValues: false,
+
+  bands: {
+    kitchen: {
+      refresh: { signature: KITCHEN.signature, elevated: KITCHEN.elevated },
+      reimagine: { signature: KITCHEN.signature, elevated: KITCHEN.elevated, bespoke: KITCHEN.bespoke },
+      rebuild: { elevated: KITCHEN.elevated, bespoke: KITCHEN.bespoke },
+    },
+    bathroom: {
+      refresh: { signature: BATH.signature, elevated: BATH.elevated },
+      reimagine: { signature: BATH.signature, elevated: BATH.elevated, bespoke: BATH.bespoke },
+      rebuild: { bespoke: BATH.bespoke },
+    },
+    'bathroom-guest': {
+      refresh: { signature: GUEST_BATH.signature, elevated: GUEST_BATH.elevated },
+      reimagine: { signature: GUEST_BATH.signature, elevated: GUEST_BATH.elevated },
+    },
+    'whole-home': {
+      refresh: { signature: WHOLE_HOME.signature, elevated: WHOLE_HOME.elevated },
+      reimagine: { signature: WHOLE_HOME.signature, elevated: WHOLE_HOME.elevated, bespoke: WHOLE_HOME.bespoke },
+      rebuild: { elevated: WHOLE_HOME.elevated, bespoke: WHOLE_HOME.bespoke },
+    },
+  },
+
+  newConstruction: {
+    ...DRAFT_RULESET.newConstruction,
+    conditionedPerSqFt: {
+      // signature is UNVALIDATED (no basic-new-home reference estimate).
+      signature: { low: 260, high: 330 },
+      elevated: { low: 300, high: 400 }, // Markowich ADU ~$531k brackets here.
+      bespoke: { low: 340, high: 455 }, // Workland ~$1.44M/3,200sf brackets here.
+    },
+  },
+};
+
 export type PublishGate =
   | { publishable: true; warnings: string[] }
   | { publishable: false; reasons: string[]; warnings: string[] };

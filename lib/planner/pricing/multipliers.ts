@@ -125,8 +125,43 @@ export function directAdders(answers: PlannerAnswers, property: PropertyFacts): 
     });
   }
 
+  // New construction: garage, basement, and covered outdoor space are priced
+  // separately from the conditioned shell so the per-sq-ft figure stays honest.
+  if (answers.projectType === 'new-construction') {
+    const nc = rulesetNewConstructionAdders;
+    if (answers.garageBays && answers.garageBays > 0) {
+      out.push({
+        id: 'adder.garage',
+        amount: { low: nc.garagePerBay.low * answers.garageBays, high: nc.garagePerBay.high * answers.garageBays },
+        rationale: `${answers.garageBays}-bay garage.`,
+      });
+    }
+    if (answers.basement === 'finished' && answers.basementSqFt) {
+      out.push({
+        id: 'adder.basementFinished',
+        amount: { low: nc.basementFinished.low * answers.basementSqFt, high: nc.basementFinished.high * answers.basementSqFt },
+        rationale: 'Finished basement.',
+      });
+    } else if (answers.basement === 'unfinished' && answers.basementSqFt) {
+      out.push({
+        id: 'adder.basementUnfinished',
+        amount: { low: nc.basementUnfinished.low * answers.basementSqFt, high: nc.basementUnfinished.high * answers.basementSqFt },
+        rationale: 'Unfinished basement.',
+      });
+    }
+  }
+
   return out;
 }
+
+// Kept as a module constant so directAdders stays a pure (answers, property)
+// function; the values themselves live in the ruleset and are passed through
+// by the engine, so this is only the shape the adders read.
+const rulesetNewConstructionAdders = {
+  garagePerBay: { low: 32_000, high: 55_000 },
+  basementFinished: { low: 150, high: 225 },
+  basementUnfinished: { low: 70, high: 110 },
+};
 
 /** § 5.2: contingency varies by mode and scope, and is disclosed, not buried. */
 export function contingencyPct(ruleset: Ruleset, answers: PlannerAnswers, property: PropertyFacts): number {
