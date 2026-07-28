@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Hero from '@/components/sections/Hero';
 import TrustBar from '@/components/sections/TrustBar';
+import LukeTrustBar from '@/components/sections/LukeTrustBar';
 import PartnershipsFeature from '@/components/sections/PartnershipsFeature';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
@@ -149,6 +150,10 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Who leads the work: Luke as the authority anchor, right after What We
+          Do and before the social proof. */}
+      <LukeTrustBar />
+
       {/* Trust strip: rating, HGTV, local tenure, as the lead-in to the reviews
           rather than directly under the hero. */}
       <TrustBar />
@@ -258,8 +263,9 @@ export default function HomePage() {
             </Reveal>
             <Reveal delay={120} className="flex items-end">
               <p className="text-body">
-                Whether you&apos;re building, remodeling, buying, renting, or selling, it all begins with our 3-step
-                process. Then through collaboration, creativity, and precision, we execute!
+                Every home we design and build starts the same way: a simple, three-step process, then collaboration,
+                creativity, and precision as we bring it to life. The fastest way to begin is our Investment Planner,
+                which gives you a realistic planning range in a few minutes.
               </p>
             </Reveal>
           </div>
@@ -271,6 +277,14 @@ export default function HomePage() {
                 <p className="mt-4 text-sm leading-relaxed text-body">{step.body}</p>
               </Reveal>
             ))}
+          </div>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <Link href="/investment-planner/" className="btn-primary" data-track="process_plan">
+              Plan Your Project
+            </Link>
+            <Link href="/design-and-build/" className="btn-secondary" data-track="process_learn">
+              See How It Works
+            </Link>
           </div>
         </div>
       </section>
