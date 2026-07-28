@@ -8,7 +8,7 @@ import Reveal from '@/components/ui/Reveal';
 import { closingCta } from '@/lib/content/closing';
 import { pageMeta } from '@/lib/seo';
 import { breadcrumbSchema } from '@/lib/schema';
-import { assertPublishable, DRAFT_RULESET } from '@/lib/planner/ruleset';
+import { assertPublishable, CALIBRATED_RULESET } from '@/lib/planner/ruleset';
 import { site } from '@/lib/site';
 import { isPlannerPreview, PREVIEW_NOTICE } from '@/lib/planner/preview';
 import type { FaqItem } from '@/components/ui/FAQ';
@@ -22,7 +22,7 @@ import type { FaqItem } from '@/components/ui/FAQ';
  * earn local search on exactly the question it answers.
  */
 
-const gate = assertPublishable(DRAFT_RULESET, new Date());
+const gate = assertPublishable(CALIBRATED_RULESET, new Date());
 const LAUNCHED = gate.publishable;
 const PREVIEW = isPlannerPreview();
 

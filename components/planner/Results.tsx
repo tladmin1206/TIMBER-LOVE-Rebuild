@@ -128,11 +128,16 @@ function OverImprovement({ ratio }: { ratio: number | null }) {
  * ---------------------------------------------------------------- */
 
 function Transparency({ blocks }: { blocks: TransparencyBlocks }) {
+  // Homeowner view is range-only: the qualitative lists stay, but no per-item
+  // or per-category dollar figures are shown (no allowances breakdown, no
+  // "impact if wrong", no exclusion or variable magnitudes). All of that detail
+  // is preserved for the internal project-manager email, never shown here, so
+  // the homeowner sees a single total range and nothing that reads as an
+  // itemized cost breakdown.
   const sections = [
     { id: 'included', title: 'What’s included', count: blocks.inclusions.length },
     { id: 'assumed', title: 'What we assumed', count: blocks.assumptions.length },
     { id: 'excluded', title: 'What’s not included', count: blocks.exclusions.length },
-    { id: 'allowances', title: 'Allowances', count: blocks.allowances.length },
     { id: 'variables', title: 'What could move this', count: blocks.variables.length },
   ].filter((s) => s.count > 0);
 
@@ -182,10 +187,9 @@ function Transparency({ blocks }: { blocks: TransparencyBlocks }) {
                       <li key={n} className="text-sm leading-relaxed">
                         <p className="text-cream">{a.text}</p>
                         {a.sourceDetail && <p className="mt-1 text-text-muted">{a.sourceDetail}</p>}
-                        {a.impactIfWrong && (
-                          <p className={`mt-1 ${a.flaggedForVerification ? 'text-cream' : 'text-text-muted'}`}>
-                            Impact if wrong: {money(a.impactIfWrong.low)} to {money(a.impactIfWrong.high)}
-                            {a.flaggedForVerification && <span className="badge ml-3">Flagged to verify</span>}
+                        {a.flaggedForVerification && (
+                          <p className="mt-1">
+                            <span className="badge">Worth confirming on the walkthrough</span>
                           </p>
                         )}
                       </li>
@@ -198,23 +202,6 @@ function Transparency({ blocks }: { blocks: TransparencyBlocks }) {
                     {blocks.exclusions.map((x, n) => (
                       <li key={n} className="text-sm leading-relaxed text-text-secondary">
                         {x.text}
-                        {x.typicalMagnitude && (
-                          <span className="text-text-muted">
-                            {' '}
-                           : typically {money(x.typicalMagnitude.low)} to {money(x.typicalMagnitude.high)}
-                          </span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-
-                {s.id === 'allowances' && (
-                  <ul className="space-y-3">
-                    {blocks.allowances.map((a, n) => (
-                      <li key={n} className="text-sm leading-relaxed text-text-secondary">
-                        <span className="text-cream">{a.category}</span>: {money(a.amount.low)} to{' '}
-                        {money(a.amount.high)}. {a.buys}
                       </li>
                     ))}
                   </ul>
@@ -225,12 +212,6 @@ function Transparency({ blocks }: { blocks: TransparencyBlocks }) {
                     {blocks.variables.map((v, n) => (
                       <li key={n} className="text-sm leading-relaxed text-text-secondary">
                         {v.text}
-                        {v.magnitude && (
-                          <span className="text-text-muted">
-                            {' '}
-                           : {money(v.magnitude.low)} to {money(v.magnitude.high)}
-                          </span>
-                        )}
                       </li>
                     ))}
                   </ul>

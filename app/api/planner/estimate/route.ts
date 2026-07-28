@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { estimate } from '@/lib/planner/pricing/engine';
-import { DRAFT_RULESET } from '@/lib/planner/ruleset';
+import { CALIBRATED_RULESET } from '@/lib/planner/ruleset';
 import type { PlannerAnswers, PropertyFacts } from '@/lib/planner/types';
 import { isPlannerPreview } from '@/lib/planner/preview';
 import { generateNarrative } from '@/lib/planner/narrative/generate';
@@ -51,7 +51,7 @@ export async function POST(req: Request) {
   // flagged and the UI labels every number as placeholder pricing.
   const preview = isPlannerPreview();
   const result = estimate(body.answers, property, {
-    ruleset: DRAFT_RULESET,
+    ruleset: CALIBRATED_RULESET,
     now: new Date(),
     production: !preview,
   });
