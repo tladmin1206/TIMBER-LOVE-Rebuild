@@ -57,6 +57,14 @@ function RangeCard({ estimate }: { estimate: Estimate }) {
           Typical for this project: <span className="text-cream">{money(r.mid)}</span>
         </p>
 
+        {/* Sets expectations without deflating the range: finish level is the
+            single biggest driver of where a project lands, and naming that
+            invites the conversation rather than sticker shock. */}
+        <p className="mt-5 max-w-xl text-sm leading-relaxed text-text-secondary">
+          We are happy to talk through the details of your project with our team. Finish level and selections drive a
+          large part of where your investment lands, and a short conversation is the fastest way to sharpen this range.
+        </p>
+
         <div className="mt-8 border-t border-border-subtle pt-6">
           <p className="flex items-center gap-3">
             <span aria-hidden="true" className="text-cream">

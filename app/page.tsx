@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Hero from '@/components/sections/Hero';
 import TrustBar from '@/components/sections/TrustBar';
-import PathwaySelector from '@/components/sections/PathwaySelector';
 import PartnershipsFeature from '@/components/sections/PartnershipsFeature';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
@@ -52,15 +51,15 @@ export default function HomePage() {
       <section className="bg-bg-primary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <p className="eyebrow">Our Services</p>
-            <h2 className="h-section mt-4">Designing Beauty, Building Dreams</h2>
+            <p className="eyebrow">Who We Are</p>
+            <h2 className="h-section mt-4">A Luxury Design + Build Firm</h2>
           </Reveal>
           <Reveal delay={120} className="flex items-end">
             <p className="text-body">
-              Founded in 2015 by HGTV&apos;s Boise Boys, Luke Caldwell, we are an award-winning boutique team in Boise.
-              We offer a suite of real estate services, including design + build, new construction, real estate,
-              vacation rentals, cash home offers, and more. Committed to integrity and personalized service, we cater to
-              every aspect of your real estate needs, ensuring a streamlined and exclusive experience.
+              Founded in 2015 by Luke Caldwell of HGTV&apos;s Boise Boys, Timber and Love is Treasure Valley&apos;s
+              leading luxury design and build firm. We design and build custom homes and high-end remodels, from the
+              first drawing to the final walkthrough. We are not a flipping company, and we are not semi-custom. Design
+              and construction happen under one roof, so nothing is lost between the vision and the build.
             </p>
           </Reveal>
         </div>
@@ -71,8 +70,84 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Route the visitor, the page's primary job, and its primary CTA. */}
-      <PathwaySelector />
+      {/* What we do: foreground the two design-build paths. The other verticals
+          (realty, rentals, cash offers, investing) are intentionally not here;
+          they live in the footer so a first-time visitor immediately understands
+          that we are primarily a luxury design + build firm. */}
+      <section id="pathways" className="bg-bg-primary section" aria-labelledby="wwd-heading">
+        <div className="container-wide">
+          <Reveal className="max-w-2xl">
+            <p className="eyebrow">What We Do</p>
+            <h2 id="wwd-heading" className="h-section mt-4">Custom Homes and Luxury Remodels</h2>
+            <p className="text-lead mt-5">
+              Two ways we work, one team behind both. Every project is fully custom, designed and built in house from
+              the first concept to the final detail.
+            </p>
+          </Reveal>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-2">
+            {[
+              {
+                key: 'new-builds',
+                title: 'New Builds',
+                blurb: 'Custom homes designed and built from the ground up, tailored to exactly how you live.',
+                cta: 'Explore New Builds',
+                href: '/design-and-build/',
+                image:
+                  '/wp-content/uploads/2024/03/TimberandLoveHomeRemodelingCompany-Design-BuildBackgroundImage-ezgif.com-webp-to-jpg-converter-1.jpg',
+              },
+              {
+                key: 'remodels',
+                title: 'Remodels',
+                blurb: 'Whole-home renovations and high-end remodels that reimagine the home you already have.',
+                cta: 'See Our Remodels',
+                href: '/timber-and-love-gallery/',
+                image:
+                  '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg',
+              },
+            ].map((p, i) => (
+              <Reveal key={p.key} delay={i * 100}>
+                <div className="group card-interactive relative isolate flex min-h-[20rem] flex-col justify-end overflow-hidden sm:min-h-[24rem]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={p.image}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/55 to-ink/10" />
+                  <div className="p-6 sm:p-9">
+                    <h3 className="h-display text-2xl text-text-primary sm:text-4xl">{p.title}</h3>
+                    <p className="mt-3 max-w-md text-text-secondary">{p.blurb}</p>
+                    <span className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-accent">
+                      {p.cta}
+                      <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                    </span>
+                  </div>
+                  <Link
+                    href={p.href}
+                    data-track={`wwd_${p.key}`}
+                    className="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-focus"
+                    aria-label={`${p.title}: ${p.cta}`}
+                  >
+                    <span className="sr-only">{p.blurb}</span>
+                  </Link>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <Link href="/investment-planner/" className="btn-primary" data-track="wwd_plan">
+              Plan Your Project
+            </Link>
+            <Link href="/contact/" className="btn-secondary" data-track="wwd_consult">
+              Book a Free Consultation
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Trust strip: rating, HGTV, local tenure, as the lead-in to the reviews
           rather than directly under the hero. */}
@@ -121,19 +196,20 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* HGTV Shows, the differentiator */}
+      {/* HGTV: a supporting credibility note, intentionally smaller than a
+          hero-scale block. The design-build story leads; the show reinforces. */}
       <section className="bg-bg-primary pb-20 sm:pb-28">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
-            <p className="eyebrow">Stream Us On Your TV</p>
-            <h2 className="h-section mt-4">HGTV&apos;s Boise Boys + Outgrown</h2>
+            <p className="eyebrow">As Seen on HGTV</p>
+            <h3 className="h-card mt-3">Boise Boys + Outgrown</h3>
           </Reveal>
-          <div className="mt-14 grid gap-8 lg:grid-cols-2">
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
             {hgtvShows.map((show, i) => (
-              <Reveal key={show.title} delay={i * 120} className="relative aspect-[16/10] overflow-hidden">
+              <Reveal key={show.title} delay={i * 120} className="relative aspect-[16/6] overflow-hidden">
                 <VideoBg videoId={show.videoId} poster={show.poster} overlay="bg-ink/35" />
-                <div className="absolute inset-x-0 bottom-0 z-10 flex flex-wrap items-center gap-x-6 gap-y-2 p-7">
-                  <h3 className="h-card">{show.title}</h3>
+                <div className="absolute inset-x-0 bottom-0 z-10 flex flex-wrap items-center gap-x-5 gap-y-1 p-5">
+                  <h4 className="h-card-sm">{show.title}</h4>
                   <a
                     href={i === 0 ? site.shows.boiseBoys : site.shows.outgrown}
                     target="_blank"

@@ -1,14 +1,15 @@
 import HeroVideo from '@/components/ui/HeroVideo';
-import RotatingText from '@/components/ui/RotatingText';
 import StatCounter from '@/components/ui/StatCounter';
 import Cta from '@/components/ui/Cta';
-import { heroVideoId, heroVideoPoster, heroRotating, stats } from '@/lib/content/home';
+import { heroVideoId, heroVideoPoster, stats } from '@/lib/content/home';
 
 /**
- * Homepage hero: restored to the original composition: the "Timber and Love"
- * headline with a rotating service line, the brand stat counters, and
- * supporting copy over the interior background video, with the original-style
- * left-weighted overlay. Primary/secondary CTAs are kept for conversion.
+ * Homepage hero. Leads with the single thing a stranger needs to understand in
+ * the first three seconds: Timber and Love is a luxury design + build firm. The
+ * old rotating line cycled through every vertical (realty, rentals, cash
+ * offers), which read as a grab-bag and buried what we primarily do. The
+ * positioning line is now fixed and plain; the other verticals live further
+ * down the page and in the footer.
  */
 export default function Hero() {
   return (
@@ -23,8 +24,8 @@ export default function Hero() {
       <div className="relative z-10 flex flex-1 items-center">
         <div className="container-wide w-full pt-24 text-left">
           <h1 className="h-hero animate-fadeUp text-cream">Timber and Love</h1>
-          <p className="mt-4 animate-fadeUp text-lg uppercase tracking-brand text-cream/85 [animation-delay:120ms] sm:text-2xl">
-            <RotatingText words={heroRotating} />
+          <p className="mt-4 max-w-2xl animate-fadeUp text-base uppercase tracking-brand text-cream/85 [animation-delay:120ms] sm:text-xl">
+            Treasure Valley&apos;s Leading Luxury Design + Build Firm
           </p>
 
           {/* Brand stat counters */}
@@ -35,16 +36,16 @@ export default function Hero() {
           </div>
 
           <p className="mt-10 max-w-xl animate-fadeUp text-sm text-cream/85 [animation-delay:240ms] sm:text-base">
-            Looking to build, remodel, buy, sell, invest, or book a stay? One connected Boise team is here to help at
-            every stage of home and real estate.
+            We design and build custom homes and luxury remodels across the Treasure Valley. One team, from the first
+            drawing to the final walkthrough. Custom, never semi-custom.
           </p>
 
           <div className="mt-9 flex animate-fadeUp flex-wrap items-center gap-4 [animation-delay:340ms]">
-            <Cta href="#pathways" variant="primary" track="hero_find_service">
-              Find the Right Service
+            <Cta href="/investment-planner/" variant="primary" track="hero_plan_project">
+              Plan Your Project
             </Cta>
             <Cta href="/timber-and-love-gallery/" variant="secondary" track="hero_explore_work">
-              Explore Our Work
+              See Our Work
             </Cta>
           </div>
         </div>

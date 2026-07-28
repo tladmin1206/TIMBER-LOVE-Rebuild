@@ -83,7 +83,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     title: 'Let’s Talk About Your Home',
     body: 'You know who we are and how we work. Tell us what you have in mind and we will tell you honestly whether we are the right fit.',
     image: IMG.luke,
-    primary: { label: 'Contact Our Team', href: '/contact/' },
+    primary: { label: 'Contact Luke’s Team', href: '/contact/' },
     secondary: VIEW_WORK,
   },
 
