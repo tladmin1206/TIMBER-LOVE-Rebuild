@@ -214,7 +214,13 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
         )}
 
         {stage === 'gate' && (
-          <ContactGate onSubmit={submit} submitting={submitting} pricingLive={pricingLive} knownAddress={found?.matchedAddress} />
+          <ContactGate
+            onSubmit={submit}
+            submitting={submitting}
+            pricingLive={pricingLive}
+            knownAddress={found?.matchedAddress}
+            addressRequired={(flow.values.projectType as string) !== 'new-construction'}
+          />
         )}
       </div>
 

@@ -33,6 +33,7 @@ export default function ContactGate({
   submitting,
   pricingLive = false,
   knownAddress,
+  addressRequired = true,
 }: {
   onSubmit: (c: ContactDetails) => void;
   submitting: boolean;
@@ -41,7 +42,11 @@ export default function ContactGate({
   /** Address already captured earlier in the flow, if any. When set, the gate
    *  confirms it instead of asking again. */
   knownAddress?: string;
+  /** Whether the address is mandatory. True for every project type except a new
+   *  build, where there is often no address yet. */
+  addressRequired?: boolean;
 }) {
+  const [showNotes, setShowNotes] = useState(false);
   const [values, setValues] = useState<ContactDetails>({
     firstName: '',
     lastName: '',
@@ -70,8 +75,9 @@ export default function ContactGate({
     if (!digits) errs.phone = 'Please add a phone number.';
     else if (digits.length < 10) errs.phone = 'That number looks too short.';
 
-    // Only ask for the address here if the flow never captured one.
-    if (!knownAddress && !v.address.trim()) errs.address = 'Please add the project address.';
+    // Address is mandatory for every project type except a new build. If the
+    // flow already captured it we confirm rather than re-ask.
+    if (addressRequired && !knownAddress && !v.address.trim()) errs.address = 'Please add the project address.';
 
     return errs;
   }
@@ -84,69 +90,59 @@ export default function ContactGate({
   }
 
   return (
-    <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
-      {/* The preview: real shape, obscured digits. */}
-      <div aria-hidden="true" className="surface-card select-none p-8">
+    <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
+      {/* The preview: real shape, obscured digits. Compact on mobile (secondary
+          lines hidden) so the form and its button stay above the fold. */}
+      <div aria-hidden="true" className="surface-card select-none p-5 sm:p-8">
         {!pricingLive ? (
           <PreviewSummary />
         ) : (
         <>
         <p className="text-xs uppercase tracking-[0.18em] text-text-muted">Planning Investment Range</p>
-        <p className="mt-4 blur-[7px]">
+        <p className="mt-3 blur-[7px] sm:mt-4">
           <span className="stat-figure">$000,000</span>
           <span className="mx-3 text-2xl text-text-muted">-</span>
           <span className="stat-figure">$000,000</span>
         </p>
-        <p className="mt-6 blur-[5px] text-sm text-text-secondary">Typical for this project: $000,000</p>
-        <div className="mt-6 flex items-center gap-2">
+        <div className="mt-4 flex items-center gap-2 sm:mt-6">
           <span className="text-cream">●●●○</span>
           <span className="blur-[4px] text-sm text-text-secondary">Confidence: Good</span>
         </div>
-        <p className="mt-6 blur-[5px] text-sm text-text-secondary">Estimated duration: 00 to 00 weeks</p>
+        <p className="mt-6 hidden blur-[5px] text-sm text-text-secondary sm:block">Estimated duration: 00 to 00 weeks</p>
         </>
         )}
       </div>
 
       <div>
-        <h2 className="h-section">{pricingLive ? 'Your planning report is ready.' : 'Your project summary is ready.'}</h2>
-        <p className="text-lead mt-5 max-w-md">
+        <h2 className="h-card sm:h-section">{pricingLive ? 'Your planning range is ready.' : 'Your project summary is ready.'}</h2>
+        <p className="mt-3 max-w-md text-sm text-text-secondary sm:text-lead sm:mt-5">
           {pricingLive
-            ? 'We will send a copy you can keep, share with your partner, and bring to your consultation.'
+            ? 'Where should we send it? One email with your report, and a call only if you ask.'
             : 'We will send a copy you can keep, and a member of our team will follow up with your investment range.'}
         </p>
 
-        <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-4">
+        <form onSubmit={handleSubmit} noValidate className="mt-6 space-y-3.5">
           {knownAddress ? (
-            <div className="border border-border-subtle bg-surface/40 px-4 py-3">
+            <div className="border border-border-subtle bg-surface/40 px-4 py-2.5">
               <p className="field-label">Project address</p>
-              <p className="mt-1 text-sm text-cream">{knownAddress}</p>
+              <p className="mt-0.5 text-sm text-cream">{knownAddress}</p>
             </div>
           ) : (
             <Field
-              label="Project address"
+              label={addressRequired ? 'Project address' : 'Project location (optional)'}
               name="address"
               value={values.address}
               onChange={set('address')}
               error={errors.address}
               autoComplete="street-address"
-              hint="So we can plan around the right property."
             />
           )}
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-3.5 sm:grid-cols-2">
             <Field label="First name" name="firstName" value={values.firstName} onChange={set('firstName')} error={errors.firstName} autoComplete="given-name" />
             <Field label="Last name" name="lastName" value={values.lastName} onChange={set('lastName')} error={errors.lastName} autoComplete="family-name" />
           </div>
           <Field label="Email" name="email" type="email" value={values.email} onChange={set('email')} error={errors.email} autoComplete="email" />
-          <Field
-            label="Phone"
-            name="phone"
-            type="tel"
-            value={values.phone}
-            onChange={set('phone')}
-            error={errors.phone}
-            autoComplete="tel"
-            hint="So your project manager can reach you if you would like to talk it through."
-          />
+          <Field label="Phone" name="phone" type="tel" value={values.phone} onChange={set('phone')} error={errors.phone} autoComplete="tel" />
 
           <fieldset>
             <legend className="field-label">Preferred contact method</legend>
@@ -177,23 +173,35 @@ export default function ContactGate({
             </div>
           </fieldset>
 
-          <div>
-            <label htmlFor="gate-notes" className="field-label">
-              Anything else? <span className="text-text-muted">(optional)</span>
-            </label>
-            <textarea
-              id="gate-notes"
-              name="notes"
-              rows={2}
-              value={values.notes}
-              onChange={set('notes')}
-              placeholder="Priorities, must-haves, questions, timing"
-              className="field-input mt-2 resize-none"
-            />
-          </div>
+          {/* Notes stay collapsed so the submit button is always in view; the
+              homeowner can expand them without leaving the step. */}
+          {showNotes ? (
+            <div>
+              <label htmlFor="gate-notes" className="field-label">
+                Anything else? <span className="text-text-muted">(optional)</span>
+              </label>
+              <textarea
+                id="gate-notes"
+                name="notes"
+                rows={2}
+                value={values.notes}
+                onChange={set('notes')}
+                placeholder="Priorities, must-haves, questions, timing"
+                className="field-input mt-2 resize-none"
+              />
+            </div>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setShowNotes(true)}
+              className="link-underline text-sm text-text-muted"
+            >
+              + Add a note (optional)
+            </button>
+          )}
 
           <button type="submit" disabled={submitting} className="btn-primary w-full disabled:opacity-60">
-            {submitting ? 'Preparing…' : pricingLive ? 'Show my planning report' : 'Show my project summary'}
+            {submitting ? 'Preparing…' : pricingLive ? 'See my planning range' : 'Show my project summary'}
           </button>
 
           {/* A statement, not a checkbox that blocks submission. */}
