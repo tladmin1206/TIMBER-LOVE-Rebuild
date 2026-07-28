@@ -163,6 +163,33 @@ export function internalBriefEmail(
       lines.push(`  - ${al.category}: ${money(al.amount.low)}-${money(al.amount.high)} (${al.buys})`);
     }
   }
+
+  // The full cost derivation for the team. This is the complete breakdown
+  // behind the range: the base band, every multiplier and why it applied, the
+  // flat adders, and contingency. The homeowner never sees any of this; their
+  // copy is range-only.
+  const tr = estimate.trace;
+  if (tr) {
+    lines.push('', 'COST BREAKDOWN (internal only, do not share with the lead):');
+    lines.push(`  Basis: ${tr.basis} / ruleset ${tr.rulesetVersion}`);
+    lines.push(`  Band: ${tr.bandLookupKey}  ${money(tr.approvedBand.low)}-${money(tr.approvedBand.high)}`);
+    lines.push(`  Size factor: x${tr.sizeFactor.toLocaleString('en-US')}`);
+    if (tr.multipliers.length) {
+      lines.push('  Multipliers:');
+      for (const m of tr.multipliers) lines.push(`    - ${m.id}: x${m.value} (${m.rationale})`);
+    }
+    if (tr.adders.length) {
+      lines.push('  Adders:');
+      for (const a of tr.adders) lines.push(`    - ${a.id}: ${money(a.amount.low)}-${money(a.amount.high)} (${a.rationale})`);
+    }
+    lines.push(`  Contingency: ${Math.round(tr.contingencyPct * 100)}%`);
+    if (tr.steps.length) {
+      lines.push('  Derivation:');
+      for (const s of tr.steps) lines.push(`    - ${s}`);
+    }
+    lines.push(`  Final range: ${rangeLine(estimate)}`);
+  }
+
   if (meta.reportUrl) lines.push('', `Report: ${meta.reportUrl}`);
 
   return { subject: `Planner lead: ${name} - ${title(answers.projectType)}`, text: lines.filter(Boolean).join('\n') };
@@ -189,6 +216,8 @@ export function fullPayloadJson(
       transparency: estimate.transparency,
       flags: { overImprovement: estimate.overImprovement, belowMinimum: estimate.belowMinimum },
       rulesetVersion: estimate.trace?.rulesetVersion ?? null,
+      // Full internal cost breakdown for the team; never surfaced to the lead.
+      costBreakdown: estimate.trace,
     },
     null,
     2

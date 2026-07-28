@@ -17,24 +17,43 @@ export type ContactDetails = {
   lastName: string;
   email: string;
   phone: string;
+  /** How the homeowner would rather hear back. Defaults to email. */
+  preferredContact: string;
+  /** Optional free-text detail the homeowner wants the team to have. */
+  notes: string;
+  /** Project address. Prefilled from the flow's lookup, or asked here when the
+   *  flow never captured one (new construction / land). */
+  address: string;
 };
 
-type Errors = Partial<Record<keyof ContactDetails, string>>;
+type Errors = Partial<Record<'firstName' | 'lastName' | 'email' | 'phone' | 'address', string>>;
 
 export default function ContactGate({
   onSubmit,
   submitting,
   pricingLive = false,
+  knownAddress,
 }: {
   onSubmit: (c: ContactDetails) => void;
   submitting: boolean;
   /** Whether an approved range exists to reveal. Drives the promise made here. */
   pricingLive?: boolean;
+  /** Address already captured earlier in the flow, if any. When set, the gate
+   *  confirms it instead of asking again. */
+  knownAddress?: string;
 }) {
-  const [values, setValues] = useState<ContactDetails>({ firstName: '', lastName: '', email: '', phone: '' });
+  const [values, setValues] = useState<ContactDetails>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    preferredContact: 'email',
+    notes: '',
+    address: knownAddress ?? '',
+  });
   const [errors, setErrors] = useState<Errors>({});
 
-  const set = (k: keyof ContactDetails) => (e: React.ChangeEvent<HTMLInputElement>) =>
+  const set = (k: keyof ContactDetails) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
     setValues((v) => ({ ...v, [k]: e.target.value }));
 
   function validate(v: ContactDetails): Errors {
@@ -50,6 +69,9 @@ export default function ContactGate({
     const digits = v.phone.replace(/\D/g, '');
     if (!digits) errs.phone = 'Please add a phone number.';
     else if (digits.length < 10) errs.phone = 'That number looks too short.';
+
+    // Only ask for the address here if the flow never captured one.
+    if (!knownAddress && !v.address.trim()) errs.address = 'Please add the project address.';
 
     return errs;
   }
@@ -94,6 +116,22 @@ export default function ContactGate({
         </p>
 
         <form onSubmit={handleSubmit} noValidate className="mt-8 space-y-4">
+          {knownAddress ? (
+            <div className="border border-border-subtle bg-surface/40 px-4 py-3">
+              <p className="field-label">Project address</p>
+              <p className="mt-1 text-sm text-cream">{knownAddress}</p>
+            </div>
+          ) : (
+            <Field
+              label="Project address"
+              name="address"
+              value={values.address}
+              onChange={set('address')}
+              error={errors.address}
+              autoComplete="street-address"
+              hint="So we can plan around the right property."
+            />
+          )}
           <div className="grid gap-4 sm:grid-cols-2">
             <Field label="First name" name="firstName" value={values.firstName} onChange={set('firstName')} error={errors.firstName} autoComplete="given-name" />
             <Field label="Last name" name="lastName" value={values.lastName} onChange={set('lastName')} error={errors.lastName} autoComplete="family-name" />
@@ -109,6 +147,50 @@ export default function ContactGate({
             autoComplete="tel"
             hint="So your project manager can reach you if you would like to talk it through."
           />
+
+          <fieldset>
+            <legend className="field-label">Preferred contact method</legend>
+            <div className="mt-2 grid grid-cols-3 gap-2">
+              {[
+                { value: 'email', label: 'Email' },
+                { value: 'phone', label: 'Phone' },
+                { value: 'text', label: 'Text' },
+              ].map((o) => {
+                const active = values.preferredContact === o.value;
+                return (
+                  <label
+                    key={o.value}
+                    className={`cursor-pointer border px-3 py-2.5 text-center text-sm transition-colors ${active ? 'border-cream bg-cream text-ink' : 'border-border-subtle text-cream hover:border-cream/60'}`}
+                  >
+                    <input
+                      type="radio"
+                      name="preferredContact"
+                      value={o.value}
+                      checked={active}
+                      onChange={set('preferredContact')}
+                      className="sr-only"
+                    />
+                    {o.label}
+                  </label>
+                );
+              })}
+            </div>
+          </fieldset>
+
+          <div>
+            <label htmlFor="gate-notes" className="field-label">
+              Anything else? <span className="text-text-muted">(optional)</span>
+            </label>
+            <textarea
+              id="gate-notes"
+              name="notes"
+              rows={2}
+              value={values.notes}
+              onChange={set('notes')}
+              placeholder="Priorities, must-haves, questions, timing"
+              className="field-input mt-2 resize-none"
+            />
+          </div>
 
           <button type="submit" disabled={submitting} className="btn-primary w-full disabled:opacity-60">
             {submitting ? 'Preparing…' : pricingLive ? 'Show my planning report' : 'Show my project summary'}

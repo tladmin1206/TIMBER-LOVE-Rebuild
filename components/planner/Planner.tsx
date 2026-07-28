@@ -127,7 +127,9 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
       const res = await fetch('/api/planner/estimate/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ answers, property, contact }),
+        // The gate already carries the address (prefilled from the lookup, or
+        // typed there for new construction); fall back to the looked-up value.
+        body: JSON.stringify({ answers, property, contact: { ...contact, address: contact.address || found?.matchedAddress } }),
       });
       if (!res.ok) throw new Error('Request failed');
       setEstimate((await res.json()) as Estimate);
@@ -211,7 +213,9 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
           />
         )}
 
-        {stage === 'gate' && <ContactGate onSubmit={submit} submitting={submitting} pricingLive={pricingLive} />}
+        {stage === 'gate' && (
+          <ContactGate onSubmit={submit} submitting={submitting} pricingLive={pricingLive} knownAddress={found?.matchedAddress} />
+        )}
       </div>
 
       {error && (
