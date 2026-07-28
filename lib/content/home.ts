@@ -286,12 +286,19 @@ export const brandEcosystem = [
   'Experience Timber and Love design firsthand through a vacation stay',
 ];
 
-// Favorite Boise Boys projects gallery (Casa De Boise + Central Rim highlights)
+// Favorite Boise Boys projects gallery. Two genuine HGTV Boise Boys homes,
+// curated from the site's media library: Casa De Boise (Season 2, Episode 9),
+// bright and Mediterranean, and The Firehouse, a moody industrial-historic
+// conversion. Both project sets were reviewed image by image; the strongest,
+// most varied rooms (exteriors, kitchens, living, dining, bed, bath) are here.
 export const favoriteProjects = [
-  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg', alt: 'Casa De Boise: Front Exterior' },
-  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg', alt: 'Casa De Boise: Living Room' },
-  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Dining-Room-2-scaled.jpg', alt: 'Casa De Boise: Dining Room' },
-  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Office-1-scaled.jpg', alt: 'Casa De Boise: Office' },
-  { src: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg', alt: 'The Firehouse: Kitchen' },
-  { src: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Living-Room-scaled.jpg', alt: 'The Firehouse: Living Room' },
+  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg', alt: "Casa De Boise, an HGTV Boise Boys renovation: front exterior" },
+  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Kitchen-5-scaled.jpg', alt: "Casa De Boise, an HGTV Boise Boys renovation: kitchen" },
+  { src: '/wp-content/uploads/2024/06/The-Firehouse-in-Boise-ID-by-Timber-and-Love-Realty-Boise-Boys1-scaled.jpg', alt: "The Firehouse, an HGTV Boise Boys renovation: living room" },
+  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg', alt: "Casa De Boise, an HGTV Boise Boys renovation: living room" },
+  { src: '/wp-content/uploads/2024/06/The-Firehouse-in-Boise-ID-by-Timber-and-Love-Realty-Boise-Boys11-scaled.jpg', alt: "The Firehouse, an HGTV Boise Boys renovation: kitchen" },
+  { src: '/wp-content/uploads/2024/06/The-Firehouse-in-Boise-ID-by-Timber-and-Love-Realty-Boise-Boys8-scaled.jpg', alt: "The Firehouse, an HGTV Boise Boys renovation: bedroom" },
+  { src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Dining-Room-1-scaled.jpg', alt: "Casa De Boise, an HGTV Boise Boys renovation: dining room" },
+  { src: '/wp-content/uploads/2024/06/The-Firehouse-in-Boise-ID-by-Timber-and-Love-Realty-Boise-Boys9-scaled.jpg', alt: "The Firehouse, an HGTV Boise Boys renovation: bathroom" },
+  { src: '/wp-content/uploads/2024/06/The-Firehouse-in-Boise-ID-by-Timber-and-Love-Realty-Boise-Boys-scaled.jpg', alt: "The Firehouse, an HGTV Boise Boys renovation: dining area" },
 ];
