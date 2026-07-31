@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Hero from '@/components/sections/Hero';
 import TrustBar from '@/components/sections/TrustBar';
 import LukeTrustBar from '@/components/sections/LukeTrustBar';
+import FeatureBand from '@/components/sections/FeatureBand';
 import PartnershipsFeature from '@/components/sections/PartnershipsFeature';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
@@ -49,7 +50,7 @@ export default function HomePage() {
 
       {/* Intro: who we are, then straight into the choice. No CTA here: the
           pathway grid directly below is the action. */}
-      <section className="bg-bg-primary section">
+      <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <p className="eyebrow">Who We Are</p>
@@ -158,6 +159,14 @@ export default function HomePage() {
           rather than directly under the hero. */}
       <TrustBar />
 
+      {/* Full-bleed photographic statement: design + build under one roof. */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg"
+        eyebrow="One Team, One Roof"
+        title="Designed and Built Under One Roof"
+        body="From the first sketch to the final fixture, our designers and builders work together on every detail, so nothing is lost between the vision and the finished home."
+      />
+
       {/* Proof: moved up from near the foot of the page so the 4.9 rating does
           work for the majority of visitors, not just those who scroll to 70%. */}
       <section className="relative overflow-hidden text-center section-feature">
@@ -186,7 +195,7 @@ export default function HomePage() {
       </section>
 
       {/* Visual proof */}
-      <section className="bg-bg-primary section">
+      <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">See Our Work</p>
@@ -253,8 +262,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Full-bleed photographic statement before the process + closing ask. */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg"
+        eyebrow="Your Home, Realized"
+        title="Let's Design Something Worth Building"
+        body="Start with a realistic planning range in a few minutes, then let's bring your vision to life."
+        cta="Plan Your Project"
+        href="/investment-planner/"
+        height="short"
+        align="center"
+      />
+
       {/* Remove friction immediately before the ask */}
-      <section className="bg-bg-primary section">
+      <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
             <Reveal>
