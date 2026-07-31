@@ -163,8 +163,6 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
               projectType: v.projectType as string | undefined,
               scopeLevel: v.scopeLevel as string | undefined,
               finishTier: v.finishTier as string | undefined,
-              timeline: v.timeline as string | undefined,
-              goals: v.goals as string[] | undefined,
               yearBuilt: draft?.yearBuilt,
               finishedSqFt: draft?.finishedSqFt,
             }}

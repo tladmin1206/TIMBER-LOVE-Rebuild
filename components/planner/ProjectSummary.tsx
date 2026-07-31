@@ -38,22 +38,12 @@ const TIER_LABEL: Record<string, string> = {
   bespoke: 'Bespoke',
 };
 
-const TIMELINE_LABEL: Record<string, string> = {
-  asap: 'As soon as possible',
-  '3-6mo': 'In 3 to 6 months',
-  '6-12mo': 'In 6 to 12 months',
-  planning: 'Planning ahead',
-  'no-land': 'Land not yet secured',
-};
-
 export type SummaryInput = {
   projectType?: string;
   scopeLevel?: string;
   finishTier?: string;
-  timeline?: string;
   yearBuilt?: number;
   finishedSqFt?: number;
-  goals?: string[];
 };
 
 export default function ProjectSummary({
@@ -69,7 +59,6 @@ export default function ProjectSummary({
     ['Project', TYPE_LABEL[answers.projectType ?? ''] ?? '-'],
     ['Scope', SCOPE_LABEL[answers.scopeLevel ?? ''] ?? 'To confirm together'],
     ['Finish level', TIER_LABEL[answers.finishTier ?? ''] ?? 'To confirm together'],
-    ['Timing', TIMELINE_LABEL[answers.timeline ?? ''] ?? '-'],
     [
       'Home',
       [answers.yearBuilt ? `Built ${answers.yearBuilt}` : null, answers.finishedSqFt ? `${answers.finishedSqFt.toLocaleString('en-US')} sq ft` : null]

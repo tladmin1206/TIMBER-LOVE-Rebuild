@@ -39,7 +39,6 @@ function selectionLines(answers: PlannerAnswers, property: PropertyFacts): strin
     `Project type: ${title(answers.projectType)}`,
     `Scope: ${title(answers.scopeLevel)}`,
     `Finish level: ${title(answers.finishTier)}`,
-    `Timeline: ${title(answers.timeline)}`,
   ];
   if (answers.targetSqFt) lines.push(`Target size: ${answers.targetSqFt.toLocaleString('en-US')} sq ft`);
   if (property.finishedSqFt) lines.push(`Home size: ${property.finishedSqFt.toLocaleString('en-US')} sq ft`);

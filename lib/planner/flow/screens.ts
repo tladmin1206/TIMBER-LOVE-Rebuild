@@ -194,68 +194,6 @@ const FINISH_TIER: Screen = {
   },
 };
 
-const GOALS: Screen = {
-  id: 'goals',
-  question: 'Why now?',
-  help: 'Choose up to three.',
-  kind: 'toggles',
-  field: 'goals',
-  maxSelections: 3,
-  choices: [
-    { value: 'function', label: 'It doesn’t work for us' },
-    { value: 'value', label: 'Adding value' },
-    { value: 'storage', label: 'More storage' },
-    { value: 'modernize', label: 'Modernizing' },
-    { value: 'aging_in_place', label: 'Staying here as we age' },
-    { value: 'growing_family', label: 'Growing family' },
-    { value: 'forever_home', label: 'This is our forever home' },
-    { value: 'prepping_to_sell', label: 'Preparing to sell' },
-  ],
-  notSure: {
-    label: 'Still figuring it out',
-    appliesDefault: 'We plan for function and long-term value.',
-    consultationQuestion: 'What is prompting the project now?',
-  },
-};
-
-const LIFESTYLE: Screen = {
-  id: 'lifestyle',
-  question: 'How do you live in this space?',
-  kind: 'toggles',
-  field: 'lifestyle',
-  choices: [
-    { value: 'cooks_daily', label: 'We cook most days' },
-    { value: 'entertains_often', label: 'We entertain often' },
-    { value: 'kids', label: 'Kids at home' },
-    { value: 'pets', label: 'Pets' },
-    { value: 'wfh', label: 'We work from home' },
-    { value: 'accessibility', label: 'Accessibility matters' },
-  ],
-  notSure: {
-    label: 'Skip this',
-    appliesDefault: 'We plan for typical daily use.',
-    consultationQuestion: 'How do you actually use this space day to day?',
-  },
-};
-
-const TIMING: Screen = {
-  id: 'timeline',
-  question: 'When would you like to start?',
-  kind: 'cards',
-  field: 'timeline',
-  choices: [
-    { value: 'asap', label: 'As soon as we can' },
-    { value: '3-6mo', label: 'In 3 to 6 months' },
-    { value: '6-12mo', label: 'In 6 to 12 months' },
-    { value: 'planning', label: 'Just planning for now' },
-  ],
-  notSure: {
-    label: 'Not sure yet',
-    appliesDefault: 'We plan for a 3 to 6 month start.',
-    consultationQuestion: 'What would need to be true for you to start?',
-  },
-};
-
 /* ------------------------------------------------------------------ *
  * Mode B: Expand (appended for hybrids, § 3.2)
  * ------------------------------------------------------------------ */
@@ -369,29 +307,6 @@ const BUILD_CONTENTS: Screen = {
   },
 };
 
-const BUILD_WHY: Screen = {
-  ...GOALS,
-  id: 'goals',
-  question: 'Why are you building?',
-  choices: [
-    { value: 'forever_home', label: 'Forever home' },
-    { value: 'relocating', label: 'Relocating' },
-    { value: 'downsizing', label: 'Downsizing' },
-    { value: 'multigenerational', label: 'Multigenerational' },
-    { value: 'investment', label: 'Investment' },
-  ],
-};
-
-const BUILD_TIMING: Screen = {
-  ...TIMING,
-  choices: [
-    { value: 'asap', label: 'As soon as we can' },
-    { value: '3-6mo', label: 'In 3 to 6 months' },
-    { value: '6-12mo', label: 'In 6 to 12 months' },
-    { value: 'no-land', label: 'We haven’t closed on land yet' },
-  ],
-};
-
 /* ------------------------------------------------------------------ *
  * Mode D: Position
  * ------------------------------------------------------------------ */
@@ -462,10 +377,14 @@ const D_CEILING: Screen = {
  * ------------------------------------------------------------------ */
 
 export const MODE_SCREENS: Record<Mode, Screen[]> = {
-  A: [MODE_ROUTER, ADDRESS, PROPERTY_CONFIRM, SPACE, SCOPE_LEVEL, FINISH_TIER, GOALS, LIFESTYLE, TIMING],
-  B: [MODE_ROUTER, ADDRESS, PROPERTY_CONFIRM, ...FOOTPRINT_SCREENS, FINISH_TIER, GOALS, TIMING],
-  C: [MODE_ROUTER, ADDRESS_BUILD, SITE, BUILD_SIZE, BUILD_CONTENTS, FINISH_TIER, BUILD_WHY, LIFESTYLE, BUILD_TIMING],
-  D: [MODE_ROUTER, ADDRESS, PROPERTY_CONFIRM, D_GOAL, D_CONDITION, D_CEILING, SCOPE_LEVEL, FINISH_TIER, TIMING],
+  // Only pricing-relevant questions. Timeline, "why now", and lifestyle were
+  // removed on purpose: they never move the number, and every extra screen is
+  // friction between a homeowner and their range. Fewest questions, most
+  // accurate range.
+  A: [MODE_ROUTER, ADDRESS, PROPERTY_CONFIRM, SPACE, SCOPE_LEVEL, FINISH_TIER],
+  B: [MODE_ROUTER, ADDRESS, PROPERTY_CONFIRM, ...FOOTPRINT_SCREENS, FINISH_TIER],
+  C: [MODE_ROUTER, ADDRESS_BUILD, SITE, BUILD_SIZE, BUILD_CONTENTS, FINISH_TIER],
+  D: [MODE_ROUTER, ADDRESS, PROPERTY_CONFIRM, D_GOAL, D_CONDITION, D_CEILING, SCOPE_LEVEL, FINISH_TIER],
 };
 
 /** § 5.1 rule 1: nine screens maximum before the contact gate. */
