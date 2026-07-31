@@ -2,6 +2,7 @@ import type { PlannerAnswers, PropertyFacts } from '../../types';
 import { CATALOG_BY_CODE } from './catalog';
 import { deriveTakeoff, type Takeoff } from './dimensions';
 import { TEMPLATES, TIER_MATERIAL_FACTOR } from './templates';
+import { calibrationFactor } from './calibration';
 import { DEFAULT_MARGIN, effectiveMargin, type MarginPolicy } from './margin';
 
 /** One catalog code as billed in an assembly (internal only). */
@@ -47,6 +48,7 @@ export function computeAssembly(
   if (!template || !tier) return null;
 
   const takeoff = deriveTakeoff(answers, property);
+  const cf = calibrationFactor(answers.projectType); // historical adjustment to real actuals
   const lines: AssemblyLine[] = [];
   const warnings: string[] = [];
 
@@ -62,7 +64,7 @@ export function computeAssembly(
       }
       if (item.isFee) continue; // 25% fee is the replaced margin
       const tierFactor = item.costType === 'Material' ? TIER_MATERIAL_FACTOR[tier] : 1;
-      const unitCost = item.cost * tierFactor;
+      const unitCost = item.cost * tierFactor * cf;
       const internalCost = unitCost * qty;
       if (internalCost <= 0) continue;
       lines.push({
