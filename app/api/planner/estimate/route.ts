@@ -8,6 +8,7 @@ import { generateNarrative } from '@/lib/planner/narrative/generate';
 import { sendLeadEmail } from '@/lib/leads/email';
 import { syncToGhl } from '@/lib/planner/crm/ghl';
 import { internalBriefEmail, leadConfirmationEmail, fullPayloadJson, type PlannerContact } from '@/lib/planner/submission';
+import { persistEstimate } from '@/lib/planner/persist';
 import { randomUUID } from 'node:crypto';
 
 /**
@@ -119,6 +120,14 @@ async function deliverPlannerLead(
 ) {
   const submittedAt = new Date().toISOString();
   const sessionId = randomUUID();
+
+  // 0. Persist to the database (non-blocking, no-ops when DATABASE_URL is unset).
+  //    Stores the internal per-trade line-item breakdown on Estimate.lineItems.
+  void persistEstimate(contact, answers, property, result, { sessionId }).then((r) => {
+    if (!r.persisted && r.reason === 'db-error') {
+      console.error('[planner] estimate not persisted (follow up)', { contact: contact.email });
+    }
+  });
 
   // 1. Internal brief to the team (always attempted).
   const internal = internalBriefEmail(contact, answers, property, result, { submittedAt, source: 'investment-planner' });
