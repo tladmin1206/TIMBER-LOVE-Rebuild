@@ -13,22 +13,14 @@ import type { PlannerAnswers, PropertyFacts } from '@/lib/planner/types';
  * This computes live and touches no database, so it works before persistence
  * is wired. Once the DB lands, the same breakdown is what gets stored on
  * Estimate.lineItems.
+ *
+ * Auth is enforced by middleware (valid admin session required); this handler
+ * assumes the caller is already an authenticated admin.
  */
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
 
 export async function POST(req: Request) {
-  const expected = process.env.ADMIN_TOKEN;
-  if (!expected) {
-    return NextResponse.json(
-      { error: 'ADMIN_TOKEN is not configured. Set it in the environment to enable the internal estimator.' },
-      { status: 503 }
-    );
-  }
-  if (req.headers.get('x-admin-token') !== expected) {
-    return NextResponse.json({ error: 'Unauthorized.' }, { status: 401 });
-  }
-
   let body: { answers: PlannerAnswers; property: PropertyFacts };
   try {
     body = (await req.json()) as typeof body;

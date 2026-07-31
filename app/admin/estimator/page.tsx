@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import AdminNav from '../AdminNav';
 
 /**
  * INTERNAL estimator inspector. Runs the assembly engine live and shows the
  * full per-trade breakdown (expandable to child line items), margin, and
- * derivation — the detail the homeowner never sees. Requires the admin token.
- * No database needed; this computes on the fly.
+ * derivation — the detail the homeowner never sees. Access is gated by the
+ * admin session (middleware); no database needed, this computes on the fly.
  */
 
 type Line = { code: string; description: string; uom: string; costType: string; unitCost: number; qty: number; internalCost: number };
@@ -36,7 +37,6 @@ const TIERS = ['signature', 'elevated', 'bespoke'];
 const SCOPES = ['refresh', 'reimagine', 'rebuild'];
 
 export default function AdminEstimator() {
-  const [token, setToken] = useState('');
   const [projectType, setProjectType] = useState('kitchen');
   const [finishTier, setFinishTier] = useState('elevated');
   const [scopeLevel, setScopeLevel] = useState('reimagine');
@@ -46,19 +46,13 @@ export default function AdminEstimator() {
   const [busy, setBusy] = useState(false);
   const [open, setOpen] = useState<Record<string, boolean>>({});
 
-  useEffect(() => {
-    const t = localStorage.getItem('tl_admin_token');
-    if (t) setToken(t);
-  }, []);
-
   async function run() {
     setBusy(true);
-    localStorage.setItem('tl_admin_token', token);
     try {
       const nc = projectType === 'new-construction';
       const res = await fetch('/api/admin/estimate-preview', {
         method: 'POST',
-        headers: { 'content-type': 'application/json', 'x-admin-token': token },
+        headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
           answers: { mode: nc ? 'C' : 'A', projectType, finishTier, scopeLevel, ...(nc ? { targetSqFt: sqft } : {}) },
           property: { finishedSqFt: sqft, yearBuilt, serviceAreaBand: 'core', enrichmentSource: 'MANUAL' },
@@ -77,13 +71,11 @@ export default function AdminEstimator() {
 
   return (
     <main className="mx-auto min-h-screen max-w-5xl bg-neutral-100 p-6 text-neutral-900">
+      <AdminNav />
       <h1 className="text-2xl font-semibold">Internal Estimator · per-trade breakdown</h1>
       <p className="mt-1 text-sm text-neutral-600">Assembly engine, live. Internal costs + margin — not for homeowners.</p>
 
       <div className="mt-6 flex flex-wrap items-end gap-3 rounded-lg bg-white p-4 shadow-sm">
-        <label className="flex flex-col gap-1 text-xs font-medium text-neutral-600">Admin token
-          <input className={inp} type="password" value={token} onChange={(e) => setToken(e.target.value)} placeholder="ADMIN_TOKEN" />
-        </label>
         <label className="flex flex-col gap-1 text-xs font-medium text-neutral-600">Project
           <select className={inp} value={projectType} onChange={(e) => setProjectType(e.target.value)}>{PROJECT_TYPES.map((p) => <option key={p}>{p}</option>)}</select>
         </label>
@@ -99,7 +91,7 @@ export default function AdminEstimator() {
         <label className="flex flex-col gap-1 text-xs font-medium text-neutral-600">Year built
           <input className={`${inp} w-24`} type="number" value={yearBuilt} onChange={(e) => setYearBuilt(+e.target.value)} />
         </label>
-        <button onClick={run} disabled={busy || !token} className="rounded bg-neutral-900 px-5 py-2 text-sm font-medium text-white disabled:opacity-40">
+        <button onClick={run} disabled={busy} className="rounded bg-neutral-900 px-5 py-2 text-sm font-medium text-white disabled:opacity-40">
           {busy ? 'Running…' : 'Estimate'}
         </button>
       </div>

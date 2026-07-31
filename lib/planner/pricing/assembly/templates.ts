@@ -226,9 +226,17 @@ export const TEMPLATES: Partial<Record<ProjectType, ScopeEntry[]>> = {
   'new-construction': NEW_CONSTRUCTION,
 };
 
-/** Material-cost multiplier by finish tier (labor/subs are tier-neutral). */
-export const TIER_MATERIAL_FACTOR: Record<FinishTier, number> = {
-  signature: 0.7,
+/**
+ * Finish-tier multiplier. The catalog "Average Cost" is the ELEVATED (mid) tier,
+ * so elevated = 1.0 (catalog as-is) and the other tiers are calculated from it.
+ * It scales the QUALITY-DRIVEN costs — materials, subcontractors, fixtures and
+ * equipment — because a bespoke project buys pricier finishes, fixtures and
+ * trade packages. Pure install LABOR stays tier-neutral (a carpenter's rate is
+ * the same regardless of the cabinet grade). Larger tier spread on top of this
+ * comes from tier-gated scope (islands, custom hoods, feature walls, etc.).
+ */
+export const TIER_QUALITY_FACTOR: Record<FinishTier, number> = {
+  signature: 0.74,
   elevated: 1.0,
-  bespoke: 1.7,
+  bespoke: 1.55,
 };

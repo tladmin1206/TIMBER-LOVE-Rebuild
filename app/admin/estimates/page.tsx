@@ -1,9 +1,10 @@
 import { dbEnabled, prisma } from '@/lib/db';
+import AdminNav from '../AdminNav';
 
 /**
  * INTERNAL admin panel: recent stored estimates with the per-trade breakdown.
- * Gated by ADMIN_TOKEN (?token=…) because it exposes internal costs. Reads the
- * database; the live inspector at /admin/estimator computes on demand instead.
+ * Access is gated by the admin session (middleware). Reads the database; the
+ * live inspector at /admin/estimator computes on demand instead.
  */
 export const dynamic = 'force-dynamic';
 
@@ -13,18 +14,16 @@ type TradeLine = { code: string; description: string; uom: string; qty: number; 
 type Trade = { division: string; internalCost: number; customerCost: number; lines: TradeLine[] };
 type LineItems = { margin: number; internalCost: number; trades: Trade[] } | null;
 
-export default async function AdminEstimates({ searchParams }: { searchParams: { token?: string } }) {
-  const expected = process.env.ADMIN_TOKEN;
-  const wrap = (msg: string) => (
-    <main className="mx-auto min-h-screen max-w-2xl bg-neutral-100 p-8 text-neutral-900">
-      <h1 className="text-2xl font-semibold">Estimates</h1>
-      <p className="mt-3 text-sm text-neutral-600">{msg}</p>
-    </main>
-  );
-
-  if (!expected) return wrap('ADMIN_TOKEN is not configured. Set it in the environment to enable this panel.');
-  if (searchParams.token !== expected) return wrap('Add ?token=YOUR_ADMIN_TOKEN to the URL to view stored estimates.');
-  if (!dbEnabled) return wrap('DATABASE_URL is not configured, so no estimates are stored yet.');
+export default async function AdminEstimates() {
+  if (!dbEnabled) {
+    return (
+      <main className="mx-auto min-h-screen max-w-2xl bg-neutral-100 p-8 text-neutral-900">
+        <AdminNav />
+        <h1 className="text-2xl font-semibold">Estimates</h1>
+        <p className="mt-3 text-sm text-neutral-600">DATABASE_URL is not configured, so no estimates are stored yet.</p>
+      </main>
+    );
+  }
 
   const estimates = await prisma.estimate.findMany({
     orderBy: { createdAt: 'desc' },
@@ -34,6 +33,7 @@ export default async function AdminEstimates({ searchParams }: { searchParams: {
 
   return (
     <main className="mx-auto min-h-screen max-w-6xl bg-neutral-100 p-6 text-neutral-900">
+      <AdminNav />
       <h1 className="text-2xl font-semibold">Stored estimates</h1>
       <p className="mt-1 text-sm text-neutral-600">{estimates.length} most recent. Internal costs + per-trade breakdown — not for homeowners.</p>
 

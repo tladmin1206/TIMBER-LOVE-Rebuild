@@ -1,7 +1,7 @@
 import type { PlannerAnswers, PropertyFacts } from '../../types';
 import { CATALOG_BY_CODE } from './catalog';
 import { deriveTakeoff, type Takeoff } from './dimensions';
-import { TEMPLATES, TIER_MATERIAL_FACTOR } from './templates';
+import { TEMPLATES, TIER_QUALITY_FACTOR } from './templates';
 import { calibrationFactor } from './calibration';
 import { DEFAULT_MARGIN, effectiveMargin, type MarginPolicy } from './margin';
 
@@ -63,7 +63,9 @@ export function computeAssembly(
         continue;
       }
       if (item.isFee) continue; // 25% fee is the replaced margin
-      const tierFactor = item.costType === 'Material' ? TIER_MATERIAL_FACTOR[tier] : 1;
+      // Catalog cost is the ELEVATED (mid) tier. Scale quality-driven costs by
+      // tier; pure install labor is tier-neutral.
+      const tierFactor = item.costType === 'Labor' ? 1 : TIER_QUALITY_FACTOR[tier];
       const unitCost = item.cost * tierFactor * cf;
       const internalCost = unitCost * qty;
       if (internalCost <= 0) continue;
