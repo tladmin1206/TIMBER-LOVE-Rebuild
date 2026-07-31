@@ -17,7 +17,7 @@ const NOW = new Date('2026-07-28T00:00:00Z');
 const fmt = (v: number) => `$${Math.round(v).toLocaleString('en-US')}`;
 const core = { serviceAreaBand: 'core' as const };
 
-type Ref = { name: string; answers: PlannerAnswers; property: PropertyFacts; realTotal: number; sqft: number };
+type Ref = { name: string; answers: PlannerAnswers; property: PropertyFacts; realTotal: number; sqft: number; calibrated?: boolean; note?: string };
 
 const refs: Ref[] = [
   {
@@ -26,6 +26,8 @@ const refs: Ref[] = [
     property: { ...core, yearBuilt: 1965, finishedSqFt: 2500, enrichmentSource: 'MANUAL' },
     realTotal: 290_307,
     sqft: 2500,
+    calibrated: false,
+    note: 'by direction, whole-home prices a fuller renovation than this lean gut; intentionally higher',
   },
   {
     name: 'Workland · new-construction bespoke · 3,200sf +2-car',
@@ -47,25 +49,38 @@ const refs: Ref[] = [
     property: { ...core, yearBuilt: 1975, finishedSqFt: 1800, enrichmentSource: 'MANUAL' },
     realTotal: 211_193,
     sqft: 1800,
+    calibrated: false,
+    note: 'hybrid scope (addition + ADA kitchen + patio); informational only',
   },
 ];
 
 console.log('\nASSEMBLY CALIBRATION vs real closed-project totals\n');
-let worst = 0;
+let worstCalibrated = 0;
+let failures = 0;
 for (const r of refs) {
+  const calibrated = r.calibrated !== false;
   const e = estimate(r.answers, r.property, { ruleset: CALIBRATED_RULESET, now: NOW, production: false, basis: new AssemblyBasis() });
   if (!e.range) {
     console.log(`  ${r.name}\n    no range: ${e.outcome} — ${e.diagnostics.join('; ')}`);
+    if (calibrated) failures += 1;
     continue;
   }
   const { low, mid, high } = e.range;
   const brackets = low <= r.realTotal && r.realTotal <= high;
   const midDelta = ((mid - r.realTotal) / r.realTotal) * 100;
-  worst = Math.max(worst, Math.abs(midDelta));
+  // Calibrated refs must bracket their real total (within 15% on the mid);
+  // uncalibrated refs (by-direction fuller scope, or hybrid) are info only.
+  const tag = !calibrated ? 'INFO    ' : brackets && Math.abs(midDelta) <= 15 ? 'PASS    ' : 'FAIL    ';
+  if (calibrated) {
+    worstCalibrated = Math.max(worstCalibrated, Math.abs(midDelta));
+    if (!(brackets && Math.abs(midDelta) <= 15)) failures += 1;
+  }
   console.log(
-    `  ${brackets ? 'BRACKETS' : 'off     '} ${r.name}\n` +
+    `  ${tag} ${r.name}\n` +
       `    assembly ${fmt(low)} / ${fmt(mid)} / ${fmt(high)}  ($${Math.round(mid / r.sqft)}/sf)\n` +
-      `    real     ${fmt(r.realTotal)}  ($${Math.round(r.realTotal / r.sqft)}/sf)   mid ${midDelta >= 0 ? '+' : ''}${midDelta.toFixed(0)}%\n`
+      `    real     ${fmt(r.realTotal)}  ($${Math.round(r.realTotal / r.sqft)}/sf)   mid ${midDelta >= 0 ? '+' : ''}${midDelta.toFixed(0)}%` +
+      (r.note ? `\n    note: ${r.note}` : '') + '\n'
   );
 }
-console.log(`worst mid deviation: ${worst.toFixed(0)}%\n`);
+console.log(`Calibrated refs: worst mid deviation ${worstCalibrated.toFixed(0)}%. ${failures === 0 ? 'All calibrated refs match real actuals.' : `${failures} calibrated ref(s) off.`}\n`);
+process.exit(failures === 0 ? 0 : 1);

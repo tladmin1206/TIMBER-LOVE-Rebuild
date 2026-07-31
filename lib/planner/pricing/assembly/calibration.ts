@@ -14,7 +14,13 @@ import type { ProjectType } from '../../types';
  *
  * Tuned:
  *  - new-construction 0.78: Workland ($1.44M/3,200sf, bespoke) and Markowich
- *    ($531k/1,307sf, elevated) both ran +28% before this factor.
+ *    ($531k/1,307sf, elevated) both ran +28% before this factor. Now within +2%.
+ *  - whole-home: intentionally NOT calibrated to 750 N Locust ($290k/2,500sf =
+ *    $116/sf, a lean gut). By direction, whole-home represents a FULLER
+ *    renovation and keeps its raised band (~$213-320/sf at rebuild). Re-tune
+ *    when 2-3 more representative whole-home closeouts are available.
+ *  - kitchen / bathroom / guest-bath: no standalone real closeout totals exist;
+ *    anchored to the leadership-approved bands (verify-assembly-reconcile).
  */
 export const CALIBRATION_FACTOR: Partial<Record<ProjectType, number>> = {
   'new-construction': 0.78,
