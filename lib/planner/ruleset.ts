@@ -233,10 +233,16 @@ export const DRAFT_RULESET: Ruleset = {
  *    unconditioned), not a conditioned residence; it needs its own project
  *    type before it can be offered.
  */
+// Whole-home band RAISED 2026-07-31 by direction: the planner's whole-home now
+// represents a FULL renovation, not the lighter scope the original five estimates
+// captured (e.g. 750 N Locust $290k/2,500sf = $116/sqft sits at the signature
+// low edge here). Bracketed to the line-item assembly build-up
+// (verify-assembly-reconcile: signature ~$162, elevated ~$195, bespoke ~$235/sqft).
+// NEEDS LEADERSHIP RE-SIGN-OFF before it drives homeowner-facing figures.
 const WHOLE_HOME = {
-  signature: { low: 46, high: 66, basis: 'per-sqft' as const },
-  elevated: { low: 58, high: 82, basis: 'per-sqft' as const },
-  bespoke: { low: 82, high: 116, basis: 'per-sqft' as const },
+  signature: { low: 115, high: 180, basis: 'per-sqft' as const },
+  elevated: { low: 150, high: 225, basis: 'per-sqft' as const },
+  bespoke: { low: 195, high: 290, basis: 'per-sqft' as const },
 };
 const KITCHEN = {
   signature: { low: 48_000, high: 74_000, basis: 'flat' as const },

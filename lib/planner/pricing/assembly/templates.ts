@@ -78,7 +78,7 @@ const BATH: ScopeEntry[] = [
   { key: 'vanity-top', codes: ['03-17-02-M', '03-17-02-L'], qty: (t) => t.vanityLf },
   // Plumbing (fixture-dense: rough + set toilet/sink/tub/shower)
   { key: 'plumbing', codes: ['03-10-03-M', '03-10-03-L'], qty: (t) => t.fixtureCount * 42 },
-  { key: 'water-heater', codes: ['03-10-01'], qty: () => 1, tiers: TOP },
+  { key: 'water-heater', codes: ['03-10-01'], qty: () => 1, tiers: MID_UP },
   // Wet surfaces
   { key: 'tile', codes: ['03-16-01-M', '03-16-01-L'], qty: (t) => t.tileSqFt },
   { key: 'waterproofing', codes: ['03-04-04'], qty: (t) => t.tileSqFt * 0.5 },
@@ -108,22 +108,22 @@ const BATH: ScopeEntry[] = [
   { key: 'team-labor', codes: ['L-03-00'], qty: (t) => teamHours(t, 0.42) },
 ];
 
-// Whole-home REIMAGINE, calibrated to T+L's five real whole-home estimates
-// ($46-116/sqft). This is a comprehensive cosmetic-to-moderate renovation of
-// the whole house (surfaces, kitchen + baths, lighting, partial MEP), not a
-// structural gut — mechanical replacement and re-framing are bespoke-only.
+// Whole-home REIMAGINE = a FULL renovation of the house: surfaces, kitchen +
+// baths, lighting, flooring, and substantial MEP (mechanical replacement at
+// elevated/bespoke). Priced from the line-item build-up; band raised to match
+// (see ruleset WHOLE_HOME).
 const WHOLE_HOME: ScopeEntry[] = [
-  { key: 'demo', codes: ['03-03-04'], qty: (t) => t.areaSqFt * 0.32 },
+  { key: 'demo', codes: ['03-03-04'], qty: (t) => t.areaSqFt * 0.6 },
   { key: 'temp-protection', codes: ['03-02-04'], qty: (t) => t.areaSqFt * 0.5 },
-  { key: 'framing', codes: ['03-05-02-M', '03-05-02-L'], qty: (t) => t.areaSqFt * 0.08 },
-  { key: 'insulation', codes: ['03-12-01-M', '03-12-01-L'], qty: (t) => t.areaSqFt * 0.12, tiers: MID_UP },
-  { key: 'drywall', codes: ['03-13-01-M', '03-13-01-L'], qty: (t) => t.wallSqFt * 0.18 },
+  { key: 'framing', codes: ['03-05-02-M', '03-05-02-L'], qty: (t) => t.areaSqFt * 0.15 },
+  { key: 'insulation', codes: ['03-12-01-M', '03-12-01-L'], qty: (t) => t.areaSqFt * 0.25 },
+  { key: 'drywall', codes: ['03-13-01-M', '03-13-01-L'], qty: (t) => t.wallSqFt * 0.42 },
   // Mechanical replacement only at the top tier; otherwise existing systems stay
-  { key: 'hvac', codes: ['03-08-01'], qty: () => 1, tiers: TOP },
-  { key: 'electrical', codes: ['03-09-04-M', '03-09-08-L'], qty: (t) => t.areaSqFt * 0.36 },
+  { key: 'hvac', codes: ['03-08-01'], qty: () => 1, tiers: MID_UP },
+  { key: 'electrical', codes: ['03-09-04-M', '03-09-08-L'], qty: (t) => t.areaSqFt * 0.7 },
   { key: 'decorative-lighting', codes: ['03-09-06-M'], qty: (t) => t.areaSqFt * 0.5, tiers: MID_UP },
-  { key: 'plumbing', codes: ['03-10-03-M', '03-10-03-L'], qty: (t) => t.areaSqFt * 0.26 },
-  { key: 'water-heater', codes: ['03-10-01'], qty: () => 1, tiers: TOP },
+  { key: 'plumbing', codes: ['03-10-03-M', '03-10-03-L'], qty: (t) => t.areaSqFt * 0.55 },
+  { key: 'water-heater', codes: ['03-10-01'], qty: () => 1, tiers: MID_UP },
   // Kitchen + baths within the home
   { key: 'cabinets', codes: ['03-17-01-M', '03-17-01-L'], qty: (t) => t.cabinetLf },
   { key: 'countertops', codes: ['03-17-02-M', '03-17-02-L'], qty: (t) => t.counterLf },
@@ -133,11 +133,11 @@ const WHOLE_HOME: ScopeEntry[] = [
   { key: 'vent-hood', codes: ['03-21-06-M', '03-21-06-L'], qty: () => 1, tiers: TOP },
   { key: 'shower-glass', codes: ['03-19-06-M', '03-19-06-L'], qty: (t) => Math.max(1, Math.round(t.fixtureCount / 5)), tiers: MID_UP },
   // Surfaces throughout
-  { key: 'flooring', codes: ['03-15-01-M', '03-15-01-L'], qty: (t) => t.areaSqFt * 0.35 },
+  { key: 'flooring', codes: ['03-15-01-M', '03-15-01-L'], qty: (t) => t.areaSqFt * 0.6 },
   { key: 'flooring-tile', codes: ['03-16-01-M', '03-16-01-L'], qty: (t) => t.tileSqFt * 0.6 },
   { key: 'paint', codes: ['03-14-01-M', '03-14-01-L'], qty: (t) => t.wallSqFt + t.ceilingSqFt },
-  { key: 'trim', codes: ['03-18-02-M', '03-18-02-L'], qty: (t) => t.trimLf * 0.7 },
-  { key: 'interior-doors', codes: ['03-18-01-M', '03-18-01-L'], qty: (t) => Math.round(t.doorCount * 0.5) },
+  { key: 'trim', codes: ['03-18-02-M', '03-18-02-L'], qty: (t) => t.trimLf * 0.9 },
+  { key: 'interior-doors', codes: ['03-18-01-M', '03-18-01-L'], qty: (t) => Math.round(t.doorCount * 0.75) },
   { key: 'door-hardware', codes: ['03-19-04-M', '03-19-04-L'], qty: (t) => t.doorCount },
   { key: 'stair-railings', codes: ['03-21-01-M', '03-21-01-L'], qty: (t) => Math.round(t.areaSqFt / 200), tiers: TOP },
   { key: 'feature-wall', codes: ['03-18-04-M', '03-18-04-L'], qty: (t) => Math.min(t.wallSqFt * 0.05, 120), tiers: TOP },
@@ -149,8 +149,8 @@ const WHOLE_HOME: ScopeEntry[] = [
   // Plan / design / admin
   { key: 'permits', codes: ['03-01-01'], qty: () => 1 },
   { key: 'as-builts', codes: ['01-00-05'], qty: (t) => t.areaSqFt },
-  { key: 'architecture-dd', codes: ['02-00-01'], qty: (t) => t.areaSqFt * 0.6 },
-  { key: 'team-labor', codes: ['L-03-00'], qty: (t) => teamHours(t, 0.09) },
+  { key: 'architecture-dd', codes: ['02-00-01'], qty: (t) => t.areaSqFt },
+  { key: 'team-labor', codes: ['L-03-00'], qty: (t) => teamHours(t, 0.2) },
 ];
 
 const NEW_CONSTRUCTION: ScopeEntry[] = [
