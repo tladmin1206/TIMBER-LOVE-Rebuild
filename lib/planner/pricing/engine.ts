@@ -121,6 +121,7 @@ export function estimate(
       `contingency ×${(1 + contingency).toFixed(3)} → ${fmt(expected)}`,
       `band ±${(confidence.bandWidth * 100).toFixed(0)}% (floored at approved spread)`,
     ],
+    assembly: resolved.assembly,
   };
 
   const transparency = buildTransparency({ answers, property, ruleset, trace });

@@ -187,6 +187,16 @@ export function internalBriefEmail(
       lines.push('  Derivation:');
       for (const s of tr.steps) lines.push(`    - ${s}`);
     }
+    // Assembly basis: per-trade rollup (children calculated behind the scenes,
+    // shown here as parent-trade totals for the PM).
+    if (tr.assembly) {
+      const asm = tr.assembly;
+      lines.push('', `  PER-TRADE BREAKDOWN (assembly · ${Math.round(asm.margin * 100)}% gross margin on ${money(asm.internalCost)} internal):`);
+      for (const t of asm.trades) {
+        lines.push(`    ${t.division.padEnd(26)} internal ${money(t.internalCost).padStart(10)}   customer ${money(t.customerCost).padStart(10)}`);
+      }
+      if (asm.warnings.length) lines.push(`    ! warnings: ${asm.warnings.join('; ')}`);
+    }
     lines.push(`  Final range: ${rangeLine(estimate)}`);
   }
 

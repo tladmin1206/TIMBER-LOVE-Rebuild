@@ -1,4 +1,4 @@
-import type { PlannerAnswers, PropertyFacts, Range } from '../types';
+import type { AssemblyBreakdown, PlannerAnswers, PropertyFacts, Range } from '../types';
 import type { Ruleset } from '../ruleset';
 import { lookupBand } from '../ruleset';
 
@@ -18,6 +18,8 @@ export type BasisResult = {
   scaled: number;
   sizeFactor: number;
   lookupKey: string;
+  /** Assembly basis only: the internal per-trade line-item build-up. */
+  assembly?: AssemblyBreakdown;
 };
 
 export interface PricingBasis {

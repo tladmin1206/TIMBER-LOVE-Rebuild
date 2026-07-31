@@ -103,6 +103,35 @@ export type AppliedAdder = {
   rationale: string;
 };
 
+/** One catalog line inside an assembly trade (internal only, never shown to a lead). */
+export type AssemblyLineSummary = {
+  code: string;
+  description: string;
+  uom: string;
+  costType: string;
+  unitCost: number;
+  qty: number;
+  internalCost: number;
+};
+
+/** A parent trade with its child line items rolled up (the admin's default view). */
+export type AssemblyTradeSummary = {
+  division: string;
+  internalCost: number;
+  customerCost: number;
+  lines: AssemblyLineSummary[];
+};
+
+/** Full line-item build-up for an assembly-basis estimate. Internal only. */
+export type AssemblyBreakdown = {
+  internalCost: number;
+  customerCost: number;
+  margin: number;
+  areaSqFt: number;
+  trades: AssemblyTradeSummary[];
+  warnings: string[];
+};
+
 /**
  * Everything the engine did, in order. The transparency blocks and the
  * narrative payload are both derived from this, so they cannot drift out of
@@ -118,6 +147,8 @@ export type ExecutionTrace = {
   adders: AppliedAdder[];
   contingencyPct: number;
   steps: string[];
+  /** Present only for the assembly basis: the internal per-trade line-item build-up. */
+  assembly?: AssemblyBreakdown;
 };
 
 export type PlannerAnswers = {

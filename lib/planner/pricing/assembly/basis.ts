@@ -39,6 +39,27 @@ export class AssemblyBasis implements PricingBasis {
       scaled: a.customerCost,
       sizeFactor: a.takeoff.areaSqFt,
       lookupKey: `${answers.projectType}.assembly.${answers.finishTier}`,
+      assembly: {
+        internalCost: a.internalCost,
+        customerCost: a.customerCost,
+        margin: a.margin,
+        areaSqFt: a.takeoff.areaSqFt,
+        warnings: a.warnings,
+        trades: a.trades.map((t) => ({
+          division: t.division,
+          internalCost: t.internalCost,
+          customerCost: t.customerCost,
+          lines: t.lines.map((l) => ({
+            code: l.code,
+            description: l.description,
+            uom: l.uom,
+            costType: l.costType,
+            unitCost: l.unitCost,
+            qty: l.qty,
+            internalCost: l.internalCost,
+          })),
+        })),
+      },
     };
   }
 }

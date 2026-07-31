@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { estimate } from '@/lib/planner/pricing/engine';
+import { AssemblyBasis } from '@/lib/planner/pricing/assembly/basis';
 import { CALIBRATED_RULESET } from '@/lib/planner/ruleset';
 import type { PlannerAnswers, PropertyFacts } from '@/lib/planner/types';
 import { isPlannerPreview } from '@/lib/planner/preview';
@@ -53,10 +54,15 @@ export async function POST(req: Request) {
   // before sign-off. It never makes a figure publishable, the response is
   // flagged and the UI labels every number as placeholder pricing.
   const preview = isPlannerPreview();
+  // PRICING_BASIS=assembly swaps the per-sqft band lookup for the line-item
+  // assembly build-up. Default (unset) keeps the calibrated segment bands, so
+  // this ships dark until leadership signs off on the assembly figures.
+  const useAssembly = process.env.PRICING_BASIS === 'assembly';
   const result = estimate(body.answers, property, {
     ruleset: CALIBRATED_RULESET,
     now: new Date(),
     production: !preview,
+    ...(useAssembly ? { basis: new AssemblyBasis() } : {}),
   });
 
   // Diagnostics explain *why* a range was withheld and name the internal
