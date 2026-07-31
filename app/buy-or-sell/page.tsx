@@ -11,6 +11,7 @@ import { closingCta } from '@/lib/content/closing';
 import ProofSection from '@/components/sections/ProofSection';
 import CrossPathways from '@/components/sections/CrossPathways';
 import FaqSection from '@/components/sections/FaqSection';
+import FeatureBand from '@/components/sections/FeatureBand';
 import { faqs } from '@/lib/content/faqs';
 
 const realEstateReview = clientReviews.find((r) => r.role === 'Real Estate Client');
@@ -83,7 +84,7 @@ export default function Page() {
       )}
 
       {/* What visitors will find on the linked site */}
-      <section className="bg-bg-primary section">
+      <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">What You Will Find</p>
@@ -98,7 +99,7 @@ export default function Page() {
       </section>
 
       {/* Buying / Selling / Local / Who it serves */}
-      <section className="bg-bg-secondary section">
+      <section className="border-t border-border-subtle bg-bg-primary section">
         <div className="container-wide">
           <div className="grid gap-6 sm:grid-cols-2">
             {sections.map((s, i) => (
@@ -112,8 +113,19 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Full-bleed photographic statement before the closing ask */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg"
+        eyebrow="Buying or Selling in Boise"
+        title="Local Guidance, Start to Finish"
+        body="From the first showing to closing day, our team knows this market and stays in your corner the whole way."
+        cta="Talk to Our Team"
+        href="/contact/"
+        height="short"
+      />
+
       {/* Primary external CTA with affiliated-site note */}
-      <section className="bg-bg-primary section">
+      <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide max-w-2xl text-center">
           <Reveal>
             <p className="eyebrow">Visit the Site</p>

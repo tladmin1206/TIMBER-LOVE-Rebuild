@@ -1,4 +1,5 @@
 import PageHero from '@/components/sections/PageHero';
+import FeatureBand from '@/components/sections/FeatureBand';
 import RentalsGrid from '@/components/sections/RentalsGrid';
 import Cta from '@/components/ui/Cta';
 import Reveal from '@/components/ui/Reveal';
@@ -43,6 +44,15 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <FeatureBand
+        image="/wp-content/uploads/2025/12/1-Oceanfront-Oahu-vacation-rental-exterior-with-direct-beach-access.png"
+        eyebrow="Designed Getaways"
+        title="From Boise to the Oahu Shore"
+        body="Wake up to ocean views in a home shaped by the same hands behind our Treasure Valley builds."
+        align="left"
+        height="short"
+      />
 
       <ProofSection />
 

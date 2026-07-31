@@ -1,5 +1,6 @@
 import Planner from '@/components/planner/Planner';
 import TrustBar from '@/components/sections/TrustBar';
+import FeatureBand from '@/components/sections/FeatureBand';
 import ProofSection from '@/components/sections/ProofSection';
 import FaqSection from '@/components/sections/FaqSection';
 import ClosingCta from '@/components/sections/ClosingCta';
@@ -166,6 +167,15 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <FeatureBand
+        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Kitchen-1-scaled.jpg"
+        eyebrow="Plan With Confidence"
+        title="Your Realistic Range, in Minutes"
+        body="Nine questions and a few taps give you a planning range with every assumption shown, not a vague guess."
+        align="left"
+        height="short"
+      />
 
       <ProofSection title="What Boise Homeowners Say" />
 

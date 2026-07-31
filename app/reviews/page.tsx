@@ -10,6 +10,7 @@ import { site } from '@/lib/site';
 import { clientReviews, googleReviews } from '@/lib/content/home';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
+import FeatureBand from '@/components/sections/FeatureBand';
 import TrustBar from '@/components/sections/TrustBar';
 
 export const metadata = pageMeta({
@@ -83,6 +84,18 @@ export default function Page() {
       </section>
 
       <ReviewWall reviews={clientReviews} eyebrow="Client Stories" heading="What Our Clients Say" background="bg-bg-primary" />
+
+      {/* Full-bleed photographic statement before the closing ask. */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg"
+        eyebrow="Why They Choose Us"
+        title="Homes People Love"
+        body="Every review starts the same way, with a home our clients are proud to live in."
+        cta="Start Your Project"
+        href="/investment-planner/"
+        align="center"
+        height="short"
+      />
 
       <ClosingCta {...closingCta.reviews} />
     </>

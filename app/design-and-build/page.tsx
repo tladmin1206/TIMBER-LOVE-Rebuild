@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
+import FeatureBand from '@/components/sections/FeatureBand';
 import Reveal from '@/components/ui/Reveal';
 import Gallery from '@/components/ui/Gallery';
 import VideoBg from '@/components/ui/VideoBg';
@@ -137,7 +138,7 @@ export default function Page() {
       </section>
 
       {/* Differentiators */}
-      <section className="bg-bg-primary section">
+      <section className="border-t border-border-subtle bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">Why Timber and Love</p>
@@ -177,8 +178,18 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Full-bleed photographic statement: craft and quality. */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Kitchen-1-scaled.jpg"
+        eyebrow="Built to Last"
+        title="Craft You Can Feel in Every Detail"
+        body="We choose materials for how they wear over years, and we hold quality standards from the first cut to the final finish."
+        align="left"
+        height="short"
+      />
+
       {/* Process: 3 phases over background videos */}
-      <section className="bg-bg-primary pt-20 text-center sm:pt-28">
+      <section className="border-t border-border-subtle bg-bg-primary pt-20 text-center sm:pt-28">
         <div className="container-wide max-w-2xl">
           <Reveal>
             <p className="eyebrow">Our Design + Build Process</p>
@@ -226,7 +237,7 @@ export default function Page() {
 
       {/* Gallery */}
       {galleryImgs.length > 0 && (
-        <section className="bg-bg-primary section">
+        <section className="border-t border-border-subtle bg-bg-primary section">
           <div className="container-wide">
             <Reveal className="mb-10">
               <p className="eyebrow">Our Work</p>
@@ -241,7 +252,7 @@ export default function Page() {
       <ReviewWall reviews={clientReviews} eyebrow="Testimonials" heading="Trusted by Boise Homeowners" background="bg-bg-primary" moreHref="/reviews/" />
 
       {/* FAQ */}
-      <section className="bg-bg-primary section">
+      <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">FAQs</p>
@@ -253,8 +264,20 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Full-bleed photographic statement: one team, one process, before the ask. */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg"
+        eyebrow="One Team, One Roof"
+        title="Design and Build, Under One Roof"
+        body="Our designers and builders work side by side, so your project stays coordinated from concept to completion."
+        cta="Plan Your Project"
+        href="/investment-planner/"
+        align="left"
+        height="short"
+      />
+
       {/* Closing statement */}
-      <section className="bg-bg-primary pb-24 text-center">
+      <section className="border-t border-border-subtle bg-bg-primary pb-24 text-center">
         <div className="container-wide max-w-3xl">
           <Reveal>
             <p className="text-lg leading-relaxed text-cream/90">

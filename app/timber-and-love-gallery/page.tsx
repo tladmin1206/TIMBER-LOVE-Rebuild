@@ -8,6 +8,7 @@ import { projects } from '@/lib/content/projects';
 import gallery from '@/content/gallery.json';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
+import FeatureBand from '@/components/sections/FeatureBand';
 import TrustBar from '@/components/sections/TrustBar';
 import ProofSection from '@/components/sections/ProofSection';
 
@@ -54,6 +55,16 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Full-bleed photographic statement between the two collections. */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Main-Living-Space-1-scaled.jpg"
+        eyebrow="Designed and Built by Us"
+        title="Where the Details Live"
+        body="Every project is fully custom, designed and built in house from the first concept to the final detail."
+        align="left"
+        height="short"
+      />
 
       {/* Design inspiration: clearly separated from completed projects */}
       <section className="border-t border-border-subtle bg-bg-secondary section">

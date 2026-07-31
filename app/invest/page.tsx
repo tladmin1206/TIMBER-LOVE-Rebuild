@@ -9,6 +9,7 @@ import { closingCta } from '@/lib/content/closing';
 import ProofSection from '@/components/sections/ProofSection';
 import CrossPathways from '@/components/sections/CrossPathways';
 import FaqSection from '@/components/sections/FaqSection';
+import FeatureBand from '@/components/sections/FeatureBand';
 import { faqs } from '@/lib/content/faqs';
 
 export const metadata = pageMeta({
@@ -77,8 +78,19 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Full-bleed photographic statement before the closing ask */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Exterior-1-3-scaled.jpg"
+        eyebrow="Invest With Intention"
+        title="Build Value That Lasts"
+        body="Explore how the Timber and Love team approaches real estate, then map out a project with a clear, realistic starting point."
+        cta="Start the Investment Planner"
+        href="/investment-planner/"
+        height="short"
+      />
+
       {/* Primary external CTA + affiliated-site note */}
-      <section className="bg-bg-secondary section">
+      <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide max-w-2xl text-center">
           <Reveal>
             <p className="eyebrow">Take a Look</p>
@@ -101,7 +113,7 @@ export default function Page() {
       </section>
 
       {/* Financial disclaimer */}
-      <section className="bg-bg-primary section-tight">
+      <section className="border-t border-border-subtle bg-bg-primary section-tight">
         <div className="container-wide max-w-3xl">
           <Reveal className="surface-card p-8">
             <p className="eyebrow">Disclaimer</p>

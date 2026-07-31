@@ -1,5 +1,6 @@
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
+import FeatureBand from '@/components/sections/FeatureBand';
 import Reveal from '@/components/ui/Reveal';
 import Cta from '@/components/ui/Cta';
 import ContactForm from '@/components/forms/ContactForm';
@@ -100,6 +101,15 @@ export default function Page() {
         </div>
       </section>
 
+      <FeatureBand
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Exterior-scaled.jpg"
+        eyebrow="Let's Connect"
+        title="Let's Talk About Your Home"
+        body="Tell us where you are in the process and we will meet you there, whether it is a first idea or a full set of plans."
+        align="left"
+        height="short"
+      />
+
       {/* General inquiry: form plus primary customer contact details */}
       <section id="general" className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-12 lg:grid-cols-2 lg:gap-16">
@@ -175,7 +185,7 @@ export default function Page() {
       </section>
 
       {/* Press & Partnerships: kept separate from customer contact routing */}
-      <section id="press" className="border-t border-border-subtle bg-bg-primary section">
+      <section id="press" className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">Press & Partnerships</p>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
+import FeatureBand from '@/components/sections/FeatureBand';
 import Reveal from '@/components/ui/Reveal';
 import Cta from '@/components/ui/Cta';
 import { site, pathways } from '@/lib/site';
@@ -61,7 +62,7 @@ export default function Page() {
       </section>
 
       {/* Why one brand includes multiple services */}
-      <section className="bg-bg-secondary section" aria-labelledby="brand-heading">
+      <section className="border-t border-border-subtle bg-bg-secondary section" aria-labelledby="brand-heading">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">One Brand, Five Pathways</p>
@@ -100,8 +101,18 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Full-bleed photographic statement: design + build under one roof. */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Living-Room-scaled.jpg"
+        eyebrow="Design and Build, Together"
+        title="One Team, From First Sketch to Final Detail"
+        body="Design and construction happen under one roof, so nothing is lost between the vision and the finished home."
+        align="left"
+        height="short"
+      />
+
       {/* Luke Caldwell */}
-      <section className="bg-bg-primary section" aria-labelledby="luke-heading">
+      <section className="border-t border-border-subtle bg-bg-primary section" aria-labelledby="luke-heading">
         <div className="container-wide grid gap-12 lg:grid-cols-2 lg:items-start">
           <Reveal>
             <p className="eyebrow">Who Leads the Work</p>
@@ -126,7 +137,7 @@ export default function Page() {
       </section>
 
       {/* Design philosophy */}
-      <section className="bg-bg-secondary section" aria-labelledby="philosophy-heading">
+      <section className="border-t border-border-subtle bg-bg-secondary section" aria-labelledby="philosophy-heading">
         <div className="container-wide">
           <Reveal className="max-w-3xl">
             <p className="eyebrow">Our Point of View</p>
@@ -147,7 +158,7 @@ export default function Page() {
       </section>
 
       {/* HGTV history */}
-      <section className="bg-bg-primary section" aria-labelledby="hgtv-heading">
+      <section className="border-t border-border-subtle bg-bg-primary section" aria-labelledby="hgtv-heading">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">As Seen on HGTV</p>
@@ -166,8 +177,18 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Full-bleed portrait: the founder and the vision behind the brand. */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1.jpg"
+        eyebrow="The Vision"
+        title="Led by Luke Caldwell"
+        body="A defined point of view and a hands-on approach guide every home we design, build, and renovate."
+        align="left"
+        height="short"
+      />
+
       {/* Americana Soul */}
-      <section id="americana-soul" className="bg-bg-secondary section" aria-labelledby="book-heading">
+      <section id="americana-soul" className="border-t border-border-subtle bg-bg-secondary section" aria-labelledby="book-heading">
         <div className="container-wide grid gap-12 lg:grid-cols-[minmax(0,320px)_1fr] lg:items-center">
           <Reveal className="mx-auto w-full max-w-[320px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -203,7 +224,7 @@ export default function Page() {
       </section>
 
       {/* Press & partnerships */}
-      <section className="bg-bg-primary section-tight" aria-labelledby="press-heading">
+      <section className="border-t border-border-subtle bg-bg-primary section-tight" aria-labelledby="press-heading">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Press &amp; Partnerships</p>

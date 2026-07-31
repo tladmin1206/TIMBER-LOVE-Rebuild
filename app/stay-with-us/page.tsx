@@ -1,5 +1,6 @@
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
+import FeatureBand from '@/components/sections/FeatureBand';
 import RentalsGrid from '@/components/sections/RentalsGrid';
 import Reveal from '@/components/ui/Reveal';
 import { pageMeta } from '@/lib/seo';
@@ -37,6 +38,15 @@ export default function Page() {
           <RentalsGrid />
         </div>
       </section>
+
+      <FeatureBand
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg"
+        eyebrow="Stay With Us"
+        title="Sleep Inside a Home We Designed"
+        body="Every rental is a Timber and Love project, so a stay is the easiest way to feel our design in person."
+        align="left"
+        height="short"
+      />
 
       <ProofSection />
 

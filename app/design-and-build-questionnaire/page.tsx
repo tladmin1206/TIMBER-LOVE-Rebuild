@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
 import PageHero from '@/components/sections/PageHero';
 import Reveal from '@/components/ui/Reveal';
+import FeatureBand from '@/components/sections/FeatureBand';
 import PressStrip from '@/components/sections/PressStrip';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
@@ -73,6 +74,15 @@ export default function Page({ searchParams }: { searchParams?: Record<string, s
           </div>
         </div>
       </section>
+
+      <FeatureBand
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg"
+        eyebrow="Start Here"
+        title="Let's Get to Know Your Project"
+        body="A few details about your home and goals help us see the fit before we ever pick up the phone."
+        align="left"
+        height="short"
+      />
 
       {/* Native multi-step project inquiry */}
       <section id="inquiry" className="border-t border-border-subtle bg-bg-secondary section">

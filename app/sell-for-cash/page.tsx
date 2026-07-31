@@ -9,6 +9,7 @@ import { closingCta } from '@/lib/content/closing';
 import ProofSection from '@/components/sections/ProofSection';
 import CrossPathways from '@/components/sections/CrossPathways';
 import FaqSection from '@/components/sections/FaqSection';
+import FeatureBand from '@/components/sections/FeatureBand';
 import { faqs } from '@/lib/content/faqs';
 
 export const metadata = pageMeta({
@@ -70,7 +71,7 @@ export default function Page() {
       </section>
 
       {/* How the process works */}
-      <section className="bg-bg-secondary section">
+      <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">How It Works</p>
@@ -88,8 +89,19 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Full-bleed photographic statement before the closing ask */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Exterior-scaled.jpg"
+        eyebrow="A Simpler Path"
+        title="Sell Quickly, On Your Terms"
+        body="Skip the showings and the waiting. See what a direct offer looks like and move at the pace that works for you."
+        cta="Get a Cash Offer"
+        href="/contact/"
+        height="short"
+      />
+
       {/* What happens after clicking + external note */}
-      <section className="bg-bg-primary section">
+      <section className="border-t border-border-subtle bg-bg-primary section">
         <div className="container-wide max-w-2xl text-center">
           <Reveal>
             <p className="eyebrow">What Happens Next</p>

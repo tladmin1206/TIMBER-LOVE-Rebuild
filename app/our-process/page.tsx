@@ -1,6 +1,7 @@
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
 import ProcessTimeline, { type ProcessPhase } from '@/components/sections/ProcessTimeline';
+import FeatureBand from '@/components/sections/FeatureBand';
 import Cta from '@/components/ui/Cta';
 import Reveal from '@/components/ui/Reveal';
 import JsonLd from '@/components/JsonLd';
@@ -114,6 +115,18 @@ export default function Page() {
           <ProcessTimeline phases={phases} />
         </div>
       </section>
+
+      {/* Full-bleed photographic statement: the journey, drawing to walkthrough. */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Stairwell-1-scaled.jpg"
+        eyebrow="First Drawing to Final Walkthrough"
+        title="The Whole Journey, One Team"
+        body="From the first sketch to the day we hand back your keys, the same people carry your home the whole way."
+        cta="Plan Your Project"
+        href="/investment-planner/"
+        align="left"
+        height="short"
+      />
 
       <ProofSection />
 

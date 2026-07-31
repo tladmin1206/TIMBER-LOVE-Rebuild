@@ -5,6 +5,7 @@ import JsonLd from '@/components/JsonLd';
 import { pageMeta } from '@/lib/seo';
 import { breadcrumbSchema } from '@/lib/schema';
 import { journalPosts } from '@/lib/content/journal';
+import FeatureBand from '@/components/sections/FeatureBand';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import TrustBar from '@/components/sections/TrustBar';
@@ -95,6 +96,17 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      <FeatureBand
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Living-Room-scaled.jpg"
+        eyebrow="Notes From the Studio"
+        title="Where Our Ideas Take Shape"
+        body="Behind every story is a home we designed and built here in the Treasure Valley."
+        cta="Plan Your Project"
+        href="/investment-planner/"
+        align="left"
+        height="short"
+      />
 
       <ClosingCta {...closingCta.journal} />
     </>

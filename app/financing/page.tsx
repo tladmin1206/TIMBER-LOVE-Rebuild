@@ -9,6 +9,7 @@ import { breadcrumbSchema, faqSchema } from '@/lib/schema';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import ProofSection from '@/components/sections/ProofSection';
+import FeatureBand from '@/components/sections/FeatureBand';
 
 export const metadata = pageMeta({
   title: 'Financing Your Project',
@@ -141,8 +142,19 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Full-bleed photographic statement before the FAQ and closing ask */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg"
+        eyebrow="Plan With Confidence"
+        title="Make the Dream Attainable"
+        body="A clear budget turns a someday project into a real plan. Start with a realistic range, then bring it to the table."
+        cta="Plan Your Project"
+        href="/investment-planner/"
+        height="short"
+      />
+
       {/* FAQ */}
-      <section className="bg-bg-primary section">
+      <section className="border-t border-border-subtle bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">Financing FAQ</p>

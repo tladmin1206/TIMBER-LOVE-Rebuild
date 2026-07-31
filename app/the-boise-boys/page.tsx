@@ -5,6 +5,7 @@ import Reveal from '@/components/ui/Reveal';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import ReviewSlider from '@/components/ui/ReviewSlider';
+import FeatureBand from '@/components/sections/FeatureBand';
 import Cta from '@/components/ui/Cta';
 import { site } from '@/lib/site';
 import { clientReviews, fanComments } from '@/lib/content/home';
@@ -76,7 +77,7 @@ export default function Page() {
       </section>
 
       {/* More from the show: gallery */}
-      <section className="bg-bg-primary section">
+      <section className="border-t border-border-subtle bg-bg-primary section">
         <div className="container-wide">
           <Reveal className="mb-10 max-w-2xl">
             <p className="eyebrow">More From the Show</p>
@@ -85,6 +86,16 @@ export default function Page() {
           <Gallery images={images} columns={4} />
         </div>
       </section>
+
+      {/* Full-bleed photographic statement: from the show to working with clients. */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/04/Boise-Boys-Luke-Caldwell-and-Clint-Robertson-1-scaled.jpg"
+        eyebrow="From the Show to Your Home"
+        title="The Same Team, Off Camera"
+        body="The hands-on, design-forward approach you see on Boise Boys is exactly how we work with Treasure Valley homeowners today."
+        align="left"
+        height="short"
+      />
 
       {/* Client proof: verified customer reviews only */}
       <section className="border-t border-border-subtle bg-bg-secondary text-center section">
@@ -100,7 +111,7 @@ export default function Page() {
       </section>
 
       {/* Fan comments: clearly labeled as viewers, not clients */}
-      <section className="bg-bg-primary section-tight">
+      <section className="border-t border-border-subtle bg-bg-primary section-tight">
         <div className="container-wide">
           <Reveal className="mb-8 max-w-2xl">
             <p className="eyebrow">From the Fans</p>

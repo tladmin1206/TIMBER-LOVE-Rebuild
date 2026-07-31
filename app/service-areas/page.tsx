@@ -8,6 +8,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 import { site } from '@/lib/site';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
+import FeatureBand from '@/components/sections/FeatureBand';
 import ProofSection from '@/components/sections/ProofSection';
 import FaqSection from '@/components/sections/FaqSection';
 import { faqs } from '@/lib/content/faqs';
@@ -81,6 +82,16 @@ export default function Page() {
           </p>
         </div>
       </section>
+
+      {/* Full-bleed photographic statement: our reach across the valley. */}
+      <FeatureBand
+        image="/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Exterior-1-3-scaled.jpg"
+        eyebrow="Rooted in the Valley"
+        title="Building Across the Treasure Valley"
+        body="From Boise's historic neighborhoods to new homes along the foothills, we build where our clients live."
+        align="left"
+        height="short"
+      />
 
       {/* Local knowledge */}
       <section className="border-t border-border-subtle bg-bg-secondary section">
