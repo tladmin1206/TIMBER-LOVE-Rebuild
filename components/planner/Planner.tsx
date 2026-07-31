@@ -65,7 +65,10 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
 
   const value = flow.values[screen?.field ?? ''];
   const isNotSure = flow.notSure.includes(screen?.id ?? '');
-  const canAdvance = value !== undefined || isNotSure || screen?.kind === 'address';
+  // Multi-select and address screens can always advance: an empty multi-select
+  // is a valid "none of these apply", and a new build often has no address yet.
+  const canAdvance =
+    value !== undefined || isNotSure || screen?.kind === 'address' || screen?.kind === 'toggles';
 
   /**
    * Looks the parcel up as soon as an address is chosen, so the confirmation
@@ -174,6 +177,10 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
 
   return (
     <div className="mx-auto max-w-3xl">
+      {/* The scroll/focus target wraps the progress bar too, so on every step
+          change the whole block (steps bar included) lands below the sticky
+          header instead of the bar slipping behind it. */}
+      <div ref={headingRef} tabIndex={-1} className="scroll-mt-[calc(var(--header-h)+1rem)] outline-none">
       {/* § 5.1 rule 6: honest progress. */}
       <div className="flex items-center justify-between text-xs uppercase tracking-[0.16em] text-text-muted">
         <span>{stage === 'gate' ? 'Last step' : `${current} of ${total}`}</span>
@@ -198,7 +205,7 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
         </p>
       )}
 
-      <div ref={headingRef} tabIndex={-1} className="mt-6 outline-none sm:mt-8">
+      <div className="mt-6 sm:mt-8">
         {stage === 'questions' && screen && (
           <ScreenRenderer
             screen={screen}
@@ -217,9 +224,10 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
             submitting={submitting}
             pricingLive={pricingLive}
             knownAddress={found?.matchedAddress}
-            addressRequired={(flow.values.projectType as string) !== 'new-construction'}
+            addressRequired={flow.values.mode !== 'C' && (flow.values.projectType as string) !== 'new-construction'}
           />
         )}
+      </div>
       </div>
 
       {error && (

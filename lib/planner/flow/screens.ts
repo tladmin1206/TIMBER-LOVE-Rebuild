@@ -60,6 +60,8 @@ export type Screen = {
   costDriving?: boolean;
   /** Included only when this predicate passes. */
   when?: (a: PlannerAnswers) => boolean;
+  /** Address screens only: offer a "no lot yet" skip + realty-team handoff. */
+  noLotOption?: boolean;
 };
 
 /* ------------------------------------------------------------------ *
@@ -121,8 +123,10 @@ export const ADDRESS: Screen = {
 export const ADDRESS_BUILD: Screen = {
   id: 'address',
   question: 'Where will you build?',
+  help: 'If you already have a lot, we will pull what public records show. No lot yet is completely fine.',
   kind: 'address',
   field: 'address',
+  noLotOption: true,
 };
 
 export const PROPERTY_CONFIRM: Screen = {

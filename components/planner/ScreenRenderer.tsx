@@ -17,7 +17,7 @@ import type { AddressSuggestion } from '@/lib/planner/property/freeLookup';
  * produce one (§ 5.1 rule 5).
  */
 
-const OPTION_BASE = 'w-full text-left transition-colors border p-4 min-h-[52px]';
+const OPTION_BASE = 'block h-full w-full text-left transition-colors border p-4 min-h-[52px]';
 const OPTION_OFF = 'border-border-subtle hover:border-cream/50';
 const OPTION_ON = 'border-accent bg-accent-soft';
 
@@ -53,11 +53,11 @@ export default function ScreenRenderer({
         {(screen.kind === 'cards' || screen.kind === 'image-cards') && (
           <fieldset className="border-0 p-0">
             <legend className="sr-only">{screen.question}</legend>
-            <div className={screen.kind === 'image-cards' ? 'grid gap-4 sm:grid-cols-2' : 'grid gap-3'}>
+            <div className={screen.kind === 'image-cards' ? 'grid gap-4 sm:auto-rows-fr sm:grid-cols-2' : 'grid auto-rows-fr gap-3'}>
               {screen.choices?.map((c) => {
                 const on = value === c.value;
                 return (
-                  <label key={c.value} className="cursor-pointer">
+                  <label key={c.value} className="h-full cursor-pointer">
                     <input
                       type="radio"
                       name={`${groupId}-${screen.id}`}
@@ -84,13 +84,13 @@ export default function ScreenRenderer({
         {screen.kind === 'toggles' && (
           <fieldset className="border-0 p-0">
             <legend className="sr-only">{screen.question}</legend>
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid auto-rows-fr grid-cols-2 gap-2.5">
               {screen.choices?.map((c) => {
                 const selected = Array.isArray(value) ? (value as string[]) : [];
                 const on = selected.includes(c.value);
                 const atLimit = !!screen.maxSelections && selected.length >= screen.maxSelections && !on;
                 return (
-                  <label key={c.value} className={atLimit ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}>
+                  <label key={c.value} className={`h-full ${atLimit ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'}`}>
                     <input
                       type="checkbox"
                       className="peer sr-only"
@@ -162,11 +162,23 @@ export default function ScreenRenderer({
         )}
 
         {screen.kind === 'address' && (
-          <AddressAutocomplete
-            value={typeof value === 'string' ? value : ''}
-            onChange={onChange}
-            onSelect={(s) => onAddressSelect?.(s)}
-          />
+          <>
+            <AddressAutocomplete
+              value={typeof value === 'string' ? value : ''}
+              onChange={onChange}
+              onSelect={(s) => onAddressSelect?.(s)}
+            />
+            {screen.noLotOption && (
+              <p className="mt-5 text-sm leading-relaxed text-text-secondary">
+                No lot yet? Continue without one and we will plan from your target size. Want help finding the
+                right one?{' '}
+                <a href="/buy-or-sell/" className="link-underline text-cream">
+                  Connect with our realty team
+                </a>
+                .
+              </p>
+            )}
+          </>
         )}
       </div>
 
@@ -263,7 +275,8 @@ function PropertyConfirmation({
             </p>
           )}
           <p className="mt-6 text-sm leading-relaxed text-text-secondary">
-            Two things public records do not publish. Approximate is fine: we widen the range rather than block you.
+            Two details we could not pull automatically for this address. Confirm or adjust them. Approximate is
+            fine: we widen the range rather than block you.
           </p>
         </>
       ) : (

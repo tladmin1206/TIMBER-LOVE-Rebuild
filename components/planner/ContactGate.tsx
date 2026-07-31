@@ -90,10 +90,12 @@ export default function ContactGate({
   }
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-16">
+    <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-16">
       {/* The preview: real shape, obscured digits. Compact on mobile (secondary
-          lines hidden) so the form and its button stay above the fold. */}
-      <div aria-hidden="true" className="surface-card select-none p-5 sm:p-8">
+          lines hidden) so the form and its button stay above the fold. Sticks
+          near the top on desktop so it aligns with the heading rather than
+          floating in the middle of the taller form column. */}
+      <div aria-hidden="true" className="surface-card select-none p-5 sm:p-8 lg:sticky lg:top-[calc(var(--header-h)+2rem)]">
         {!pricingLive ? (
           <PreviewSummary />
         ) : (
