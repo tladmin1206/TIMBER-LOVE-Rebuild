@@ -1,6 +1,6 @@
 'use client';
 
-import { useId } from 'react';
+import { useEffect, useId } from 'react';
 import type { Screen } from '@/lib/planner/flow/screens';
 import AddressAutocomplete from '@/components/planner/AddressAutocomplete';
 import type { AddressSuggestion } from '@/lib/planner/property/freeLookup';
@@ -43,6 +43,17 @@ export default function ScreenRenderer({
   found?: FoundProperty;
 }) {
   const groupId = useId();
+
+  // A slider shows a midpoint default but never fires onChange until dragged,
+  // so its flow value stays undefined and Continue is stuck disabled. Seed the
+  // displayed default as the real value on mount so the default is a valid,
+  // advanceable answer (matching the "still deciding" default anyway).
+  useEffect(() => {
+    if (screen.kind === 'slider' && screen.slider && value === undefined && !isNotSure) {
+      onChange(Math.round((screen.slider.min + screen.slider.max) / 2));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [screen.id]);
 
   return (
     <div>

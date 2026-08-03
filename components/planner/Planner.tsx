@@ -266,22 +266,34 @@ export default function Planner({ pricingLive = false }: { pricingLive?: boolean
 /** Map flow values onto the engine's answer shape. */
 function toAnswers(flow: FlowState): PlannerAnswers {
   const v = flow.values as Record<string, unknown>;
-  const rawType = String(v.projectType ?? '');
+  const mode = (v.mode as PlannerAnswers['mode']) ?? 'A';
+
+  // Only Mode A asks the homeowner which space directly. Every other mode
+  // implies its project type, and the engine has no band to price against
+  // unless we set it here. Without this, Modes B, C and D reach the estimate
+  // endpoint with no projectType and it 400s: the "no range after contact"
+  // bug. "multiple" (Mode A, more than one space) is intentionally left as-is,
+  // it has no approved band and routes to a conversation rather than a guess.
+  let projectType = String(v.projectType ?? '') as PlannerAnswers['projectType'];
+  if (!projectType) {
+    if (mode === 'A') projectType = 'kitchen'; // documented not-sure default
+    else if (mode === 'B') projectType = 'new-construction'; // an addition is new conditioned square footage
+    else if (mode === 'C') projectType = 'new-construction';
+    else if (mode === 'D') projectType = 'whole-home'; // repositioning a property for resale or rental
+  }
+
+  // Mode B sizes on the addition, Mode C on the target home size. Both feed the
+  // same targetSqFt the new-construction band reads.
+  const targetSqFt =
+    (v.targetSqFt as number | undefined) ?? (mode === 'B' ? (v.additionSqFt as number | undefined) : undefined);
+
   return {
-    mode: (v.mode as PlannerAnswers['mode']) ?? 'A',
-    // Passed through as-is. Guest bath has its own Appendix A band, and
-    // "more than one space" deliberately has none: mapping it to whole-home
-    // would price a two-room project as a full renovation. With no band the
-    // engine declines to publish a figure (§ 9 rule 4), which routes the
-    // homeowner to a conversation instead of to a wrong number.
-    projectType: rawType as PlannerAnswers['projectType'],
+    mode,
+    projectType,
     scopeLevel: v.scopeLevel as PlannerAnswers['scopeLevel'],
     finishTier: v.finishTier as PlannerAnswers['finishTier'],
-    goals: (v.goals as string[]) ?? [],
-    lifestyle: (v.lifestyle as string[]) ?? [],
-    timeline: v.timeline as string | undefined,
     notSure: flow.notSure,
-    targetSqFt: v.targetSqFt as number | undefined,
+    targetSqFt,
   };
 }
 
