@@ -74,7 +74,7 @@ export const MODE_ROUTER: Screen = {
   kind: 'cards',
   field: 'mode',
   choices: [
-    { value: 'A', label: 'Reimagine a space in my home', blurb: 'A kitchen, a bathroom, or more than one room.' },
+    { value: 'A', label: 'Reimagine my home', blurb: 'A kitchen, a bathroom, or more than one room.' },
     { value: 'B', label: 'Add on to my home', blurb: 'More square footage than you have today.' },
     { value: 'C', label: 'Build a new home', blurb: 'On a lot you own, or one you are still looking for.' },
     { value: 'D', label: 'Improve a property for resale or rental', blurb: 'Preparing to sell, rent, or host.' },
