@@ -86,11 +86,16 @@ export function computeAssembly(
   const internalCost = lines.reduce((s, l) => s + l.internalCost, 0);
   if (internalCost <= 0) return null;
 
-  // Effective margin is a function of TOTAL internal cost, then distributed so
-  // each trade's customer amount sums exactly to the project customer amount.
+  // Margin is a TRUE GROSS MARGIN on the parts Timber and Love actually marks
+  // up: materials, fixtures, and subcontracted work. LABOR IS PASSED THROUGH AT
+  // COST with no markup, because the crew's loaded rate already carries its own
+  // overhead and marking it up again would double-charge the homeowner. The
+  // rate is still curved by total project size (bigger build, thinner margin),
+  // then applied per line so the trades sum exactly to the project total.
   const margin = effectiveMargin(internalCost, marginPolicy);
-  const toCustomer = (cost: number) => cost / (1 - margin);
-  const customerCost = toCustomer(internalCost);
+  const lineCustomer = (l: AssemblyLine) =>
+    l.costType === 'Labor' ? l.internalCost : l.internalCost / (1 - margin);
+  const customerCost = lines.reduce((s, l) => s + lineCustomer(l), 0);
 
   const byDivision = new Map<string, AssemblyLine[]>();
   for (const l of lines) {
@@ -101,7 +106,8 @@ export function computeAssembly(
   const trades: TradeRollup[] = [...byDivision.entries()]
     .map(([division, ls]) => {
       const tc = ls.reduce((s, l) => s + l.internalCost, 0);
-      return { division, internalCost: tc, customerCost: toCustomer(tc), lines: ls };
+      const cc = ls.reduce((s, l) => s + lineCustomer(l), 0);
+      return { division, internalCost: tc, customerCost: cc, lines: ls };
     })
     .sort((a, b) => b.customerCost - a.customerCost);
 

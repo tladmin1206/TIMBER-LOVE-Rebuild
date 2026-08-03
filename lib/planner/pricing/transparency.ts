@@ -81,16 +81,34 @@ function buildAssumptions(answers: PlannerAnswers, property: PropertyFacts, trac
 
   // The pattern that does the trust work: a default, its origin, and what it
   // costs if it turns out to be wrong: flagged when the property suggests risk.
-  const panelAtRisk = !!property.yearBuilt && property.yearBuilt < 1985;
-  out.push({
-    text: 'Your electrical panel has capacity for the added load.',
-    source: 'default',
-    sourceDetail: panelAtRisk
-      ? `Our default for homes built after 1985. Yours was built in ${property.yearBuilt}, so we have flagged this for verification.`
-      : 'Our standard assumption for homes of this era.',
-    impactIfWrong: { low: 4_000, high: 9_000 },
-    flaggedForVerification: panelAtRisk,
-  });
+  // A new build installs its own service sized to spec, so there is no existing
+  // panel to assume about: this belongs to remodels and additions only.
+  if (answers.projectType !== 'new-construction') {
+    const panelAtRisk = !!property.yearBuilt && property.yearBuilt < 1985;
+    out.push({
+      text: 'Your electrical panel has capacity for the added load.',
+      source: 'default',
+      sourceDetail: panelAtRisk
+        ? `Our default for homes built after 1985. Yours was built in ${property.yearBuilt}, so we have flagged this for verification.`
+        : 'Our standard assumption for homes of this era.',
+      impactIfWrong: { low: 4_000, high: 9_000 },
+      flaggedForVerification: panelAtRisk,
+    });
+  } else {
+    // New build: assumptions are about the lot and site, not an existing home.
+    out.push({
+      text: 'The lot is buildable with utilities available at or near the street.',
+      source: 'default',
+      sourceDetail: 'Our standard assumption. We confirm site conditions during design.',
+      impactIfWrong: { low: 8_000, high: 25_000 },
+    });
+    out.push({
+      text: 'Standard soil and site conditions, without significant rock removal or earthwork.',
+      source: 'default',
+      sourceDetail: 'Confirmed by a soils report during design.',
+      impactIfWrong: { low: 5_000, high: 20_000 },
+    });
+  }
 
   if (answers.mode === 'A' || answers.mode === 'D') {
     out.push({

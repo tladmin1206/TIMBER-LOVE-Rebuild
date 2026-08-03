@@ -334,7 +334,7 @@ export function internalBriefEmail(
     // shown here as parent-trade totals for the PM).
     if (tr.assembly) {
       const asm = tr.assembly;
-      lines.push('', `  PER-TRADE BREAKDOWN (assembly · ${Math.round(asm.margin * 100)}% gross margin on ${money(asm.internalCost)} internal):`);
+      lines.push('', `  PER-TRADE BREAKDOWN (assembly · ${Math.round(asm.margin * 100)}% margin on non-labor, labor at cost · ${money(asm.internalCost)} internal):`);
       for (const t of asm.trades) {
         lines.push(`    ${t.division.padEnd(26)} internal ${money(t.internalCost).padStart(10)}   customer ${money(t.customerCost).padStart(10)}`);
       }
@@ -391,7 +391,7 @@ export function internalBriefEmail(
             `<tr><td style="padding:7px 10px;border-bottom:1px solid ${EM.line};font-family:${SANS};font-size:12px;color:${EM.text};">${esc(t.division)}</td><td align="right" style="padding:7px 10px;border-bottom:1px solid ${EM.line};font-family:${SANS};font-size:12px;color:${EM.muted};">${money(t.internalCost)}</td><td align="right" style="padding:7px 10px;border-bottom:1px solid ${EM.line};font-family:${SANS};font-size:12px;color:${EM.text};font-weight:700;">${money(t.customerCost)}</td></tr>`
         )
         .join('');
-      tradesHtml = `<div style="font-family:${SANS};font-size:11px;color:${EM.muted};margin:16px 0 8px;">Per-trade breakdown &middot; ${Math.round(asm.margin * 100)}% gross margin on ${money(asm.internalCost)} internal</div><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid ${EM.line};border-collapse:collapse;"><tr style="background:${EM.ink};"><td style="padding:7px 10px;font-family:${SANS};font-size:10px;letter-spacing:1px;text-transform:uppercase;color:${EM.cream};">Trade</td><td align="right" style="padding:7px 10px;font-family:${SANS};font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#b7b1a8;">Internal</td><td align="right" style="padding:7px 10px;font-family:${SANS};font-size:10px;letter-spacing:1px;text-transform:uppercase;color:${EM.cream};">Customer</td></tr>${rows}</table>`;
+      tradesHtml = `<div style="font-family:${SANS};font-size:11px;color:${EM.muted};margin:16px 0 8px;">Per-trade breakdown &middot; ${Math.round(asm.margin * 100)}% margin on non-labor &middot; labor passed at cost &middot; ${money(asm.internalCost)} internal</div><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid ${EM.line};border-collapse:collapse;"><tr style="background:${EM.ink};"><td style="padding:7px 10px;font-family:${SANS};font-size:10px;letter-spacing:1px;text-transform:uppercase;color:${EM.cream};">Trade</td><td align="right" style="padding:7px 10px;font-family:${SANS};font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#b7b1a8;">Internal</td><td align="right" style="padding:7px 10px;font-family:${SANS};font-size:10px;letter-spacing:1px;text-transform:uppercase;color:${EM.cream};">Customer</td></tr>${rows}</table>`;
     }
     breakdownHtml =
       emSpacer() +
