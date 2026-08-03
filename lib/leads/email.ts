@@ -14,6 +14,8 @@
 export type LeadEmail = {
   subject: string;
   text: string;
+  /** On-brand HTML body. `text` is kept as the plain-text fallback. */
+  html?: string;
   /** Where replies should go, the homeowner, not the site. */
   replyTo?: string;
   /**
@@ -64,6 +66,7 @@ export async function sendLeadEmail(mail: LeadEmail): Promise<DeliveryResult> {
           to, ...(mail.replyTo ? { reply_to: mail.replyTo } : {}),
           subject: mail.subject,
           text: mail.text,
+          ...(mail.html ? { html: mail.html } : {}),
         }),
       });
 

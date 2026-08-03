@@ -131,7 +131,7 @@ async function deliverPlannerLead(
 
   // 1. Internal brief to the team (always attempted).
   const internal = internalBriefEmail(contact, answers, property, result, { submittedAt, source: 'investment-planner' });
-  const internalDelivery = await sendLeadEmail({ subject: internal.subject, text: internal.text, replyTo: contact.email });
+  const internalDelivery = await sendLeadEmail({ subject: internal.subject, text: internal.text, html: internal.html, replyTo: contact.email });
   if (!internalDelivery.delivered && internalDelivery.reason !== 'not-configured') {
     console.error('[planner] INTERNAL LEAD NOT DELIVERED: follow up manually', { contact: contact.email, delivery: internalDelivery });
   }
@@ -140,7 +140,7 @@ async function deliverPlannerLead(
   //    only when a range was produced: we never email a non-range as a result).
   if (contact.email && result.outcome === 'ok') {
     const confirm = leadConfirmationEmail(contact, answers, property, result);
-    const confirmDelivery = await sendLeadEmail({ subject: confirm.subject, text: confirm.text, to: contact.email });
+    const confirmDelivery = await sendLeadEmail({ subject: confirm.subject, text: confirm.text, html: confirm.html, to: contact.email });
     if (!confirmDelivery.delivered && confirmDelivery.reason !== 'not-configured') {
       console.error('[planner] LEAD CONFIRMATION NOT SENT', { contact: contact.email, delivery: confirmDelivery });
     }

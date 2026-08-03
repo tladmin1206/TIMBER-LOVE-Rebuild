@@ -27,6 +27,107 @@ export type PlannerContact = {
 const money = (v: number) => `$${Math.round(v).toLocaleString('en-US')}`;
 const title = (s?: string) => (s ? s.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()) : '-');
 
+/* ------------------------------------------------------------------ *
+ * On-brand HTML email building blocks
+ *
+ * Email clients are a hostile rendering target: no <style> reliability, no flex,
+ * spotty web fonts. So everything here is table-based with inline styles and
+ * web-safe font stacks, and every dynamic value is escaped. The look mirrors the
+ * site: a near-black header and footer, a cream wordmark, and a light, readable
+ * body with a serif for the numbers that matter.
+ * ------------------------------------------------------------------ */
+
+const esc = (s?: string | number | null) =>
+  String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+
+const EM = {
+  ink: '#0B0B0C',
+  cream: '#FAFAFA',
+  paper: '#ffffff',
+  soft: '#f4f2ee',
+  panel: '#f7f5f2',
+  text: '#1c1b1a',
+  muted: '#7c766e',
+  line: '#e7e3dc',
+};
+const SERIF = "'Cormorant Garamond', Georgia, 'Times New Roman', serif";
+const SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif";
+
+function emailShell(body: string, preheader: string): string {
+  return `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light only"><title>Timber and Love</title></head>
+<body style="margin:0;padding:0;background:${EM.soft};-webkit-text-size-adjust:100%;">
+<span style="display:none!important;visibility:hidden;opacity:0;color:transparent;height:0;width:0;overflow:hidden;mso-hide:all;">${esc(preheader)}</span>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${EM.soft};"><tr><td align="center" style="padding:24px 12px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px;max-width:600px;background:${EM.paper};border:1px solid ${EM.line};">
+<tr><td align="center" style="background:${EM.ink};padding:26px 32px;">
+<span style="font-family:${SERIF};font-size:23px;line-height:1;letter-spacing:6px;color:${EM.cream};text-transform:uppercase;">Timber&nbsp;&#43;&nbsp;Love</span>
+</td></tr>
+<tr><td style="padding:34px 32px;font-family:${SANS};color:${EM.text};font-size:15px;line-height:1.6;">${body}</td></tr>
+<tr><td align="center" style="background:${EM.ink};padding:22px 32px;">
+<span style="font-family:${SANS};font-size:11px;letter-spacing:1.5px;color:#8b857c;">Timber and Love &nbsp;&middot;&nbsp; Design &#43; Build &nbsp;&middot;&nbsp; Boise, Idaho</span>
+</td></tr>
+</table></td></tr></table></body></html>`;
+}
+
+function emHeading(text: string): string {
+  return `<div style="font-family:${SANS};font-size:11px;letter-spacing:2px;text-transform:uppercase;color:${EM.muted};font-weight:700;margin:0 0 12px;">${esc(text)}</div>`;
+}
+
+function emSpacer(px = 28): string {
+  return `<div style="line-height:${px}px;height:${px}px;">&nbsp;</div>`;
+}
+
+function emRangeHero(estimate: Estimate): string {
+  const inner = estimate.range
+    ? `<div style="font-family:${SANS};font-size:11px;letter-spacing:2px;text-transform:uppercase;color:${EM.muted};font-weight:700;">Planning Investment Range</div>
+       <div style="font-family:${SERIF};font-size:34px;line-height:1.1;color:${EM.ink};margin-top:10px;">${money(estimate.range.low)} <span style="color:${EM.muted};font-size:22px;">to</span> ${money(estimate.range.high)}</div>
+       <div style="font-family:${SANS};font-size:13px;color:${EM.muted};margin-top:10px;">Typical ${money(estimate.range.mid)} &nbsp;&middot;&nbsp; Confidence: ${esc(estimate.confidence.label)}</div>`
+    : `<div style="font-family:${SANS};font-size:11px;letter-spacing:2px;text-transform:uppercase;color:${EM.muted};font-weight:700;">Planning Investment Range</div>
+       <div style="font-family:${SERIF};font-size:24px;color:${EM.ink};margin-top:8px;">A conversation, not a number yet</div>
+       <div style="font-family:${SANS};font-size:13px;color:${EM.muted};margin-top:6px;">This project is best scoped with our team (${esc(estimate.outcome)}).</div>`;
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="background:${EM.panel};border:1px solid ${EM.line};padding:30px 24px;text-align:center;">${inner}</td></tr></table>`;
+}
+
+function emKvTable(rows: Array<[string, string | undefined]>): string {
+  const trs = rows
+    .filter(([, v]) => v && v !== '-')
+    .map(
+      ([k, v]) =>
+        `<tr><td style="padding:8px 0;border-bottom:1px solid ${EM.line};font-family:${SANS};font-size:13px;color:${EM.muted};width:40%;vertical-align:top;">${esc(k)}</td><td style="padding:8px 0;border-bottom:1px solid ${EM.line};font-family:${SANS};font-size:14px;color:${EM.text};vertical-align:top;">${esc(v)}</td></tr>`
+    )
+    .join('');
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid ${EM.line};">${trs}</table>`;
+}
+
+/** Bullet list. Items are treated as trusted pre-escaped HTML fragments. */
+function emBullets(items: string[]): string {
+  if (!items.length) return '';
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${items
+    .map(
+      (i) =>
+        `<tr><td style="padding:6px 0;font-family:${SANS};font-size:14px;color:${EM.text};line-height:1.55;vertical-align:top;"><span style="color:${EM.muted};">&bull;</span>&nbsp;&nbsp;${i}</td></tr>`
+    )
+    .join('')}</table>`;
+}
+
+function emFmtWhen(iso: string): string {
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toLocaleString('en-US', {
+    weekday: 'short',
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+  });
+}
+
 function rangeLine(estimate: Estimate): string {
   return estimate.range
     ? `${money(estimate.range.low)} to ${money(estimate.range.high)} (typical ${money(estimate.range.mid)})`
@@ -67,7 +168,7 @@ export function leadConfirmationEmail(
   answers: PlannerAnswers,
   property: PropertyFacts,
   estimate: Estimate
-): { subject: string; text: string } {
+): { subject: string; text: string; html: string } {
   const name = contact.firstName?.trim() || 'there';
   const t = estimate.transparency;
   const lines = [
@@ -103,9 +204,52 @@ export function leadConfirmationEmail(
   }
   lines.push('', 'WHAT HAPPENS NEXT', NEXT_STEPS, '', 'IMPORTANT', DISCLAIMER, '', 'Timber and Love');
 
+  const projRows: Array<[string, string | undefined]> = [
+    ['Project type', title(answers.projectType)],
+    ['Scope', answers.scopeLevel ? title(answers.scopeLevel) : undefined],
+    ['Finish level', title(answers.finishTier)],
+    ['Target size', answers.targetSqFt ? `${answers.targetSqFt.toLocaleString('en-US')} sq ft` : undefined],
+    ['Home size', property.finishedSqFt ? `${property.finishedSqFt.toLocaleString('en-US')} sq ft` : undefined],
+    ['Year built', property.yearBuilt ? String(property.yearBuilt) : undefined],
+    ['Address', contact.address],
+  ];
+  const timelineHtml =
+    estimate.designWeeks && estimate.durationWeeks
+      ? emHeading('Timeline') +
+        emKvTable([
+          ['Design & planning', `${estimate.designWeeks.low} to ${estimate.designWeeks.high} weeks`],
+          ['Construction', `${estimate.durationWeeks.low} to ${estimate.durationWeeks.high} weeks`],
+        ])
+      : '';
+
+  const body = [
+    `<div style="font-family:${SERIF};font-size:27px;line-height:1.15;color:${EM.ink};margin:0 0 6px;">Hi ${esc(name)},</div>`,
+    `<p style="margin:0 0 22px;font-family:${SANS};font-size:15px;line-height:1.65;color:${EM.text};">Thank you for using our Design ${'&#43;'} Build Investment Planner. Here is your personalized planning range and project summary.</p>`,
+    emRangeHero(estimate),
+    emSpacer(),
+    emHeading('Your project'),
+    emKvTable(projRows),
+    t.inclusions.length ? emSpacer() + emHeading('What this range includes') + emBullets(t.inclusions.map((i) => esc(i.label))) : '',
+    t.assumptions.length ? emSpacer() + emHeading('What we assumed') + emBullets(t.assumptions.map((a) => esc(a.text))) : '',
+    t.exclusions.length ? emSpacer() + emHeading('What this range does not include') + emBullets(t.exclusions.map((x) => esc(x.text))) : '',
+    timelineHtml ? emSpacer() + timelineHtml : '',
+    emSpacer(),
+    emHeading('What happens next'),
+    `<p style="margin:0;font-family:${SANS};font-size:14px;line-height:1.65;color:${EM.text};">${esc(NEXT_STEPS)}</p>`,
+    emSpacer(),
+    `<div style="border-top:1px solid ${EM.line};padding-top:16px;font-family:${SANS};font-size:11px;line-height:1.6;color:${EM.muted};">${esc(DISCLAIMER)}</div>`,
+    emSpacer(18),
+    `<div style="font-family:${SERIF};font-size:17px;color:${EM.ink};">Warmly,<br>The Timber and Love Team</div>`,
+  ].join('');
+
+  const preheader = estimate.range
+    ? `${money(estimate.range.low)} to ${money(estimate.range.high)} planning range and your project summary inside.`
+    : 'Your project summary and next steps inside.';
+
   return {
     subject: `Your Timber and Love planning range: ${title(answers.projectType)}`,
     text: lines.join('\n'),
+    html: emailShell(body, preheader),
   };
 }
 
@@ -121,7 +265,7 @@ export function internalBriefEmail(
   property: PropertyFacts,
   estimate: Estimate,
   meta: { submittedAt: string; source?: string; reportUrl?: string }
-): { subject: string; text: string } {
+): { subject: string; text: string; html: string } {
   const name = `${contact.firstName ?? ''} ${contact.lastName ?? ''}`.trim() || 'Unnamed';
   const lines = [
     `PLANNER SUBMISSION: ${name}`,
@@ -201,7 +345,96 @@ export function internalBriefEmail(
 
   if (meta.reportUrl) lines.push('', `Report: ${meta.reportUrl}`);
 
-  return { subject: `Planner lead: ${name} - ${title(answers.projectType)}`, text: lines.filter(Boolean).join('\n') };
+  // ---- On-brand HTML version ----
+  const flagHtml = estimate.overImprovement
+    ? `<div style="margin-top:16px;border:1px solid ${EM.ink};background:${EM.panel};padding:12px 16px;font-family:${SANS};font-size:13px;color:${EM.ink};"><strong>Flag:</strong> range is high relative to property value. Raise gently in conversation.</div>`
+    : '';
+
+  const contactRows: Array<[string, string | undefined]> = [
+    ['Email', contact.email],
+    ['Phone', contact.phone],
+    ['Preferred contact', contact.preferredContact ? title(contact.preferredContact) : undefined],
+    ['Address', contact.address ?? property.jurisdiction],
+  ];
+  const projectRows: Array<[string, string | undefined]> = [
+    ['Project type', title(answers.projectType)],
+    ['Scope', answers.scopeLevel ? title(answers.scopeLevel) : undefined],
+    ['Finish level', title(answers.finishTier)],
+    ['Target size', answers.targetSqFt ? `${answers.targetSqFt.toLocaleString('en-US')} sq ft` : undefined],
+    ['Home size', property.finishedSqFt ? `${property.finishedSqFt.toLocaleString('en-US')} sq ft` : undefined],
+    ['Year built', property.yearBuilt ? String(property.yearBuilt) : undefined],
+    ['Service area', property.serviceAreaBand],
+    ['Property data', property.enrichmentSource],
+    ['Notes', contact.notes],
+  ];
+  const agenda = answers.notSure?.length ? answers.notSure.map((q) => esc(q)) : ['Nothing flagged.'];
+  const assumptionItems = estimate.transparency.assumptions.map((a) => {
+    const impact = a.impactIfWrong
+      ? ` <span style="color:${EM.muted};">(impact if wrong ${money(a.impactIfWrong.low)}&ndash;${money(a.impactIfWrong.high)})</span>`
+      : '';
+    const flagged = a.flaggedForVerification ? ` <span style="color:${EM.ink};font-weight:700;">[flagged]</span>` : '';
+    return `${esc(a.text)}${flagged}${impact}`;
+  });
+  const allowanceItems = estimate.transparency.allowances.map(
+    (al) => `${esc(al.category)}: ${money(al.amount.low)}&ndash;${money(al.amount.high)} <span style="color:${EM.muted};">(${esc(al.buys)})</span>`
+  );
+
+  let breakdownHtml = '';
+  const trH = estimate.trace;
+  if (trH) {
+    let tradesHtml = '';
+    if (trH.assembly) {
+      const asm = trH.assembly;
+      const rows = asm.trades
+        .map(
+          (t) =>
+            `<tr><td style="padding:7px 10px;border-bottom:1px solid ${EM.line};font-family:${SANS};font-size:12px;color:${EM.text};">${esc(t.division)}</td><td align="right" style="padding:7px 10px;border-bottom:1px solid ${EM.line};font-family:${SANS};font-size:12px;color:${EM.muted};">${money(t.internalCost)}</td><td align="right" style="padding:7px 10px;border-bottom:1px solid ${EM.line};font-family:${SANS};font-size:12px;color:${EM.text};font-weight:700;">${money(t.customerCost)}</td></tr>`
+        )
+        .join('');
+      tradesHtml = `<div style="font-family:${SANS};font-size:11px;color:${EM.muted};margin:16px 0 8px;">Per-trade breakdown &middot; ${Math.round(asm.margin * 100)}% gross margin on ${money(asm.internalCost)} internal</div><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid ${EM.line};border-collapse:collapse;"><tr style="background:${EM.ink};"><td style="padding:7px 10px;font-family:${SANS};font-size:10px;letter-spacing:1px;text-transform:uppercase;color:${EM.cream};">Trade</td><td align="right" style="padding:7px 10px;font-family:${SANS};font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#b7b1a8;">Internal</td><td align="right" style="padding:7px 10px;font-family:${SANS};font-size:10px;letter-spacing:1px;text-transform:uppercase;color:${EM.cream};">Customer</td></tr>${rows}</table>`;
+    }
+    breakdownHtml =
+      emSpacer() +
+      `<div style="border:1px solid ${EM.line};background:${EM.panel};padding:20px;"><div style="font-family:${SANS};font-size:11px;letter-spacing:2px;text-transform:uppercase;color:${EM.muted};font-weight:700;">Cost breakdown &middot; internal only</div><div style="font-family:${SANS};font-size:11px;color:${EM.muted};margin:4px 0 14px;">Do not share with the lead.</div>` +
+      emKvTable([
+        ['Basis', `${trH.basis} / ruleset ${trH.rulesetVersion}`],
+        ['Band', `${trH.bandLookupKey}  ${money(trH.approvedBand.low)}–${money(trH.approvedBand.high)}`],
+        ['Size factor', `×${trH.sizeFactor.toLocaleString('en-US')}`],
+        ['Contingency', `${Math.round(trH.contingencyPct * 100)}%`],
+      ]) +
+      tradesHtml +
+      `</div>`;
+  }
+
+  const body = [
+    `<div style="font-family:${SERIF};font-size:27px;line-height:1.15;color:${EM.ink};margin:0 0 4px;">New planner lead</div>`,
+    `<div style="font-family:${SANS};font-size:13px;color:${EM.muted};margin:0 0 22px;">${esc(name)} &nbsp;&middot;&nbsp; ${esc(title(answers.projectType))} &nbsp;&middot;&nbsp; ${esc(emFmtWhen(meta.submittedAt))}${meta.source ? ` &nbsp;&middot;&nbsp; ${esc(meta.source)}` : ''}</div>`,
+    emRangeHero(estimate),
+    flagHtml,
+    emSpacer(),
+    emHeading('Contact'),
+    emKvTable(contactRows),
+    emSpacer(),
+    emHeading('Project'),
+    emKvTable(projectRows),
+    emSpacer(),
+    emHeading('Call agenda: what they were unsure about'),
+    emBullets(agenda),
+    assumptionItems.length ? emSpacer() + emHeading('Assumptions') + emBullets(assumptionItems) : '',
+    allowanceItems.length ? emSpacer() + emHeading('Allowances (internal)') + emBullets(allowanceItems) : '',
+    breakdownHtml,
+    meta.reportUrl ? emSpacer() + `<a href="${esc(meta.reportUrl)}" style="font-family:${SANS};font-size:14px;color:${EM.ink};font-weight:600;">View full report &rarr;</a>` : '',
+  ].join('');
+
+  const preheader = estimate.range
+    ? `${name}: ${money(estimate.range.low)} to ${money(estimate.range.high)} planning range.`
+    : `${name}: routed to a conversation (${estimate.outcome}).`;
+
+  return {
+    subject: `Planner lead: ${name} - ${title(answers.projectType)}`,
+    text: lines.filter(Boolean).join('\n'),
+    html: emailShell(body, preheader),
+  };
 }
 
 /** Complete machine-readable payload for the CRM notes field. */
