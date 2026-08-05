@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
 import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
 import Reveal from '@/components/ui/Reveal';
 import Cta from '@/components/ui/Cta';
 import { site, pathways } from '@/lib/site';
@@ -177,15 +178,55 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Full-bleed portrait: the founder and the vision behind the brand. */}
+      {/* Full-bleed duo band: the Boise Boys, Luke and Clint. */}
       <FeatureBand
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1.jpg"
-        eyebrow="The Vision"
-        title="Led by Luke Caldwell"
-        body="A defined point of view and a hands-on approach guide every home we design, build, and renovate."
+        image="/wp-content/uploads/2024/04/Boise-Boys-Luke-Caldwell-and-Clint-Robertson-1-scaled.jpg"
+        eyebrow="Boise Boys"
+        title="A Partnership Boise Watched Grow"
+        body="Luke Caldwell and Clint Robertson brought their Boise renovations to a national audience, and that same care still guides the work today."
+        cta="Explore the HGTV Story"
+        href="/the-boise-boys/"
         align="left"
         height="short"
       />
+
+      {/* Editorial: an interior that shows the warm, modern point of view. */}
+      <EditorialSplit
+        image="/projects/promise-ln-5120/5120-promise-ln-living-green-panel.jpg"
+        imageAlt="Living space with green paneled millwork and a fireplace in a modern farmhouse by Timber and Love"
+        eyebrow="Warm and Modern"
+        title="Rooms That Feel Collected, Not Staged"
+        tone="secondary"
+        ratio="landscape"
+      >
+        <p>
+          Our point of view shows up in the details: layered materials, considered millwork, and light handled with
+          intention. This living space pairs green paneling and a quiet fireplace to feel both current and lived in.
+        </p>
+        <p>
+          It is the same sensibility Luke brings to every home the team designs, builds, and renovates across the
+          Treasure Valley.
+        </p>
+      </EditorialSplit>
+
+      {/* Editorial portrait: the founder and the vision behind the brand. */}
+      <EditorialSplit
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1.jpg"
+        imageAlt="Portrait of designer Luke Caldwell, founder of Timber and Love"
+        eyebrow="The Vision"
+        title="Led by Luke Caldwell"
+        cta="Read the HGTV Story"
+        href="/the-boise-boys/"
+        tone="primary"
+        ratio="portrait"
+        reverse
+      >
+        <p>
+          A defined point of view and a hands-on approach guide every home we design, build, and renovate. Luke stays
+          involved in the homes his team creates, and that same eye carries into the real estate, investment, and
+          vacation-stay sides of the brand.
+        </p>
+      </EditorialSplit>
 
       {/* Americana Soul */}
       <section id="americana-soul" className="border-t border-border-subtle bg-bg-secondary section" aria-labelledby="book-heading">

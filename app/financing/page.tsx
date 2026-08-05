@@ -10,6 +10,7 @@ import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import ProofSection from '@/components/sections/ProofSection';
 import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
 
 export const metadata = pageMeta({
   title: 'Financing Your Project',
@@ -141,6 +142,49 @@ export default function Page() {
           </Reveal>
         </div>
       </section>
+
+      {/* Editorial split: financing exists to make craftsmanship like this attainable */}
+      <EditorialSplit
+        image="/projects/promise-ln-5106/5106-promise-ln-kitchen-range.jpg"
+        imageAlt="Spanish modern custom kitchen with a marble backsplash and professional range, built by Timber and Love"
+        eyebrow="Worth Planning For"
+        title="A Well-Built Home, Within Reach"
+        cta="Estimate Your Project"
+        href="/estimate/"
+        tone="primary"
+        ratio="landscape"
+      >
+        <p>
+          Financing is not the goal. The home is. A kitchen finished to this level, with real materials and careful
+          detailing, is exactly the kind of result a clear budget is meant to make attainable.
+        </p>
+        <p>
+          When you know your range up front, you can plan for the finishes that matter to you instead of guessing, and
+          the project stays grounded in what you are comfortable spending.
+        </p>
+      </EditorialSplit>
+
+      {/* Editorial split: the everyday spaces a plan pays for */}
+      <EditorialSplit
+        image="/projects/promise-ln-5120/5120-promise-ln-great-room-dining.jpg"
+        imageAlt="Open great room and dining space in a modern farmhouse with black windows, built by Timber and Love"
+        eyebrow="The Payoff of Planning"
+        title="Rooms You Will Actually Live In"
+        cta="Explore Design + Build"
+        href="/design-and-build/"
+        reverse
+        tone="secondary"
+        ratio="landscape"
+      >
+        <p>
+          A smart financing plan is what turns a great room like this from a someday idea into a place your family
+          gathers. The everyday spaces are where the investment shows up most.
+        </p>
+        <p>
+          Start with a realistic number, decide how you want to fund it, and move into design knowing the home on the
+          other side is one you can afford to enjoy.
+        </p>
+      </EditorialSplit>
 
       {/* Full-bleed photographic statement before the FAQ and closing ask */}
       <FeatureBand

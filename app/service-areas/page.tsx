@@ -9,6 +9,8 @@ import { site } from '@/lib/site';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
+import Gallery from '@/components/ui/Gallery';
 import ProofSection from '@/components/sections/ProofSection';
 import FaqSection from '@/components/sections/FaqSection';
 import { faqs } from '@/lib/content/faqs';
@@ -83,6 +85,43 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Breadth of custom homes built across the valley. */}
+      <section className="border-t border-border-subtle bg-bg-secondary section">
+        <div className="container-wide">
+          <Reveal className="max-w-2xl">
+            <p className="eyebrow">A Look Across the Valley</p>
+            <h2 className="h-section mt-4">Homes We Have Built Around the Treasure Valley</h2>
+            <p className="text-lead mt-4">
+              Different neighborhoods, different styles, one team. A few of the custom homes and renovations we have
+              delivered for families across the region.
+            </p>
+          </Reveal>
+          <div className="mt-12">
+            <Gallery
+              images={[
+                {
+                  src: '/projects/promise-ln-5106/5106-promise-ln-exterior-front.jpg',
+                  alt: 'Spanish modern custom home with white stucco and arches, built by Timber and Love in the Treasure Valley',
+                },
+                {
+                  src: '/projects/promise-ln-5120/5120-promise-ln-exterior-front.jpg',
+                  alt: 'Modern farmhouse custom home with board-and-batten siding and black windows in the Treasure Valley',
+                },
+                {
+                  src: '/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg',
+                  alt: 'Modern contemporary custom home with a charcoal exterior and butterfly roof in the Treasure Valley',
+                },
+                {
+                  src: '/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Exterior-1-3-scaled.jpg',
+                  alt: 'Renovated Central Rim home exterior in a Boise neighborhood, remodeled by Timber and Love',
+                },
+              ]}
+              columns={3}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Full-bleed photographic statement: our reach across the valley. */}
       <FeatureBand
         image="/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Exterior-1-3-scaled.jpg"
@@ -109,6 +148,28 @@ export default function Page() {
           </Reveal>
         </div>
       </section>
+
+      <EditorialSplit
+        image="/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg"
+        imageAlt="Charcoal modern contemporary custom home with a butterfly roof, designed and built by Timber and Love in the Treasure Valley"
+        eyebrow="Rooted in the Valley"
+        title="Building Across the Treasure Valley"
+        cta="Check Your Project"
+        href="/estimate/"
+        reverse
+        tone="primary"
+        ratio="landscape"
+      >
+        <p>
+          Whether your home sits in an established Boise neighborhood or on a new lot near the foothills, we bring the
+          same design-build team to the table. One group of designers and builders, from the first sketch through the
+          final walkthrough.
+        </p>
+        <p>
+          That continuity is what lets us plan realistically for the sites, styles, and permitting that make each
+          Treasure Valley community its own.
+        </p>
+      </EditorialSplit>
 
       <ProofSection />
 

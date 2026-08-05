@@ -1,6 +1,6 @@
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
-import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
 import Reveal from '@/components/ui/Reveal';
 import Cta from '@/components/ui/Cta';
 import ContactForm from '@/components/forms/ContactForm';
@@ -101,14 +101,22 @@ export default function Page() {
         </div>
       </section>
 
-      <FeatureBand
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Exterior-scaled.jpg"
+      <EditorialSplit
+        image="/projects/promise-ln-5106/5106-promise-ln-great-room.jpg"
+        imageAlt="Barrel-vaulted great room in a Spanish modern custom home by Timber and Love"
         eyebrow="Let's Connect"
         title="Let's Talk About Your Home"
-        body="Tell us where you are in the process and we will meet you there, whether it is a first idea or a full set of plans."
-        align="left"
-        height="short"
-      />
+        tone="secondary"
+        ratio="landscape"
+      >
+        <p>
+          Tell us where you are in the process and we will meet you there, whether it is a first idea or a full
+          set of plans.
+        </p>
+        <p>
+          Rooms like this one start as a single conversation. The note below is a good place to begin yours.
+        </p>
+      </EditorialSplit>
 
       {/* General inquiry: form plus primary customer contact details */}
       <section id="general" className="border-t border-border-subtle bg-bg-secondary section">

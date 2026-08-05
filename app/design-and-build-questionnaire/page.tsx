@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import PageHero from '@/components/sections/PageHero';
 import Reveal from '@/components/ui/Reveal';
 import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
 import PressStrip from '@/components/sections/PressStrip';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
@@ -55,6 +56,23 @@ export default function Page({ searchParams }: { searchParams?: Record<string, s
       )}
 
       <PressStrip />
+
+      <EditorialSplit
+        image="/projects/promise-ln-5120/5120-promise-ln-kitchen.jpg"
+        imageAlt="Kitchen with black windows and green millwork in a modern farmhouse custom home by Timber and Love"
+        eyebrow="What We Build"
+        title="From First Idea to Finished Room"
+        tone="secondary"
+        ratio="landscape"
+      >
+        <p>
+          Kitchens like this one begin exactly where you are now, with a few notes about a home and a goal.
+          The questionnaire below is the first step toward a space built around how you live.
+        </p>
+        <p>
+          Share what you have in mind and we will help you see whether Timber and Love is the right fit.
+        </p>
+      </EditorialSplit>
 
       {/* 3-step process */}
       <section className="bg-bg-primary section">

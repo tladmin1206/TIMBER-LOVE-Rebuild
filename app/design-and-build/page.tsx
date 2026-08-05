@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
 import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
 import Reveal from '@/components/ui/Reveal';
 import Gallery from '@/components/ui/Gallery';
 import VideoBg from '@/components/ui/VideoBg';
@@ -155,6 +156,28 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Editorial: one team under one roof, with a flagship custom home great room */}
+      <EditorialSplit
+        image="/projects/promise-ln-5106/5106-promise-ln-great-room.jpg"
+        imageAlt="Barrel-vaulted great room with white oak and marble in a Spanish modern custom home by Timber and Love"
+        eyebrow="One Team, One Roof"
+        title="Design and Build, Resolved Together"
+        cta="See Our Work"
+        href="/timber-and-love-gallery/"
+        tone="secondary"
+        ratio="landscape"
+      >
+        <p>
+          Because our designers and builders share one table, the vision that starts on paper is the home that gets
+          built. Feasibility, materials, and craft are considered together from the first meeting, not handed off
+          between separate firms.
+        </p>
+        <p>
+          This is a fully custom home we designed and built from the ground up, resolved detail by detail by a single
+          in-house team.
+        </p>
+      </EditorialSplit>
+
       {/* Services we offer */}
       <section className="border-t border-border-subtle bg-surface section">
         <div className="container-wide">
@@ -177,6 +200,51 @@ export default function Page() {
           </p>
         </div>
       </section>
+
+      {/* Gallery: three custom homes we designed and built, front elevations */}
+      <section className="border-t border-border-subtle bg-bg-primary section">
+        <div className="container-wide">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">Custom Homes</p>
+            <h2 className="h-section mt-4">Three Homes, Designed and Built From the Ground Up</h2>
+            <p className="text-lead mt-5">
+              Each of these Promise Lane residences was drawn and constructed by our in-house team, from a Spanish
+              modern to a modern farmhouse to a contemporary with a butterfly roof.
+            </p>
+          </Reveal>
+          <div className="mt-12">
+            <Gallery
+              images={[
+                { src: '/projects/promise-ln-5106/5106-promise-ln-exterior-front.jpg', alt: 'Front elevation of a white stucco Spanish modern custom home with arches, built by Timber and Love' },
+                { src: '/projects/promise-ln-5120/5120-promise-ln-exterior-front.jpg', alt: 'Front elevation of a board-and-batten modern farmhouse with black windows, built by Timber and Love' },
+                { src: '/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg', alt: 'Front elevation of a charcoal modern contemporary custom home with a butterfly roof, built by Timber and Love' },
+              ]}
+              columns={3}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Editorial: craftsmanship and materials, with a green marble kitchen */}
+      <EditorialSplit
+        image="/projects/promise-ln-5142/5142-promise-ln-kitchen-green-marble.jpg"
+        imageAlt="Kitchen with green marble waterfall island and custom cabinetry in a modern contemporary home by Timber and Love"
+        eyebrow="Built to Last"
+        title="Materials Chosen for How They Wear"
+        tone="secondary"
+        ratio="landscape"
+        reverse
+      >
+        <p>
+          We select stone, wood, and hardware for how they hold up over years of daily life, not just how they
+          photograph on day one. The green marble, custom cabinetry, and integrated fixtures in this kitchen were
+          specified and installed to a single quality standard.
+        </p>
+        <p>
+          From the first cut to the final finish, the same team holds that standard, so the craft you can feel is
+          consistent across every room.
+        </p>
+      </EditorialSplit>
 
       {/* Full-bleed photographic statement: craft and quality. */}
       <FeatureBand

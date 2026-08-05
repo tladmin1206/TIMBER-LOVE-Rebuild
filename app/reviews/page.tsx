@@ -11,6 +11,7 @@ import { clientReviews, googleReviews } from '@/lib/content/home';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
 import TrustBar from '@/components/sections/TrustBar';
 
 export const metadata = pageMeta({
@@ -85,9 +86,28 @@ export default function Page() {
 
       <ReviewWall reviews={clientReviews} eyebrow="Client Stories" heading="What Our Clients Say" background="bg-bg-primary" />
 
+      {/* Editorial: the finished homes behind the reviews. */}
+      <EditorialSplit
+        image="/projects/promise-ln-5106/5106-promise-ln-living-room-fireplace.jpg"
+        imageAlt="Bright living room with a marble fireplace and oak details in a Spanish modern custom home by Timber and Love"
+        eyebrow="Behind the Reviews"
+        title="The Homes People Love to Live In"
+        reverse
+        tone="secondary"
+        ratio="landscape"
+      >
+        <p>
+          Every review here traces back to the same thing: a finished home our clients are genuinely proud to live in.
+          The kitchens they gather in, the light-filled rooms, the details that hold up years after the crew leaves.
+        </p>
+        <p>
+          The kind words are nice. The homes are the real proof.
+        </p>
+      </EditorialSplit>
+
       {/* Full-bleed photographic statement before the closing ask. */}
       <FeatureBand
-        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg"
+        image="/projects/promise-ln-5120/5120-promise-ln-great-room-volume.jpg"
         eyebrow="Why They Choose Us"
         title="Homes People Love"
         body="Every review starts the same way, with a home our clients are proud to live in."

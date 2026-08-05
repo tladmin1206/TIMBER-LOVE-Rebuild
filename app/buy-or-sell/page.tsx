@@ -12,6 +12,7 @@ import ProofSection from '@/components/sections/ProofSection';
 import CrossPathways from '@/components/sections/CrossPathways';
 import FaqSection from '@/components/sections/FaqSection';
 import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
 import { faqs } from '@/lib/content/faqs';
 
 const realEstateReview = clientReviews.find((r) => r.role === 'Real Estate Client');
@@ -113,9 +114,52 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Editorial split: a real Boise home makes the buying conversation tangible */}
+      <EditorialSplit
+        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg"
+        imageAlt="Front exterior of Casa De Boise, a Boise Boys home renovated by Timber and Love"
+        eyebrow="Buying in Boise"
+        title="Find a Home That Fits Your Life"
+        cta="Browse Homes"
+        href={site.external.realty}
+        tone="secondary"
+        ratio="landscape"
+      >
+        <p>
+          A home is more than a listing. Homes like this one, renovated by the Timber and Love team, are the kind of
+          Boise property buyers picture when they imagine settling in.
+        </p>
+        <p>
+          Working with a team that knows both the market and how homes are built means you see what a house is really
+          offering before you make an offer.
+        </p>
+      </EditorialSplit>
+
+      {/* Editorial split: sellers benefit from homes presented at their best */}
+      <EditorialSplit
+        image="/projects/promise-ln-5120/5120-promise-ln-exterior-front.jpg"
+        imageAlt="Board-and-batten modern farmhouse with black windows, a custom home built by Timber and Love"
+        eyebrow="Selling in Boise"
+        title="Position Your Home to Sell"
+        cta="Sell a Home"
+        href={site.external.realty}
+        reverse
+        tone="primary"
+        ratio="landscape"
+      >
+        <p>
+          Presentation and pricing decide how a sale goes. Our team understands what today's buyers respond to, from
+          curb appeal to the finishes inside, because we build homes to that standard ourselves.
+        </p>
+        <p>
+          That perspective helps sellers prepare a home for the market, position it for the right buyers, and move
+          through to closing with straightforward, local guidance.
+        </p>
+      </EditorialSplit>
+
       {/* Full-bleed photographic statement before the closing ask */}
       <FeatureBand
-        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg"
+        image="/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Exterior-1-3-scaled.jpg"
         eyebrow="Buying or Selling in Boise"
         title="Local Guidance, Start to Finish"
         body="From the first showing to closing day, our team knows this market and stays in your corner the whole way."

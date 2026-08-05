@@ -23,6 +23,9 @@ export const metadata = pageMeta({
 
 const intro = (data.sections as any[])[0]?.paragraphs?.[0] || '';
 const images = (data.gallery as string[]).map((src, i) => ({ src, alt: `Boise Boys project photo ${i + 1}` }));
+// Only the HGTV-featured homes belong on the show page. The custom homes now
+// live in the same `projects` list but are not television projects.
+const tvProjects = projects.filter((p) => p.tags.includes('hgtv'));
 
 export default function Page() {
   return (
@@ -59,7 +62,7 @@ export default function Page() {
             <h2 className="h-section mt-4">From the Show</h2>
           </Reveal>
           <div className="grid gap-6 md:grid-cols-2">
-            {projects.map((p) => (
+            {tvProjects.map((p) => (
               <Link key={p.slug} href={`/projects/${p.slug}/`} className="group card-interactive block overflow-hidden">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}

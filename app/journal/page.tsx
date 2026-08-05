@@ -6,6 +6,7 @@ import { pageMeta } from '@/lib/seo';
 import { breadcrumbSchema } from '@/lib/schema';
 import { journalPosts } from '@/lib/content/journal';
 import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import TrustBar from '@/components/sections/TrustBar';
@@ -97,8 +98,28 @@ export default function Page() {
         </div>
       </section>
 
+      <EditorialSplit
+        image="/projects/promise-ln-5120/5120-promise-ln-living-green-panel.jpg"
+        imageAlt="Living room with green paneled millwork in a modern farmhouse custom home by Timber and Love"
+        eyebrow="Design Notes"
+        title="Details Worth Writing About"
+        cta="See Our Work"
+        href="/timber-and-love-gallery/"
+        tone="secondary"
+        ratio="landscape"
+      >
+        <p>
+          The stories we tell here start in rooms like this one, where a run of green paneling becomes the
+          quiet backbone of a whole living space.
+        </p>
+        <p>
+          Our journal is a look behind those decisions: the material studies, the on-set moments, and the ideas
+          that carry from one home to the next.
+        </p>
+      </EditorialSplit>
+
       <FeatureBand
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Living-Room-scaled.jpg"
+        image="/projects/promise-ln-5106/5106-promise-ln-living-room-fireplace.jpg"
         eyebrow="Notes From the Studio"
         title="Where Our Ideas Take Shape"
         body="Behind every story is a home we designed and built here in the Treasure Valley."

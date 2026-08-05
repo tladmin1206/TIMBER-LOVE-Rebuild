@@ -10,6 +10,7 @@ import ProofSection from '@/components/sections/ProofSection';
 import CrossPathways from '@/components/sections/CrossPathways';
 import FaqSection from '@/components/sections/FaqSection';
 import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
 import { faqs } from '@/lib/content/faqs';
 
 export const metadata = pageMeta({
@@ -77,6 +78,28 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Editorial split: a real, finished custom home makes the value case concrete */}
+      <EditorialSplit
+        image="/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg"
+        imageAlt="Charcoal modern contemporary custom home with a butterfly roof, built by Timber and Love in Boise"
+        eyebrow="Real Estate, Built to Last"
+        title="Value You Can Stand In Front Of"
+        cta="See Our Work"
+        href="/timber-and-love-gallery/"
+        tone="secondary"
+        ratio="landscape"
+      >
+        <p>
+          The way Timber and Love thinks about real estate is grounded in homes that are actually built. This custom
+          contemporary is the kind of work that holds its value: designed with intention, built to last, and finished
+          to a standard buyers notice.
+        </p>
+        <p>
+          When you invest alongside a team that designs and builds under one roof, the numbers rest on craftsmanship
+          you can see and stand inside, not a spreadsheet alone.
+        </p>
+      </EditorialSplit>
 
       {/* Full-bleed photographic statement before the closing ask */}
       <FeatureBand

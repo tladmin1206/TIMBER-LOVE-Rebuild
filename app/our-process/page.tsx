@@ -2,6 +2,7 @@ import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
 import ProcessTimeline, { type ProcessPhase } from '@/components/sections/ProcessTimeline';
 import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
 import Cta from '@/components/ui/Cta';
 import Reveal from '@/components/ui/Reveal';
 import JsonLd from '@/components/JsonLd';
@@ -115,6 +116,50 @@ export default function Page() {
           <ProcessTimeline phases={phases} />
         </div>
       </section>
+
+      {/* Editorial journey: design, build, and finished detail. */}
+      <EditorialSplit
+        image="/projects/promise-ln-5120/5120-promise-ln-great-room-dining.jpg"
+        imageAlt="Open great room and dining space in a modern farmhouse designed by Timber and Love"
+        eyebrow="Concept and Design"
+        title="It Starts With How You Want to Live"
+        tone="primary"
+        ratio="landscape"
+      >
+        <p>
+          Every project begins with the way a space should feel and function. We test layouts against daily life, then
+          refine the plans and selections until the design reflects your vision, room by room.
+        </p>
+      </EditorialSplit>
+
+      <EditorialSplit
+        image="/projects/promise-ln-5142/5142-promise-ln-exterior-angle.jpg"
+        imageAlt="Angled exterior view of a charcoal modern contemporary custom home with a butterfly roof by Timber and Love"
+        eyebrow="Build and Architecture"
+        title="Where Drawings Become Structure"
+        tone="secondary"
+        ratio="landscape"
+        reverse
+      >
+        <p>
+          With the design settled, the same team carries it into construction. We coordinate trades, hold quality
+          standards, and keep you informed as the architecture takes shape and your home rises from the ground.
+        </p>
+      </EditorialSplit>
+
+      <EditorialSplit
+        image="/projects/promise-ln-5106/5106-promise-ln-primary-bath.jpg"
+        imageAlt="Primary bathroom with marble and custom finishes in a Spanish modern custom home by Timber and Love"
+        eyebrow="Finished Details"
+        title="The Difference Is in the Last Ten Percent"
+        tone="primary"
+        ratio="landscape"
+      >
+        <p>
+          Completion is about the details you live with every day: the fit of the finishes, the feel of the materials,
+          the way a room resolves. We walk the finished home with you and hand back a space that is ready to enjoy.
+        </p>
+      </EditorialSplit>
 
       {/* Full-bleed photographic statement: the journey, drawing to walkthrough. */}
       <FeatureBand

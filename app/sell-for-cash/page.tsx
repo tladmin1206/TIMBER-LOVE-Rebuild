@@ -10,6 +10,7 @@ import ProofSection from '@/components/sections/ProofSection';
 import CrossPathways from '@/components/sections/CrossPathways';
 import FaqSection from '@/components/sections/FaqSection';
 import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
 import { faqs } from '@/lib/content/faqs';
 
 export const metadata = pageMeta({
@@ -89,9 +90,30 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Editorial split: a direct sale suits homes and situations of every kind */}
+      <EditorialSplit
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Exterior-scaled.jpg"
+        imageAlt="Exterior of the Firehouse, a Boise Boys renovation by Timber and Love"
+        eyebrow="Any Home, Any Condition"
+        title="A Path That Fits Your Situation"
+        cta="Request a Cash Offer"
+        href={site.external.cashOffers}
+        tone="primary"
+        ratio="landscape"
+      >
+        <p>
+          A direct sale is not only for one kind of house. Homes at every stage, from move-in ready to in need of real
+          work, can be a fit when the timeline or the situation calls for a simpler route.
+        </p>
+        <p>
+          There is no staging to arrange and no open houses to sit through. You share the property, the team reviews it,
+          and you decide whether a direct offer is right for you.
+        </p>
+      </EditorialSplit>
+
       {/* Full-bleed photographic statement before the closing ask */}
       <FeatureBand
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Exterior-scaled.jpg"
+        image="/projects/promise-ln-5142/5142-promise-ln-exterior-rear.jpg"
         eyebrow="A Simpler Path"
         title="Sell Quickly, On Your Terms"
         body="Skip the showings and the waiting. See what a direct offer looks like and move at the pace that works for you."

@@ -1,5 +1,6 @@
 import PageHero from '@/components/sections/PageHero';
 import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
 import RentalsGrid from '@/components/sections/RentalsGrid';
 import Cta from '@/components/ui/Cta';
 import Reveal from '@/components/ui/Reveal';
@@ -45,11 +46,49 @@ export default function Page() {
         </div>
       </section>
 
-      <FeatureBand
+      <EditorialSplit
         image="/wp-content/uploads/2025/12/1-Oceanfront-Oahu-vacation-rental-exterior-with-direct-beach-access.png"
+        imageAlt="Oceanfront Oahu vacation rental exterior with direct access to a sandy beach and open water"
         eyebrow="Designed Getaways"
         title="From Boise to the Oahu Shore"
-        body="Wake up to ocean views in a home shaped by the same hands behind our Treasure Valley builds."
+        cta="View All Stays"
+        href="/stay-with-us/"
+        tone="secondary"
+        ratio="landscape"
+      >
+        <p>
+          Wake up to ocean views in a home shaped by the same hands behind our Treasure Valley builds. Direct
+          beach access, wide horizons, and interiors that feel unmistakably ours.
+        </p>
+        <p>
+          It is a getaway and a portfolio piece in one, proof that Timber and Love design travels well beyond
+          Boise.
+        </p>
+      </EditorialSplit>
+
+      <EditorialSplit
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Living-Room-scaled.jpg"
+        imageAlt="Living room inside the restored historic Boise firehouse featured on HGTV Boise Boys"
+        eyebrow="Stay in a Story"
+        title="A Historic Firehouse, Reimagined"
+        reverse
+        tone="primary"
+        ratio="landscape"
+      >
+        <p>
+          Our restored Boise firehouse, featured on HGTV Boise Boys, keeps its original character while living
+          like a modern home. Soaring volume, warm materials, and thoughtful detail throughout.
+        </p>
+        <p>
+          It is one of the most distinctive places to stay in the city, and every corner reflects how we work.
+        </p>
+      </EditorialSplit>
+
+      <FeatureBand
+        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg"
+        eyebrow="Mountain Modern"
+        title="The Chalet Awaits"
+        body="Wake up to ocean views or mountain air in a home shaped by the same hands behind our Treasure Valley builds."
         align="left"
         height="short"
       />
