@@ -128,22 +128,28 @@ export type NavItem = {
 };
 
 /**
- * Restrained primary navigation. The "What We Do" mega-menu exposes the five
- * pathways as large, clearly labeled routes: core service paths are never
- * hidden inside confusing nested menus.
+ * Restrained primary navigation, weighted to the core positioning: Design +
+ * Build leads as a direct link, followed by the work, the process, and the
+ * story. The affiliated ventures (realty, cash offers, investing, vacation
+ * stays) and the HGTV story are real but secondary, so they live grouped under
+ * "More" rather than competing at the top level with the primary service.
  */
 export const mainNav: NavItem[] = [
-  {
-    label: 'What We Do',
-    children: pathways.map((p) => ({
-      label: p.label,
-      href: p.href,
-      description: p.blurb,
-    })),
-  },
+  { label: 'Design + Build', href: '/design-and-build/' },
   { label: 'Our Work', href: '/timber-and-love-gallery/' },
+  { label: 'Our Process', href: '/our-process/' },
   { label: 'Our Story', href: '/about/' },
-  { label: 'HGTV', href: '/the-boise-boys/' },
+  {
+    label: 'More',
+    children: [
+      { label: 'HGTV: The Boise Boys', href: '/the-boise-boys/', description: 'The Timber and Love story on HGTV.' },
+      { label: 'Financing', href: '/financing/', description: 'Ways to finance your design-build project.' },
+      // Affiliated ventures, kept available but subordinate to design + build.
+      ...pathways
+        .filter((p) => p.key !== 'design-build')
+        .map((p) => ({ label: p.label, href: p.href, description: p.blurb })),
+    ],
+  },
   { label: 'Contact', href: '/contact/' },
 ];
 

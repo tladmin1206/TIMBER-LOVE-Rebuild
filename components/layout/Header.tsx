@@ -126,7 +126,7 @@ export default function Header() {
             Get an Estimate
           </Link>
           <Link href="/contact/" className="btn-primary !px-6 !py-2.5 text-xs" data-track="header_contact">
-            How Can We Help?
+            Start a Conversation
           </Link>
         </div>
 
@@ -192,7 +192,7 @@ export default function Header() {
             )}
             <div className="mt-auto flex flex-col gap-3 py-6">
               <Link href="/contact/" onClick={() => setMobileOpen(false)} className="btn-primary w-full">
-                How Can We Help?
+                Start a Conversation
               </Link>
               <a href={site.phoneHref} className="btn-secondary w-full">Call {site.phone}</a>
               <a href={`mailto:${site.email}`} className="text-center text-xs normal-case tracking-normal text-cream/60">{site.email}</a>

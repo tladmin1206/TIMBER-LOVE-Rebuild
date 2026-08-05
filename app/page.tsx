@@ -7,7 +7,6 @@ import PartnershipsFeature from '@/components/sections/PartnershipsFeature';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import Reveal from '@/components/ui/Reveal';
-import Gallery from '@/components/ui/Gallery';
 import VideoBg from '@/components/ui/VideoBg';
 import ReviewSlider from '@/components/ui/ReviewSlider';
 import InlineVideo from '@/components/ui/InlineVideo';
@@ -19,13 +18,17 @@ import {
   processSteps,
   mission,
   clientReviews,
-  favoriteProjects,
   pressLogos,
   introVideoId,
   introVideoPoster,
   sectionVideos,
   hgtvShows,
 } from '@/lib/content/home';
+import { projects } from '@/lib/content/projects';
+
+// Lead the homepage with design-build case studies (the custom homes), the
+// clearest proof of the integrated design + build service.
+const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
 
 /**
  * Homepage sequence: orient → route → prove → demonstrate → reassure → convert.
@@ -194,18 +197,42 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Visual proof */}
+      {/* Featured design-build projects: the clearest proof of the integrated
+          service. Custom homes lead; the full portfolio is one click away. */}
       <section className="border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
-            <p className="eyebrow">See Our Work</p>
-            <h2 className="h-section mt-4">Some Of Our Favorite Boise Boys Projects</h2>
+            <p className="eyebrow">Featured Work</p>
+            <h2 className="h-section mt-4">Custom Homes, Designed and Built as One Team</h2>
+            <p className="text-lead mt-5">
+              A closer look at recent Timber and Love design-build homes across the Treasure Valley, where architecture,
+              interiors, and construction were resolved together from first concept to final detail.
+            </p>
           </Reveal>
-          <div className="mt-14">
-            <Gallery images={favoriteProjects} columns={3} />
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {featuredProjects.map((p, i) => (
+              <Reveal key={p.slug} delay={i * 90}>
+                <Link href={`/projects/${p.slug}/`} className="group card-interactive block h-full overflow-hidden">
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={p.cover}
+                      alt={`${p.title}: ${p.category} by Timber and Love`}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <p className="eyebrow">{p.style ?? p.category}</p>
+                    <h3 className="h-card mt-2">{p.title}</h3>
+                    <p className="mt-2 text-xs uppercase tracking-[0.14em] text-text-muted">{p.location}</p>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
           </div>
           <div className="mt-10">
-            <Link href="/timber-and-love-gallery/" className="btn-secondary">See All Images</Link>
+            <Link href="/timber-and-love-gallery/" className="btn-secondary">Explore the Full Portfolio</Link>
           </div>
         </div>
       </section>
