@@ -84,6 +84,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                 <dt className="text-text-muted">Scope</dt>
                 <dd className="text-right text-cream">{project.scope}</dd>
               </div>
+              {project.style && (
+                <div className="flex justify-between gap-4 border-b border-border-subtle pb-3">
+                  <dt className="text-text-muted">Style</dt>
+                  <dd className="text-right text-cream">{project.style}</dd>
+                </div>
+              )}
               {project.hgtv && (
                 <div className="flex justify-between gap-4">
                   <dt className="text-text-muted">Featured On</dt>
@@ -95,8 +101,43 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
+      {/* Design direction (editorial case-study fields, custom homes) */}
+      {project.designStory && (
+        <section className="border-t border-border-subtle bg-bg-secondary section">
+          <div className="container-wide grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-start">
+            <Reveal>
+              <p className="eyebrow">Design Direction</p>
+              <h2 className="h-section mt-4">A Cohesive Point of View</h2>
+              <p className="text-lead mt-6">{project.designStory}</p>
+            </Reveal>
+            <Reveal delay={100} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-1">
+              {project.materials && project.materials.length > 0 && (
+                <div>
+                  <p className="field-label">Materials &amp; Finishes</p>
+                  <ul className="mt-4 space-y-2 text-sm text-text-secondary">
+                    {project.materials.map((m) => (
+                      <li key={m} className="border-b border-border-subtle pb-2">{m}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {project.features && project.features.length > 0 && (
+                <div>
+                  <p className="field-label">Notable Features</p>
+                  <ul className="mt-4 space-y-2 text-sm text-text-secondary">
+                    {project.features.map((f) => (
+                      <li key={f} className="border-b border-border-subtle pb-2">{f}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </Reveal>
+          </div>
+        </section>
+      )}
+
       {/* Full gallery */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className={`border-t border-border-subtle section ${project.designStory ? 'bg-bg-primary' : 'bg-bg-secondary'}`}>
         <div className="container-wide">
           <Reveal className="mb-10">
             <p className="eyebrow">The Space</p>
