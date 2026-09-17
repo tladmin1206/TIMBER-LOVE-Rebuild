@@ -88,7 +88,13 @@ export default function Footer() {
             <h3 className="text-sm uppercase tracking-[0.18em] text-cream">{col.heading}</h3>
             <ul className="mt-6 space-y-3 text-sm text-text-secondary">
               {col.items.map((n) => (
-                <li key={n.label}><FooterLink {...n} /></li>
+                /* Props are passed explicitly rather than spread: `services`
+                   includes the pathway objects, which carry their own `key`
+                   field, and spreading it made React read that as the element
+                   key and warn on every render. */
+                <li key={n.label}>
+                  <FooterLink label={n.label} href={n.href} external={n.external} />
+                </li>
               ))}
             </ul>
           </nav>

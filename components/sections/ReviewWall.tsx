@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Reveal from '@/components/ui/Reveal';
+import SwipeRow, { SwipeItem } from '@/components/ui/SwipeRow';
 import Stars from '@/components/ui/Stars';
 import type { Testimonial } from '@/lib/content/types';
 import { googleReviews } from '@/lib/content/home';
@@ -52,31 +53,28 @@ export default function ReviewWall({
         </Reveal>
 
         {/* Desktop grid / mobile swipe carousel */}
-        <div className="mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 sm:grid sm:grid-cols-2 sm:overflow-visible lg:grid-cols-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <SwipeRow cols={3} gap="gap-5" className="mt-12">
           {reviews.map((r, i) => (
-            <Reveal
-              key={r.name}
-              as="figure"
-              delay={i * 60}
-              className="min-w-[82%] shrink-0 snap-start surface-card p-6 sm:min-w-0"
-            >
-              <div className="flex items-center justify-between">
-                <Stars rating={5} size="sm" />
-                <span className="text-[0.65rem] uppercase tracking-[0.14em] text-text-muted">Google</span>
-              </div>
-              <blockquote className="mt-4 text-sm leading-relaxed text-text-secondary">“{r.quote}”</blockquote>
-              <figcaption className="mt-5 flex items-center gap-3 border-t border-border-subtle pt-4">
-                <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent-soft text-sm text-accent">
-                  {r.name.charAt(0)}
-                </span>
-                <span>
-                  <span className="block text-sm text-cream">{r.name}</span>
-                  <span className="block text-xs uppercase tracking-[0.12em] text-text-muted">{r.role}</span>
-                </span>
-              </figcaption>
-            </Reveal>
+            <SwipeItem key={r.name}>
+              <Reveal as="figure" delay={i * 60} className="surface-card h-full p-6">
+                <div className="flex items-center justify-between">
+                  <Stars rating={5} size="sm" />
+                  <span className="text-[0.65rem] uppercase tracking-[0.14em] text-text-muted">Google</span>
+                </div>
+                <blockquote className="mt-4 text-sm leading-relaxed text-text-secondary">“{r.quote}”</blockquote>
+                <figcaption className="mt-5 flex items-center gap-3 border-t border-border-subtle pt-4">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent-soft text-sm text-accent">
+                    {r.name.charAt(0)}
+                  </span>
+                  <span>
+                    <span className="block text-sm text-cream">{r.name}</span>
+                    <span className="block text-xs uppercase tracking-[0.12em] text-text-muted">{r.role}</span>
+                  </span>
+                </figcaption>
+              </Reveal>
+            </SwipeItem>
           ))}
-        </div>
+        </SwipeRow>
 
         {moreHref && (
           <div className="mt-10">

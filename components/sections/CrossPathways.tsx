@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Reveal from '@/components/ui/Reveal';
+import SwipeRow, { SwipeItem } from '@/components/ui/SwipeRow';
 import { pathways } from '@/lib/site';
 
 /**
@@ -39,27 +40,29 @@ export default function CrossPathways({
           </h2>
           <p className="text-lead mt-5">{lede}</p>
         </Reveal>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        <SwipeRow className="mt-10">
           {items.map((p, i) => (
-            <Reveal key={p.key} delay={i * 90}>
-              <Link
-                href={p.href}
-                {...(p.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className="card-interactive group block h-full p-8"
-              >
-                <h3 className="h-card">{p.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-text-secondary">{p.blurb}</p>
-                <span className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-cream">
-                  {p.cta}
-                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
-                    →
+            <SwipeItem key={p.key}>
+              <Reveal delay={i * 90} className="h-full">
+                <Link
+                  href={p.href}
+                  {...(p.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  className="card-interactive group block h-full p-8"
+                >
+                  <h3 className="h-card">{p.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-text-secondary">{p.blurb}</p>
+                  <span className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-cream">
+                    {p.cta}
+                    <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+                      →
+                    </span>
+                    {p.external && <span className="sr-only"> (opens affiliated site in a new tab)</span>}
                   </span>
-                  {p.external && <span className="sr-only"> (opens affiliated site in a new tab)</span>}
-                </span>
-              </Link>
-            </Reveal>
+                </Link>
+              </Reveal>
+            </SwipeItem>
           ))}
-        </div>
+        </SwipeRow>
       </div>
     </section>
   );

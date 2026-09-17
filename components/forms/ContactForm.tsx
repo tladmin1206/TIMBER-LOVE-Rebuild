@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Spinner from '@/components/ui/Spinner';
 import { site } from '@/lib/site';
 
 const PHONE = site.phone;
@@ -98,7 +99,13 @@ export default function ContactForm({ source = 'website', compact = false }: Pro
       {/* Honeypot for spam bots */}
       <input type="text" name="company_website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
       {status === 'error' && <p className="field-error" role="alert">{error}</p>}
-      <button type="submit" disabled={status === 'submitting'} className="btn-primary w-full disabled:opacity-60">
+      <button
+        type="submit"
+        disabled={status === 'submitting'}
+        aria-busy={status === 'submitting'}
+        className="btn-primary w-full"
+      >
+        {status === 'submitting' && <Spinner />}
         {status === 'submitting' ? 'Sending…' : 'Submit'}
       </button>
     </form>

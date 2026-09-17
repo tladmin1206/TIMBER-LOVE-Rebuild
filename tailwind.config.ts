@@ -85,6 +85,10 @@ const config: Config = {
       animation: {
         fadeUp: 'fadeUp 0.7s ease-out both',
         fadeIn: 'fadeIn 0.8s ease-out both',
+        // Content swap inside an already-visible container (filter and tab
+        // changes). Deliberately much faster than `fadeIn`: the visitor asked
+        // for this content, so it must not feel withheld.
+        fadeInFast: 'fadeIn 260ms ease-out both',
         marquee: 'marquee 30s linear infinite',
       },
     },

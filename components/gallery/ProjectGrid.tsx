@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { projects, projectFilters, type ProjectTag } from '@/lib/content/projects';
@@ -15,6 +15,7 @@ export default function ProjectGrid() {
   const [active, setActive] = useState<FilterKey>(
     projectFilters.some((f) => f.key === initial) ? initial : 'all'
   );
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   const select = (key: FilterKey) => {
     setActive(key);
@@ -26,21 +27,49 @@ export default function ProjectGrid() {
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
   };
 
+  /**
+   * Arrow-key navigation, required by the tablist pattern this markup claims.
+   * Without it a keyboard user could reach the first tab and then only leave
+   * the group, never move within it: the role promised behaviour the component
+   * did not implement. Focus follows selection, which is the correct variant
+   * here because switching filters is instant and has no cost.
+   */
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    const last = projectFilters.length - 1;
+    const current = projectFilters.findIndex((f) => f.key === active);
+    let next = -1;
+    if (e.key === 'ArrowRight') next = current === last ? 0 : current + 1;
+    else if (e.key === 'ArrowLeft') next = current === 0 ? last : current - 1;
+    else if (e.key === 'Home') next = 0;
+    else if (e.key === 'End') next = last;
+    else return;
+    e.preventDefault();
+    select(projectFilters[next].key as FilterKey);
+    tabRefs.current[next]?.focus();
+  };
+
   const visible = active === 'all' ? projects : projects.filter((p) => p.tags.includes(active as ProjectTag));
 
   return (
     <div>
       {/* Filter tabs */}
-      <div role="tablist" aria-label="Filter projects" className="flex flex-wrap gap-2">
-        {projectFilters.map((f) => {
+      <div role="tablist" aria-label="Filter projects" onKeyDown={onKeyDown} className="flex flex-wrap gap-2">
+        {projectFilters.map((f, i) => {
           const on = active === f.key;
           return (
             <button
               key={f.key}
+              ref={(el) => {
+                tabRefs.current[i] = el;
+              }}
               role="tab"
               aria-selected={on}
-              onClick={() => select(f.key)}
-              className={`border px-4 py-2 text-xs uppercase tracking-[0.14em] transition-colors ${
+              aria-controls="project-results"
+              /* Roving tabindex: the group is one tab stop, and arrow keys move
+                 within it. */
+              tabIndex={on ? 0 : -1}
+              onClick={() => select(f.key as FilterKey)}
+              className={`min-h-[40px] border px-4 py-2 text-xs uppercase tracking-[0.14em] transition-[color,background-color,border-color,transform] duration-300 ease-out active:scale-[0.97] active:duration-75 ${
                 on ? 'border-accent bg-accent-soft text-cream' : 'border-border-subtle text-text-secondary hover:border-cream hover:text-cream'
               }`}
             >
@@ -50,8 +79,21 @@ export default function ProjectGrid() {
         })}
       </div>
 
-      {/* Project cards */}
-      <div className="mt-8 grid gap-6 md:grid-cols-2" aria-live="polite">
+      {/* Project cards.
+          Keying the grid on the active filter remounts it, so the incoming set
+          fades in as one group instead of cards mutating in place, which read
+          as a glitch when both the count and the order changed. The fade is
+          260ms and carries no delay: the content is present on the first frame
+          and only its opacity is animated, so nothing is withheld from a
+          reader. Under reduced motion the global rule collapses it to an
+          instant swap. */}
+      <div
+        key={active}
+        id="project-results"
+        role="tabpanel"
+        aria-live="polite"
+        className="mt-8 grid animate-fadeInFast gap-6 md:grid-cols-2"
+      >
         {visible.map((p) => (
           <Link
             key={p.slug}
@@ -84,22 +126,23 @@ export default function ProjectGrid() {
             </div>
           </Link>
         ))}
-      </div>
 
-      {/* Empty state: says what happened, and offers a way out rather than
-          leaving the visitor at a dead end. */}
-      {visible.length === 0 && (
-        <div className="surface-card mt-8 p-10 text-center" role="status">
-          <p className="h-card">Nothing Here Yet</p>
-          <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-text-secondary">
-            We have not published a project in this category yet. The rest of our work is worth a look in the
-            meantime.
-          </p>
-          <button type="button" onClick={() => select('all')} className="btn-secondary mt-6">
-            View All Projects
-          </button>
-        </div>
-      )}
+        {/* Empty state: says what happened, and offers a way out rather than
+            leaving the visitor at a dead end. Inside the panel so it fades in
+            with everything else. */}
+        {visible.length === 0 && (
+          <div className="surface-card p-10 text-center md:col-span-2" role="status">
+            <p className="h-card">Nothing Here Yet</p>
+            <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-text-secondary">
+              We have not published a project in this category yet. The rest of our work is worth a look in the
+              meantime.
+            </p>
+            <button type="button" onClick={() => select('all')} className="btn-secondary mt-6">
+              View All Projects
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

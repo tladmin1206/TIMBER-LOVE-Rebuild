@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import Spinner from '@/components/ui/Spinner';
 import { scrollToStep } from '@/lib/scrollToStep';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
@@ -299,7 +300,14 @@ export default function ProjectInquiry() {
       <div className="sticky bottom-16 z-10 mt-10 flex items-center justify-between gap-4 border-t border-border-subtle bg-bg-primary/95 py-4 backdrop-blur xl:bottom-0">
         <button onClick={goBack} disabled={stepIndex === 0} className="btn-secondary disabled:opacity-40">Back</button>
         {step.id === 'review' ? (
-          <button onClick={submit} disabled={status === 'submitting'} className="btn-primary disabled:opacity-60" data-track="inquiry_submit">
+          <button
+            onClick={submit}
+            disabled={status === 'submitting'}
+            aria-busy={status === 'submitting'}
+            className="btn-primary"
+            data-track="inquiry_submit"
+          >
+            {status === 'submitting' && <Spinner />}
             {status === 'submitting' ? 'Sending…' : 'Submit Inquiry'}
           </button>
         ) : (

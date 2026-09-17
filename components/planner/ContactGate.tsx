@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Spinner from '@/components/ui/Spinner';
 
 /**
  * The contact gate. Spec Part II § 6.
@@ -202,7 +203,8 @@ export default function ContactGate({
             </button>
           )}
 
-          <button type="submit" disabled={submitting} className="btn-primary w-full disabled:opacity-60">
+          <button type="submit" disabled={submitting} aria-busy={submitting} className="btn-primary w-full">
+            {submitting && <Spinner />}
             {submitting ? 'Preparing…' : pricingLive ? 'See my planning range' : 'Show my project summary'}
           </button>
 

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Reveal from '@/components/ui/Reveal';
+import SwipeRow, { SwipeItem } from '@/components/ui/SwipeRow';
 import darla from '@/content/the-darla-house.json';
 import firehouse from '@/content/the-firehouse.json';
 import chinamans from '@/content/chinamans-beach-house.json';
@@ -44,23 +45,25 @@ const rentals: Card[] = [
 
 export default function RentalsGrid() {
   return (
-    <div className="grid gap-8 md:grid-cols-2">
+    <SwipeRow gap="gap-8">
       {rentals.map((r, i) => (
-        <Reveal key={r.href} delay={i * 90}>
-          <Link href={r.href} className="group card-interactive block overflow-hidden bg-surface/40">
-            <div className="relative aspect-[16/10] overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={r.image} alt={r.name} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
-            </div>
-            <div className="p-7">
-              <h3 className="h-card">{r.name}</h3>
-              <p className="mt-1 text-xs uppercase tracking-[0.18em] text-cream/60">{r.location}</p>
-              <p className="mt-3 text-sm leading-relaxed text-body">{r.blurb}</p>
-              <span className="mt-5 inline-block text-xs uppercase tracking-[0.16em] text-cream link-underline">View Details →</span>
-            </div>
-          </Link>
-        </Reveal>
+        <SwipeItem key={r.href}>
+          <Reveal delay={i * 90} className="h-full">
+            <Link href={r.href} className="group card-interactive flex h-full flex-col overflow-hidden bg-surface/40">
+              <div className="relative aspect-[16/10] overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={r.image} alt={r.name} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+              </div>
+              <div className="p-7">
+                <h3 className="h-card">{r.name}</h3>
+                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-cream/60">{r.location}</p>
+                <p className="mt-3 text-sm leading-relaxed text-body">{r.blurb}</p>
+                <span className="mt-5 inline-block text-xs uppercase tracking-[0.16em] text-cream link-underline">View Details →</span>
+              </div>
+            </Link>
+          </Reveal>
+        </SwipeItem>
       ))}
-    </div>
+    </SwipeRow>
   );
 }

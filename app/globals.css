@@ -116,8 +116,23 @@
   }
 
   /* --- CTA / button system: three deliberate levels --- */
+  /* Transitions name their properties rather than using `all`: `all` would
+     animate layout-affecting values and cost a frame on every hover. The
+     pressed state is a real affordance on touch, where there is no hover to
+     confirm the tap landed, so it is defined on the base class and inherited
+     by every level. */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm uppercase tracking-[0.15em] font-medium transition-colors duration-300 cursor-pointer min-h-[44px];
+    @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm uppercase tracking-[0.15em] font-medium cursor-pointer min-h-[44px];
+    @apply transition-[color,background-color,border-color,opacity,transform] duration-300 ease-out;
+    @apply active:scale-[0.985] active:duration-75;
+    @apply disabled:cursor-not-allowed disabled:opacity-60 disabled:active:scale-100;
+  }
+  /* Pending action: the cursor and the dimmed fill say "in flight" while the
+     label keeps saying what is happening, and the press effect is suppressed so
+     a second tap does not appear to register. Keyed off aria-busy so the
+     accessible state and the visual state cannot drift apart. */
+  .btn[aria-busy='true'] {
+    @apply cursor-wait opacity-80 active:scale-100;
   }
   /* Primary: the main conversion action: white button, dark text. */
   .btn-primary {
@@ -149,7 +164,10 @@
   /* Interactive (clickable) card: subtle lift + border brighten on hover.
      Stays true to the flat, editorial aesthetic (no heavy shadows). */
   .card-interactive {
-    @apply border border-border-subtle transition-all duration-300 hover:-translate-y-1 hover:border-cream/40;
+    @apply border border-border-subtle duration-300 ease-out hover:-translate-y-1 hover:border-cream/40;
+    @apply transition-[border-color,transform,box-shadow];
+    /* Touch has no hover, so the press itself has to confirm the tap. */
+    @apply active:translate-y-0 active:scale-[0.995] active:duration-75;
   }
 
   /* --- Primitives the system had never defined ---
