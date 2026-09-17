@@ -255,31 +255,16 @@ const WHOLE_HOME = {
   elevated: { low: 150, high: 225, basis: 'per-sqft' as const },
   bespoke: { low: 195, high: 290, basis: 'per-sqft' as const },
 };
-// Kitchen bespoke LOW lowered 125,000 -> 112,000 so the band contains the
-// line-item build-up, which every other case in the table already satisfies.
-// The convention here is that the build-up sits at or just above a band's low
-// edge: whole-home build-up $116/$151/$200 against lows $115/$150/$195, and
-// kitchen signature and elevated sit 22% and 15% above their own lows. Kitchen
-// bespoke was the only case inverted, with the build-up $112,441 falling BELOW
-// a $125,000 floor, which is what verify-assembly-reconcile was flagging. The
-// band's own tier progression showed the same outlier: lows stepped x1.458 from
-// signature to elevated, then x1.786 to bespoke, while the build-up steps
-// x1.372 and x1.397.
-//
-// Only the floor moved, and only as far as the build-up; the 190,000 ceiling is
-// untouched, so the top of the quoting range is unchanged. These bands are
-// DERIVED rather than validated against a standalone real kitchen total, which
-// is why the build-up is the better evidence.
-//
-// This LOWERS a live homeowner-facing floor by ~10% and NEEDS LEADERSHIP
-// SIGN-OFF. The competing reading is that the floor was right and the bespoke
-// build-up is under-scoped, which would be corrected in
-// pricing/assembly/templates.ts instead; kitchen bespoke currently adds only
-// one tier-gated entry (feature-wall) over elevated.
+// Kitchen bespoke floor HELD at 125,000 by direction. verify-assembly-reconcile
+// was flagging this case because the build-up came in at $112,441, below the
+// floor; the resolution was that the floor is right and the bespoke build-up
+// was under-scoped, so the missing scope was added in
+// pricing/assembly/templates.ts rather than the band being lowered here. Do not
+// lower this floor to satisfy the reconciliation: correct the template.
 const KITCHEN = {
   signature: { low: 48_000, high: 74_000, basis: 'flat' as const },
   elevated: { low: 70_000, high: 102_000, basis: 'flat' as const },
-  bespoke: { low: 112_000, high: 190_000, basis: 'flat' as const },
+  bespoke: { low: 125_000, high: 190_000, basis: 'flat' as const },
 };
 const BATH = {
   signature: { low: 19_000, high: 29_000, basis: 'flat' as const },

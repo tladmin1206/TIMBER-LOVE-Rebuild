@@ -57,6 +57,27 @@ const KITCHEN: ScopeEntry[] = [
   { key: 'trim', codes: ['03-18-02-M', '03-18-02-L'], qty: (t) => t.trimLf },
   { key: 'interior-door', codes: ['03-18-01-M', '03-18-01-L'], qty: (t) => t.doorCount },
   { key: 'feature-wall', codes: ['03-18-04-M', '03-18-04-L'], qty: (t) => Math.min(t.wallSqFt * 0.2, 60), tiers: TOP },
+  // Bespoke-only millwork and specialty elements.
+  //
+  // Added because the bespoke build-up was reconciling BELOW the band floor
+  // while every other case sat at or above its own: bespoke was reaching only
+  // x1.40 over elevated, against x1.79 in the band. The cause was scope, not
+  // the band. TIER_QUALITY_FACTOR buys pricier versions of what a tier already
+  // has, and it is deliberately diluted by tier-neutral labor, so on its own it
+  // can never express the things a bespoke kitchen has that an elevated one
+  // simply does not. Before this, bespoke added exactly one entry over
+  // elevated (the feature wall above), and the template had no pantry,
+  // specialty metal, open shelving or stone scope at any tier.
+  //
+  // Each entry is distinct work, not a richer version of a line already here:
+  // the backsplash entry is tile only, and nothing else in this template bills
+  // closets, specialty metals or floating shelves. Quantities are proportions
+  // of the existing takeoff so they scale with the room rather than being
+  // fixed to the size that happened to reconcile.
+  { key: 'pantry-fitout', codes: ['03-17-05-M', '03-17-05-L'], qty: (t) => Math.round(t.cabinetLf * 0.5), tiers: TOP, note: 'butler/walk-in pantry shelving' },
+  { key: 'stone-alcove', codes: ['03-16-02-M', '03-16-02-L'], qty: (t) => Math.round(t.tileSqFt * 0.5), tiers: TOP, note: 'full-height stone at range/hood wall' },
+  { key: 'custom-metals', codes: ['03-21-07-M', '03-21-07-L'], qty: (t) => Math.round(t.areaSqFt * 0.1), tiers: TOP, note: 'hood surround, brackets, alcove trim' },
+  { key: 'floating-shelves', codes: ['03-21-04-M', '03-21-04-L'], qty: (t) => Math.round(t.cabinetLf * 0.4), tiers: TOP, note: 'open shelving' },
   // Site support (duration-driven)
   { key: 'dumpster', codes: ['03-02-06'], qty: (t) => t.durationMonths },
   { key: 'daily-clean', codes: ['03-02-07'], qty: (t) => t.durationMonths },
