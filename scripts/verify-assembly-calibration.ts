@@ -61,7 +61,7 @@ for (const r of refs) {
   const calibrated = r.calibrated !== false;
   const e = estimate(r.answers, r.property, { ruleset: CALIBRATED_RULESET, now: NOW, production: false, basis: new AssemblyBasis() });
   if (!e.range) {
-    console.log(`  ${r.name}\n    no range: ${e.outcome} — ${e.diagnostics.join('; ')}`);
+    console.log(`  ${r.name}\n    no range: ${e.outcome}; ${e.diagnostics.join('; ')}`);
     if (calibrated) failures += 1;
     continue;
   }

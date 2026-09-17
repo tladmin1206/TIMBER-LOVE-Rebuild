@@ -94,5 +94,5 @@ for (const [type, scns] of Object.entries(SCENARIOS) as [ProjectType, Scn[]][]) 
   for (let i = 1; i < el.length; i++) check(el[i] >= el[i - 1], `${type}: size monotonicity broken (${fmt(el[i])} < ${fmt(el[i - 1])})`);
 }
 
-console.log(`\n${failures === 0 ? 'OK — all scenario assertions passed.' : `${failures} assertion(s) FAILED.`}`);
+console.log(`\n${failures === 0 ? 'OK: all scenario assertions passed.' : `${failures} assertion(s) FAILED.`}`);
 process.exit(failures === 0 ? 0 : 1);

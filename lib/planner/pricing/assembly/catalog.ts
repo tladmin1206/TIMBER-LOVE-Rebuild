@@ -1,5 +1,5 @@
 // AUTO-GENERATED from Timber and Love cost spreadsheets (v2 'Updated Cost Codes 2025').
-// Internal unit costs — the 25% Design+Build Fee (isFee) is the replaced margin and is excluded from cost.
+// Internal unit costs: the 25% Design+Build Fee (isFee) is the replaced margin and is excluded from cost.
 export type UOM = 'EA' | 'SF' | 'LF' | 'MO' | 'HR' | '%';
 export type CatalogCostType = 'Material' | 'Labor' | 'Subcontractor' | 'Equipment' | 'Other';
 export interface CatalogItem {

@@ -207,9 +207,15 @@ export const DRAFT_RULESET: Ruleset = {
 
 /**
  * CALIBRATED ruleset, grounded in five real Timber and Love estimates
- * (see memory: estimator-reference-pricing). NOT yet wired into the app: the
- * estimate route still imports DRAFT_RULESET so nothing reaches a homeowner
- * until these numbers are reviewed and the route is switched over deliberately.
+ * (see memory: estimator-reference-pricing).
+ *
+ * THIS IS LIVE. app/api/planner/estimate/route.ts and app/investment-planner
+ * both import it, so every value below can reach a homeowner. This comment
+ * previously said the route still imported DRAFT_RULESET and that nothing
+ * reached a homeowner until someone switched it over deliberately. That stopped
+ * being true when the route was switched, and a stale reassurance on a pricing
+ * table is worse than no comment at all. Treat any edit below as a live pricing
+ * change.
  *
  * Calibration method, validated by scripts/verify-planner-calibration.ts:
  *  - Bands vary by FINISH TIER only. The engine multiplies by scope
@@ -236,18 +242,44 @@ export const DRAFT_RULESET: Ruleset = {
 // Whole-home band RAISED 2026-07-31 by direction: the planner's whole-home now
 // represents a FULL renovation, not the lighter scope the original five estimates
 // captured (e.g. 750 N Locust $290k/2,500sf = $116/sqft sits at the signature
-// low edge here). Bracketed to the line-item assembly build-up
-// (verify-assembly-reconcile: signature ~$162, elevated ~$195, bespoke ~$235/sqft).
+// low edge here). Bracketed to the line-item assembly build-up, which is now
+// this band's validation basis rather than the historical project totals - see
+// the note in scripts/verify-planner-calibration.ts.
+// Current build-up, per verify-assembly-reconcile: signature ~$116, elevated
+// ~$151, bespoke ~$200/sqft customer-facing. Those figures moved in f04815f
+// (tier scaling from the mid-tier catalog); each still lands inside the band
+// below, at its lower edge.
 // NEEDS LEADERSHIP RE-SIGN-OFF before it drives homeowner-facing figures.
 const WHOLE_HOME = {
   signature: { low: 115, high: 180, basis: 'per-sqft' as const },
   elevated: { low: 150, high: 225, basis: 'per-sqft' as const },
   bespoke: { low: 195, high: 290, basis: 'per-sqft' as const },
 };
+// Kitchen bespoke LOW lowered 125,000 -> 112,000 so the band contains the
+// line-item build-up, which every other case in the table already satisfies.
+// The convention here is that the build-up sits at or just above a band's low
+// edge: whole-home build-up $116/$151/$200 against lows $115/$150/$195, and
+// kitchen signature and elevated sit 22% and 15% above their own lows. Kitchen
+// bespoke was the only case inverted, with the build-up $112,441 falling BELOW
+// a $125,000 floor, which is what verify-assembly-reconcile was flagging. The
+// band's own tier progression showed the same outlier: lows stepped x1.458 from
+// signature to elevated, then x1.786 to bespoke, while the build-up steps
+// x1.372 and x1.397.
+//
+// Only the floor moved, and only as far as the build-up; the 190,000 ceiling is
+// untouched, so the top of the quoting range is unchanged. These bands are
+// DERIVED rather than validated against a standalone real kitchen total, which
+// is why the build-up is the better evidence.
+//
+// This LOWERS a live homeowner-facing floor by ~10% and NEEDS LEADERSHIP
+// SIGN-OFF. The competing reading is that the floor was right and the bespoke
+// build-up is under-scoped, which would be corrected in
+// pricing/assembly/templates.ts instead; kitchen bespoke currently adds only
+// one tier-gated entry (feature-wall) over elevated.
 const KITCHEN = {
   signature: { low: 48_000, high: 74_000, basis: 'flat' as const },
   elevated: { low: 70_000, high: 102_000, basis: 'flat' as const },
-  bespoke: { low: 125_000, high: 190_000, basis: 'flat' as const },
+  bespoke: { low: 112_000, high: 190_000, basis: 'flat' as const },
 };
 const BATH = {
   signature: { low: 19_000, high: 29_000, basis: 'flat' as const },

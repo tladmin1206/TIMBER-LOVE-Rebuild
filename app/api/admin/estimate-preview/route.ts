@@ -6,7 +6,7 @@ import type { PlannerAnswers, PropertyFacts } from '@/lib/planner/types';
 
 /**
  * INTERNAL admin endpoint. Runs the assembly engine and returns the FULL
- * result including the per-trade line-item breakdown and execution trace —
+ * result including the per-trade line-item breakdown and execution trace:
  * everything the homeowner never sees. Gated by ADMIN_TOKEN because it exposes
  * internal unit costs and margins.
  *
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
     enrichmentSource: body.property?.enrichmentSource ?? 'MANUAL',
   };
 
-  // production:false bypasses the sign-off gate — this is an internal preview,
+  // production:false bypasses the sign-off gate: this is an internal preview,
   // never a homeowner-facing figure.
   const result = estimate(body.answers, property, {
     ruleset: CALIBRATED_RULESET,
@@ -46,7 +46,7 @@ export async function POST(req: Request) {
     basis: new AssemblyBasis(),
   });
 
-  // Full internal payload — trace + assembly breakdown included on purpose.
+  // Full internal payload: trace + assembly breakdown included on purpose.
   return NextResponse.json({
     outcome: result.outcome,
     range: result.range,

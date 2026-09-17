@@ -2,11 +2,23 @@
 /**
  * Calibration validation.
  *
- * Runs the five real Timber and Love reference estimates through the ACTUAL
- * pricing engine with CALIBRATED_RULESET and asserts the output range brackets
- * each real project total. This is what makes the calibrated numbers grounded
- * rather than guessed: the engine's output, after every multiplier and
- * contingency, must contain the price the project actually came in at.
+ * Runs the real Timber and Love reference estimates through the ACTUAL pricing
+ * engine with CALIBRATED_RULESET. For every scenario marked `validate`, the
+ * output range must bracket the real project total. This is what makes those
+ * numbers grounded rather than guessed: the engine's output, after every
+ * multiplier and contingency, must contain the price the project actually came
+ * in at.
+ *
+ * The whole-home references are no longer among them. Commit 65771cb redefined
+ * whole-home as a FULL renovation and raised the band by direction, so the
+ * remodel references - which captured a lighter scope at ~$116/sqft - describe
+ * a different product than the band now prices. They still print, because the
+ * delta is worth seeing, but they no longer assert. The whole-home band is
+ * validated against the line-item assembly build-up instead, in
+ * scripts/verify-assembly-reconcile.ts.
+ *
+ * What still asserts here is new construction, where the references and the
+ * bands describe the same thing.
  *
  * Reference data: memory/estimator-reference-pricing.md
  * Run: npx tsx scripts/verify-planner-calibration.ts
@@ -41,7 +53,25 @@ const scenarios: Scenario[] = [
     answers: { mode: 'A', projectType: 'whole-home', scopeLevel: 'rebuild', finishTier: 'elevated', goals: [] },
     property: { ...core, yearBuilt: 1965, finishedSqFt: 2500, enrichmentSource: 'MANUAL', occupiedDuringConstruction: false },
     realTotal: 290_307,
-    validate: true,
+    // Informational since 65771cb, which redefined the planner's whole-home as
+    // a FULL renovation by direction and raised the band to match. This
+    // reference captures the lighter scope of the original five estimates
+    // ($116/sqft), so it can no longer bracket a band that deliberately models
+    // something heavier, and the assertion is unsatisfiable at this project's
+    // real scope: a gut remodel is `rebuild`, and the band floor of $115/sqft
+    // times the 1.42 rebuild multiplier is already $163/sqft before age and
+    // escalation. Nothing here is tuned to make it pass - the inputs still
+    // describe the project as it was.
+    //
+    // Do NOT lower the WHOLE_HOME band to close this gap: that would undo a
+    // deliberate pricing decision and make the planner under-quote full
+    // renovations. The whole-home band's validation basis moved with that
+    // commit, from bracketing historical totals to bracketing the line-item
+    // assembly build-up, which scripts/verify-assembly-reconcile.ts checks.
+    // Restoring a real bracket test here needs a reference project actually
+    // built at full-renovation scope.
+    validate: false,
+    note: 'lighter scope than the redefined whole-home band (see 65771cb); band now validated by verify-assembly-reconcile',
   },
   {
     name: 'Workland - new custom MCM home, ~3,200 sf (high-end)',
@@ -128,7 +158,7 @@ function run(list: Scenario[], header: string) {
 }
 
 console.log('\nCALIBRATION VALIDATION - reference totals through the real engine');
-run(scenarios, 'Validated against real project totals');
+run(scenarios, 'Reference projects (PASS/FAIL asserts a bracket; INFO prints only)');
 run(derived, 'Derived bands (sanity review only, not bracket-tested)');
 
 console.log(`\n${failures === 0 ? 'All validated scenarios bracket their real total.' : `${failures} validated scenario(s) failed to bracket.`}\n`);

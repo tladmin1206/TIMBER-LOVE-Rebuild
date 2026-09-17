@@ -3,7 +3,7 @@
  *
  * Spreadsheet unit costs EXCLUDE Timber and Love's margin (the "25% Design +
  * Build Fee" line in the catalog is the legacy markup and is dropped from the
- * cost build-up — see catalog `isFee`). We convert internal cost to a
+ * cost build-up, see catalog `isFee`). We convert internal cost to a
  * customer-facing figure with a TRUE GROSS MARGIN, not a markup:
  *
  *     customer = cost / (1 - grossMargin)      // 30% GM -> cost / 0.70

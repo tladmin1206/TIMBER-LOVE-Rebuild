@@ -6,7 +6,7 @@ import AdminNav from '../AdminNav';
 /**
  * INTERNAL estimator inspector. Runs the assembly engine live and shows the
  * full per-trade breakdown (expandable to child line items), margin, and
- * derivation — the detail the homeowner never sees. Access is gated by the
+ * derivation: the detail the homeowner never sees. Access is gated by the
  * admin session (middleware); no database needed, this computes on the fly.
  */
 
@@ -73,7 +73,7 @@ export default function AdminEstimator() {
     <main className="mx-auto min-h-screen max-w-5xl bg-neutral-100 p-6 text-neutral-900">
       <AdminNav />
       <h1 className="text-2xl font-semibold">Internal Estimator · per-trade breakdown</h1>
-      <p className="mt-1 text-sm text-neutral-600">Assembly engine, live. Internal costs + margin — not for homeowners.</p>
+      <p className="mt-1 text-sm text-neutral-600">Assembly engine, live. Internal costs + margin, not for homeowners.</p>
 
       <div className="mt-6 flex flex-wrap items-end gap-3 rounded-lg bg-white p-4 shadow-sm">
         <label className="flex flex-col gap-1 text-xs font-medium text-neutral-600">Project
@@ -153,8 +153,8 @@ export default function AdminEstimator() {
             <details className="rounded-lg bg-white p-4 text-sm shadow-sm">
               <summary className="cursor-pointer font-medium">Derivation &amp; adjustments</summary>
               <div className="mt-3 space-y-1 text-xs text-neutral-600">
-                {result.trace.multipliers.map((m) => <div key={m.id}>× {m.value} — {m.id} ({m.rationale})</div>)}
-                {result.trace.adders.map((a) => <div key={a.id}>+ {money(a.amount.low)}–{money(a.amount.high)} — {a.id} ({a.rationale})</div>)}
+                {result.trace.multipliers.map((m) => <div key={m.id}>× {m.value} · {m.id} ({m.rationale})</div>)}
+                {result.trace.adders.map((a) => <div key={a.id}>+ {money(a.amount.low)}–{money(a.amount.high)} · {a.id} ({a.rationale})</div>)}
                 <div>contingency {Math.round(result.trace.contingencyPct * 100)}%</div>
                 <div className="mt-2 border-t border-neutral-200 pt-2">{result.trace.steps.map((s, i) => <div key={i}>{s}</div>)}</div>
               </div>

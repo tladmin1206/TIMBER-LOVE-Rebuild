@@ -27,7 +27,7 @@ const ALL: FinishTier[] = ['signature', 'elevated', 'bespoke'];
 const MID_UP: FinishTier[] = ['elevated', 'bespoke'];
 const TOP: FinishTier[] = ['bespoke'];
 
-/** Design-build team labor hours (PM, design, supervision) — the firm's own time. */
+/** Design-build team labor hours (PM, design, supervision): the firm's own time. */
 function teamHours(t: Takeoff, perSqFt: number): number {
   return Math.round(t.areaSqFt * perSqFt);
 }
@@ -48,7 +48,7 @@ const KITCHEN: ScopeEntry[] = [
   // Electrical + lighting
   { key: 'electrical', codes: ['03-09-04-M', '03-09-08-L'], qty: (t) => t.areaSqFt },
   { key: 'decorative-lighting', codes: ['03-09-06-M'], qty: (t) => t.areaSqFt, tiers: MID_UP },
-  // Surfaces — signature uses LVP, elevated/bespoke step up to hardwood
+  // Surfaces: signature uses LVP, elevated/bespoke step up to hardwood
   { key: 'flooring-lvp', codes: ['03-15-02-M', '03-15-02-L'], qty: (t) => t.areaSqFt, tiers: ['signature'] },
   { key: 'flooring-hardwood', codes: ['03-15-01-M', '03-15-01-L'], qty: (t) => t.areaSqFt, tiers: MID_UP },
   { key: 'backsplash-tile', codes: ['03-16-01-M', '03-16-01-L'], qty: (t) => t.tileSqFt },
@@ -66,7 +66,7 @@ const KITCHEN: ScopeEntry[] = [
   { key: 'permits', codes: ['03-01-01'], qty: () => 1 },
   { key: 'as-builts', codes: ['01-00-05'], qty: (t) => t.areaSqFt },
   { key: 'architecture-dd', codes: ['02-00-01'], qty: (t) => t.areaSqFt },
-  // Design-build team time (the firm's own labor — PM, design, supervision)
+  // Design-build team time (the firm's own labor: PM, design, supervision)
   { key: 'team-labor', codes: ['L-03-00'], qty: (t) => teamHours(t, 0.3) },
 ];
 
@@ -229,8 +229,8 @@ export const TEMPLATES: Partial<Record<ProjectType, ScopeEntry[]>> = {
 /**
  * Finish-tier multiplier. The catalog "Average Cost" is the ELEVATED (mid) tier,
  * so elevated = 1.0 (catalog as-is) and the other tiers are calculated from it.
- * It scales the QUALITY-DRIVEN costs — materials, subcontractors, fixtures and
- * equipment — because a bespoke project buys pricier finishes, fixtures and
+ * It scales the QUALITY-DRIVEN costs (materials, subcontractors, fixtures and
+ * equipment) because a bespoke project buys pricier finishes, fixtures and
  * trade packages. Pure install LABOR stays tier-neutral (a carpenter's rate is
  * the same regardless of the cabinet grade). Larger tier spread on top of this
  * comes from tier-gated scope (islands, custom hoods, feature walls, etc.).

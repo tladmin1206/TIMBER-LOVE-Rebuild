@@ -70,4 +70,4 @@ for (const { type, tiers, sqft } of CASES) {
     );
   }
 }
-console.log(`\n${flags === 0 ? `OK — all ${total} cases in/near band.` : `${flags}/${total} cases OUT OF BAND — recalibrate.`}`);
+console.log(`\n${flags === 0 ? `OK: all ${total} cases in/near band.` : `${flags}/${total} cases OUT OF BAND, recalibrate.`}`);
