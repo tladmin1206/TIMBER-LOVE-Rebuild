@@ -119,7 +119,7 @@ export default function Page() {
       </EditorialSplit>
 
       {/* General inquiry: form plus primary customer contact details */}
-      <section id="general" className="section-paper border-t border-border-subtle bg-bg-secondary section">
+      <section id="general" className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <p className="eyebrow">General Inquiry</p>
@@ -193,7 +193,7 @@ export default function Page() {
       </section>
 
       {/* Press & Partnerships: kept separate from customer contact routing */}
-      <section id="press" className="section-paper border-t border-border-subtle bg-bg-secondary section">
+      <section id="press" className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">Press & Partnerships</p>

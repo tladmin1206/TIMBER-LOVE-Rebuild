@@ -126,7 +126,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="section-paper section border-t border-border-subtle" aria-labelledby="how-heading">
+      <section className="section-tonal section border-t border-border-subtle" aria-labelledby="how-heading">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">How It Works</p>

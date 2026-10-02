@@ -254,14 +254,12 @@
   --tl-cream: 250 250 250; --tl-copy: 213 211 207; --tl-muted: 169 166 161;
   --tl-border: 63 62 60; --tl-on-accent: 11 11 12;
 }
-.section-paper {
-  --tl-bg: 242 238 231; --tl-secondary: 234 228 219; --tl-surface: 255 253 249;
-  --tl-cream: 32 32 29; --tl-copy: 78 76 70; --tl-muted: 102 96 85;
-  --tl-border: 206 199 188; --tl-on-accent: 255 253 249;
-  background-color: rgb(var(--tl-bg)); color: rgb(var(--tl-copy));
+/* The editorial palette stays dark. Photography and layout supply contrast. */
+.section-tonal {
+  --tl-bg: 20 20 22; --tl-secondary: 26 26 28; --tl-surface: 32 32 34;
+  background-color: rgb(var(--tl-bg));
+  color: rgb(var(--tl-copy));
 }
-.section-paper .eyebrow { color: #676054; }
-.section-paper .media-card .eyebrow { color: #d5d3cf; }
 .media-card { color: #fafafa; }
 .h-page, .h-section, .h-hero { text-wrap: balance; }
 .btn-primary, .btn-secondary { text-align: center; }
@@ -273,7 +271,3 @@
   .h-section { font-size: clamp(1.65rem, 7vw, 2rem); }
   footer { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
 }
-
-.section-paper :is([class~="text-cream/40"], [class~="text-cream/50"], [class~="text-cream/60"], [class~="text-cream/70"]) { color: rgb(var(--tl-muted)); }
-
-.section-paper .field-error { color: #a83f30; }

@@ -113,7 +113,7 @@ export default function Page() {
       />
 
       {/* Primary external CTA + affiliated-site note */}
-      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide max-w-2xl text-center">
           <Reveal>
             <p className="eyebrow">Take a Look</p>

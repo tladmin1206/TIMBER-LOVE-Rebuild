@@ -33,7 +33,7 @@ export default function EditorialSplit({
 }) {
   const aspect = ratio === 'natural' ? '' : ratio === 'portrait' ? 'aspect-[4/5]' : ratio === 'square' ? 'aspect-square' : 'aspect-[4/3]';
   return (
-    <section className={`border-t border-border-subtle section ${tone === 'secondary' ? 'section-paper bg-bg-secondary' : 'bg-bg-primary'}`}>
+    <section className={`border-t border-border-subtle section ${tone === 'secondary' ? 'section-tonal bg-bg-secondary' : 'bg-bg-primary'}`}>
       <div className="container-wide grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         <Reveal className={reverse ? 'lg:order-2' : ''}>
           <div className={`relative overflow-hidden ${aspect}`}>

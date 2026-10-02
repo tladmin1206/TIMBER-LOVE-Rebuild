@@ -117,7 +117,7 @@ export default function Page() {
       </section>
 
       {/* How it fits the process */}
-      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Plan With Confidence</p>

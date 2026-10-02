@@ -15,7 +15,7 @@ const LUKE_IMAGE = '/editorial/luke-current.webp';
 
 export default function LukeTrustBar({ className = '' }: { className?: string }) {
   return (
-    <section aria-labelledby="luke-heading" className={`section-paper bg-bg-secondary ${className}`}>
+    <section aria-labelledby="luke-heading" className={`section-tonal bg-bg-secondary ${className}`}>
       <div className="container-wide section-tight">
         <Reveal className="grid items-center gap-8 sm:grid-cols-[auto_1fr] sm:gap-10">
           {/* eslint-disable-next-line @next/next/no-img-element */}

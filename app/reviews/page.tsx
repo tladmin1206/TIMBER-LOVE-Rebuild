@@ -70,7 +70,7 @@ export default function Page() {
       <TrustBar />
 
       {/* Aggregate rating headline */}
-      <section className="section-paper border-b border-border-subtle bg-bg-secondary py-14 text-center">
+      <section className="section-tonal border-b border-border-subtle bg-bg-secondary py-14 text-center">
         <Reveal className="container-wide">
           <div className="flex flex-col items-center gap-3">
             <div className="flex items-center gap-3">

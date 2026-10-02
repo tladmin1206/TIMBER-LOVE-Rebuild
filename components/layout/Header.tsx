@@ -143,7 +143,7 @@ export default function Header() {
       {active && (
         <div
           id={`mega-${active.id}`}
-          className="section-paper absolute inset-x-0 top-full hidden border-t border-border-subtle shadow-2xl xl:block"
+          className="section-tonal absolute inset-x-0 top-full hidden border-t border-border-subtle shadow-2xl xl:block"
         >
           <div className="container-wide grid grid-cols-[1fr_1fr_.85fr] gap-12 py-10">
             {active.columns.map((col) => (
@@ -155,7 +155,7 @@ export default function Header() {
                       <Link
                         onClick={close}
                         href={link.href}
-                        className="group -mx-3 block px-3 py-3 transition-colors hover:bg-black/5"
+                        className="group -mx-3 block px-3 py-3 transition-colors hover:bg-white/5"
                       >
                         <span className="flex items-center justify-between text-sm font-medium text-text-primary">
                           {link.label}
@@ -189,7 +189,7 @@ export default function Header() {
                     ? "The Timber and Love team outside the Boise studio"
                     : ""
                 }
-                className={`h-52 w-full ${active.id === "story" ? "object-contain bg-[#e3ddd3]" : "object-cover"}`}
+                className={`h-52 w-full ${active.id === "story" ? "object-contain bg-panel" : "object-cover"}`}
               />
               <p className="mt-5 text-lg font-light leading-snug !text-text-primary">
                 {active.feature}

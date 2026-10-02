@@ -107,7 +107,7 @@ export default function Page() {
       </section>
 
       {/* The timeline */}
-      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto mb-14 max-w-2xl text-center">
             <p className="eyebrow">Step by Step</p>

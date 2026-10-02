@@ -15,7 +15,7 @@ export const metadata = pageMeta({
 export default function ShowsPage() {
   return (
     <>
-      <section className="section-paper pb-20 pt-32 sm:pb-28 sm:pt-40">
+      <section className="section-tonal pb-20 pt-32 sm:pb-28 sm:pt-40">
         <div className="container-wide">
           <p className="eyebrow">Timber + Love · On Screen</p>
           <h1 className="h-page mt-4 max-w-4xl">
@@ -80,7 +80,7 @@ export default function ShowsPage() {
           </div>
         </div>
       </section>
-      <section className="section-paper section-tight">
+      <section className="section-tonal section-tight">
         <div className="container-wide grid gap-8 md:grid-cols-2 md:items-center">
           <div>
             <p className="eyebrow">Where It Began</p>
@@ -99,7 +99,7 @@ export default function ShowsPage() {
         </div>
       </section>
       <HgtvShows />
-      <section className="section-paper section-tight">
+      <section className="section-tonal section-tight">
         <div className="container-wide grid gap-6 md:grid-cols-2">
           <h2 className="h-card">Inspired by Something You Saw?</h2>
           <p className="text-lead">

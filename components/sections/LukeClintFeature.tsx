@@ -3,7 +3,7 @@ import { lukeClintChannel } from "@/lib/content/shows";
 export default function LukeClintFeature() {
   return (
     <section
-      className="section-paper section"
+      className="section-tonal section"
       aria-labelledby="luke-clint-heading"
     >
       <div className="container-wide grid items-center gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">

@@ -36,7 +36,7 @@ export default function ArticlePage({ article, path }: { article: Article; path:
     <>
       <JsonLd schema={jsonLd} />
 
-      <header className="section-paper pb-14 pt-32 sm:pb-20 sm:pt-40">
+      <header className="section-tonal pb-14 pt-32 sm:pb-20 sm:pt-40">
         <div className="container-wide grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <div><Link href="/journal/" className="eyebrow link-underline">Timber and Love Journal</Link>
             <h1 className="h-section mt-5">{article.title}</h1>
@@ -49,7 +49,7 @@ export default function ArticlePage({ article, path }: { article: Article; path:
       <TrustBar />
 
       {/* Body */}
-      <article className="section-paper section-tight">
+      <article className="section-tonal section-tight">
         <div className="container-tl max-w-3xl">
           <BlockRenderer blocks={article.blocks} />
           <div className="mt-14 border-t border-border-subtle pt-10">

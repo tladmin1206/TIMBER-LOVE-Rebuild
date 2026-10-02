@@ -86,7 +86,7 @@ export default function Page() {
       </section>
 
       {/* Breadth of custom homes built across the valley. */}
-      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">A Look Across the Valley</p>
@@ -133,7 +133,7 @@ export default function Page() {
       />
 
       {/* Local knowledge */}
-      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Local Knowledge</p>

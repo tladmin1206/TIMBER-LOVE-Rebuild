@@ -55,7 +55,7 @@ export default function HomePage() {
 
       {/* Intro: who we are, then straight into the choice. No CTA here: the
           pathway grid directly below is the action. */}
-      <section className="section-paper border-t border-border-subtle section">
+      <section className="section-tonal border-t border-border-subtle section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <p className="eyebrow">Who We Are</p>
@@ -201,7 +201,7 @@ export default function HomePage() {
 
       {/* Featured design-build projects: the clearest proof of the integrated
           service. Custom homes lead; the full portfolio is one click away. */}
-      <section className="section-paper border-t border-border-subtle section">
+      <section className="section-tonal border-t border-border-subtle section">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Featured Work</p>
@@ -279,7 +279,7 @@ export default function HomePage() {
       />
 
       {/* Remove friction immediately before the ask */}
-      <section className="section-paper border-t border-border-subtle section">
+      <section className="section-tonal border-t border-border-subtle section">
         <div className="container-wide">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
             <Reveal>

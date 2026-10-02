@@ -103,7 +103,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
       {/* Design direction (editorial case-study fields, custom homes) */}
       {project.designStory && (
-        <section className="section-paper border-t border-border-subtle section">
+        <section className="section-tonal border-t border-border-subtle section">
           <div className="container-wide grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-start">
             <Reveal>
               <p className="eyebrow">Design Direction</p>
@@ -137,7 +137,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
       )}
 
       {/* Full gallery */}
-      <section className={`border-t border-border-subtle section ${project.designStory ? 'bg-bg-primary' : 'section-paper'}`}>
+      <section className={`border-t border-border-subtle section ${project.designStory ? 'bg-bg-primary' : 'section-tonal'}`}>
         <div className="container-wide">
           <Reveal className="mb-10">
             <p className="eyebrow">The Space</p>
@@ -149,7 +149,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
       {/* Related projects */}
       {related.length > 0 && (
-        <section className="section-paper section-tight">
+        <section className="section-tonal section-tight">
           <div className="container-wide">
             <Reveal className="mb-8">
               <p className="eyebrow">More Work</p>

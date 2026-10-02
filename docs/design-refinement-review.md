@@ -4,12 +4,12 @@ Implementation prepared on 2026-10-02. Production publishing remains with the ow
 
 ## Status
 
-Code and production rendering checks pass. **Responsive visual and interactive sign-off is still pending.** The available review browser cannot reach localhost. Automatic approval review denied a temporary public preview of the unpublished changes. No public preview or live deployment was created.
+Code and production rendering checks pass. **Responsive visual and interactive sign-off is still pending.** The available review browser cannot reach localhost. The owner authorized a temporary static preview, but the public tunnel could not connect. A separate local BrowserAct/Chrome attempt also failed to start in this environment. No public preview or live deployment was created.
 
 ## What changed
 
-- Fully opaque, warm-neutral desktop mega menus organized into Design + Build, Home + Real Estate, and Our World; direct Work and Watch links. Mobile uses the same information architecture, expandable groups, scroll locking, focus containment, Escape, and focus restoration.
-- Warm paper sections alternate with dark sections, architectural photography, editorial layouts, and films. Montserrat, uppercase headings, the monochrome brand, and existing conversion flows remain.
+- Fully opaque, charcoal desktop mega menus organized into Design + Build, Home + Real Estate, and Our World; direct Work and Watch links. Mobile uses the same information architecture, expandable groups, scroll locking, focus containment, Escape, and focus restoration.
+- Following the owner’s correction, all public sections remain within the established black and charcoal palette. Architectural photography, editorial layouts, framed films, and spacing create the visual rhythm. The introduced white and cream backgrounds were removed across the site. Montserrat, uppercase headings, the monochrome brand, and existing conversion flows remain.
 - Homepage Luke & Clint introduction; new `/shows/` hub with three verified full-length YouTube selections, click-to-play privacy-enhanced embeds, and direct viewing links. Navigation, footer, and sitemap include the hub.
 - HGTV players fit their own 16:9 cards, with uncropped frames and captions outside the video. The official Vimeo SDK confirms playback before hiding the poster, pauses offscreen films, respects reduced motion, and exposes a pause control.
 - Service ecosystem and three-step cards have relevant, individually selected background imagery with readable gradients.
@@ -34,6 +34,8 @@ Official reference sites: https://lukeandclint.com, https://lukecaldwell.com/sho
 - Vimeo playback was not confirmed in the remote browser: the original live site showed a provider connection warning. The new code retains the poster on playback failure; actual provider playback needs the pending browser check.
 
 ## Required visual and interaction pass
+
+The owner supplied a desktop screenshot confirming the unwanted cream treatment; that treatment has been removed from every public route.
 
 At 1440, 1280, 1024, 768, 390, and 375 pixels: scroll every public route from header through footer, check photography and text contrast, inspect all responsive image crops, and verify section cadence. Check desktop menu click/Tab/Escape/outside dismissal; mobile menu scrolling, focus restoration and accordions; all gallery controls; carousel pause; YouTube play/fullscreen/fallback links; Vimeo framing/play/pause/reduced-motion/fallback; planner flow and inquiry validation without submitting real leads. Do not mark this review complete until those checks have been observed.
 

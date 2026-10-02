@@ -59,7 +59,7 @@ export default function Page() {
       </section>
 
       {/* Featured television projects: link to full case studies */}
-      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mb-10 max-w-2xl">
             <p className="eyebrow">Featured Television Projects</p>
@@ -100,7 +100,7 @@ export default function Page() {
       </EditorialSplit>
 
       {/* Client proof: verified customer reviews only */}
-      <section className="section-paper border-t border-border-subtle bg-bg-secondary text-center section">
+      <section className="section-tonal border-t border-border-subtle bg-bg-secondary text-center section">
         <div className="container-wide">
           <Reveal>
             <p className="eyebrow">Client Stories</p>

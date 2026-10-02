@@ -128,7 +128,7 @@ export default function Page() {
       <PressStrip />
 
       {/* Estimator promo */}
-      <section className="section-paper border-y border-border-subtle bg-bg-secondary section-tight">
+      <section className="section-tonal border-y border-border-subtle bg-bg-secondary section-tight">
         <div className="container-wide grid gap-6 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Explore Your Investment Range</p>
@@ -275,7 +275,7 @@ export default function Page() {
         </div>
       </section>
       {processPhases.map((p, i) => (
-        <section key={p.num} className={`section ${i % 2 === 0 ? 'section-paper' : 'bg-bg-primary'}`}>
+        <section key={p.num} className={`section ${i % 2 === 0 ? 'section-tonal' : 'bg-bg-primary'}`}>
           <div className="container-wide grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div className={i % 2 ? 'lg:order-2' : ''}><InlineVideo videoId={p.videoId} poster={p.poster} title={p.title} /></div>
             <div><p className="eyebrow">Phase {p.num}</p><h3 className="h-section mt-4">{p.title}</h3><p className="text-lead mt-5">{p.body}</p>{i === 2 && <Link href="/design-and-build-questionnaire/" className="btn-secondary mt-7">Start the Questionnaire</Link>}</div>
@@ -304,7 +304,7 @@ export default function Page() {
 
       {/* Gallery */}
       {galleryImgs.length > 0 && (
-        <section className="section-paper border-t border-border-subtle section">
+        <section className="section-tonal border-t border-border-subtle section">
           <div className="container-wide">
             <Reveal className="mb-10">
               <p className="eyebrow">Our Work</p>
@@ -319,7 +319,7 @@ export default function Page() {
       <ReviewWall reviews={clientReviews} eyebrow="Testimonials" heading="Trusted by Boise Homeowners" background="bg-bg-primary" moreHref="/reviews/" />
 
       {/* FAQ */}
-      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">FAQs</p>
@@ -344,7 +344,7 @@ export default function Page() {
       />
 
       {/* Closing statement */}
-      <section className="section-paper border-t border-border-subtle py-16 text-center">
+      <section className="section-tonal border-t border-border-subtle py-16 text-center">
         <div className="container-wide max-w-3xl">
           <Reveal>
             <p className="text-lg leading-relaxed text-cream/90">

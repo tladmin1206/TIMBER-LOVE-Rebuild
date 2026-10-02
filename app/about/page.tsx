@@ -63,7 +63,7 @@ export default function Page() {
       </section>
 
       {/* Why one brand includes multiple services */}
-      <section className="section-paper border-t border-border-subtle bg-bg-secondary section" aria-labelledby="brand-heading">
+      <section className="section-tonal border-t border-border-subtle bg-bg-secondary section" aria-labelledby="brand-heading">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">One Brand, Five Pathways</p>
@@ -141,7 +141,7 @@ export default function Page() {
       </section>
 
       {/* Design philosophy */}
-      <section className="section-paper border-t border-border-subtle bg-bg-secondary section" aria-labelledby="philosophy-heading">
+      <section className="section-tonal border-t border-border-subtle bg-bg-secondary section" aria-labelledby="philosophy-heading">
         <div className="container-wide">
           <Reveal className="max-w-3xl">
             <p className="eyebrow">Our Point of View</p>
@@ -224,7 +224,7 @@ export default function Page() {
       </EditorialSplit>
 
       {/* Americana Soul */}
-      <section id="americana-soul" className="section-paper border-t border-border-subtle bg-bg-secondary section" aria-labelledby="book-heading">
+      <section id="americana-soul" className="section-tonal border-t border-border-subtle bg-bg-secondary section" aria-labelledby="book-heading">
         <div className="container-wide grid gap-12 lg:grid-cols-[minmax(0,320px)_1fr] lg:items-center">
           <Reveal className="mx-auto w-full max-w-[320px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}

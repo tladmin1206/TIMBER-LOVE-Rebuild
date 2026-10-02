@@ -72,7 +72,7 @@ export default function Page() {
       </section>
 
       {/* How the process works */}
-      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">How It Works</p>
