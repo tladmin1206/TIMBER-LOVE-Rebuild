@@ -99,7 +99,7 @@ export const navigationGroups = [
   },
   {
     id: "story",
-    label: "Our World",
+    label: "About",
     image: "/editorial/team-studio.webp",
     feature: "Rooted in Boise. Built with love.",
     featureHref: "/about/",

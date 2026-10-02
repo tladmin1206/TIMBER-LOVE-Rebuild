@@ -683,5 +683,383 @@
     },
     "width": 1280,
     "height": 720
+  },
+  {
+    "file": "/rentals/caldwell/02-aerial-house-on-the-point.webp",
+    "source": "https://vacationrentaloahu.co/homes/caldwell-house/02-aerial-house-on-the-point.jpg",
+    "width": 1800,
+    "height": 1013
+  },
+  {
+    "file": "/rentals/caldwell/01-rooftop-deck-mokolii-view.webp",
+    "source": "https://vacationrentaloahu.co/homes/caldwell-house/01-rooftop-deck-mokolii-view.jpg",
+    "width": 1800,
+    "height": 1013
+  },
+  {
+    "file": "/rentals/caldwell/07-living-room-window-ocean-mountains.webp",
+    "source": "https://vacationrentaloahu.co/homes/caldwell-house/07-living-room-window-ocean-mountains.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/rentals/caldwell/10-kitchen-island-ocean.webp",
+    "source": "https://vacationrentaloahu.co/homes/caldwell-house/10-kitchen-island-ocean.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/rentals/caldwell/14-primary-bedroom-deck-access.webp",
+    "source": "https://vacationrentaloahu.co/homes/caldwell-house/14-primary-bedroom-deck-access.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/rentals/caldwell/21-bathroom-walk-in-shower.webp",
+    "source": "https://vacationrentaloahu.co/homes/caldwell-house/21-bathroom-walk-in-shower.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/rentals/caldwell/24-rooftop-deck-mountain-view.webp",
+    "source": "https://vacationrentaloahu.co/homes/caldwell-house/24-rooftop-deck-mountain-view.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/rentals/caldwell/27-hammock-mokolii.webp",
+    "source": "https://vacationrentaloahu.co/homes/caldwell-house/27-hammock-mokolii.jpg",
+    "width": 1800,
+    "height": 1013
+  },
+  {
+    "file": "/projects/central-rim/exterior.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Exterior-1-23-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/central-rim/living.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-RimMain-Living-Space-1-16-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/central-rim/terrace.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Sliding-doors-1-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/central-rim/lower-level.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Downstairs-1-4-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/central-rim/bedroom.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Master-Bed-1-8-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/central-rim/bathroom.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Master-Bath-1-8-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/stucco-in-time/exterior.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-2-Episode-6-Stucco-In-Time-Front-Exterior-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/stucco-in-time/living.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-2-Episode-6-Stucco-In-Time-Living-Room3-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/stucco-in-time/kitchen.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-2-Episode-6-Stucco-In-Time-Kitchen3-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/stucco-in-time/bedroom.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-2-Episode-6-Stucco-In-Time-Master-Bedroom1-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/stucco-in-time/bathroom.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-2-Episode-6-Stucco-In-Time-Master-Bath2-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/stucco-in-time/terrace.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-2-Episode-6-Stucco-In-Time-Back-Exterior1-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/due-for-a-raze/exterior.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Remodeling-Contractors-Boise-Boys-Season-2-Episode-7-Due-For-A-Raze-Front-Exterior-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/due-for-a-raze/living.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Remodeling-Contractors-Boise-Boys-Season-2-Episode-7-Due-For-A-Raze-Living-Room-2-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/due-for-a-raze/kitchen.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Remodeling-Contractors-Boise-Boys-Season-2-Episode-7-Due-For-A-Raze-Kitchen-1-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/due-for-a-raze/lounge.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Remodeling-Contractors-Boise-Boys-Season-2-Episode-7-Due-For-A-Raze-Bonus-3-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/due-for-a-raze/bedroom.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Remodeling-Contractors-Boise-Boys-Season-2-Episode-7-Due-For-A-Raze-Master-Bed-2-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/due-for-a-raze/bathroom.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Boise-Remodeling-Contractors-Boise-Boys-Season-2-Episode-7-Due-For-A-Raze-Master-Bath-1-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/north-end-gem/exterior.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Boise-Boise-Boys-Season-1-Episode-4-Hidden-Gems-in-the-North-End-Exterior-1-2-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/north-end-gem/living.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Boise-Boise-Boys-Season-1-Episode-4-Hidden-Gems-in-the-North-End-Living-room-1-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/north-end-gem/kitchen.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Boise-Boise-Boys-Season-1-Episode-4-Hidden-Gems-in-the-North-End-Kitchen-1-6-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/north-end-gem/sunroom.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Boise-Boise-Boys-Season-1-Episode-4-Hidden-Gems-in-the-North-End-Sun-Room-1-9-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/north-end-gem/bedroom.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Boise-Boise-Boys-Season-1-Episode-4-Hidden-Gems-in-the-North-End-Master-Bed-1-3-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/projects/north-end-gem/bathroom.webp",
+    "source": "https://timberandlove.com/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Boise-Boise-Boys-Season-1-Episode-4-Hidden-Gems-in-the-North-End-Master-Bath-1-6-scaled.jpg",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/shows/episodes/an-odd-couple-of-homes.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-an-odd-couple-of-homes.jpg",
+    "context": "Boise Boys \u2014 An Odd Couple of Homes",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/all-in-on-boise-s-central-rim.webp",
+    "source": "https://lukecaldwell.com/attached_assets/redesign/tl/home-remodeling-season-1-episode-2-all-in-on-boises-central-rim-main-living-space-1.jpg",
+    "context": "Boise Boys \u2014 All-In on Boise's Central Rim",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/ugly-duckling-craftsman-reno.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-ugly-duckling-craftsman-reno.jpg",
+    "context": "Boise Boys \u2014 Ugly Duckling Craftsman Reno",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/hidden-gems-in-the-north-end.webp",
+    "source": "https://lukecaldwell.com/attached_assets/redesign/tl/season-1-episode-4-hidden-gems-in-the-north-end-living-room-1.jpg",
+    "context": "Boise Boys \u2014 Hidden Gems in the North End",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/boise-midcentury-makeover.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-boise-midcentury-makeover.jpg",
+    "context": "Boise Boys \u2014 Boise Midcentury Makeover",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/idaho-meets-the-southwest.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-idaho-meets-the-southwest.jpg",
+    "context": "Boise Boys \u2014 Idaho Meets the Southwest",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/boise-river-blowout.webp",
+    "source": "https://lukecaldwell.com/attached_assets/redesign/tl/boise-river-blowout-living-room-1.jpg",
+    "context": "Boise Boys \u2014 Boise River Blowout",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/willow-tree-farmhouse.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-willow-tree-farmhouse.jpg",
+    "context": "Boise Boys \u2014 Willow Tree Farmhouse",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/big-space-small-house.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-big-space-small-house.jpg",
+    "context": "Boise Boys \u2014 Big Space, Small House",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/vaulted-aspirations.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-vaulted-aspirations.jpg",
+    "context": "Boise Boys \u2014 Vaulted Aspirations",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/the-mural-house.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-the-mural-house.jpg",
+    "context": "Boise Boys \u2014 The Mural House",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/the-circle-house.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-the-circle-house.jpg",
+    "context": "Boise Boys \u2014 The Circle House",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/stucco-in-time.webp",
+    "source": "https://lukecaldwell.com/attached_assets/redesign/tl/home-remodeling-season-2-episode-6-stucco-in-time-living-room.jpg",
+    "context": "Boise Boys \u2014 Stucco In Time",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/due-for-a-raze.webp",
+    "source": "https://lukecaldwell.com/attached_assets/redesign/tl/boys-season-2-episode-7-due-for-a-raze-living-room-1.jpg",
+    "context": "Boise Boys \u2014 Due for a Raze",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/the-firehouse.webp",
+    "source": "https://lukecaldwell.com/attached_assets/redesign/tl/hgtvs-firehouse-living-room.jpg",
+    "context": "Boise Boys \u2014 The Firehouse",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/casa-de-boise.webp",
+    "source": "https://lukecaldwell.com/attached_assets/redesign/tl/season-2-episode-9-casa-de-boise-living-room-1.jpg",
+    "context": "Boise Boys \u2014 Casa de Boise",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/try-try-again.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-try-try-again.jpg",
+    "context": "Boise Boys \u2014 Try, Try Again",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/the-vinyl-house.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-the-vinyl-house.jpg",
+    "context": "Boise Boys \u2014 The Vinyl House",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/idaho-retro.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-idaho-retro.jpg",
+    "context": "Boise Boys \u2014 Idaho Retro",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/timeless-challenge.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-timeless-challenge.jpg",
+    "context": "Boise Boys \u2014 Timeless Challenge",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/father-s-day-at-plant-house.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-father-s-day-at-plant-house.jpg",
+    "context": "Boise Boys \u2014 Father's Day at Plant House",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/crowded-cottage.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-crowded-cottage.jpg",
+    "context": "Outgrown \u2014 Crowded Cottage",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/deploying-a-renovation.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-deploying-a-renovation.jpg",
+    "context": "Outgrown \u2014 Deploying a Renovation",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/growing-into-a-childhood-home.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-growing-into-a-childhood-home.jpg",
+    "context": "Outgrown \u2014 Growing Into a Childhood Home",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/room-for-the-family-table.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-room-for-the-family-table.jpg",
+    "context": "Outgrown \u2014 Room for the Family Table",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/a-safe-place-to-land.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-a-safe-place-to-land.jpg",
+    "context": "Outgrown \u2014 A Safe Place to Land",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/a-welcome-addition.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-a-welcome-addition.jpg",
+    "context": "Outgrown \u2014 A Welcome Addition",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/attic-treasure.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-attic-treasure.jpg",
+    "context": "Outgrown \u2014 Attic Treasure",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/layout-dysfunction.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-layout-dysfunction.jpg",
+    "context": "Outgrown \u2014 Layout Dysfunction",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/family-farmhouse.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-family-farmhouse.jpg",
+    "context": "Outgrown \u2014 Family Farmhouse",
+    "sourcePage": "https://lukecaldwell.com/shows"
+  },
+  {
+    "file": "/shows/episodes/change-the-house-not-the-table.webp",
+    "source": "https://lukecaldwell.com/attached_assets/episode-change-the-house-not-the-table.jpg",
+    "context": "Outgrown \u2014 Change the House, Not the Table",
+    "sourcePage": "https://lukecaldwell.com/shows"
   }
 ]

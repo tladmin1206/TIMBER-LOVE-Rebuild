@@ -1,69 +1,37 @@
 import Link from 'next/link';
 import Reveal from '@/components/ui/Reveal';
-import SwipeRow, { SwipeItem } from '@/components/ui/SwipeRow';
-import darla from '@/content/the-darla-house.json';
-import firehouse from '@/content/the-firehouse.json';
-import chinamans from '@/content/chinamans-beach-house.json';
-import chalet from '@/content/chalet.json';
-
-type Card = { name: string; location: string; href: string; image: string; blurb: string; booking?: string };
-
-const rentals: Card[] = [
-  {
-    name: 'The Firehouse',
-    location: 'Boise',
-    href: '/the-firehouse/',
-    image: (firehouse as any).hero?.image || (firehouse as any).gallery?.[0],
-    blurb: 'A one-of-a-kind renovated firehouse in Boise’s historic North End, featured on HGTV’s Boise Boys.',
-    booking: (firehouse as any).details?.bookingUrl,
-  },
-  {
-    name: 'The Chalet',
-    location: 'McCall',
-    href: '/timber-and-love-chalet/',
-    image: (chalet as any).hero?.image || (chalet as any).gallery?.[0],
-    blurb: 'A charming cabin redesigned by Luke Caldwell and the Timber and Love team, an inviting mountain retreat.',
-    booking: (chalet as any).details?.bookingUrl,
-  },
-  {
-    name: 'Beach House',
-    location: 'Hawaii',
-    href: '/chinamans-ocean-front-beach-house/',
-    image: (chinamans as any).hero?.image || (chinamans as any).gallery?.[0],
-    blurb: 'A luxury Oahu beach home with breathtaking views and direct beach access.',
-    booking: (chinamans as any).details?.bookingUrl,
-  },
-  {
-    name: 'The Darla House',
-    location: 'Boise',
-    href: '/the-darla-house/',
-    image: (darla as any).hero?.image || (darla as any).gallery?.[0],
-    blurb: 'A cozy, modern North End cottage that is bright, happy, and full of original character.',
-    booking: (darla as any).details?.bookingUrl,
-  },
-];
+import { rentals } from '@/lib/content/rentals';
 
 export default function RentalsGrid() {
   return (
-    <SwipeRow gap="gap-8">
-      {rentals.map((r, i) => (
-        <SwipeItem key={r.href}>
-          <Reveal delay={i * 90} className="h-full">
-            <Link href={r.href} className="group card-interactive flex h-full flex-col overflow-hidden bg-surface/40">
-              <div className="relative aspect-[16/10] overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={r.image} alt={r.name} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
-              </div>
-              <div className="p-7">
-                <h3 className="h-card">{r.name}</h3>
-                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-cream/60">{r.location}</p>
-                <p className="mt-3 text-sm leading-relaxed text-body">{r.blurb}</p>
-                <span className="mt-5 inline-block text-xs uppercase tracking-[0.16em] text-cream link-underline">View Details →</span>
-              </div>
-            </Link>
-          </Reveal>
-        </SwipeItem>
+    <div className="space-y-14 sm:space-y-20">
+      {(['Idaho', 'Hawaii'] as const).map((region) => (
+        <div key={region}>
+          <div className="mb-7 flex flex-wrap items-baseline justify-between gap-3 border-b border-border-subtle pb-5">
+            <h3 className="h-card">{region === 'Idaho' ? 'Boise + McCall' : 'Oahu, Hawaii'}</h3>
+            <p className="text-sm text-text-secondary">{region === 'Idaho' ? 'City stays and a mountain escape' : 'Two oceanfront homes in Kaʻaʻawa'}</p>
+          </div>
+          <div className={`grid gap-7 ${region === 'Idaho' ? 'md:grid-cols-3' : 'md:grid-cols-2'}`}>
+            {rentals.filter((r) => r.region === region).map((r, i) => (
+              <Reveal key={r.href} delay={i * 90} className="h-full">
+                <Link href={r.href} className="group card-interactive flex h-full flex-col overflow-hidden bg-surface/40">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={r.image} alt={`${r.name} in ${r.destination}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  </div>
+                  <div className="flex flex-1 flex-col p-6 sm:p-7">
+                    <p className="text-xs uppercase tracking-[0.18em] text-text-muted">{r.destination}</p>
+                    <h4 className="h-card mt-3">{r.name}</h4>
+                    {r.facts && <p className="mt-3 text-sm text-text-secondary">{r.facts}</p>}
+                    <p className="mt-3 text-sm leading-relaxed text-body">{r.blurb}</p>
+                    <span className="mt-auto pt-6 text-xs uppercase tracking-[0.16em] text-cream">Explore This Stay <span aria-hidden="true">→</span></span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       ))}
-    </SwipeRow>
+    </div>
   );
 }

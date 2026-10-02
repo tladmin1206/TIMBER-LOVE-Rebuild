@@ -232,17 +232,20 @@ export default function HomePage() {
 
       <LukeClintFeature />
 
-      {/* Why us: Values, carrying the mission statement as its lede. Previously
-          these were two consecutive "about us" sections with duplicate buttons,
-          the second of which was a centred wall of text that stalled the scroll. */}
-      <section className="relative overflow-hidden section-feature">
+      {/* Solid editorial sections on either side give the values film room. */}
+      <section className="relative isolate overflow-hidden bg-ink section-feature" aria-labelledby="values-heading">
+        <VideoBg
+          videoId={sectionVideos.values.id}
+          poster={sectionVideos.values.poster}
+          position="top"
+          overlay="bg-gradient-to-b from-ink/75 via-ink/50 to-ink/85 lg:bg-gradient-to-r lg:from-ink/85 lg:via-ink/65 lg:to-ink/40"
+        />
         <div className="container-wide relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Why Choose Us</p>
-            <h2 className="h-section mt-4">Our Values</h2>
+            <h2 id="values-heading" className="h-section mt-4">Our Values</h2>
             <p className="text-lead mt-5 max-w-md">{mission}</p>
             <ModalButton modal="work-with-us" className="btn-secondary mt-8">Work With Us</ModalButton>
-            <div className="relative mt-8 aspect-video overflow-hidden"><VideoBg videoId={sectionVideos.values.id} poster={sectionVideos.values.poster} overlay="" fit="contain" /></div>
           </Reveal>
           <div className="grid gap-5 sm:grid-cols-2">
             {values.map((v, i) => (
@@ -255,17 +258,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Full-bleed photographic statement before the process + closing ask. */}
-      <FeatureBand
-        image="/editorial/mountain-living.webp"
-        eyebrow="Your Home, Realized"
-        title="Let's Design Something Worth Building"
-        body="Tell us about your home and your goals, and let’s bring your vision to life."
-        cta="Start a Project"
-        href="/design-and-build-questionnaire/"
-        height="short"
-        align="center"
-      />
+      {/* A solid black transition after the full-background values film. */}
+      <section className="bg-ink section" aria-labelledby="start-project-heading">
+        <div className="container-wide">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">Your Home, Realized</p>
+            <h2 id="start-project-heading" className="h-section mt-4">Let&apos;s Design Something Worth Building</h2>
+            <p className="text-lead mt-5">Tell us about your home and your goals, and let’s bring your vision to life.</p>
+            <Link href="/design-and-build-questionnaire/" className="btn-primary mt-8 inline-flex">Start a Project</Link>
+          </Reveal>
+        </div>
+      </section>
 
       {/* Remove friction immediately before the ask */}
       <section className="section-tonal border-t border-border-subtle section">

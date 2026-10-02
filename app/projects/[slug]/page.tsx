@@ -57,10 +57,6 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             <p className="eyebrow">About This Project</p>
             <h2 className="h-section mt-4">{project.scope} in {project.location}</h2>
             <p className="text-lead mt-6">{project.summary}</p>
-            <p className="mt-4 text-sm leading-relaxed text-text-secondary">
-              Designed and built by the Timber and Love in-house team, this project reflects our warm, modern approach to
-              Boise homes, with design and construction coordinated under one roof from concept through completion.
-            </p>
             {project.stayHref && (
               <p className="mt-6 text-sm text-text-secondary">
                 This property is now available as a vacation rental.{' '}

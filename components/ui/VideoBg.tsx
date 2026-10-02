@@ -9,12 +9,14 @@ export default function VideoBg({
   overlay = "bg-ink/55",
   priority = false,
   fit = "cover",
+  position = "center",
 }: {
   videoId: string;
   poster: string;
   overlay?: string;
   priority?: boolean;
   fit?: "cover" | "contain";
+  position?: "center" | "top";
 }) {
   const container = useRef<HTMLDivElement>(null);
   const frame = useRef<HTMLIFrameElement>(null);
@@ -109,6 +111,7 @@ export default function VideoBg({
           alt=""
           loading={priority ? "eager" : "lazy"}
           fetchPriority={priority ? "high" : "auto"}
+          style={{ objectPosition: position }}
           className={`absolute inset-0 h-full w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
         />
         {load && !reduced && (
@@ -119,7 +122,7 @@ export default function VideoBg({
             tabIndex={-1}
             allow="autoplay; fullscreen"
             style={{ width, height: width / ratio, opacity: ready ? 1 : 0 }}
-            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-0 transition-opacity duration-700"
+            className={`pointer-events-none absolute left-1/2 -translate-x-1/2 border-0 transition-opacity duration-700 ${position === 'top' ? 'top-0' : 'top-1/2 -translate-y-1/2'}`}
           />
         )}
         <div className={`absolute inset-0 ${overlay}`} />

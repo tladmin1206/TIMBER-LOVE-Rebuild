@@ -7,7 +7,6 @@ import { closingCta } from '@/lib/content/closing';
 import ReviewSlider from '@/components/ui/ReviewSlider';
 import EditorialSplit from '@/components/sections/EditorialSplit';
 import Cta from '@/components/ui/Cta';
-import { site } from '@/lib/site';
 import { clientReviews, fanComments } from '@/lib/content/home';
 import { projects } from '@/lib/content/projects';
 import { pageMeta } from '@/lib/seo';
@@ -35,8 +34,8 @@ export default function Page() {
   return (
     <>
       <PageHero eyebrow="As Seen on HGTV" title="The Boise Boys" subtitle={intro} image={data.hero.image}>
-        <a href={site.shows.boiseBoys} target="_blank" rel="noopener noreferrer" className="btn-primary">Watch Boise Boys ↗</a>
-        <a href={site.shows.outgrown} target="_blank" rel="noopener noreferrer" className="btn-secondary">Watch Outgrown ↗</a>
+        <Link href="/shows/#boise-boys-episodes" className="btn-primary">Browse Boise Boys Episodes</Link>
+        <Link href="/shows/#outgrown-episodes" className="btn-secondary">Browse Outgrown Episodes</Link>
       </PageHero>
 
       <TrustBar />

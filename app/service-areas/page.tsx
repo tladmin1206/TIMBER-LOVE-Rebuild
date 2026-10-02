@@ -10,7 +10,8 @@ import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import FeatureBand from '@/components/sections/FeatureBand';
 import EditorialSplit from '@/components/sections/EditorialSplit';
-import Gallery from '@/components/ui/Gallery';
+import Link from 'next/link';
+import { projects } from '@/lib/content/projects';
 import ProofSection from '@/components/sections/ProofSection';
 import FaqSection from '@/components/sections/FaqSection';
 import { faqs } from '@/lib/content/faqs';
@@ -35,6 +36,9 @@ const communities = [
   'Garden City',
   'Middleton',
 ];
+
+const areaProjectSlugs = ['promise-lane-spanish-modern', 'central-rim', 'north-end-gem', 'stucco-in-time', 'due-for-a-raze', 'the-firehouse'];
+const areaProjects = areaProjectSlugs.flatMap((slug) => projects.filter((project) => project.slug === slug));
 
 export default function Page() {
   return (
@@ -90,41 +94,32 @@ export default function Page() {
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">A Look Across the Valley</p>
-            <h2 className="h-section mt-4">Homes We Have Built Around the Treasure Valley</h2>
+            <h2 className="h-section mt-4">Different Homes. Distinctive Character.</h2>
             <p className="text-lead mt-4">
-              Different neighborhoods, different styles, one team. A few of the custom homes and renovations we have
-              delivered for families across the region.
+              Six individual homes, from a new custom build to Boise renovations with character and history. Open a project to explore its photographs and story.
             </p>
           </Reveal>
-          <div className="mt-12">
-            <Gallery
-              images={[
-                {
-                  src: '/projects/promise-ln-5106/5106-promise-ln-exterior-front.jpg',
-                  alt: 'Spanish modern custom home with white stucco and arches, built by Timber and Love in the Treasure Valley',
-                },
-                {
-                  src: '/projects/promise-ln-5120/5120-promise-ln-exterior-front.jpg',
-                  alt: 'Modern farmhouse custom home with board-and-batten siding and black windows in the Treasure Valley',
-                },
-                {
-                  src: '/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg',
-                  alt: 'Modern contemporary custom home with a charcoal exterior and butterfly roof in the Treasure Valley',
-                },
-                {
-                  src: '/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Exterior-1-3-scaled.jpg',
-                  alt: 'Renovated Central Rim home exterior in a Boise neighborhood, remodeled by Timber and Love',
-                },
-              ]}
-              columns={3}
-            />
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {areaProjects.map((project) => (
+              <Link key={project.slug} href={`/projects/${project.slug}/`} className="group card-interactive block overflow-hidden">
+                <div className="aspect-[4/3] overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={project.cover} alt={project.gallery[0]?.alt || project.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                </div>
+                <div className="p-6">
+                  <p className="eyebrow !text-[10px]">{project.location}</p>
+                  <h3 className="h-card-sm mt-3">{project.title}</h3>
+                  <span className="mt-4 inline-block text-xs uppercase tracking-[.14em] text-text-secondary">View the Home →</span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Full-bleed photographic statement: our reach across the valley. */}
       <FeatureBand
-        image="/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Exterior-1-3-scaled.jpg"
+        image="/projects/due-for-a-raze/living.webp"
         eyebrow="A Place to Call Home"
         title="Designed for Life in Idaho"
         body="From Boise's historic neighborhoods to new homes along the foothills, we build where our clients live."

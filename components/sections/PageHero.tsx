@@ -7,6 +7,7 @@ export default function PageHero({
   title,
   subtitle,
   image,
+  imagePosition = 'center',
   videoId,
   height = 'tall',
   children,
@@ -15,6 +16,7 @@ export default function PageHero({
   title: string;
   subtitle?: string;
   image: string;
+  imagePosition?: string;
   videoId?: string;
   height?: 'tall' | 'short';
   children?: React.ReactNode;
@@ -35,7 +37,7 @@ export default function PageHero({
         <>
           {image && (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={image} alt="" aria-hidden className="absolute inset-0 -z-10 h-full w-full object-cover" />
+            <img src={image} alt="" aria-hidden style={{ objectPosition: imagePosition }} className="absolute inset-0 -z-10 h-full w-full object-cover" />
           )}
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-ink/80 via-ink/60 to-ink/90" />
         </>

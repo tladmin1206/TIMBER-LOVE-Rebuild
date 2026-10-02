@@ -5,10 +5,10 @@ import Reveal from '@/components/ui/Reveal';
 import ClosingCta from '@/components/sections/ClosingCta';
 import JsonLd from '@/components/JsonLd';
 import { lodgingSchema, breadcrumbSchema } from '@/lib/schema';
-import TrustBar from '@/components/sections/TrustBar';
+import { rentals as RENTALS } from '@/lib/content/rentals';
 
 export type PropertyContent = {
-  hero: { eyebrow?: string; heading: string; subheading?: string; image: string; videoId?: string };
+  hero: { eyebrow?: string; heading: string; subheading?: string; image: string; imagePosition?: string; videoId?: string };
   destination?: string;
   intro?: string[];
   /** Professionally edited overview prose (preferred over raw `intro`). */
@@ -31,17 +31,8 @@ export type PropertyContent = {
   /** Important guest disclosures (accessibility limits, house rules, safety, etc.). */
   thingsToKnow?: string[];
   sections?: { heading?: string; paragraphs?: string[]; image?: string }[];
-  gallery?: string[];
+  gallery?: (string | { src: string; alt: string })[];
 };
-
-// Minimal registry for related-property cross-links (name kept in sync with the
-// property JSON hero headings).
-const RENTALS = [
-  { name: 'The Firehouse', href: '/the-firehouse/', image: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Exterior-scaled.jpg', destination: 'Boise, ID' },
-  { name: 'The Chalet', href: '/timber-and-love-chalet/', image: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg', destination: 'McCall, ID' },
-  { name: "Chinaman's Beach House", href: '/chinamans-ocean-front-beach-house/', image: '/wp-content/uploads/2025/12/1-Oceanfront-Oahu-vacation-rental-exterior-with-direct-beach-access.png', destination: 'Oahu, HI' },
-  { name: 'The Darla House', href: '/the-darla-house/', image: '/wp-content/uploads/2026/04/01-Exterior-Front-1024x683.jpg', destination: 'Boise, ID' },
-];
 
 function bookingHost(url?: string): string {
   if (!url) return 'our booking partner';
@@ -59,10 +50,12 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
   const booking = data.details?.bookingUrl;
   const host = bookingHost(booking);
   const overview = data.overview ?? data.intro ?? [];
-  const images = (data.gallery || []).map((src, i) => ({ src, alt: `${data.hero.heading}: photo ${i + 1}` }));
+  const images = (data.gallery || []).map((image, i) => typeof image === 'string' ? { src: image, alt: `${data.hero.heading}: photo ${i + 1}` } : image);
   const glanceEntries = Object.entries(data.glance ?? {}).filter(([, v]) => v);
   const self = RENTALS.find((r) => r.name === data.hero.heading);
-  const related = RENTALS.filter((r) => r.name !== data.hero.heading).slice(0, 3);
+  const related = RENTALS.filter((r) => r.name !== data.hero.heading)
+    .sort((a, b) => Number(b.destination === data.destination) - Number(a.destination === data.destination))
+    .slice(0, 3);
   const amenityList = data.amenityGroups?.flatMap((g) => g.items) ?? data.amenities ?? [];
 
   const BookButton = ({ className = 'btn-primary' }: { className?: string }) =>
@@ -99,14 +92,13 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
         title={data.hero.heading}
         subtitle={data.hero.subheading}
         image={data.hero.image || images[0]?.src}
+        imagePosition={data.hero.imagePosition}
         videoId={data.hero.videoId}
         height="short"
       >
         <BookButton />
         <Link href="/stay-with-us/" className="btn-secondary">Back to All Stays</Link>
       </PageHero>
-
-      <TrustBar />
 
       {/* Gallery */}
       {images.length > 0 && (
@@ -260,29 +252,6 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
           </div>
         </section>
       )}
-
-      {/* Guests who stay in one of these have physically experienced the work,
-          which makes them unusually warm design + build leads. Nothing on these
-          pages previously made that connection. */}
-      <section className="section-tonal section-tight border-t border-border-subtle" aria-labelledby="built-by-heading">
-        <div className="container-wide">
-          <Reveal className="surface-card flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10">
-            <div>
-              <p className="eyebrow">Designed and Built by Our Team</p>
-              <h2 id="built-by-heading" className="h-card mt-3">
-                Love the Way This Place Feels?
-              </h2>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-text-secondary">
-                Every Timber and Love rental is a project our own team designed and built. If you want the same
-                thinking applied to your home, that is exactly what we do.
-              </p>
-            </div>
-            <Link href="/design-and-build/" className="btn-secondary shrink-0" data-track="rental_to_designbuild">
-              Explore Design + Build
-            </Link>
-          </Reveal>
-        </div>
-      </section>
 
       <ClosingCta
         eyebrow="Plan Your Stay"

@@ -25,6 +25,7 @@ const paths: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/the-darla-house/', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/the-firehouse/', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/chinamans-ocean-front-beach-house/', priority: 0.6, changeFrequency: 'monthly' },
+  { path: '/caldwell-beach-house/', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/timber-and-love-chalet/', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/timber-love-story-boise/', priority: 0.6, changeFrequency: 'monthly' },
   { path: '/luke-caldwell-faq/', priority: 0.6, changeFrequency: 'monthly' },

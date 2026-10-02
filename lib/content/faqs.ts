@@ -65,16 +65,20 @@ export const faqs: Record<string, FaqItem[]> = {
 
   stayWithUs: [
     {
-      q: 'Who designed and built these properties?',
-      a: 'Our own team. Every Timber and Love rental is a project we designed and built, which is why they feel consistent: staying in one is the easiest way to experience the work before commissioning any of your own.',
+      q: 'Where are the homes located?',
+      a: 'Choose from Boise and McCall in Idaho, or two oceanfront homes in Kaʻaʻawa on Oahu’s windward coast. Each property page includes its location, photographs, and amenities.',
     },
     {
-      q: 'Where do I actually book?',
-      a: 'Booking is completed on our booking partner’s site, where live availability and pricing are shown. Each property page links straight through.',
+      q: 'How do I check dates and make a reservation?',
+      a: 'Open a property and select Check Availability. Idaho stays link to their Airbnb listings, and the Hawaii homes are reserved through Vacation Rental Oahu. Current rates, availability, and the full booking terms are shown there.',
     },
     {
-      q: 'Can you help me choose between properties?',
-      a: 'Yes. Tell us your dates, group size and what kind of trip it is, and we will point you to the property that fits rather than letting you guess.',
+      q: 'Which Hawaii home fits my group?',
+      a: 'The Kualoa Beach House has 3 bedrooms and 2 bathrooms for up to 8 guests. The Caldwell Beach House has 4 bedrooms and 2 bathrooms for up to 11 guests. Both are in Kaʻaʻawa; each is booked separately.',
+    },
+    {
+      q: 'Where can I find house rules and cancellation terms?',
+      a: 'Review the individual listing before reserving. Guest limits, check-in times, pet policies, fees, and cancellation terms depend on the property and are confirmed by its booking site.',
     },
   ],
 

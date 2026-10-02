@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "eyebrow": "Vacation Rental",
+    "heading": "The Caldwell Beach House",
+    "subheading": "Oceanfront mornings. Mountain views. Room to gather.",
+    "image": "/rentals/caldwell/02-aerial-house-on-the-point.webp",
+    "imagePosition": "28% center"
+  },
+  "destination": "Oahu, HI",
+  "overview": [
+    "Make yourself at home on the water in Kaʻaʻawa. This two-story retreat brings the ocean into view from its living spaces and upper deck, with Mokoliʻi offshore and the Koʻolau mountains nearby.",
+    "Gather around the kitchen island, open the doors to the shoreline, or head upstairs for time on the deck. Four bedrooms accommodate up to eleven guests."
+  ],
+  "details": {
+    "location": "Kaʻaʻawa, Oahu",
+    "bookingUrl": "https://vacationrentaloahu.co/properties/caldwell-beach-house/book?open=dates"
+  },
+  "glance": { "guests": "11", "bedrooms": "4", "bathrooms": "2", "propertyType": "Oceanfront home" },
+  "amenityGroups": [
+    { "category": "By the Water", "items": ["Upper deck", "Ocean views", "Shoreline hammock"] },
+    { "category": "At Home", "items": ["Full kitchen", "Washer and dryer", "Walk-in showers"] }
+  ],
+  "thingsToKnow": [
+    "Check availability, current rates, house rules, and cancellation terms on Vacation Rental Oahu before reserving.",
+    "This is a two-story home. Three bedrooms are upstairs."
+  ],
+  "gallery": [
+    { "src": "/rentals/caldwell/01-rooftop-deck-mokolii-view.webp", "alt": "The Caldwell Beach House upper deck overlooking Mokoliʻi" },
+    { "src": "/rentals/caldwell/07-living-room-window-ocean-mountains.webp", "alt": "Ocean and mountain views through the living room windows" },
+    { "src": "/rentals/caldwell/10-kitchen-island-ocean.webp", "alt": "Kitchen island with seating and ocean views" },
+    { "src": "/rentals/caldwell/14-primary-bedroom-deck-access.webp", "alt": "Primary bedroom with doors to the upper deck" },
+    { "src": "/rentals/caldwell/21-bathroom-walk-in-shower.webp", "alt": "Bathroom with a wood vanity and walk-in shower" },
+    { "src": "/rentals/caldwell/24-rooftop-deck-mountain-view.webp", "alt": "Deck seating facing the Koʻolau mountains" },
+    { "src": "/rentals/caldwell/27-hammock-mokolii.webp", "alt": "Shoreline hammock with a view of Mokoliʻi" }
+  ]
+}

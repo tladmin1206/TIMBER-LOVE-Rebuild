@@ -1,6 +1,4 @@
 import PageHero from '@/components/sections/PageHero';
-import TrustBar from '@/components/sections/TrustBar';
-import FeatureBand from '@/components/sections/FeatureBand';
 import EditorialSplit from '@/components/sections/EditorialSplit';
 import Gallery from '@/components/ui/Gallery';
 import RentalsGrid from '@/components/sections/RentalsGrid';
@@ -8,15 +6,13 @@ import Reveal from '@/components/ui/Reveal';
 import { pageMeta } from '@/lib/seo';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
-import ProofSection from '@/components/sections/ProofSection';
-import CrossPathways from '@/components/sections/CrossPathways';
 import FaqSection from '@/components/sections/FaqSection';
 import { faqs } from '@/lib/content/faqs';
 
 export const metadata = pageMeta({
   title: 'Stay With Us',
   description:
-    'Book a stay in one of our beautifully designed Timber and Love vacation rentals, from a historic Boise firehouse to an oceanfront Oahu beach house.',
+    'Find your next getaway in Boise, McCall, or Oahu, including The Kualoa Beach House and The Caldwell Beach House. Explore photos and check availability.',
   path: '/stay-with-us/',
 });
 
@@ -26,12 +22,11 @@ export default function Page() {
       <PageHero
         eyebrow="Vacation Rentals"
         title="Stay With Us"
-        subtitle="Experience the Timber and Love aesthetic firsthand. Each of our short-term rentals is thoughtfully designed for an unforgettable, comfortable stay."
+        subtitle="A weekend in Boise, a mountain escape, or mornings beside the Pacific. Find a Timber and Love home for your next getaway."
         videoId="928750123"
         image="/video-posters/928750123.jpg"
       />
-      <TrustBar />
-      <section className="bg-bg-primary section">
+      <section id="properties" className="bg-bg-primary section scroll-mt-24">
         <div className="container-wide">
           <Reveal className="mb-12 max-w-2xl">
             <p className="eyebrow">Our Rentals</p>
@@ -44,20 +39,19 @@ export default function Page() {
       <EditorialSplit
         image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg"
         imageAlt="Front exterior of the Timber and Love Chalet, a mountain-modern vacation rental designed and built by the studio"
-        eyebrow="Stay With Us"
-        title="Sleep Inside a Home We Designed"
-        cta="See Our Work"
-        href="/timber-and-love-gallery/"
+        eyebrow="Mountain Getaway"
+        title="Make Time for McCall"
+        cta="Explore the Chalet"
+        href="/timber-and-love-chalet/"
         tone="secondary"
         ratio="landscape"
       >
         <p>
-          Every rental began as a Timber and Love project. The same eye for proportion, light, and material
-          that shapes our custom homes shapes the room you wake up in.
+          Settle into the Chalet for a change of pace in Idaho’s mountains. Gather with your favorite people,
+          head out to explore, and come back to a home of your own for the evening.
         </p>
         <p>
-          A stay is the easiest way to feel our design in person, from the millwork to the way morning sun
-          moves across the floors.
+          Browse the rooms, amenities, and details to see whether it is the right fit for your trip.
         </p>
       </EditorialSplit>
 
@@ -67,7 +61,7 @@ export default function Page() {
             <p className="eyebrow">A Look Inside</p>
             <h2 className="h-section mt-4">From the Boise Foothills to the Oahu Shore</h2>
             <p className="text-lead mt-4">
-              Distinctive settings, one design sensibility. Every stay carries the Timber and Love aesthetic.
+              Find a setting that feels like your kind of getaway, from a historic city stay to a home beside the water.
             </p>
           </Reveal>
           <Gallery
@@ -89,8 +83,8 @@ export default function Page() {
                 alt: 'Bedroom with black framed windows and layered textiles at The Firehouse',
               },
               {
-                src: '/wp-content/uploads/2025/12/10-Spacious-living-room-in-Oahu-vacation-rental-with-ocean-views.png',
-                alt: 'Spacious living room with ocean views inside the Oahu beach house rental',
+                src: '/rentals/caldwell/27-hammock-mokolii.webp',
+                alt: 'Hammock beside the water at The Caldwell Beach House with Mokoliʻi in the distance',
               },
               {
                 src: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Back-scaled.jpg',
@@ -102,20 +96,7 @@ export default function Page() {
         </div>
       </section>
 
-      <FeatureBand
-        image="/editorial/firehouse-living.webp"
-        eyebrow="Designed to Be Lived In"
-        title="Comfort That Comes From Craft"
-        body="Every rental is a Timber and Love project, so a stay is the easiest way to feel our design in person."
-        align="left"
-        height="short"
-      />
-
-      <ProofSection />
-
-      <CrossPathways keys={['design-build', 'invest']} />
-
-      <FaqSection items={faqs.stayWithUs} />
+      <FaqSection items={faqs.stayWithUs} title="Before You Book" background="section-tonal" />
 
       <ClosingCta {...closingCta.stayWithUs} />
     </>

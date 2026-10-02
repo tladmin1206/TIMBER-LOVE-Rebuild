@@ -1,7 +1,7 @@
 {
   "hero": {
     "eyebrow": "Vacation Rental",
-    "heading": "Chinaman's Beach House",
+    "heading": "The Kualoa Beach House",
     "subheading": "",
     "image": "/wp-content/uploads/2025/12/1-Oceanfront-Oahu-vacation-rental-exterior-with-direct-beach-access.png",
     "videoId": "928828721"
@@ -13,7 +13,9 @@
   ],
   "glance": {
     "propertyType": "Oceanfront beach home",
-    "guests": "Comfortable for 1 to 2 families"
+    "guests": "8",
+    "bedrooms": "3",
+    "bathrooms": "2"
   },
   "amenityGroups": [
     { "category": "Outdoor", "items": ["Private beach access", "Oceanfront views"] },
@@ -28,7 +30,7 @@
   ],
   "details": {
     "location": "",
-    "bookingUrl": "https://vacationrentaloahu.co/booking"
+    "bookingUrl": "https://vacationrentaloahu.co/properties/the-kualoa-beach-house/book?open=dates"
   },
   "amenities": [],
   "sections": [],

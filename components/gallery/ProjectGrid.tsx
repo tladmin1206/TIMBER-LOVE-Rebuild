@@ -1,11 +1,20 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { projects, projectFilters, type ProjectTag } from '@/lib/content/projects';
+import { projectFilters, filterProjects, type ProjectFilterKey } from '@/lib/content/projects';
 
-type FilterKey = 'all' | ProjectTag;
+type FilterKey = ProjectFilterKey;
+
+// Alternate styles and settings in the complete collection, so neighboring
+// developments do not dominate the first screen.
+const editorialOrder = [
+  'promise-lane-spanish-modern', 'central-rim', 'north-end-gem',
+  'promise-lane-contemporary', 'stucco-in-time', 'the-chalet',
+  'the-darla-house', 'due-for-a-raze', 'promise-lane-modern-farmhouse',
+  'the-firehouse', 'kualoa-beach-house', 'casa-de-boise',
+];
 
 export default function ProjectGrid() {
   const router = useRouter();
@@ -16,6 +25,9 @@ export default function ProjectGrid() {
     projectFilters.some((f) => f.key === initial) ? initial : 'all'
   );
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  useEffect(() => {
+    setActive(projectFilters.some((f) => f.key === initial) ? initial : 'all');
+  }, [initial]);
 
   const select = (key: FilterKey) => {
     setActive(key);
@@ -48,7 +60,7 @@ export default function ProjectGrid() {
     tabRefs.current[next]?.focus();
   };
 
-  const visible = active === 'all' ? projects : projects.filter((p) => p.tags.includes(active as ProjectTag));
+  const visible = filterProjects(active).sort((a, b) => editorialOrder.indexOf(a.slug) - editorialOrder.indexOf(b.slug));
 
   return (
     <div>
@@ -63,6 +75,7 @@ export default function ProjectGrid() {
                 tabRefs.current[i] = el;
               }}
               role="tab"
+              id={`project-tab-${f.key}`}
               aria-selected={on}
               aria-controls="project-results"
               /* Roving tabindex: the group is one tab stop, and arrow keys move
@@ -74,10 +87,16 @@ export default function ProjectGrid() {
               }`}
             >
               {f.label}
+              <span className="ml-2 text-text-muted">{filterProjects(f.key).length}</span>
             </button>
           );
         })}
       </div>
+
+      <p className="mt-5 text-sm text-text-secondary" role="status">
+        {visible.length} {visible.length === 1 ? 'project' : 'projects'}
+        {active === 'all' ? ' across our portfolio' : ` in ${projectFilters.find((f) => f.key === active)?.label}`}
+      </p>
 
       {/* Project cards.
           Keying the grid on the active filter remounts it, so the incoming set
@@ -91,17 +110,17 @@ export default function ProjectGrid() {
         key={active}
         id="project-results"
         role="tabpanel"
-        aria-live="polite"
-        className="mt-8 grid animate-fadeInFast gap-6 md:grid-cols-2"
+        aria-labelledby={`project-tab-${active}`}
+        className="mt-8 grid animate-fadeInFast gap-6 md:grid-cols-2 xl:grid-cols-3"
       >
         {visible.map((p) => (
           <Link
             key={p.slug}
             href={`/projects/${p.slug}/`}
-            className="group card-interactive block overflow-hidden"
+            className="group card-interactive flex flex-col overflow-hidden"
             data-track={`project_${p.slug}`}
           >
-            <div className="relative aspect-[16/10] overflow-hidden">
+            <div className="relative aspect-[16/10] shrink-0 overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={p.cover}
@@ -110,8 +129,8 @@ export default function ProjectGrid() {
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
-            <div className="p-6">
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs uppercase tracking-[0.16em] text-accent">
+            <div className="flex flex-1 flex-col p-6">
+              <div className="flex min-h-10 flex-wrap content-start items-center gap-x-3 gap-y-1 text-xs uppercase tracking-[0.16em] text-accent">
                 <span>{p.category}</span>
                 <span className="text-text-muted">·</span>
                 <span className="text-text-muted">{p.location}</span>
@@ -119,7 +138,7 @@ export default function ProjectGrid() {
               <h3 className="h-card mt-3">{p.title}</h3>
               {p.hgtv && <p className="mt-2 text-xs uppercase tracking-[0.14em] text-text-muted">{p.hgtv}</p>}
               <p className="mt-3 text-sm leading-relaxed text-text-secondary">{p.summary}</p>
-              <span className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-cream">
+              <span className="mt-auto inline-flex items-center gap-2 pt-5 text-xs uppercase tracking-[0.16em] text-cream">
                 View Project
                 <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </span>

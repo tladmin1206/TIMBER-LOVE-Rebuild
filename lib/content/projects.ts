@@ -6,8 +6,8 @@
  * asset filenames name the HGTV show/episode and property). Nothing is
  * fabricated: where a detail (exact year, budget, client quote, before/after,
  * a specific challenge/solution) is not known, it is simply omitted rather than
- * invented. Unattributed design images live in the separate "inspiration"
- * collection on the gallery, never as project case studies.
+ * invented. Project attribution comes from the original property pages and named
+ * Timber and Love photography collections.
  *
  * TEMP: confirm scope wording and add exact years / additional projects as the
  * business verifies them.
@@ -215,21 +215,304 @@ export const projects: Project[] = [
       { src: `${FIRE}Downstairs-scaled.jpg`, alt: 'The Firehouse lower level' },
     ],
   },
+  {
+  "slug": "central-rim",
+  "title": "The Central Rim Home",
+  "category": "HGTV Home",
+  "tags": [
+    "hgtv"
+  ],
+  "location": "Boise, ID",
+  "hgtv": "HGTV’s Boise Boys, Season 1 Episode 2",
+  "scope": "Residential transformation",
+  "summary": "Cedar, stone, and long views shape this Boise home, with a wood-lined living area, a statement fireplace, and a terrace that opens the interior to its setting.",
+  "cover": "/projects/central-rim/exterior.webp",
+  "gallery": [
+    {
+      "src": "/projects/central-rim/exterior.webp",
+      "alt": "Cedar and stone exterior of the Central Rim home"
+    },
+    {
+      "src": "/projects/central-rim/living.webp",
+      "alt": "Open living area with a wood ceiling and fireplace"
+    },
+    {
+      "src": "/projects/central-rim/terrace.webp",
+      "alt": "Sliding doors connect the living area to the terrace"
+    },
+    {
+      "src": "/projects/central-rim/lower-level.webp",
+      "alt": "Bright lower-level stair hall"
+    },
+    {
+      "src": "/projects/central-rim/bedroom.webp",
+      "alt": "Bedroom with a natural wood feature wall"
+    },
+    {
+      "src": "/projects/central-rim/bathroom.webp",
+      "alt": "Bathroom with a wood vanity and black fixtures"
+    }
+  ]
+},  {
+  "slug": "stucco-in-time",
+  "title": "Stucco in Time",
+  "category": "HGTV Home",
+  "tags": [
+    "hgtv"
+  ],
+  "location": "Boise, ID",
+  "hgtv": "HGTV’s Boise Boys, Season 2 Episode 6",
+  "scope": "Residential transformation",
+  "summary": "Exposed beams, a stone fireplace, and generous windows give this Boise home its open, welcoming character. The kitchen and living spaces share light and views.",
+  "cover": "/projects/stucco-in-time/exterior.webp",
+  "gallery": [
+    {
+      "src": "/projects/stucco-in-time/exterior.webp",
+      "alt": "Stucco home exterior with a timber-framed entrance"
+    },
+    {
+      "src": "/projects/stucco-in-time/living.webp",
+      "alt": "Living room with exposed beams and a stone fireplace"
+    },
+    {
+      "src": "/projects/stucco-in-time/kitchen.webp",
+      "alt": "Kitchen island and white cabinetry with open views"
+    },
+    {
+      "src": "/projects/stucco-in-time/bedroom.webp",
+      "alt": "Bedroom with a teal feature wall and large windows"
+    },
+    {
+      "src": "/projects/stucco-in-time/bathroom.webp",
+      "alt": "Bathroom with a double vanity and glass shower"
+    },
+    {
+      "src": "/projects/stucco-in-time/terrace.webp",
+      "alt": "Glazed rear elevation opening to the terrace"
+    }
+  ]
+},  {
+  "slug": "due-for-a-raze",
+  "title": "Due for a Raze",
+  "category": "HGTV Home",
+  "tags": [
+    "hgtv"
+  ],
+  "location": "Boise, ID",
+  "hgtv": "HGTV’s Boise Boys, Season 2 Episode 7",
+  "scope": "Residential transformation",
+  "summary": "A porch-front Boise home with a dramatic double-height interior, a blue kitchen, and layers of natural wood. Upstairs gathering spaces add another place to settle in.",
+  "cover": "/projects/due-for-a-raze/exterior.webp",
+  "gallery": [
+    {
+      "src": "/projects/due-for-a-raze/exterior.webp",
+      "alt": "Two-story Boise home with a front porch"
+    },
+    {
+      "src": "/projects/due-for-a-raze/living.webp",
+      "alt": "Double-height living space with blue kitchen cabinetry"
+    },
+    {
+      "src": "/projects/due-for-a-raze/kitchen.webp",
+      "alt": "Kitchen with a copper hood and dark blue cabinetry"
+    },
+    {
+      "src": "/projects/due-for-a-raze/lounge.webp",
+      "alt": "Upstairs lounge with built-in storage"
+    },
+    {
+      "src": "/projects/due-for-a-raze/bedroom.webp",
+      "alt": "Bedroom with reclaimed wood walls"
+    },
+    {
+      "src": "/projects/due-for-a-raze/bathroom.webp",
+      "alt": "Bathroom with patterned floor tiles and a freestanding tub"
+    }
+  ]
+},  {
+  "slug": "north-end-gem",
+  "title": "The North End Gem",
+  "category": "HGTV Home",
+  "tags": [
+    "hgtv"
+  ],
+  "location": "Boise, ID",
+  "hgtv": "HGTV’s Boise Boys, Season 1 Episode 4",
+  "scope": "Residential transformation",
+  "summary": "A colorful North End home with a curved porch, original character, and richly layered rooms. Green cabinetry, exposed brick, and a plant-filled sunroom give each space its own identity.",
+  "cover": "/projects/north-end-gem/exterior.webp",
+  "gallery": [
+    {
+      "src": "/projects/north-end-gem/exterior.webp",
+      "alt": "North End home with a curved porch and teal siding"
+    },
+    {
+      "src": "/projects/north-end-gem/living.webp",
+      "alt": "Living room with original wood flooring and fireplace"
+    },
+    {
+      "src": "/projects/north-end-gem/kitchen.webp",
+      "alt": "Kitchen with green cabinetry and exposed brick"
+    },
+    {
+      "src": "/projects/north-end-gem/sunroom.webp",
+      "alt": "Sunroom with rattan chairs and plants"
+    },
+    {
+      "src": "/projects/north-end-gem/bedroom.webp",
+      "alt": "Warm red bedroom with a fireplace"
+    },
+    {
+      "src": "/projects/north-end-gem/bathroom.webp",
+      "alt": "Bathroom with a freestanding black tub"
+    }
+  ]
+},  {
+  "slug": "the-darla-house",
+  "title": "The Darla House",
+  "category": "Cottage Renovation",
+  "tags": [
+    "remodel"
+  ],
+  "location": "Boise, ID",
+  "scope": "Renovation and interior styling",
+  "summary": "A North End cottage refreshed for comfortable stays, preserving its familiar character with a bright interior and welcoming living spaces.",
+  "cover": "/wp-content/uploads/2026/04/01-Exterior-Front-1024x683.jpg",
+  "stayHref": "/the-darla-house/",
+  "gallery": [
+    {
+      "src": "/wp-content/uploads/2026/04/01-Exterior-Front-1024x683.jpg",
+      "alt": "The Darla House: front exterior"
+    },
+    {
+      "src": "/wp-content/uploads/2026/04/06-Living-Room-scaled.jpg",
+      "alt": "The Darla House: Living Room"
+    },
+    {
+      "src": "/wp-content/uploads/2026/04/14-Kitchen-scaled.jpg",
+      "alt": "The Darla House: Kitchen"
+    },
+    {
+      "src": "/wp-content/uploads/2026/04/21-Bedroom-1-scaled.jpg",
+      "alt": "The Darla House: Bedroom 1"
+    },
+    {
+      "src": "/wp-content/uploads/2026/04/24-Bathroom-scaled.jpg",
+      "alt": "The Darla House: Bathroom"
+    },
+    {
+      "src": "/wp-content/uploads/2026/04/33-Aerial-View-scaled.jpg",
+      "alt": "The Darla House: Aerial View"
+    }
+  ]
+},  {
+  "slug": "the-chalet",
+  "title": "The Chalet",
+  "category": "Mountain Retreat",
+  "tags": [
+    "remodel"
+  ],
+  "location": "McCall, ID",
+  "scope": "Renovation and interior styling",
+  "summary": "A mountain cabin redesigned and styled by Luke Caldwell and the Timber and Love team, with warm gathering spaces and room to slow down.",
+  "cover": "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg",
+  "stayHref": "/timber-and-love-chalet/",
+  "gallery": [
+    {
+      "src": "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg",
+      "alt": "The Chalet: Exterior Front"
+    },
+    {
+      "src": "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Back-1-scaled.jpg",
+      "alt": "The Chalet: Exterior Back 1"
+    },
+    {
+      "src": "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Living-Room-1.jpg",
+      "alt": "The Chalet: Living Room 1"
+    },
+    {
+      "src": "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Dining-Room-Living-Room.jpg",
+      "alt": "The Chalet: Dining Room Living Room"
+    },
+    {
+      "src": "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Dining-Room-1.jpg",
+      "alt": "The Chalet: Dining Room 1"
+    },
+    {
+      "src": "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Kitchen.jpg",
+      "alt": "The Chalet: Kitchen"
+    }
+  ]
+},  {
+  "slug": "kualoa-beach-house",
+  "title": "The Kualoa Beach House",
+  "category": "Coastal Retreat",
+  "tags": [
+    "remodel"
+  ],
+  "location": "Oahu, HI",
+  "scope": "Renovation and interior styling",
+  "summary": "A renovated oceanfront retreat in Kaʻaʻawa with open views toward Mokoliʻi, a beachside lawn, and bright living spaces beside the Pacific.",
+  "cover": "/wp-content/uploads/2025/12/1-Oceanfront-Oahu-vacation-rental-exterior-with-direct-beach-access.png",
+  "stayHref": "/chinamans-ocean-front-beach-house/",
+  "gallery": [
+    {
+      "src": "/wp-content/uploads/2025/12/1-Oceanfront-Oahu-vacation-rental-exterior-with-direct-beach-access.png",
+      "alt": "The Kualoa Beach House: Oceanfront Oahu vacation rental exterior with direct beach access"
+    },
+    {
+      "src": "/wp-content/uploads/2025/12/7-Oceanfront-Oahu-vacation-rental-exterior-with-direct-beach-access.png",
+      "alt": "The Kualoa Beach House: Oceanfront Oahu vacation rental exterior with direct beach access"
+    },
+    {
+      "src": "/wp-content/uploads/2025/12/9-Spacious-living-room-in-Oahu-vacation-rental-with-ocean-views.png",
+      "alt": "The Kualoa Beach House: Spacious living room in Oahu vacation rental with ocean views"
+    },
+    {
+      "src": "/wp-content/uploads/2025/12/11-Modern-kitchen-in-Oahu-beach-house-vacation-rental.png",
+      "alt": "The Kualoa Beach House: Modern kitchen in Oahu beach house vacation rental"
+    },
+    {
+      "src": "/wp-content/uploads/2025/12/16-Bright-bedroom-with-ocean-view-in-Oahu-Hawaii-vacation-rental.png",
+      "alt": "The Kualoa Beach House: Bright bedroom with ocean view in Oahu Hawaii vacation rental"
+    },
+    {
+      "src": "/wp-content/uploads/2025/12/24-Oahu-beachfront-vacation-rental-near-Kualoa-Ranch-and-Chinamans-Hat-scaled.jpg",
+      "alt": "The Kualoa Beach House: Oahu beachfront vacation rental near Kualoa Ranch and Chinamans Hat"
+    }
+  ]
+},
 ];
 
-export const projectFilters: { key: 'all' | ProjectTag; label: string }[] = [
+export type ProjectFilterKey = 'all' | 'new-home' | 'remodel' | 'hgtv';
+
+export const projectFilters: { key: ProjectFilterKey; label: string }[] = [
   { key: 'all', label: 'All Projects' },
   { key: 'new-home', label: 'Custom Homes' },
-  { key: 'remodel', label: 'Remodels' },
-  { key: 'hgtv', label: 'HGTV Projects' },
-  { key: 'historic', label: 'Historic' },
+  { key: 'remodel', label: 'Renovated Retreats' },
+  { key: 'hgtv', label: 'HGTV Homes' },
 ];
+
+// Editorial collections are distinct. A filmed renovation belongs to HGTV;
+// retreat projects form their own collection, without repeating those homes.
+export function filterProjects(key: ProjectFilterKey): Project[] {
+  if (key === 'all') return [...projects];
+  if (key === 'hgtv') return projects.filter((p) => p.tags.includes('hgtv'));
+  return projects.filter((p) => p.tags.includes(key) && !p.tags.includes('hgtv'));
+}
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
 }
 
-/** Related projects for a detail page (everything except the current slug). */
+/** Three distinct related homes, excluding this project and neighboring repeats. */
 export function relatedProjects(slug: string): Project[] {
-  return projects.filter((p) => p.slug !== slug);
+  const seen = new Set<string>();
+  return projects.filter((p) => {
+    if (p.slug === slug) return false;
+    const group = p.slug.startsWith('promise-lane-') ? 'promise-lane' : p.slug;
+    if (seen.has(group)) return false;
+    seen.add(group);
+    return true;
+  }).slice(0, 3);
 }

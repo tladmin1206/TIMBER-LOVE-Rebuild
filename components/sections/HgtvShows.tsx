@@ -1,7 +1,6 @@
 import Link from "next/link";
 import VideoBg from "@/components/ui/VideoBg";
 import { hgtvShows } from "@/lib/content/home";
-import { site } from "@/lib/site";
 export default function HgtvShows() {
   return (
     <section
@@ -36,14 +35,12 @@ export default function HgtvShows() {
               </div>
               <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
                 <h3 className="h-card">{show.title}</h3>
-                <a
-                  href={i === 0 ? site.shows.boiseBoys : site.shows.outgrown}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href={i === 0 ? "/shows/#boise-boys-episodes" : "/shows/#outgrown-episodes"}
                   className="inline-flex min-h-11 items-center text-xs uppercase tracking-widest underline underline-offset-4"
                 >
-                  Watch on Discovery+ ↗
-                </a>
+                  Explore Every Episode →
+                </Link>
               </div>
             </article>
           ))}
