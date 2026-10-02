@@ -15,6 +15,7 @@ import type { Testimonial } from '@/lib/content/types';
  * motion the global CSS rule halts the animation.
  */
 export default function ReviewSlider({ items, duration = 55 }: { items: Testimonial[]; duration?: number }) {
+  const [hovered, setHovered] = useState(false);
   const [paused, setPaused] = useState(false);
   const cards = [...items, ...items];
 
@@ -22,22 +23,23 @@ export default function ReviewSlider({ items, duration = 55 }: { items: Testimon
     <div className="relative">
       <div
         className="relative overflow-hidden"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-        onTouchStart={() => setPaused((p) => !p)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
       >
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-ink to-transparent sm:w-24" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-ink to-transparent sm:w-24" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-bg-primary to-transparent sm:w-24" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-bg-primary to-transparent sm:w-24" />
         <div
           aria-hidden
           className="flex w-max animate-marquee gap-5 py-1"
-          style={{ animationDuration: `${duration}s`, animationPlayState: paused ? 'paused' : 'running' }}
+          style={{ animationDuration: `${duration}s`, animationPlayState: paused || hovered ? 'paused' : 'running' }}
         >
           {cards.map((r, i) => (
             <ReviewCard key={i} review={r} />
           ))}
         </div>
       </div>
+
+      <button type="button" onClick={() => setPaused(value => !value)} aria-pressed={paused} className="mt-5 min-h-11 border border-border-subtle px-4 text-xs uppercase tracking-widest text-cream">{paused ? 'Resume reviews' : 'Pause reviews'}</button>
 
       {/* The visible track is aria-hidden, so the reviews are exposed here. */}
       <ul className="sr-only">
@@ -53,7 +55,7 @@ export default function ReviewSlider({ items, duration = 55 }: { items: Testimon
 
 function ReviewCard({ review }: { review: Testimonial }) {
   return (
-    <figure className="surface-card-glass flex w-[300px] shrink-0 flex-col p-6 text-left sm:w-[380px]">
+    <figure className="surface-card flex w-[300px] shrink-0 flex-col p-6 text-left sm:w-[380px]">
       <div className="flex items-center justify-between">
         <Stars rating={5} size="sm" />
         <span className="text-[0.65rem] uppercase tracking-[0.14em] text-text-muted">Google</span>

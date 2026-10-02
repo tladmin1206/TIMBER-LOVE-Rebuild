@@ -17,7 +17,7 @@ export const metadata = pageMeta({
   description:
     'Understand how homeowners typically finance a design-build or remodeling project with Timber and Love in Boise. General guidance, not financial advice.',
   path: '/financing/',
-  image: '/wp-content/uploads/2024/03/TimberandLoveHomeRemodelingCompany-Design-BuildBackgroundImage-ezgif.com-webp-to-jpg-converter-1.jpg',
+  image: '/editorial/estate-breakfast.webp',
 });
 
 // General financing approaches homeowners commonly consider. Described at a high
@@ -80,7 +80,7 @@ export default function Page() {
         eyebrow="Financing"
         title="Financing Your Project"
         subtitle="A remodel or new build is a meaningful investment. Here is a plain-language look at how homeowners typically pay for one, so you can plan with confidence."
-        image="/wp-content/uploads/2024/03/TimberandLoveHomeRemodelingCompany-Design-BuildBackgroundImage-ezgif.com-webp-to-jpg-converter-1.jpg"
+        image="/editorial/estate-breakfast.webp"
         height="short"
       >
         <Cta href="/estimate/" variant="primary">Estimate Your Project</Cta>
@@ -117,7 +117,7 @@ export default function Page() {
       </section>
 
       {/* How it fits the process */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Plan With Confidence</p>

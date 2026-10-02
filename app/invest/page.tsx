@@ -19,7 +19,7 @@ export const metadata = pageMeta({
     'Learn about real estate investment information available through Timber and Love Realty, an affiliated Timber and Love site, and who it is intended for.',
   path: '/invest/',
   image:
-    '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg',
+    '/editorial/estate-exterior.webp',
 });
 
 const sections = [
@@ -47,7 +47,7 @@ export default function Page() {
         eyebrow="Invest"
         title="Invest in Real Estate"
         subtitle="Learn about real estate investment information and opportunities available through Timber and Love, and see whether they fit what you are looking for."
-        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg"
+        image="/editorial/estate-exterior.webp"
       >
         <Cta href={site.external.invest} external newTab track="invest_explore">
           Explore Investment Opportunities
@@ -113,7 +113,7 @@ export default function Page() {
       />
 
       {/* Primary external CTA + affiliated-site note */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide max-w-2xl text-center">
           <Reveal>
             <p className="eyebrow">Take a Look</p>

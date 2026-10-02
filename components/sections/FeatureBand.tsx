@@ -30,7 +30,7 @@ export default function FeatureBand({
       ? 'bg-gradient-to-t from-ink/85 via-ink/50 to-ink/60'
       : 'bg-gradient-to-r from-ink/90 via-ink/60 to-ink/20';
   return (
-    <section className={`relative isolate flex items-center overflow-hidden ${height === 'tall' ? 'min-h-[70vh]' : 'min-h-[52vh]'}`}>
+    <section className={`media-card relative isolate flex items-center overflow-hidden py-20 sm:py-28 ${height === 'tall' ? 'min-h-[70vh]' : 'min-h-[52vh]'}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={image} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover" />
       <div className={`absolute inset-0 -z-10 ${gradient}`} />

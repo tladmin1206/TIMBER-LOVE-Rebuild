@@ -85,8 +85,8 @@ export default function Page() {
                 alt: 'Living room inside the historic Boise firehouse vacation rental',
               },
               {
-                src: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg',
-                alt: 'Front exterior of the Casa De Boise remodel featured on HGTV Boise Boys',
+                src: '/editorial/firehouse-bedroom.webp',
+                alt: 'Bedroom with black framed windows and layered textiles at The Firehouse',
               },
               {
                 src: '/wp-content/uploads/2025/12/10-Spacious-living-room-in-Oahu-vacation-rental-with-ocean-views.png',
@@ -103,7 +103,7 @@ export default function Page() {
       </section>
 
       <FeatureBand
-        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg"
+        image="/editorial/firehouse-living.webp"
         eyebrow="Designed to Be Lived In"
         title="Comfort That Comes From Craft"
         body="Every rental is a Timber and Love project, so a stay is the easiest way to feel our design in person."

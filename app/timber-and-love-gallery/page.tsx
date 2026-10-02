@@ -67,7 +67,7 @@ export default function Page() {
       />
 
       {/* Design inspiration: clearly separated from completed projects */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mb-10 max-w-2xl">
             <p className="eyebrow">Design Inspiration</p>

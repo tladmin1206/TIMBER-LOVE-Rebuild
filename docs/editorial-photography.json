@@ -1,0 +1,660 @@
+[
+  {
+    "file": "/editorial/team-studio.webp",
+    "source": {
+      "content_hash": "7298eee7db02ed3f307e76ca288a71c898f35c9391c3979706b2e49fcd4f93ce",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACO6A",
+      "name": "Danica-2022-03-1423.58.37-AS_Dedication_00-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-2022-03-1423.58.37-AS_Dedication_00-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-2022-03-1423.58.37-AS_Dedication_00-.jpeg",
+      "size": 5417463
+    },
+    "width": 1289,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/craftsman-dining.webp",
+    "source": {
+      "content_hash": "17ca6449da60b4ae68ee1354994fa5885d584c1094fb1fbc723c02d19d27ca4f",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACO7g",
+      "name": "Danica-AS_ClassicCraftsman_07-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_ClassicCraftsman_07-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_ClassicCraftsman_07-.jpeg",
+      "size": 5497008
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/collected-details.webp",
+    "source": {
+      "content_hash": "7e665c11bf730ade96bc937b893e2529b177c56c8f865048dcff9499ce3a5c0e",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACO8Q",
+      "name": "Danica-AS_ClassicCraftsman_10-7771.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_ClassicCraftsman_10-7771.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_ClassicCraftsman_10-7771.jpeg",
+      "size": 5748030
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/craftsman-bath.webp",
+    "source": {
+      "content_hash": "a6f70d3d9ce92698780e27b7011d63e75e38bab6b6ff08dbd815c215712fbed7",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACO9A",
+      "name": "Danica-AS_ClassicCraftsman_13-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_ClassicCraftsman_13-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_ClassicCraftsman_13-.jpeg",
+      "size": 6772500
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/cottage-living.webp",
+    "source": {
+      "content_hash": "c218b8a147b6ec560de5f0aec2b2c94f51e5a296436aab7b7a7531a089f1c588",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACO9g",
+      "name": "Danica-AS_CozyCottage_00-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_CozyCottage_00-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_CozyCottage_00-.jpeg",
+      "size": 6277202
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/cottage-fireplace.webp",
+    "source": {
+      "content_hash": "d0eb369c509c33f2c67bd4d6bc3e9492cf3713fee8e7c109752ac199dcbcdb21",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACO-Q",
+      "name": "Danica-AS_CozyCottage_03-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_CozyCottage_03-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_CozyCottage_03-.jpeg",
+      "size": 5517801
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/cottage-kitchen.webp",
+    "source": {
+      "content_hash": "97e94a894cf84520760d84e40c55273e1b877ac94e12cae04acbe8953c285717",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACO_A",
+      "name": "Danica-AS_CozyCottage_06-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_CozyCottage_06-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_CozyCottage_06-.jpeg",
+      "size": 5191004
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/cottage-entry.webp",
+    "source": {
+      "content_hash": "b315dff0a6a075c9d67d18aaf49d5fe70dd789a2f77b3cb440d01b661424b672",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACO_w",
+      "name": "Danica-AS_CozyCottage_09-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_CozyCottage_09-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_CozyCottage_09-.jpeg",
+      "size": 5449508
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/arched-bedroom.webp",
+    "source": {
+      "content_hash": "563c337a067a0627c8a98d16d2efb3657e79f3a2edb09a58be78c2aa20e6bfea",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPAg",
+      "name": "Danica-AS_CozyCottage_12-5702.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_CozyCottage_12-5702.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_CozyCottage_12-5702.jpeg",
+      "size": 5025117
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/cedar-fireplace.webp",
+    "source": {
+      "content_hash": "0a584976334bca8d456acd0c79b5ecf0a55b365d28bee24ed2deaa37687cbcf2",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPCA",
+      "name": "Danica-AS_IndustrialModern_01-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_IndustrialModern_01-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_IndustrialModern_01-.jpeg",
+      "size": 7633180
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/concrete-entry.webp",
+    "source": {
+      "content_hash": "08649b29fcbab1e9647f0939475157c872e042331d96745da8b1449432549642",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPCw",
+      "name": "Danica-AS_IndustrialModern_04-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_IndustrialModern_04-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_IndustrialModern_04-.jpeg",
+      "size": 5864680
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/natural-materials.webp",
+    "source": {
+      "content_hash": "bac1331c3db175a3646908abd930d0c3f1943a20c3ce343b0a0f829a3e8cc5f6",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPDg",
+      "name": "Danica-AS_IndustrialModern_07-3581.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_IndustrialModern_07-3581.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_IndustrialModern_07-3581.jpeg",
+      "size": 6363118
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/cedar-kitchen.webp",
+    "source": {
+      "content_hash": "fd45685222f96c9d76ab302c71cdd2f4183ba221fbdfd93a0668ed76f86723e3",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPEg",
+      "name": "Danica-AS_IndustrialModern_10-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_IndustrialModern_10-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_IndustrialModern_10-.jpeg",
+      "size": 6006740
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/concrete-stair.webp",
+    "source": {
+      "content_hash": "21ddf80dea52e3bce95fce5a85ee103ddb9ecf4de938c6cbedc8ef002199e867",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPEw",
+      "name": "Danica-AS_IndustrialModern_13-3333.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_IndustrialModern_13-3333.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_IndustrialModern_13-3333.jpeg",
+      "size": 5645611
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/oak-vanity.webp",
+    "source": {
+      "content_hash": "a574505f82394eeb15bac7577e46e4395a2d36180ccca3c90724a0e700ff588a",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPFg",
+      "name": "Danica-AS_IndustrialModern_16-3419.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_IndustrialModern_16-3419.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_IndustrialModern_16-3419.jpeg",
+      "size": 3906079
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/casetta-living.webp",
+    "source": {
+      "content_hash": "40fb2ea8b1b5e74fd46e5cde81cf3541159fa29001ecbfc405644c4859e30b7e",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPGQ",
+      "name": "Danica-AS_LaCasetta_01-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_LaCasetta_01-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_LaCasetta_01-.jpeg",
+      "size": 6382498
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/casetta-shelves.webp",
+    "source": {
+      "content_hash": "456834397f800943a7976b238e4ef574bb131b5b9afe1911fbdcd32fe84ea897",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPHw",
+      "name": "Danica-AS_LaCasetta_07-6207.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_LaCasetta_07-6207.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_LaCasetta_07-6207.jpeg",
+      "size": 7419927
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/casetta-entry.webp",
+    "source": {
+      "content_hash": "8d1bdd171e2c75036f46dfc5c3c5ff416084f43e2a9361ffbba3ca60f7e47fd9",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPIg",
+      "name": "Danica-AS_LaCasetta_10-6147.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_LaCasetta_10-6147.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_LaCasetta_10-6147.jpeg",
+      "size": 6127768
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/casetta-window.webp",
+    "source": {
+      "content_hash": "525a500bf736f1019f954afd41fca61ff876483dd947a3b4e0dcc0fb8b1bb7cb",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPJQ",
+      "name": "Danica-AS_LaCasetta_13-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_LaCasetta_13-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_LaCasetta_13-.jpeg",
+      "size": 7665223
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/casetta-kitchen.webp",
+    "source": {
+      "content_hash": "7d4f1650fe7f204f4c165f5a2c920b53828c1fbd05bbe35f4a787f26ed4f738f",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPKw",
+      "name": "Danica-AS_LaCasetta_19-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_LaCasetta_19-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_LaCasetta_19-.jpeg",
+      "size": 5430081
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/midcentury-console.webp",
+    "source": {
+      "content_hash": "7409cd6ad65e93b498ebe55648239af800f7ab917c8e2818d175cc4ae86eea4f",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPLA",
+      "name": "Danica-AS_MidCenturyModern_01-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MidCenturyModern_01-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MidCenturyModern_01-.jpeg",
+      "size": 3597268
+    },
+    "width": 1377,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/midcentury-shelves.webp",
+    "source": {
+      "content_hash": "80d48a703c0a351d98d06f86522a4c051cc61c87e2d4d3efb4088d0f474f4e64",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPMA",
+      "name": "Danica-AS_MidCenturyModern_04-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MidCenturyModern_04-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MidCenturyModern_04-.jpeg",
+      "size": 4835638
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/midcentury-entry.webp",
+    "source": {
+      "content_hash": "d6312de2bc517246da7923651247cf75ad725f51ba96c420676914a8ecf1df13",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPMg",
+      "name": "Danica-AS_MidCenturyModern_07-5467.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MidCenturyModern_07-5467.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MidCenturyModern_07-5467.jpeg",
+      "size": 5351838
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/garden-detail.webp",
+    "source": {
+      "content_hash": "5c6d6630334ea291dc20571e95ae6a343b87532c819ecdc41659044abe4af3e5",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPNg",
+      "name": "Danica-AS_MidCenturyModern_10-6153.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MidCenturyModern_10-6153.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MidCenturyModern_10-6153.jpeg",
+      "size": 9562351
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/midcentury-art.webp",
+    "source": {
+      "content_hash": "a12409ef860d6db3dfafed23a5462e932d89b63e88fba6284093f3d382bb02c4",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPOQ",
+      "name": "Danica-AS_MidCenturyModern_13-6163.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MidCenturyModern_13-6163.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MidCenturyModern_13-6163.jpeg",
+      "size": 5998762
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/cedar-hall.webp",
+    "source": {
+      "content_hash": "451941120dc36d2156051dd8cc2d8cf42cb86e88a195371bf1edae895212d2d6",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPPA",
+      "name": "Danica-AS_MidCenturyModern_16-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MidCenturyModern_16-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MidCenturyModern_16-.jpeg",
+      "size": 5710052
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/mountain-living.webp",
+    "source": {
+      "content_hash": "87c40b0a30c751b19b2618f613ab54f9fe4b62d3434376c57f0a8d54152b32ac",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPRA",
+      "name": "Danica-AS_MountainModern_04-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MountainModern_04-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MountainModern_04-.jpeg",
+      "size": 9536239
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/mountain-kitchen.webp",
+    "source": {
+      "content_hash": "985076ab16a4863ef7b5570ff08522d9ff85f187cdd5512288e95827fd3e9c67",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPSA",
+      "name": "Danica-AS_MountainModern_10-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MountainModern_10-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MountainModern_10-.jpeg",
+      "size": 6776141
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/mountain-window.webp",
+    "source": {
+      "content_hash": "99c8f9ea23e72abe2ea4c3f7cbcb4e33013691f1f7c732ac75d49ae3cbb1ed86",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPSg",
+      "name": "Danica-AS_MountainModern_13-0185.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MountainModern_13-0185.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MountainModern_13-0185.jpeg",
+      "size": 2801386
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/mountain-bath.webp",
+    "source": {
+      "content_hash": "690bc93727134b4d96e22b84305faf66c31841e799e774c4f8fd1ffb4263ab15",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPTg",
+      "name": "Danica-AS_MountainModern_16-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MountainModern_16-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_MountainModern_16-.jpeg",
+      "size": 4962600
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/luke-firehouse.webp",
+    "source": {
+      "content_hash": "f6b1818f254220745b60c0f636027a287e6a38b6de8d8286cf39ae09738d8b9d",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPZA",
+      "name": "Danica-AS_TheFirehouse_00-1818.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_00-1818.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_00-1818.jpeg",
+      "size": 5778530
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/firehouse-lounge.webp",
+    "source": {
+      "content_hash": "ae8594bdc7fb482266a8fb2652dce0eded7d07e32ac5b6d78a44bcf77a353e5b",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPZw",
+      "name": "Danica-AS_TheFirehouse_03-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_03-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_03-.jpeg",
+      "size": 7060026
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/firehouse-living.webp",
+    "source": {
+      "content_hash": "7171fcf2a9ed7944bc8b43095655fea75de45301dccd4424410dfff29fd42720",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPag",
+      "name": "Danica-AS_TheFirehouse_06-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_06-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_06-.jpeg",
+      "size": 6771837
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/firehouse-bedroom.webp",
+    "source": {
+      "content_hash": "76e0d2734fef93c3aea3b5d5461e9af34755b515ed74b99e8eb18daea37a3f6f",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPcw",
+      "name": "Danica-AS_TheFirehouse_14-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_14-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_14-.jpeg",
+      "size": 5791251
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/firehouse-sink.webp",
+    "source": {
+      "content_hash": "d6e612bd0435e4bd7e6a2f38f59586ede465d8d332ecdb7560d9ae297af1e99f",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPeQ",
+      "name": "Danica-AS_TheFirehouse_19-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_19-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_19-.jpeg",
+      "size": 6467029
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/luke-estate.webp",
+    "source": {
+      "content_hash": "94d0fccdae3cc8fd26aa9316067ebf04b80f7b3423af47602c7eb581f14973ba",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPew",
+      "name": "Danica-AS_TimelessEstate_00-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TimelessEstate_00-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TimelessEstate_00-.jpeg",
+      "size": 7130283
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/estate-exterior.webp",
+    "source": {
+      "content_hash": "20a1b2858f18c5246338394171bb094342559d0980a42eaa57abd9ec98582371",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPfw",
+      "name": "Danica-AS_TimelessEstate_03-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TimelessEstate_03-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TimelessEstate_03-.jpeg",
+      "size": 11062921
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/estate-hearth.webp",
+    "source": {
+      "content_hash": "3a67cc8f660ab8ccd6425d0a06fc935cbe0c9c9c067daabe57b8eaa94914ee5b",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACO4w",
+      "name": "Danica-AS_TimelessEstate_04-fire.png",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TimelessEstate_04-fire.png",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TimelessEstate_04-fire.png",
+      "size": 13661905
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/estate-living.webp",
+    "source": {
+      "content_hash": "2a71d1ad47ade657e80add62e215ebfcbc892796c32327e8549aee965a890acc",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPgw",
+      "name": "Danica-AS_TimelessEstate_07-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TimelessEstate_07-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TimelessEstate_07-.jpeg",
+      "size": 6597876
+    },
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/estate-breakfast.webp",
+    "source": {
+      "content_hash": "6fa31d9f14f8dfab1fa23662024fdc1e02d4808eefb7020fefe2ef8292d5484d",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPiQ",
+      "name": "Danica-AS_TimelessEstate_12-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TimelessEstate_12-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TimelessEstate_12-.jpeg",
+      "size": 4636847
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/estate-hardware.webp",
+    "source": {
+      "content_hash": "dfe72f53b451aea7e37b35cdcb005671eab5fde2737e75809289581be7a62be8",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPjA",
+      "name": "Danica-AS_TimelessEstate_15-6561.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TimelessEstate_15-6561.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TimelessEstate_15-6561.jpeg",
+      "size": 4402602
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/luke-clint-jump.webp",
+    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "width": 1024,
+    "height": 485
+  },
+  {
+    "file": "/editorial/luke-portrait.webp",
+    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "width": 760,
+    "height": 1024
+  },
+  {
+    "file": "/editorial/luke-current.webp",
+    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "width": 1060,
+    "height": 1400
+  },
+  {
+    "file": "/editorial/luke-book.webp",
+    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/luke-clint.webp",
+    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "width": 1600,
+    "height": 990
+  },
+  {
+    "file": "/editorial/luke-clint-studio.webp",
+    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "width": 1600,
+    "height": 1120
+  },
+  {
+    "file": "/editorial/luke-denim.webp",
+    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "width": 1800,
+    "height": 1200
+  },
+  {
+    "file": "/editorial/firehouse-landing.webp",
+    "source": {
+      "content_hash": "6d7a988cf36e5f98595f03bf67aad210e28b785713f0e9ab50e664054dd718e2",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPbQ",
+      "name": "Danica-AS_TheFirehouse_08-1905.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_08-1905.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_08-1905.jpeg",
+      "size": 4726205
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/firehouse-entry.webp",
+    "source": {
+      "content_hash": "741bff7db231e9e465b9c7ae0d07410b8dc0a9308a53a638d738834d7ccacafb",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPcA",
+      "name": "Danica-AS_TheFirehouse_11-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_11-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_11-.jpeg",
+      "size": 8726869
+    },
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "file": "/editorial/firehouse-kitchen.webp",
+    "source": {
+      "content_hash": "f298ca35a124b92eec00c3c392bb1fa6281c91a0d156f6456bd6ce798a10b6a2",
+      "expiration_in_sec": 900,
+      "id": "id:4uTMCIXoZRAAAAAAAACPdg",
+      "name": "Danica-AS_TheFirehouse_17-.jpeg",
+      "path": "ns:1418411601//ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_17-.jpeg",
+      "path_display": "/TIMBER + LOVE/ALL MEDIA/Americana Soul Master/Americana Soul - Highlights - Singles/Highlights/Danica-AS_TheFirehouse_17-.jpeg",
+      "size": 5412148
+    },
+    "width": 1800,
+    "height": 1200
+  }
+]

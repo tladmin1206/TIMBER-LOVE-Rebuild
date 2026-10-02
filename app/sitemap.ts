@@ -19,6 +19,7 @@ const paths: { path: string; priority: number; changeFrequency: MetadataRoute.Si
   { path: '/about/', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/contact/', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/timber-and-love-gallery/', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/shows/', priority: 0.8, changeFrequency: 'weekly' },
   { path: '/the-boise-boys/', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/stay-with-us/', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/vacation-rentals/', priority: 0.7, changeFrequency: 'monthly' },

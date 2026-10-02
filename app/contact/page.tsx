@@ -69,7 +69,7 @@ export default function Page() {
         eyebrow="Contact"
         title="How Can We Help?"
         subtitle="Pick the option closest to your goal and we will point you to the right place, or reach out directly and a member of our team will follow up."
-        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg"
+        image="/editorial/casetta-living.webp"
       />
 
       <TrustBar />
@@ -119,7 +119,7 @@ export default function Page() {
       </EditorialSplit>
 
       {/* General inquiry: form plus primary customer contact details */}
-      <section id="general" className="border-t border-border-subtle bg-bg-secondary section">
+      <section id="general" className="section-paper border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <p className="eyebrow">General Inquiry</p>
@@ -174,7 +174,7 @@ export default function Page() {
             <WhatHappensNext />
           </div>
 
-          <Reveal delay={120} className="surface-card mt-10 flex flex-col items-center gap-6 p-8 text-center sm:flex-row sm:justify-between sm:text-left">
+          <Reveal delay={120} className="surface-card mt-10 flex flex-col items-center gap-6 p-8 text-center lg:flex-row lg:justify-between lg:text-left">
             <div>
               <h3 className="h-card">Not Ready to Talk Yet?</h3>
               <p className="mt-2 max-w-lg text-sm leading-relaxed text-text-secondary">
@@ -193,7 +193,7 @@ export default function Page() {
       </section>
 
       {/* Press & Partnerships: kept separate from customer contact routing */}
-      <section id="press" className="border-t border-border-subtle bg-bg-secondary section">
+      <section id="press" className="section-paper border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">Press & Partnerships</p>

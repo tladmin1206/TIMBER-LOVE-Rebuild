@@ -1,3 +1,5 @@
+import LukeClintFeature from '@/components/sections/LukeClintFeature';
+import HgtvShows from '@/components/sections/HgtvShows';
 import Link from 'next/link';
 import Hero from '@/components/sections/Hero';
 import TrustBar from '@/components/sections/TrustBar';
@@ -53,7 +55,7 @@ export default function HomePage() {
 
       {/* Intro: who we are, then straight into the choice. No CTA here: the
           pathway grid directly below is the action. */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-paper border-t border-border-subtle section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <p className="eyebrow">Who We Are</p>
@@ -63,8 +65,8 @@ export default function HomePage() {
             <p className="text-body">
               Founded in 2015 by Luke Caldwell of HGTV&apos;s Boise Boys, Timber and Love is Treasure Valley&apos;s
               leading luxury design and build firm. We design and build custom homes and high-end remodels, from the
-              first drawing to the final walkthrough. We are not a flipping company, and we are not semi-custom. Design
-              and construction happen under one roof, so nothing is lost between the vision and the build.
+              first drawing to the final walkthrough. Design and construction happen under one roof, so nothing is lost
+              between the vision and the build.
             </p>
           </Reveal>
         </div>
@@ -99,7 +101,7 @@ export default function HomePage() {
                 cta: 'Explore New Builds',
                 href: '/design-and-build/',
                 image:
-                  '/wp-content/uploads/2024/03/TimberandLoveHomeRemodelingCompany-Design-BuildBackgroundImage-ezgif.com-webp-to-jpg-converter-1.jpg',
+                  '/projects/promise-ln-5106/5106-promise-ln-exterior-front.jpg',
               },
               {
                 key: 'remodels',
@@ -108,7 +110,7 @@ export default function HomePage() {
                 cta: 'See Our Remodels',
                 href: '/timber-and-love-gallery/',
                 image:
-                  '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg',
+                  '/editorial/cottage-living.webp',
               },
             ].map((p, i) => (
               <Reveal key={p.key} delay={i * 100}>
@@ -164,7 +166,7 @@ export default function HomePage() {
 
       {/* Full-bleed photographic statement: design + build under one roof. */}
       <FeatureBand
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg"
+        image="/editorial/cedar-kitchen.webp"
         eyebrow="One Team, One Roof"
         title="Designed and Built Under One Roof"
         body="From the first sketch to the final fixture, our designers and builders work together on every detail, so nothing is lost between the vision and the finished home."
@@ -173,7 +175,7 @@ export default function HomePage() {
       {/* Proof: moved up from near the foot of the page so the 4.9 rating does
           work for the majority of visitors, not just those who scroll to 70%. */}
       <section className="relative overflow-hidden text-center section-feature">
-        <VideoBg videoId={sectionVideos.testimonials.id} poster={sectionVideos.testimonials.poster} overlay="bg-ink/75" />
+        <VideoBg videoId={sectionVideos.testimonials.id} poster={sectionVideos.testimonials.poster} overlay="bg-ink/75" fit="contain" />
         <div className="container-wide relative z-10">
           <Reveal>
             <p className="eyebrow">Testimonials</p>
@@ -199,7 +201,7 @@ export default function HomePage() {
 
       {/* Featured design-build projects: the clearest proof of the integrated
           service. Custom homes lead; the full portfolio is one click away. */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-paper border-t border-border-subtle section">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Featured Work</p>
@@ -237,46 +239,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* HGTV: a supporting credibility note, intentionally smaller than a
-          hero-scale block. The design-build story leads; the show reinforces. */}
-      <section className="bg-bg-primary pb-20 sm:pb-28">
-        <div className="container-wide">
-          <Reveal className="max-w-2xl">
-            <p className="eyebrow">As Seen on HGTV</p>
-            <h3 className="h-card mt-3">Boise Boys + Outgrown</h3>
-          </Reveal>
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            {hgtvShows.map((show, i) => (
-              <Reveal key={show.title} delay={i * 120} className="relative aspect-[16/6] overflow-hidden">
-                <VideoBg videoId={show.videoId} poster={show.poster} overlay="bg-ink/35" />
-                <div className="absolute inset-x-0 bottom-0 z-10 flex flex-wrap items-center gap-x-5 gap-y-1 p-5">
-                  <h4 className="h-card-sm">{show.title}</h4>
-                  <a
-                    href={i === 0 ? site.shows.boiseBoys : site.shows.outgrown}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs uppercase tracking-[0.16em] text-cream link-underline"
-                  >
-                    Watch on Discovery + →
-                  </a>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HgtvShows />
+
+      <LukeClintFeature />
 
       {/* Why us: Values, carrying the mission statement as its lede. Previously
           these were two consecutive "about us" sections with duplicate buttons,
           the second of which was a centred wall of text that stalled the scroll. */}
       <section className="relative overflow-hidden section-feature">
-        <VideoBg videoId={sectionVideos.values.id} poster={sectionVideos.values.poster} overlay="bg-ink/75" />
         <div className="container-wide relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Why Choose Us</p>
             <h2 className="h-section mt-4">Our Values</h2>
             <p className="text-lead mt-5 max-w-md">{mission}</p>
             <ModalButton modal="work-with-us" className="btn-secondary mt-8">Work With Us</ModalButton>
+            <div className="relative mt-8 aspect-video overflow-hidden"><VideoBg videoId={sectionVideos.values.id} poster={sectionVideos.values.poster} overlay="" fit="contain" /></div>
           </Reveal>
           <div className="grid gap-5 sm:grid-cols-2">
             {values.map((v, i) => (
@@ -291,7 +268,7 @@ export default function HomePage() {
 
       {/* Full-bleed photographic statement before the process + closing ask. */}
       <FeatureBand
-        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg"
+        image="/editorial/mountain-living.webp"
         eyebrow="Your Home, Realized"
         title="Let's Design Something Worth Building"
         body="Start with a realistic planning range in a few minutes, then let's bring your vision to life."
@@ -302,7 +279,7 @@ export default function HomePage() {
       />
 
       {/* Remove friction immediately before the ask */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-paper border-t border-border-subtle section">
         <div className="container-wide">
           <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
             <Reveal>
@@ -319,7 +296,10 @@ export default function HomePage() {
           </div>
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {processSteps.map((step, i) => (
-              <Reveal key={step.num} delay={i * 110} className="surface-card p-8">
+              <Reveal key={step.num} delay={i * 110} className="media-card relative isolate flex min-h-[26rem] flex-col justify-end overflow-hidden p-7 sm:p-8">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={step.image} alt="" loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/80 to-ink/15" />
                 <div className="font-sans text-5xl tracking-brand text-accent/70">{step.num}</div>
                 <h3 className="h-card mt-6">{step.title}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-body">{step.body}</p>

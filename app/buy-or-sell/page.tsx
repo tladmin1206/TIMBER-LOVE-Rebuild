@@ -85,7 +85,7 @@ export default function Page() {
       )}
 
       {/* What visitors will find on the linked site */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">What You Will Find</p>
@@ -116,8 +116,8 @@ export default function Page() {
 
       {/* Editorial split: a real Boise home makes the buying conversation tangible */}
       <EditorialSplit
-        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg"
-        imageAlt="Front exterior of Casa De Boise, a Boise Boys home renovated by Timber and Love"
+        image="/editorial/estate-hearth.webp"
+        imageAlt="An inviting living room with black framed windows and a fireplace, designed by Timber and Love"
         eyebrow="Buying in Boise"
         title="Find a Home That Fits Your Life"
         cta="Browse Homes"
@@ -169,7 +169,7 @@ export default function Page() {
       />
 
       {/* Primary external CTA with affiliated-site note */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide max-w-2xl text-center">
           <Reveal>
             <p className="eyebrow">Visit the Site</p>

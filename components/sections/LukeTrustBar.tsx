@@ -11,19 +11,21 @@ import { site } from '@/lib/site';
  * are used (the Timber and Love socials Luke fronts; no invented handles).
  */
 
-const LUKE_IMAGE = '/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1.jpg';
+const LUKE_IMAGE = '/editorial/luke-current.webp';
 
 export default function LukeTrustBar({ className = '' }: { className?: string }) {
   return (
-    <section aria-labelledby="luke-heading" className={`bg-bg-secondary ${className}`}>
+    <section aria-labelledby="luke-heading" className={`section-paper bg-bg-secondary ${className}`}>
       <div className="container-wide section-tight">
         <Reveal className="grid items-center gap-8 sm:grid-cols-[auto_1fr] sm:gap-10">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={LUKE_IMAGE}
+            width={1060}
+            height={1400}
             alt="Luke Caldwell of Timber and Love"
             loading="lazy"
-            className="h-28 w-28 shrink-0 rounded-full object-cover object-top sm:h-32 sm:w-32"
+            className="h-auto w-28 shrink-0 sm:w-32"
           />
           <div>
             <p className="eyebrow">HGTV&apos;s Boise Boys &middot; Founder</p>

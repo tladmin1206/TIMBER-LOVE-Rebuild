@@ -13,7 +13,7 @@ export const metadata = pageMeta({
 
 export default function Page() {
   return (
-    <article className="bg-bg-primary pb-24 pt-36 sm:pt-44">
+    <article className="section-paper pb-24 pt-36 sm:pt-44">
       <div className="container-tl max-w-3xl">
         <h1 className="h-section">{(data as any).title || 'Terms & Conditions'}</h1>
         <div className="mt-10">

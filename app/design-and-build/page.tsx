@@ -5,6 +5,7 @@ import EditorialSplit from '@/components/sections/EditorialSplit';
 import Reveal from '@/components/ui/Reveal';
 import Gallery from '@/components/ui/Gallery';
 import VideoBg from '@/components/ui/VideoBg';
+import InlineVideo from '@/components/ui/InlineVideo';
 import ReviewWall from '@/components/sections/ReviewWall';
 import FAQ from '@/components/ui/FAQ';
 import PressStrip from '@/components/sections/PressStrip';
@@ -38,7 +39,7 @@ const processPhases = [
     num: '01',
     title: 'Concept Development',
     videoId: '966721424',
-    poster: '/video-posters/966721424.jpg',
+    poster: '/editorial/concrete-entry.webp',
     body: 'We begin by fully understanding your needs and your home’s current layout. Our architect drafts detailed as-builts to set the groundwork for modifications. We conduct thorough inspections for safety and compliance, and gather crucial information, assessing your investment and relevant city codes to prepare effectively for your project.',
   },
   {
@@ -84,7 +85,12 @@ function pick(headings: string[]): Section[] {
 const intro = (data.sections as Section[])[0]?.paragraphs?.[0] || '';
 const differentiators = pick(['In-House Team', 'Streamlined Processes', 'Personalized Service']);
 const values = pick(['Integrity', 'Quality', 'Community', 'CLIENT-FOCUSED']);
-const galleryImgs = (data.gallery as string[]).map((src, i) => ({ src, alt: `Timber and Love design and build project ${i + 1}` }));
+const galleryImgs = [
+  { src: '/editorial/cedar-fireplace.webp', alt: 'A cedar-clad fireplace and black hearth in an Industrial Modern home' },
+  { src: '/editorial/casetta-window.webp', alt: 'A sunlit La Casetta reading nook with collected textures' },
+  { src: '/editorial/midcentury-art.webp', alt: 'Layered color and vintage details in a Mid Century Modern home' },
+  { src: '/editorial/craftsman-bath.webp', alt: 'A freestanding bath and original character in a Classic Craftsman home' },
+];
 
 export default function Page() {
   return (
@@ -122,7 +128,7 @@ export default function Page() {
       <PressStrip />
 
       {/* Estimator promo */}
-      <section className="border-y border-border-subtle bg-bg-secondary section-tight">
+      <section className="section-paper border-y border-border-subtle bg-bg-secondary section-tight">
         <div className="container-wide grid gap-6 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Explore Your Investment Range</p>
@@ -248,7 +254,7 @@ export default function Page() {
 
       {/* Full-bleed photographic statement: craft and quality. */}
       <FeatureBand
-        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Kitchen-1-scaled.jpg"
+        image="/editorial/natural-materials.webp"
         eyebrow="Built to Last"
         title="Craft You Can Feel in Every Detail"
         body="We choose materials for how they wear over years, and we hold quality standards from the first cut to the final finish."
@@ -269,28 +275,21 @@ export default function Page() {
         </div>
       </section>
       {processPhases.map((p, i) => (
-        <section key={p.num} className="relative flex min-h-[60vh] items-center overflow-hidden">
-          <VideoBg videoId={p.videoId} poster={p.poster} overlay="bg-ink/70" />
-          <div className="container-wide relative z-10">
-            <Reveal className="max-w-xl">
-              <div className="font-sans text-5xl tracking-brand text-accent/70">{p.num}</div>
-              <h3 className="h-section mt-4">{p.title}</h3>
-              <p className="mt-5 text-body">{p.body}</p>
-              {i === processPhases.length - 1 && (
-                <Link href="/design-and-build-questionnaire/" className="btn-secondary mt-8">Start the Questionnaire</Link>
-              )}
-            </Reveal>
+        <section key={p.num} className={`section ${i % 2 === 0 ? 'section-paper' : 'bg-bg-primary'}`}>
+          <div className="container-wide grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+            <div className={i % 2 ? 'lg:order-2' : ''}><InlineVideo videoId={p.videoId} poster={p.poster} title={p.title} /></div>
+            <div><p className="eyebrow">Phase {p.num}</p><h3 className="h-section mt-4">{p.title}</h3><p className="text-lead mt-5">{p.body}</p>{i === 2 && <Link href="/design-and-build-questionnaire/" className="btn-secondary mt-7">Start the Questionnaire</Link>}</div>
           </div>
         </section>
       ))}
 
       {/* Values: full-bleed video background + left header + grid */}
       <section className="relative overflow-hidden section-feature">
-        <VideoBg videoId="967110133" poster="/video-posters/967110133.jpg" overlay="bg-ink/75" />
         <div className="container-wide relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">What Drives Us</p>
             <h2 className="h-section mt-4">Our Values</h2>
+            <div className="relative mt-8 aspect-video overflow-hidden"><VideoBg videoId="967110133" poster="/video-posters/967110133.jpg" overlay="" fit="contain" /></div>
           </Reveal>
           <div className="grid gap-5 sm:grid-cols-2">
             {values.map((s, i) => (
@@ -305,7 +304,7 @@ export default function Page() {
 
       {/* Gallery */}
       {galleryImgs.length > 0 && (
-        <section className="border-t border-border-subtle bg-bg-primary section">
+        <section className="section-paper border-t border-border-subtle section">
           <div className="container-wide">
             <Reveal className="mb-10">
               <p className="eyebrow">Our Work</p>
@@ -320,7 +319,7 @@ export default function Page() {
       <ReviewWall reviews={clientReviews} eyebrow="Testimonials" heading="Trusted by Boise Homeowners" background="bg-bg-primary" moreHref="/reviews/" />
 
       {/* FAQ */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-3xl text-center">
             <p className="eyebrow">FAQs</p>
@@ -334,7 +333,7 @@ export default function Page() {
 
       {/* Full-bleed photographic statement: one team, one process, before the ask. */}
       <FeatureBand
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg"
+        image="/editorial/firehouse-sink.webp"
         eyebrow="One Team, One Roof"
         title="Design and Build, Under One Roof"
         body="Our designers and builders work side by side, so your project stays coordinated from concept to completion."
@@ -345,7 +344,7 @@ export default function Page() {
       />
 
       {/* Closing statement */}
-      <section className="border-t border-border-subtle bg-bg-primary pb-24 text-center">
+      <section className="section-paper border-t border-border-subtle py-16 text-center">
         <div className="container-wide max-w-3xl">
           <Reveal>
             <p className="text-lg leading-relaxed text-cream/90">

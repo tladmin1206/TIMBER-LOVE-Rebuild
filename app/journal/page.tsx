@@ -39,7 +39,7 @@ export default function Page() {
         eyebrow="Journal"
         title="Stories From Timber and Love"
         subtitle="News, design thinking, and the story behind the Boise team building homes on and off screen."
-        image={featured?.image}
+        image="/editorial/collected-details.webp"
         height="short"
       />
 
@@ -51,9 +51,9 @@ export default function Page() {
           {featured && (
             <Reveal>
               <Link href={featured.href} className="group card-interactive grid overflow-hidden md:grid-cols-2" data-track="journal_featured">
-                <div className="relative aspect-[16/10] overflow-hidden md:aspect-auto">
+                <div className="relative aspect-[4/3] overflow-hidden bg-surface md:aspect-auto">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={featured.image} alt={featured.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <img src={featured.image} alt={featured.title} loading="lazy" className="h-full w-full object-contain" />
                 </div>
                 <div className="flex flex-col justify-center p-8 sm:p-10">
                   <div className="flex items-center gap-3 text-xs uppercase tracking-[0.16em] text-accent">
@@ -79,7 +79,7 @@ export default function Page() {
                 <Link href={p.href} className="group card-interactive flex h-full flex-col overflow-hidden" data-track="journal_post">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-contain" />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <div className="flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-accent">

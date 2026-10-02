@@ -85,7 +85,7 @@ export default function Page() {
       <section className="relative isolate flex min-h-[42vh] items-center overflow-hidden bg-bg-primary section sm:min-h-[48vh]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Kitchen-1-scaled.jpg"
+          src="/editorial/mountain-kitchen.webp"
           alt=""
           aria-hidden
           className="absolute inset-0 -z-10 h-full w-full object-cover"
@@ -126,7 +126,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="bg-bg-secondary section border-t border-border-subtle" aria-labelledby="how-heading">
+      <section className="section-paper section border-t border-border-subtle" aria-labelledby="how-heading">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">How It Works</p>
@@ -169,7 +169,7 @@ export default function Page() {
       </section>
 
       <FeatureBand
-        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Kitchen-1-scaled.jpg"
+        image="/editorial/midcentury-shelves.webp"
         eyebrow="Plan With Confidence"
         title="Your Realistic Range, in Minutes"
         body="Nine questions and a few taps give you a planning range with every assumption shown, not a vague guess."

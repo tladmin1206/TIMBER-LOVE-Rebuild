@@ -17,33 +17,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // --- Raw brand palette (from the live Elementor kit) ---
-        ink: '#0B0B0C', // primary dark background
-        panel: '#1D1D1D', // dark gray raised panel
-        cream: '#FAFAFA', // off-white text / light surfaces
-        graphite: '#4B4B4B', // muted gray
-        // Accent maps to the off-white cream so the brand reads clean and
-        // monochrome (white highlights on dark), matching the original site.
-        // `accent-soft` is a faint white tint used for subtle selected states.
-        accent: {
-          DEFAULT: '#FAFAFA',
-          hover: 'rgba(250,250,250,0.85)',
-          soft: 'rgba(250,250,250,0.12)',
-        },
-        // --- Semantic tokens ---
-        'bg-primary': '#0B0B0C',
-        'bg-secondary': '#141416',
-        surface: '#1D1D1D',
+        ink: '#0B0B0C', panel: '#1D1D1D', graphite: '#4B4B4B',
+        cream: 'rgb(var(--tl-cream) / <alpha-value>)',
+        accent: { DEFAULT: 'rgb(var(--tl-cream) / <alpha-value>)', hover: 'rgb(var(--tl-cream) / .85)', soft: 'rgb(var(--tl-cream) / .12)' },
+        'bg-primary': 'rgb(var(--tl-bg) / <alpha-value>)',
+        'bg-secondary': 'rgb(var(--tl-secondary) / <alpha-value>)',
+        surface: 'rgb(var(--tl-surface) / <alpha-value>)',
         'surface-inverse': '#FAFAFA',
-        'text-primary': '#FAFAFA',
-        'text-secondary': 'rgba(250,250,250,0.72)',
-        'text-muted': 'rgba(250,250,250,0.52)',
-        'border-subtle': 'rgba(250,250,250,0.14)',
-        success: '#5BA177',
-        error: '#D98B7A',
-        focus: '#FAFAFA',
-        // Convenience text token (kept for existing usages).
-        body: 'rgba(250,250,250,0.88)',
+        'text-primary': 'rgb(var(--tl-cream) / <alpha-value>)',
+        'text-secondary': 'rgb(var(--tl-copy) / <alpha-value>)',
+        'text-muted': 'rgb(var(--tl-muted) / <alpha-value>)',
+        'border-subtle': 'rgb(var(--tl-border) / <alpha-value>)',
+        'on-accent': 'rgb(var(--tl-on-accent) / <alpha-value>)',
+        success: '#5BA177', error: '#D98B7A', focus: '#FAFAFA',
+        body: 'rgb(var(--tl-copy) / <alpha-value>)',
       },
       fontFamily: {
         sans: ['var(--font-montserrat)', 'Montserrat', 'ui-sans-serif', 'system-ui', 'sans-serif'],

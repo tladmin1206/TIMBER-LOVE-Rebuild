@@ -58,7 +58,7 @@ export default function Page() {
         eyebrow="Reviews"
         title="Trusted by Boise Homeowners"
         subtitle="Real reviews from the people we have designed, built, bought, and sold homes for across the Treasure Valley."
-        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Living-Room-1-scaled.jpg"
+        image="/editorial/cottage-fireplace.webp"
         height="short"
       >
         <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
@@ -70,7 +70,7 @@ export default function Page() {
       <TrustBar />
 
       {/* Aggregate rating headline */}
-      <section className="border-b border-border-subtle bg-bg-secondary py-14 text-center">
+      <section className="section-paper border-b border-border-subtle bg-bg-secondary py-14 text-center">
         <Reveal className="container-wide">
           <div className="flex flex-col items-center gap-3">
             <div className="flex items-center gap-3">

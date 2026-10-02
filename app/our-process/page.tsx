@@ -19,7 +19,7 @@ export const metadata = pageMeta({
   description:
     'See exactly what happens when you work with Timber and Love, from the first consultation through final walkthrough. One connected team, one clear process.',
   path: '/our-process/',
-  image: '/wp-content/uploads/2024/03/TimberandLoveHomeRemodelingCompany-Design-BuildBackgroundImage-ezgif.com-webp-to-jpg-converter-1.jpg',
+  image: '/editorial/concrete-entry.webp',
 });
 
 const phases: ProcessPhase[] = [
@@ -80,7 +80,7 @@ export default function Page() {
         eyebrow="Our Process"
         title="One Team, One Clear Process"
         subtitle="With design and construction under one roof, your project stays coordinated from the first conversation through the final walkthrough. Here is exactly what to expect."
-        image="/wp-content/uploads/2024/03/TimberandLoveHomeRemodelingCompany-Design-BuildBackgroundImage-ezgif.com-webp-to-jpg-converter-1.jpg"
+        image="/editorial/concrete-entry.webp"
         height="short"
       >
         <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
@@ -107,7 +107,7 @@ export default function Page() {
       </section>
 
       {/* The timeline */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto mb-14 max-w-2xl text-center">
             <p className="eyebrow">Step by Step</p>

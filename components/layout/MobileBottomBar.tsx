@@ -26,7 +26,7 @@ function actionsFor(pathname: string): Action[] {
   if (pathname.startsWith('/buy-or-sell')) {
     return [call, { label: 'Contact', href: '/contact/' }, { label: 'Buy or Sell', href: site.external.realty, external: true, primary: true }];
   }
-  if (pathname.startsWith('/invest')) {
+  if ((pathname === '/invest' || pathname === '/invest/')) {
     return [call, { label: 'Contact', href: '/contact/' }, { label: 'Invest', href: site.external.invest, external: true, primary: true }];
   }
   // Default: help visitors self-select.
@@ -40,6 +40,7 @@ function isRental(p: string) {
 export default function MobileBottomBar() {
   const pathname = usePathname() || '/';
   const items = actionsFor(pathname);
+  if (pathname.startsWith('/investment-planner') || pathname.startsWith('/admin') || pathname.startsWith('/design-and-build-questionnaire')) return null;
 
   return (
     <nav

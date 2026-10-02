@@ -1,6 +1,8 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+
+import { useDialogFocus } from '@/components/hooks/useDialogFocus';
 
 export type GalleryImage = { src: string; alt: string };
 
@@ -11,6 +13,7 @@ export default function Gallery({
   images: GalleryImage[];
   columns?: 2 | 3 | 4;
 }) {
+  const dialog = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState<number | null>(null);
   const close = useCallback(() => setIndex(null), []);
   const prev = useCallback(
@@ -22,9 +25,9 @@ export default function Gallery({
     [images.length]
   );
 
+  useDialogFocus(index !== null, dialog);
   useEffect(() => {
     if (index === null) return;
-    document.body.style.overflow = 'hidden';
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') close();
       if (e.key === 'ArrowLeft') prev();
@@ -32,7 +35,6 @@ export default function Gallery({
     };
     window.addEventListener('keydown', onKey);
     return () => {
-      document.body.style.overflow = '';
       window.removeEventListener('keydown', onKey);
     };
   }, [index, close, prev, next]);
@@ -68,14 +70,16 @@ export default function Gallery({
 
       {index !== null && (
         <div
-          className="fixed inset-0 z-[120] flex items-center justify-center bg-ink/95 p-4 animate-fadeIn"
+          className="media-card fixed inset-0 z-[120] flex items-center justify-center bg-ink/95 p-4 animate-fadeIn"
           onMouseDown={(e) => {
             if (e.target === e.currentTarget) close();
           }}
+          ref={dialog}
           role="dialog"
           aria-modal="true"
+          aria-label="Project photo gallery"
         >
-          <button onClick={close} aria-label="Close" className="absolute right-5 top-5 text-4xl leading-none text-cream/80 hover:text-cream">
+          <button onClick={close} aria-label="Close" className="min-h-11 min-w-11 absolute right-5 top-5 text-4xl leading-none text-cream/80 hover:text-cream">
             ×
           </button>
           <button onClick={prev} aria-label="Previous" className="absolute left-3 top-1/2 -translate-y-1/2 px-4 text-4xl text-cream/70 hover:text-cream sm:left-8">

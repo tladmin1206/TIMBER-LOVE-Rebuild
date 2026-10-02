@@ -1,64 +1,142 @@
-'use client';
+"use client";
+import { useEffect, useRef, useState } from "react";
+import type Player from "@vimeo/player";
 
-import { useEffect, useRef, useState } from 'react';
-
-/**
- * Lazy full-bleed Vimeo background video with a poster + dark overlay.
- * Loads the iframe only when scrolled near view (mirrors Elementor's lazy bg video).
- */
+/** Container-sized background video. A successful iframe load is not proof of playback. */
 export default function VideoBg({
   videoId,
   poster,
-  overlay = 'bg-ink/55',
+  overlay = "bg-ink/55",
+  priority = false,
+  fit = "cover",
 }: {
   videoId: string;
   poster: string;
   overlay?: string;
+  priority?: boolean;
+  fit?: "cover" | "contain";
 }) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [show, setShow] = useState(false);
+  const container = useRef<HTMLDivElement>(null);
+  const frame = useRef<HTMLIFrameElement>(null);
+  const player = useRef<Player | null>(null);
+  const [load, setLoad] = useState(false);
+  const [visible, setVisible] = useState(false);
   const [ready, setReady] = useState(false);
-
+  const [paused, setPaused] = useState(false);
+  const [reduced, setReduced] = useState(true);
+  const [size, setSize] = useState({ width: 0, height: 0 });
+  const [ratio, setRatio] = useState(16 / 9);
   useEffect(() => {
-    const el = ref.current;
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const change = () => setReduced(media.matches);
+    change();
+    media.addEventListener("change", change);
+    const el = container.current;
     if (!el) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const io = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) {
-          setShow(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: '200px' }
+    const resize = new ResizeObserver(([entry]) =>
+      setSize({
+        width: entry.contentRect.width,
+        height: entry.contentRect.height,
+      }),
     );
-    io.observe(el);
-    return () => io.disconnect();
+    resize.observe(el);
+    const observer = new IntersectionObserver(([entry]) => {
+      setVisible(entry.isIntersecting);
+      if (entry.isIntersecting) setLoad(true);
+    });
+    observer.observe(el);
+    return () => {
+      resize.disconnect();
+      observer.disconnect();
+      media.removeEventListener("change", change);
+    };
   }, []);
-
-  const src =
-    `https://player.vimeo.com/video/${videoId}` +
-    `?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1&title=0&byline=0&portrait=0`;
-
+  useEffect(() => {
+    if (!load || reduced || !frame.current) return;
+    let alive = true;
+    let instance: Player | undefined;
+    setReady(false);
+    import("@vimeo/player").then(({ default: VimeoPlayer }) => {
+      if (!alive || !frame.current) return;
+      instance = new VimeoPlayer(frame.current);
+      player.current = instance;
+      const playback = () => {
+        if (alive) setReady(true);
+      };
+      instance.on("playing", playback);
+      instance.on("timeupdate", playback);
+      instance.on("error", () => {
+        if (alive) setReady(false);
+      });
+      instance
+        .ready()
+        .then(async () => {
+          const dimensions = await Promise.all([
+            instance!.getVideoWidth(),
+            instance!.getVideoHeight(),
+          ]);
+          if (alive && dimensions[1]) setRatio(dimensions[0] / dimensions[1]);
+        })
+        .catch(() => {
+          if (alive) setReady(false);
+        });
+    });
+    return () => {
+      alive = false;
+      player.current = null;
+      instance?.destroy().catch(() => {});
+    };
+  }, [load, reduced, videoId]);
+  useEffect(() => {
+    const instance = player.current;
+    if (!instance) return;
+    if (!visible || paused || reduced) instance.pause().catch(() => {});
+    else instance.play().catch(() => {});
+  }, [visible, paused, reduced, ready]);
+  const width =
+    fit === "contain"
+      ? Math.min(size.width, size.height * ratio)
+      : Math.max(size.width, size.height * ratio);
   return (
-    <div ref={ref} className="absolute inset-0 overflow-hidden bg-bg-primary" aria-hidden>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={poster} alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
-      {show && (
-        <iframe
-          src={src}
-          title=""
-          tabIndex={-1}
-          allow="autoplay; fullscreen"
-          onLoad={() => setReady(true)}
-          // Fades up over the poster once the player is actually ready, so a
-          // slow connection shows the still rather than a black rectangle.
-          className={`pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2 border-0 transition-opacity duration-700 ${
-            ready ? 'opacity-100' : 'opacity-0'
-          }`}
+    <>
+      <div
+        ref={container}
+        aria-hidden="true"
+        className="absolute inset-0 overflow-hidden bg-ink"
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={poster}
+          alt=""
+          loading={priority ? "eager" : "lazy"}
+          fetchPriority={priority ? "high" : "auto"}
+          className={`absolute inset-0 h-full w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
         />
+        {load && !reduced && (
+          <iframe
+            ref={frame}
+            src={`https://player.vimeo.com/video/${videoId}?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1`}
+            title="Decorative background film"
+            tabIndex={-1}
+            allow="autoplay; fullscreen"
+            style={{ width, height: width / ratio, opacity: ready ? 1 : 0 }}
+            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-0 transition-opacity duration-700"
+          />
+        )}
+        <div className={`absolute inset-0 ${overlay}`} />
+      </div>
+      {ready && !reduced && (
+        <button
+          type="button"
+          className="video-control"
+          onClick={() => setPaused((value) => !value)}
+          aria-label={
+            paused ? "Play background video" : "Pause background video"
+          }
+        >
+          {paused ? "Play film" : "Pause film"}
+        </button>
       )}
-      <div className={`absolute inset-0 ${overlay}`} />
-    </div>
+    </>
   );
 }

@@ -149,17 +149,20 @@ export const processSteps = [
   {
     num: '01',
     title: 'Consultation',
-    body: 'We start with a detailed session to understand your goals and vision. We listen closely, ask the necessary questions, and capture your requirements to tailor our approach specifically to your unique and specific needs.',
+    image: '/video-posters/966728565.jpg',
+    body: 'Tell us how you live, what you love, and what needs to change. We listen, explore the possibilities, and establish the right starting point.',
   },
   {
     num: '02',
     title: 'Collaboration',
-    body: 'After the consultation, we dive into collaborative brainstorming. Our team works closely with you, combining creativity to craft a tailored plan. Your input is vital, and together we create a plan that exceeds expectations.',
+    image: '/editorial/casetta-shelves.webp',
+    body: 'Work with our designers to shape the layout, materials, and details. Together, we create a clear plan that balances your vision and investment.',
   },
   {
     num: '03',
     title: 'Execution',
-    body: 'Following consultation and collaboration, it’s time to execute. Whether it’s construction, remodeling, or property transactions, we manage every detail and bring your vision to life ensuring to exceed your expectations.',
+    image: '/video-posters/966901133.jpg',
+    body: 'Our team coordinates the build, keeps you informed, and follows through on the details, from the first day on site to your final walkthrough.',
   },
 ];
 

@@ -26,6 +26,8 @@ const company: Item[] = [
 ];
 
 const mediaLinks: Item[] = [
+  { label: 'Shows + Watch', href: '/shows/' },
+  { label: 'Luke & Clint on YouTube', href: 'https://www.youtube.com/@lukeandclint', external: true },
   { label: 'HGTV: The Boise Boys', href: '/the-boise-boys/' },
   { label: 'Boise Boys on Discovery+', href: site.shows.boiseBoys, external: true },
   { label: 'Outgrown on Discovery+', href: site.shows.outgrown, external: true },
@@ -40,7 +42,7 @@ function FooterLink({ label, href, external }: { label: string; href: string; ex
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       // inline-block + vertical padding lifts the tap target to a comfortable
       // height on touch; list gaps alone left these well under 44px.
-      className="link-underline inline-block py-1.5"
+      className="link-underline inline-flex min-h-11 items-center py-1.5"
     >
       {label}
       {external && <span aria-hidden="true" className="ml-0.5 text-[0.7em] opacity-70">↗</span>}
@@ -52,7 +54,7 @@ export default function Footer() {
   const columns: { heading: string; items: Item[] }[] = [
     { heading: 'What We Do', items: services },
     { heading: 'Company', items: company },
-    { heading: 'HGTV & Media', items: mediaLinks },
+    { heading: 'Shows & Media', items: mediaLinks },
   ];
 
   return (
@@ -86,7 +88,7 @@ export default function Footer() {
         {columns.map((col) => (
           <nav key={col.heading} aria-label={col.heading} className="lg:col-span-2">
             <h3 className="text-sm uppercase tracking-[0.18em] text-cream">{col.heading}</h3>
-            <ul className="mt-6 space-y-3 text-sm text-text-secondary">
+            <ul className="mt-6 space-y-1 text-sm text-text-secondary">
               {col.items.map((n) => (
                 /* Props are passed explicitly rather than spread: `services`
                    includes the pathway objects, which carry their own `key`

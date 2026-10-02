@@ -50,7 +50,7 @@ export default function Page() {
         eyebrow="Where We Work"
         title="Serving Boise & the Treasure Valley"
         subtitle="Timber and Love is a Boise-based design-build team working with homeowners across the Treasure Valley. If your home is nearby, we would love to hear about your project."
-        image="/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg"
+        image="/editorial/midcentury-entry.webp"
         height="short"
       >
         <Cta href="/estimate/" variant="primary">Check Your Project</Cta>
@@ -86,7 +86,7 @@ export default function Page() {
       </section>
 
       {/* Breadth of custom homes built across the valley. */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">A Look Across the Valley</p>
@@ -133,7 +133,7 @@ export default function Page() {
       />
 
       {/* Local knowledge */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Local Knowledge</p>

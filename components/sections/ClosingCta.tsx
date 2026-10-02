@@ -26,7 +26,7 @@ export type ClosingCtaProps = {
 };
 
 const DEFAULT_IMAGE =
-  '/wp-content/uploads/2024/03/TimberandLoveHomeRemodelingCompany-Design-BuildBackgroundImage-ezgif.com-webp-to-jpg-converter-1.jpg';
+  '/editorial/cedar-kitchen.webp';
 
 function Action({ action, variant }: { action: ClosingAction; variant: 'primary' | 'secondary' }) {
   const cls = variant === 'primary' ? 'btn-primary' : 'btn-secondary';
@@ -66,7 +66,7 @@ export default function ClosingCta({
   image = DEFAULT_IMAGE,
 }: ClosingCtaProps) {
   return (
-    <section className="relative isolate flex min-h-[52vh] items-center overflow-hidden sm:min-h-[56vh] section">
+    <section className="media-card relative isolate flex min-h-[52vh] items-center overflow-hidden sm:min-h-[56vh] section">
       {videoId ? (
         <VideoBg
           videoId={videoId}

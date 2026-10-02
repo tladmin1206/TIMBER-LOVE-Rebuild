@@ -1,13 +1,13 @@
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { site } from '@/lib/site';
 
 /**
  * Brand feature slider. Two slides, Americana Soul and Partnership
  * Opportunities, share one editorial split layout (content beside a framed
  * image) so the slider feels intentional and premium. Elegant labeled
- * navigation and gentle auto-advance.
+ * navigation controlled by the visitor.
  *
  * The background is deliberately solid rather than video: the closing CTA
  * directly below carries the brand film, and two adjacent video backgrounds
@@ -22,8 +22,8 @@ const SLIDES = [
     title: 'Americana Soul',
     body: 'Designed with comfort and intention, Luke Caldwell’s debut design book shares the philosophy and spaces behind Timber and Love. Bring a piece of the T+L aesthetic into your own home.',
     cta: { label: 'Get Your Copy', href: site.book.amazon },
-    image: '/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1-775x1024.jpg',
-    imageAlt: 'Americana Soul, the debut design book by Luke Caldwell',
+    image: '/editorial/luke-book.webp',
+    imageAlt: 'Luke Caldwell holding his design book Americana Soul',
   },
   {
     key: 'partnerships',
@@ -31,37 +31,20 @@ const SLIDES = [
     eyebrow: 'Appearances · Partnerships · Press',
     title: 'Partnership Opportunities',
     body: 'For appearances, brand partnerships, and press, reach out to our partnerships team. If your project is a good fit, we would love to talk.',
-    image: '/wp-content/uploads/2024/04/Boise-Boys-Luke-Caldwell-and-Clint-Robertson-1-1024x633.jpg',
-    imageAlt: "Luke Caldwell and Clint Robertson of HGTV's Boise Boys",
+    image: '/editorial/luke-portrait.webp',
+    imageAlt: "Luke Caldwell, designer and founder of Timber and Love",
   },
 ] as const;
 
 export default function PartnershipsFeature() {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const go = useCallback((n: number) => setActive((n + SLIDES.length) % SLIDES.length), []);
-
-  // Auto-advance stops on explicit pause, and never starts under reduced motion.
-  useEffect(() => {
-    if (paused) return;
-    if (typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const t = setInterval(() => setActive((v) => (v + 1) % SLIDES.length), 9000);
-    return () => clearInterval(t);
-  }, [paused]);
 
   return (
     <section
       className="relative isolate flex min-h-[70vh] items-center overflow-hidden bg-bg-primary section-feature sm:min-h-[92vh]"
       aria-roledescription="carousel"
       aria-label="Americana Soul and Partnerships"
-      // Rotation pauses while the visitor is hovering, touching, or keyboard-
-      // focused within the section, and resumes when they leave, so content
-      // never changes out from under someone who is reading or interacting.
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocusCapture={() => setPaused(true)}
-      onBlurCapture={() => setPaused(false)}
-      onTouchStart={() => setPaused(true)}
     >
       {/* Solid ground with a whisper of depth: no video, so it does not echo the
           closing CTA's film directly below. */}
@@ -113,9 +96,9 @@ export default function PartnershipsFeature() {
                 </div>
 
                 {/* Framed image */}
-                <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden border border-border-subtle shadow-2xl shadow-black/60">
+                <div className="relative mx-auto aspect-[2/3] w-full max-w-sm overflow-hidden border border-border-subtle shadow-2xl shadow-black/60">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={s.image} alt={s.imageAlt} className="h-full w-full object-cover" loading="lazy" />
+                  <img src={s.image} alt={s.imageAlt} className="h-full w-full object-contain" loading="lazy" />
                 </div>
               </div>
             );
@@ -123,13 +106,13 @@ export default function PartnershipsFeature() {
         </div>
 
         {/* Labeled navigation */}
-        <div className="mt-14 flex items-center gap-8">
+        <div className="mt-10 flex flex-wrap items-center gap-5">
           {SLIDES.map((s, idx) => (
             <button
               key={s.key}
               onClick={() => go(idx)}
               aria-current={idx === active}
-              className={`pb-1 text-xs uppercase tracking-[0.16em] transition-colors ${
+              className={`min-h-11 pb-1 text-xs uppercase tracking-[0.16em] transition-colors ${
                 idx === active ? 'border-b border-cream text-cream' : 'border-b border-transparent text-cream/40 hover:text-cream/75'
               }`}
             >
@@ -137,7 +120,7 @@ export default function PartnershipsFeature() {
               {s.nav}
             </button>
           ))}
-          <div className="ml-auto flex items-center gap-2">
+          <div className="flex items-center gap-2 sm:ml-auto">
             <button onClick={() => go(active - 1)} aria-label="Previous slide" className="grid h-11 w-11 place-items-center rounded-full border border-cream/25 text-cream/80 transition hover:border-cream hover:text-cream">
               ‹
             </button>

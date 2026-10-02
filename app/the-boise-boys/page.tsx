@@ -5,7 +5,7 @@ import Reveal from '@/components/ui/Reveal';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import ReviewSlider from '@/components/ui/ReviewSlider';
-import FeatureBand from '@/components/sections/FeatureBand';
+import EditorialSplit from '@/components/sections/EditorialSplit';
 import Cta from '@/components/ui/Cta';
 import { site } from '@/lib/site';
 import { clientReviews, fanComments } from '@/lib/content/home';
@@ -22,7 +22,11 @@ export const metadata = pageMeta({
 });
 
 const intro = (data.sections as any[])[0]?.paragraphs?.[0] || '';
-const images = (data.gallery as string[]).map((src, i) => ({ src, alt: `Boise Boys project photo ${i + 1}` }));
+const images = [
+  { src: '/editorial/firehouse-landing.webp', alt: 'A bright stair landing at The Firehouse, a Boise Boys renovation' },
+  { src: '/editorial/firehouse-entry.webp', alt: 'Collected textures and an entry bench at The Firehouse' },
+  { src: '/editorial/firehouse-kitchen.webp', alt: 'The Firehouse kitchen with black cabinetry and warm wood' },
+];
 // Only the HGTV-featured homes belong on the show page. The custom homes now
 // live in the same `projects` list but are not television projects.
 const tvProjects = projects.filter((p) => p.tags.includes('hgtv'));
@@ -55,7 +59,7 @@ export default function Page() {
       </section>
 
       {/* Featured television projects: link to full case studies */}
-      <section className="border-t border-border-subtle bg-bg-secondary section">
+      <section className="section-paper border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mb-10 max-w-2xl">
             <p className="eyebrow">Featured Television Projects</p>
@@ -84,24 +88,19 @@ export default function Page() {
         <div className="container-wide">
           <Reveal className="mb-10 max-w-2xl">
             <p className="eyebrow">More From the Show</p>
-            <h2 className="h-section mt-4">Project Photos</h2>
+            <h2 className="h-section mt-4">Inside The Firehouse</h2>
           </Reveal>
-          <Gallery images={images} columns={4} />
+          <Gallery images={images} columns={3} />
         </div>
       </section>
 
       {/* Full-bleed photographic statement: from the show to working with clients. */}
-      <FeatureBand
-        image="/wp-content/uploads/2024/04/Boise-Boys-Luke-Caldwell-and-Clint-Robertson-1-scaled.jpg"
-        eyebrow="From the Show to Your Home"
-        title="The Same Team, Off Camera"
-        body="The hands-on, design-forward approach you see on Boise Boys is exactly how we work with Treasure Valley homeowners today."
-        align="left"
-        height="short"
-      />
+      <EditorialSplit image="/editorial/luke-clint-studio.webp" imageAlt="Luke Caldwell and Clint Robertson" eyebrow="From the Show to Your Home" title="The Same Care, Off Camera" ratio="natural" tone="primary" href="/shows/" cta="Watch Luke & Clint">
+        <p>The homes are only part of the story. Get to know Luke and Clint, revisit the HGTV series, and watch their independent show on YouTube.</p>
+      </EditorialSplit>
 
       {/* Client proof: verified customer reviews only */}
-      <section className="border-t border-border-subtle bg-bg-secondary text-center section">
+      <section className="section-paper border-t border-border-subtle bg-bg-secondary text-center section">
         <div className="container-wide">
           <Reveal>
             <p className="eyebrow">Client Stories</p>

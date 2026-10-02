@@ -26,7 +26,7 @@ export default function Page() {
         eyebrow="Our Story"
         title="One Team for Every Stage of Home"
         subtitle="Timber and Love brings design, construction, real estate, direct home offers, investment, and vacation stays together under one Boise-based brand."
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1.jpg"
+        image="/editorial/estate-living.webp"
       >
         <Cta href="/contact/" variant="primary" track="about_contact">Contact Our Team</Cta>
         <Cta href="/timber-and-love-gallery/" variant="secondary">See Our Work</Cta>
@@ -63,7 +63,7 @@ export default function Page() {
       </section>
 
       {/* Why one brand includes multiple services */}
-      <section className="border-t border-border-subtle bg-bg-secondary section" aria-labelledby="brand-heading">
+      <section className="section-paper border-t border-border-subtle bg-bg-secondary section" aria-labelledby="brand-heading">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">One Brand, Five Pathways</p>
@@ -81,9 +81,12 @@ export default function Page() {
                 <Link
                   href={p.href}
                   {...(p.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="group card-interactive block h-full bg-surface/40 p-7"
+                  className="media-card group card-interactive relative isolate flex min-h-[27rem] h-full flex-col justify-end overflow-hidden p-7"
                   data-track={`about_pathway_${p.key}`}
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={p.image} alt="" loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/80 to-ink/10" />
                   <div className="font-sans text-4xl tracking-brand text-accent/70">
                     {String(i + 1).padStart(2, '0')}
                   </div>
@@ -104,7 +107,7 @@ export default function Page() {
 
       {/* Full-bleed photographic statement: design + build under one roof. */}
       <FeatureBand
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Living-Room-scaled.jpg"
+        image="/editorial/firehouse-lounge.webp"
         eyebrow="Design and Build, Together"
         title="One Team, From First Sketch to Final Detail"
         body="Design and construction happen under one roof, so nothing is lost between the vision and the finished home."
@@ -138,7 +141,7 @@ export default function Page() {
       </section>
 
       {/* Design philosophy */}
-      <section className="border-t border-border-subtle bg-bg-secondary section" aria-labelledby="philosophy-heading">
+      <section className="section-paper border-t border-border-subtle bg-bg-secondary section" aria-labelledby="philosophy-heading">
         <div className="container-wide">
           <Reveal className="max-w-3xl">
             <p className="eyebrow">Our Point of View</p>
@@ -178,17 +181,9 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Full-bleed duo band: the Boise Boys, Luke and Clint. */}
-      <FeatureBand
-        image="/wp-content/uploads/2024/04/Boise-Boys-Luke-Caldwell-and-Clint-Robertson-1-scaled.jpg"
-        eyebrow="Boise Boys"
-        title="A Partnership Boise Watched Grow"
-        body="Luke Caldwell and Clint Robertson brought their Boise renovations to a national audience, and that same care still guides the work today."
-        cta="Explore the HGTV Story"
-        href="/the-boise-boys/"
-        align="left"
-        height="short"
-      />
+      <EditorialSplit image="/editorial/luke-clint-studio.webp" imageAlt="Luke Caldwell and Clint Robertson" eyebrow="The Story Continues" title="A Partnership Boise Watched Grow" cta="Discover the Shows" href="/shows/" tone="secondary" ratio="natural">
+        <p>Luke Caldwell and Clint Robertson brought their Boise renovations to a national audience. Follow their next chapter on Luke &amp; Clint, now on YouTube.</p>
+      </EditorialSplit>
 
       {/* Editorial: an interior that shows the warm, modern point of view. */}
       <EditorialSplit
@@ -211,14 +206,14 @@ export default function Page() {
 
       {/* Editorial portrait: the founder and the vision behind the brand. */}
       <EditorialSplit
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1.jpg"
+        image="/editorial/luke-denim.webp"
         imageAlt="Portrait of designer Luke Caldwell, founder of Timber and Love"
         eyebrow="The Vision"
         title="Led by Luke Caldwell"
         cta="Read the HGTV Story"
         href="/the-boise-boys/"
         tone="primary"
-        ratio="portrait"
+        ratio="natural"
         reverse
       >
         <p>
@@ -229,13 +224,15 @@ export default function Page() {
       </EditorialSplit>
 
       {/* Americana Soul */}
-      <section id="americana-soul" className="border-t border-border-subtle bg-bg-secondary section" aria-labelledby="book-heading">
+      <section id="americana-soul" className="section-paper border-t border-border-subtle bg-bg-secondary section" aria-labelledby="book-heading">
         <div className="container-wide grid gap-12 lg:grid-cols-[minmax(0,320px)_1fr] lg:items-center">
           <Reveal className="mx-auto w-full max-w-[320px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1-775x1024.jpg"
-              alt="Cover of Americana Soul, the design book by Luke Caldwell"
+              src="/editorial/luke-book.webp"
+              width={1200}
+              height={1800}
+              alt="Luke Caldwell holding his design book Americana Soul"
               loading="lazy"
               className="w-full border border-border-subtle object-cover"
             />

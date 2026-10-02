@@ -1,3 +1,4 @@
+import { journalPosts } from '@/lib/content/journal';
 import Link from 'next/link';
 import BlockRenderer, { type Block } from '@/components/ui/BlockRenderer';
 import ClosingCta from '@/components/sections/ClosingCta';
@@ -15,6 +16,7 @@ export type Article = {
 };
 
 export default function ArticlePage({ article, path }: { article: Article; path: string }) {
+  const heroImage = journalPosts.find(post => post.href === path)?.image ?? article.heroImage;
   const dateStr = article.date
     ? new Date(article.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
     : '';
@@ -23,7 +25,7 @@ export default function ArticlePage({ article, path }: { article: Article; path:
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: article.title,
-    image: article.heroImage ? `${site.url}${article.heroImage}` : undefined,
+    image: heroImage ? `${site.url}${heroImage}` : undefined,
     datePublished: article.date || undefined,
     author: { '@id': `${site.url}/#organization` },
     publisher: { '@id': `${site.url}/#organization` },
@@ -34,24 +36,20 @@ export default function ArticlePage({ article, path }: { article: Article; path:
     <>
       <JsonLd schema={jsonLd} />
 
-      {/* Hero */}
-      <header className="relative isolate flex min-h-[44vh] items-end overflow-hidden bg-bg-primary pb-10 pt-28 sm:min-h-[52vh] sm:pb-12 sm:pt-36">
-        {article.heroImage && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={article.heroImage} alt="" aria-hidden className="absolute inset-0 -z-10 h-full w-full object-cover" />
-        )}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/70 to-ink/50" />
-        <div className="container-tl max-w-3xl">
-          <Link href="/journal/" className="eyebrow link-underline">Timber and Love Journal</Link>
-          <h1 className="h-section mt-4 text-cream">{article.title}</h1>
-          {dateStr && <p className="mt-4 text-sm uppercase tracking-[0.16em] text-text-muted">{dateStr}</p>}
+      <header className="section-paper pb-14 pt-32 sm:pb-20 sm:pt-40">
+        <div className="container-wide grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          <div><Link href="/journal/" className="eyebrow link-underline">Timber and Love Journal</Link>
+            <h1 className="h-section mt-5">{article.title}</h1>
+            {dateStr && <p className="mt-5 text-xs uppercase tracking-[.14em] text-text-muted">{dateStr}</p>}
+          </div>
+          {heroImage && <div>{/* eslint-disable-next-line @next/next/no-img-element */}<img src={heroImage} alt="" className="mx-auto h-auto max-h-[36rem] w-full object-contain" /></div>}
         </div>
       </header>
 
       <TrustBar />
 
       {/* Body */}
-      <article className="bg-bg-primary section-tight">
+      <article className="section-paper section-tight">
         <div className="container-tl max-w-3xl">
           <BlockRenderer blocks={article.blocks} />
           <div className="mt-14 border-t border-border-subtle pt-10">

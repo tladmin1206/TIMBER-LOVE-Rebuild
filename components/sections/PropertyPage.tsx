@@ -118,7 +118,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
       )}
 
       {/* Overview + booking panel */}
-      <section className="bg-bg-primary section-tight">
+      <section className="section-paper section-tight">
         <div className="container-wide grid gap-12 lg:grid-cols-[1.7fr_1fr]">
           <div>
             {data.destination && <p className="eyebrow">{data.destination}</p>}
@@ -171,7 +171,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
 
       {/* Amenities */}
       {(data.amenityGroups?.length || data.amenities?.length) && (
-        <section className="border-t border-border-subtle bg-bg-secondary section-tight">
+        <section className="bg-bg-primary border-t border-border-subtle section-tight">
           <div className="container-wide">
             <Reveal className="mb-8">
               <h2 className="h-card">Amenities</h2>
@@ -202,7 +202,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
 
       {/* Sleeping arrangements */}
       {data.sleeping && data.sleeping.length > 0 && (
-        <section className="bg-bg-primary section-tight">
+        <section className="section-paper section-tight">
           <div className="container-wide">
             <Reveal className="mb-8">
               <h2 className="h-card">Sleeping Arrangements</h2>
@@ -218,7 +218,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
 
       {/* Things to Know */}
       {data.thingsToKnow && data.thingsToKnow.length > 0 && (
-        <section className="border-t border-border-subtle bg-bg-secondary section-tight">
+        <section className="section-paper border-t border-border-subtle section-tight">
           <div className="container-tl max-w-3xl">
             <Reveal>
               <h2 className="h-card">Things to Know</h2>
@@ -264,7 +264,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
       {/* Guests who stay in one of these have physically experienced the work,
           which makes them unusually warm design + build leads. Nothing on these
           pages previously made that connection. */}
-      <section className="bg-bg-primary section-tight border-t border-border-subtle" aria-labelledby="built-by-heading">
+      <section className="section-paper section-tight border-t border-border-subtle" aria-labelledby="built-by-heading">
         <div className="container-wide">
           <Reveal className="surface-card flex flex-col items-start gap-6 p-8 sm:flex-row sm:items-center sm:justify-between sm:p-10">
             <div>

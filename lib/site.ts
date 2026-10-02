@@ -79,7 +79,7 @@ export const pathways: Pathway[] = [
     blurb: 'Custom homes, additions, whole-home renovations, and thoughtful residential transformations.',
     href: '/design-and-build/',
     cta: 'Explore Design + Build',
-    image: '/wp-content/uploads/2024/03/TimberandLoveHomeRemodelingCompany-Design-BuildBackgroundImage-ezgif.com-webp-to-jpg-converter-1.jpg',
+    image: '/editorial/cedar-fireplace.webp',
   },
   {
     key: 'buy-sell',
@@ -88,13 +88,13 @@ export const pathways: Pathway[] = [
     blurb: 'Real estate guidance through Timber and Love Realty, with local Boise market experience.',
     href: '/buy-or-sell/',
     cta: 'Buy or Sell a Home',
-    image: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Realty-Background-1-scaled-1.jpg',
+    image: '/projects/promise-ln-5120/5120-promise-ln-exterior-side.jpg',
   },
   {
     key: 'sell-cash',
     label: 'Sell for Cash',
     title: 'Sell a Home for Cash',
-    blurb: 'A simpler path for homeowners who want a direct home offer.',
+    blurb: 'Direct offers through Buy My House for homeowners exploring a sale without listing.',
     href: '/sell-for-cash/',
     cta: 'Request a Cash Offer',
     image: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Home-Buying-Background-2-min.jpg',
@@ -103,10 +103,10 @@ export const pathways: Pathway[] = [
     key: 'invest',
     label: 'Invest',
     title: 'Invest in Real Estate',
-    blurb: 'Real estate investment opportunities and related information.',
+    blurb: 'Explore real estate investment and development opportunities with Timber and Love Realty.',
     href: '/invest/',
     cta: 'Explore Investment Opportunities',
-    image: '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Front-Exterior-scaled.jpg',
+    image: '/projects/promise-ln-5142/5142-promise-ln-exterior-rear.jpg',
   },
   {
     key: 'stay',
@@ -127,34 +127,9 @@ export type NavItem = {
   children?: NavItem[];
 };
 
-/**
- * Restrained primary navigation, weighted to the core positioning: Design +
- * Build leads as a direct link, followed by the work, the process, and the
- * story. The affiliated ventures (realty, cash offers, investing, vacation
- * stays) and the HGTV story are real but secondary, so they live grouped under
- * "More" rather than competing at the top level with the primary service.
- */
-export const mainNav: NavItem[] = [
-  { label: 'Design + Build', href: '/design-and-build/' },
-  { label: 'Our Work', href: '/timber-and-love-gallery/' },
-  { label: 'Our Process', href: '/our-process/' },
-  { label: 'Our Story', href: '/about/' },
-  {
-    label: 'More',
-    children: [
-      { label: 'HGTV: The Boise Boys', href: '/the-boise-boys/', description: 'The Timber and Love story on HGTV.' },
-      { label: 'Financing', href: '/financing/', description: 'Ways to finance your design-build project.' },
-      // Affiliated ventures, kept available but subordinate to design + build.
-      ...pathways
-        .filter((p) => p.key !== 'design-build')
-        .map((p) => ({ label: p.label, href: p.href, description: p.blurb })),
-    ],
-  },
-  { label: 'Contact', href: '/contact/' },
-];
-
 // Secondary links surfaced in the footer and supporting navigation.
 export const secondaryNav: NavItem[] = [
+  { label: 'Shows + Watch', href: '/shows/' },
   { label: 'Gallery', href: '/timber-and-love-gallery/' },
   { label: 'Boise Boys', href: site.shows.boiseBoys, external: true },
   { label: 'Outgrown', href: site.shows.outgrown, external: true },
