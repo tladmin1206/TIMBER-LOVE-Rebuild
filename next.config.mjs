@@ -11,6 +11,9 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Temporarily retire both planner entry points, including old bookmarks.
+      { source: '/investment-planner', destination: '/design-and-build-questionnaire/', permanent: false },
+      { source: '/estimate', destination: '/design-and-build-questionnaire/', permanent: false },
       // The canonical route is now the correctly-spelled /terms-and-conditions/.
       // Redirect the old misspelled URL and any variants to it (permanent).
       { source: '/terms-conditons', destination: '/terms-and-conditions/', permanent: true },

@@ -84,7 +84,7 @@ export default function Page() {
         height="short"
       >
         <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
-        <Cta href="/estimate/" variant="secondary">Estimate Your Project</Cta>
+        <Cta href="/timber-and-love-gallery/" variant="secondary">View Our Work</Cta>
       </PageHero>
 
       <TrustBar />
@@ -167,8 +167,8 @@ export default function Page() {
         eyebrow="First Drawing to Final Walkthrough"
         title="The Whole Journey, One Team"
         body="From the first sketch to the day we hand back your keys, the same people carry your home the whole way."
-        cta="Plan Your Project"
-        href="/investment-planner/"
+        cta="Start a Project"
+        href="/design-and-build-questionnaire/"
         align="left"
         height="short"
       />

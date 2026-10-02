@@ -8,11 +8,11 @@ import type { ClosingCtaProps } from '@/components/sections/ClosingCta';
  *  - The primary action names what happens ("Request a Cash Offer"), never
  *    "Get Started" or "Learn More".
  *  - Every entry carries a lower-commitment secondary so visitors who are not
- *    ready today still have somewhere to go: usually the estimator or work.
+ *    ready today still have somewhere to go: usually our work or a conversation.
  *  - The body answers "why now" in one sentence, not a restatement of the page.
  */
 
-const ESTIMATE = { label: 'Get an Estimate', href: '/estimate/' };
+const START_PROJECT = { label: 'Start a Project', href: '/design-and-build-questionnaire/' };
 const VIEW_WORK = { label: 'View Our Work', href: '/timber-and-love-gallery/' };
 
 /** The brand film used behind hero-weight closing CTAs. */
@@ -26,7 +26,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     title: 'Tell Us About Your Home',
     body: 'Choose the option closest to your goal, or reach out and our team will point you in the right direction.',
     primary: { label: 'Contact Timber and Love', href: '/contact/' },
-    secondary: ESTIMATE,
+    secondary: VIEW_WORK,
   },
 
   designBuild: {
@@ -35,16 +35,16 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     title: 'Start With a Conversation',
     body: 'Tell us about your home, your goals, and your budget. We will tell you honestly whether we are the right team for it.',
     primary: { label: 'Start a Project', href: '/design-and-build-questionnaire/' },
-    secondary: ESTIMATE,
+    secondary: VIEW_WORK,
   },
 
   questionnaire: {
     ...CLOSING_VIDEO,
     eyebrow: 'Prefer to Talk First?',
     title: 'We Are Happy to Start There',
-    body: 'The questionnaire is the fastest route, but a phone call works just as well. Reach out however suits you.',
+    body: 'Send a short inquiry or give us a call. Reach out however suits you.',
     primary: { label: 'Contact Our Team', href: '/contact/' },
-    secondary: ESTIMATE,
+    secondary: VIEW_WORK,
   },
 
   article: {
@@ -53,7 +53,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     title: 'Thinking About Your Own Project?',
     body: 'Our team can tell you what this would look like for your home, your site, and your budget.',
     primary: { label: 'Talk to Our Team', href: '/contact/' },
-    secondary: ESTIMATE,
+    secondary: VIEW_WORK,
   },
 
   hgtv: {
@@ -80,7 +80,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     body: 'Every project here started with a conversation about a room that was not working. Yours can start the same way.',
     image: '/editorial/cedar-hall.webp',
     primary: { label: 'Start a Project', href: '/design-and-build-questionnaire/' },
-    secondary: ESTIMATE,
+    secondary: VIEW_WORK,
   },
 
   projectDetail: {
@@ -89,7 +89,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     body: 'The same team, process, and standard of finish is available for your remodel or new build in the Boise area.',
     image: '/editorial/cottage-kitchen.webp',
     primary: { label: 'Start a Project', href: '/design-and-build-questionnaire/' },
-    secondary: ESTIMATE,
+    secondary: VIEW_WORK,
   },
 
   buyOrSell: {
@@ -143,15 +143,15 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     body: 'The first step is a conversation about your home, your budget, and whether we are the right team for it. Nothing is committed.',
     image: '/editorial/craftsman-dining.webp',
     primary: { label: 'Start a Project', href: '/design-and-build-questionnaire/' },
-    secondary: ESTIMATE,
+    secondary: VIEW_WORK,
   },
 
   financing: {
     eyebrow: 'Plan the Investment',
-    title: 'Know Your Number First',
-    body: 'Get a preliminary range for your project in about two minutes, then we can talk through how to structure it.',
+    title: 'Start With a Clear Plan',
+    body: 'Tell us about your goals and budget. We will talk through the scope and what to consider before you move forward.',
     image: '/editorial/mountain-window.webp',
-    primary: ESTIMATE,
+    primary: START_PROJECT,
     secondary: { label: 'Talk to Our Team', href: '/contact/' },
   },
 
@@ -165,12 +165,13 @@ export const closingCta: Record<string, ClosingCtaProps> = {
   },
 
   reviews: {
+    surface: 'solid',
     eyebrow: 'Ready When You Are',
     title: 'Start Your Own Project',
     body: `${site.name} has earned these reviews one home at a time. We would like the chance to earn yours.`,
     image: '/editorial/arched-bedroom.webp',
     primary: { label: 'Start a Project', href: '/design-and-build-questionnaire/' },
-    secondary: ESTIMATE,
+    secondary: VIEW_WORK,
   },
 
   serviceAreas: {
@@ -179,15 +180,16 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     body: 'If your home is in or near the Treasure Valley, we can likely help. Tell us where you are and what you are planning.',
     image: '/editorial/estate-hardware.webp',
     primary: { label: 'Talk to Our Team', href: '/contact/' },
-    secondary: ESTIMATE,
+    secondary: VIEW_WORK,
   },
 
   journal: {
+    surface: 'solid',
     eyebrow: 'Beyond the Reading',
     title: 'Ready to Plan Your Own Project?',
     body: 'Articles can only take you so far. When you want an answer specific to your home, our team is here.',
     image: '/editorial/casetta-kitchen.webp',
     primary: { label: 'Talk to Our Team', href: '/contact/' },
-    secondary: ESTIMATE,
+    secondary: VIEW_WORK,
   },
 };

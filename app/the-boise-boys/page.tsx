@@ -95,7 +95,7 @@ export default function Page() {
       </section>
 
       {/* Full-bleed photographic statement: from the show to working with clients. */}
-      <EditorialSplit image="/editorial/luke-clint-studio.webp" imageAlt="Luke Caldwell and Clint Robertson" eyebrow="From the Show to Your Home" title="The Same Care, Off Camera" ratio="natural" tone="primary" href="/shows/" cta="Watch Luke & Clint">
+      <EditorialSplit image="/editorial/luke-clint-studio.webp" imageAlt="Luke Caldwell and Clint Robertson" eyebrow="From the Show to Your Home" title="The Same Care, Off Camera" ratio="natural" tone="primary" href="/shows/" cta="Watch Luke and Clint">
         <p>The homes are only part of the story. Get to know Luke and Clint, revisit the HGTV series, and watch their independent show on YouTube.</p>
       </EditorialSplit>
 

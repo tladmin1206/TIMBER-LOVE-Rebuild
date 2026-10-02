@@ -4,40 +4,53 @@ Implementation prepared on 2026-10-02. Production publishing remains with the ow
 
 ## Status
 
-Code and production rendering checks pass. **Responsive visual and interactive sign-off is still pending.** The available review browser cannot reach localhost. The owner authorized a temporary static preview, but the public tunnel could not connect. A separate local BrowserAct/Chrome attempt also failed to start in this environment. No public preview or live deployment was created.
+The production build and contact-delivery tests pass. All 34 public content routes were rendered and checked in local Chrome at 1440 and 390 pixels, then checked again at 768 and 320 pixels. The final small-phone/tablet pass found no missing images or unintended horizontal overflow. Intentional swipe galleries remain scrollable. Production publishing remains with the owner in Replit.
+
+This is a responsive implementation review, not a claim that every possible browser, viewport, media-provider condition, or future content change has been verified. No live lead was submitted; actual inbox receipt is a post-publication check.
 
 ## What changed
 
 - Fully opaque, charcoal desktop mega menus organized into Design + Build, Home + Real Estate, and Our World; direct Work and Watch links. Mobile uses the same information architecture, expandable groups, scroll locking, focus containment, Escape, and focus restoration.
 - Following the owner’s correction, all public sections remain within the established black and charcoal palette. Architectural photography, editorial layouts, framed films, and spacing create the visual rhythm. The introduced white and cream backgrounds were removed across the site. Montserrat, uppercase headings, the monochrome brand, and existing conversion flows remain.
-- Homepage Luke & Clint introduction; new `/shows/` hub with three verified full-length YouTube selections, click-to-play privacy-enhanced embeds, and direct viewing links. Navigation, footer, and sitemap include the hub.
-- HGTV players fit their own 16:9 cards, with uncropped frames and captions outside the video. The official Vimeo SDK confirms playback before hiding the poster, pauses offscreen films, respects reduced motion, and exposes a pause control.
+- Homepage Luke and Clint introduction; new `/shows/` hub with three verified full-length YouTube selections, click-to-play privacy-enhanced embeds, and direct viewing links. Navigation, footer, and sitemap include the hub.
+- HGTV players fit their own 16:9 cards, with uncropped frames and captions outside the video. The official Vimeo SDK confirms playback before hiding the poster, pauses offscreen films, respects reduced motion, with no visible “Pause film” controls.
 - Service ecosystem and three-step cards have relevant, individually selected background imagery with readable gradients.
 - Americana Soul uses the verified photograph of Luke holding the book. Portraits and show artwork use their complete compositions. Article heroes no longer crop portraits behind overlaid titles.
 - Repeated generic Casa De Boise marketing images were replaced. Casa De Boise's documentary project gallery remains accurate to that home. Property and project covers intentionally repeat when they identify the same destination.
 - Rental gallery mosaic corrected to a four-column, two-row layout. Gallery dialogs contain focus and restore it on close.
-- Mobile planner no longer shows the unrelated Invest action. Footer spacing accommodates the mobile bar, and oversized contact-page CTA rows stack until desktop.
+- The Investment Planner is hidden from all public navigation and CTAs. Its routes redirect to the short project inquiry, its APIs return 404, and retired URLs are absent from the sitemap. Footer spacing accommodates the mobile bar, and oversized CTA rows stack until desktop.
 - Old Airbnb check-in/check-out dates and tracking were removed from property booking links, preserving each listing ID.
 
 ## Photography review
 
-Reviewed 61 photographs sampled across ten professionally edited Americana Soul collections, plus official Luke & Clint and Luke Caldwell photographs. Sources and dimensions of retained optimized WebP files are recorded in `editorial-photography.json`. This was a curated review of those collections, not a claim to have inspected every file in the entire Dropbox archive.
+Reviewed 61 photographs sampled across ten professionally edited Americana Soul collections, plus official Luke and Clint and Luke Caldwell photographs. Sources and dimensions of retained optimized WebP files are recorded in `editorial-photography.json`. This was a curated review of those collections, not a claim to have inspected every file in the entire Dropbox archive.
 
-Official reference sites: https://lukeandclint.com, https://lukecaldwell.com/shows, https://lukecaldwell.com/businesses, and the Luke Caldwell about page for the book portrait. Episode selections were verified against the official Luke & Clint website on 2026-10-02.
+Official reference sites: https://lukeandclint.com, https://lukecaldwell.com/shows, https://lukecaldwell.com/businesses, and the Luke Caldwell about page for the book portrait. Episode selections were verified against the official Luke and Clint website on 2026-10-02.
 
-## Validation completed
+## Follow-up corrections
 
-- `npm run build`: production build and type validation passed.
-- `npm run verify:planner`: existing pricing, calibration, flow, narrative, service, lead-delivery, and typography checks passed. No planner pricing or lead-delivery logic changed.
-- Static render audit: 36 public generated pages, including five project pages and the not-found page; 484 image placements. No missing local media, duplicate IDs, missing image alt attributes, missing internal destination routes, or invalid H1 counts found.
-- The server-rendered project questionnaire and internal admin pages were checked in source/build, not by submitting forms or accessing live records.
-- Vimeo playback was not confirmed in the remote browser: the original live site showed a provider connection warning. The new code retains the poster on playback failure; actual provider playback needs the pending browser check.
+- Rebuilt the homepage testimonial section on black, with the film in its own uncropped 16:9 frame and readable review cards below it. A complete centered Luke Caldwell section and trust strip separate the preceding photography from the testimonials.
+- Centered the Luke portrait, heading, copy, social links, and CTA.
+- Removed all visible background-film pause controls while retaining reduced-motion and playback-failure fallbacks.
+- Standardized the show name to “Luke and Clint” in copy, metadata, navigation, and documentation.
+- Replaced the unrelated decorative-horn photograph in both the mega menu and the craft feature with actual Timber and Love architecture.
+- Replaced the moving review marquee with a visitor-controlled, swipeable rail and previous/next buttons.
+- Related-service cards now stack fully on phones; journal metadata wraps; adjacent closing photo bands on Journal and Reviews now have black closing sections.
+- Replaced the eight-step project questionnaire with a short, labeled lead form modeled on the existing public site's form. Moved the contact form ahead of the service-routing cards. Corrected header clearance on the new inquiry page.
+- Repaired false-success lead handling, field validation, provider timeouts, retry deduplication, success focus, and modal focus containment. See `lead-capture.md` for configuration and test boundaries.
+- Saved three official 1280 × 720 Luke and Clint episode thumbnails locally after the remote thumbnail host failed in the review browser.
 
-## Required visual and interaction pass
+## Verification
 
-The owner supplied a desktop screenshot confirming the unwanted cream treatment; that treatment has been removed from every public route.
-
-At 1440, 1280, 1024, 768, 390, and 375 pixels: scroll every public route from header through footer, check photography and text contrast, inspect all responsive image crops, and verify section cadence. Check desktop menu click/Tab/Escape/outside dismissal; mobile menu scrolling, focus restoration and accordions; all gallery controls; carousel pause; YouTube play/fullscreen/fallback links; Vimeo framing/play/pause/reduced-motion/fallback; planner flow and inquiry validation without submitting real leads. Do not mark this review complete until those checks have been observed.
+- Production build and TypeScript checks passed.
+- Contact API and existing email-delivery checks passed using mocked delivery only.
+- Mobile browser form checks passed for required fields, error-state value retention, successful confirmation/focus, and stable retry IDs.
+- Final production server: old planner URLs return HTTP 307 to the inquiry form, and retired planner APIs return 404.
+- Static rendering: 35 pages including the not-found page; 480 image placements; no missing local assets, missing image alt attributes, duplicate IDs, broken internal destination routes, or invalid H1 counts. The two redirect pages are excluded from page-content checks.
+- Responsive checks cover all 34 public content routes at 1440, 390, 768, and 320 pixels. Photographs, shared page templates, section rhythm, forms, and navigation were reviewed from the rendered output.
+- Desktop mega-menu opacity and architectural image, mobile accordion/scroll locking/Escape/focus restoration, gallery next/Escape/focus restoration, and review-rail navigation passed browser checks. YouTube click-to-play creates the correct privacy-enhanced embed, and all local episode previews load.
+- HGTV frames are correctly sized at 16:9 with readable captions outside the films. Local playback verification remains dependent on Vimeo availability; the player keeps its visible poster until playback is confirmed.
+- No live submission, CRM mutation, account login, or production publication was performed.
 
 ## Rendered route inventory
 
@@ -50,13 +63,12 @@ At 1440, 1280, 1024, 768, 390, and 375 pixels: scroll every public route from he
 | `/buy-or-sell/` | 13 | 8 |
 | `/chinamans-ocean-front-beach-house/` | 9 | 13 |
 | `/contact/` | 7 | 5 |
+| `/design-and-build-questionnaire/` | 2 | 4 |
 | `/design-and-build/` | 21 | 38 |
-| `/estimate/` | 0 | 0 |
 | `/financing/` | 10 | 8 |
 | `/` | 16 | 42 |
 | `/invest/` | 11 | 7 |
-| `/investment-planner/` | 8 | 6 |
-| `/journal/` | 6 | 12 |
+| `/journal/` | 6 | 11 |
 | `/luke-caldwell-boise-community/` | 2 | 5 |
 | `/luke-caldwell-faq/` | 2 | 5 |
 | `/our-process/` | 11 | 9 |
@@ -66,7 +78,7 @@ At 1440, 1280, 1024, 768, 390, and 375 pixels: scroll every public route from he
 | `/projects/promise-lane-modern-farmhouse/` | 8 | 31 |
 | `/projects/promise-lane-spanish-modern/` | 8 | 30 |
 | `/projects/the-firehouse/` | 7 | 16 |
-| `/reviews/` | 7 | 7 |
+| `/reviews/` | 7 | 6 |
 | `/sell-for-cash/` | 11 | 7 |
 | `/service-areas/` | 10 | 11 |
 | `/shows/` | 6 | 10 |

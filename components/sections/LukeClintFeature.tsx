@@ -22,7 +22,7 @@ export default function LukeClintFeature() {
         <div>
           <p className="eyebrow">The Story Continues</p>
           <h2 id="luke-clint-heading" className="h-section mt-4">
-            Luke &amp; Clint
+            Luke and Clint
           </h2>
           <p className="mt-4 text-sm uppercase tracking-[.16em] text-text-muted">
             New stories. The same two guys.

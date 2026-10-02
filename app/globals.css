@@ -263,7 +263,6 @@
 .media-card { color: #fafafa; }
 .h-page, .h-section, .h-hero { text-wrap: balance; }
 .btn-primary, .btn-secondary { text-align: center; }
-.video-control { position: absolute; right: 12px; bottom: 12px; z-index: 20; min-width: 44px; min-height: 44px; border: 1px solid #ffffff66; background: #0b0b0ce6; color: #fff; padding: 8px 12px; font-size: 11px; letter-spacing: .06em; }
 @media (max-width: 639px) {
   .section { padding-block: 64px; }
   .section-feature { padding-block: 72px; }
@@ -271,3 +270,9 @@
   .h-section { font-size: clamp(1.65rem, 7vw, 2rem); }
   footer { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
 }
+
+.review-rail {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.review-rail::-webkit-scrollbar { display: none; }

@@ -146,8 +146,8 @@ export default function HomePage() {
           </div>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link href="/investment-planner/" className="btn-primary" data-track="wwd_plan">
-              Plan Your Project
+            <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="wwd_plan">
+              Start a Project
             </Link>
             <Link href="/contact/" className="btn-secondary" data-track="wwd_consult">
               Book a Free Consultation
@@ -155,14 +155,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Who leads the work: Luke as the authority anchor, right after What We
-          Do and before the social proof. */}
-      <LukeTrustBar />
-
-      {/* Trust strip: rating, HGTV, local tenure, as the lead-in to the reviews
-          rather than directly under the hero. */}
-      <TrustBar />
 
       {/* Full-bleed photographic statement: design + build under one roof. */}
       <FeatureBand
@@ -172,29 +164,26 @@ export default function HomePage() {
         body="From the first sketch to the final fixture, our designers and builders work together on every detail, so nothing is lost between the vision and the finished home."
       />
 
-      {/* Proof: moved up from near the foot of the page so the 4.9 rating does
-          work for the majority of visitors, not just those who scroll to 70%. */}
-      <section className="relative overflow-hidden text-center section-feature">
-        <VideoBg videoId={sectionVideos.testimonials.id} poster={sectionVideos.testimonials.poster} overlay="bg-ink/75" fit="contain" />
-        <div className="container-wide relative z-10">
-          <Reveal>
-            <p className="eyebrow">Testimonials</p>
-            <h2 className="h-section mt-4">See What Others Are Saying</h2>
-          </Reveal>
-          <div className="mt-12">
-            <ReviewSlider items={clientReviews} />
+      {/* A complete black editorial section separates the photographic band
+          from the testimonial film. */}
+      <LukeTrustBar />
+      <TrustBar />
+
+      <section className="bg-ink section" aria-labelledby="testimonials-heading">
+        <div className="container-wide">
+          <div className="grid items-center gap-10 lg:grid-cols-[.85fr_1.15fr] lg:gap-16">
+            <Reveal>
+              <p className="eyebrow">Testimonials</p>
+              <h2 id="testimonials-heading" className="h-section mt-4">See What Others Are Saying</h2>
+              <p className="text-lead mt-6 max-w-md">The homes matter. So does the experience of creating them. Hear from the people who have worked with our team.</p>
+              <Link href="/reviews/" className="link-underline mt-6 inline-flex min-h-11 items-center text-xs uppercase tracking-[.16em] text-cream/80">Read Our Client Stories →</Link>
+            </Reveal>
+            <div className="relative aspect-video overflow-hidden bg-ink">
+              <VideoBg videoId={sectionVideos.testimonials.id} poster={sectionVideos.testimonials.poster} overlay="" fit="contain" />
+            </div>
           </div>
-          {/* Tertiary: a request of the visitor, not an offer to them, so it
-              must not compete with the conversion actions. */}
-          <div className="mt-12">
-            <a
-              href={site.reviewUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="link-underline text-xs uppercase tracking-[0.16em] text-cream/70"
-            >
-              We&apos;d Love Your Review →
-            </a>
+          <div className="mt-12 sm:mt-16">
+            <ReviewSlider items={clientReviews} />
           </div>
         </div>
       </section>
@@ -271,9 +260,9 @@ export default function HomePage() {
         image="/editorial/mountain-living.webp"
         eyebrow="Your Home, Realized"
         title="Let's Design Something Worth Building"
-        body="Start with a realistic planning range in a few minutes, then let's bring your vision to life."
-        cta="Plan Your Project"
-        href="/investment-planner/"
+        body="Tell us about your home and your goals, and let’s bring your vision to life."
+        cta="Start a Project"
+        href="/design-and-build-questionnaire/"
         height="short"
         align="center"
       />
@@ -289,8 +278,8 @@ export default function HomePage() {
             <Reveal delay={120} className="flex items-end">
               <p className="text-body">
                 Every home we design and build starts the same way: a simple, three-step process, then collaboration,
-                creativity, and precision as we bring it to life. The fastest way to begin is our Investment Planner,
-                which gives you a realistic planning range in a few minutes.
+                creativity, and precision as we bring it to life. Tell us what you have in mind,
+                and our team will help you find the right starting point.
               </p>
             </Reveal>
           </div>
@@ -307,8 +296,8 @@ export default function HomePage() {
             ))}
           </div>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link href="/investment-planner/" className="btn-primary" data-track="process_plan">
-              Plan Your Project
+            <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="process_plan">
+              Start a Project
             </Link>
             <Link href="/design-and-build/" className="btn-secondary" data-track="process_learn">
               See How It Works

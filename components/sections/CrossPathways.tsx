@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Reveal from '@/components/ui/Reveal';
-import SwipeRow, { SwipeItem } from '@/components/ui/SwipeRow';
 import { pathways } from '@/lib/site';
 
 /**
@@ -40,9 +39,9 @@ export default function CrossPathways({
           </h2>
           <p className="text-lead mt-5">{lede}</p>
         </Reveal>
-        <SwipeRow className="mt-10">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
           {items.map((p, i) => (
-            <SwipeItem key={p.key}>
+            <div key={p.key} className="min-w-0">
               <Reveal delay={i * 90} className="h-full">
                 <Link
                   href={p.href}
@@ -60,9 +59,9 @@ export default function CrossPathways({
                   </span>
                 </Link>
               </Reveal>
-            </SwipeItem>
+            </div>
           ))}
-        </SwipeRow>
+        </div>
       </div>
     </section>
   );

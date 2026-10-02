@@ -182,7 +182,7 @@ export default function Page() {
       </section>
 
       <EditorialSplit image="/editorial/luke-clint-studio.webp" imageAlt="Luke Caldwell and Clint Robertson" eyebrow="The Story Continues" title="A Partnership Boise Watched Grow" cta="Discover the Shows" href="/shows/" tone="secondary" ratio="natural">
-        <p>Luke Caldwell and Clint Robertson brought their Boise renovations to a national audience. Follow their next chapter on Luke &amp; Clint, now on YouTube.</p>
+        <p>Luke Caldwell and Clint Robertson brought their Boise renovations to a national audience. Follow their next chapter on Luke and Clint, now on YouTube.</p>
       </EditorialSplit>
 
       {/* Editorial: an interior that shows the warm, modern point of view. */}

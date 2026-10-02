@@ -74,6 +74,48 @@ export default function Page() {
 
       <TrustBar />
 
+      {/* General inquiry: form plus primary customer contact details */}
+      <section id="general" className="section-tonal border-t border-border-subtle bg-bg-secondary section">
+        <div className="container-wide grid gap-12 lg:grid-cols-2 lg:gap-16">
+          <Reveal>
+            <p className="eyebrow">Let’s Connect</p>
+            <h2 className="h-section mt-4">Send Us a Note</h2>
+            <p className="text-lead mt-5">
+              Tell us what you have in mind. From a new home to your next move, our team will connect you
+              with the right people.
+            </p>
+
+            <div className="mt-10 space-y-6">
+              <div>
+                <p className="field-label">Call</p>
+                <a href={site.phoneHref} className="link-underline mt-2 inline-block text-lg text-cream">
+                  {site.phone}
+                </a>
+              </div>
+              <div>
+                <p className="field-label">Email</p>
+                <a
+                  href={`mailto:${site.email}`}
+                  className="link-underline mt-2 inline-block text-lg text-cream"
+                >
+                  {site.email}
+                </a>
+              </div>
+              <div>
+                <p className="field-label">Visit</p>
+                <p className="mt-2 text-lg text-text-secondary">{site.address.full}</p>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={90} className="surface-card p-8 sm:p-10">
+            <ContactForm source="contact-page" />
+          </Reveal>
+        </div>
+      </section>
+
+
+
       {/* Choose Your Path: route each need to the correct destination */}
       <section className="bg-bg-primary section">
         <div className="container-wide">
@@ -114,49 +156,9 @@ export default function Page() {
           set of plans.
         </p>
         <p>
-          Rooms like this one start as a single conversation. The note below is a good place to begin yours.
+          Rooms like this one start as a single conversation. Tell us what matters to you, and we will help you take the next step.
         </p>
       </EditorialSplit>
-
-      {/* General inquiry: form plus primary customer contact details */}
-      <section id="general" className="section-tonal border-t border-border-subtle bg-bg-secondary section">
-        <div className="container-wide grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <Reveal>
-            <p className="eyebrow">General Inquiry</p>
-            <h2 className="h-section mt-4">Send Us a Note</h2>
-            <p className="text-lead mt-5">
-              For general questions, send us a note and a member of our team will get back to you. If you
-              already know which path fits, the options above will get you there faster.
-            </p>
-
-            <div className="mt-10 space-y-6">
-              <div>
-                <p className="field-label">Call</p>
-                <a href={site.phoneHref} className="link-underline mt-2 inline-block text-lg text-cream">
-                  {site.phone}
-                </a>
-              </div>
-              <div>
-                <p className="field-label">Email</p>
-                <a
-                  href={`mailto:${site.email}`}
-                  className="link-underline mt-2 inline-block text-lg text-cream"
-                >
-                  {site.email}
-                </a>
-              </div>
-              <div>
-                <p className="field-label">Visit</p>
-                <p className="mt-2 text-lg text-text-secondary">{site.address.full}</p>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={90} className="surface-card p-8 sm:p-10">
-            <ContactForm source="contact-page" />
-          </Reveal>
-        </div>
-      </section>
 
       {/* Abandonment recovery: sets expectations and offers two lower-commitment
           alternatives for visitors who scrolled past the form without sending it. */}
@@ -178,12 +180,11 @@ export default function Page() {
             <div>
               <h3 className="h-card">Not Ready to Talk Yet?</h3>
               <p className="mt-2 max-w-lg text-sm leading-relaxed text-text-secondary">
-                Get a preliminary investment range for your project in about two minutes. No contact details required
-                to see your number.
+                Explore our completed homes and find inspiration for your own. We are here whenever you are ready.
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
-              <Cta href="/estimate/" variant="primary" track="contact_recovery_estimate">Get an Estimate</Cta>
+              <Cta href="/timber-and-love-gallery/" variant="primary" track="contact_recovery_work">View Our Work</Cta>
               <a href={site.phoneHref} className="btn-secondary" data-track="contact_recovery_call">
                 Call {site.phone}
               </a>

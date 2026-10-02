@@ -1,3 +1,4 @@
+import { PLANNER_ENABLED } from '@/lib/planner/availability';
 import { NextResponse } from 'next/server';
 import { suggestAddresses, lookupProperty, type AddressSuggestion } from '@/lib/planner/property/freeLookup';
 
@@ -23,6 +24,7 @@ function cached<T>(key: string): T | null {
 }
 
 export async function GET(req: Request) {
+  if (!PLANNER_ENABLED) return NextResponse.json({ error: 'Not found' }, { status: 404 });
   const q = new URL(req.url).searchParams.get('q')?.trim() ?? '';
   if (q.length < 3) return NextResponse.json({ suggestions: [] });
 
@@ -37,6 +39,7 @@ export async function GET(req: Request) {
 
 /** Resolves a chosen suggestion into everything the free sources establish. */
 export async function POST(req: Request) {
+  if (!PLANNER_ENABLED) return NextResponse.json({ error: 'Not found' }, { status: 404 });
   let body: { suggestion?: AddressSuggestion };
   try {
     body = (await req.json()) as { suggestion?: AddressSuggestion };

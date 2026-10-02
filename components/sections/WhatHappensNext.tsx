@@ -11,8 +11,8 @@ import Reveal from '@/components/ui/Reveal';
 const DEFAULT_STEPS = [
   {
     step: '01',
-    title: 'We Reply Within One Business Day',
-    body: 'A member of our team reads every inquiry personally. You will hear back from a person, not an autoresponder.',
+    title: 'Our Team Reviews Your Inquiry',
+    body: 'A member of our team reads every inquiry personally. We will reach out to learn more about your goals.',
   },
   {
     step: '02',

@@ -41,8 +41,8 @@ export default function Hero() {
           </p>
 
           <div className="mt-9 flex animate-fadeUp flex-wrap items-center gap-4 [animation-delay:340ms]">
-            <Cta href="/investment-planner/" variant="primary" track="hero_plan_project">
-              Plan Your Project
+            <Cta href="/design-and-build-questionnaire/" variant="primary" track="hero_plan_project">
+              Start a Project
             </Cta>
             <Cta href="/timber-and-love-gallery/" variant="secondary" track="hero_explore_work">
               See Our Work

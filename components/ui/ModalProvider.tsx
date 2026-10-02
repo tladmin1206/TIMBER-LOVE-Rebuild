@@ -25,11 +25,6 @@ export default function ModalProvider({ children }: { children: React.ReactNode 
   const closeModal = useCallback(() => setOpen(null), []);
 
   useEffect(() => {
-    if (open) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeModal();
     };

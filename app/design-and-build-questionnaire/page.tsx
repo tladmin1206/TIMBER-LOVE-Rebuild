@@ -1,123 +1,44 @@
-import { Suspense } from 'react';
-import PageHero from '@/components/sections/PageHero';
-import Reveal from '@/components/ui/Reveal';
-import FeatureBand from '@/components/sections/FeatureBand';
-import EditorialSplit from '@/components/sections/EditorialSplit';
-import PressStrip from '@/components/sections/PressStrip';
-import ClosingCta from '@/components/sections/ClosingCta';
-import { closingCta } from '@/lib/content/closing';
-import ProjectInquiry from '@/components/forms/ProjectInquiry';
+import ContactForm from '@/components/forms/ContactForm';
 import WhatHappensNext from '@/components/sections/WhatHappensNext';
-import { processSteps } from '@/lib/content/home';
 import { pageMeta } from '@/lib/seo';
-import TrustBar from '@/components/sections/TrustBar';
+import { site } from '@/lib/site';
 
 export const metadata = pageMeta({
   title: 'Start Your Design + Build Project',
-  description:
-    'Tell us about your project and we will help determine whether Timber and Love is the right fit for your design and build needs.',
+  description: 'Tell the Timber and Love team about your home and your goals. Start a conversation about your Boise remodel, addition, or custom home.',
   path: '/design-and-build-questionnaire/',
 });
 
-function formatMoney(v: string) {
-  const [low, high] = v.split('-').map((n) => parseInt(n, 10));
-  if (!Number.isFinite(low) || !Number.isFinite(high)) return null;
-  return `$${low.toLocaleString()} to $${high.toLocaleString()}`;
-}
-
-export default function Page({ searchParams }: { searchParams?: Record<string, string | string[] | undefined> }) {
-  const rangeParam = typeof searchParams?.range === 'string' ? searchParams.range : undefined;
-  const range = rangeParam ? formatMoney(rangeParam) : null;
-  const categoryParam = typeof searchParams?.category === 'string' ? searchParams.category : undefined;
-
+export default function Page() {
   return (
     <>
-      <PageHero
-        eyebrow="Start Your Project"
-        title="Tell Us About Your Project"
-        subtitle="Share a few details about your home and goals. We will review your project and follow up about next steps and whether we are a good fit."
-        image="/editorial/oak-vanity.webp"
-        height="short"
-      />
-
-      <TrustBar />
-
-      {/* Estimator handoff summary: carried over so we do not re-ask. */}
-      {(range || categoryParam) && (
-        <section className="bg-bg-secondary py-6">
-          <div className="container-tl max-w-2xl">
-            <div className="surface-card p-5 text-sm text-text-secondary">
-              <p className="field-label mb-2">From your estimate</p>
-              {categoryParam && <p>Project type: {categoryParam.replace(/-/g, ' ')}</p>}
-              {range && <p className="mt-1">Preliminary range: <span className="text-cream">{range}</span> (preliminary, not a quote)</p>}
-            </div>
+      <section id="inquiry" className="bg-ink pb-20 pt-32 sm:pb-28 sm:pt-40">
+        <div className="container-wide grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <div>
+            <p className="eyebrow">Let’s Work Together</p>
+            <h1 className="h-page mt-4">Tell Us About Your Project</h1>
+            <p className="text-lead mt-6 max-w-xl">
+              A beautiful home starts with a conversation. Share what you have in mind, whether it’s a remodel, an addition, or a new home. Our team will help you find the next step.
+            </p>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/projects/promise-ln-5120/5120-promise-ln-kitchen.jpg" alt="Timber and Love custom kitchen with green millwork and natural wood" className="mt-8 hidden aspect-[4/3] w-full object-cover lg:block" />
+            <p className="mt-6 text-sm text-text-secondary">
+              Prefer to talk? <a href={site.phoneHref} className="link-underline text-cream">{site.phone}</a>
+            </p>
           </div>
-        </section>
-      )}
-
-      <PressStrip />
-
-      <EditorialSplit
-        image="/projects/promise-ln-5120/5120-promise-ln-kitchen.jpg"
-        imageAlt="Kitchen with black windows and green millwork in a modern farmhouse custom home by Timber and Love"
-        eyebrow="What We Build"
-        title="From First Idea to Finished Room"
-        tone="secondary"
-        ratio="landscape"
-      >
-        <p>
-          Kitchens like this one begin exactly where you are now, with a few notes about a home and a goal.
-          The questionnaire below is the first step toward a space built around how you live.
-        </p>
-        <p>
-          Share what you have in mind and we will help you see whether Timber and Love is the right fit.
-        </p>
-      </EditorialSplit>
-
-      {/* 3-step process */}
-      <section className="bg-bg-primary section">
+          <div className="self-start border border-border-subtle bg-panel p-6 sm:p-9 lg:mt-1">
+            <h2 className="h-card">Let’s Get to Know Your Project</h2>
+            <p className="mt-3 mb-7 text-sm leading-relaxed text-text-secondary">A few details are all we need to begin. There’s no commitment and no need to have everything figured out.</p>
+            <ContactForm source="design-build-inquiry" defaultService="Design + Build" />
+          </div>
+        </div>
+      </section>
+      <section className="section-tonal section border-t border-border-subtle">
         <div className="container-wide">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">How It Works</p>
-            <h2 className="h-section mt-4">Our Process in 3 Steps</h2>
-          </Reveal>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {processSteps.map((step, i) => (
-              <Reveal key={step.num} delay={i * 100} className="text-center">
-                <div className="font-sans text-5xl tracking-brand text-cream/30">{step.num}</div>
-                <h3 className="h-card mt-4">{step.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-body">{step.body}</p>
-              </Reveal>
-            ))}
-          </div>
+          <h2 className="h-section mb-10 text-center">What Happens Next</h2>
+          <WhatHappensNext />
         </div>
       </section>
-
-      <FeatureBand
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg"
-        eyebrow="Start Here"
-        title="Let's Get to Know Your Project"
-        body="A few details about your home and goals help us see the fit before we ever pick up the phone."
-        align="left"
-        height="short"
-      />
-
-      {/* Native multi-step project inquiry */}
-      <section id="inquiry" className="border-t border-border-subtle bg-bg-secondary section">
-        <div className="container-tl">
-          {/* Expectations stated at the form itself, not on a separate page the
-              visitor would have to go and find. */}
-          <div className="mx-auto mb-12 max-w-2xl">
-            <p className="field-label mb-4">What Happens After You Submit</p>
-            <WhatHappensNext compact />
-          </div>
-          <Suspense fallback={<div className="mx-auto min-h-[500px] max-w-2xl" />}>
-            <ProjectInquiry />
-          </Suspense>
-        </div>
-      </section>
-
-      <ClosingCta {...closingCta.questionnaire} />
     </>
   );
 }

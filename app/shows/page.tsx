@@ -8,7 +8,7 @@ import { closingCta } from "@/lib/content/closing";
 export const metadata = pageMeta({
   title: "Shows + Watch",
   description:
-    "Watch Luke & Clint, discover Boise Boys and Outgrown, and go behind the homes with Timber and Love.",
+    "Watch Luke and Clint, discover Boise Boys and Outgrown, and go behind the homes with Timber and Love.",
   path: "/shows/",
   image: "/editorial/luke-clint.webp",
 });
@@ -36,7 +36,7 @@ export default function ShowsPage() {
             </div>
             <div>
               <p className="eyebrow">Now on YouTube</p>
-              <h2 className="h-section mt-4">Luke &amp; Clint</h2>
+              <h2 className="h-section mt-4">Luke and Clint</h2>
               <p className="text-lead mt-5">
                 The partnership you met on HGTV continues with new projects,
                 unexpected discoveries, and plenty of laughs. Come behind the

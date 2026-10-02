@@ -50,11 +50,11 @@ const faq = [
   },
   {
     q: 'When should I think about financing?',
-    a: 'Early. Understanding your budget and financing approach up front helps us design a project that fits, which is exactly what the preliminary estimator and the initial consultation are for.',
+    a: 'Early. Understanding your budget and financing approach up front helps us design a project that fits, which is exactly what the initial consultation is for.',
   },
   {
     q: 'Can I get an idea of cost before I talk to a lender?',
-    a: 'Yes. Our project estimator gives you a preliminary investment range in a couple of minutes, so you can walk into a financing conversation with a realistic number in mind.',
+    a: 'Start by talking with our team about your goals, scope, and budget. We can help you understand what needs to be defined before you discuss financing with your lender.',
   },
   {
     q: 'Is this financial advice?',
@@ -83,8 +83,8 @@ export default function Page() {
         image="/editorial/estate-breakfast.webp"
         height="short"
       >
-        <Cta href="/estimate/" variant="primary">Estimate Your Project</Cta>
-        <Cta href="/design-and-build-questionnaire/" variant="secondary">Talk to Our Team</Cta>
+        <Cta href="/design-and-build-questionnaire/" variant="primary">Start a Project</Cta>
+        <Cta href="/our-process/" variant="secondary">Our Process</Cta>
       </PageHero>
 
       <TrustBar />
@@ -123,18 +123,18 @@ export default function Page() {
             <p className="eyebrow">Plan With Confidence</p>
             <h2 className="h-section mt-4">Start With a Realistic Number</h2>
             <p className="text-lead mt-4">
-              Knowing a preliminary range early makes every financing conversation easier. Use our estimator to get a
-              range in about two minutes, then bring that number to your lender or to us.
+              A clear scope makes every financing conversation easier. Tell us about your home and your goals,
+              and we can discuss your priorities and the budget you have in mind.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Cta href="/estimate/" variant="primary">Estimate Your Project</Cta>
+              <Cta href="/design-and-build-questionnaire/" variant="primary">Start a Project</Cta>
               <Cta href="/design-and-build/" variant="secondary">Explore Design + Build</Cta>
             </div>
           </Reveal>
           <Reveal delay={100} className="surface-card p-8">
             <p className="field-label">A Simple Order of Operations</p>
             <ol className="mt-5 space-y-4 text-sm text-text-secondary">
-              <li className="flex gap-3"><span className="text-accent">1.</span> Get a preliminary range with the estimator.</li>
+              <li className="flex gap-3"><span className="text-accent">1.</span> Share your project goals and the budget you have in mind.</li>
               <li className="flex gap-3"><span className="text-accent">2.</span> Talk with us about scope, priorities, and timing.</li>
               <li className="flex gap-3"><span className="text-accent">3.</span> Confirm your financing approach with your lender.</li>
               <li className="flex gap-3"><span className="text-accent">4.</span> Move into design with a budget you are confident in.</li>
@@ -149,8 +149,8 @@ export default function Page() {
         imageAlt="Spanish modern custom kitchen with a marble backsplash and professional range, built by Timber and Love"
         eyebrow="Worth Planning For"
         title="A Well-Built Home, Within Reach"
-        cta="Estimate Your Project"
-        href="/estimate/"
+        cta="Start a Project"
+        href="/design-and-build-questionnaire/"
         tone="primary"
         ratio="landscape"
       >
@@ -192,8 +192,8 @@ export default function Page() {
         eyebrow="Plan With Confidence"
         title="Make the Dream Attainable"
         body="A clear budget turns a someday project into a real plan. Start with a realistic range, then bring it to the table."
-        cta="Plan Your Project"
-        href="/investment-planner/"
+        cta="Start a Project"
+        href="/design-and-build-questionnaire/"
         height="short"
       />
 

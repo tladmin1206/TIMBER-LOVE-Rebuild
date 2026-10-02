@@ -27,7 +27,7 @@ const company: Item[] = [
 
 const mediaLinks: Item[] = [
   { label: 'Shows + Watch', href: '/shows/' },
-  { label: 'Luke & Clint on YouTube', href: 'https://www.youtube.com/@lukeandclint', external: true },
+  { label: 'Luke and Clint on YouTube', href: 'https://www.youtube.com/@lukeandclint', external: true },
   { label: 'HGTV: The Boise Boys', href: '/the-boise-boys/' },
   { label: 'Boise Boys on Discovery+', href: site.shows.boiseBoys, external: true },
   { label: 'Outgrown on Discovery+', href: site.shows.outgrown, external: true },

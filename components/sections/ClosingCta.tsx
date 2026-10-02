@@ -23,6 +23,7 @@ export type ClosingCtaProps = {
   videoId?: string;
   poster?: string;
   image?: string;
+  surface?: 'image' | 'solid';
 };
 
 const DEFAULT_IMAGE =
@@ -64,10 +65,11 @@ export default function ClosingCta({
   videoId,
   poster,
   image = DEFAULT_IMAGE,
+  surface = 'image',
 }: ClosingCtaProps) {
   return (
-    <section className="media-card relative isolate flex min-h-[52vh] items-center overflow-hidden sm:min-h-[56vh] section">
-      {videoId ? (
+    <section className="media-card relative isolate flex min-h-[52vh] items-center overflow-hidden bg-ink sm:min-h-[56vh] section">
+      {surface === 'solid' ? null : videoId ? (
         <VideoBg
           videoId={videoId}
           poster={poster || image}

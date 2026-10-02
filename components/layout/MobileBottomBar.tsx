@@ -30,7 +30,7 @@ function actionsFor(pathname: string): Action[] {
     return [call, { label: 'Contact', href: '/contact/' }, { label: 'Invest', href: site.external.invest, external: true, primary: true }];
   }
   // Default: help visitors self-select.
-  return [call, { label: 'Get an Estimate', href: '/estimate/' }, { label: 'Contact Us', href: '/contact/', primary: true }];
+  return [call, { label: 'Our Work', href: '/timber-and-love-gallery/' }, { label: 'Get in Touch', href: '/contact/#general', primary: true }];
 }
 
 function isRental(p: string) {

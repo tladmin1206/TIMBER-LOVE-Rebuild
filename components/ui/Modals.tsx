@@ -3,6 +3,8 @@
 import { useModal } from './ModalProvider';
 import ContactForm from '@/components/forms/ContactForm';
 import { site } from '@/lib/site';
+import { useRef } from 'react';
+import { useDialogFocus } from '@/components/hooks/useDialogFocus';
 
 function Shell({
   title,
@@ -15,8 +17,11 @@ function Shell({
   children: React.ReactNode;
   onClose: () => void;
 }) {
+  const dialog = useRef<HTMLDivElement>(null);
+  useDialogFocus(true, dialog);
   return (
     <div
+      ref={dialog}
       className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-ink/80 p-4 backdrop-blur-sm animate-fadeIn sm:items-center"
       role="dialog"
       aria-modal="true"
@@ -25,11 +30,11 @@ function Shell({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="relative my-8 w-full max-w-lg border border-border-subtle bg-surface p-7 sm:p-9">
+      <div className="relative my-auto w-full max-w-lg border border-border-subtle bg-surface p-6 sm:p-9">
         <button
           onClick={onClose}
           aria-label="Close"
-          className="absolute right-4 top-4 text-2xl leading-none text-cream/60 transition hover:text-cream"
+          className="absolute right-2 top-2 grid h-11 w-11 place-items-center text-2xl leading-none text-cream/60 transition hover:text-cream"
         >
           ×
         </button>

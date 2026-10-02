@@ -29,7 +29,7 @@ export default function YouTubeVideo({
             {/* Video thumbnails retain the whole composition, including faces. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`https://i.ytimg.com/vi/${id}/hqdefault.jpg`}
+              src={`/shows/${id}.jpg`}
               alt=""
               loading="lazy"
               className="h-full w-full object-contain"

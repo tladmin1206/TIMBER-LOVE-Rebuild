@@ -575,43 +575,43 @@
   },
   {
     "file": "/editorial/luke-clint-jump.webp",
-    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "source": "Official Luke and Clint / Luke Caldwell website, reviewed 2026-10-02",
     "width": 1024,
     "height": 485
   },
   {
     "file": "/editorial/luke-portrait.webp",
-    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "source": "Official Luke and Clint / Luke Caldwell website, reviewed 2026-10-02",
     "width": 760,
     "height": 1024
   },
   {
     "file": "/editorial/luke-current.webp",
-    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "source": "Official Luke and Clint / Luke Caldwell website, reviewed 2026-10-02",
     "width": 1060,
     "height": 1400
   },
   {
     "file": "/editorial/luke-book.webp",
-    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "source": "Official Luke and Clint / Luke Caldwell website, reviewed 2026-10-02",
     "width": 1200,
     "height": 1800
   },
   {
     "file": "/editorial/luke-clint.webp",
-    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "source": "Official Luke and Clint / Luke Caldwell website, reviewed 2026-10-02",
     "width": 1600,
     "height": 990
   },
   {
     "file": "/editorial/luke-clint-studio.webp",
-    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "source": "Official Luke and Clint / Luke Caldwell website, reviewed 2026-10-02",
     "width": 1600,
     "height": 1120
   },
   {
     "file": "/editorial/luke-denim.webp",
-    "source": "Official Luke + Clint / Luke Caldwell website, reviewed 2026-10-02",
+    "source": "Official Luke and Clint / Luke Caldwell website, reviewed 2026-10-02",
     "width": 1800,
     "height": 1200
   },
@@ -656,5 +656,32 @@
     },
     "width": 1800,
     "height": 1200
+  },
+  {
+    "file": "/shows/8aU3CeKg4gY.jpg",
+    "source": {
+      "url": "https://img.youtube.com/vi/8aU3CeKg4gY/maxresdefault.jpg",
+      "context": "Official Luke and Clint YouTube episode: https://www.youtube.com/watch?v=8aU3CeKg4gY"
+    },
+    "width": 1280,
+    "height": 720
+  },
+  {
+    "file": "/shows/sgYTnH_-cP8.jpg",
+    "source": {
+      "url": "https://img.youtube.com/vi/sgYTnH_-cP8/maxresdefault.jpg",
+      "context": "Official Luke and Clint YouTube episode: https://www.youtube.com/watch?v=sgYTnH_-cP8"
+    },
+    "width": 1280,
+    "height": 720
+  },
+  {
+    "file": "/shows/SWxWsqbJdQw.jpg",
+    "source": {
+      "url": "https://img.youtube.com/vi/SWxWsqbJdQw/maxresdefault.jpg",
+      "context": "Official Luke and Clint YouTube episode: https://www.youtube.com/watch?v=SWxWsqbJdQw"
+    },
+    "width": 1280,
+    "height": 720
   }
 ]

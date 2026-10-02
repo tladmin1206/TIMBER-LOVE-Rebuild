@@ -106,9 +106,9 @@ export default function Page() {
         image="/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Exterior-1-3-scaled.jpg"
         eyebrow="Invest With Intention"
         title="Build Value That Lasts"
-        body="Explore how the Timber and Love team approaches real estate, then map out a project with a clear, realistic starting point."
-        cta="Start the Investment Planner"
-        href="/investment-planner/"
+        body="Explore how the Timber and Love team approaches real estate and start a conversation about opportunities in the Treasure Valley."
+        cta="Talk About Investing"
+        href="/contact/#general"
         height="short"
       />
 

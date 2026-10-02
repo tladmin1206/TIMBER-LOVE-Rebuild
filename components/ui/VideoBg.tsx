@@ -22,7 +22,6 @@ export default function VideoBg({
   const [load, setLoad] = useState(false);
   const [visible, setVisible] = useState(false);
   const [ready, setReady] = useState(false);
-  const [paused, setPaused] = useState(false);
   const [reduced, setReduced] = useState(true);
   const [size, setSize] = useState({ width: 0, height: 0 });
   const [ratio, setRatio] = useState(16 / 9);
@@ -90,9 +89,9 @@ export default function VideoBg({
   useEffect(() => {
     const instance = player.current;
     if (!instance) return;
-    if (!visible || paused || reduced) instance.pause().catch(() => {});
+    if (!visible || reduced) instance.pause().catch(() => {});
     else instance.play().catch(() => {});
-  }, [visible, paused, reduced, ready]);
+  }, [visible, reduced, ready]);
   const width =
     fit === "contain"
       ? Math.min(size.width, size.height * ratio)
@@ -125,18 +124,7 @@ export default function VideoBg({
         )}
         <div className={`absolute inset-0 ${overlay}`} />
       </div>
-      {ready && !reduced && (
-        <button
-          type="button"
-          className="video-control"
-          onClick={() => setPaused((value) => !value)}
-          aria-label={
-            paused ? "Play background video" : "Pause background video"
-          }
-        >
-          {paused ? "Play film" : "Pause film"}
-        </button>
-      )}
+
     </>
   );
 }

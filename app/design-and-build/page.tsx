@@ -127,19 +127,19 @@ export default function Page() {
 
       <PressStrip />
 
-      {/* Estimator promo */}
+      {/* A direct route to the project inquiry */}
       <section className="section-tonal border-y border-border-subtle bg-bg-secondary section-tight">
         <div className="container-wide grid gap-6 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <p className="eyebrow">Explore Your Investment Range</p>
-            <h2 className="h-section mt-3">See a Preliminary Estimate</h2>
+            <p className="eyebrow">Let’s Work Together</p>
+            <h2 className="h-section mt-3">Start With a Conversation</h2>
             <p className="text-lead mt-4">
-              Answer a few quick questions to see a realistic investment range for your project before you reach out. It
-              is a helpful starting point, not a formal quote.
+              Tell us about your home, your ideas, and the budget you have in mind. Our team will help you
+              understand the next step and whether we are the right fit.
             </p>
           </Reveal>
           <div className="lg:text-right">
-            <Link href="/estimate/" className="btn-primary" data-track="dbpage_estimator">Estimate Your Project</Link>
+            <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="dbpage_inquiry">Start a Project</Link>
           </div>
         </div>
       </section>
@@ -254,7 +254,7 @@ export default function Page() {
 
       {/* Full-bleed photographic statement: craft and quality. */}
       <FeatureBand
-        image="/editorial/natural-materials.webp"
+        image="/editorial/mountain-kitchen.webp"
         eyebrow="Built to Last"
         title="Craft You Can Feel in Every Detail"
         body="We choose materials for how they wear over years, and we hold quality standards from the first cut to the final finish."
@@ -278,7 +278,7 @@ export default function Page() {
         <section key={p.num} className={`section ${i % 2 === 0 ? 'section-tonal' : 'bg-bg-primary'}`}>
           <div className="container-wide grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div className={i % 2 ? 'lg:order-2' : ''}><InlineVideo videoId={p.videoId} poster={p.poster} title={p.title} /></div>
-            <div><p className="eyebrow">Phase {p.num}</p><h3 className="h-section mt-4">{p.title}</h3><p className="text-lead mt-5">{p.body}</p>{i === 2 && <Link href="/design-and-build-questionnaire/" className="btn-secondary mt-7">Start the Questionnaire</Link>}</div>
+            <div><p className="eyebrow">Phase {p.num}</p><h3 className="h-section mt-4">{p.title}</h3><p className="text-lead mt-5">{p.body}</p>{i === 2 && <Link href="/design-and-build-questionnaire/" className="btn-secondary mt-7">Start a Project</Link>}</div>
           </div>
         </section>
       ))}
@@ -337,8 +337,8 @@ export default function Page() {
         eyebrow="One Team, One Roof"
         title="Design and Build, Under One Roof"
         body="Our designers and builders work side by side, so your project stays coordinated from concept to completion."
-        cta="Plan Your Project"
-        href="/investment-planner/"
+        cta="Start a Project"
+        href="/design-and-build-questionnaire/"
         align="left"
         height="short"
       />

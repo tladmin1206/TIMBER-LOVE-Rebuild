@@ -1,112 +1,91 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import Link from 'next/link';
 import Spinner from '@/components/ui/Spinner';
 import { site } from '@/lib/site';
 
-const PHONE = site.phone;
-const PHONE_HREF = site.phoneHref;
-
-type Props = {
-  /** Hidden field so we know which form/popup the lead came from */
-  source?: string;
-  compact?: boolean;
-};
-
+type Props = { source?: string; compact?: boolean; defaultService?: string };
 type Status = 'idle' | 'submitting' | 'success' | 'error';
+const SERVICES = ['Design + Build', 'Buying or Selling', 'Cash Home Offer', 'Investing', 'Property Management', 'Vacation Stay', 'Press or Partnership', 'Something Else'];
 
-export default function ContactForm({ source = 'website', compact = false }: Props) {
+export default function ContactForm({ source = 'website', compact = false, defaultService = '' }: Props) {
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState('');
-  const successRef = useRef<HTMLDivElement | null>(null);
+  const id = useId();
+  const successRef = useRef<HTMLDivElement>(null);
+  const sending = useRef(false);
+  const submission = useRef({ payload: '', id: '' });
 
-  // Move focus to the confirmation so keyboard and screen-reader users are told
-  // the send succeeded: otherwise the only signal is a visual swap they miss.
-  useEffect(() => {
-    if (status === 'success') successRef.current?.focus();
-  }, [status]);
+  useEffect(() => { if (status === 'success') successRef.current?.focus(); }, [status]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (sending.current) return;
+    const form = e.currentTarget;
+    if (!form.reportValidity()) return;
+    sending.current = true;
     setStatus('submitting');
     setError('');
-    const form = e.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const fields = Object.fromEntries(new FormData(form).entries());
+    // Keep the same key on retries so an interrupted response cannot create
+    // duplicate email notifications. A changed inquiry gets a new key.
+    const payload = JSON.stringify({ ...fields, source, page: window.location.pathname });
+    if (submission.current.payload !== payload) submission.current = { payload, id: crypto.randomUUID() };
     try {
       const res = await fetch('/api/contact/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, source }),
+        body: JSON.stringify({ ...JSON.parse(payload), submissionId: submission.current.id }),
+        signal: AbortSignal.timeout(25000),
       });
-      if (!res.ok) throw new Error('Request failed');
+      const result = await res.json();
+      if (!res.ok || result.ok !== true) throw new Error(result.error || 'We could not send your message. Please try again.');
       setStatus('success');
       form.reset();
-    } catch {
+    } catch (err) {
       setStatus('error');
-      setError(`Your message did not send. Please try again, or reach us directly at ${PHONE} or ${site.email}.`);
+      setError(err instanceof Error && err.name !== 'TimeoutError' && err.name !== 'TypeError' ? err.message : 'We could not confirm your message was sent. Please try again.');
+    } finally {
+      sending.current = false;
     }
   }
 
-  if (status === 'success') {
-    return (
-      <div
-        ref={successRef}
-        role="status"
-        aria-live="polite"
-        tabIndex={-1}
-        className="py-10 text-center focus:outline-none"
-      >
-        <p className="h-card text-cream">Message Sent</p>
-        <p className="mt-4 text-body">
-          A member of our team reads every inquiry personally. Expect a reply within one business day.
-        </p>
-        <p className="mt-2 text-sm text-text-muted">
-          Need something sooner? Call{' '}
-          <a href={PHONE_HREF} className="link-underline text-cream">
-            {PHONE}
-          </a>
-          .
-        </p>
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <Link href="/timber-and-love-gallery/" className="btn-secondary">
-            View Our Work
-          </Link>
-        </div>
-      </div>
-    );
-  }
+  if (status === 'success') return (
+    <div ref={successRef} role="status" tabIndex={-1} className="py-10 text-center focus:outline-none">
+      <p className="h-card text-cream">Thank You for Reaching Out</p>
+      <p className="mt-4 text-body">Your inquiry has been sent to our team. We look forward to learning more and will be in touch.</p>
+      <p className="mt-4 text-sm text-text-muted">Prefer to talk? <a href={site.phoneHref} className="link-underline text-cream">{site.phone}</a></p>
+      <Link href="/timber-and-love-gallery/" className="btn-secondary mt-8">View Our Work</Link>
+    </div>
+  );
 
-  const inputCls =
-    'w-full border border-cream/25 bg-transparent px-4 py-3 text-cream placeholder-cream/50 outline-none transition focus:border-cream/70';
-
+  const inputCls = 'mt-2 w-full min-w-0 border border-cream/25 bg-ink px-4 py-3 text-base text-cream outline-none transition focus:border-cream/70';
   return (
-    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-      <div className={compact ? 'space-y-4' : 'grid gap-4 sm:grid-cols-2'}>
-        <input className={inputCls} name="firstName" placeholder="First Name" aria-label="First name" required autoComplete="given-name" />
-        <input className={inputCls} name="lastName" placeholder="Last Name" aria-label="Last name" required autoComplete="family-name" />
+    <form onSubmit={handleSubmit} className="space-y-5" aria-label="Contact Timber and Love">
+      <p className="text-xs text-text-muted">Fields marked * are required.</p>
+      <div className={compact ? 'space-y-5' : 'grid gap-5 sm:grid-cols-2'}>
+        <label className="block text-sm text-cream" htmlFor={`${id}-first`}>First Name *<input id={`${id}-first`} className={inputCls} name="firstName" required maxLength={100} autoComplete="given-name" /></label>
+        <label className="block text-sm text-cream" htmlFor={`${id}-last`}>Last Name<input id={`${id}-last`} className={inputCls} name="lastName" maxLength={100} autoComplete="family-name" /></label>
       </div>
-      <input className={inputCls} type="email" name="email" placeholder="Email" aria-label="Email address" required autoComplete="email" />
-      <input className={inputCls} type="tel" name="phone" placeholder="Phone" aria-label="Phone number" autoComplete="tel" />
-      <textarea
-        className={inputCls}
-        name="message"
-        rows={4}
-        aria-label="How can we help?"
-        placeholder="Please let us know how we can help (e.g., home remodel, new build, buying, selling, a cash offer, investing, or a vacation stay)."
-      />
-      <input type="hidden" name="source" value={source} />
-      {/* Honeypot for spam bots */}
-      <input type="text" name="company_website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
-      {status === 'error' && <p className="field-error" role="alert">{error}</p>}
-      <button
-        type="submit"
-        disabled={status === 'submitting'}
-        aria-busy={status === 'submitting'}
-        className="btn-primary w-full"
-      >
-        {status === 'submitting' && <Spinner />}
-        {status === 'submitting' ? 'Sending…' : 'Submit'}
+      <div className={compact ? 'space-y-5' : 'grid gap-5 sm:grid-cols-2'}>
+        <label className="block text-sm text-cream" htmlFor={`${id}-email`}>Email *<input id={`${id}-email`} className={inputCls} type="email" name="email" required maxLength={254} autoComplete="email" /></label>
+        <label className="block text-sm text-cream" htmlFor={`${id}-phone`}>Phone<input id={`${id}-phone`} className={inputCls} type="tel" name="phone" maxLength={40} autoComplete="tel" /></label>
+      </div>
+      <label className="block text-sm text-cream" htmlFor={`${id}-service`}>I’m Interested In
+        <select id={`${id}-service`} name="service" defaultValue={defaultService} className={inputCls}>
+          <option value="">Select an option (optional)</option>
+          {SERVICES.map(s => <option key={s}>{s}</option>)}
+        </select>
+      </label>
+      <label className="block text-sm text-cream" htmlFor={`${id}-message`}>How Can We Help? *
+        <textarea id={`${id}-message`} className={`${inputCls} resize-y placeholder:text-cream/45`} name="message" rows={4} required maxLength={5000} placeholder="Tell us a little about your home, location, and what you have in mind." />
+      </label>
+      <input type="text" name="company_website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+      {status === 'error' && <div className="field-error space-y-2" role="alert"><p>{error}</p><p>Or reach us at <a className="link-underline" href={site.phoneHref}>{site.phone}</a> or <a className="link-underline break-all" href={`mailto:${site.email}`}>{site.email}</a>.</p></div>}
+      <p className="text-xs leading-relaxed text-text-muted">By submitting, you agree that our team may contact you about your inquiry. <Link href="/privacy-policy/" className="link-underline">Privacy Policy</Link></p>
+      <button type="submit" disabled={status === 'submitting'} aria-busy={status === 'submitting'} className="btn-primary w-full disabled:opacity-60">
+        {status === 'submitting' && <Spinner />}{status === 'submitting' ? 'Sending…' : 'Send Inquiry'}
       </button>
     </form>
   );

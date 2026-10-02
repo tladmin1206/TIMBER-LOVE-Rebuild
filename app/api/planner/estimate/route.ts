@@ -1,3 +1,4 @@
+import { PLANNER_ENABLED } from '@/lib/planner/availability';
 import { NextResponse } from 'next/server';
 import { estimate } from '@/lib/planner/pricing/engine';
 import { AssemblyBasis } from '@/lib/planner/pricing/assembly/basis';
@@ -32,6 +33,7 @@ type Body = {
 };
 
 export async function POST(req: Request) {
+  if (!PLANNER_ENABLED) return NextResponse.json({ error: 'Not found' }, { status: 404 });
   let body: Body;
   try {
     body = (await req.json()) as Body;

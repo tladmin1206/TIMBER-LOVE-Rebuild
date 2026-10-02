@@ -56,7 +56,7 @@ export default function Page() {
                   <img src={featured.image} alt={featured.title} loading="lazy" className="h-full w-full object-contain" />
                 </div>
                 <div className="flex flex-col justify-center p-8 sm:p-10">
-                  <div className="flex items-center gap-3 text-xs uppercase tracking-[0.16em] text-accent">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs uppercase tracking-[0.16em] text-accent">
                     <span>{featured.tag}</span>
                     <span className="text-text-muted">·</span>
                     <span className="text-text-muted">{fmt(featured.date)}</span>
@@ -82,7 +82,7 @@ export default function Page() {
                     <img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-contain" />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
-                    <div className="flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-accent">
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-xs uppercase tracking-[0.14em] text-accent">
                       <span>{p.tag}</span>
                       <span className="text-text-muted">·</span>
                       <span className="text-text-muted">{fmt(p.date)}</span>
@@ -123,8 +123,8 @@ export default function Page() {
         eyebrow="Notes From the Studio"
         title="Where Our Ideas Take Shape"
         body="Behind every story is a home we designed and built here in the Treasure Valley."
-        cta="Plan Your Project"
-        href="/investment-planner/"
+        cta="Start a Project"
+        href="/design-and-build-questionnaire/"
         align="left"
         height="short"
       />

@@ -2,7 +2,7 @@ export const navigationGroups = [
   {
     id: "design",
     label: "Design + Build",
-    image: "/editorial/natural-materials.webp",
+    image: "/projects/promise-ln-5142/5142-promise-ln-great-room.jpg",
     feature: "Thoughtful from the first sketch.",
     featureHref: "/design-and-build/",
     columns: [
@@ -29,11 +29,6 @@ export const navigationGroups = [
       {
         title: "Plan Your Project",
         links: [
-          {
-            label: "Investment Planner",
-            href: "/investment-planner/",
-            description: "Find a preliminary range for your project.",
-          },
           {
             label: "Start a Project",
             href: "/design-and-build-questionnaire/",
@@ -135,7 +130,7 @@ export const navigationGroups = [
           {
             label: "Shows + Watch",
             href: "/shows/",
-            description: "Luke & Clint, Boise Boys, and Outgrown.",
+            description: "Luke and Clint, Boise Boys, and Outgrown.",
           },
           {
             label: "Americana Soul",

@@ -53,7 +53,7 @@ export default function Page() {
         image="/editorial/midcentury-entry.webp"
         height="short"
       >
-        <Cta href="/estimate/" variant="primary">Check Your Project</Cta>
+        <Cta href="/design-and-build-questionnaire/" variant="primary">Check Your Project</Cta>
         <Cta href="/contact/" variant="secondary">Contact Us</Cta>
       </PageHero>
 
@@ -74,13 +74,13 @@ export default function Page() {
             {communities.map((c) => (
               <li key={c} className="surface-card flex items-center gap-3 p-5">
                 <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                <span className="text-sm text-cream">{c}, ID</span>
+                <span className="min-w-0 text-sm text-cream">{c}, ID</span>
               </li>
             ))}
           </ul>
           <p className="mt-8 max-w-2xl text-sm text-text-secondary">
-            Not sure if your home is in our area? The quickest way to find out is to start the project estimator, which
-            checks your location as part of the first step.
+            Not sure if your home is in our area? Share your location and a few details about your project.
+            Our team will confirm how we can help.
           </p>
         </div>
       </section>
@@ -125,8 +125,8 @@ export default function Page() {
       {/* Full-bleed photographic statement: our reach across the valley. */}
       <FeatureBand
         image="/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Exterior-1-3-scaled.jpg"
-        eyebrow="Rooted in the Valley"
-        title="Building Across the Treasure Valley"
+        eyebrow="A Place to Call Home"
+        title="Designed for Life in Idaho"
         body="From Boise's historic neighborhoods to new homes along the foothills, we build where our clients live."
         align="left"
         height="short"
@@ -155,7 +155,7 @@ export default function Page() {
         eyebrow="Rooted in the Valley"
         title="Building Across the Treasure Valley"
         cta="Check Your Project"
-        href="/estimate/"
+        href="/design-and-build-questionnaire/"
         reverse
         tone="primary"
         ratio="landscape"

@@ -12,6 +12,8 @@
  */
 
 export type LeadEmail = {
+  /** Stable across retries to avoid duplicate notifications. */
+  idempotencyKey?: string;
   subject: string;
   text: string;
   /** On-brand HTML body. `text` is kept as the plain-text fallback. */
@@ -60,7 +62,8 @@ export async function sendLeadEmail(mail: LeadEmail): Promise<DeliveryResult> {
     try {
       const res = await fetch('https://api.resend.com/emails', {
         method: 'POST',
-        headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+        headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json', ...(mail.idempotencyKey ? { 'Idempotency-Key': mail.idempotencyKey } : {}) },
+        signal: AbortSignal.timeout(5000),
         body: JSON.stringify({
           from,
           to, ...(mail.replyTo ? { reply_to: mail.replyTo } : {}),

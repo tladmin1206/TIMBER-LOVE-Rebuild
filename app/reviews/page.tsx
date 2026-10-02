@@ -112,7 +112,7 @@ export default function Page() {
         title="Homes People Love"
         body="Every review starts the same way, with a home our clients are proud to live in."
         cta="Start Your Project"
-        href="/investment-planner/"
+        href="/design-and-build-questionnaire/"
         align="center"
         height="short"
       />

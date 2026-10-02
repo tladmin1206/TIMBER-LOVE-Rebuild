@@ -1,75 +1,68 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import Stars from '@/components/ui/Stars';
 import type { Testimonial } from '@/lib/content/types';
 
-/**
- * Continuous marquee of review cards.
- *
- * Pauses while hovered (desktop) or touched (mobile), and resumes on leave, so
- * a reader can hold a card still without any visible control. The duplicated
- * half of the track exists only to make the loop seamless and is hidden from
- * assistive technology; a visually hidden list carries the reviews so they are
- * never absent from the accessibility tree or from crawlers. Under reduced
- * motion the global CSS rule halts the animation.
- */
-export default function ReviewSlider({ items, duration = 55 }: { items: Testimonial[]; duration?: number }) {
-  const [hovered, setHovered] = useState(false);
-  const [paused, setPaused] = useState(false);
-  const cards = [...items, ...items];
+/** A visitor-controlled review rail. Quotes stay still while they are read. */
+export default function ReviewSlider({ items }: { items: Testimonial[] }) {
+  const id = useId();
+  const track = useRef<HTMLUListElement>(null);
+  const [bounds, setBounds] = useState({ start: true, end: false });
+
+  useEffect(() => {
+    const el = track.current;
+    if (!el) return;
+    const update = () => setBounds({
+      start: el.scrollLeft < 2,
+      end: el.scrollLeft + el.clientWidth >= el.scrollWidth - 2,
+    });
+    update();
+    el.addEventListener('scroll', update, { passive: true });
+    const observer = new ResizeObserver(update);
+    observer.observe(el);
+    return () => {
+      el.removeEventListener('scroll', update);
+      observer.disconnect();
+    };
+  }, [items.length]);
+
+  const move = (direction: number) => {
+    const el = track.current;
+    if (!el) return;
+    el.scrollBy({
+      left: direction * (el.clientWidth + 24),
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+    });
+  };
 
   return (
-    <div className="relative">
-      <div
-        className="relative overflow-hidden"
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
-      >
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-bg-primary to-transparent sm:w-24" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-bg-primary to-transparent sm:w-24" />
-        <div
-          aria-hidden
-          className="flex w-max animate-marquee gap-5 py-1"
-          style={{ animationDuration: `${duration}s`, animationPlayState: paused || hovered ? 'paused' : 'running' }}
-        >
-          {cards.map((r, i) => (
-            <ReviewCard key={i} review={r} />
-          ))}
-        </div>
-      </div>
-
-      <button type="button" onClick={() => setPaused(value => !value)} aria-pressed={paused} className="mt-5 min-h-11 border border-border-subtle px-4 text-xs uppercase tracking-widest text-cream">{paused ? 'Resume reviews' : 'Pause reviews'}</button>
-
-      {/* The visible track is aria-hidden, so the reviews are exposed here. */}
-      <ul className="sr-only">
-        {items.map((r) => (
-          <li key={r.name}>
-            {r.quote}. {r.name}, {r.role}
+    <div>
+      <ul id={id} ref={track} aria-label="Client reviews" tabIndex={0} className="review-rail grid auto-cols-[100%] grid-flow-col gap-6 overflow-x-auto overscroll-x-contain pb-2 text-left sm:auto-cols-[calc((100%-24px)/2)] xl:auto-cols-[calc((100%-48px)/3)]">
+        {items.map((review) => (
+          <li key={review.name} className="h-full snap-start">
+            <figure className="flex h-full flex-col border border-border-subtle bg-panel/65 p-6 sm:p-8">
+              <div className="flex items-center justify-between gap-4">
+                <Stars rating={5} size="sm" />
+                <span className="text-[10px] uppercase tracking-[.14em] text-text-muted">Google</span>
+              </div>
+              <blockquote className="my-6 text-sm leading-7 text-text-secondary">“{review.quote}”</blockquote>
+              <figcaption className="mt-auto border-t border-border-subtle pt-5">
+                <span className="block text-sm text-cream">{review.name}</span>
+                <span className="mt-1 block text-[10px] uppercase tracking-[.14em] text-text-muted">{review.role}</span>
+              </figcaption>
+            </figure>
           </li>
         ))}
       </ul>
-    </div>
-  );
-}
-
-function ReviewCard({ review }: { review: Testimonial }) {
-  return (
-    <figure className="surface-card flex w-[300px] shrink-0 flex-col p-6 text-left sm:w-[380px]">
-      <div className="flex items-center justify-between">
-        <Stars rating={5} size="sm" />
-        <span className="text-[0.65rem] uppercase tracking-[0.14em] text-text-muted">Google</span>
+      <div className="mt-6 flex items-center justify-end gap-3">
+        <button type="button" aria-label="Previous reviews" aria-controls={id} disabled={bounds.start} onClick={() => move(-1)} className="grid h-11 w-11 place-items-center rounded-full border border-border-subtle text-cream transition-colors hover:border-cream disabled:cursor-default disabled:opacity-30">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg>
+        </button>
+        <button type="button" aria-label="Next reviews" aria-controls={id} disabled={bounds.end} onClick={() => move(1)} className="grid h-11 w-11 place-items-center rounded-full border border-border-subtle text-cream transition-colors hover:border-cream disabled:cursor-default disabled:opacity-30">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m10 6 6 6-6 6" /></svg>
+        </button>
       </div>
-      <blockquote className="mt-4 text-sm leading-relaxed text-text-secondary">“{review.quote}”</blockquote>
-      <figcaption className="mt-5 flex items-center gap-3 border-t border-border-subtle pt-4">
-        <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent-soft text-sm text-accent">
-          {review.name.charAt(0)}
-        </span>
-        <span>
-          <span className="block text-sm text-cream">{review.name}</span>
-          <span className="block text-xs uppercase tracking-[0.12em] text-text-muted">{review.role}</span>
-        </span>
-      </figcaption>
-    </figure>
+    </div>
   );
 }
