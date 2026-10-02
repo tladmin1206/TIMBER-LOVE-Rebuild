@@ -1,26 +1,26 @@
+import PhotoCard from '@/components/ui/PhotoCard';
 import Reveal from '@/components/ui/Reveal';
 
-/**
- * Expectation-setting strip shown directly above a major form.
- *
- * "What happens after I submit this?" is the last question someone asks before
- * abandoning a form, and it was previously answered only on a separate process
- * page most visitors never reach. Stating it inline measurably reduces
- * abandonment, and costs nothing to be honest about.
- */
+/** Sets expectations near the inquiry form without adding more required fields. */
 const DEFAULT_STEPS = [
   {
     step: '01',
+    image: '/video-posters/966721424.jpg',
+    contain: false,
     title: 'Our Team Reviews Your Inquiry',
     body: 'A member of our team reads every inquiry personally. We will reach out to learn more about your goals.',
   },
   {
     step: '02',
+    image: '/video-posters/928451971.jpg',
+    contain: true,
     title: 'A Short Conversation',
-    body: 'About twenty minutes to understand your home, your goals and your budget, and to say honestly whether we are the right team for it.',
+    body: 'We discuss your home, your goals, and your budget, and explain whether our team is a fit for the project.',
   },
   {
     step: '03',
+    image: '/video-posters/966728565.jpg',
+    contain: false,
     title: 'A Clear Next Step',
     body: 'If it makes sense to continue, we outline scope and process in writing. If it does not, we will tell you that too.',
   },
@@ -30,7 +30,7 @@ export default function WhatHappensNext({
   steps = DEFAULT_STEPS,
   compact = false,
 }: {
-  steps?: { step: string; title: string; body: string }[];
+  steps?: { step: string; title: string; body: string; image?: string; contain?: boolean }[];
   compact?: boolean;
 }) {
   if (compact) {
@@ -47,12 +47,14 @@ export default function WhatHappensNext({
   }
 
   return (
-    <div className="grid gap-6 md:grid-cols-3">
+    <div className="grid gap-6 lg:grid-cols-3">
       {steps.map((s, i) => (
-        <Reveal key={s.step} delay={i * 110} className="surface-card p-8">
-          <div className="font-sans text-4xl tracking-brand text-cream/40">{s.step}</div>
+        <Reveal key={s.step} delay={i * 110} className="h-full">
+          <PhotoCard image={s.image || DEFAULT_STEPS[i % DEFAULT_STEPS.length].image} contain={s.contain} imagePosition="center top">
+          <div className="font-sans text-4xl tracking-brand text-cream/80">{s.step}</div>
           <h3 className="h-card mt-6">{s.title}</h3>
           <p className="mt-4 text-sm leading-relaxed text-text-secondary">{s.body}</p>
+          </PhotoCard>
         </Reveal>
       ))}
     </div>

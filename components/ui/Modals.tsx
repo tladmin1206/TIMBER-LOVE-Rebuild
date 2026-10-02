@@ -2,6 +2,7 @@
 
 import { useModal } from './ModalProvider';
 import ContactForm from '@/components/forms/ContactForm';
+import DesignBuildQuestionnaire from '@/components/forms/DesignBuildQuestionnaire';
 import { site } from '@/lib/site';
 import { useRef } from 'react';
 import { useDialogFocus } from '@/components/hooks/useDialogFocus';
@@ -11,11 +12,13 @@ function Shell({
   subtitle,
   children,
   onClose,
+  wide = false,
 }: {
   title: string;
   subtitle?: string;
   children: React.ReactNode;
   onClose: () => void;
+  wide?: boolean;
 }) {
   const dialog = useRef<HTMLDivElement>(null);
   useDialogFocus(true, dialog);
@@ -30,7 +33,7 @@ function Shell({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="relative my-auto w-full max-w-lg border border-border-subtle bg-surface p-6 sm:p-9">
+      <div className={`relative my-auto w-full border border-border-subtle bg-ink p-4 sm:p-9 ${wide ? 'max-w-3xl' : 'max-w-lg'}`}>
         <button
           onClick={onClose}
           aria-label="Close"
@@ -65,10 +68,11 @@ export default function Modals() {
     return (
       <Shell
         title="Work With Us"
-        subtitle="Let's build something together. Share a few details and our team will be in touch."
+        subtitle="Tell us about your home and what you have in mind."
         onClose={closeModal}
+        wide
       >
-        <ContactForm source="work-with-us-popup" compact />
+        <DesignBuildQuestionnaire />
       </Shell>
     );
   }

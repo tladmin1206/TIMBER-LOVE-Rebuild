@@ -6,7 +6,7 @@ export default function RentalsGrid() {
   return (
     <div className="space-y-14 sm:space-y-20">
       {(['Idaho', 'Hawaii'] as const).map((region) => (
-        <div key={region}>
+        <div key={region} id={`${region.toLowerCase()}-properties`} className="scroll-mt-24">
           <div className="mb-7 flex flex-wrap items-baseline justify-between gap-3 border-b border-border-subtle pb-5">
             <h3 className="h-card">{region === 'Idaho' ? 'Boise + McCall' : 'Oahu, Hawaii'}</h3>
             <p className="text-sm text-text-secondary">{region === 'Idaho' ? 'City stays and a mountain escape' : 'Two oceanfront homes in Kaʻaʻawa'}</p>

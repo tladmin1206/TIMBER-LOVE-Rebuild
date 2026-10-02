@@ -1,3 +1,4 @@
+import PhotoCard from '@/components/ui/PhotoCard';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
 import FeatureBand from '@/components/sections/FeatureBand';
@@ -26,12 +27,12 @@ import StatStrip from '@/components/sections/StatStrip';
 // headings. Developer/commercial work (subdivisions, multifamily) is handled as
 // a separate Development track, not a consumer-facing remodel category.
 const serviceCategories = [
-  { heading: 'Whole-Home Remodels', body: 'Comprehensive renovations that rework layout, systems, and finishes across an entire home.' },
-  { heading: 'Kitchens & Living Spaces', body: 'Focused remodels of the rooms where daily life happens, from kitchens to primary living areas.' },
-  { heading: 'Home Additions', body: 'Thoughtfully integrated additions that expand living space while matching your home’s existing character.' },
-  { heading: 'Custom Homes', body: 'One-of-a-kind new homes designed and built from the ground up around how you live.' },
-  { heading: 'New Construction', body: 'Ground-up residential construction with design and build coordinated under one in-house team.' },
-  { heading: 'Historic Restorations', body: 'Careful updates to older Boise homes that preserve original character while modernizing for daily life.' },
+  { heading: 'Whole-Home Remodels', image: '/projects/stucco-in-time/living.webp', body: 'Comprehensive renovations that rework layout, systems, and finishes across an entire home.' },
+  { heading: 'Kitchens & Living Spaces', image: '/projects/promise-ln-5120/5120-promise-ln-kitchen-range-hood.jpg', body: 'Focused remodels of the rooms where daily life happens, from kitchens to primary living areas.' },
+  { heading: 'Home Additions', image: '/projects/due-for-a-raze/exterior.webp', body: 'Thoughtfully integrated additions that expand living space while matching your home’s existing character.' },
+  { heading: 'Custom Homes', image: '/projects/promise-ln-5106/5106-promise-ln-exterior-rear.jpg', body: 'One-of-a-kind new homes designed and built from the ground up around how you live.' },
+  { heading: 'New Construction', image: '/projects/promise-ln-5142/5142-promise-ln-exterior-angle.jpg', body: 'Ground-up residential construction with design and build coordinated under one in-house team.' },
+  { heading: 'Historic Restorations', image: '/projects/north-end-gem/living.webp', body: 'Careful updates to older Boise homes that preserve original character while modernizing for daily life.' },
 ];
 
 const processPhases = [
@@ -83,7 +84,10 @@ function pick(headings: string[]): Section[] {
 }
 
 const intro = (data.sections as Section[])[0]?.paragraphs?.[0] || '';
-const differentiators = pick(['In-House Team', 'Streamlined Processes', 'Personalized Service']);
+const differentiators = pick(['In-House Team', 'Streamlined Processes', 'Personalized Service']).map((section, i) => ({
+  ...section,
+  image: ['/video-posters/927639866.jpg', '/video-posters/966721424.jpg', '/video-posters/928451971.jpg'][i],
+}));
 const values = pick(['Integrity', 'Quality', 'Community', 'CLIENT-FOCUSED']);
 const galleryImgs = [
   { src: '/editorial/cedar-fireplace.webp', alt: 'A cedar-clad fireplace and black hearth in an Industrial Modern home' },
@@ -151,11 +155,13 @@ export default function Page() {
             <p className="eyebrow">Why Timber and Love</p>
             <h2 className="h-section mt-4">One Team, From Concept to Completion</h2>
           </Reveal>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-14 grid gap-6 lg:grid-cols-3">
             {differentiators.map((s, i) => (
-              <Reveal key={s.heading} delay={i * 90} className="surface-card p-8">
+              <Reveal key={s.heading} delay={i * 90} className="h-full">
+                <PhotoCard image={s.image} contain imagePosition="center top">
                 <h3 className="h-card">{s.heading}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-body">{s.paragraphs?.[0]}</p>
+                </PhotoCard>
               </Reveal>
             ))}
           </div>
@@ -193,10 +199,12 @@ export default function Page() {
           </Reveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {serviceCategories.map((s, i) => (
-              <Reveal key={s.heading} delay={i * 70} className="surface-card p-7">
-                <div className="font-sans text-4xl tracking-brand text-accent/70">{String(i + 1).padStart(2, '0')}</div>
+              <Reveal key={s.heading} delay={i * 70} className="h-full">
+                <PhotoCard image={s.image}>
+                <div className="font-sans text-4xl tracking-brand text-cream/80">{String(i + 1).padStart(2, '0')}</div>
                 <h3 className="h-card-sm mt-4">{s.heading}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-body">{s.body}</p>
+                </PhotoCard>
               </Reveal>
             ))}
           </div>
@@ -328,31 +336,6 @@ export default function Page() {
           <div className="mt-12">
             <FAQ items={faq} />
           </div>
-        </div>
-      </section>
-
-      {/* Full-bleed photographic statement: one team, one process, before the ask. */}
-      <FeatureBand
-        image="/editorial/firehouse-sink.webp"
-        eyebrow="One Team, One Roof"
-        title="Design and Build, Under One Roof"
-        body="Our designers and builders work side by side, so your project stays coordinated from concept to completion."
-        cta="Start a Project"
-        href="/design-and-build-questionnaire/"
-        align="left"
-        height="short"
-      />
-
-      {/* Closing statement */}
-      <section className="section-tonal border-t border-border-subtle py-16 text-center">
-        <div className="container-wide max-w-3xl">
-          <Reveal>
-            <p className="text-lg leading-relaxed text-cream/90">
-              With one in-house team handling design and construction, your project stays coordinated from first concept
-              through final walkthrough. Tell us about your home and we will explain the next step and what to expect.
-            </p>
-            <Link href="/design-and-build-questionnaire/" className="btn-primary mt-10 inline-flex">Tell Us About Your Project</Link>
-          </Reveal>
         </div>
       </section>
 

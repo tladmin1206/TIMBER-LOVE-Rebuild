@@ -5,7 +5,6 @@ import JsonLd from '@/components/JsonLd';
 import { pageMeta } from '@/lib/seo';
 import { breadcrumbSchema } from '@/lib/schema';
 import { journalPosts } from '@/lib/content/journal';
-import FeatureBand from '@/components/sections/FeatureBand';
 import EditorialSplit from '@/components/sections/EditorialSplit';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
@@ -117,17 +116,6 @@ export default function Page() {
           that carry from one home to the next.
         </p>
       </EditorialSplit>
-
-      <FeatureBand
-        image="/projects/promise-ln-5106/5106-promise-ln-living-room-fireplace.jpg"
-        eyebrow="Notes From the Studio"
-        title="Where Our Ideas Take Shape"
-        body="Behind every story is a home we designed and built here in the Treasure Valley."
-        cta="Start a Project"
-        href="/design-and-build-questionnaire/"
-        align="left"
-        height="short"
-      />
 
       <ClosingCta {...closingCta.journal} />
     </>

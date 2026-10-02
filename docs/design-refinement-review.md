@@ -1,5 +1,7 @@
 # Timber + Love design refinement
 
+> Historical implementation record. The latest page flows, original hosted questionnaire, card photography, and CRO recommendations are documented in [full-site-ux-cro-audit.md](full-site-ux-cro-audit.md) and [lead-capture.md](lead-capture.md).
+
 Implementation prepared on 2026-10-02. Production publishing remains with the owner in Replit.
 
 ## Status

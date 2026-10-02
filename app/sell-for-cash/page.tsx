@@ -1,3 +1,4 @@
+import PhotoCard from '@/components/ui/PhotoCard';
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
 import Reveal from '@/components/ui/Reveal';
@@ -24,17 +25,17 @@ export const metadata = pageMeta({
 const steps = [
   {
     num: '01',
-    heading: 'Share Your Property',
+    heading: 'Share Your Property', image: '/projects/north-end-gem/sunroom.webp',
     body: 'You start by telling Buy My House about the home, including its location and condition. This gives the team the basic information they need to review your property.',
   },
   {
     num: '02',
-    heading: 'The Team Reviews It',
+    heading: 'The Team Reviews It', image: '/video-posters/966721424.jpg',
     body: 'Buy My House looks over the details you provide and follows up to learn more about the home and your situation.',
   },
   {
     num: '03',
-    heading: 'You Talk Through Options',
+    heading: 'You Talk Through Options', image: '/projects/central-rim/terrace.webp',
     body: 'From there, you can discuss whether a direct sale makes sense for you. There is no obligation to move forward, and you stay in control of the decision.',
   },
 ];
@@ -78,12 +79,14 @@ export default function Page() {
             <p className="eyebrow">How It Works</p>
             <h2 className="h-section mt-4">A High-Level Look at the Process</h2>
           </Reveal>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-14 grid gap-6 lg:grid-cols-3">
             {steps.map((s, i) => (
-              <Reveal key={s.num} delay={i * 90} className="surface-card p-8">
-                <div className="font-sans text-4xl tracking-brand text-accent/70">{s.num}</div>
+              <Reveal key={s.num} delay={i * 90} className="h-full">
+                <PhotoCard image={s.image}>
+                <div className="font-sans text-4xl tracking-brand text-cream/80">{s.num}</div>
                 <h3 className="h-card-sm mt-4">{s.heading}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-text-secondary">{s.body}</p>
+                </PhotoCard>
               </Reveal>
             ))}
           </div>
@@ -118,7 +121,7 @@ export default function Page() {
         title="Sell Quickly, On Your Terms"
         body="Skip the showings and the waiting. See what a direct offer looks like and move at the pace that works for you."
         cta="Get a Cash Offer"
-        href="/contact/"
+        href={site.external.cashOffers}
         height="short"
       />
 

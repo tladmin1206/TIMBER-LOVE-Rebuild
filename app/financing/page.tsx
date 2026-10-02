@@ -1,3 +1,4 @@
+import PhotoCard from '@/components/ui/PhotoCard';
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
 import Cta from '@/components/ui/Cta';
@@ -9,7 +10,6 @@ import { breadcrumbSchema, faqSchema } from '@/lib/schema';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import ProofSection from '@/components/sections/ProofSection';
-import FeatureBand from '@/components/sections/FeatureBand';
 import EditorialSplit from '@/components/sections/EditorialSplit';
 
 export const metadata = pageMeta({
@@ -26,19 +26,19 @@ export const metadata = pageMeta({
 // programs, add them here with approved details.
 const options = [
   {
-    heading: 'Cash or Savings',
+    heading: 'Cash or Savings', image: '/projects/promise-ln-5106/5106-promise-ln-kitchen-dining.jpg',
     body: 'Some homeowners fund a project directly. This keeps things simple and avoids interest, though it ties up available cash.',
   },
   {
-    heading: 'Home Equity (HELOC or Loan)',
+    heading: 'Home Equity (HELOC or Loan)', image: '/projects/stucco-in-time/living.webp',
     body: 'Many homeowners tap the equity they have already built. A line of credit or a fixed home-equity loan can spread a project across time.',
   },
   {
-    heading: 'Renovation Loans',
+    heading: 'Renovation Loans', image: '/projects/north-end-gem/kitchen.webp',
     body: 'Renovation-specific loans are designed for remodels and can fold the project cost into a new or refinanced mortgage.',
   },
   {
-    heading: 'Construction Loans',
+    heading: 'Construction Loans', image: '/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg',
     body: 'For new builds and larger additions, construction financing funds the work in stages and often converts to a standard mortgage at completion.',
   },
 ];
@@ -102,10 +102,12 @@ export default function Page() {
           </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {options.map((o, i) => (
-              <Reveal key={o.heading} delay={i * 70} className="surface-card p-7">
-                <div className="font-sans text-4xl tracking-brand text-accent/70">{String(i + 1).padStart(2, '0')}</div>
+              <Reveal key={o.heading} delay={i * 70} className="h-full">
+                <PhotoCard image={o.image}>
+                <div className="font-sans text-4xl tracking-brand text-cream/80">{String(i + 1).padStart(2, '0')}</div>
                 <h3 className="h-card mt-4">{o.heading}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-text-secondary">{o.body}</p>
+                </PhotoCard>
               </Reveal>
             ))}
           </div>
@@ -163,39 +165,6 @@ export default function Page() {
           the project stays grounded in what you are comfortable spending.
         </p>
       </EditorialSplit>
-
-      {/* Editorial split: the everyday spaces a plan pays for */}
-      <EditorialSplit
-        image="/projects/promise-ln-5120/5120-promise-ln-great-room-dining.jpg"
-        imageAlt="Open great room and dining space in a modern farmhouse with black windows, built by Timber and Love"
-        eyebrow="The Payoff of Planning"
-        title="Rooms You Will Actually Live In"
-        cta="Explore Design + Build"
-        href="/design-and-build/"
-        reverse
-        tone="secondary"
-        ratio="landscape"
-      >
-        <p>
-          A smart financing plan is what turns a great room like this from a someday idea into a place your family
-          gathers. The everyday spaces are where the investment shows up most.
-        </p>
-        <p>
-          Start with a realistic number, decide how you want to fund it, and move into design knowing the home on the
-          other side is one you can afford to enjoy.
-        </p>
-      </EditorialSplit>
-
-      {/* Full-bleed photographic statement before the FAQ and closing ask */}
-      <FeatureBand
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg"
-        eyebrow="Plan With Confidence"
-        title="Make the Dream Attainable"
-        body="A clear budget turns a someday project into a real plan. Start with a realistic range, then bring it to the table."
-        cta="Start a Project"
-        href="/design-and-build-questionnaire/"
-        height="short"
-      />
 
       {/* FAQ */}
       <section className="border-t border-border-subtle bg-bg-primary section">

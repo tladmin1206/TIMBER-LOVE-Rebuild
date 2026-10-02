@@ -3,6 +3,7 @@ import EditorialSplit from '@/components/sections/EditorialSplit';
 import Gallery from '@/components/ui/Gallery';
 import RentalsGrid from '@/components/sections/RentalsGrid';
 import Reveal from '@/components/ui/Reveal';
+import Cta from '@/components/ui/Cta';
 import { pageMeta } from '@/lib/seo';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
@@ -25,7 +26,9 @@ export default function Page() {
         subtitle="A weekend in Boise, a mountain escape, or mornings beside the Pacific. Find a Timber and Love home for your next getaway."
         videoId="928750123"
         image="/video-posters/928750123.jpg"
-      />
+      >
+        <Cta href="#properties">Explore the Properties</Cta>
+      </PageHero>
       <section id="properties" className="bg-bg-primary section scroll-mt-24">
         <div className="container-wide">
           <Reveal className="mb-12 max-w-2xl">

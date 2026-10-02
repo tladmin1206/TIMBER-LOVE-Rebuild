@@ -1,6 +1,5 @@
+import PhotoCard from '@/components/ui/PhotoCard';
 import PageHero from '@/components/sections/PageHero';
-import TrustBar from '@/components/sections/TrustBar';
-import EditorialSplit from '@/components/sections/EditorialSplit';
 import Reveal from '@/components/ui/Reveal';
 import Cta from '@/components/ui/Cta';
 import ContactForm from '@/components/forms/ContactForm';
@@ -20,6 +19,8 @@ export const metadata = pageMeta({
 const paths = [
   {
     title: 'Start a Design + Build Project',
+    image: '/projects/promise-ln-5106/5106-promise-ln-exterior-entry.jpg',
+    contain: false,
     line: 'Custom homes, additions, and whole-home remodels in the Boise area.',
     href: '/design-and-build-questionnaire/',
     cta: 'Start a Project',
@@ -27,6 +28,8 @@ const paths = [
   },
   {
     title: 'Buy or Sell Real Estate',
+    image: '/projects/stucco-in-time/terrace.webp',
+    contain: false,
     line: 'Work with Timber and Love Realty on your next move in the local market.',
     href: '/buy-or-sell/',
     cta: 'Buy or Sell a Home',
@@ -34,6 +37,8 @@ const paths = [
   },
   {
     title: 'Sell Your Home for Cash',
+    image: '/projects/north-end-gem/exterior.webp',
+    contain: false,
     line: 'A direct offer for homeowners who want a simpler, faster sale.',
     href: '/sell-for-cash/',
     cta: 'Request a Cash Offer',
@@ -41,6 +46,8 @@ const paths = [
   },
   {
     title: 'Invest in Real Estate',
+    image: '/projects/promise-ln-5142/5142-promise-ln-exterior-rear.jpg',
+    contain: false,
     line: 'Explore investment opportunities and how to get involved.',
     href: '/invest/',
     cta: 'Explore Investing',
@@ -48,6 +55,8 @@ const paths = [
   },
   {
     title: 'Vacation Rentals & Stays',
+    image: '/rentals/caldwell/01-rooftop-deck-mokolii-view.webp',
+    contain: false,
     line: 'Questions about booking a Timber and Love vacation property.',
     href: '/stay-with-us/',
     cta: 'View Vacation Rentals',
@@ -55,6 +64,8 @@ const paths = [
   },
   {
     title: 'Media & Partnerships',
+    image: '/editorial/luke-clint-studio.webp',
+    contain: true,
     line: 'Appearance requests, brand partnerships, and press inquiries.',
     href: '#press',
     cta: 'Press & Partnerships',
@@ -70,9 +81,40 @@ export default function Page() {
         title="How Can We Help?"
         subtitle="Pick the option closest to your goal and we will point you to the right place, or reach out directly and a member of our team will follow up."
         image="/editorial/casetta-living.webp"
-      />
+      >
+        <Cta href="#contact-paths" variant="primary">Find the Right Service</Cta>
+        <Cta href="#general" variant="secondary">Send a General Inquiry</Cta>
+      </PageHero>
 
-      <TrustBar />
+
+      {/* Choose Your Path: route each need to the correct destination */}
+      <section id="contact-paths" className="bg-bg-primary section scroll-mt-24">
+        <div className="container-wide">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">Choose Your Path</p>
+            <h2 className="h-section mt-4">Find the Right Starting Point</h2>
+            <p className="text-lead mt-5">
+              Every inquiry has its own best route. Choose the path that matches what you need and we will
+              take it from there.
+            </p>
+          </Reveal>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {paths.map((p, i) => (
+              <Reveal key={p.title} delay={i * 70} className="h-full">
+                <PhotoCard image={p.image} contain={p.contain} imagePosition={p.contain ? "center top" : "center"}>
+                <h3 className="h-card">{p.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-text-secondary">{p.line}</p>
+                <div className="mt-6">
+                  <Cta href={p.href} variant="secondary" track={p.track} className="w-full">
+                    {p.cta}
+                  </Cta>
+                </div>
+                </PhotoCard>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* General inquiry: form plus primary customer contact details */}
       <section id="general" className="section-tonal border-t border-border-subtle bg-bg-secondary section">
@@ -115,51 +157,6 @@ export default function Page() {
       </section>
 
 
-
-      {/* Choose Your Path: route each need to the correct destination */}
-      <section className="bg-bg-primary section">
-        <div className="container-wide">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Choose Your Path</p>
-            <h2 className="h-section mt-4">Find the Right Starting Point</h2>
-            <p className="text-lead mt-5">
-              Every inquiry has its own best route. Choose the path that matches what you need and we will
-              take it from there.
-            </p>
-          </Reveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {paths.map((p, i) => (
-              <Reveal key={p.title} delay={i * 70} className="surface-card flex flex-col p-8">
-                <h3 className="h-card">{p.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-text-secondary">{p.line}</p>
-                <div className="mt-6">
-                  <Cta href={p.href} variant="secondary" track={p.track} className="w-full">
-                    {p.cta}
-                  </Cta>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <EditorialSplit
-        image="/projects/promise-ln-5106/5106-promise-ln-great-room.jpg"
-        imageAlt="Barrel-vaulted great room in a Spanish modern custom home by Timber and Love"
-        eyebrow="Let's Connect"
-        title="Let's Talk About Your Home"
-        tone="secondary"
-        ratio="landscape"
-      >
-        <p>
-          Tell us where you are in the process and we will meet you there, whether it is a first idea or a full
-          set of plans.
-        </p>
-        <p>
-          Rooms like this one start as a single conversation. Tell us what matters to you, and we will help you take the next step.
-        </p>
-      </EditorialSplit>
-
       {/* Abandonment recovery: sets expectations and offers two lower-commitment
           alternatives for visitors who scrolled past the form without sending it. */}
       <section className="border-t border-border-subtle bg-bg-primary section">
@@ -173,7 +170,11 @@ export default function Page() {
           </Reveal>
 
           <div className="mt-14">
-            <WhatHappensNext />
+            <WhatHappensNext steps={[
+              { step: '01', title: 'We Read Your Note', body: 'Your message gives our team the context to understand what you need.', image: '/video-posters/966721424.jpg' },
+              { step: '02', title: 'The Right Team Responds', body: 'We connect your inquiry with the people who handle that service.', image: '/video-posters/928451971.jpg', contain: true },
+              { step: '03', title: 'Choose Your Next Step', body: 'Get answers to your questions and decide how you would like to continue.', image: '/projects/promise-ln-5106/5106-promise-ln-great-room.jpg' },
+            ]} />
           </div>
 
           <Reveal delay={120} className="surface-card mt-10 flex flex-col items-center gap-6 p-8 text-center lg:flex-row lg:justify-between lg:text-left">

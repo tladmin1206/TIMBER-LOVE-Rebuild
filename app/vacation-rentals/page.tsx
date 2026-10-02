@@ -23,10 +23,10 @@ export default function Page() {
         subtitle="Find your next getaway in Boise, McCall, or Oahu. Browse the homes, choose a setting, and check your dates."
         image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Exterior-scaled.jpg"
       >
-        <Cta href="/stay-with-us/" variant="primary">View All Stays</Cta>
+        <Cta href="#properties" variant="primary">Explore the Properties</Cta>
       </PageHero>
 
-      <section className="bg-bg-primary section">
+      <section id="properties" className="bg-bg-primary section scroll-mt-24">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Our Properties</p>
@@ -46,8 +46,8 @@ export default function Page() {
         imageAlt="Oceanfront Oahu vacation rental exterior with direct access to a sandy beach and open water"
         eyebrow="Designed Getaways"
         title="From Boise to the Oahu Shore"
-        cta="View All Stays"
-        href="/stay-with-us/"
+        cta="Compare the Oahu Homes"
+        href="#hawaii-properties"
         tone="secondary"
         ratio="landscape"
       >
@@ -64,6 +64,8 @@ export default function Page() {
         imageAlt="Living room inside the restored historic Boise firehouse featured on HGTV Boise Boys"
         eyebrow="Stay in a Story"
         title="A Historic Firehouse, Reimagined"
+        cta="Explore the Firehouse"
+        href="/the-firehouse/"
         reverse
         tone="primary"
         ratio="landscape"
@@ -81,6 +83,8 @@ export default function Page() {
         image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg"
         eyebrow="Mountain Modern"
         title="The Chalet Awaits"
+        cta="Explore the Chalet"
+        href="/timber-and-love-chalet/"
         body="Gather your favorite people for a slower pace and a mountain getaway in McCall."
         align="left"
         height="short"

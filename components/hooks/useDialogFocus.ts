@@ -29,7 +29,7 @@ export function useDialogFocus(open: boolean, ref: RefObject<HTMLElement>) {
     const focusable = () =>
       Array.from(
         root.querySelectorAll<HTMLElement>(
-          'a[href],button:not([disabled]),input,select,textarea,[tabindex="0"]',
+          'a[href],button:not([disabled]),input,select,textarea,iframe,[tabindex="0"]',
         ),
       ).filter(
         (el) => el.getClientRects().length > 0 && !el.closest("[inert]"),

@@ -77,10 +77,10 @@ export const closingCta: Record<string, ClosingCtaProps> = {
   designBuildGallery: {
     eyebrow: 'From Inspiration to Plan',
     title: 'Build Something Like This',
-    body: 'Every project here started with a conversation about a room that was not working. Yours can start the same way.',
+    body: 'From a new custom home to a thoughtful renovation, your project starts with a conversation about how you want to live.',
     image: '/projects/promise-ln-5142/5142-promise-ln-exterior-angle.jpg',
     primary: { label: 'Start a Project', href: '/design-and-build-questionnaire/' },
-    secondary: VIEW_WORK,
+    secondary: { label: 'See Our Process', href: '/our-process/' },
   },
 
   projectDetail: {

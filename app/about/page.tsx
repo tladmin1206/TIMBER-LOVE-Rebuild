@@ -204,25 +204,6 @@ export default function Page() {
         </p>
       </EditorialSplit>
 
-      {/* Editorial portrait: the founder and the vision behind the brand. */}
-      <EditorialSplit
-        image="/editorial/luke-denim.webp"
-        imageAlt="Portrait of designer Luke Caldwell, founder of Timber and Love"
-        eyebrow="The Vision"
-        title="Led by Luke Caldwell"
-        cta="Read the HGTV Story"
-        href="/the-boise-boys/"
-        tone="primary"
-        ratio="natural"
-        reverse
-      >
-        <p>
-          A defined point of view and a hands-on approach guide every home we design, build, and renovate. Luke stays
-          involved in the homes his team creates, and that same eye carries into the real estate, investment, and
-          vacation-stay sides of the brand.
-        </p>
-      </EditorialSplit>
-
       {/* Americana Soul */}
       <section id="americana-soul" className="section-tonal border-t border-border-subtle bg-bg-secondary section" aria-labelledby="book-heading">
         <div className="container-wide grid gap-12 lg:grid-cols-[minmax(0,320px)_1fr] lg:items-center">

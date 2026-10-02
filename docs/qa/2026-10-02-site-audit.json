@@ -1,0 +1,2025 @@
+{
+  "date": "2026-10-02",
+  "environment": "Local production build in Chrome; no production deployment",
+  "public_content_routes": 42,
+  "static_documents_including_not_found": 43,
+  "top_level_sections_reviewed": 310,
+  "image_placements": 616,
+  "viewport_widths": [
+    1440,
+    768,
+    390,
+    320
+  ],
+  "all_route_layout_pass": [
+    {
+      "route": "/about/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/about/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/about/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/about/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/boise-boys-are-back/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/boise-boys-are-back/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/boise-boys-are-back/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/boise-boys-are-back/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/building-boise-new-show-announcement/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/building-boise-new-show-announcement/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/building-boise-new-show-announcement/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/building-boise-new-show-announcement/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/buy-or-sell/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/buy-or-sell/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/buy-or-sell/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/buy-or-sell/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/caldwell-beach-house/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/caldwell-beach-house/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/caldwell-beach-house/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/caldwell-beach-house/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/chinamans-ocean-front-beach-house/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/chinamans-ocean-front-beach-house/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/chinamans-ocean-front-beach-house/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/chinamans-ocean-front-beach-house/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/contact/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/contact/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/contact/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/contact/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/design-and-build-questionnaire/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/design-and-build-questionnaire/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/design-and-build-questionnaire/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/design-and-build-questionnaire/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/design-and-build/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/design-and-build/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/design-and-build/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/design-and-build/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/financing/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/financing/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/financing/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/financing/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/invest/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/invest/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/invest/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/invest/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/journal/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/journal/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/journal/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/journal/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/luke-caldwell-boise-community/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/luke-caldwell-boise-community/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/luke-caldwell-boise-community/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/luke-caldwell-boise-community/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/luke-caldwell-faq/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/luke-caldwell-faq/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/luke-caldwell-faq/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/luke-caldwell-faq/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/our-process/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/our-process/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/our-process/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/our-process/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/privacy-policy/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/privacy-policy/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/privacy-policy/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/privacy-policy/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/casa-de-boise/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/casa-de-boise/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/casa-de-boise/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/casa-de-boise/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/central-rim/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/central-rim/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/central-rim/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/central-rim/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/due-for-a-raze/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/due-for-a-raze/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/due-for-a-raze/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/due-for-a-raze/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/kualoa-beach-house/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/kualoa-beach-house/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/kualoa-beach-house/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/kualoa-beach-house/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/north-end-gem/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/north-end-gem/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/north-end-gem/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/north-end-gem/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/promise-lane-contemporary/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/promise-lane-contemporary/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/promise-lane-contemporary/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/promise-lane-contemporary/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/promise-lane-modern-farmhouse/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/promise-lane-modern-farmhouse/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/promise-lane-modern-farmhouse/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/promise-lane-modern-farmhouse/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/promise-lane-spanish-modern/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/promise-lane-spanish-modern/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/promise-lane-spanish-modern/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/promise-lane-spanish-modern/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/stucco-in-time/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/stucco-in-time/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/stucco-in-time/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/stucco-in-time/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/the-chalet/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/the-chalet/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/the-chalet/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/the-chalet/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/the-darla-house/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/the-darla-house/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/the-darla-house/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/the-darla-house/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/the-firehouse/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/the-firehouse/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/the-firehouse/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/projects/the-firehouse/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/reviews/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/reviews/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/reviews/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/reviews/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/sell-for-cash/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/sell-for-cash/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/sell-for-cash/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/sell-for-cash/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/service-areas/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/service-areas/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/service-areas/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/service-areas/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/shows/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/shows/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/shows/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/shows/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/stay-with-us/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/stay-with-us/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/stay-with-us/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/stay-with-us/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/terms-and-conditions/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/terms-and-conditions/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/terms-and-conditions/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/terms-and-conditions/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/the-boise-boys/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/the-boise-boys/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/the-boise-boys/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/the-boise-boys/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/the-darla-house/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/the-darla-house/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/the-darla-house/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/the-darla-house/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/the-firehouse/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/the-firehouse/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/the-firehouse/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/the-firehouse/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/timber-and-love-chalet/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/timber-and-love-chalet/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/timber-and-love-chalet/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/timber-and-love-chalet/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/timber-and-love-gallery/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/timber-and-love-gallery/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/timber-and-love-gallery/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/timber-and-love-gallery/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/timber-love-story-boise/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/timber-love-story-boise/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/timber-love-story-boise/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/timber-love-story-boise/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/vacation-rentals/",
+      "width": 1440,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/vacation-rentals/",
+      "width": 768,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/vacation-rentals/",
+      "width": 390,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    },
+    {
+      "route": "/vacation-rentals/",
+      "width": 320,
+      "overflow": false,
+      "h1": 1,
+      "broken": [],
+      "badHashes": [],
+      "pauseButtons": 0
+    }
+  ],
+  "final_narrow_heading_pass": [
+    {
+      "route": "/about/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/boise-boys-are-back/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/building-boise-new-show-announcement/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/buy-or-sell/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/caldwell-beach-house/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/chinamans-ocean-front-beach-house/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/contact/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/design-and-build-questionnaire/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/design-and-build/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/financing/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/invest/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/journal/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/luke-caldwell-boise-community/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/luke-caldwell-faq/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/our-process/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/privacy-policy/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/projects/casa-de-boise/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/projects/central-rim/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/projects/due-for-a-raze/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/projects/kualoa-beach-house/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/projects/north-end-gem/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/projects/promise-lane-contemporary/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/projects/promise-lane-modern-farmhouse/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/projects/promise-lane-spanish-modern/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/projects/stucco-in-time/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/projects/the-chalet/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/projects/the-darla-house/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/projects/the-firehouse/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/reviews/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/sell-for-cash/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/service-areas/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/shows/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/stay-with-us/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/terms-and-conditions/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/the-boise-boys/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/the-darla-house/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/the-firehouse/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/timber-and-love-chalet/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/timber-and-love-gallery/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/timber-love-story-boise/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    },
+    {
+      "route": "/vacation-rentals/",
+      "width": 320,
+      "overflow": false,
+      "clipped": []
+    }
+  ],
+  "photo_card_followup": [
+    {
+      "route": "/contact/",
+      "width": 1440,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/contact/",
+      "width": 768,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/contact/",
+      "width": 390,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/contact/",
+      "width": 320,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/design-and-build/",
+      "width": 1440,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/design-and-build/",
+      "width": 768,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/design-and-build/",
+      "width": 390,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/design-and-build/",
+      "width": 320,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/design-and-build-questionnaire/",
+      "width": 1440,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/design-and-build-questionnaire/",
+      "width": 768,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/design-and-build-questionnaire/",
+      "width": 390,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/design-and-build-questionnaire/",
+      "width": 320,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/financing/",
+      "width": 1440,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/financing/",
+      "width": 768,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/financing/",
+      "width": 390,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/financing/",
+      "width": 320,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/buy-or-sell/",
+      "width": 1440,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/buy-or-sell/",
+      "width": 768,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/buy-or-sell/",
+      "width": 390,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/buy-or-sell/",
+      "width": 320,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/invest/",
+      "width": 1440,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/invest/",
+      "width": 768,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/invest/",
+      "width": 390,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/invest/",
+      "width": 320,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/sell-for-cash/",
+      "width": 1440,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/sell-for-cash/",
+      "width": 768,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/sell-for-cash/",
+      "width": 390,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    },
+    {
+      "route": "/sell-for-cash/",
+      "width": 320,
+      "clippedText": [],
+      "overflow": false,
+      "broken": []
+    }
+  ],
+  "form_wrapper_synthetic_message_checks": {
+    "src": "https://leads.timberandlove.com/forms/combined?transparent=true",
+    "title": "Timber and Love Design + Build Project Questionnaire",
+    "fallback": true,
+    "directLink": true,
+    "wrongOriginIgnored": true,
+    "wrongWindowIgnored": true,
+    "malformedIgnored": true,
+    "validResize": true,
+    "loadingCleared": true,
+    "untrustedConversionIgnored": true,
+    "dedupedConversion": true,
+    "noPersonalData": true,
+    "privacyHonored": true
+  },
+  "interaction_checks": {
+    "episodeImages": 31,
+    "allShowImagesDecoded": true,
+    "mobileShowTargets": true,
+    "legalImagesDecoded": true,
+    "legalHasNoSalesBar": true,
+    "modal": {
+      "open": true,
+      "sameQuestionnaire": true,
+      "contained": true,
+      "hasClose": true,
+      "bodyLocked": true,
+      "closed": true,
+      "focusRestored": true
+    }
+  },
+  "static_asset_route_anchor_checks": "Passed; no missing local media, missing alt attributes, duplicate IDs, invalid H1 counts, broken internal routes, or broken hash destinations",
+  "build": "Passed",
+  "general_contact_mock_delivery_tests": "Passed",
+  "issues_found_and_corrected": [
+    "Tablet photo-card heading clipping: moved three-column breakpoint to desktop and enabled safe heading wrapping.",
+    "Long Contemporary project title at 320px: adjusted the existing mobile heading clamp; final all-route 320px pass has no clipping.",
+    "Lazy episode images and legal footer logo were explicitly loaded and decoded after the section-scroll pass."
+  ],
+  "limits": [
+    "No actual lead or email submitted; actual delivery and consultation scheduling need a post-publication check.",
+    "Live questionnaire loaded in cloud review browser; local Chrome certificate trust prevented rendering its third-party content. No TLS warning was bypassed.",
+    "No controlled performance benchmark or measured CRO uplift.",
+    "Screenshots supplement source and DOM review; no claim of all browsers or every possible crop."
+  ]
+}

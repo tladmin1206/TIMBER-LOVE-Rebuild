@@ -1,8 +1,6 @@
 import PageHero from '@/components/sections/PageHero';
 import ReviewWall from '@/components/sections/ReviewWall';
-import Stars from '@/components/ui/Stars';
 import Cta from '@/components/ui/Cta';
-import Reveal from '@/components/ui/Reveal';
 import JsonLd from '@/components/JsonLd';
 import { pageMeta } from '@/lib/seo';
 import { breadcrumbSchema } from '@/lib/schema';
@@ -10,9 +8,7 @@ import { site } from '@/lib/site';
 import { clientReviews, googleReviews } from '@/lib/content/home';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
-import FeatureBand from '@/components/sections/FeatureBand';
 import EditorialSplit from '@/components/sections/EditorialSplit';
-import TrustBar from '@/components/sections/TrustBar';
 
 export const metadata = pageMeta({
   title: 'Reviews',
@@ -67,23 +63,6 @@ export default function Page() {
         </a>
       </PageHero>
 
-      <TrustBar />
-
-      {/* Aggregate rating headline */}
-      <section className="section-tonal border-b border-border-subtle bg-bg-secondary py-14 text-center">
-        <Reveal className="container-wide">
-          <div className="flex flex-col items-center gap-3">
-            <div className="flex items-center gap-3">
-              <span className="text-5xl text-cream">{googleReviews.rating.toFixed(1)}</span>
-              <Stars rating={googleReviews.rating} size="lg" />
-            </div>
-            <a href={googleReviews.url} target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-[0.16em] text-text-secondary link-underline" data-track="reviews_google">
-              Based on {googleReviews.count}+ Google reviews ↗
-            </a>
-          </div>
-        </Reveal>
-      </section>
-
       <ReviewWall reviews={clientReviews} eyebrow="Client Stories" heading="What Our Clients Say" background="bg-bg-primary" />
 
       {/* Editorial: the finished homes behind the reviews. */}
@@ -92,6 +71,8 @@ export default function Page() {
         imageAlt="Bright living room with a marble fireplace and oak details in a Spanish modern custom home by Timber and Love"
         eyebrow="Behind the Reviews"
         title="The Homes People Love to Live In"
+        cta="Explore the Homes"
+        href="/timber-and-love-gallery/"
         reverse
         tone="secondary"
         ratio="landscape"
@@ -104,18 +85,6 @@ export default function Page() {
           The kind words are nice. The homes are the real proof.
         </p>
       </EditorialSplit>
-
-      {/* Full-bleed photographic statement before the closing ask. */}
-      <FeatureBand
-        image="/projects/promise-ln-5120/5120-promise-ln-great-room-volume.jpg"
-        eyebrow="Why They Choose Us"
-        title="Homes People Love"
-        body="Every review starts the same way, with a home our clients are proud to live in."
-        cta="Start Your Project"
-        href="/design-and-build-questionnaire/"
-        align="center"
-        height="short"
-      />
 
       <ClosingCta {...closingCta.reviews} />
     </>

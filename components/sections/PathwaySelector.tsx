@@ -1,3 +1,4 @@
+import PhotoCard from '@/components/ui/PhotoCard';
 import Link from 'next/link';
 import Reveal from '@/components/ui/Reveal';
 import { pathways, type Pathway } from '@/lib/site';
@@ -77,8 +78,9 @@ export default function PathwaySelector() {
           <Link
             href="/contact/"
             data-track="pathway_help"
-            className="group relative flex min-h-[16rem] flex-col justify-between border border-border-subtle bg-surface p-7 transition-colors hover:border-cream/40"
+            className="group block h-full"
           >
+            <PhotoCard image="/video-posters/966721424.jpg" className="transition-colors group-hover:border-cream/50">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-cream/60">Not Sure Where to Start?</p>
               <h3 className="h-card mt-4 text-cream">Let&apos;s Find the Right Fit</h3>
@@ -90,6 +92,7 @@ export default function PathwaySelector() {
               Talk to Our Team
               <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>
+            </PhotoCard>
           </Link>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import PhotoCard from '@/components/ui/PhotoCard';
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
 import Reveal from '@/components/ui/Reveal';
@@ -25,17 +26,17 @@ export const metadata = pageMeta({
 const sections = [
   {
     eyebrow: 'What Is Available',
-    heading: 'Information and Opportunities',
+    heading: 'Information and Opportunities', image: '/projects/promise-ln-5142/5142-promise-ln-exterior-angle.jpg',
     body: 'The affiliated site shares real estate investment information along with opportunities to invest alongside the Timber and Love team. It is a place to learn how the group approaches real estate investment and to see whether it lines up with what you are looking for.',
   },
   {
     eyebrow: 'Who It Is For',
-    heading: 'People Considering Real Estate Investment',
+    heading: 'People Considering Real Estate Investment', image: '/projects/stucco-in-time/exterior.webp',
     body: 'This information is intended for people who are exploring real estate as part of their broader plans and want to understand the options before making any commitment. It is a starting point for a conversation, not a decision you make on the spot.',
   },
   {
     eyebrow: 'What Happens Next',
-    heading: 'You Continue to the Affiliated Site',
+    heading: 'You Continue to the Affiliated Site', image: '/projects/due-for-a-raze/exterior.webp',
     body: 'When you choose to explore, you continue to Timber and Love Realty, an affiliated Timber and Love site, where you can read more and reach out to the team. Clicking through starts the conversation and commits you to nothing.',
   },
 ];
@@ -67,12 +68,14 @@ export default function Page() {
               available, who it is intended for, and what happens when you head over.
             </p>
           </Reveal>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          <div className="mt-14 grid gap-6 lg:grid-cols-3">
             {sections.map((s, i) => (
-              <Reveal key={s.eyebrow} delay={i * 90} className="surface-card p-8">
+              <Reveal key={s.eyebrow} delay={i * 90} className="h-full">
+                <PhotoCard image={s.image}>
                 <p className="eyebrow">{s.eyebrow}</p>
                 <h3 className="h-card-sm mt-3">{s.heading}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-text-secondary">{s.body}</p>
+                </PhotoCard>
               </Reveal>
             ))}
           </div>

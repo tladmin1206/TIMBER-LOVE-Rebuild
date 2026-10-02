@@ -1,3 +1,4 @@
+import PhotoCard from '@/components/ui/PhotoCard';
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
 import Reveal from '@/components/ui/Reveal';
@@ -28,22 +29,22 @@ export const metadata = pageMeta({
 const sections = [
   {
     eyebrow: 'Buying',
-    heading: 'Find a Home That Fits Your Life',
+    heading: 'Find a Home That Fits Your Life', image: '/projects/promise-ln-5106/5106-promise-ln-living-room-fireplace.jpg',
     body: 'Buying a home is a big decision, and it helps to have people who know the area well. Timber and Love Realty works with buyers across Boise to search current listings, compare neighborhoods, and understand what a home is really offering. You set the pace, and the team keeps the details organized so you can make a confident choice.',
   },
   {
     eyebrow: 'Selling',
-    heading: 'Sell With Local Guidance',
+    heading: 'Sell With Local Guidance', image: '/projects/promise-ln-5120/5120-promise-ln-exterior-rear.jpg',
     body: 'When it is time to sell, presentation and pricing matter. Timber and Love Realty helps sellers prepare a home for the market, position it for the right buyers, and manage the process through to closing. You get straightforward advice grounded in what is actually happening in the Boise market.',
   },
   {
     eyebrow: 'Local Market Experience',
-    heading: 'People Who Know Boise',
+    heading: 'People Who Know Boise', image: '/projects/central-rim/exterior.webp',
     body: 'Timber and Love has been part of the Boise community since 2015, and that local perspective carries into every real estate conversation. Buyers and sellers benefit from a team that understands the neighborhoods, the housing stock, and the way this market moves.',
   },
   {
     eyebrow: 'Who It Serves',
-    heading: 'Buyers and Sellers Across the Treasure Valley',
+    heading: 'Buyers and Sellers Across the Treasure Valley', image: '/projects/north-end-gem/living.webp',
     body: 'Whether you are searching for your first home, moving up, or listing a property you have loved for years, Timber and Love Realty works with people at many stages. The goal is the same each time: clear communication and real estate support you can trust.',
   },
 ];
@@ -104,10 +105,12 @@ export default function Page() {
         <div className="container-wide">
           <div className="grid gap-6 sm:grid-cols-2">
             {sections.map((s, i) => (
-              <Reveal key={s.eyebrow} delay={i * 80} className="surface-card p-8">
+              <Reveal key={s.eyebrow} delay={i * 80} className="h-full">
+                <PhotoCard image={s.image}>
                 <p className="eyebrow">{s.eyebrow}</p>
                 <h3 className="h-card mt-3">{s.heading}</h3>
                 <p className="mt-4 text-sm leading-relaxed text-text-secondary">{s.body}</p>
+                </PhotoCard>
               </Reveal>
             ))}
           </div>

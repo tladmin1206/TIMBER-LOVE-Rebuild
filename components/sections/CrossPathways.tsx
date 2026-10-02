@@ -1,3 +1,4 @@
+import PhotoCard from '@/components/ui/PhotoCard';
 import Link from 'next/link';
 import Reveal from '@/components/ui/Reveal';
 import { pathways } from '@/lib/site';
@@ -46,17 +47,19 @@ export default function CrossPathways({
                 <Link
                   href={p.href}
                   {...(p.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="card-interactive group block h-full p-8"
+                  className="group block h-full"
                 >
+                  <PhotoCard image={p.image} className="transition-colors group-hover:border-cream/50">
                   <h3 className="h-card">{p.title}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-text-secondary">{p.blurb}</p>
-                  <span className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-cream">
+                  <span className="mt-auto inline-flex items-center gap-2 pt-6 text-xs uppercase tracking-[0.16em] text-cream">
                     {p.cta}
                     <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
                       →
                     </span>
                     {p.external && <span className="sr-only"> (opens affiliated site in a new tab)</span>}
                   </span>
+                  </PhotoCard>
                 </Link>
               </Reveal>
             </div>

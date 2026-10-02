@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Cta from '@/components/ui/Cta';
 import Reveal from '@/components/ui/Reveal';
 
 /**
@@ -40,9 +40,9 @@ export default function FeatureBand({
           <h2 className="h-section mt-4">{title}</h2>
           {body && <p className="text-lead mt-5">{body}</p>}
           {cta && href && (
-            <Link href={href} className="btn-primary mt-8 inline-flex">
+            <Cta href={href} external={/^https?:/.test(href)} className="mt-8 inline-flex">
               {cta}
-            </Link>
+            </Cta>
           )}
         </Reveal>
       </div>

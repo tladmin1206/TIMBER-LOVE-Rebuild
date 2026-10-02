@@ -1,4 +1,4 @@
-import ContactForm from '@/components/forms/ContactForm';
+import DesignBuildQuestionnaire from '@/components/forms/DesignBuildQuestionnaire';
 import WhatHappensNext from '@/components/sections/WhatHappensNext';
 import { pageMeta } from '@/lib/seo';
 import { site } from '@/lib/site';
@@ -13,7 +13,7 @@ export default function Page() {
   return (
     <>
       <section id="inquiry" className="bg-ink pb-20 pt-32 sm:pb-28 sm:pt-40">
-        <div className="container-wide grid gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="container-wide grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-16">
           <div>
             <p className="eyebrow">Let’s Work Together</p>
             <h1 className="h-page mt-4">Tell Us About Your Project</h1>
@@ -26,10 +26,8 @@ export default function Page() {
               Prefer to talk? <a href={site.phoneHref} className="link-underline text-cream">{site.phone}</a>
             </p>
           </div>
-          <div className="self-start border border-border-subtle bg-panel p-6 sm:p-9 lg:mt-1">
-            <h2 className="h-card">Let’s Get to Know Your Project</h2>
-            <p className="mt-3 mb-7 text-sm leading-relaxed text-text-secondary">A few details are all we need to begin. There’s no commitment and no need to have everything figured out.</p>
-            <ContactForm source="design-build-inquiry" defaultService="Design + Build" />
+          <div className="min-w-0 self-start border border-border-subtle bg-ink px-2 py-5 sm:p-6 lg:mt-1">
+            <DesignBuildQuestionnaire />
           </div>
         </div>
       </section>
