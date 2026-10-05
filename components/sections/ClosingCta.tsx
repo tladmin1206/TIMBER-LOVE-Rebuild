@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import Link from 'next/link';
 import VideoBg from '@/components/ui/VideoBg';
 import Reveal from '@/components/ui/Reveal';
@@ -78,7 +79,7 @@ export default function ClosingCta({
       ) : (
         <>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={image} alt="" aria-hidden className="absolute inset-0 -z-10 h-full w-full object-cover" />
+          <SiteImage sizes="100vw" src={image} alt="" aria-hidden className="absolute inset-0 -z-10 h-full w-full object-cover" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/85 to-ink/55" />
           <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/70 via-transparent to-ink/40" />
         </>

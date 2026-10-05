@@ -1,4 +1,5 @@
 'use client';
+import SiteImage from '@/components/ui/SiteImage';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -57,7 +58,7 @@ export default function Gallery({
             aria-label={`View image: ${img.alt}`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <SiteImage
               src={img.src}
               alt={img.alt}
               loading="lazy"
@@ -86,7 +87,7 @@ export default function Gallery({
             ‹
           </button>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={images[index].src} alt={images[index].alt} className="max-h-[85vh] max-w-[90vw] object-contain" />
+          <SiteImage src={images[index].src} alt={images[index].alt} className="max-h-[85vh] max-w-[90vw] object-contain" />
           <button onClick={next} aria-label="Next" className="absolute right-3 top-1/2 -translate-y-1/2 px-4 text-4xl text-cream/70 hover:text-cream sm:right-8">
             ›
           </button>

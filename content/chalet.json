@@ -5,19 +5,38 @@
     "subheading": "",
     "image": "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg"
   },
-  "destination": "McCall, ID",
+  "destination": "New Meadows, near McCall, ID",
   "overview": [
     "This charming cabin was redesigned and styled by Luke Caldwell of HGTV’s Boise Boys along with his Timber and Love team. It offers an inviting mountain retreat, ideal for unwinding and enjoying quality time with the people you love."
   ],
   "glance": {
-    "propertyType": "Cabin"
+    "propertyType": "Cabin",
+    "guests": "10",
+    "bedrooms": "3",
+    "bathrooms": "2 full baths; confirm additional half bath with host",
+    "beds": "9",
+    "parking": "On-site parking"
   },
   "amenityGroups": [
-    { "category": "Essentials", "items": ["Free WiFi", "Kitchen"] },
-    { "category": "Outdoor", "items": ["Hot tub"] }
+    {
+      "category": "Essentials",
+      "items": [
+        "Free WiFi",
+        "Kitchen"
+      ]
+    },
+    {
+      "category": "Outdoor",
+      "items": [
+        "Hot tub"
+      ]
+    }
   ],
   "thingsToKnow": [
-    "Booking, availability, house rules, and cancellation are managed through Airbnb."
+    "Booking, availability, house rules, and cancellation are managed through Airbnb.",
+    "The cabin is in New Meadows, about a 15-minute drive from McCall.",
+    "The home includes an upstairs loft. Ask the host about step-free access if your group needs it.",
+    "Airbnb’s overview lists 2.5 bathrooms while the detailed description lists two full bathrooms. Confirm the extra half bath with the host."
   ],
   "intro": [
     "This charming cabin, redesigned and styled by Luke Caldwell from HGTV’s Boise Boys along with his Timber + Love team, offers an inviting retreat ideal for unwinding and enjoying quality time with loved ones."
@@ -61,5 +80,6 @@
     "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Bedroom-3.jpg",
     "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Loft.jpg",
     "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Loft-1.jpg"
-  ]
+  ],
+  "verifiedAt": "2026-10-05"
 }

@@ -50,7 +50,7 @@ export default function Newsletter() {
   if (status === 'ok') {
     return (
       <p role="status" className="text-sm leading-relaxed text-cream/80">
-        Thank you: you are on the list. Watch your inbox for Timber and Love updates.
+        Thank you. Your request for Timber and Love updates has been sent to our team.
       </p>
     );
   }

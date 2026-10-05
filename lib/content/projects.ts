@@ -412,7 +412,7 @@ export const projects: Project[] = [
   "tags": [
     "remodel"
   ],
-  "location": "McCall, ID",
+  "location": "New Meadows, ID",
   "scope": "Renovation and interior styling",
   "summary": "A mountain cabin redesigned and styled by Luke Caldwell and the Timber and Love team, with warm gathering spaces and room to slow down.",
   "cover": "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg",
@@ -505,11 +505,18 @@ export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
 }
 
-/** Three distinct related homes, excluding this project and neighboring repeats. */
+/** Related by project type, scope and setting; at most one Promise Lane home. */
 export function relatedProjects(slug: string): Project[] {
+  const current = getProject(slug);
+  if (!current) return [];
+  const score = (p: Project) =>
+    p.tags.filter((tag) => current.tags.includes(tag)).length * 8 +
+    (p.scope === current.scope ? 4 : 0) + (p.category === current.category ? 4 : 0) +
+    (p.style && p.style === current.style ? 3 : 0) + (p.location === current.location ? 1 : 0);
+  const candidates = projects.filter((p) => p.slug !== slug)
+    .sort((a, b) => score(b) - score(a) || a.slug.localeCompare(b.slug));
   const seen = new Set<string>();
-  return projects.filter((p) => {
-    if (p.slug === slug) return false;
+  return candidates.filter((p) => {
     const group = p.slug.startsWith('promise-lane-') ? 'promise-lane' : p.slug;
     if (seen.has(group)) return false;
     seen.add(group);

@@ -48,6 +48,8 @@ export const site = {
   // use so visitors always know when they are leaving the main site.
   external: {
     realty: 'https://timberandloverealty.com/',
+    realtyBuy: 'https://timberandloverealty.com/buy/',
+    realtySell: 'https://timberandloverealty.com/sell/',
     invest: 'https://timberandloverealty.com/invest-with-us/',
     greenway: 'https://timberandloverealty.com/greenway/',
     cashOffers: 'https://buymyhouse.co/',

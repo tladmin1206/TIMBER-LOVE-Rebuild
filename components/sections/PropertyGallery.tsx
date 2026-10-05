@@ -1,4 +1,5 @@
 'use client';
+import SiteImage from '@/components/ui/SiteImage';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
@@ -54,7 +55,7 @@ export default function PropertyGallery({ images }: { images: GalleryImage[] }) 
           aria-label={`Open gallery: ${preview[0].alt}`}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={preview[0].src} alt={preview[0].alt} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+          <SiteImage src={preview[0].src} alt={preview[0].alt} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
         </button>
         {preview.slice(1, 5).map((img, i) => (
           <button
@@ -64,7 +65,7 @@ export default function PropertyGallery({ images }: { images: GalleryImage[] }) 
             aria-label={`Open gallery: ${img.alt}`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={img.src} alt={img.alt} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+            <SiteImage src={img.src} alt={img.alt} loading="lazy" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
           </button>
         ))}
         <button
@@ -105,7 +106,7 @@ export default function PropertyGallery({ images }: { images: GalleryImage[] }) 
               ‹
             </button>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={images[index].src} alt={images[index].alt} className="max-h-full max-w-[92vw] object-contain" />
+            <SiteImage src={images[index].src} alt={images[index].alt} className="max-h-full max-w-[92vw] object-contain" />
             <button onClick={next} aria-label="Next photo" className="absolute right-3 top-1/2 -translate-y-1/2 px-4 text-4xl text-cream/70 hover:text-cream sm:right-8">
               ›
             </button>

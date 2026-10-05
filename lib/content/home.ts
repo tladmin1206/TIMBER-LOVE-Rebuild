@@ -38,13 +38,12 @@ export const heroSlideshow = [
   '/wp-content/uploads/2024/05/Timber-and-Love-Home-Remodeling-Contractors-Boise-Boise-Boys-Season-2-Episode-9-Casa-De-Boise-Dining-Room-2-scaled.jpg',
 ];
 
-// Hero statistics, the brand's established figures from the original live site.
-// TEMP: confirm exact current values with the business before launch.
+// Primary brand/realty sources verified 2026-10-05. See docs/content-facts.json.
 export const stats = [
-  { to: 15, prefix: '', suffix: '+', label: 'Years Experience' },
-  { to: 100, prefix: '', suffix: '+', label: 'Homes Remodeled' },
-  { to: 250, prefix: '$', suffix: '+', label: 'Million Sold' },
-  { to: 35, prefix: '', suffix: '+', label: 'HGTV Episodes' },
+  { to: 2015, prefix: '', suffix: '', label: 'Founded in Boise' },
+  { to: 100, prefix: '', suffix: '+', label: 'Homes Restored' },
+  { to: 250, prefix: '$', suffix: 'M+', label: 'Realty Closed Sales' },
+  { to: 2, prefix: '', suffix: '', label: 'HGTV Series' },
 ];
 
 export const pressLogos = [
@@ -170,7 +169,7 @@ export const mission =
   'At Timber and Love, our mission is to transform spaces, communities, and lives through innovative and high-quality design and construction. We strive to exceed our clients’ expectations by collaborating closely with them and delivering exceptional results through our processes and systems, integrity, and attention to detail. We are committed to making a positive impact on the community and being a leader in the industry through hard work, creativity, and a dedication to excellence.';
 
 export const testimonials: Testimonial[] = [
-  { name: 'Derrick N.', role: 'Remodel Client', quote: 'Timber and Love is a great company and they do great work! Because my wife works for Luke and Clint (and absolutely loves it!) I have been able to check out a few of the homes that they have renovated and I am impressed by the quality and attention they give to the homes, as well as the customers.' },
+  { name: 'Derrick N.', role: 'Team Family Member', quote: 'Timber and Love is a great company and they do great work! Because my wife works for Luke and Clint (and absolutely loves it!) I have been able to check out a few of the homes that they have renovated and I am impressed by the quality and attention they give to the homes, as well as the customers.' },
   { name: 'Randy T.', role: 'Boise Boys Fan', quote: 'We have not personally had experience with Timber and Love Construction, but we are devoted fans of the Boise boys program on HGTV. We love the interaction between Clint and Luke. They work so well together and are a kick to watch.' },
   { name: 'Caleb R.', role: 'Remodel Client', quote: 'Luke and Clint and the whole crew at Timber and Love are some of the most amazing people I’ve ever met. You can really see and feel the love that goes into the homes that they transform. They really are making Boise a more beautiful place.' },
   { name: 'Jean U.', role: 'Boise Boys Fan', quote: 'I love the designs and the building Boise Boys do on their homes. We live a little over 500 miles north west of Boise, and I would love to have Luke design our house in mid century modern.' },
@@ -240,7 +239,7 @@ export const whyReasons = [
  * Aggregate review rating, pulled from the business's Google / public review
  * profile. TEMP: refresh periodically; confirm the exact live count.
  */
-export const googleReviews = { rating: 4.9, count: 53, url: 'https://g.page/r/CRGHjvpIySGwEB0/review' };
+export const googleReviews = { url: 'https://share.google/Ga7dguR36OVrALLlH' };
 
 /**
  * Verified, source-attributed customer reviews used as conversion proof (real

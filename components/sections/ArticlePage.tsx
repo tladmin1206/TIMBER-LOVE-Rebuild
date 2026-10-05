@@ -32,6 +32,9 @@ export default function ArticlePage({ article, path }: { article: Article; path:
     mainEntityOfPage: `${site.url}${path}`,
   };
 
+  const showArticle = ['/boise-boys-are-back/', '/building-boise-new-show-announcement/'].includes(path);
+  const headings = article.blocks.flatMap((b, i) => b.type === 'h2' || b.type === 'h3' ? [{ text: b.text, id: `article-section-${i}` }] : []);
+
   return (
     <>
       <JsonLd schema={jsonLd} />
@@ -51,14 +54,16 @@ export default function ArticlePage({ article, path }: { article: Article; path:
       {/* Body */}
       <article className="section-tonal section-tight">
         <div className="container-tl max-w-3xl">
+          {showArticle && <aside className="mb-10 border-l-2 border-cream/60 bg-bg-primary p-6"><p className="eyebrow">Update · October 5, 2026</p><h2 className="h-card-sm mt-3">Watch Luke and Clint Now</h2><p className="mt-4 text-sm leading-relaxed text-text-secondary">This announcement is part of our story. The independent show is now called Luke and Clint and is available on YouTube.</p><Link href="/shows/#episodes" className="link-underline mt-4 inline-flex min-h-11 items-center text-sm">Watch the Current Show →</Link></aside>}
+          {path === '/luke-caldwell-faq/' && <nav aria-label="In this article" className="mb-10 border border-border-subtle p-6"><p className="eyebrow">Find an Answer</p><ul className="mt-4 space-y-2">{headings.map(h => <li key={h.id}><a href={`#${h.id}`} className="link-underline inline-flex min-h-11 items-center text-sm">{h.text}</a></li>)}</ul><Link href="/shows/" className="link-underline mt-4 inline-flex min-h-11 items-center text-sm">Discover Luke and Clint and the HGTV Shows →</Link></nav>}
           <BlockRenderer blocks={article.blocks} />
           <div className="mt-14 border-t border-border-subtle pt-10">
-            <Link href="/timber-and-love-gallery/" className="btn-secondary">Explore Our Work</Link>
+            <p className="eyebrow">Continue the Story</p><div className="mt-5 flex flex-wrap gap-3"><Link href="/timber-and-love-gallery/" className="btn-secondary">Explore Our Work</Link><Link href={showArticle ? '/shows/' : path.includes('community') ? '/about/' : '/design-and-build/'} className="btn-secondary">{showArticle ? 'Watch the Shows' : path.includes('community') ? 'Meet Timber and Love' : 'Explore Design + Build'}</Link></div>
           </div>
         </div>
       </article>
 
-      <ClosingCta {...closingCta.article} />
+      <ClosingCta {...(showArticle ? { surface: 'solid' as const, eyebrow: 'The Story Continues', title: 'Watch Luke and Clint', body: 'Catch up with the independent show, or revisit the complete Boise Boys and Outgrown collection.', primary: { label: 'Watch the Shows', href: '/shows/' }, secondary: { label: 'Explore the Homes', href: '/timber-and-love-gallery/' } } : closingCta.article)} />
     </>
   );
 }

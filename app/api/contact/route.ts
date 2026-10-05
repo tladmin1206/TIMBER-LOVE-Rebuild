@@ -44,5 +44,6 @@ export async function POST(req: Request) {
     console.error('[CONTACT_DELIVERY_FAILED]', { reason: delivery.reason, attempts: delivery.attempts });
     return NextResponse.json({ ok: false, error: 'Your inquiry could not be sent right now. Please try again or contact our team directly.' }, { status: 503, headers: { 'Retry-After': '30' } });
   }
+  console.info('[CONTACT_PROVIDER_ACCEPTED]', { providerId: delivery.id ?? null });
   return NextResponse.json({ ok: true });
 }

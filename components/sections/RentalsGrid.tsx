@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import Link from 'next/link';
 import Reveal from '@/components/ui/Reveal';
 import { rentals } from '@/lib/content/rentals';
@@ -17,7 +18,7 @@ export default function RentalsGrid() {
                 <Link href={r.href} className="group card-interactive flex h-full flex-col overflow-hidden bg-surface/40">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={r.image} alt={`${r.name} in ${r.destination}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <SiteImage sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" src={r.image} alt={`${r.name} in ${r.destination}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div className="flex flex-1 flex-col p-6 sm:p-7">
                     <p className="text-xs uppercase tracking-[0.18em] text-text-muted">{r.destination}</p>

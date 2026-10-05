@@ -7,7 +7,7 @@ import { pageMeta } from '@/lib/seo';
 import { site } from '@/lib/site';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
-import ProofSection from '@/components/sections/ProofSection';
+import ServiceEvidence from '@/components/sections/ServiceEvidence';
 import CrossPathways from '@/components/sections/CrossPathways';
 import FaqSection from '@/components/sections/FaqSection';
 import FeatureBand from '@/components/sections/FeatureBand';
@@ -125,6 +125,8 @@ export default function Page() {
         height="short"
       />
 
+      <ServiceEvidence service="cash" />
+
       {/* What happens after clicking + external note */}
       <section className="border-t border-border-subtle bg-bg-primary section">
         <div className="container-wide max-w-2xl text-center">
@@ -149,7 +151,6 @@ export default function Page() {
         </div>
       </section>
 
-      <ProofSection />
 
       <CrossPathways keys={['buy-sell', 'design-build']} />
 

@@ -84,9 +84,9 @@ export const navigationGroups = [
             description: "Distinctive stays in Idaho and Hawaii.",
           },
           {
-            label: "All Vacation Rentals",
+            label: "Compare Vacation Homes",
             href: "/vacation-rentals/",
-            description: "Find your next place to unwind.",
+            description: "Compare destinations, bedrooms, and group size.",
           },
           {
             label: "How It Fits Together",

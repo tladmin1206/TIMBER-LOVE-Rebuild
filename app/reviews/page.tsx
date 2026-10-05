@@ -13,36 +13,15 @@ import EditorialSplit from '@/components/sections/EditorialSplit';
 export const metadata = pageMeta({
   title: 'Reviews',
   description:
-    'Read what Boise homeowners say about Timber and Love. Rated 4.9 stars across design-build and real estate clients.',
+    'Read stories from Timber and Love design-build and real estate clients in Boise and the Treasure Valley.',
   path: '/reviews/',
 });
-
-// AggregateRating schema (eligible: real reviews with an author and rating).
-const ratingSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  '@id': `${site.url}/#organization`,
-  name: site.name,
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: googleReviews.rating,
-    reviewCount: googleReviews.count,
-    bestRating: 5,
-  },
-  review: clientReviews.map((r) => ({
-    '@type': 'Review',
-    reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
-    author: { '@type': 'Person', name: r.name },
-    reviewBody: r.quote,
-  })),
-};
 
 export default function Page() {
   return (
     <>
       <JsonLd
         schema={[
-          ratingSchema,
           breadcrumbSchema([
             { name: 'Home', path: '/' },
             { name: 'Reviews', path: '/reviews/' },
@@ -58,7 +37,7 @@ export default function Page() {
         height="short"
       >
         <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
-        <a href={googleReviews.url} target="_blank" rel="noopener noreferrer" className="btn-secondary" data-track="reviews_leave">
+        <a href={site.reviewUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary" data-track="reviews_leave">
           Leave a Review ↗
         </a>
       </PageHero>

@@ -1,4 +1,5 @@
 "use client";
+import SiteImage from '@/components/ui/SiteImage';
 import { useEffect, useRef, useState } from "react";
 import type Player from "@vimeo/player";
 
@@ -106,7 +107,7 @@ export default function VideoBg({
         className="absolute inset-0 overflow-hidden bg-ink"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <SiteImage sizes="100vw"
           src={poster}
           alt=""
           loading={priority ? "eager" : "lazy"}

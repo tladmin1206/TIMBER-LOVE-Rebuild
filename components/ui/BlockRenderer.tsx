@@ -16,13 +16,13 @@ export default function BlockRenderer({ blocks }: { blocks: Block[] }) {
         switch (b.type) {
           case 'h2':
             return (
-              <h2 key={i} className="h-card pt-6">
+              <h2 key={i} id={`article-section-${i}`} className="h-card scroll-mt-28 pt-6">
                 {b.text}
               </h2>
             );
           case 'h3':
             return (
-              <h3 key={i} className="pt-4 text-xl text-cream">
+              <h3 key={i} id={`article-section-${i}`} className="scroll-mt-28 pt-4 text-xl text-cream">
                 {b.text}
               </h3>
             );

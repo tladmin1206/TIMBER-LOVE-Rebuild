@@ -1,0 +1,22 @@
+{
+  "reviewedAt": "2026-10-05",
+  "reviewDue": "2027-01-05",
+  "sources": [
+    {"subject":"Founded in 2015", "url":"https://timberandlove.com/", "status":"verified"},
+    {"subject":"100+ homes restored and $250M+ Realty closed sales", "url":"https://timberandloverealty.com/", "status":"verified as published by the business; label sales specifically as Realty"},
+    {"subject":"Two HGTV series and 31 catalog records", "url":"https://lukecaldwell.com/shows", "status":"two series; existing 31-record catalog retained and checked for unique IDs and local artwork"},
+    {"subject":"Firehouse: 6 guests, 3 bedrooms, 2 bathrooms, on-site parking; second-floor rental", "url":"https://www.airbnb.com/rooms/40293083", "status":"verified"},
+    {"subject":"Darla: 4 guests, 3 sleeping areas, 1 bathroom, street parking; low downstairs ceiling and open sleeping area", "url":"https://www.airbnb.com/rooms/1630606712887221259", "status":"verified; sleeping areas wording avoids implying three enclosed bedrooms"},
+    {"subject":"Chalet: New Meadows near McCall, 10 guests, 3 bedrooms, 9 beds, parking", "url":"https://www.airbnb.com/rooms/800671305269211119", "status":"verified; source conflicts on bathrooms: summary 2.5, description two full baths; disclose and ask host to confirm half bath"},
+    {"subject":"Kualoa: 8 guests, 3 bedrooms, 2 bathrooms; Caldwell: 11 guests, 4 bedrooms, 2 bathrooms", "url":"https://vacationrentaloahu.co/properties", "status":"verified"},
+    {"subject":"Current show name and YouTube destination", "url":"https://lukeandclint.com", "status":"Luke and Clint only"},
+    {"subject":"Buyer and seller destinations", "urls":["https://timberandloverealty.com/buy/","https://timberandloverealty.com/sell/"], "status":"verified"}
+  ],
+  "editorialBoundaries": [
+    "Removed unverified 15+ years and 35+ episodes counters and stale 4.9/53 aggregate review claims.",
+    "Existing attributed client quotes retained; no new testimonials, client budgets, completion dates or investment returns invented.",
+    "Project stories are editorial descriptions of the attributed photographs and documented property use, not purported client briefs or unpublished before/after results.",
+    "Service-specific cash/invest evidence is explicitly the portfolio and process, not an asserted cash-sale or financial outcome.",
+    "Review ratings, availability, pricing, accessibility and policies belong to current booking/review providers; no static rates or universal accessibility promises added."
+  ]
+}

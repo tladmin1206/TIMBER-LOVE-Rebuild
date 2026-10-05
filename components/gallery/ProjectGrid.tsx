@@ -1,4 +1,5 @@
 'use client';
+import SiteImage from '@/components/ui/SiteImage';
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
@@ -122,7 +123,7 @@ export default function ProjectGrid() {
           >
             <div className="relative aspect-[16/10] shrink-0 overflow-hidden">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <SiteImage sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                 src={p.cover}
                 alt={`${p.title}: ${p.category} in ${p.location}`}
                 loading="lazy"

@@ -31,7 +31,7 @@ const paths = [
     image: '/projects/stucco-in-time/terrace.webp',
     contain: false,
     line: 'Work with Timber and Love Realty on your next move in the local market.',
-    href: '/buy-or-sell/',
+    href: site.external.realty,
     cta: 'Buy or Sell a Home',
     track: 'contact_realty',
   },
@@ -40,7 +40,7 @@ const paths = [
     image: '/projects/north-end-gem/exterior.webp',
     contain: false,
     line: 'A direct offer for homeowners who want a simpler, faster sale.',
-    href: '/sell-for-cash/',
+    href: site.external.cashOffers,
     cta: 'Request a Cash Offer',
     track: 'contact_cash',
   },
@@ -49,7 +49,7 @@ const paths = [
     image: '/projects/promise-ln-5142/5142-promise-ln-exterior-rear.jpg',
     contain: false,
     line: 'Explore investment opportunities and how to get involved.',
-    href: '/invest/',
+    href: site.external.invest,
     cta: 'Explore Investing',
     track: 'contact_invest',
   },
@@ -81,43 +81,15 @@ export default function Page() {
         title="How Can We Help?"
         subtitle="Pick the option closest to your goal and we will point you to the right place, or reach out directly and a member of our team will follow up."
         image="/editorial/casetta-living.webp"
+        height="short"
       >
-        <Cta href="#contact-paths" variant="primary">Find the Right Service</Cta>
-        <Cta href="#general" variant="secondary">Send a General Inquiry</Cta>
+        <Cta href="/design-and-build-questionnaire/" variant="primary">Start a Design + Build Project</Cta>
+        <Cta href="#general" variant="secondary">Send an Inquiry</Cta>
       </PageHero>
 
 
-      {/* Choose Your Path: route each need to the correct destination */}
-      <section id="contact-paths" className="bg-bg-primary section scroll-mt-24">
-        <div className="container-wide">
-          <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Choose Your Path</p>
-            <h2 className="h-section mt-4">Find the Right Starting Point</h2>
-            <p className="text-lead mt-5">
-              Every inquiry has its own best route. Choose the path that matches what you need and we will
-              take it from there.
-            </p>
-          </Reveal>
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {paths.map((p, i) => (
-              <Reveal key={p.title} delay={i * 70} className="h-full">
-                <PhotoCard image={p.image} contain={p.contain} imagePosition={p.contain ? "center top" : "center"}>
-                <h3 className="h-card">{p.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-text-secondary">{p.line}</p>
-                <div className="mt-6">
-                  <Cta href={p.href} variant="secondary" track={p.track} className="w-full">
-                    {p.cta}
-                  </Cta>
-                </div>
-                </PhotoCard>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* General inquiry: form plus primary customer contact details */}
-      <section id="general" className="section-tonal border-t border-border-subtle bg-bg-secondary section">
+      <section id="general" className="scroll-mt-24 section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal>
             <p className="eyebrow">Let’s Connect</p>
@@ -127,7 +99,8 @@ export default function Page() {
               with the right people.
             </p>
 
-            <div className="mt-10 space-y-6">
+            <a href="#contact-paths" className="link-underline mt-6 inline-flex min-h-11 items-center text-sm">Find a specific service →</a>
+            <div className="mt-8 space-y-6">
               <div>
                 <p className="field-label">Call</p>
                 <a href={site.phoneHref} className="link-underline mt-2 inline-block text-lg text-cream">
@@ -156,6 +129,35 @@ export default function Page() {
         </div>
       </section>
 
+
+      {/* Choose Your Path: route each need to the correct destination */}
+      <section id="contact-paths" className="bg-bg-primary section scroll-mt-24">
+        <div className="container-wide">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">Choose Your Path</p>
+            <h2 className="h-section mt-4">Find the Right Starting Point</h2>
+            <p className="text-lead mt-5">
+              Every inquiry has its own best route. Choose the path that matches what you need and we will
+              take it from there.
+            </p>
+          </Reveal>
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {paths.map((p, i) => (
+              <Reveal key={p.title} delay={i * 70} className="h-full">
+                <PhotoCard image={p.image} contain={p.contain} imagePosition={p.contain ? "center top" : "center"}>
+                <h3 className="h-card">{p.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-text-secondary">{p.line}</p>
+                <div className="mt-6">
+                  <Cta href={p.href} external={p.href.startsWith("https:")} newTab={p.href.startsWith("https:")} variant="secondary" track={p.track} className="w-full">
+                    {p.cta}
+                  </Cta>
+                </div>
+                </PhotoCard>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Abandonment recovery: sets expectations and offers two lower-commitment
           alternatives for visitors who scrolled past the form without sending it. */}

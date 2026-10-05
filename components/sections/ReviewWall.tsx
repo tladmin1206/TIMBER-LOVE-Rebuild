@@ -36,8 +36,6 @@ export default function ReviewWall({
           <div className="flex items-center gap-4">
             <div className="text-right">
               <div className="flex items-center gap-2">
-                <span className="text-3xl text-cream">{googleReviews.rating.toFixed(1)}</span>
-                <Stars rating={googleReviews.rating} size="md" />
               </div>
               <a
                 href={googleReviews.url}
@@ -46,7 +44,7 @@ export default function ReviewWall({
                 data-track="reviews_google"
                 className="mt-1 inline-block text-xs uppercase tracking-[0.14em] text-text-secondary link-underline"
               >
-                {googleReviews.count}+ Google reviews ↗
+                Read Google Reviews ↗
               </a>
             </div>
           </div>
@@ -58,7 +56,7 @@ export default function ReviewWall({
             <SwipeItem key={r.name}>
               <Reveal as="figure" delay={i * 60} className="surface-card h-full p-6">
                 <div className="flex items-center justify-between">
-                  <Stars rating={5} size="sm" />
+                  <span className="text-xs text-text-secondary">Client Story</span>
                   <span className="text-[0.65rem] uppercase tracking-[0.14em] text-text-muted">Google</span>
                 </div>
                 <blockquote className="mt-4 text-sm leading-relaxed text-text-secondary">“{r.quote}”</blockquote>

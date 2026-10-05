@@ -29,13 +29,11 @@ export default function ProofSection({
             {title}
           </h2>
           <div className="mt-5 flex items-center justify-center gap-3 text-sm text-text-secondary">
-            <span className="text-cream">{googleReviews.rating.toFixed(1)}</span>
-            <Stars rating={googleReviews.rating} size="sm" />
-            <span>from {googleReviews.count}+ Google reviews</span>
+            <a href="/reviews/" className="link-underline">Read Client Stories →</a>
           </div>
         </Reveal>
         <div className="mt-12">
-          <ReviewSlider items={clientReviews} />
+          <ReviewSlider items={clientReviews.filter((review) => review.role !== "Real Estate Client")} />
         </div>
       </div>
     </section>

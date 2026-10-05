@@ -9,7 +9,7 @@ import { site } from '@/lib/site';
 import { clientReviews } from '@/lib/content/home';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
-import ProofSection from '@/components/sections/ProofSection';
+import ServiceEvidence from '@/components/sections/ServiceEvidence';
 import CrossPathways from '@/components/sections/CrossPathways';
 import FaqSection from '@/components/sections/FaqSection';
 import FeatureBand from '@/components/sections/FeatureBand';
@@ -58,10 +58,10 @@ export default function Page() {
         subtitle="Timber and Love Realty helps people buy and sell homes across Boise, backed by local market experience and a team that knows the area."
         image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Realty-Background-1-scaled-1.jpg"
       >
-        <Cta href={site.external.realty} external newTab track="realty_browse">
+        <Cta href={site.external.realtyBuy} external newTab track="realty_browse">
           Browse Homes
         </Cta>
-        <Cta href={site.external.realty} variant="secondary" external newTab track="realty_sell">
+        <Cta href={site.external.realtySell} variant="secondary" external newTab track="realty_sell">
           Sell a Home
         </Cta>
       </PageHero>
@@ -124,7 +124,7 @@ export default function Page() {
         eyebrow="Buying in Boise"
         title="Find a Home That Fits Your Life"
         cta="Browse Homes"
-        href={site.external.realty}
+        href={site.external.realtyBuy}
         tone="secondary"
         ratio="landscape"
       >
@@ -145,7 +145,7 @@ export default function Page() {
         eyebrow="Selling in Boise"
         title="Position Your Home to Sell"
         cta="Sell a Home"
-        href={site.external.realty}
+        href={site.external.realtySell}
         reverse
         tone="primary"
         ratio="landscape"
@@ -171,6 +171,8 @@ export default function Page() {
         height="short"
       />
 
+      <ServiceEvidence service="realty" />
+
       {/* Primary external CTA with affiliated-site note */}
       <section className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide max-w-2xl text-center">
@@ -194,7 +196,6 @@ export default function Page() {
         </div>
       </section>
 
-      <ProofSection />
 
       <CrossPathways keys={['design-build', 'sell-cash']} />
 

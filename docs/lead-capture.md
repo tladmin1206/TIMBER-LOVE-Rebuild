@@ -34,3 +34,13 @@ Both `/investment-planner/` and `/estimate/` temporarily redirect to the project
 - Existing `scripts/verify-contact-form.ts` and `scripts/verify-lead-delivery.ts` cover the separate general-contact pipeline with mocked delivery. Run with `node --import tsx scripts/verify-contact-form.ts` and `node --import tsx scripts/verify-lead-delivery.ts`.
 - Actual inbox/CRM receipt, scheduling completion, and attribution remain an owner-controlled post-publication check. Use a clearly labeled test inquiry and confirm both the hosted questionnaire and the general contact form reach the expected team.
 - A cross-origin iframe's inner keyboard events are controlled by the hosted application. The surrounding dialog has a labeled close button and focus containment; Escape pressed inside the hosted form cannot be assumed to reach the parent.
+
+## October 5, 2026 implementation verification
+
+- Replit read-only inspection confirmed `RESEND_API_KEY`, `LEAD_FROM_EMAIL`, and `LEAD_TO_EMAIL` exist in the rebuild's development and production settings. Secret values were not read or copied. Presence is not proof of valid credentials or inbox delivery.
+- Contact now emits a non-PII `CONTACT_PROVIDER_ACCEPTED` log with the provider message ID. Existing validation, honeypot, idempotency, failure and retry tests pass. No real inquiry was sent during this pass.
+- General-contact analytics distinguish form start, unconfirmed delivery error, and provider-accepted inquiry. Outbound clicks and booking handoffs are never counted as completed leads or bookings.
+- The original questionnaire remains unchanged and embedded from `https://leads.timberandlove.com/forms/combined?transparent=true`.
+- Located its integration source in `webiq1206/TL-Lead-Dashboard-v2`. A separate two-file patch adds the exact `https://timberandlove.replit.app` parent origin to successful-submission notifications. It does not add a wildcard, expose contact data, change the form, or relax receiving-origin checks. All five existing analytics/bridge tests pass with the third origin.
+- The questionnaire patch must be pulled and republished from its own Replit app, separately from this website.
+- Actual inbox/CRM receipt, the final scheduling step, qualified-lead conversion, and booking completion remain production checks. No completed delivery or conversion uplift is claimed from mocked tests or provider configuration.

@@ -1,4 +1,5 @@
 "use client";
+import { trackEvent } from '@/lib/analytics';
 import { useState } from "react";
 export default function YouTubeVideo({
   id,
@@ -22,7 +23,7 @@ export default function YouTubeVideo({
         ) : (
           <button
             type="button"
-            onClick={() => setPlaying(true)}
+            onClick={() => { setPlaying(true); trackEvent('video_play_requested', { provider: 'youtube', video_id: id }); } }
             className="group absolute inset-0"
             aria-label={`Play ${title}`}
           >

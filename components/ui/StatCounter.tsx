@@ -33,7 +33,7 @@ export default function StatCounter({
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || label === 'Founded in Boise') return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const io = new IntersectionObserver(
@@ -62,7 +62,7 @@ export default function StatCounter({
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [to]);
+  }, [to, label]);
 
   // Display the true value unless the count-up is actively running.
   const display = animating ? value : to;

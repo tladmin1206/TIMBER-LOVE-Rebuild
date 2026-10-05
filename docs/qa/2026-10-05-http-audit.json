@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-05",
+  "routes": [
+    {
+      "route": "/building-boise-new-show-announcement/",
+      "status": 200
+    },
+    {
+      "route": "/service-areas/",
+      "status": 200
+    },
+    {
+      "route": "/reviews/",
+      "status": 200
+    },
+    {
+      "route": "/financing/",
+      "status": 200
+    },
+    {
+      "route": "/about/",
+      "status": 200
+    },
+    {
+      "route": "/contact/",
+      "status": 200
+    },
+    {
+      "route": "/sell-for-cash/",
+      "status": 200
+    },
+    {
+      "route": "/stay-with-us/",
+      "status": 200
+    },
+    {
+      "route": "/the-firehouse/",
+      "status": 200
+    },
+    {
+      "route": "/luke-caldwell-faq/",
+      "status": 200
+    },
+    {
+      "route": "/",
+      "status": 200
+    },
+    {
+      "route": "/vacation-rentals/",
+      "status": 200
+    },
+    {
+      "route": "/boise-boys-are-back/",
+      "status": 200
+    },
+    {
+      "route": "/our-process/",
+      "status": 200
+    },
+    {
+      "route": "/privacy-policy/",
+      "status": 200
+    },
+    {
+      "route": "/luke-caldwell-boise-community/",
+      "status": 200
+    },
+    {
+      "route": "/buy-or-sell/",
+      "status": 200
+    },
+    {
+      "route": "/chinamans-ocean-front-beach-house/",
+      "status": 200
+    },
+    {
+      "route": "/terms-and-conditions/",
+      "status": 200
+    },
+    {
+      "route": "/timber-and-love-gallery/",
+      "status": 200
+    },
+    {
+      "route": "/timber-love-story-boise/",
+      "status": 200
+    },
+    {
+      "route": "/design-and-build-questionnaire/",
+      "status": 200
+    },
+    {
+      "route": "/journal/",
+      "status": 200
+    },
+    {
+      "route": "/invest/",
+      "status": 200
+    },
+    {
+      "route": "/timber-and-love-chalet/",
+      "status": 200
+    },
+    {
+      "route": "/the-darla-house/",
+      "status": 200
+    },
+    {
+      "route": "/shows/",
+      "status": 200
+    },
+    {
+      "route": "/the-boise-boys/",
+      "status": 200
+    },
+    {
+      "route": "/design-and-build/",
+      "status": 200
+    },
+    {
+      "route": "/caldwell-beach-house/",
+      "status": 200
+    },
+    {
+      "route": "/projects/promise-lane-modern-farmhouse/",
+      "status": 200
+    },
+    {
+      "route": "/projects/due-for-a-raze/",
+      "status": 200
+    },
+    {
+      "route": "/projects/casa-de-boise/",
+      "status": 200
+    },
+    {
+      "route": "/projects/central-rim/",
+      "status": 200
+    },
+    {
+      "route": "/projects/the-chalet/",
+      "status": 200
+    },
+    {
+      "route": "/projects/the-firehouse/",
+      "status": 200
+    },
+    {
+      "route": "/projects/promise-lane-contemporary/",
+      "status": 200
+    },
+    {
+      "route": "/projects/kualoa-beach-house/",
+      "status": 200
+    },
+    {
+      "route": "/projects/north-end-gem/",
+      "status": 200
+    },
+    {
+      "route": "/projects/stucco-in-time/",
+      "status": 200
+    },
+    {
+      "route": "/projects/the-darla-house/",
+      "status": 200
+    },
+    {
+      "route": "/projects/promise-lane-spanish-modern/",
+      "status": 200
+    }
+  ],
+  "plannerRedirects": "pass",
+  "unconfiguredContact": "503 as expected, no delivery",
+  "imageSample": {
+    "originalBytes": 748527,
+    "optimizedBytes": 61458,
+    "savingPercent": 92,
+    "format": "image/webp"
+  }
+}

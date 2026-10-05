@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import LukeClintFeature from '@/components/sections/LukeClintFeature';
 import HgtvShows from '@/components/sections/HgtvShows';
 import Link from 'next/link';
@@ -30,7 +31,7 @@ import { projects } from '@/lib/content/projects';
 
 // Lead the homepage with design-build case studies (the custom homes), the
 // clearest proof of the integrated design + build service.
-const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
+const featuredProjects = ['promise-lane-spanish-modern', 'stucco-in-time', 'north-end-gem'].map((slug) => projects.find((p) => p.slug === slug)!);
 
 /**
  * Homepage sequence: orient → route → prove → demonstrate → reassure → convert.
@@ -116,7 +117,7 @@ export default function HomePage() {
               <Reveal key={p.key} delay={i * 100}>
                 <div className="group card-interactive relative isolate flex min-h-[20rem] flex-col justify-end overflow-hidden sm:min-h-[24rem]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <SiteImage
                     src={p.image}
                     alt=""
                     aria-hidden="true"
@@ -150,7 +151,7 @@ export default function HomePage() {
               Start a Project
             </Link>
             <Link href="/contact/" className="btn-secondary" data-track="wwd_consult">
-              Book a Free Consultation
+              Talk to Our Team
             </Link>
           </div>
         </div>
@@ -194,10 +195,9 @@ export default function HomePage() {
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Featured Work</p>
-            <h2 className="h-section mt-4">Custom Homes, Designed and Built as One Team</h2>
+            <h2 className="h-section mt-4">Different Homes. One Considered Approach.</h2>
             <p className="text-lead mt-5">
-              A closer look at recent Timber and Love design-build homes across the Treasure Valley, where architecture,
-              interiors, and construction were resolved together from first concept to final detail.
+              Explore a custom home, a beam-filled renovation, and a characterful North End transformation. Each begins with the home and the people who live there.
             </p>
           </Reveal>
           <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -206,7 +206,7 @@ export default function HomePage() {
                 <Link href={`/projects/${p.slug}/`} className="group card-interactive block h-full overflow-hidden">
                   <div className="relative aspect-[4/5] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
+                    <SiteImage
                       src={p.cover}
                       alt={`${p.title}: ${p.category} by Timber and Love`}
                       loading="lazy"
@@ -224,6 +224,45 @@ export default function HomePage() {
           </div>
           <div className="mt-10">
             <Link href="/timber-and-love-gallery/" className="btn-secondary">Explore the Full Portfolio</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Remove friction immediately before the ask */}
+      <section className="section-tonal border-t border-border-subtle section">
+        <div className="container-wide">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
+            <Reveal>
+              <p className="eyebrow">Let&apos;s Work Together</p>
+              <h2 className="h-section mt-4">Get Started In 3 Simple Steps</h2>
+            </Reveal>
+            <Reveal delay={120} className="flex items-end">
+              <p className="text-body">
+                Every home we design and build starts the same way: a simple, three-step process, then collaboration,
+                creativity, and precision as we bring it to life. Tell us what you have in mind,
+                and our team will help you find the right starting point.
+              </p>
+            </Reveal>
+          </div>
+          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+            {processSteps.map((step, i) => (
+              <Reveal key={step.num} delay={i * 110} className="media-card relative isolate flex min-h-[26rem] flex-col justify-end overflow-hidden p-7 sm:p-8">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <SiteImage src={step.image} alt="" loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/80 to-ink/15" />
+                <div className="font-sans text-5xl tracking-brand text-accent/70">{step.num}</div>
+                <h3 className="h-card mt-6">{step.title}</h3>
+                <p className="mt-4 text-sm leading-relaxed text-body">{step.body}</p>
+              </Reveal>
+            ))}
+          </div>
+          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+            <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="process_plan">
+              Start a Project
+            </Link>
+            <Link href="/our-process/" className="btn-secondary" data-track="process_learn">
+              See How It Works
+            </Link>
           </div>
         </div>
       </section>
@@ -267,45 +306,6 @@ export default function HomePage() {
             <p className="text-lead mt-5">Tell us about your home and your goals, and let’s bring your vision to life.</p>
             <Link href="/design-and-build-questionnaire/" className="btn-primary mt-8 inline-flex">Start a Project</Link>
           </Reveal>
-        </div>
-      </section>
-
-      {/* Remove friction immediately before the ask */}
-      <section className="section-tonal border-t border-border-subtle section">
-        <div className="container-wide">
-          <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
-            <Reveal>
-              <p className="eyebrow">Let&apos;s Work Together</p>
-              <h2 className="h-section mt-4">Get Started In 3 Simple Steps</h2>
-            </Reveal>
-            <Reveal delay={120} className="flex items-end">
-              <p className="text-body">
-                Every home we design and build starts the same way: a simple, three-step process, then collaboration,
-                creativity, and precision as we bring it to life. Tell us what you have in mind,
-                and our team will help you find the right starting point.
-              </p>
-            </Reveal>
-          </div>
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {processSteps.map((step, i) => (
-              <Reveal key={step.num} delay={i * 110} className="media-card relative isolate flex min-h-[26rem] flex-col justify-end overflow-hidden p-7 sm:p-8">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={step.image} alt="" loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover" />
-                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/80 to-ink/15" />
-                <div className="font-sans text-5xl tracking-brand text-accent/70">{step.num}</div>
-                <h3 className="h-card mt-6">{step.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-body">{step.body}</p>
-              </Reveal>
-            ))}
-          </div>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="process_plan">
-              Start a Project
-            </Link>
-            <Link href="/design-and-build/" className="btn-secondary" data-track="process_learn">
-              See How It Works
-            </Link>
-          </div>
         </div>
       </section>
 

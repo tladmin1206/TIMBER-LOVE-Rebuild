@@ -70,7 +70,7 @@ export default function Header() {
     >
       <div className="container-wide flex h-[76px] items-center justify-between gap-5 lg:h-[88px]">
         <Link
-          href="/"
+          href="/" aria-current={pathname === "/" ? "page" : undefined}
           aria-label="Timber and Love home"
           onClick={close}
           className="shrink-0"
@@ -106,14 +106,14 @@ export default function Header() {
             </button>
           ))}
           <Link
-            href="/timber-and-love-gallery/"
+            href="/timber-and-love-gallery/" aria-current={pathname === "/timber-and-love-gallery/" ? "page" : undefined}
             className="py-3 text-[11px] uppercase tracking-[.12em] text-cream"
             onClick={close}
           >
             Our Work
           </Link>
           <Link
-            href="/shows/"
+            href="/shows/" aria-current={pathname === "/shows/" ? "page" : undefined}
             className="py-3 text-[11px] uppercase tracking-[.12em] text-cream"
             onClick={close}
           >
@@ -121,7 +121,7 @@ export default function Header() {
           </Link>
         </nav>
         <Link
-          href="/contact/"
+          href="/contact/" aria-current={pathname === "/contact/" ? "page" : undefined}
           className="btn-primary hidden !px-5 !text-[11px] xl:inline-flex"
           onClick={close}
         >
@@ -155,6 +155,7 @@ export default function Header() {
                       <Link
                         onClick={close}
                         href={link.href}
+                        aria-current={!link.href.includes("#") && pathname === link.href ? "page" : undefined}
                         className="group -mx-3 block px-3 py-3 transition-colors hover:bg-white/5"
                       >
                         <span className="flex items-center justify-between text-sm font-medium text-text-primary">
@@ -253,6 +254,7 @@ export default function Header() {
                           <Link
                             key={link.label}
                             href={link.href}
+                        aria-current={!link.href.includes("#") && pathname === link.href ? "page" : undefined}
                             onClick={close}
                             className="block py-3 text-sm text-cream"
                           >
@@ -269,21 +271,21 @@ export default function Header() {
               </div>
             ))}
             <Link
-              href="/timber-and-love-gallery/"
+              href="/timber-and-love-gallery/" aria-current={pathname === "/timber-and-love-gallery/" ? "page" : undefined}
               onClick={close}
               className="block border-b border-border-subtle py-5 text-sm uppercase tracking-widest"
             >
               Our Work
             </Link>
             <Link
-              href="/shows/"
+              href="/shows/" aria-current={pathname === "/shows/" ? "page" : undefined}
               onClick={close}
               className="block border-b border-border-subtle py-5 text-sm uppercase tracking-widest"
             >
               Shows + Watch
             </Link>
             <div className="mt-8 flex flex-col gap-3">
-              <Link href="/contact/" onClick={close} className="btn-primary">
+              <Link href="/contact/" aria-current={pathname === "/contact/" ? "page" : undefined} onClick={close} className="btn-primary">
                 Start a Conversation
               </Link>
               <a href={site.phoneHref} className="btn-secondary">

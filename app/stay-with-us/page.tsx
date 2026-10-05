@@ -28,6 +28,7 @@ export default function Page() {
         image="/video-posters/928750123.jpg"
       >
         <Cta href="#properties">Explore the Properties</Cta>
+        <Cta href="/vacation-rentals/" variant="secondary">Compare Homes and Group Sizes</Cta>
       </PageHero>
       <section id="properties" className="bg-bg-primary section scroll-mt-24">
         <div className="container-wide">
@@ -43,7 +44,7 @@ export default function Page() {
         image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg"
         imageAlt="Front exterior of the Timber and Love Chalet, a mountain-modern vacation rental designed and built by the studio"
         eyebrow="Mountain Getaway"
-        title="Make Time for McCall"
+        title="Mountain Time, Near McCall"
         cta="Explore the Chalet"
         href="/timber-and-love-chalet/"
         tone="secondary"

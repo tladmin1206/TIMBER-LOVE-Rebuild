@@ -1,5 +1,6 @@
 'use client';
 
+import { trackEvent } from '@/lib/analytics';
 import { useState } from 'react';
 
 /** Click-to-play inline Vimeo player with a poster (mirrors the live intro video). */
@@ -29,7 +30,7 @@ export default function InlineVideo({
       ) : (
         <button
           type="button"
-          onClick={() => setPlaying(true)}
+          onClick={() => { setPlaying(true); trackEvent('video_play_requested', { provider: 'vimeo', video_id: videoId }); } }
           className="group absolute inset-0 h-full w-full"
           aria-label={`Play ${title}`}
         >

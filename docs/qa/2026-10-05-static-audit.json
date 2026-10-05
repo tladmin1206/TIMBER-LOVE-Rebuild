@@ -1,0 +1,258 @@
+{
+  "checkedAt": "2026-10-05",
+  "pages": [
+    {
+      "route": "/building-boise-new-show-announcement/",
+      "images": 4,
+      "sections": 2,
+      "bytes": 58305
+    },
+    {
+      "route": "/service-areas/",
+      "images": 13,
+      "sections": 10,
+      "bytes": 94908
+    },
+    {
+      "route": "/reviews/",
+      "images": 5,
+      "sections": 4,
+      "bytes": 68607
+    },
+    {
+      "route": "/financing/",
+      "images": 10,
+      "sections": 8,
+      "bytes": 97410
+    },
+    {
+      "route": "/about/",
+      "images": 13,
+      "sections": 11,
+      "bytes": 87735
+    },
+    {
+      "route": "/contact/",
+      "images": 13,
+      "sections": 5,
+      "bytes": 95538
+    },
+    {
+      "route": "/sell-for-cash/",
+      "images": 13,
+      "sections": 11,
+      "bytes": 102972
+    },
+    {
+      "route": "/stay-with-us/",
+      "images": 17,
+      "sections": 6,
+      "bytes": 104993
+    },
+    {
+      "route": "/the-firehouse/",
+      "images": 13,
+      "sections": 8,
+      "bytes": 93542
+    },
+    {
+      "route": "/luke-caldwell-faq/",
+      "images": 5,
+      "sections": 2,
+      "bytes": 65501
+    },
+    {
+      "route": "/",
+      "images": 41,
+      "sections": 16,
+      "bytes": 140742
+    },
+    {
+      "route": "/vacation-rentals/",
+      "images": 8,
+      "sections": 1,
+      "bytes": 57219
+    },
+    {
+      "route": "/boise-boys-are-back/",
+      "images": 6,
+      "sections": 2,
+      "bytes": 56573
+    },
+    {
+      "route": "/our-process/",
+      "images": 8,
+      "sections": 8,
+      "bytes": 92679
+    },
+    {
+      "route": "/privacy-policy/",
+      "images": 3,
+      "sections": 0,
+      "bytes": 55119
+    },
+    {
+      "route": "/luke-caldwell-boise-community/",
+      "images": 5,
+      "sections": 2,
+      "bytes": 57007
+    },
+    {
+      "route": "/buy-or-sell/",
+      "images": 14,
+      "sections": 13,
+      "bytes": 114102
+    },
+    {
+      "route": "/chinamans-ocean-front-beach-house/",
+      "images": 13,
+      "sections": 7,
+      "bytes": 88153
+    },
+    {
+      "route": "/terms-and-conditions/",
+      "images": 3,
+      "sections": 0,
+      "bytes": 50816
+    },
+    {
+      "route": "/timber-and-love-gallery/",
+      "images": 6,
+      "sections": 6,
+      "bytes": 69862
+    },
+    {
+      "route": "/timber-love-story-boise/",
+      "images": 5,
+      "sections": 2,
+      "bytes": 57649
+    },
+    {
+      "route": "/design-and-build-questionnaire/",
+      "images": 7,
+      "sections": 2,
+      "bytes": 55085
+    },
+    {
+      "route": "/journal/",
+      "images": 10,
+      "sections": 5,
+      "bytes": 68154
+    },
+    {
+      "route": "/invest/",
+      "images": 13,
+      "sections": 11,
+      "bytes": 101176
+    },
+    {
+      "route": "/timber-and-love-chalet/",
+      "images": 13,
+      "sections": 7,
+      "bytes": 92395
+    },
+    {
+      "route": "/the-darla-house/",
+      "images": 13,
+      "sections": 8,
+      "bytes": 91520
+    },
+    {
+      "route": "/shows/",
+      "images": 42,
+      "sections": 7,
+      "bytes": 103215
+    },
+    {
+      "route": "/the-boise-boys/",
+      "images": 15,
+      "sections": 8,
+      "bytes": 91533
+    },
+    {
+      "route": "/design-and-build/",
+      "images": 18,
+      "sections": 11,
+      "bytes": 117915
+    },
+    {
+      "route": "/caldwell-beach-house/",
+      "images": 13,
+      "sections": 7,
+      "bytes": 82146
+    },
+    {
+      "route": "/projects/promise-lane-modern-farmhouse/",
+      "images": 30,
+      "sections": 7,
+      "bytes": 108740
+    },
+    {
+      "route": "/projects/due-for-a-raze/",
+      "images": 14,
+      "sections": 7,
+      "bytes": 78910
+    },
+    {
+      "route": "/projects/casa-de-boise/",
+      "images": 13,
+      "sections": 7,
+      "bytes": 89163
+    },
+    {
+      "route": "/projects/central-rim/",
+      "images": 14,
+      "sections": 7,
+      "bytes": 78535
+    },
+    {
+      "route": "/projects/the-chalet/",
+      "images": 14,
+      "sections": 7,
+      "bytes": 89432
+    },
+    {
+      "route": "/projects/the-firehouse/",
+      "images": 15,
+      "sections": 7,
+      "bytes": 92170
+    },
+    {
+      "route": "/projects/promise-lane-contemporary/",
+      "images": 31,
+      "sections": 7,
+      "bytes": 110758
+    },
+    {
+      "route": "/projects/kualoa-beach-house/",
+      "images": 14,
+      "sections": 7,
+      "bytes": 89848
+    },
+    {
+      "route": "/projects/north-end-gem/",
+      "images": 14,
+      "sections": 7,
+      "bytes": 78907
+    },
+    {
+      "route": "/projects/stucco-in-time/",
+      "images": 14,
+      "sections": 7,
+      "bytes": 78849
+    },
+    {
+      "route": "/projects/the-darla-house/",
+      "images": 14,
+      "sections": 7,
+      "bytes": 84687
+    },
+    {
+      "route": "/projects/promise-lane-spanish-modern/",
+      "images": 29,
+      "sections": 7,
+      "bytes": 107591
+    }
+  ],
+  "errors": []
+}

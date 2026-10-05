@@ -3,11 +3,12 @@
 import { useEffect, useId, useRef, useState } from 'react';
 import Link from 'next/link';
 import Spinner from '@/components/ui/Spinner';
+import { trackEvent } from '@/lib/analytics';
 import { site } from '@/lib/site';
 
 type Props = { source?: string; compact?: boolean; defaultService?: string };
 type Status = 'idle' | 'submitting' | 'success' | 'error';
-const SERVICES = ['Design + Build', 'Buying or Selling', 'Cash Home Offer', 'Investing', 'Property Management', 'Vacation Stay', 'Press or Partnership', 'Something Else'];
+const SERVICES = ['Design + Build', 'Buying or Selling', 'Cash Home Offer', 'Investing', 'Vacation Stay', 'Press or Partnership', 'Something Else'];
 
 export default function ContactForm({ source = 'website', compact = false, defaultService = '' }: Props) {
   const [status, setStatus] = useState<Status>('idle');
@@ -15,6 +16,7 @@ export default function ContactForm({ source = 'website', compact = false, defau
   const id = useId();
   const successRef = useRef<HTMLDivElement>(null);
   const sending = useRef(false);
+  const started = useRef(false);
   const submission = useRef({ payload: '', id: '' });
 
   useEffect(() => { if (status === 'success') successRef.current?.focus(); }, [status]);
@@ -41,9 +43,11 @@ export default function ContactForm({ source = 'website', compact = false, defau
       });
       const result = await res.json();
       if (!res.ok || result.ok !== true) throw new Error(result.error || 'We could not send your message. Please try again.');
+      trackEvent('generate_lead', { form: 'general_contact', source });
       setStatus('success');
       form.reset();
     } catch (err) {
+      trackEvent('form_error', { form: 'general_contact', source, reason: 'delivery_unconfirmed' });
       setStatus('error');
       setError(err instanceof Error && err.name !== 'TimeoutError' && err.name !== 'TypeError' ? err.message : 'We could not confirm your message was sent. Please try again.');
     } finally {
@@ -62,7 +66,7 @@ export default function ContactForm({ source = 'website', compact = false, defau
 
   const inputCls = 'mt-2 w-full min-w-0 border border-cream/25 bg-ink px-4 py-3 text-base text-cream outline-none transition focus:border-cream/70';
   return (
-    <form onSubmit={handleSubmit} className="space-y-5" aria-label="Contact Timber and Love">
+    <form onFocus={() => { if (!started.current) { started.current = true; trackEvent('form_start', { form: 'general_contact', source }); } }} onSubmit={handleSubmit} className="space-y-5" aria-label="Contact Timber and Love">
       <p className="text-xs text-text-muted">Fields marked * are required.</p>
       <div className={compact ? 'space-y-5' : 'grid gap-5 sm:grid-cols-2'}>
         <label className="block text-sm text-cream" htmlFor={`${id}-first`}>First Name *<input id={`${id}-first`} className={inputCls} name="firstName" required maxLength={100} autoComplete="given-name" /></label>

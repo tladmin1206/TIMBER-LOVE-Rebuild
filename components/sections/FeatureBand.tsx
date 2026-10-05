@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import Cta from '@/components/ui/Cta';
 import Reveal from '@/components/ui/Reveal';
 
@@ -32,7 +33,7 @@ export default function FeatureBand({
   return (
     <section className={`media-card relative isolate flex items-center overflow-hidden py-20 sm:py-28 ${height === 'tall' ? 'min-h-[70vh]' : 'min-h-[52vh]'}`}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={image} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+      <SiteImage sizes="100vw" src={image} alt="" aria-hidden="true" loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover" />
       <div className={`absolute inset-0 -z-10 ${gradient}`} />
       <div className="container-wide">
         <Reveal className={align === 'center' ? 'mx-auto max-w-2xl text-center' : 'max-w-xl'}>

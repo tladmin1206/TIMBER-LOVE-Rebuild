@@ -6,6 +6,7 @@ import Reveal from '@/components/ui/Reveal';
 export type ProcessPhase = {
   title: string;
   body: string;
+  decision?: string;
   receive?: string; // what the client has at the end of this phase
 };
 
@@ -61,7 +62,7 @@ export default function ProcessTimeline({ phases }: { phases: ProcessPhase[] }) 
       {/* Pinned phase rail (desktop only). Mirrors the steps rather than adding
           content, so it is hidden from assistive tech: a screen reader gets the
           real list once, below. */}
-      <aside className="hidden lg:col-span-4 lg:block" aria-hidden="true">
+      <aside className="hidden lg:col-span-4 lg:block" aria-label="Project phases">
         <div className="sticky" style={{ top: 'calc(var(--header-h, 88px) + 2.5rem)' }}>
           <p className="text-xs uppercase tracking-[0.18em] text-text-muted">
             Phase <span className="tabular-nums text-cream">{pad(active + 1)}</span>
@@ -77,7 +78,7 @@ export default function ProcessTimeline({ phases }: { phases: ProcessPhase[] }) 
                 <li key={p.title}>
                   <a
                     href={`#phase-${i + 1}`}
-                    tabIndex={-1}
+                    aria-current={on ? "step" : undefined}
                     className={`-ml-px flex items-baseline gap-3 border-l py-1.5 pl-4 text-sm transition-colors duration-300 ${
                       on
                         ? 'border-cream text-cream'
@@ -112,6 +113,7 @@ export default function ProcessTimeline({ phases }: { phases: ProcessPhase[] }) 
             <div className="pt-1.5 sm:pt-2.5">
               <h3 className="h-card-sm sm:text-xl">{p.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-text-secondary">{p.body}</p>
+              {p.decision && <p className="mt-3 text-sm leading-relaxed text-text-secondary"><span className="text-cream">Your part:</span> {p.decision}</p>}
               {p.receive && (
                 <p className="mt-3 text-xs uppercase tracking-[0.12em] text-text-muted">
                   <span className="text-accent">You leave with:</span> {p.receive}

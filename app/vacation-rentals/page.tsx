@@ -1,96 +1,13 @@
-import PageHero from '@/components/sections/PageHero';
-import FeatureBand from '@/components/sections/FeatureBand';
-import EditorialSplit from '@/components/sections/EditorialSplit';
-import RentalsGrid from '@/components/sections/RentalsGrid';
-import Cta from '@/components/ui/Cta';
-import Reveal from '@/components/ui/Reveal';
+import Link from 'next/link';
+import RentalComparison from '@/components/sections/RentalComparison';
 import { pageMeta } from '@/lib/seo';
-import ClosingCta from '@/components/sections/ClosingCta';
-import { closingCta } from '@/lib/content/closing';
-
-export const metadata = pageMeta({
-  title: 'Vacation Rentals',
-  description: 'Stay in distinctive Timber and Love homes in Boise, McCall, and Oahu.',
-  path: '/vacation-rentals/',
-});
-
+export const metadata = pageMeta({ title: 'Compare Vacation Homes', description: 'Compare five Timber and Love vacation homes in Boise, New Meadows near McCall, and Oahu. Filter by destination and group size, then check your dates.', path: '/vacation-rentals/' });
 export default function Page() {
-  return (
-    <>
-      <PageHero
-        eyebrow="Stay With Us"
-        title="Distinctive Homes. Memorable Places to Stay."
-        subtitle="Find your next getaway in Boise, McCall, or Oahu. Browse the homes, choose a setting, and check your dates."
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Exterior-scaled.jpg"
-      >
-        <Cta href="#properties" variant="primary">Explore the Properties</Cta>
-      </PageHero>
-
-      <section id="properties" className="bg-bg-primary section scroll-mt-24">
-        <div className="container-wide">
-          <Reveal className="max-w-2xl">
-            <p className="eyebrow">Our Properties</p>
-            <h2 className="h-section mt-4">Timber and Love Vacation Rentals</h2>
-            <p className="text-lead mt-4">
-              From a historic Boise firehouse to two oceanfront homes in Hawaii, find a place that fits your group and your plans.
-            </p>
-          </Reveal>
-          <div className="mt-16">
-            <RentalsGrid />
-          </div>
-        </div>
-      </section>
-
-      <EditorialSplit
-        image="/wp-content/uploads/2025/12/1-Oceanfront-Oahu-vacation-rental-exterior-with-direct-beach-access.png"
-        imageAlt="Oceanfront Oahu vacation rental exterior with direct access to a sandy beach and open water"
-        eyebrow="Designed Getaways"
-        title="From Boise to the Oahu Shore"
-        cta="Compare the Oahu Homes"
-        href="#hawaii-properties"
-        tone="secondary"
-        ratio="landscape"
-      >
-        <p>
-          Choose between two homes in Kaʻaʻawa on Oahu’s windward coast. The Kualoa Beach House welcomes up to eight guests; The Caldwell Beach House has room for eleven.
-        </p>
-        <p>
-          Explore each home’s photographs and amenities, then check your dates directly with Vacation Rental Oahu.
-        </p>
-      </EditorialSplit>
-
-      <EditorialSplit
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Living-Room-scaled.jpg"
-        imageAlt="Living room inside the restored historic Boise firehouse featured on HGTV Boise Boys"
-        eyebrow="Stay in a Story"
-        title="A Historic Firehouse, Reimagined"
-        cta="Explore the Firehouse"
-        href="/the-firehouse/"
-        reverse
-        tone="primary"
-        ratio="landscape"
-      >
-        <p>
-          Our restored Boise firehouse, featured on HGTV Boise Boys, keeps its original character while living
-          like a modern home. Soaring volume, warm materials, and thoughtful detail throughout.
-        </p>
-        <p>
-          Make it your base for a Boise visit, with plenty of character to come home to at the end of the day.
-        </p>
-      </EditorialSplit>
-
-      <FeatureBand
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg"
-        eyebrow="Mountain Modern"
-        title="The Chalet Awaits"
-        cta="Explore the Chalet"
-        href="/timber-and-love-chalet/"
-        body="Gather your favorite people for a slower pace and a mountain getaway in McCall."
-        align="left"
-        height="short"
-      />
-
-      <ClosingCta {...closingCta.vacationRentals} />
-    </>
-  );
+  return <section className="bg-bg-primary pb-24 pt-32 sm:pt-40"><div className="container-wide">
+    <Link href="/stay-with-us/" className="eyebrow link-underline">Stay With Us</Link>
+    <h1 className="h-page mt-5 max-w-4xl">Find Your Place to Stay</h1>
+    <p className="text-lead mt-6 mb-10 max-w-2xl">Five distinctive homes. Choose your setting and group size, compare the details, then check your dates with the booking host.</p>
+    <RentalComparison />
+    <div className="mt-16 border-t border-border-subtle pt-8"><h2 className="h-card">A Question Before You Book?</h2><p className="text-lead mt-4">Our team can help point you toward the right home.</p><Link href="/contact/#general" className="btn-secondary mt-6">Ask About a Stay</Link></div>
+  </div></section>;
 }

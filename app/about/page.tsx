@@ -105,16 +105,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Full-bleed photographic statement: design + build under one roof. */}
-      <FeatureBand
-        image="/editorial/firehouse-lounge.webp"
-        eyebrow="Design and Build, Together"
-        title="One Team, From First Sketch to Final Detail"
-        body="Design and construction happen under one roof, so nothing is lost between the vision and the finished home."
-        align="left"
-        height="short"
-      />
-
       {/* Luke Caldwell */}
       <section className="border-t border-border-subtle bg-bg-primary section" aria-labelledby="luke-heading">
         <div className="container-wide grid gap-12 lg:grid-cols-2 lg:items-start">
@@ -140,47 +130,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Design philosophy */}
-      <section className="section-tonal border-t border-border-subtle bg-bg-secondary section" aria-labelledby="philosophy-heading">
-        <div className="container-wide">
-          <Reveal className="max-w-3xl">
-            <p className="eyebrow">Our Point of View</p>
-            <h2 id="philosophy-heading" className="h-section mt-4">
-              Warm, Modern, and True to the House
-            </h2>
-            <p className="text-lead mt-5">
-              We design homes that feel warm and modern at once, and we work to keep the character that makes an older
-              home worth saving.
-            </p>
-            <p className="mt-5 text-sm leading-relaxed text-text-secondary">
-              In practice that means honoring original details where they matter, opening up rooms that no longer fit how
-              people actually live, and choosing materials for how they wear over years rather than how they look on the
-              first day. The goal is a home that feels collected and personal, not staged.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* HGTV history */}
-      <section className="border-t border-border-subtle bg-bg-primary section" aria-labelledby="hgtv-heading">
-        <div className="container-wide">
-          <Reveal className="max-w-2xl">
-            <p className="eyebrow">As Seen on HGTV</p>
-            <h2 id="hgtv-heading" className="h-section mt-4">
-              A Story Documented on Screen
-            </h2>
-            <p className="text-lead mt-5">
-              Luke and the team documented their Boise renovations on HGTV&apos;s Boise Boys, then continued the story
-              with Outgrown. The full history, including favorite projects from the show, lives on our HGTV page.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Cta href="/the-boise-boys/" variant="secondary">Explore the HGTV Story</Cta>
-              <Cta href={site.shows.boiseBoys} variant="link" external newTab>Watch Boise Boys</Cta>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       <EditorialSplit image="/editorial/luke-clint-studio.webp" imageAlt="Luke Caldwell and Clint Robertson" eyebrow="The Story Continues" title="A Partnership Boise Watched Grow" cta="Discover the Shows" href="/shows/" tone="secondary" ratio="natural">
         <p>Luke Caldwell and Clint Robertson brought their Boise renovations to a national audience. Follow their next chapter on Luke and Clint, now on YouTube.</p>
       </EditorialSplit>
@@ -189,8 +138,8 @@ export default function Page() {
       <EditorialSplit
         image="/projects/promise-ln-5120/5120-promise-ln-living-green-panel.jpg"
         imageAlt="Living space with green paneled millwork and a fireplace in a modern farmhouse by Timber and Love"
-        eyebrow="Warm and Modern"
-        title="Rooms That Feel Collected, Not Staged"
+        eyebrow="Our Point of View"
+        title="Warm, Modern, and True to the House"
         tone="secondary"
         ratio="landscape"
       >
@@ -206,8 +155,8 @@ export default function Page() {
 
       {/* Americana Soul */}
       <section id="americana-soul" className="section-tonal border-t border-border-subtle bg-bg-secondary section" aria-labelledby="book-heading">
-        <div className="container-wide grid gap-12 lg:grid-cols-[minmax(0,320px)_1fr] lg:items-center">
-          <Reveal className="mx-auto w-full max-w-[320px]">
+        <div className="container-wide grid gap-12 lg:grid-cols-[minmax(0,440px)_1fr] lg:items-center">
+          <Reveal className="mx-auto w-full max-w-[440px]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/editorial/luke-book.webp"

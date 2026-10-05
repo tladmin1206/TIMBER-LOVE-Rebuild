@@ -108,24 +108,14 @@ export default function Page() {
           <div className="mt-10">
             <ReviewSlider items={clientReviews} />
           </div>
-        </div>
-      </section>
-
-      {/* Fan comments: clearly labeled as viewers, not clients */}
-      <section className="border-t border-border-subtle bg-bg-primary section-tight">
-        <div className="container-wide">
-          <Reveal className="mb-8 max-w-2xl">
-            <p className="eyebrow">From the Fans</p>
-            <h2 className="h-section mt-4">What Viewers Say</h2>
-          </Reveal>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {fanComments.map((f) => (
+          <details className="mt-12 border-t border-border-subtle pt-6 text-left"><summary className="cursor-pointer py-4 text-sm uppercase tracking-[.14em]">From the Viewers: Boise Boys Fan Comments</summary><p className="mt-3 text-sm text-text-secondary">These are comments about the shows, separate from the client experiences above.</p><div className="mt-6 grid gap-4 lg:grid-cols-3">            {fanComments.map((f) => (
               <figure key={f.name} className="surface-card p-5">
                 <blockquote className="text-sm leading-relaxed text-text-secondary">“{f.quote}”</blockquote>
                 <figcaption className="mt-3 text-xs uppercase tracking-[0.14em] text-text-muted">{f.name} · {f.role}</figcaption>
               </figure>
             ))}
-          </div>
+</div></details>
+
         </div>
       </section>
 

@@ -144,7 +144,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
               </p>
               {glanceEntries.length > 0 && (
                 <dl className="mt-5 space-y-2 text-sm">
-                  {glanceEntries.slice(0, 4).map(([k, v]) => (
+                  {glanceEntries.map(([k, v]) => (
                     <div key={k} className="flex justify-between gap-4 border-b border-border-subtle pb-2">
                       <dt className="capitalize text-text-muted">{k.replace(/([A-Z])/g, ' $1')}</dt>
                       <dd className="text-right text-cream">{v}</dd>

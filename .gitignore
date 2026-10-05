@@ -9,6 +9,5 @@ _capture
 next-env.d.ts
 tsconfig.tsbuildinfo
 
-# Large binary assets — host these via CDN, not git
-public/wp-content/
+# Legacy media is now self-hosted so domain cutover cannot break it.
 site/

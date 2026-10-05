@@ -1,3 +1,4 @@
+import NavLink from '@/components/ui/NavLink';
 import Link from 'next/link';
 import Newsletter from '@/components/forms/Newsletter';
 import Stars from '@/components/ui/Stars';
@@ -37,7 +38,7 @@ const mediaLinks: Item[] = [
 
 function FooterLink({ label, href, external }: { label: string; href: string; external?: boolean }) {
   return (
-    <Link
+    <NavLink
       href={href}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       // inline-block + vertical padding lifts the tap target to a comfortable
@@ -46,7 +47,7 @@ function FooterLink({ label, href, external }: { label: string; href: string; ex
     >
       {label}
       {external && <span aria-hidden="true" className="ml-0.5 text-[0.7em] opacity-70">↗</span>}
-    </Link>
+    </NavLink>
   );
 }
 
@@ -79,9 +80,7 @@ export default function Footer() {
             data-track="footer_reviews"
             className="mt-6 inline-flex items-center gap-2 border border-border-subtle px-3 py-2 text-xs text-text-secondary transition-colors hover:border-cream/40 hover:text-cream"
           >
-            <span className="text-cream">{googleReviews.rating.toFixed(1)}</span>
-            <Stars rating={googleReviews.rating} size="sm" />
-            <span className="uppercase tracking-[0.14em]">{googleReviews.count} Google reviews</span>
+            <span className="uppercase tracking-[0.14em]">Read Google Reviews</span>
           </a>
         </div>
 

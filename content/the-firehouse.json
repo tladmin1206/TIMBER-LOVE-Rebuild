@@ -14,19 +14,44 @@
   "glance": {
     "beds": "King, double, and twin bunk",
     "propertyType": "Historic firehouse apartment",
-    "parking": "Free parking",
-    "wifi": "Free WiFi"
+    "parking": "Free parking on premises",
+    "wifi": "Free WiFi",
+    "guests": "6",
+    "bedrooms": "3",
+    "bathrooms": "2"
   },
   "amenityGroups": [
-    { "category": "Essentials", "items": ["Free WiFi", "Air conditioning", "Fully stocked kitchen"] },
-    { "category": "Entertainment", "items": ["Roku streaming TV"] },
-    { "category": "Parking", "items": ["Free parking"] }
+    {
+      "category": "Essentials",
+      "items": [
+        "Free WiFi",
+        "Air conditioning",
+        "Fully stocked kitchen"
+      ]
+    },
+    {
+      "category": "Entertainment",
+      "items": [
+        "Roku streaming TV"
+      ]
+    },
+    {
+      "category": "Parking",
+      "items": [
+        "Free parking"
+      ]
+    }
   ],
-  "sleeping": ["King bed", "Double bed", "Twin bunk bed"],
+  "sleeping": [
+    "King bed",
+    "Double bed",
+    "Twin bunk bed"
+  ],
   "thingsToKnow": [
     "This is a second-floor apartment reached by stairs.",
     "The home was renovated on HGTV’s Boise Boys and is located in the historic North End.",
-    "Booking, availability, house rules, and cancellation are managed through Airbnb."
+    "Booking, availability, house rules, and cancellation are managed through Airbnb.",
+    "The rental occupies the second floor. Confirm stair access with the host before booking if mobility is a consideration."
   ],
   "intro": [
     "Fully renovated on HGTV’s BOISE BOYS is a unique, one of a kind old firehouse located in the historic North End. This 2nd floor apartment in the cities oldest fire house is located close to all the best places in the heart of Boise! The living area includes TV set up w/ Roku and opens into a fully stocked kitchen. With a king bed, double bed, and a twin bunk bed for little ones, it is perfect for the whole family!"
@@ -58,5 +83,6 @@
     "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Master-Bed-scaled.jpg",
     "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Master-Bath-1-scaled.jpg",
     "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Master-Bath-scaled.jpg"
-  ]
+  ],
+  "verifiedAt": "2026-10-05"
 }

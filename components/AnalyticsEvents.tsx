@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { trackEvent } from '@/lib/analytics';
 
 /**
  * Privacy-safe click instrumentation. A single delegated listener fires a gtag
@@ -17,10 +18,10 @@ declare global {
 export default function AnalyticsEvents() {
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement)?.closest<HTMLElement>('[data-track],[data-external]');
+      const target = (e.target as HTMLElement)?.closest<HTMLElement>('a,button[data-track]');
       if (!target) return;
 
-      const name = target.getAttribute('data-track');
+      const name = target.getAttribute('data-track') || (target.matches('a.btn-primary,a.btn-secondary') ? 'cta_click' : null);
       const isExternal = target.getAttribute('data-external') === 'true' || target.getAttribute('target') === '_blank';
       const href = target.getAttribute('href') || undefined;
       let host: string | undefined;
@@ -30,12 +31,12 @@ export default function AnalyticsEvents() {
         /* ignore malformed href */
       }
 
-      if (typeof window.gtag !== 'function') return;
+      if (name?.startsWith('book_')) trackEvent('booking_handoff', { property: name.slice(5) });
       if (name) {
-        window.gtag('event', name, { event_category: 'cta', page_path: window.location.pathname });
+        trackEvent(name, { event_category: 'cta' });
       }
       if (isExternal && host && host !== window.location.host) {
-        window.gtag('event', 'outbound_click', { event_category: 'outbound', destination: host, page_path: window.location.pathname });
+        trackEvent('outbound_click', { event_category: 'outbound', destination: host });
       }
     };
 

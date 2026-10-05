@@ -7,7 +7,7 @@ import { pageMeta } from '@/lib/seo';
 import { site } from '@/lib/site';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
-import ProofSection from '@/components/sections/ProofSection';
+import ServiceEvidence from '@/components/sections/ServiceEvidence';
 import CrossPathways from '@/components/sections/CrossPathways';
 import FaqSection from '@/components/sections/FaqSection';
 import FeatureBand from '@/components/sections/FeatureBand';
@@ -94,13 +94,10 @@ export default function Page() {
         ratio="landscape"
       >
         <p>
-          The way Timber and Love thinks about real estate is grounded in homes that are actually built. This custom
-          contemporary is the kind of work that holds its value: designed with intention, built to last, and finished
-          to a standard buyers notice.
+          The way Timber and Love thinks about real estate is grounded in homes that are actually built. This custom contemporary shows the team’s approach to architecture, materials, and finished detail.
         </p>
         <p>
-          When you invest alongside a team that designs and builds under one roof, the numbers rest on craftsmanship
-          you can see and stand inside, not a spreadsheet alone.
+          Explore the finished work, then review each proposed opportunity on its own terms, including the structure, costs, risks, and assumptions.
         </p>
       </EditorialSplit>
 
@@ -114,6 +111,8 @@ export default function Page() {
         href="/contact/#general"
         height="short"
       />
+
+      <ServiceEvidence service="invest" />
 
       {/* Primary external CTA + affiliated-site note */}
       <section className="section-tonal border-t border-border-subtle bg-bg-secondary section">
@@ -153,7 +152,6 @@ export default function Page() {
         </div>
       </section>
 
-      <ProofSection />
 
       <CrossPathways keys={['design-build', 'stay']} />
 

@@ -11,16 +11,36 @@
     "This three-bedroom, one-bathroom home sits close to the best of Boise. With a king bed and two twin beds, it is a comfortable fit for the whole family. The entire home is yours during your stay, and the property is fenced with a small patio."
   ],
   "glance": {
-    "bedrooms": "3",
+    "bedrooms": "3 sleeping areas",
     "bathrooms": "1",
     "beds": "1 king, 2 twin",
     "propertyType": "Cottage",
-    "wifi": "Free WiFi"
+    "wifi": "Free WiFi",
+    "guests": "4",
+    "parking": "Free street parking"
   },
   "amenityGroups": [
-    { "category": "Essentials", "items": ["Free WiFi", "Fully stocked kitchen", "Original character with modern updates"] },
-    { "category": "Entertainment", "items": ["Roku streaming TV"] },
-    { "category": "Outdoor", "items": ["Fenced yard", "Small patio"] }
+    {
+      "category": "Essentials",
+      "items": [
+        "Free WiFi",
+        "Fully stocked kitchen",
+        "Original character with modern updates"
+      ]
+    },
+    {
+      "category": "Entertainment",
+      "items": [
+        "Roku streaming TV"
+      ]
+    },
+    {
+      "category": "Outdoor",
+      "items": [
+        "Fenced yard",
+        "Small patio"
+      ]
+    }
   ],
   "sleeping": [
     "Downstairs primary bedroom with a king bed",
@@ -79,5 +99,6 @@
     "/wp-content/uploads/2026/04/31-Bedroom-3-scaled.jpg",
     "/wp-content/uploads/2026/04/32-706-West-Resseguie-Street-scaled.jpg",
     "/wp-content/uploads/2026/04/33-Aerial-View-scaled.jpg"
-  ]
+  ],
+  "verifiedAt": "2026-10-05"
 }

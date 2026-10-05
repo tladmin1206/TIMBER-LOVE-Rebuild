@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import Link from 'next/link';
 import Reveal from '@/components/ui/Reveal';
 
@@ -38,7 +39,7 @@ export default function EditorialSplit({
         <Reveal className={reverse ? 'lg:order-2' : ''}>
           <div className={`relative overflow-hidden ${aspect}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={image} alt={imageAlt} loading="lazy" className={ratio === 'natural' ? 'h-auto w-full' : 'h-full w-full object-cover'} />
+            <SiteImage sizes="(min-width: 1024px) 50vw, 100vw" src={image} alt={imageAlt} loading="lazy" className={ratio === 'natural' ? 'h-auto w-full' : 'h-full w-full object-cover'} />
           </div>
         </Reveal>
         <Reveal delay={100} className={reverse ? 'lg:order-1' : ''}>

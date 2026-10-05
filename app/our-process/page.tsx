@@ -1,3 +1,4 @@
+import ProcessFilms from '@/components/sections/ProcessFilms';
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
 import ProcessTimeline, { type ProcessPhase } from '@/components/sections/ProcessTimeline';
@@ -27,41 +28,49 @@ const phases: ProcessPhase[] = [
     title: 'Initial Fit & Consultation',
     body: 'We start with a conversation about your goals, your home, your timeline, and your budget. This is where we make sure we are a good fit for each other before anyone commits to anything.',
     receive: 'A clear sense of fit and next steps',
+    decision: "Share your goals, budget, and preferred timing.",
   },
   {
     title: 'Existing Conditions & Discovery',
     body: 'Our team documents your home as it is today. We measure, note existing conditions, and gather the details that shape what is possible and what to plan for.',
     receive: 'Accurate as-built understanding of your home',
+    decision: "Confirm priorities and any known issues with the home.",
   },
   {
     title: 'Concept Development',
     body: 'We translate your goals into an initial design direction, testing layouts and ideas against how you actually want to live in the space.',
     receive: 'A concept direction to react to and refine',
+    decision: "Review the proposed layout and design direction.",
   },
   {
     title: 'Design Development & Selections',
     body: 'We refine the plans and, in a design presentation with Luke and the team, review materials, fixtures, and finishes so the details reflect your vision before construction.',
     receive: 'Developed plans and a materials palette you approve',
+    decision: "Approve selections and developed plans.",
   },
   {
     title: 'Pricing & Construction Planning',
-    body: 'With the design settled, we build a detailed scope and pricing plan and map out the construction schedule so there are no surprises once work begins.',
+    body: 'With the design settled, we build a detailed scope and pricing plan and map out the construction schedule so you can review the investment and sequence before work begins.',
     receive: 'A clear scope, price, and schedule',
+    decision: "Review the scope, pricing, and proposed schedule.",
   },
   {
     title: 'Permitting & Procurement',
     body: 'We submit for the permits your project requires and strategically source and order materials so the right things arrive at the right time.',
     receive: 'Approvals in motion and materials secured',
+    decision: "Stay available for decisions required by the permit or purchasing process.",
   },
   {
     title: 'Construction',
     body: 'Our team manages the build day to day, coordinating trades, holding quality standards, and keeping you informed as your home takes shape.',
     receive: 'Steady progress and clear communication',
+    decision: "Review progress and agree any changes before they proceed.",
   },
   {
     title: 'Final Walkthrough & Completion',
     body: 'We walk the finished project with you, address any final details, and hand back a home that is ready to live in and enjoy.',
     receive: 'A finished home, done right',
+    decision: "Walk the home with us and review the final detail list.",
   },
 ];
 
@@ -117,61 +126,7 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Editorial journey: design, build, and finished detail. */}
-      <EditorialSplit
-        image="/projects/promise-ln-5120/5120-promise-ln-great-room-dining.jpg"
-        imageAlt="Open great room and dining space in a modern farmhouse designed by Timber and Love"
-        eyebrow="Concept and Design"
-        title="It Starts With How You Want to Live"
-        tone="primary"
-        ratio="landscape"
-      >
-        <p>
-          Every project begins with the way a space should feel and function. We test layouts against daily life, then
-          refine the plans and selections until the design reflects your vision, room by room.
-        </p>
-      </EditorialSplit>
-
-      <EditorialSplit
-        image="/projects/promise-ln-5142/5142-promise-ln-exterior-angle.jpg"
-        imageAlt="Angled exterior view of a charcoal modern contemporary custom home with a butterfly roof by Timber and Love"
-        eyebrow="Build and Architecture"
-        title="Where Drawings Become Structure"
-        tone="secondary"
-        ratio="landscape"
-        reverse
-      >
-        <p>
-          With the design settled, the same team carries it into construction. We coordinate trades, hold quality
-          standards, and keep you informed as the architecture takes shape and your home rises from the ground.
-        </p>
-      </EditorialSplit>
-
-      <EditorialSplit
-        image="/projects/promise-ln-5106/5106-promise-ln-primary-bath.jpg"
-        imageAlt="Primary bathroom with marble and custom finishes in a Spanish modern custom home by Timber and Love"
-        eyebrow="Finished Details"
-        title="The Difference Is in the Last Ten Percent"
-        tone="primary"
-        ratio="landscape"
-      >
-        <p>
-          Completion is about the details you live with every day: the fit of the finishes, the feel of the materials,
-          the way a room resolves. We walk the finished home with you and hand back a space that is ready to enjoy.
-        </p>
-      </EditorialSplit>
-
-      {/* Full-bleed photographic statement: the journey, drawing to walkthrough. */}
-      <FeatureBand
-        image="/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Stairwell-1-scaled.jpg"
-        eyebrow="First Drawing to Final Walkthrough"
-        title="The Whole Journey, One Team"
-        body="From the first sketch to the day we hand back your keys, the same people carry your home the whole way."
-        cta="Start a Project"
-        href="/design-and-build-questionnaire/"
-        align="left"
-        height="short"
-      />
+      <ProcessFilms />
 
       <ProofSection />
 

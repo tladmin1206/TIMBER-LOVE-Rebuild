@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import Reveal from '@/components/ui/Reveal';
 import VideoBg from '@/components/ui/VideoBg';
 
@@ -31,13 +32,13 @@ export default function PageHero({
     >
       {videoId ? (
         <>
-          <VideoBg videoId={videoId} poster={image} overlay="bg-gradient-to-b from-ink/80 via-ink/60 to-ink/90" />
+          <VideoBg videoId={videoId} poster={image} priority overlay="bg-gradient-to-b from-ink/80 via-ink/60 to-ink/90" />
         </>
       ) : (
         <>
           {image && (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={image} alt="" aria-hidden style={{ objectPosition: imagePosition }} className="absolute inset-0 -z-10 h-full w-full object-cover" />
+            <SiteImage sizes="100vw" src={image} fetchPriority="high" loading="eager" alt="" aria-hidden style={{ objectPosition: imagePosition }} className="absolute inset-0 -z-10 h-full w-full object-cover" />
           )}
           <div className="absolute inset-0 -z-10 bg-gradient-to-b from-ink/80 via-ink/60 to-ink/90" />
         </>

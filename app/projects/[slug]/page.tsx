@@ -1,3 +1,5 @@
+import SiteImage from '@/components/ui/SiteImage';
+import { projectStories } from '@/lib/content/project-stories';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
@@ -33,6 +35,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   if (!project) notFound();
 
   const related = relatedProjects(project.slug);
+  const story = projectStories[project.slug];
 
   return (
     <>
@@ -97,40 +100,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </div>
       </section>
 
-      {/* Design direction (editorial case-study fields, custom homes) */}
-      {project.designStory && (
-        <section className="section-tonal border-t border-border-subtle section">
-          <div className="container-wide grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:items-start">
-            <Reveal>
-              <p className="eyebrow">Design Direction</p>
-              <h2 className="h-section mt-4">A Cohesive Point of View</h2>
-              <p className="text-lead mt-6">{project.designStory}</p>
-            </Reveal>
-            <Reveal delay={100} className="grid gap-8 sm:grid-cols-2 lg:grid-cols-1">
-              {project.materials && project.materials.length > 0 && (
-                <div>
-                  <p className="field-label">Materials &amp; Finishes</p>
-                  <ul className="mt-4 space-y-2 text-sm text-text-secondary">
-                    {project.materials.map((m) => (
-                      <li key={m} className="border-b border-border-subtle pb-2">{m}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {project.features && project.features.length > 0 && (
-                <div>
-                  <p className="field-label">Notable Features</p>
-                  <ul className="mt-4 space-y-2 text-sm text-text-secondary">
-                    {project.features.map((f) => (
-                      <li key={f} className="border-b border-border-subtle pb-2">{f}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </Reveal>
-          </div>
-        </section>
-      )}
+      {story && <section className="section-tonal section border-t border-border-subtle"><div className="container-wide">
+        <p className="eyebrow">A Closer Look</p><h2 className="h-section mt-4">The Home, the Details, the Experience</h2>
+        <div className="mt-10 grid gap-8 lg:grid-cols-3">{[['The Design Idea', story.idea], ['The Design Response', story.response], ['The Finished Home', story.result]].map(([title, body]) => <div key={title} className="border-t border-border-subtle pt-6"><h3 className="h-card-sm">{title}</h3><p className="mt-4 text-sm leading-relaxed text-text-secondary">{body}</p></div>)}</div>
+        {project.materials && <div className="mt-10 border-t border-border-subtle pt-6"><p className="field-label">Materials and Finishes</p><p className="mt-4 text-sm leading-relaxed text-text-secondary">{project.materials.join(' · ')}</p></div>}
+        {project.hgtv && <Link href="/shows/#hgtv-library" className="link-underline mt-7 inline-flex min-h-11 items-center text-sm">Find the Episode in Our HGTV Collection →</Link>}
+      </div></section>}
 
       {/* Full gallery */}
       <section className={`border-t border-border-subtle section ${project.designStory ? 'bg-bg-primary' : 'section-tonal'}`}>
@@ -151,12 +126,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
               <p className="eyebrow">More Work</p>
               <h2 className="h-section mt-4">Related Projects</h2>
             </Reveal>
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {related.map((r) => (
                 <Link key={r.slug} href={`/projects/${r.slug}/`} className="group card-interactive block overflow-hidden">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={r.cover} alt={`${r.title}: ${r.category}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <SiteImage src={r.cover} alt={`${r.title}: ${r.category}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div className="p-5">
                     <h3 className="h-card">{r.title}</h3>
@@ -169,9 +144,8 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         </section>
       )}
 
-      <ProofSection />
 
-      <ClosingCta {...closingCta.projectDetail} />
+      <ClosingCta {...closingCta.projectDetail} image={project.gallery[project.gallery.length - 1]?.src ?? project.cover} />
     </>
   );
 }

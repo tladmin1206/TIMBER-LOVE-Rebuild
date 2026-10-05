@@ -19,9 +19,7 @@ export default function TrustBar() {
           data-track="trustbar_reviews"
           className="flex items-center gap-2 px-6 transition-colors hover:text-cream"
         >
-          <span className="text-cream">{googleReviews.rating.toFixed(1)}</span>
-          <Stars rating={googleReviews.rating} size="sm" />
-          <span>{googleReviews.count}+ Google reviews</span>
+          <span>Read Google Reviews</span>
         </a>
         <span className="hidden px-6 sm:inline">As seen on HGTV&apos;s Boise Boys</span>
         <span className="hidden px-6 md:inline">Boise-based since {site.founded}</span>

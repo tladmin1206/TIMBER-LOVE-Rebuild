@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import type { ReactNode } from 'react';
 
 /** A clear photographic opening, with a dark reading surface behind the copy. */
@@ -18,7 +19,7 @@ export default function PhotoCard({
     <div className={`photo-card media-card relative isolate flex h-full min-w-0 min-h-[25rem] flex-col overflow-hidden border border-border-subtle bg-ink ${className}`}>
       {/* Decorative photography supports the adjacent service heading. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={image} alt="" aria-hidden="true" loading="lazy" decoding="async"
+      <SiteImage sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" src={image} alt="" aria-hidden="true" loading="lazy" decoding="async"
         style={{ objectPosition: imagePosition }}
         className={`pointer-events-none absolute inset-0 h-full w-full ${contain ? 'object-contain' : 'object-cover'}`} />
       <div aria-hidden="true" className="photo-card-overlay pointer-events-none absolute inset-0" />
