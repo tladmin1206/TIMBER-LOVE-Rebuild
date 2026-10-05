@@ -26,6 +26,7 @@ This implements the remaining recommendations in the October 2 audit. That audit
 | Questionnaire attribution | Separate tested patch in TL-Lead-Dashboard-v2 adds exactly the Replit parent origin. Original hosted form and its qualification workflow are unchanged. |
 | Newsletter honesty | Confirmation now says the update request was sent to the team, matching its real email workflow, without claiming automatic mailing-list enrollment. |
 | Content maintenance | Added sources, review date, review-due date, factual caveats and a regression script for project collections, episode completeness, rental facts and local assets. |
+| Design + Build search and FAQ | Retained service, FAQ and breadcrumb structured data after consolidation. Shortened the five FAQ answers, aligned the service scope, and removed unsupported savings, deadline and outcome guarantees. |
 | Existing conditional recommendations | Journal remains a small five-story library, so a topic filter would add unnecessary controls. Existing city coverage list and legal reading surfaces are retained. No invented city-level projects or legal changes. |
 
 ## Verification completed
@@ -41,7 +42,7 @@ This implements the remaining recommendations in the October 2 audit. That audit
 
 ## Verification still requiring the running updated apps
 
-The local browser service did not initialize, the cloud browser cannot reach this local preview, and the supplied Chromium download did not return an executable archive. Consequently this pass cannot certify a fresh visual sweep at desktop/tablet/mobile widths, actual third-party video playback, or a controlled browser performance benchmark. The compiled route/asset checks above do not substitute for those checks.
+The local browser service did not initialize, the cloud browser cannot reach this local preview, and the supplied Chromium download did not return an executable archive. A separate read-only request for Replit to inspect the committed version in an isolated checkout timed out without results. Consequently this pass cannot certify a fresh visual sweep at desktop/tablet/mobile widths, actual third-party video playback, or a controlled browser performance benchmark. The compiled route/asset checks above do not substitute for those checks.
 
 Replit confirmed that production has the email configuration, but no inbox receipt was observed. Actual labeled test-lead receipt, the questionnaire's scheduling handoff and downstream qualified leads/bookings remain production verification. No real customer records, messages, appointments or leads were created for testing.
 

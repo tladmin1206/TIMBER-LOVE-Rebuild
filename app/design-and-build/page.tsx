@@ -1,3 +1,5 @@
+import JsonLd from '@/components/JsonLd';
+import { serviceSchema, faqSchema, breadcrumbSchema } from '@/lib/schema';
 import SiteImage from '@/components/ui/SiteImage';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
@@ -27,6 +29,11 @@ const selected = ['promise-lane-spanish-modern', 'stucco-in-time', 'north-end-ge
 
 export default function Page() {
   return <>
+    <JsonLd schema={[
+      serviceSchema({ name: 'Design + Build', description: 'Custom homes, home additions, and considered renovations in Boise and the Treasure Valley.', path: '/design-and-build/' }),
+      faqSchema(faq),
+      breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Design + Build', path: '/design-and-build/' }]),
+    ]} />
     <PageHero eyebrow="Timber and Love" title="Your Home. Thoughtfully Designed. Beautifully Built." subtitle="Custom homes and considered renovations in Boise and the Treasure Valley, with design and construction under one roof." image="/video-posters/928472719.jpg" videoId="928472719">
       <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="design_start">Start a Project</Link>
       <a href="#selected-work" className="btn-secondary">Explore Our Work</a>
