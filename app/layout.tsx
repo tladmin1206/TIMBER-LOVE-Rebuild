@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 import { site } from '@/lib/site';
 import Header from '@/components/layout/Header';
@@ -13,9 +13,11 @@ import AnalyticsEvents from '@/components/AnalyticsEvents';
 import JsonLd from '@/components/JsonLd';
 import { organizationSchema, websiteSchema, localBusinessSchema } from '@/lib/schema';
 
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+// Ship the brand font with the app so publishing never needs a Google Fonts fetch.
+const montserrat = localFont({
+  src: './fonts/Montserrat-latin-variable.woff2',
+  weight: '100 900',
+  style: 'normal',
   display: 'swap',
   variable: '--font-montserrat',
 });
