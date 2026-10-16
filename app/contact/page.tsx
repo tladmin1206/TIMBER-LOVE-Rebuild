@@ -203,31 +203,10 @@ export default function Page() {
             <p className="eyebrow">Press & Partnerships</p>
             <h2 className="h-section mt-4">Media, Brand & Appearance Inquiries</h2>
             <p className="text-lead mt-5">
-              For appearance requests, brand partnerships, and press, reach out to our partnerships contact
-              below. This line is dedicated to media and collaboration inquiries.
+              For appearance requests, brand partnerships, and press, send a note through the form on this page.
             </p>
-          </Reveal>
-
-          <Reveal delay={90} className="surface-card mx-auto mt-12 max-w-xl p-8 sm:p-10">
-            <div className="grid gap-8 sm:grid-cols-2">
-              <div>
-                <p className="field-label">Partnerships Line</p>
-                <a
-                  href={site.partnerships.phoneHref}
-                  className="link-underline mt-2 inline-block text-lg text-cream"
-                >
-                  {site.partnerships.phone}
-                </a>
-              </div>
-              <div>
-                <p className="field-label">Partnerships Email</p>
-                <a
-                  href={`mailto:${site.partnerships.email}`}
-                  className="link-underline mt-2 inline-block text-lg text-cream"
-                >
-                  {site.partnerships.email}
-                </a>
-              </div>
+            <div className="mt-8">
+              <Cta href="#general" variant="primary">Send an Inquiry</Cta>
             </div>
           </Reveal>
         </div>

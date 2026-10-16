@@ -24,7 +24,14 @@ const serviceCategories = [
   { heading: 'Historic Restorations', image: '/projects/north-end-gem/living.webp', body: 'Careful updates to older Boise homes that preserve original character while modernizing for daily life.' },
 ];
 
-export const metadata = pageMeta({ title: 'Design + Build', description: 'Custom homes, thoughtful renovations, and additions in Boise and the Treasure Valley. One team from the first idea through the final walkthrough.', path: '/design-and-build/', image: '/projects/promise-ln-5106/5106-promise-ln-exterior-front.jpg' });
+export const metadata = pageMeta({
+  title: 'Design-Build Remodeling in Boise | Timber and Love',
+  absoluteTitle: true,
+  description:
+    'Timber and Love designs and builds custom homes and remodels in Boise, Idaho. See our work and start your project.',
+  path: '/design-and-build/',
+  image: '/projects/promise-ln-5106/5106-promise-ln-exterior-front.jpg',
+});
 const selected = ['promise-lane-spanish-modern', 'stucco-in-time', 'north-end-gem'].map((slug) => projects.find((p) => p.slug === slug)!);
 
 export default function Page() {

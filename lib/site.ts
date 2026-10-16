@@ -31,7 +31,6 @@ export const site = {
   geo: { lat: '43.619900', lng: '-116.227162' },
   map: 'https://share.google/Ga7dguR36OVrALLlH',
   reviewUrl: 'https://g.page/r/CRGHjvpIySGwEB0/review',
-  partnerships: { phone: '(310) 990-6549', phoneHref: 'tel:+13109906549', email: 'brian@emmllc.com' },
   social: {
     instagram: 'https://www.instagram.com/timberandlove/',
     facebook: 'https://www.facebook.com/timberandlove/',

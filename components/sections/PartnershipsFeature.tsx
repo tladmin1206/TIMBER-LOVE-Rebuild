@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useState } from 'react';
+import Link from 'next/link';
 import { site } from '@/lib/site';
 
 /**
@@ -82,16 +83,9 @@ export default function PartnershipsFeature() {
                       {s.cta.label}
                     </a>
                   ) : (
-                    <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-10">
-                      <a href={site.partnerships.phoneHref} className="group inline-flex flex-col">
-                        <span className="text-[0.7rem] uppercase tracking-[0.18em] text-cream/50">Call</span>
-                        <span className="mt-1 text-lg text-cream link-underline">{site.partnerships.phone}</span>
-                      </a>
-                      <a href={`mailto:${site.partnerships.email}`} className="group inline-flex flex-col">
-                        <span className="text-[0.7rem] uppercase tracking-[0.18em] text-cream/50">Email</span>
-                        <span className="mt-1 text-lg text-cream link-underline">{site.partnerships.email}</span>
-                      </a>
-                    </div>
+                    <Link href="/contact/#general" className="btn-secondary mt-9" data-track="partnerships_contact">
+                      Get in Touch
+                    </Link>
                   )}
                 </div>
 

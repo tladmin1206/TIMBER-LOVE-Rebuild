@@ -5,7 +5,11 @@ import { site } from './site';
 // background, generated at 1200x630 by app/og/route.tsx.
 const DEFAULT_OG = '/og/';
 
-/** Build per-page metadata with canonical + OG/Twitter, preserving live values. */
+/**
+ * Build per-page metadata with canonical + OG/Twitter, preserving live values.
+ * The canonical is the absolute clean path. Tracking parameters on the request
+ * are not part of this URL, so `?utm_*` and similar queries point here.
+ */
 export function pageMeta(opts: {
   title: string;
   description?: string;
@@ -13,13 +17,15 @@ export function pageMeta(opts: {
   image?: string;
   type?: 'website' | 'article';
   noindex?: boolean;
+  /** Skip the root "%s - Timber and Love" title template. */
+  absoluteTitle?: boolean;
 }): Metadata {
-  const { title, description, path, image = DEFAULT_OG, type = 'website', noindex } = opts;
+  const { title, description, path, image = DEFAULT_OG, type = 'website', noindex, absoluteTitle } = opts;
   const url = `${site.url}${path}`;
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: url },
     robots: noindex ? { index: false, follow: true } : undefined,
     openGraph: {
       type,

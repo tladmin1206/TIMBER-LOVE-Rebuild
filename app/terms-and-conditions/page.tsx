@@ -3,7 +3,7 @@ import { pageMeta } from '@/lib/seo';
 import data from '@/content/terms.json';
 
 // Canonical, correctly-spelled route. The old misspelled URL /terms-conditons/
-// permanently redirects here (see next.config.mjs).
+// returns 301 here (see middleware.ts).
 export const metadata = pageMeta({
   title: 'Terms & Conditions',
   description: 'Timber and Love terms and conditions of use.',

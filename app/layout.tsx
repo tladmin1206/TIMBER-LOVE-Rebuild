@@ -33,7 +33,8 @@ export const metadata: Metadata = {
   authors: [{ name: 'Timber and Love' }],
   creator: 'Timber and Love',
   publisher: 'Timber and Love',
-  alternates: { canonical: '/' },
+  // Absolute clean URL. Query strings such as utm_source are not included.
+  alternates: { canonical: `${site.url}/` },
   robots: {
     index: true,
     follow: true,
