@@ -31,6 +31,25 @@ export const site = {
   geo: { lat: '43.619900', lng: '-116.227162' },
   map: 'https://share.google/Ga7dguR36OVrALLlH',
   reviewUrl: 'https://g.page/r/CRGHjvpIySGwEB0/review',
+  // Partnerships contact, kept as a RECORD ONLY, deliberately not a field:
+  //   phone  (310) 990-6549   tel:+13109906549
+  //   email  brian@emmllc.com
+  //
+  // c3128e1 removed both this data and the UI that displayed it, routing press
+  // and partnership enquiries through the contact form instead. The UI change
+  // stands. The details are preserved here because this file was their only
+  // record and the removal called them "leftover" without establishing whether
+  // the line is still active.
+  //
+  // It is a comment rather than a property on purpose. `site` is imported by
+  // client components, so every field on it is serialised into the public JS
+  // bundle: as a field these details were readable in page source by anyone,
+  // which is the exposure the removal got rid of, just without showing them on
+  // the page. A comment is stripped at build time and ships nowhere.
+  //
+  // So do not promote this back to a field, and do not render it, without
+  // asking. Putting a phone number and email back in front of the public is a
+  // business decision, not a cleanup.
   social: {
     instagram: 'https://www.instagram.com/timberandlove/',
     facebook: 'https://www.facebook.com/timberandlove/',
