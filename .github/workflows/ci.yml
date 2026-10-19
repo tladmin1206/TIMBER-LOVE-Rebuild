@@ -55,8 +55,8 @@ jobs:
       - name: Verify assembly reconciliation
         run: npm run verify:assembly
 
-      - name: Verify contact API
-        run: npx tsx scripts/verify-contact-form.ts
+      - name: Verify contact API and lead capture fallback
+        run: npm run verify:leads
 
       - name: Verify site content
         run: npx tsx scripts/verify-site-content.ts

@@ -188,3 +188,45 @@ model Event {
 
   @@index([name, at])
 }
+
+/// Every website inquiry, written before anyone is notified.
+///
+/// Deliberately standalone rather than hung off Contact and Session: those
+/// model a completed planner run, and a contact-form inquiry has no session,
+/// no property and no estimate. Forcing one into that shape would mean
+/// inventing a Session to satisfy a foreign key, and the row that matters most
+/// (someone asking for work) would be the least honest row in the table.
+///
+/// `notified` tracks whether delivery actually reached a human. A row with
+/// notified = false is the recovery queue: the lead is safe, but nobody has
+/// seen it yet. Query that first when the mail provider has had an outage.
+model Inquiry {
+  id         String   @id @default(uuid())
+  receivedAt DateTime @default(now())
+
+  firstName String
+  lastName  String?
+  email     String
+  phone     String?
+  service   String?
+  message   String
+
+  /// Where the inquiry came from: which form, and which page it sat on.
+  source String?
+  page   String?
+
+  /// Client-generated per submission. Unique so a retry after a failed
+  /// delivery updates the existing row instead of duplicating the person.
+  submissionId String? @unique
+
+  /// Delivery outcomes, recorded per channel so an outage is diagnosable
+  /// afterwards rather than only visible in logs that have since rotated.
+  notified      Boolean   @default(false)
+  notifiedAt    DateTime?
+  emailStatus   String?
+  crmStatus     String?
+  crmContactId  String?
+
+  @@index([notified, receivedAt])
+  @@index([email])
+}

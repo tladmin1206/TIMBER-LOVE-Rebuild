@@ -1,10 +1,20 @@
 import { NextResponse } from 'next/server';
-import { sendLeadEmail } from '@/lib/leads/email';
+import { captureInquiry } from '@/lib/leads/capture';
 
 export const runtime = 'nodejs';
 
-/** A successful response means the mail provider accepted the inquiry. Logs
- * are not a lead inbox and must never be treated as a successful delivery. */
+/**
+ * A successful response means the inquiry is KEPT: written to the database,
+ * accepted by the CRM, or accepted by the mail provider. Any one of those
+ * outlives the request. Logs are not a lead inbox and are never treated as
+ * capture.
+ *
+ * Success no longer requires the email specifically. When mail is down but the
+ * database or CRM took the inquiry, the homeowner is told it went through,
+ * because it did, and the team picks it up from `Inquiry.notified = false`.
+ * Telling someone their message failed while it sits safely in the CRM makes
+ * them send it twice or give up.
+ */
 export async function POST(req: Request) {
   let body: Record<string, unknown>;
   try {
@@ -27,23 +37,35 @@ export async function POST(req: Request) {
   if (!lead.firstName || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(lead.email) || !lead.message) {
     return NextResponse.json({ ok: false, error: 'Please enter your first name, a valid email, and a message.' }, { status: 422 });
   }
-  const name = `${lead.firstName} ${lead.lastName}`.trim();
-  const idempotencyKey = /^[a-f0-9-]{36}$/i.test(lead.submissionId) ? `contact/${lead.submissionId}` : undefined;
-  const delivery = await sendLeadEmail({
-    subject: `Website inquiry: ${name.replace(/[\r\n]/g, ' ')}`,
-    replyTo: lead.email,
-    idempotencyKey,
-    text: [
-      `Name: ${name}`, `Email: ${lead.email}`, `Phone: ${lead.phone || 'Not provided'}`,
-      `Interest: ${lead.service || 'General inquiry'}`, `Source: ${lead.source || 'website'}`,
-      `Page: ${lead.page || 'Not provided'}`, '', lead.message,
-    ].join('\n'),
+  const result = await captureInquiry({
+    firstName: lead.firstName,
+    lastName: lead.lastName,
+    email: lead.email,
+    phone: lead.phone,
+    service: lead.service,
+    message: lead.message,
+    source: lead.source,
+    page: lead.page,
+    submissionId: /^[a-f0-9-]{36}$/i.test(lead.submissionId) ? lead.submissionId : undefined,
   });
-  if (!delivery.delivered) {
-    // Do not log private contact details or pretend a console entry is capture.
-    console.error('[CONTACT_DELIVERY_FAILED]', { reason: delivery.reason, attempts: delivery.attempts });
-    return NextResponse.json({ ok: false, error: 'Your inquiry could not be sent right now. Please try again or contact our team directly.' }, { status: 503, headers: { 'Retry-After': '30' } });
+
+  if (!result.kept) {
+    // Nothing durable is configured or every channel refused. Do not log
+    // private contact details, and do not pretend a console entry is capture.
+    console.error('[CONTACT_CAPTURE_FAILED]', { channels: result.channels, reasons: result.reasons });
+    return NextResponse.json(
+      { ok: false, error: 'Your inquiry could not be sent right now. Please try again or contact our team directly.' },
+      { status: 503, headers: { 'Retry-After': '30' } }
+    );
   }
-  console.info('[CONTACT_PROVIDER_ACCEPTED]', { providerId: delivery.id ?? null });
+
+  if (!result.notified) {
+    // Kept, but no one has been told yet. This is the line that should page
+    // somebody: the lead is safe and is waiting in the recovery queue.
+    console.error('[CONTACT_KEPT_NOT_NOTIFIED]', { channels: result.channels, reasons: result.reasons });
+  } else {
+    console.info('[CONTACT_CAPTURED]', { channels: result.channels });
+  }
+
   return NextResponse.json({ ok: true });
 }
