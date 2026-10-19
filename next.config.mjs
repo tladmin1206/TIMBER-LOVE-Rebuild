@@ -13,8 +13,9 @@ const nextConfig = {
       // Temporarily retire both planner entry points, including old bookmarks.
       { source: '/investment-planner', destination: '/design-and-build-questionnaire/', permanent: false },
       { source: '/estimate', destination: '/design-and-build-questionnaire/', permanent: false },
-      // /terms-conditons is a 301 in middleware.ts. This source is /terms-conditions.
-      { source: '/terms-conditions', destination: '/terms-and-conditions/', permanent: true },
+      // Both legacy terms URLs (/terms-conditons and /terms-conditions) are
+      // 301s in middleware.ts. They are not here because `permanent: true`
+      // emits 308, which would disagree with each other.
     ];
   },
 };
