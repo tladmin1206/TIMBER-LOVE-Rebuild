@@ -1,6 +1,6 @@
 /**
  * Local-only tests for the multi-channel lead fallback. Never reaches Resend
- * or GHL: every request is intercepted and routed by hostname.
+ * or HubSpot: every request is intercepted and routed by hostname.
  *
  * What matters here is the case the old single-channel route got wrong: mail
  * is down, the CRM takes the inquiry, and the homeowner is told it went
@@ -32,10 +32,13 @@ function intercept(seen: Seen[], opts: { emailOk: boolean; crmOk: boolean }) {
   return (async (url: string | URL | Request, options: RequestInit) => {
     const href = String(url);
     seen.push({ url: href, options });
-    if (href.includes('leadconnectorhq.com')) {
-      return opts.crmOk
-        ? new Response(JSON.stringify({ contact: { id: 'ghl-123' } }), { status: 200 })
-        : new Response('{"message":"crm down"}', { status: 500 });
+    if (href.includes('api.hubapi.com')) {
+      if (!opts.crmOk) return new Response('{"message":"crm down"}', { status: 500 });
+      // The contact upsert returns the id the note then associates to.
+      if (href.includes('/contacts/batch/upsert')) {
+        return new Response(JSON.stringify({ results: [{ id: 'hs-123' }] }), { status: 200 });
+      }
+      return new Response(JSON.stringify({ id: 'note-1' }), { status: 201 });
     }
     return opts.emailOk
       ? new Response(JSON.stringify({ id: 'mail-1' }), { status: 200 })
@@ -43,8 +46,10 @@ function intercept(seen: Seen[], opts: { emailOk: boolean; crmOk: boolean }) {
   }) as unknown as typeof fetch;
 }
 
-const crmCalls = (seen: Seen[]) => seen.filter((s) => s.url.includes('leadconnectorhq.com'));
-const mailCalls = (seen: Seen[]) => seen.filter((s) => !s.url.includes('leadconnectorhq.com'));
+const crmCalls = (seen: Seen[]) => seen.filter((s) => s.url.includes('api.hubapi.com'));
+const contactCalls = (seen: Seen[]) => crmCalls(seen).filter((s) => s.url.includes('/contacts/batch/upsert'));
+const noteCalls = (seen: Seen[]) => crmCalls(seen).filter((s) => s.url.includes('/objects/notes'));
+const mailCalls = (seen: Seen[]) => seen.filter((s) => !s.url.includes('api.hubapi.com'));
 
 async function main() {
   const realFetch = globalThis.fetch;
@@ -58,23 +63,42 @@ async function main() {
     // 1. THE CASE THIS WORK EXISTS FOR. Mail refuses, CRM accepts: the inquiry
     //    is kept, so the homeowner is told it succeeded rather than being asked
     //    to send a message that is already safe in the CRM.
-    process.env.GHL_API_TOKEN = 'test-token';
-    process.env.GHL_LOCATION_ID = 'test-location';
+    process.env.HUBSPOT_ACCESS_TOKEN = 'test-token';
     let seen: Seen[] = [];
     globalThis.fetch = intercept(seen, { emailOk: false, crmOk: true });
     let res = await POST(request());
     assert.equal(res.status, 200, 'CRM capture alone must report success when mail is down');
     assert.equal((await res.json()).ok, true);
-    assert.equal(crmCalls(seen).length, 1, 'CRM is attempted exactly once on success');
+    assert.equal(contactCalls(seen).length, 1, 'Contact upsert happens exactly once on success');
+    assert.equal(noteCalls(seen).length, 1, 'The note is written once, after the contact');
 
-    // The CRM has to receive the lead itself, not just a ping.
-    const crmBody = JSON.parse(String(crmCalls(seen)[0].options.body));
-    assert.equal(crmBody.email, VALID.email);
-    assert.equal(crmBody.firstName, VALID.firstName);
-    assert.equal(crmBody.phone, '+12085550100', 'Phone is normalised to E.164 for the CRM');
-    assert.ok(String(crmBody.notes).includes(VALID.message), 'The message itself reaches the CRM');
-    assert.ok(crmBody.tags.includes('website-inquiry'));
-    assert.ok(crmCalls(seen)[0].options.signal, 'CRM request is bounded by a timeout');
+    // The contact write has to carry the lead, deduped on email.
+    const upsert = JSON.parse(String(contactCalls(seen)[0].options.body));
+    const input = upsert.inputs[0];
+    assert.equal(input.idProperty, 'email', 'Upsert dedupes on email rather than creating duplicates');
+    assert.equal(input.id, VALID.email);
+    assert.equal(input.properties.email, VALID.email);
+    assert.equal(input.properties.firstname, VALID.firstName);
+    assert.equal(input.properties.lastname, VALID.lastName);
+    assert.equal(input.properties.phone, '+12085550100', 'Phone is normalised to E.164 for HubSpot');
+    assert.ok(contactCalls(seen)[0].options.signal, 'CRM request is bounded by a timeout');
+
+    // The message is the lead. It must reach the timeline, associated to the
+    // contact the upsert just returned.
+    const note = JSON.parse(String(noteCalls(seen)[0].options.body));
+    assert.ok(String(note.properties.hs_note_body).includes(VALID.message), 'The message itself reaches HubSpot');
+    assert.ok(String(note.properties.hs_note_body).includes(VALID.service), 'Interest is kept as context');
+    assert.ok(String(note.properties.hs_note_body).includes(VALID.page), 'Originating page is kept as context');
+    assert.equal(note.associations[0].to.id, 'hs-123', 'Note associates to the upserted contact');
+    assert.equal(note.associations[0].types[0].associationTypeId, 202, 'Note-to-contact association type');
+    assert.ok(note.properties.hs_timestamp, 'Note carries a timestamp');
+
+    // Homeowner text lands in a field HubSpot renders as HTML.
+    seen.length = 0;
+    await POST(request({ ...VALID, message: 'Quote for <script>alert(1)</script> & deck' }));
+    const escaped = JSON.parse(String(noteCalls(seen)[0].options.body)).properties.hs_note_body;
+    assert.ok(!escaped.includes('<script>'), 'Submitted HTML is escaped before reaching the timeline');
+    assert.ok(escaped.includes('&amp;'), 'Ampersands are escaped rather than dropped');
 
     // 2. Both channels down and no database: nothing kept it, so it must fail
     //    loudly. A fallback that silently swallows is worse than none.
@@ -94,8 +118,7 @@ async function main() {
     assert.equal(mailCalls(seen).length, 1, 'A failing CRM must not cause duplicate emails');
 
     // 4. Unconfigured CRM is skipped silently, not retried as a failure.
-    delete process.env.GHL_API_TOKEN;
-    delete process.env.GHL_LOCATION_ID;
+    delete process.env.HUBSPOT_ACCESS_TOKEN;
     seen = [];
     globalThis.fetch = intercept(seen, { emailOk: true, crmOk: true });
     res = await POST(request());

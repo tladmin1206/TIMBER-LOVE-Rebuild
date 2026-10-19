@@ -2,6 +2,8 @@ node_modules
 .next
 out
 .env*
+# ...but the documented template carries no secrets and must be committed.
+!.env.example
 .DS_Store
 *.log
 _capture
