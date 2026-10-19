@@ -6,12 +6,34 @@
  * Uses Web Crypto (HMAC-SHA256) so the same code runs in Edge middleware and
  * Node route handlers. The secret is ADMIN_SESSION_SECRET, falling back to
  * ADMIN_PASSWORD so a single secret is enough to get started.
+ *
+ * Set ADMIN_SESSION_SECRET in production. On the fallback the signing key IS
+ * the password, so one leaked value both logs an attacker in and lets them
+ * mint session cookies, and rotating the password silently invalidates every
+ * existing session. The fallback is a convenience for getting started, not a
+ * configuration to ship on; production warns when it is in use rather than
+ * refusing, because locking the team out of their own admin is a worse failure
+ * than a loud log line.
  */
 export const ADMIN_COOKIE = 'tl_admin';
 const PAYLOAD = 'admin-session-v1';
 
+let warned = false;
+
 function secret(): string {
-  return process.env.ADMIN_SESSION_SECRET || process.env.ADMIN_PASSWORD || '';
+  const dedicated = process.env.ADMIN_SESSION_SECRET;
+  if (dedicated) return dedicated;
+
+  const password = process.env.ADMIN_PASSWORD || '';
+  if (password && process.env.NODE_ENV === 'production' && !warned) {
+    warned = true;
+    // eslint-disable-next-line no-console
+    console.warn(
+      '[ADMIN_AUTH] ADMIN_SESSION_SECRET is not set, so admin sessions are being signed with ADMIN_PASSWORD. ' +
+        'Set a separate ADMIN_SESSION_SECRET: on the fallback, the password doubles as the signing key.'
+    );
+  }
+  return password;
 }
 
 function b64url(bytes: Uint8Array): string {

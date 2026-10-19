@@ -151,7 +151,7 @@ export default function Page() {
         ratio="landscape"
       >
         <p>
-          Presentation and pricing decide how a sale goes. Our team understands what today's buyers respond to, from
+          Presentation and pricing decide how a sale goes. Our team understands what today&rsquo;s buyers respond to, from
           curb appeal to the finishes inside, because we build homes to that standard ourselves.
         </p>
         <p>

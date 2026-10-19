@@ -1,0 +1,62 @@
+# Runs the checks this repo already had but never ran automatically.
+#
+# The verify:* suites are the valuable part: they assert pricing brackets real
+# project totals, that leads actually reach a human, and that no em dash gets
+# back into the codebase. Those caught real regressions when run by hand, which
+# is precisely the argument for not relying on anyone remembering to.
+#
+# No secrets are needed. The build and every suite run without environment
+# variables; the lead-delivery suite exercises the unconfigured and provider
+# failure paths deliberately, so adding real keys here would weaken it.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# A newer push to the same branch makes the in-flight run irrelevant.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      # `npm ci` honours the lockfile exactly and fails if it has drifted from
+      # package.json, which is a check worth having on its own. postinstall
+      # runs `prisma generate`; that needs the schema, not a database.
+      - name: Install
+        run: npm ci
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify planner pricing, flow, leads and house style
+        run: npm run verify:planner
+
+      - name: Verify assembly reconciliation
+        run: npm run verify:assembly
+
+      - name: Verify contact API
+        run: npx tsx scripts/verify-contact-form.ts
+
+      - name: Verify site content
+        run: npx tsx scripts/verify-site-content.ts
