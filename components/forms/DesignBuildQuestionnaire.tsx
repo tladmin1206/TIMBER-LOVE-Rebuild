@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { site } from '@/lib/site';
+import { trackQuestionnaireStart, trackQuestionnaireStep, trackQuestionnaireSubmit } from '@/lib/questionnaireAnalytics';
+
+const FORM_ID = 'design_build_questionnaire';
 
 const FORM_ORIGIN = 'https://leads.timberandlove.com';
 export const DESIGN_BUILD_FORM_URL = `${FORM_ORIGIN}/forms/combined?transparent=true`;
@@ -28,12 +31,28 @@ export default function DesignBuildQuestionnaire() {
       }
       if (data.type === 'timber:lead-submitted' && data.form === 'combined' && typeof data.submissionId === 'string' && !reported.current.has(data.submissionId)) {
         reported.current.add(data.submissionId);
+        // The leads app posts this only after its server stored the lead.
+        trackQuestionnaireSubmit(FORM_ID);
         if (navigator.doNotTrack === '1' || (navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl) return;
         window.gtag?.('event', 'generate_lead', { form_name: 'design_build_questionnaire', page_path: window.location.pathname });
       }
+      // Optional: if the leads app posts { type: 'timber:lead-step', form: 'combined', step: n },
+      // record the step. Until it does, only step 1 is emitted (on start).
+      if (data.type === 'timber:lead-step' && data.form === 'combined' && Number.isInteger(data.step) && data.step >= 1 && data.step <= 50) {
+        trackQuestionnaireStep(FORM_ID, data.step);
+      }
     }
+    // The form is a cross-origin iframe, so field events are not visible here.
+    // Focus moving into the iframe (window blur with the iframe active) is the
+    // first field interaction we can observe.
+    function onBlur() {
+      window.setTimeout(() => {
+        if (document.activeElement === frame.current) trackQuestionnaireStart(FORM_ID);
+      }, 0);
+    }
+    window.addEventListener('blur', onBlur);
     window.addEventListener('message', receive);
-    return () => { window.clearTimeout(timer); window.removeEventListener('message', receive); };
+    return () => { window.clearTimeout(timer); window.removeEventListener('blur', onBlur); window.removeEventListener('message', receive); };
   }, []);
 
   return (
