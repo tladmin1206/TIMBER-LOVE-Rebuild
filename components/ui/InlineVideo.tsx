@@ -8,7 +8,7 @@ export default function InlineVideo({
   videoId,
   poster,
   className = '',
-  title = 'Timber and Love',
+  title = 'Timber + Love',
 }: {
   videoId: string;
   poster: string;

@@ -25,7 +25,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     eyebrow: 'Not Sure Where to Start?',
     title: 'Tell Us About Your Home',
     body: 'Choose the option closest to your goal, or reach out and our team will point you in the right direction.',
-    primary: { label: 'Contact Timber and Love', href: '/contact/' },
+    primary: { label: 'Contact Timber + Love', href: '/contact/' },
     secondary: VIEW_WORK,
   },
 
@@ -58,7 +58,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
 
   hgtv: {
     eyebrow: 'Bring the Look Home',
-    title: 'Bring Thoughtful Timber and Love Design to Your Home',
+    title: 'Bring Thoughtful Timber + Love Design to Your Home',
     body: 'See how the design you love on screen translates to your own project.',
     image: '/editorial/firehouse-living.webp',
     primary: { label: 'Explore Design + Build', href: '/design-and-build/' },
@@ -93,7 +93,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
   },
 
   buyOrSell: {
-    eyebrow: 'Timber and Love Realty',
+    eyebrow: 'Timber + Love Realty',
     title: 'Make Your Next Move With Us',
     body: 'Buying or selling in the Boise area, you get a team that also designs and builds, so you see a home’s potential, not just its listing.',
     image: '/editorial/estate-exterior.webp',

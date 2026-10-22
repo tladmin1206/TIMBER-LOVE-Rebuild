@@ -42,7 +42,7 @@ function LoginForm() {
     <main className="flex min-h-screen items-center justify-center bg-neutral-100 p-6 text-neutral-900">
       <form onSubmit={submit} className="w-full max-w-sm rounded-xl bg-white p-8 shadow-sm">
         <h1 className="text-xl font-semibold">Admin sign in</h1>
-        <p className="mt-1 text-sm text-neutral-500">Timber and Love · Investment Planner</p>
+        <p className="mt-1 text-sm text-neutral-500">Timber + Love · Investment Planner</p>
         <div className="mt-6 space-y-3">
           <label className="block text-xs font-medium text-neutral-600">
             Email

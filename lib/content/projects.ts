@@ -66,7 +66,7 @@ export const projects: Project[] = [
     cover: `${P06}exterior-front.jpg`,
     featured: true,
     gallery: [
-      { src: `${P06}exterior-front.jpg`, alt: 'Spanish modern custom home exterior with white stucco and arched openings, built by Timber and Love' },
+      { src: `${P06}exterior-front.jpg`, alt: 'Spanish modern custom home exterior with white stucco and arched openings, built by Timber + Love' },
       { src: `${P06}exterior-entry.jpg`, alt: 'Arched front entry of a Spanish modern custom home' },
       { src: `${P06}great-room.jpg`, alt: 'Barrel-vaulted great room with panelled walls and a gas fireplace' },
       { src: `${P06}living-room-fireplace.jpg`, alt: 'Living room with modern fireplace and light oak details' },
@@ -86,7 +86,7 @@ export const projects: Project[] = [
       { src: `${P06}bathroom-double-vanity.jpg`, alt: 'Bathroom with double vanity and dark wood cabinetry' },
       { src: `${P06}bathroom-vanity.jpg`, alt: 'Guest bathroom vanity with arched mirror and brass' },
       { src: `${P06}exterior-rear.jpg`, alt: 'Rear exterior of the Spanish modern custom home' },
-      { src: `${P06}backyard.jpg`, alt: 'Landscaped backyard of a custom Timber and Love home' },
+      { src: `${P06}backyard.jpg`, alt: 'Landscaped backyard of a custom Timber + Love home' },
     ],
   },
   {
@@ -106,7 +106,7 @@ export const projects: Project[] = [
     cover: `${P20}exterior-front.jpg`,
     featured: true,
     gallery: [
-      { src: `${P20}exterior-front.jpg`, alt: 'Modern farmhouse custom home with white board-and-batten siding and steep gables, built by Timber and Love' },
+      { src: `${P20}exterior-front.jpg`, alt: 'Modern farmhouse custom home with white board-and-batten siding and steep gables, built by Timber + Love' },
       { src: `${P20}exterior-side.jpg`, alt: 'Side exterior of a modern farmhouse custom home with black windows' },
       { src: `${P20}great-room-dining.jpg`, alt: 'Great room and dining with double-height ceilings and black windows' },
       { src: `${P20}open-living.jpg`, alt: 'Open-concept living and dining in a modern farmhouse' },
@@ -127,7 +127,7 @@ export const projects: Project[] = [
       { src: `${P20}bathroom.jpg`, alt: 'Bathroom with quartz counter and matte-black faucet' },
       { src: `${P20}bathroom-vanity.jpg`, alt: 'Guest bathroom vanity with dark cabinetry' },
       { src: `${P20}exterior-rear.jpg`, alt: 'Rear exterior of the modern farmhouse custom home' },
-      { src: `${P20}backyard.jpg`, alt: 'Backyard of a modern farmhouse built by Timber and Love' },
+      { src: `${P20}backyard.jpg`, alt: 'Backyard of a modern farmhouse built by Timber + Love' },
     ],
   },
   {
@@ -147,7 +147,7 @@ export const projects: Project[] = [
     cover: `${P42}exterior-front.jpg`,
     featured: true,
     gallery: [
-      { src: `${P42}exterior-front.jpg`, alt: 'Contemporary custom home with a butterfly roof and charcoal cladding, built by Timber and Love' },
+      { src: `${P42}exterior-front.jpg`, alt: 'Contemporary custom home with a butterfly roof and charcoal cladding, built by Timber + Love' },
       { src: `${P42}exterior-angle.jpg`, alt: 'Angled exterior of a contemporary custom home with sculptural roofline' },
       { src: `${P42}exterior-entry.jpg`, alt: 'Entry of a modern contemporary custom home with wood soffit' },
       { src: `${P42}kitchen-green-marble.jpg`, alt: 'Contemporary kitchen with book-matched green marble and dark cabinetry' },
@@ -169,7 +169,7 @@ export const projects: Project[] = [
       { src: `${P42}bathroom-vanity.jpg`, alt: 'Bathroom vanity with black cabinetry and brass' },
       { src: `${P42}bathroom.jpg`, alt: 'Contemporary bathroom with dark vanity and matte-black fixtures' },
       { src: `${P42}exterior-rear.jpg`, alt: 'Rear exterior of the contemporary custom home' },
-      { src: `${P42}backyard.jpg`, alt: 'Backyard of a contemporary home built by Timber and Love' },
+      { src: `${P42}backyard.jpg`, alt: 'Backyard of a contemporary home built by Timber + Love' },
     ],
   },
   {
@@ -201,7 +201,7 @@ export const projects: Project[] = [
     hgtv: "HGTV's Boise Boys",
     scope: 'Historic remodel',
     summary:
-      'A historic Boise firehouse reimagined as a distinctive residence, featured on HGTV’s Boise Boys. Original character was preserved alongside a fully modernized interior. It is now a Timber and Love vacation rental.',
+      'A historic Boise firehouse reimagined as a distinctive residence, featured on HGTV’s Boise Boys. Original character was preserved alongside a fully modernized interior. It is now a Timber + Love vacation rental.',
     cover: `${FIRE}Exterior-scaled.jpg`,
     featured: true,
     stayHref: '/the-firehouse/',
@@ -414,7 +414,7 @@ export const projects: Project[] = [
   ],
   "location": "New Meadows, ID",
   "scope": "Renovation and interior styling",
-  "summary": "A mountain cabin redesigned and styled by Luke Caldwell and the Timber and Love team, with warm gathering spaces and room to slow down.",
+  "summary": "A mountain cabin redesigned and styled by Luke Caldwell and the Timber + Love team, with warm gathering spaces and room to slow down.",
   "cover": "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg",
   "stayHref": "/timber-and-love-chalet/",
   "gallery": [

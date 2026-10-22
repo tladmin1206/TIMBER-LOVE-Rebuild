@@ -18,7 +18,7 @@ const posts: JournalPost[] = [
     href: '/timber-love-story-boise/',
     date: '2026-04-14',
     image: '/editorial/team-studio.webp',
-    excerpt: 'Every venture has an origin story. Here is how Timber and Love grew from a hands-on real estate and renovation practice into one connected home and real estate brand.',
+    excerpt: 'Every venture has an origin story. Here is how Timber + Love grew from a hands-on real estate and renovation practice into one connected home and real estate brand.',
     tag: 'Brand Story',
   },
   {
@@ -26,7 +26,7 @@ const posts: JournalPost[] = [
     href: '/luke-caldwell-faq/',
     date: '2026-04-13',
     image: '/editorial/luke-firehouse.webp',
-    excerpt: 'The most common questions about Luke Caldwell, the designer and builder behind Timber and Love and HGTV’s Boise Boys.',
+    excerpt: 'The most common questions about Luke Caldwell, the designer and builder behind Timber + Love and HGTV’s Boise Boys.',
     tag: 'People',
   },
   {
@@ -42,7 +42,7 @@ const posts: JournalPost[] = [
     href: '/luke-caldwell-boise-community/',
     date: '2026-04-11',
     image: '/editorial/luke-estate.webp',
-    excerpt: 'For Luke Caldwell, Boise is more than a place to build. A look at how Timber and Love reinvests in the community it calls home.',
+    excerpt: 'For Luke Caldwell, Boise is more than a place to build. A look at how Timber + Love reinvests in the community it calls home.',
     tag: 'Community',
   },
   {

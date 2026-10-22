@@ -101,7 +101,7 @@ export function scoreConfidence(input: ConfidenceInput): Confidence {
   if (phase1 && label === 'Strong') {
     label = 'Good';
     reasons.push(
-      'This range reflects what Timber and Love projects of this scope typically run, rather than a statistical fit against completed projects.'
+      'This range reflects what Timber + Love projects of this scope typically run, rather than a statistical fit against completed projects.'
     );
   }
 

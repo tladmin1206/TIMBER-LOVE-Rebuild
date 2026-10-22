@@ -61,7 +61,7 @@ export const navigationGroups = [
           {
             label: "Buy or Sell",
             href: "/buy-or-sell/",
-            description: "Local guidance from Timber and Love Realty.",
+            description: "Local guidance from Timber + Love Realty.",
           },
           {
             label: "Sell for Cash",
@@ -91,7 +91,7 @@ export const navigationGroups = [
           {
             label: "How It Fits Together",
             href: "/about/#brand-heading",
-            description: "Meet the businesses behind Timber and Love.",
+            description: "Meet the businesses behind Timber + Love.",
           },
         ],
       },

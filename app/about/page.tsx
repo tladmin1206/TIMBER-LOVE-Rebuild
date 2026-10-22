@@ -14,7 +14,7 @@ import StatStrip from '@/components/sections/StatStrip';
 export const metadata = pageMeta({
   title: 'Our Story',
   description:
-    'Timber and Love is a Boise-based brand led by Luke Caldwell of HGTV\'s Boise Boys and Outgrown, connecting design, construction, real estate, cash offers, investment, and vacation rentals under one team.',
+    'Timber + Love is a Boise-based brand led by Luke Caldwell of HGTV\'s Boise Boys and Outgrown, connecting design, construction, real estate, cash offers, investment, and vacation rentals under one team.',
   path: '/about/',
   image: '/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1.jpg',
 });
@@ -25,7 +25,7 @@ export default function Page() {
       <PageHero
         eyebrow="Our Story"
         title="One Team for Every Stage of Home"
-        subtitle="Timber and Love brings design, construction, real estate, direct home offers, investment, and vacation stays together under one Boise-based brand."
+        subtitle="Timber + Love brings design, construction, real estate, direct home offers, investment, and vacation stays together under one Boise-based brand."
         image="/editorial/estate-living.webp"
       >
         <Cta href="/contact/" variant="primary" track="about_contact">Contact Our Team</Cta>
@@ -48,7 +48,7 @@ export default function Page() {
           <Reveal delay={120} className="space-y-5">
             {/* TEMP: confirm the precise founding narrative and early milestones with the business */}
             <p className="text-lead">
-              Timber and Love began in Boise and has grown into one brand and one team working across the full arc of
+              Timber + Love began in Boise and has grown into one brand and one team working across the full arc of
               home and real estate. That includes designing and building homes, helping people buy and sell, making
               direct offers to homeowners who want a simpler sale, investing in property, and hosting guests in
               distinctive vacation stays.
@@ -116,7 +116,7 @@ export default function Page() {
           </Reveal>
           <Reveal delay={120} className="space-y-5">
             <p className="text-lead">
-              Timber and Love is led by Luke Caldwell, a Boise-based designer known to national audiences from HGTV&apos;s
+              Timber + Love is led by Luke Caldwell, a Boise-based designer known to national audiences from HGTV&apos;s
               Boise Boys and the follow-up series Outgrown.
             </p>
             <p className="text-sm leading-relaxed text-text-secondary">
@@ -137,7 +137,7 @@ export default function Page() {
       {/* Editorial: an interior that shows the warm, modern point of view. */}
       <EditorialSplit
         image="/projects/promise-ln-5120/5120-promise-ln-living-green-panel.jpg"
-        imageAlt="Living space with green paneled millwork and a fireplace in a modern farmhouse by Timber and Love"
+        imageAlt="Living space with green paneled millwork and a fireplace in a modern farmhouse by Timber + Love"
         eyebrow="Our Point of View"
         title="Warm, Modern, and True to the House"
         tone="secondary"
@@ -174,7 +174,7 @@ export default function Page() {
             </h2>
             {/* TEMP: confirm the book description and any subtitle wording with the business */}
             <p className="text-lead mt-5">
-              {site.book.title} is Luke Caldwell&apos;s design book, gathering the ideas behind the Timber and Love look:
+              {site.book.title} is Luke Caldwell&apos;s design book, gathering the ideas behind the Timber + Love look:
               comfortable, collected rooms designed with intention rather than trend.
             </p>
             <p className="mt-5 text-sm leading-relaxed text-text-secondary">

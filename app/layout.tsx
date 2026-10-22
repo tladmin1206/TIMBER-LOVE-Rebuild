@@ -25,14 +25,14 @@ const montserrat = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Timber and Love | Boise's Premier Home Services by HGTV's Luke Caldwell",
-    template: '%s - Timber and Love',
+    default: "Timber + Love | Boise's Premier Home Services by HGTV's Luke Caldwell",
+    template: '%s - Timber + Love',
   },
   description: site.description,
   applicationName: site.name,
-  authors: [{ name: 'Timber and Love' }],
-  creator: 'Timber and Love',
-  publisher: 'Timber and Love',
+  authors: [{ name: 'Timber + Love' }],
+  creator: 'Timber + Love',
+  publisher: 'Timber + Love',
   // Absolute clean URL. Query strings such as utm_source are not included.
   alternates: { canonical: `${site.url}/` },
   robots: {
@@ -46,21 +46,21 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: site.url,
-    siteName: "Timber and Love | Boise's Premier Home Builder by HGTV's Luke Caldwell",
-    title: "Timber and Love | Boise's Premier Home Services by HGTV's Luke Caldwell",
+    siteName: "Timber + Love | Boise's Premier Home Builder by HGTV's Luke Caldwell",
+    title: "Timber + Love | Boise's Premier Home Services by HGTV's Luke Caldwell",
     description: site.description,
     images: [
       {
         url: '/og/',
         width: 1200,
         height: 630,
-        alt: 'Timber and Love',
+        alt: 'Timber + Love',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Timber and Love | Boise's Premier Home Services by HGTV's Luke Caldwell",
+    title: "Timber + Love | Boise's Premier Home Services by HGTV's Luke Caldwell",
     description: site.description,
     images: ['/og/'],
   },

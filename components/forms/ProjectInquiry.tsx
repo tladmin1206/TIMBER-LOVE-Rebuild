@@ -469,7 +469,7 @@ function ReviewStep({ answers, files, onEdit, consent, onConsent, consentError }
       </dl>
       <label className="mt-6 flex items-start gap-3 text-sm text-text-secondary">
         <input type="checkbox" checked={consent} onChange={(e) => onConsent(e.target.checked)} aria-required aria-invalid={!!consentError} className="mt-1" />
-        <span>I agree to be contacted by Timber and Love about my project and understand this is not a service agreement.</span>
+        <span>I agree to be contacted by Timber + Love about my project and understand this is not a service agreement.</span>
       </label>
       {consentError && <p className="field-error mt-2" role="alert">{consentError}</p>}
     </div>

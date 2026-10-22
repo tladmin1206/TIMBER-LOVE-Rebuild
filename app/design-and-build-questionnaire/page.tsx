@@ -5,7 +5,7 @@ import { site } from '@/lib/site';
 
 export const metadata = pageMeta({
   title: 'Start Your Design + Build Project',
-  description: 'Tell the Timber and Love team about your home and your goals. Start a conversation about your Boise remodel, addition, or custom home.',
+  description: 'Tell the Timber + Love team about your home and your goals. Start a conversation about your Boise remodel, addition, or custom home.',
   path: '/design-and-build-questionnaire/',
 });
 
@@ -21,7 +21,7 @@ export default function Page() {
               A beautiful home starts with a conversation. Share what you have in mind, whether it’s a remodel, an addition, or a new home. Our team will help you find the next step.
             </p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/projects/promise-ln-5120/5120-promise-ln-kitchen.jpg" alt="Timber and Love custom kitchen with green millwork and natural wood" className="mt-8 hidden aspect-[4/3] w-full object-cover lg:block" />
+            <img src="/projects/promise-ln-5120/5120-promise-ln-kitchen.jpg" alt="Timber + Love custom kitchen with green millwork and natural wood" className="mt-8 hidden aspect-[4/3] w-full object-cover lg:block" />
             <p className="mt-6 text-sm text-text-secondary">
               Prefer to talk? <a href={site.phoneHref} className="link-underline text-cream">{site.phone}</a>
             </p>

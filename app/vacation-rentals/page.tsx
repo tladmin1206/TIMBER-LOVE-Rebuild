@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import RentalComparison from '@/components/sections/RentalComparison';
 import { pageMeta } from '@/lib/seo';
-export const metadata = pageMeta({ title: 'Compare Vacation Homes', description: 'Compare five Timber and Love vacation homes in Boise, New Meadows near McCall, and Oahu. Filter by destination and group size, then check your dates.', path: '/vacation-rentals/' });
+export const metadata = pageMeta({ title: 'Compare Vacation Homes', description: 'Compare five Timber + Love vacation homes in Boise, New Meadows near McCall, and Oahu. Filter by destination and group size, then check your dates.', path: '/vacation-rentals/' });
 export default function Page() {
   return <section className="bg-bg-primary pb-24 pt-32 sm:pt-40"><div className="container-wide">
     <Link href="/stay-with-us/" className="eyebrow link-underline">Stay With Us</Link>

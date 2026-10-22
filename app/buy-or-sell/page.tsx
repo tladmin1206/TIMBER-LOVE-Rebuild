@@ -21,7 +21,7 @@ const realEstateReview = clientReviews.find((r) => r.role === 'Real Estate Clien
 export const metadata = pageMeta({
   title: 'Buy or Sell a Home in Boise',
   description:
-    'Buy or sell a home in Boise with Timber and Love Realty. Local market experience for buyers and sellers, with listings and support on our affiliated real estate site.',
+    'Buy or sell a home in Boise with Timber + Love Realty. Local market experience for buyers and sellers, with listings and support on our affiliated real estate site.',
   path: '/buy-or-sell/',
   image: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Realty-Background-1-scaled-1.jpg',
 });
@@ -30,22 +30,22 @@ const sections = [
   {
     eyebrow: 'Buying',
     heading: 'Find a Home That Fits Your Life', image: '/projects/promise-ln-5106/5106-promise-ln-living-room-fireplace.jpg',
-    body: 'Buying a home is a big decision, and it helps to have people who know the area well. Timber and Love Realty works with buyers across Boise to search current listings, compare neighborhoods, and understand what a home is really offering. You set the pace, and the team keeps the details organized so you can make a confident choice.',
+    body: 'Buying a home is a big decision, and it helps to have people who know the area well. Timber + Love Realty works with buyers across Boise to search current listings, compare neighborhoods, and understand what a home is really offering. You set the pace, and the team keeps the details organized so you can make a confident choice.',
   },
   {
     eyebrow: 'Selling',
     heading: 'Sell With Local Guidance', image: '/projects/promise-ln-5120/5120-promise-ln-exterior-rear.jpg',
-    body: 'When it is time to sell, presentation and pricing matter. Timber and Love Realty helps sellers prepare a home for the market, position it for the right buyers, and manage the process through to closing. You get straightforward advice grounded in what is actually happening in the Boise market.',
+    body: 'When it is time to sell, presentation and pricing matter. Timber + Love Realty helps sellers prepare a home for the market, position it for the right buyers, and manage the process through to closing. You get straightforward advice grounded in what is actually happening in the Boise market.',
   },
   {
     eyebrow: 'Local Market Experience',
     heading: 'People Who Know Boise', image: '/projects/central-rim/exterior.webp',
-    body: 'Timber and Love has been part of the Boise community since 2015, and that local perspective carries into every real estate conversation. Buyers and sellers benefit from a team that understands the neighborhoods, the housing stock, and the way this market moves.',
+    body: 'Timber + Love has been part of the Boise community since 2015, and that local perspective carries into every real estate conversation. Buyers and sellers benefit from a team that understands the neighborhoods, the housing stock, and the way this market moves.',
   },
   {
     eyebrow: 'Who It Serves',
     heading: 'Buyers and Sellers Across the Treasure Valley', image: '/projects/north-end-gem/living.webp',
-    body: 'Whether you are searching for your first home, moving up, or listing a property you have loved for years, Timber and Love Realty works with people at many stages. The goal is the same each time: clear communication and real estate support you can trust.',
+    body: 'Whether you are searching for your first home, moving up, or listing a property you have loved for years, Timber + Love Realty works with people at many stages. The goal is the same each time: clear communication and real estate support you can trust.',
   },
 ];
 
@@ -55,7 +55,7 @@ export default function Page() {
       <PageHero
         eyebrow="Buy or Sell"
         title="Buy or Sell a Home in Boise"
-        subtitle="Timber and Love Realty helps people buy and sell homes across Boise, backed by local market experience and a team that knows the area."
+        subtitle="Timber + Love Realty helps people buy and sell homes across Boise, backed by local market experience and a team that knows the area."
         image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Realty-Background-1-scaled-1.jpg"
       >
         <Cta href={site.external.realtyBuy} external newTab track="realty_browse">
@@ -90,9 +90,9 @@ export default function Page() {
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">What You Will Find</p>
-            <h2 className="h-section mt-4">Continue to Timber and Love Realty</h2>
+            <h2 className="h-section mt-4">Continue to Timber + Love Realty</h2>
             <p className="text-lead mt-5">
-              Timber and Love Realty is our affiliated real estate site. There you can browse current listings, learn
+              Timber + Love Realty is our affiliated real estate site. There you can browse current listings, learn
               about buying and selling in Boise, and connect with the team directly. This page introduces the site so
               you know what to expect before you head over.
             </p>
@@ -120,7 +120,7 @@ export default function Page() {
       {/* Editorial split: a real Boise home makes the buying conversation tangible */}
       <EditorialSplit
         image="/editorial/estate-hearth.webp"
-        imageAlt="An inviting living room with black framed windows and a fireplace, designed by Timber and Love"
+        imageAlt="An inviting living room with black framed windows and a fireplace, designed by Timber + Love"
         eyebrow="Buying in Boise"
         title="Find a Home That Fits Your Life"
         cta="Browse Homes"
@@ -129,7 +129,7 @@ export default function Page() {
         ratio="landscape"
       >
         <p>
-          A home is more than a listing. Homes like this one, renovated by the Timber and Love team, are the kind of
+          A home is more than a listing. Homes like this one, renovated by the Timber + Love team, are the kind of
           Boise property buyers picture when they imagine settling in.
         </p>
         <p>
@@ -141,7 +141,7 @@ export default function Page() {
       {/* Editorial split: sellers benefit from homes presented at their best */}
       <EditorialSplit
         image="/projects/promise-ln-5120/5120-promise-ln-exterior-front.jpg"
-        imageAlt="Board-and-batten modern farmhouse with black windows, a custom home built by Timber and Love"
+        imageAlt="Board-and-batten modern farmhouse with black windows, a custom home built by Timber + Love"
         eyebrow="Selling in Boise"
         title="Position Your Home to Sell"
         cta="Sell a Home"
@@ -180,16 +180,16 @@ export default function Page() {
             <p className="eyebrow">Visit the Site</p>
             <h2 className="h-section mt-4">Ready to Look at Homes?</h2>
             <p className="text-lead mt-5">
-              Start browsing listings or begin a conversation about selling. You will continue to Timber and Love
+              Start browsing listings or begin a conversation about selling. You will continue to Timber + Love
               Realty, our affiliated real estate site, in a new tab.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Cta href={site.external.realty} external newTab track="realty_visit">
-                Visit Timber and Love Realty
+                Visit Timber + Love Realty
               </Cta>
             </div>
             <p className="mt-5 text-xs text-text-muted">
-              Timber and Love Realty is an affiliated Timber and Love site. It opens in a new tab so this page stays
+              Timber + Love Realty is an affiliated Timber + Love site. It opens in a new tab so this page stays
               open behind it.
             </p>
           </Reveal>

@@ -6,7 +6,7 @@ const PATH = '/luke-caldwell-faq/';
 export const metadata = pageMeta({
   title: 'About Luke Caldwell: Frequently Asked Questions',
   description:
-    'Answers to the most frequently asked questions about Luke Caldwell of HGTV’s Boise Boys and the Timber and Love team.',
+    'Answers to the most frequently asked questions about Luke Caldwell of HGTV’s Boise Boys and the Timber + Love team.',
   path: PATH,
   type: 'article',
   image: (data as any).heroImage,

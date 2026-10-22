@@ -17,7 +17,7 @@ import { faqs } from '@/lib/content/faqs';
 export const metadata = pageMeta({
   title: 'Invest in Real Estate',
   description:
-    'Learn about real estate investment information available through Timber and Love Realty, an affiliated Timber and Love site, and who it is intended for.',
+    'Learn about real estate investment information available through Timber + Love Realty, an affiliated Timber + Love site, and who it is intended for.',
   path: '/invest/',
   image:
     '/editorial/estate-exterior.webp',
@@ -27,7 +27,7 @@ const sections = [
   {
     eyebrow: 'What Is Available',
     heading: 'Information and Opportunities', image: '/projects/promise-ln-5142/5142-promise-ln-exterior-angle.jpg',
-    body: 'The affiliated site shares real estate investment information along with opportunities to invest alongside the Timber and Love team. It is a place to learn how the group approaches real estate investment and to see whether it lines up with what you are looking for.',
+    body: 'The affiliated site shares real estate investment information along with opportunities to invest alongside the Timber + Love team. It is a place to learn how the group approaches real estate investment and to see whether it lines up with what you are looking for.',
   },
   {
     eyebrow: 'Who It Is For',
@@ -37,7 +37,7 @@ const sections = [
   {
     eyebrow: 'What Happens Next',
     heading: 'You Continue to the Affiliated Site', image: '/projects/due-for-a-raze/exterior.webp',
-    body: 'When you choose to explore, you continue to Timber and Love Realty, an affiliated Timber and Love site, where you can read more and reach out to the team. Clicking through starts the conversation and commits you to nothing.',
+    body: 'When you choose to explore, you continue to Timber + Love Realty, an affiliated Timber + Love site, where you can read more and reach out to the team. Clicking through starts the conversation and commits you to nothing.',
   },
 ];
 
@@ -47,7 +47,7 @@ export default function Page() {
       <PageHero
         eyebrow="Invest"
         title="Invest in Real Estate"
-        subtitle="Learn about real estate investment information and opportunities available through Timber and Love, and see whether they fit what you are looking for."
+        subtitle="Learn about real estate investment information and opportunities available through Timber + Love, and see whether they fit what you are looking for."
         image="/editorial/estate-exterior.webp"
       >
         <Cta href={site.external.invest} external newTab track="invest_explore">
@@ -85,7 +85,7 @@ export default function Page() {
       {/* Editorial split: a real, finished custom home makes the value case concrete */}
       <EditorialSplit
         image="/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg"
-        imageAlt="Charcoal modern contemporary custom home with a butterfly roof, built by Timber and Love in Boise"
+        imageAlt="Charcoal modern contemporary custom home with a butterfly roof, built by Timber + Love in Boise"
         eyebrow="Real Estate, Built to Last"
         title="Value You Can Stand In Front Of"
         cta="See Our Work"
@@ -94,7 +94,7 @@ export default function Page() {
         ratio="landscape"
       >
         <p>
-          The way Timber and Love thinks about real estate is grounded in homes that are actually built. This custom contemporary shows the team’s approach to architecture, materials, and finished detail.
+          The way Timber + Love thinks about real estate is grounded in homes that are actually built. This custom contemporary shows the team’s approach to architecture, materials, and finished detail.
         </p>
         <p>
           Explore the finished work, then review each proposed opportunity on its own terms, including the structure, costs, risks, and assumptions.
@@ -106,7 +106,7 @@ export default function Page() {
         image="/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Exterior-1-3-scaled.jpg"
         eyebrow="Invest With Intention"
         title="Build Value That Lasts"
-        body="Explore how the Timber and Love team approaches real estate and start a conversation about opportunities in the Treasure Valley."
+        body="Explore how the Timber + Love team approaches real estate and start a conversation about opportunities in the Treasure Valley."
         cta="Talk About Investing"
         href="/contact/#general"
         height="short"
@@ -121,8 +121,8 @@ export default function Page() {
             <p className="eyebrow">Take a Look</p>
             <h2 className="h-section mt-4">Explore the Details</h2>
             <p className="text-lead mt-5">
-              Read more about how Timber and Love approaches real estate investment and reach out with your questions.
-              You will continue to Timber and Love Realty, our affiliated site, in a new tab.
+              Read more about how Timber + Love approaches real estate investment and reach out with your questions.
+              You will continue to Timber + Love Realty, our affiliated site, in a new tab.
             </p>
             <div className="mt-8 flex justify-center">
               <Cta href={site.external.invest} external newTab track="invest_explore">
@@ -130,7 +130,7 @@ export default function Page() {
               </Cta>
             </div>
             <p className="mt-5 text-xs text-text-muted">
-              This link opens Timber and Love Realty, an affiliated Timber and Love site, in a new tab so this page
+              This link opens Timber + Love Realty, an affiliated Timber + Love site, in a new tab so this page
               stays open behind it.
             </p>
           </Reveal>

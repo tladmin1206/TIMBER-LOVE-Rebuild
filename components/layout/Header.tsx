@@ -71,14 +71,14 @@ export default function Header() {
       <div className="container-wide flex h-[76px] items-center justify-between gap-5 lg:h-[88px]">
         <Link
           href="/" aria-current={pathname === "/" ? "page" : undefined}
-          aria-label="Timber and Love home"
+          aria-label="Timber + Love home"
           onClick={close}
           className="shrink-0"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={LOGO}
-            alt="Timber and Love"
+            alt="Timber + Love"
             width={300}
             height={126}
             className="h-10 w-auto"
@@ -187,7 +187,7 @@ export default function Header() {
                 src={active.image}
                 alt={
                   active.id === "story"
-                    ? "The Timber and Love team outside the Boise studio"
+                    ? "The Timber + Love team outside the Boise studio"
                     : ""
                 }
                 className={`h-52 w-full ${active.id === "story" ? "object-contain bg-panel" : "object-cover"}`}

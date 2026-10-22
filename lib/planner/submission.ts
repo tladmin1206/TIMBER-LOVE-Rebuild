@@ -59,7 +59,7 @@ const SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, s
 
 function emailShell(body: string, preheader: string): string {
   return `<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light only"><title>Timber and Love</title></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light only"><title>Timber + Love</title></head>
 <body style="margin:0;padding:0;background:${EM.soft};-webkit-text-size-adjust:100%;">
 <span style="display:none!important;visibility:hidden;opacity:0;color:transparent;height:0;width:0;overflow:hidden;mso-hide:all;">${esc(preheader)}</span>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:${EM.soft};"><tr><td align="center" style="padding:24px 12px;">
@@ -69,7 +69,7 @@ function emailShell(body: string, preheader: string): string {
 </td></tr>
 <tr><td style="padding:34px 32px;font-family:${SANS};color:${EM.text};font-size:15px;line-height:1.6;">${body}</td></tr>
 <tr><td align="center" style="background:${EM.ink};padding:22px 32px;">
-<span style="font-family:${SANS};font-size:11px;letter-spacing:1.5px;color:#8b857c;">Timber and Love &nbsp;&middot;&nbsp; Design &#43; Build &nbsp;&middot;&nbsp; Boise, Idaho</span>
+<span style="font-family:${SANS};font-size:11px;letter-spacing:1.5px;color:#8b857c;">Timber + Love &nbsp;&middot;&nbsp; Design &#43; Build &nbsp;&middot;&nbsp; Boise, Idaho</span>
 </td></tr>
 </table></td></tr></table></body></html>`;
 }
@@ -174,7 +174,7 @@ export function leadConfirmationEmail(
   const lines = [
     `Hi ${name},`,
     '',
-    'Thank you for using the Timber and Love Design + Build Investment Planner. Here is your personalized planning range and project summary.',
+    'Thank you for using the Timber + Love Design + Build Investment Planner. Here is your personalized planning range and project summary.',
     '',
     'YOUR PLANNING INVESTMENT RANGE',
     rangeLine(estimate),
@@ -202,7 +202,7 @@ export function leadConfirmationEmail(
       `Construction: ${estimate.durationWeeks.low} to ${estimate.durationWeeks.high} weeks`
     );
   }
-  lines.push('', 'WHAT HAPPENS NEXT', NEXT_STEPS, '', 'IMPORTANT', DISCLAIMER, '', 'Timber and Love');
+  lines.push('', 'WHAT HAPPENS NEXT', NEXT_STEPS, '', 'IMPORTANT', DISCLAIMER, '', 'Timber + Love');
 
   const projRows: Array<[string, string | undefined]> = [
     ['Project type', title(answers.projectType)],
@@ -239,7 +239,7 @@ export function leadConfirmationEmail(
     emSpacer(),
     `<div style="border-top:1px solid ${EM.line};padding-top:16px;font-family:${SANS};font-size:11px;line-height:1.6;color:${EM.muted};">${esc(DISCLAIMER)}</div>`,
     emSpacer(18),
-    `<div style="font-family:${SERIF};font-size:17px;color:${EM.ink};">Warmly,<br>The Timber and Love Team</div>`,
+    `<div style="font-family:${SERIF};font-size:17px;color:${EM.ink};">Warmly,<br>The Timber + Love Team</div>`,
   ].join('');
 
   const preheader = estimate.range
@@ -247,7 +247,7 @@ export function leadConfirmationEmail(
     : 'Your project summary and next steps inside.';
 
   return {
-    subject: `Your Timber and Love planning range: ${title(answers.projectType)}`,
+    subject: `Your Timber + Love planning range: ${title(answers.projectType)}`,
     text: lines.join('\n'),
     html: emailShell(body, preheader),
   };

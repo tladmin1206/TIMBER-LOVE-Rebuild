@@ -13,7 +13,7 @@ import EditorialSplit from '@/components/sections/EditorialSplit';
 export const metadata = pageMeta({
   title: 'Reviews',
   description:
-    'Read stories from Timber and Love design-build and real estate clients in Boise and the Treasure Valley.',
+    'Read stories from Timber + Love design-build and real estate clients in Boise and the Treasure Valley.',
   path: '/reviews/',
 });
 
@@ -47,7 +47,7 @@ export default function Page() {
       {/* Editorial: the finished homes behind the reviews. */}
       <EditorialSplit
         image="/projects/promise-ln-5106/5106-promise-ln-living-room-fireplace.jpg"
-        imageAlt="Bright living room with a marble fireplace and oak details in a Spanish modern custom home by Timber and Love"
+        imageAlt="Bright living room with a marble fireplace and oak details in a Spanish modern custom home by Timber + Love"
         eyebrow="Behind the Reviews"
         title="The Homes People Love to Live In"
         cta="Explore the Homes"

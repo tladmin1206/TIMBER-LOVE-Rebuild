@@ -13,7 +13,7 @@ import TrustBar from '@/components/sections/TrustBar';
 export const metadata = pageMeta({
   title: 'Journal',
   description:
-    'News, stories, and insights from Timber and Love, the Boise design-build and real estate team behind HGTV’s Boise Boys.',
+    'News, stories, and insights from Timber + Love, the Boise design-build and real estate team behind HGTV’s Boise Boys.',
   path: '/journal/',
 });
 
@@ -36,7 +36,7 @@ export default function Page() {
 
       <PageHero
         eyebrow="Journal"
-        title="Stories From Timber and Love"
+        title="Stories From Timber + Love"
         subtitle="News, design thinking, and the story behind the Boise team building homes on and off screen."
         image="/editorial/collected-details.webp"
         height="short"
@@ -99,7 +99,7 @@ export default function Page() {
 
       <EditorialSplit
         image="/projects/promise-ln-5120/5120-promise-ln-living-green-panel.jpg"
-        imageAlt="Living room with green paneled millwork in a modern farmhouse custom home by Timber and Love"
+        imageAlt="Living room with green paneled millwork in a modern farmhouse custom home by Timber + Love"
         eyebrow="Design Notes"
         title="Details Worth Writing About"
         cta="See Our Work"

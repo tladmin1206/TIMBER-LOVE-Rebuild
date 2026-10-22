@@ -64,7 +64,7 @@ export default function Footer() {
       <div className="container-wide grid gap-12 py-16 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-3">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={WORDMARK} alt="Timber and Love" className="h-14 w-auto" loading="lazy" />
+          <img src={WORDMARK} alt="Timber + Love" className="h-14 w-auto" loading="lazy" />
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-text-secondary">
             One trusted Boise team for every stage of home and real estate. Design, build, buy, sell, invest, and stay,
             led by Luke Caldwell of HGTV&apos;s Boise Boys.
@@ -104,7 +104,7 @@ export default function Footer() {
         <div className="lg:col-span-3">
           <h3 className="text-sm uppercase tracking-[0.18em] text-cream">Stay in the Loop</h3>
           <p className="mt-6 text-sm leading-relaxed text-text-secondary">
-            Get occasional design inspiration and Timber and Love updates in your inbox.
+            Get occasional design inspiration and Timber + Love updates in your inbox.
           </p>
           <div className="mt-5">
             <Newsletter />
@@ -138,7 +138,7 @@ export default function Footer() {
             <Link href="/terms-and-conditions/" className="uppercase tracking-[0.14em] transition hover:text-cream">Terms</Link>
           </div>
           <p className="text-center sm:text-right">
-            &copy; {new Date().getFullYear()} Timber and Love. All rights reserved.
+            &copy; {new Date().getFullYear()} Timber + Love. All rights reserved.
             <span className="mx-2 text-border-subtle" aria-hidden="true">&middot;</span>
             Made with <span aria-hidden="true">🤍</span><span className="sr-only">love</span> by{' '}
             <a

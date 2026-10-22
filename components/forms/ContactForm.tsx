@@ -71,7 +71,7 @@ export default function ContactForm({ source = 'website', compact = false, defau
 
   const inputCls = 'mt-2 w-full min-w-0 border border-cream/25 bg-ink px-4 py-3 text-base text-cream outline-none transition focus:border-cream/70';
   return (
-    <form onFocus={() => { if (!started.current) { started.current = true; trackEvent('form_start', { form: 'general_contact', source }); } }} onSubmit={handleSubmit} className="space-y-5" aria-label="Contact Timber and Love">
+    <form onFocus={() => { if (!started.current) { started.current = true; trackEvent('form_start', { form: 'general_contact', source }); } }} onSubmit={handleSubmit} className="space-y-5" aria-label="Contact Timber + Love">
       <p className="text-xs text-text-muted">Fields marked * are required.</p>
       <div className={compact ? 'space-y-5' : 'grid gap-5 sm:grid-cols-2'}>
         <label className="block text-sm text-cream" htmlFor={`${id}-first`}>First Name *<input id={`${id}-first`} className={inputCls} name="firstName" required maxLength={100} autoComplete="given-name" /></label>

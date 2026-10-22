@@ -233,7 +233,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
           <div className="container-wide">
             <Reveal className="mb-8">
               <p className="eyebrow">More Stays</p>
-              <h2 className="h-section mt-3">Other Timber and Love Rentals</h2>
+              <h2 className="h-section mt-3">Other Timber + Love Rentals</h2>
             </Reveal>
             <div className="grid gap-6 sm:grid-cols-3">
               {related.map((r) => (
@@ -256,7 +256,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
       <ClosingCta
         eyebrow="Plan Your Stay"
         title="Make Yourself at Home"
-        body="Reserve your dates through our booking partner, or reach out and our team will help you find the right Timber and Love stay."
+        body="Reserve your dates through our booking partner, or reach out and our team will help you find the right Timber + Love stay."
         image={data.hero.image || images[0]?.src}
         primary={
           booking

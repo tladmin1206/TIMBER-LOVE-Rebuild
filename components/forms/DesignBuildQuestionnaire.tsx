@@ -40,7 +40,7 @@ export default function DesignBuildQuestionnaire() {
     <div className="w-full min-w-0">
       {!ready && !delayed && <p role="status" className="mb-4 text-center text-sm text-text-secondary">Loading your project questionnaire…</p>}
       {!ready && delayed && <p role="status" className="mb-4 text-sm leading-relaxed text-text-secondary">The questionnaire is taking a little longer to load. You can open it directly below or call <a href={site.phoneHref} className="underline underline-offset-4">{site.phone}</a>.</p>}
-      <iframe ref={frame} src={DESIGN_BUILD_FORM_URL} title="Timber and Love Design + Build Project Questionnaire"
+      <iframe ref={frame} src={DESIGN_BUILD_FORM_URL} title="Timber + Love Design + Build Project Questionnaire"
         className="block w-full border-0 bg-transparent" style={{ height, colorScheme: 'dark' }} />
       <p className="mt-5 text-center text-xs leading-relaxed text-text-secondary">
         Prefer a separate window?{' '}

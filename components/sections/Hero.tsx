@@ -23,7 +23,7 @@ export default function Hero() {
 
       <div className="relative z-10 flex flex-1 items-center">
         <div className="container-wide w-full pt-24 text-left">
-          <h1 className="h-hero animate-fadeUp text-cream">Timber and Love</h1>
+          <h1 className="h-hero animate-fadeUp text-cream">Timber + Love</h1>
           <p className="mt-4 max-w-2xl animate-fadeUp text-base uppercase tracking-brand text-cream/85 [animation-delay:120ms] sm:text-xl">
             Treasure Valley&apos;s Leading Luxury Design + Build Firm
           </p>

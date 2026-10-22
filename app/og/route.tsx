@@ -38,7 +38,7 @@ export async function GET() {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={logoSrc} width={LOGO_WIDTH} height={LOGO_HEIGHT} alt="Timber and Love" />
+        <img src={logoSrc} width={LOGO_WIDTH} height={LOGO_HEIGHT} alt="Timber + Love" />
       </div>
     ),
     { width: WIDTH, height: HEIGHT }

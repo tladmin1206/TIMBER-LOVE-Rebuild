@@ -2,7 +2,7 @@
   "name": "timber-and-love",
   "version": "1.0.0",
   "private": true,
-  "description": "Timber and Love — Boise's premier home services by HGTV's Luke Caldwell. Modern Next.js rebuild.",
+  "description": "Timber + Love, Boise's premier home services by HGTV's Luke Caldwell. Modern Next.js rebuild.",
   "scripts": {
     "dev": "next dev -H 0.0.0.0 -p ${PORT:-3000}",
     "build": "next build",
