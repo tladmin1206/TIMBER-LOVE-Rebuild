@@ -35,7 +35,11 @@ export default function FAQ({ items }: { items: FaqItem[] }) {
               >
                 <span className="text-base text-cream sm:text-lg">{it.q}</span>
                 <span aria-hidden="true" className="shrink-0 text-xl leading-none text-cream/70">
-                  {isOpen ? '–' : '+'}
+                  {isOpen ? (
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" focusable="false"><path d="M2 8h12" /></svg>
+                ) : (
+                  <svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.5" focusable="false"><path d="M2 8h12M8 2v12" /></svg>
+                )}
                 </span>
               </button>
             </h3>

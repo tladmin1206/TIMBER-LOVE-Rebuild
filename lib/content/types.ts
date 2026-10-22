@@ -12,3 +12,15 @@ export type Testimonial = {
   name: string;
   role: string;
 };
+
+/**
+ * A viewer comment about the Boise Boys shows. Deliberately NOT a Testimonial:
+ * fan comments are never client reviews, never rendered by ReviewSlider or
+ * ReviewWall, never placed on a design and build or other sales page, and
+ * never emitted as Review schema (Hank ruling on ADA-NS-09, 2026-10-22).
+ */
+export type FanComment = {
+  quote: string;
+  name: string;
+  role: 'Boise Boys Viewer';
+};

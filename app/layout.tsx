@@ -19,6 +19,8 @@ const montserrat = localFont({
   weight: '100 900',
   style: 'normal',
   display: 'swap',
+  // Explicit: the body and heading face, preloaded so text paints in brand type early.
+  preload: true,
   variable: '--font-montserrat',
 });
 

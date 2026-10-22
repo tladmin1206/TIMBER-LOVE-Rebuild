@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Script from 'next/script';
 
 /**
@@ -10,12 +13,87 @@ import Script from 'next/script';
  * IDs can be overridden with env vars; the live values are the defaults so the
  * rebuild tracks identically out of the box. Scripts load `afterInteractive`
  * to keep them off the critical rendering path (better Core Web Vitals).
+ *
+ * Consent (ADA-NS-11): all three set non-essential cookies, so none of them
+ * loads until the visitor accepts in <ConsentBanner>. The choice is kept in
+ * localStorage (no cookie of our own). NEXT_PUBLIC_CONSENT_MODE=notice switches
+ * to notice-only: trackers load at once and the banner just informs. Default
+ * is opt-in. Which mode applies is a decision for Hank (see the PR).
  */
 const GOOGLE_TAG_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID || 'GT-P3NNWV8';
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '898896691730737';
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID || 'lpvs1f5dzy';
 
+export const CONSENT_KEY = 'tl_consent';
+export type Consent = 'granted' | 'denied';
+const NOTICE_ONLY = process.env.NEXT_PUBLIC_CONSENT_MODE === 'notice';
+
+export function readConsent(): Consent | null {
+  try {
+    const v = window.localStorage.getItem(CONSENT_KEY);
+    return v === 'granted' || v === 'denied' ? v : null;
+  } catch {
+    return null;
+  }
+}
+
 export default function Analytics() {
+  const [consent, setConsent] = useState<Consent | null>(null);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setConsent(readConsent());
+    setReady(true);
+  }, []);
+
+  const choose = (c: Consent) => {
+    try {
+      window.localStorage.setItem(CONSENT_KEY, c);
+    } catch {
+      /* private mode: choice lasts for this page view */
+    }
+    setConsent(c);
+  };
+
+  const load = NOTICE_ONLY || consent === 'granted';
+  return (
+    <>
+      {ready && consent === null && <ConsentBanner noticeOnly={NOTICE_ONLY} onChoose={choose} />}
+      {load && <Trackers />}
+    </>
+  );
+}
+
+function ConsentBanner({ noticeOnly, onChoose }: { noticeOnly: boolean; onChoose: (c: Consent) => void }) {
+  return (
+    <section
+      role="region"
+      aria-label="Cookie notice"
+      className="fixed inset-x-0 bottom-16 z-[90] border-t border-border-subtle bg-ink/95 p-4 text-sm text-cream md:bottom-0"
+    >
+      <div className="mx-auto flex max-w-5xl flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <p className="text-cream/85">
+          {noticeOnly
+            ? 'We use cookies for analytics (Google, Meta, Microsoft Clarity) to understand how the site is used. '
+            : 'We would like to use analytics cookies (Google, Meta, Microsoft Clarity) to understand how the site is used. They stay off unless you accept. '}
+          <a href="/privacy-policy/" className="underline underline-offset-2">Privacy Policy</a>
+        </p>
+        <div className="flex shrink-0 gap-3">
+          {noticeOnly ? (
+            <button type="button" className="btn-primary min-h-[44px]" onClick={() => onChoose('granted')}>OK</button>
+          ) : (
+            <>
+              <button type="button" className="btn-secondary min-h-[44px]" onClick={() => onChoose('denied')}>Decline</button>
+              <button type="button" className="btn-primary min-h-[44px]" onClick={() => onChoose('granted')}>Accept</button>
+            </>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Trackers() {
   return (
     <>
       {/* Google tag (gtag.js) */}

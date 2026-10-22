@@ -108,14 +108,24 @@ export default function Page() {
           <div className="mt-10">
             <ReviewSlider items={clientReviews} />
           </div>
-          <details className="mt-12 border-t border-border-subtle pt-6 text-left"><summary className="cursor-pointer py-4 text-sm uppercase tracking-[.14em]">From the Viewers: Boise Boys Fan Comments</summary><p className="mt-3 text-sm text-text-secondary">These are comments about the shows, separate from the client experiences above.</p><div className="mt-6 grid gap-4 lg:grid-cols-3">            {fanComments.map((f) => (
-              <figure key={f.name} className="surface-card p-5">
-                <blockquote className="text-sm leading-relaxed text-text-secondary">“{f.quote}”</blockquote>
-                <figcaption className="mt-3 text-xs uppercase tracking-[0.14em] text-text-muted">{f.name} · {f.role}</figcaption>
-              </figure>
-            ))}
-</div></details>
+        </div>
+      </section>
 
+      {/* Fan comments: viewer remarks about the shows. Not testimonials, not
+          client reviews, and never Review schema (ADA-NS-09, Hank ruling). */}
+      <section className="border-t border-border-subtle bg-bg-primary section" aria-labelledby="fan-comments-heading">
+        <div className="container-wide">
+          <p className="eyebrow">From the Viewers</p>
+          <h2 id="fan-comments-heading" className="h-section mt-4">Fan Comments</h2>
+          <p className="mt-3 max-w-2xl text-sm text-text-secondary">Comments from viewers of the Boise Boys shows. These are fan comments about the shows, not reviews from Timber + Love clients.</p>
+          <ul className="mt-8 grid gap-4 lg:grid-cols-3" aria-label="Fan comments">
+            {fanComments.map((f) => (
+              <li key={f.name} className="surface-card p-5">
+                <blockquote className="text-sm leading-relaxed text-text-secondary">“{f.quote}”</blockquote>
+                <p className="mt-3 text-xs uppercase tracking-[0.14em] text-text-muted">{f.name} · {f.role}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

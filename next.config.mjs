@@ -4,6 +4,12 @@ const nextConfig = {
   // WordPress used trailing-slash URLs (e.g. /design-and-build/). Preserve them
   // exactly so existing search rankings, backlinks, and indexes stay valid.
   trailingSlash: true,
+  // ADA-NS-07: Next's built-in trailing slash redirect also caught
+  // /_next/image?url=..., so every optimised image cost a 308 round trip to
+  // /_next/image/?url=... first. The built-in redirect is skipped and
+  // middleware.ts re-implements it for page paths only (not /_next, /api, or
+  // files with an extension), keeping the WordPress /path/ URLs canonical.
+  skipTrailingSlashRedirect: true,
   // Local originals remain portable; responsive renditions are generated and cached by Next.
   images: {
     unoptimized: false,
@@ -40,6 +46,20 @@ const nextConfig = {
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
         ],
       },
+      // ADA-NS-08: noindex every host that is not production (the replit.app
+      // preview, localhost, any other deploy). Keyed on the Host header so the
+      // production hosts stay indexable with no config. FORCE_NOINDEX=1 in the
+      // environment noindexes every host, for a staging deploy that answers on
+      // a production-looking name.
+      ...(process.env.FORCE_NOINDEX === '1'
+        ? [{ source: '/:path*', headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] }]
+        : [
+            {
+              source: '/:path*',
+              missing: [{ type: 'host', value: '(www\\.)?timberandlove\\.com' }],
+              headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+            },
+          ]),
       {
         // Admin only. This MUST stay scoped to /admin: on `/:path*` it would
         // deindex the entire site, which is the opposite of what the rest of
@@ -67,3 +87,4 @@ const nextConfig = {
 };
 
 export default nextConfig;
+

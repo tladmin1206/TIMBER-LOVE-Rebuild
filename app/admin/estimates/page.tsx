@@ -48,7 +48,7 @@ export default async function AdminEstimates() {
                 <span className="text-neutral-500">{new Date(e.createdAt).toLocaleDateString()}</span>
                 <span className="font-medium">{contact ? `${contact.firstName} ${contact.lastName}` : '\u2014'}</span>
                 <span>{e.projectTypes.join(', ')} · {e.finishTier ?? '\u2014'} · {e.scopeLevel ?? '\u2014'}</span>
-                <span className="font-semibold">{money(e.rangeLow)} – {money(e.rangeHigh)}</span>
+                <span className="font-semibold">{money(e.rangeLow)} to {money(e.rangeHigh)}</span>
                 <span className="rounded bg-neutral-200 px-2 py-0.5 text-xs">{e.basis}</span>
                 {li && <span className="text-xs text-neutral-500">internal {money(li.internalCost)} · {Math.round(li.margin * 100)}% GM</span>}
               </summary>

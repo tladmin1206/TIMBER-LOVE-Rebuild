@@ -56,9 +56,11 @@ const config: Config = {
         prose: '68ch',
       },
       keyframes: {
+        // Transform only, no opacity: an opacity 0 start hides above the fold
+        // text from LCP until the animation runs (ADA-NS-04).
         fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(24px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+          '0%': { transform: 'translateY(24px)' },
+          '100%': { transform: 'translateY(0)' },
         },
         fadeIn: {
           '0%': { opacity: '0' },

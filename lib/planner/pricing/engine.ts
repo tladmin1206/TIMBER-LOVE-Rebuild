@@ -114,7 +114,7 @@ export function estimate(
     adders,
     contingencyPct: contingency,
     steps: [
-      `band ${resolved.lookupKey} → ${fmt(resolved.approvedBand.low)}–${fmt(resolved.approvedBand.high)}`,
+      `band ${resolved.lookupKey} → ${fmt(resolved.approvedBand.low)}-${fmt(resolved.approvedBand.high)}`,
       `scaled ×${resolved.sizeFactor.toFixed(3)} → ${fmt(resolved.scaled)}`,
       `multipliers ×${multiplierProduct.toFixed(4)} → ${fmt(adjusted)}`,
       `adders +${fmt(adderMid)} → ${fmt(withAdders)}`,
@@ -236,5 +236,5 @@ function fmt(v: number): string {
 }
 
 export function formatRange(r: Range | { low: number; high: number }): string {
-  return `${fmt(r.low)} – ${fmt(r.high)}`;
+  return `${fmt(r.low)} to ${fmt(r.high)}`;
 }
