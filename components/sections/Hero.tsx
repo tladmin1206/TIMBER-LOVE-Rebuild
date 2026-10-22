@@ -18,8 +18,8 @@ export default function Hero() {
       {/* Original-style overlay: darkens behind the left-aligned content while
           revealing the interior video toward the right, plus a soft vertical
           vignette for legibility of the top nav and content. */}
-      <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-ink/20" />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-ink/40" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-ink/20" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/75 via-transparent to-ink/40" />
 
       <div className="relative z-10 flex flex-1 items-center">
         <div className="container-wide w-full pt-24 text-left">

@@ -2,7 +2,14 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-/** Fade/slide content in once it scrolls into view (respects reduced-motion). */
+/**
+ * Slide content in once it scrolls into view (respects reduced-motion).
+ *
+ * Transform only, never opacity: content that starts at opacity 0 is not
+ * painted for LCP until hydration plus the observer reveal it, which cost
+ * 1.2 to 1.8 s of render delay on mobile (ADA-NS-04). Text is visible in the
+ * server HTML from the first paint.
+ */
 export default function Reveal({
   children,
   className = '',
@@ -74,7 +81,7 @@ export default function Reveal({
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
       className={`transition-all duration-700 ease-out ${
-        shown ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+        shown ? 'translate-y-0' : 'translate-y-6'
       } ${className}`}
     >
       {children}

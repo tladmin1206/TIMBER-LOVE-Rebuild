@@ -398,7 +398,7 @@ export function internalBriefEmail(
       `<div style="border:1px solid ${EM.line};background:${EM.panel};padding:20px;"><div style="font-family:${SANS};font-size:11px;letter-spacing:2px;text-transform:uppercase;color:${EM.muted};font-weight:700;">Cost breakdown &middot; internal only</div><div style="font-family:${SANS};font-size:11px;color:${EM.muted};margin:4px 0 14px;">Do not share with the lead.</div>` +
       emKvTable([
         ['Basis', `${trH.basis} / ruleset ${trH.rulesetVersion}`],
-        ['Band', `${trH.bandLookupKey}  ${money(trH.approvedBand.low)}–${money(trH.approvedBand.high)}`],
+        ['Band', `${trH.bandLookupKey}  ${money(trH.approvedBand.low)} to ${money(trH.approvedBand.high)}`],
         ['Size factor', `×${trH.sizeFactor.toLocaleString('en-US')}`],
         ['Contingency', `${Math.round(trH.contingencyPct * 100)}%`],
       ]) +

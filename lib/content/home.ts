@@ -1,4 +1,4 @@
-import type { Testimonial } from '@/lib/content/types';
+import type { FanComment, Testimonial } from '@/lib/content/types';
 
 // Matches the original homepage: 967117381 is the full-bleed background hero
 // video (warm interior), and 953577619 is the inline "Designing Beauty" player
@@ -11,7 +11,6 @@ export const introVideoPoster = '/video-posters/953577619.jpg';
 // Full-bleed background videos used across homepage sections (Vimeo ids + local poster frames).
 export const sectionVideos = {
   values: { id: '927639866', poster: '/video-posters/927639866.jpg' },
-  testimonials: { id: '928451971', poster: '/video-posters/928451971.jpg' },
   finalCta: { id: '927976789', poster: '/video-posters/927976789.jpg' },
 };
 
@@ -168,16 +167,6 @@ export const processSteps = [
 export const mission =
   'At Timber + Love, our mission is to transform spaces, communities, and lives through innovative and high-quality design and construction. We strive to exceed our clients’ expectations by collaborating closely with them and delivering exceptional results through our processes and systems, integrity, and attention to detail. We are committed to making a positive impact on the community and being a leader in the industry through hard work, creativity, and a dedication to excellence.';
 
-export const testimonials: Testimonial[] = [
-  { name: 'Caleb R.', role: 'Remodel Client', quote: 'Luke and Clint and the whole crew at Timber + Love are some of the most amazing people I’ve ever met. You can really see and feel the love that goes into the homes that they transform. They really are making Boise a more beautiful place.' },
-  { name: 'Jean U.', role: 'Boise Boys Fan', quote: 'I love the designs and the building Boise Boys do on their homes. We live a little over 500 miles north west of Boise, and I would love to have Luke design our house in mid century modern.' },
-  { name: 'Richard M.', role: 'Boise Boys Fan', quote: '“Boise Boys” best viewing ever offered by HGTV. Love those guys!' },
-  { name: 'Greg R.', role: 'Trade Partner', quote: 'Great company in Boise doing amazing work to turn old homes into beautiful new ones.' },
-  { name: 'Lara A.', role: 'Remodel Client', quote: 'Highly Recommend this team of trustworthy and reliable contractors. Looking forward to more great stories!' },
-  { name: 'Danika L.', role: 'Trade Partner', quote: 'Amazing company. Very respectable people and incredible work!' },
-  { name: 'Jace L.', role: 'Remodel Client', quote: 'Incredible work!! With an incredible heart behind what they do!' },
-];
-
 /**
  * Curated featured projects for the homepage "Featured Work" section. These are
  * real Boise Boys projects with imagery in the repo. Outcome summaries are kept
@@ -240,41 +229,17 @@ export const whyReasons = [
 export const googleReviews = { url: 'https://share.google/Ga7dguR36OVrALLlH' };
 
 /**
- * Verified, source-attributed customer reviews used as conversion proof (real
- * current Google reviews). Fan comments are surfaced separately as commentary.
+ * Client quotes stay off the site until each one has a source we can point at.
+ * The previous set had no review URL and matched unverified directory copy, so
+ * it is not rendered. Add an item only with kind: 'client' and a real source.
+ * Fan comments are a separate type and stay on /the-boise-boys/.
  */
-export const clientReviews: Testimonial[] = [
-  {
-    name: 'Akbar Pirani',
-    role: 'Design + Build Client',
-    quote: 'Our family had outgrown our space completely and we were torn between moving or trying a major renovation. They showed us a vision for our current layout that we never thought was possible. They knocked out walls and added these gorgeous vaulted ceilings that completely resolved our space issues.',
-  },
-  {
-    name: 'Tracy Macglad',
-    role: 'Remodel Client',
-    quote: 'I was so worried our older house would lose its classic character during the remodel, but they blended the original charm with clean modern lines perfectly. Honestly, my kitchen looks like a work of art now and I couldn’t be happier.',
-  },
-  {
-    name: 'Jackie Miller',
-    role: 'Design + Build Client',
-    quote: 'Highly recommend! They are very professional and responsive. Their construction is exceptional quality. They take great pride in their work and it shows. I can’t say enough great things about this company.',
-  },
-  {
-    name: 'Justin Armuth',
-    role: 'Design + Build Client',
-    quote: 'If you’re looking for a construction company that prioritizes quality, excels in remodels, and brings strong design insight to the table, I highly recommend them. We would absolutely work with them again.',
-  },
-  {
-    name: 'Eric Smith',
-    role: 'Real Estate Client',
-    quote: 'Mira DiMaggio was our realtor for a recent purchase of a house in Boise. She was wonderful in just about every way. I could not recommend her more highly.',
-  },
-];
+export const clientReviews: Testimonial[] = [];
 
-/** Boise Boys fan commentary: clearly labeled as viewer comments, never as client proof. */
-export const fanComments: Testimonial[] = [
-  { name: 'Richard M.', quote: '“Boise Boys”: best viewing ever offered by HGTV. Love those guys!', role: 'Boise Boys Viewer' },
-  { name: 'Jean U.', quote: 'I love the designs and the builds the Boise Boys do on their homes. I would love to have Luke design a mid-century modern house for us.', role: 'Boise Boys Viewer' },
+/** Boise Boys fan comments: labelled as fan comments only, never as client proof, never as Review schema. */
+export const fanComments: FanComment[] = [
+  { kind: 'fan', name: 'Richard M.', quote: '“Boise Boys”: best viewing ever offered by HGTV. Love those guys!', role: 'Boise Boys Viewer' },
+  { kind: 'fan', name: 'Jean U.', quote: 'I love the designs and the builds the Boise Boys do on their homes. I would love to have Luke design a mid-century modern house for us.', role: 'Boise Boys Viewer' },
 ];
 
 /** "One Brand, More Ways to Help": how a customer might move between services. */

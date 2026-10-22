@@ -5,7 +5,7 @@ import JsonLd from '@/components/JsonLd';
 import { pageMeta } from '@/lib/seo';
 import { breadcrumbSchema } from '@/lib/schema';
 import { site } from '@/lib/site';
-import { clientReviews, googleReviews } from '@/lib/content/home';
+import { clientReviews } from '@/lib/content/home';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import EditorialSplit from '@/components/sections/EditorialSplit';
@@ -13,7 +13,7 @@ import EditorialSplit from '@/components/sections/EditorialSplit';
 export const metadata = pageMeta({
   title: 'Reviews',
   description:
-    'Read stories from Timber + Love design-build and real estate clients in Boise and the Treasure Valley.',
+    'Timber + Love client stories are on Google. See the homes and start a design and build project in Boise.',
   path: '/reviews/',
 });
 
@@ -32,7 +32,7 @@ export default function Page() {
       <PageHero
         eyebrow="Reviews"
         title="Trusted by Boise Homeowners"
-        subtitle="Real reviews from the people we have designed, built, bought, and sold homes for across the Treasure Valley."
+        subtitle="Client stories are published on Google. This page points there, and shows the homes behind the work."
         image="/editorial/cottage-fireplace.webp"
         height="short"
       >
@@ -48,7 +48,7 @@ export default function Page() {
       <EditorialSplit
         image="/projects/promise-ln-5106/5106-promise-ln-living-room-fireplace.jpg"
         imageAlt="Bright living room with a marble fireplace and oak details in a Spanish modern custom home by Timber + Love"
-        eyebrow="Behind the Reviews"
+        eyebrow="The Homes"
         title="The Homes People Love to Live In"
         cta="Explore the Homes"
         href="/timber-and-love-gallery/"
@@ -57,11 +57,10 @@ export default function Page() {
         ratio="landscape"
       >
         <p>
-          Every review here traces back to the same thing: a finished home our clients are genuinely proud to live in.
-          The kitchens they gather in, the light-filled rooms, the details that hold up years after the crew leaves.
+          Finished homes are the proof you can walk through: the kitchens people gather in, the light-filled rooms, and the details that hold up after the crew leaves.
         </p>
         <p>
-          The kind words are nice. The homes are the real proof.
+          Read client stories on Google. The homes are here.
         </p>
       </EditorialSplit>
 

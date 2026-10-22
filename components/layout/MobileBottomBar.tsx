@@ -2,8 +2,10 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useEffect, useRef } from 'react';
 import { site } from '@/lib/site';
 import { rentals } from '@/lib/content/rentals';
+import { hasMobileActionBar } from '@/lib/mobile-action-bar';
 
 type Action = { label: string; href: string; external?: boolean; primary?: boolean };
 
@@ -46,11 +48,36 @@ function actionsFor(pathname: string): Action[] {
 
 export default function MobileBottomBar() {
   const pathname = usePathname() || '/';
+  const bar = useRef<HTMLElement>(null);
   const items = actionsFor(pathname);
-  if (pathname.startsWith('/investment-planner') || pathname.startsWith('/admin') || pathname.startsWith('/design-and-build-questionnaire') || pathname.startsWith('/privacy-policy') || pathname.startsWith('/terms-and-conditions')) return null;
+  const visible = hasMobileActionBar(pathname);
+
+  useEffect(() => {
+    const el = bar.current;
+    if (!el) {
+      document.documentElement.style.removeProperty('--mobile-bar-offset');
+      return;
+    }
+    const apply = () => {
+      const height = Math.round(el.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--mobile-bar-offset', `${height}px`);
+    };
+    apply();
+    const observer = new ResizeObserver(apply);
+    observer.observe(el);
+    window.addEventListener('resize', apply);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', apply);
+      document.documentElement.style.removeProperty('--mobile-bar-offset');
+    };
+  }, [visible, items.length]);
+
+  if (!visible) return null;
 
   return (
     <nav
+      ref={bar}
       aria-label="Quick actions"
       className="fixed inset-x-0 bottom-0 z-30 grid border-t border-border-subtle bg-ink/95 backdrop-blur xl:hidden"
       style={{ gridTemplateColumns: `repeat(${items.length}, minmax(0, 1fr))`, paddingBottom: 'env(safe-area-inset-bottom)' }}

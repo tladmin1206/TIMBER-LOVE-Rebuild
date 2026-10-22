@@ -3,7 +3,11 @@ import SiteImage from '@/components/ui/SiteImage';
 import { useEffect, useRef, useState } from "react";
 import type Player from "@vimeo/player";
 
-/** Container-sized background video. A successful iframe load is not proof of playback. */
+/**
+ * Container-sized background video. The Vimeo iframe stays out of the page
+ * until the visitor clicks Play film, so the embed does not set cookies on
+ * load. A successful iframe load is still not proof of playback.
+ */
 export default function VideoBg({
   videoId,
   poster,
@@ -23,6 +27,7 @@ export default function VideoBg({
   const frame = useRef<HTMLIFrameElement>(null);
   const player = useRef<Player | null>(null);
   const [load, setLoad] = useState(false);
+  const [activated, setActivated] = useState(false);
   const [visible, setVisible] = useState(false);
   const [ready, setReady] = useState(false);
   const [reduced, setReduced] = useState(true);
@@ -44,7 +49,6 @@ export default function VideoBg({
     resize.observe(el);
     const observer = new IntersectionObserver(([entry]) => {
       setVisible(entry.isIntersecting);
-      if (entry.isIntersecting) setLoad(true);
     });
     observer.observe(el);
     return () => {
@@ -53,6 +57,9 @@ export default function VideoBg({
       media.removeEventListener("change", change);
     };
   }, []);
+  useEffect(() => {
+    if (activated && !reduced) setLoad(true);
+  }, [activated, reduced]);
   useEffect(() => {
     if (!load || reduced || !frame.current) return;
     let alive = true;
@@ -104,7 +111,7 @@ export default function VideoBg({
       <div
         ref={container}
         aria-hidden="true"
-        className="absolute inset-0 overflow-hidden bg-ink"
+        className="pointer-events-none absolute inset-0 overflow-hidden bg-ink"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <SiteImage sizes="100vw"
@@ -126,9 +133,17 @@ export default function VideoBg({
             className={`pointer-events-none absolute left-1/2 -translate-x-1/2 border-0 transition-opacity duration-700 ${position === 'top' ? 'top-0' : 'top-1/2 -translate-y-1/2'}`}
           />
         )}
-        <div className={`absolute inset-0 ${overlay}`} />
+        <div className={`pointer-events-none absolute inset-0 ${overlay}`} />
       </div>
-
+      {!activated && !reduced && (
+        <button
+          type="button"
+          onClick={() => setActivated(true)}
+          className="absolute right-3 top-[var(--header-h,88px)] z-20 inline-flex min-h-11 items-center border border-cream/80 bg-ink/80 px-4 text-[11px] uppercase tracking-[0.14em] text-cream"
+        >
+          Play film
+        </button>
+      )}
     </>
   );
 }

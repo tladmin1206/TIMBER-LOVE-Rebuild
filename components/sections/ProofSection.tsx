@@ -20,6 +20,8 @@ export default function ProofSection({
   title?: string;
   background?: string;
 }) {
+  const reviews = clientReviews.filter((review) => review.role !== 'Real Estate Client');
+  if (reviews.length === 0) return null;
   return (
     <section className={`${background} section border-t border-border-subtle`} aria-labelledby="proof-heading">
       <div className="container-wide text-center">
@@ -33,7 +35,7 @@ export default function ProofSection({
           </div>
         </Reveal>
         <div className="mt-12">
-          <ReviewSlider items={clientReviews.filter((review) => review.role !== "Real Estate Client")} />
+          <ReviewSlider items={reviews} />
         </div>
       </div>
     </section>

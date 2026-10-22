@@ -104,7 +104,7 @@ export default function AdminEstimator() {
             <div className="flex flex-wrap items-baseline gap-x-8 gap-y-2">
               <div>
                 <div className="text-xs uppercase tracking-wide text-neutral-500">Customer range</div>
-                <div className="text-xl font-semibold">{result.range ? `${money(result.range.low)} – ${money(result.range.high)}` : `withheld (${result.outcome})`}</div>
+                <div className="text-xl font-semibold">{result.range ? `${money(result.range.low)} to ${money(result.range.high)}` : `withheld (${result.outcome})`}</div>
               </div>
               {result.range && <div><div className="text-xs uppercase tracking-wide text-neutral-500">Typical</div><div className="text-xl">{money(result.range.mid)}</div></div>}
               <div><div className="text-xs uppercase tracking-wide text-neutral-500">Confidence</div><div className="text-xl">{result.confidence.label} ({result.confidence.score})</div></div>
@@ -154,7 +154,7 @@ export default function AdminEstimator() {
               <summary className="cursor-pointer font-medium">Derivation &amp; adjustments</summary>
               <div className="mt-3 space-y-1 text-xs text-neutral-600">
                 {result.trace.multipliers.map((m) => <div key={m.id}>× {m.value} · {m.id} ({m.rationale})</div>)}
-                {result.trace.adders.map((a) => <div key={a.id}>+ {money(a.amount.low)}–{money(a.amount.high)} · {a.id} ({a.rationale})</div>)}
+                {result.trace.adders.map((a) => <div key={a.id}>+ {money(a.amount.low)}-{money(a.amount.high)} · {a.id} ({a.rationale})</div>)}
                 <div>contingency {Math.round(result.trace.contingencyPct * 100)}%</div>
                 <div className="mt-2 border-t border-neutral-200 pt-2">{result.trace.steps.map((s, i) => <div key={i}>{s}</div>)}</div>
               </div>

@@ -10,6 +10,7 @@ channel = "stable-24_05"
 
 [env]
 NEXT_TELEMETRY_DISABLED = "1"
+NEXT_PUBLIC_CONSENT_MODE = "notice"
 
 [deployment]
 deploymentTarget = "autoscale"

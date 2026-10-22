@@ -8,7 +8,7 @@ import AdminNav from '../AdminNav';
  */
 export const dynamic = 'force-dynamic';
 
-const money = (v: number | null | undefined) => (v == null ? '\u2014' : `$${Math.round(v).toLocaleString('en-US')}`);
+const money = (v: number | null | undefined) => (v == null ? 'n/a' : `$${Math.round(v).toLocaleString('en-US')}`);
 
 type TradeLine = { code: string; description: string; uom: string; qty: number; unitCost: number; internalCost: number };
 type Trade = { division: string; internalCost: number; customerCost: number; lines: TradeLine[] };
@@ -46,9 +46,9 @@ export default async function AdminEstimates() {
             <details key={e.id} className="overflow-hidden rounded-lg bg-white shadow-sm">
               <summary className="flex cursor-pointer flex-wrap items-center gap-x-6 gap-y-1 p-4 text-sm">
                 <span className="text-neutral-500">{new Date(e.createdAt).toLocaleDateString()}</span>
-                <span className="font-medium">{contact ? `${contact.firstName} ${contact.lastName}` : '\u2014'}</span>
-                <span>{e.projectTypes.join(', ')} · {e.finishTier ?? '\u2014'} · {e.scopeLevel ?? '\u2014'}</span>
-                <span className="font-semibold">{money(e.rangeLow)} – {money(e.rangeHigh)}</span>
+                <span className="font-medium">{contact ? `${contact.firstName} ${contact.lastName}` : 'n/a'}</span>
+                <span>{e.projectTypes.join(', ')} · {e.finishTier ?? 'n/a'} · {e.scopeLevel ?? 'n/a'}</span>
+                <span className="font-semibold">{money(e.rangeLow)} to {money(e.rangeHigh)}</span>
                 <span className="rounded bg-neutral-200 px-2 py-0.5 text-xs">{e.basis}</span>
                 {li && <span className="text-xs text-neutral-500">internal {money(li.internalCost)} · {Math.round(li.margin * 100)}% GM</span>}
               </summary>

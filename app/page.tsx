@@ -11,7 +11,6 @@ import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import Reveal from '@/components/ui/Reveal';
 import VideoBg from '@/components/ui/VideoBg';
-import ReviewSlider from '@/components/ui/ReviewSlider';
 import InlineVideo from '@/components/ui/InlineVideo';
 import LogoMarquee from '@/components/ui/LogoMarquee';
 import ModalButton from '@/components/ui/ModalButton';
@@ -20,7 +19,6 @@ import {
   values,
   processSteps,
   mission,
-  clientReviews,
   pressLogos,
   introVideoId,
   introVideoPoster,
@@ -165,29 +163,8 @@ export default function HomePage() {
         body="From the first sketch to the final fixture, our designers and builders work together on every detail, so nothing is lost between the vision and the finished home."
       />
 
-      {/* A complete black editorial section separates the photographic band
-          from the testimonial film. */}
       <LukeTrustBar />
       <TrustBar />
-
-      <section className="bg-ink section" aria-labelledby="testimonials-heading">
-        <div className="container-wide">
-          <div className="grid items-center gap-10 lg:grid-cols-[.85fr_1.15fr] lg:gap-16">
-            <Reveal>
-              <p className="eyebrow">Testimonials</p>
-              <h2 id="testimonials-heading" className="h-section mt-4">See What Others Are Saying</h2>
-              <p className="text-lead mt-6 max-w-md">The homes matter. So does the experience of creating them. Hear from the people who have worked with our team.</p>
-              <Link href="/reviews/" className="link-underline mt-6 inline-flex min-h-11 items-center text-xs uppercase tracking-[.16em] text-cream/80">Read Our Client Stories →</Link>
-            </Reveal>
-            <div className="relative aspect-video overflow-hidden bg-ink">
-              <VideoBg videoId={sectionVideos.testimonials.id} poster={sectionVideos.testimonials.poster} overlay="" fit="contain" />
-            </div>
-          </div>
-          <div className="mt-12 sm:mt-16">
-            <ReviewSlider items={clientReviews} />
-          </div>
-        </div>
-      </section>
 
       {/* Featured design-build projects: the clearest proof of the integrated
           service. Custom homes lead; the full portfolio is one click away. */}

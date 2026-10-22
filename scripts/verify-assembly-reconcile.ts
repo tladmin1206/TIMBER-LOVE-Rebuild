@@ -66,7 +66,7 @@ for (const { type, tiers, sqft } of CASES) {
     const perSqft = type.startsWith('whole') || type === 'new-construction' ? `  ($${Math.round(a.customerCost / a.takeoff.homeSqFt)}/sqft)` : '';
     console.log(
       `${(type + ' · ' + tier).padEnd(34)} internal ${fmt(a.internalCost).padStart(10)}  cust ${fmt(a.customerCost).padStart(10)}${perSqft}` +
-        `   band ${bd ? fmt(bd.low) + '–' + fmt(bd.high) : 'n/a'}  [${status}]`
+        `   band ${bd ? fmt(bd.low) + '-' + fmt(bd.high) : 'n/a'}  [${status}]`
     );
   }
 }
