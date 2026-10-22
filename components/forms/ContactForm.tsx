@@ -2,12 +2,15 @@
 
 import { useEffect, useId, useRef, useState } from 'react';
 import Link from 'next/link';
+import Script from 'next/script';
 import Spinner from '@/components/ui/Spinner';
 import { trackEvent } from '@/lib/analytics';
 import { site } from '@/lib/site';
 
 type Props = { source?: string; compact?: boolean; defaultService?: string };
 type Status = 'idle' | 'submitting' | 'success' | 'error';
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
+declare global { interface Window { turnstile?: { reset: (el?: string | HTMLElement) => void } } }
 const SERVICES = ['Design + Build', 'Buying or Selling', 'Cash Home Offer', 'Investing', 'Vacation Stay', 'Press or Partnership', 'Something Else'];
 
 export default function ContactForm({ source = 'website', compact = false, defaultService = '' }: Props) {
@@ -29,7 +32,7 @@ export default function ContactForm({ source = 'website', compact = false, defau
     sending.current = true;
     setStatus('submitting');
     setError('');
-    const fields = Object.fromEntries(new FormData(form).entries());
+    const { 'cf-turnstile-response': turnstileToken, ...fields } = Object.fromEntries(new FormData(form).entries());
     // Keep the same key on retries so an interrupted response cannot create
     // duplicate email notifications. A changed inquiry gets a new key.
     const payload = JSON.stringify({ ...fields, source, page: window.location.pathname });
@@ -38,7 +41,7 @@ export default function ContactForm({ source = 'website', compact = false, defau
       const res = await fetch('/api/contact/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...JSON.parse(payload), submissionId: submission.current.id }),
+        body: JSON.stringify({ ...JSON.parse(payload), submissionId: submission.current.id, ...(turnstileToken ? { 'cf-turnstile-response': turnstileToken } : {}) }),
         signal: AbortSignal.timeout(25000),
       });
       const result = await res.json();
@@ -49,6 +52,8 @@ export default function ContactForm({ source = 'website', compact = false, defau
     } catch (err) {
       trackEvent('form_error', { form: 'general_contact', source, reason: 'delivery_unconfirmed' });
       setStatus('error');
+      // A Turnstile token is single use; get a fresh one for the retry.
+      if (TURNSTILE_SITE_KEY) window.turnstile?.reset();
       setError(err instanceof Error && err.name !== 'TimeoutError' && err.name !== 'TypeError' ? err.message : 'We could not confirm your message was sent. Please try again.');
     } finally {
       sending.current = false;
@@ -86,6 +91,12 @@ export default function ContactForm({ source = 'website', compact = false, defau
         <textarea id={`${id}-message`} className={`${inputCls} resize-y placeholder:text-cream/45`} name="message" rows={4} required maxLength={5000} placeholder="Tell us a little about your home, location, and what you have in mind." />
       </label>
       <input type="text" name="company_website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+      {TURNSTILE_SITE_KEY && (
+        <>
+          <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" async defer />
+          <div className="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-theme="dark" data-size="flexible" />
+        </>
+      )}
       {status === 'error' && <div className="field-error space-y-2" role="alert"><p>{error}</p><p>Or reach us at <a className="link-underline" href={site.phoneHref}>{site.phone}</a> or <a className="link-underline break-all" href={`mailto:${site.email}`}>{site.email}</a>.</p></div>}
       <p className="text-xs leading-relaxed text-text-muted">By submitting, you agree that our team may contact you about your inquiry. <Link href="/privacy-policy/" className="link-underline">Privacy Policy</Link></p>
       <button type="submit" disabled={status === 'submitting'} aria-busy={status === 'submitting'} className="btn-primary w-full disabled:opacity-60">

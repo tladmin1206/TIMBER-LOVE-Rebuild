@@ -45,9 +45,13 @@ export type CaptureResult = {
     email: 'delivered' | 'skipped' | 'failed';
   };
   crmContactId?: string;
+  /** Fallback alert to ALERT_EMAIL when the lead email failed but the lead was kept. */
+  alert?: 'not-needed' | 'sent' | 'failed';
   /** Per-channel detail for logs. Never contains the lead's own details. */
   reasons: Record<string, string>;
 };
+
+export const DEFAULT_ALERT_EMAIL = 'admin@timberandlove.com';
 
 export type CaptureInput = InquiryLead & { submissionId?: string };
 
@@ -97,7 +101,44 @@ export async function captureInquiry(lead: CaptureInput): Promise<CaptureResult>
   });
   if (db.status === 'failed') reasons.db = db.reason;
 
+  // Email failed but the lead is safe in the CRM or the database: nobody has
+  // been told. Try one separate alert to ALERT_EMAIL; if that also fails, log
+  // loudly and flag the row so the recovery queue shows it.
+  let alert: CaptureResult['alert'] = 'not-needed';
+  if (!email.delivered && email.reason !== 'not-configured' && (crm.status === 'sent' || db.status === 'written')) {
+    const sent = await sendLeadEmail({
+      to: process.env.ALERT_EMAIL || DEFAULT_ALERT_EMAIL,
+      subject: `ALERT: website inquiry not emailed (${name.replace(/[\r\n]/g, ' ')})`,
+      idempotencyKey: idempotencyKey ? `alert/${idempotencyKey}` : undefined,
+      text: [
+        'A website inquiry was saved but the normal lead email failed.',
+        `Saved in: ${[crm.status === 'sent' ? 'HubSpot' : '', db.status === 'written' ? 'database (Inquiry, notified = false)' : ''].filter(Boolean).join(' and ')}`,
+        `Email failure: ${email.reason}`,
+        '',
+        `Name: ${name}`,
+        `Email: ${lead.email}`,
+        `Phone: ${lead.phone || 'Not provided'}`,
+        `Page: ${lead.page || 'Not provided'}`,
+        '',
+        'Check RESEND_API_KEY, LEAD_TO_EMAIL and LEAD_FROM_EMAIL, then follow up with this person.',
+      ].join('\n'),
+    }).catch((e) => ({ delivered: false as const, reason: e instanceof Error ? e.message : 'alert threw', attempts: 0 }));
+    if (sent.delivered) {
+      alert = 'sent';
+    } else {
+      alert = 'failed';
+      reasons.alert = sent.reason;
+      console.error('[LEAD_ALERT_FAILED] !!! Inquiry kept but NOBODY was notified. Lead email and fallback alert both failed. Work the Inquiry queue (notified = false).', { crm: crm.status, db: db.status, reason: sent.reason });
+      if (db.status === 'written' && db.id) {
+        await prisma.inquiry.update({ where: { id: db.id }, data: { emailStatus: `failed: ${email.reason}`.slice(0, 900) + ' | ALERT_FAILED' } }).catch((e) => {
+          console.error('[LEAD_ALERT_FLAG_FAILED]', e instanceof Error ? e.message : 'db flag failed');
+        });
+      }
+    }
+  }
+
   return {
+    alert,
     kept: db.status === 'written' || crm.status === 'sent' || email.delivered,
     notified: email.delivered,
     channels: { db: db.status, crm: crm.status, email: email.delivered ? 'delivered' : emailChannel(email.reason) },
@@ -114,7 +155,7 @@ function emailChannel(reason: string): 'skipped' | 'failed' {
 async function persistInquiry(
   lead: CaptureInput,
   delivery: { notified: boolean; emailStatus: string; crmStatus: string; crmContactId?: string }
-): Promise<{ status: 'written' | 'skipped' | 'failed'; reason: string }> {
+): Promise<{ status: 'written' | 'skipped' | 'failed'; reason: string; id?: string }> {
   if (!dbEnabled) return { status: 'skipped', reason: 'no-database' };
 
   const data = {
@@ -137,15 +178,16 @@ async function persistInquiry(
     // Keyed on submissionId so a retry after a failed delivery updates the
     // same row. Without one there is nothing to match on, so take the create.
     if (lead.submissionId) {
-      await prisma.inquiry.upsert({
+      const row = await prisma.inquiry.upsert({
         where: { submissionId: lead.submissionId },
         create: { ...data, submissionId: lead.submissionId },
         update: data,
+        select: { id: true },
       });
-    } else {
-      await prisma.inquiry.create({ data });
+      return { status: 'written', reason: '', id: row.id };
     }
-    return { status: 'written', reason: '' };
+    const row = await prisma.inquiry.create({ data, select: { id: true } });
+    return { status: 'written', reason: '', id: row.id };
   } catch (e) {
     return { status: 'failed', reason: e instanceof Error ? e.message : 'db write failed' };
   }

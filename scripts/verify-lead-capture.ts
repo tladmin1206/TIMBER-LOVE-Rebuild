@@ -25,7 +25,9 @@ const VALID = {
 };
 
 const request = (value: unknown = VALID) =>
-  new Request('http://localhost/api/contact/', { method: 'POST', body: JSON.stringify(value) });
+  // A fresh client IP per request so the per-IP rate limit does not interfere
+  // with these channel checks (rate limiting has its own test file).
+  new Request('http://localhost/api/contact/', { method: 'POST', body: JSON.stringify(value), headers: { 'x-forwarded-for': `10.0.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}` } });
 
 /** Route by host so each channel can be made to pass or fail independently. */
 function intercept(seen: Seen[], opts: { emailOk: boolean; crmOk: boolean }) {

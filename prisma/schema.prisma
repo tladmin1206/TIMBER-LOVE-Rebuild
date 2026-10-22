@@ -230,3 +230,13 @@ model Inquiry {
   @@index([notified, receivedAt])
   @@index([email])
 }
+
+/// Per-IP rate limit hits for /api/contact (lib/security/rate-limit.ts).
+/// Rows older than 24 hours are pruned opportunistically.
+model RateLimitHit {
+  id        String   @id @default(uuid())
+  key       String
+  createdAt DateTime @default(now())
+
+  @@index([key, createdAt])
+}

@@ -55,6 +55,10 @@ const nextConfig = {
       // Temporarily retire both planner entry points, including old bookmarks.
       { source: '/investment-planner', destination: '/design-and-build-questionnaire/', permanent: false },
       { source: '/estimate', destination: '/design-and-build-questionnaire/', permanent: false },
+      // Legacy WordPress category archives (404 on the rebuild). statusCode
+      // 301, not permanent: true, so they match the middleware 301s.
+      { source: '/category/boise-boys', destination: '/the-boise-boys/', statusCode: 301 },
+      { source: '/category/uncategorized', destination: '/journal/', statusCode: 301 },
       // Both legacy terms URLs (/terms-conditons and /terms-conditions) are
       // 301s in middleware.ts. They are not here because `permanent: true`
       // emits 308, which would disagree with each other.
