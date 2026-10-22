@@ -139,7 +139,7 @@ export default function VideoBg({
         <button
           type="button"
           onClick={() => setActivated(true)}
-          className="absolute right-3 z-20 inline-flex min-h-11 items-center border border-cream/80 bg-ink/80 px-4 text-[11px] uppercase tracking-[0.14em] text-cream max-xl:bottom-[calc(var(--mobile-bar-h)+env(safe-area-inset-bottom)+0.75rem)] xl:bottom-3"
+          className="absolute right-3 top-[var(--header-h,88px)] z-20 inline-flex min-h-11 items-center border border-cream/80 bg-ink/80 px-4 text-[11px] uppercase tracking-[0.14em] text-cream"
         >
           Play film
         </button>

@@ -116,6 +116,10 @@ export function ConsentBanner() {
       const obstruction = Math.max(bannerHeight, Math.round(window.innerHeight - rect.top));
       document.documentElement.style.setProperty('--consent-banner-h', `${bannerHeight}px`);
       document.documentElement.style.scrollPaddingBottom = `${obstruction}px`;
+      // scroll-padding only works when the page can scroll the target into the
+      // clear area. Padding the body by the same amount makes the last links
+      // reachable above the banner (WCAG 2.4.11).
+      document.body.style.paddingBottom = `${obstruction}px`;
     };
 
     apply();
@@ -127,6 +131,7 @@ export function ConsentBanner() {
       window.removeEventListener('resize', apply);
       document.documentElement.style.scrollPaddingBottom = '';
       document.documentElement.style.removeProperty('--consent-banner-h');
+      document.body.style.paddingBottom = '';
     };
   }, [ctx?.bannerOpen, hasBar]);
 
