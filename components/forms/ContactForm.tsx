@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Script from 'next/script';
 import Spinner from '@/components/ui/Spinner';
 import { trackEvent } from '@/lib/analytics';
+import { trackQuestionnaireStart, trackQuestionnaireSubmit } from '@/lib/questionnaireAnalytics';
 import { site } from '@/lib/site';
 
 type Props = { source?: string; compact?: boolean; defaultService?: string };
@@ -47,6 +48,7 @@ export default function ContactForm({ source = 'website', compact = false, defau
       const result = await res.json();
       if (!res.ok || result.ok !== true) throw new Error(result.error || 'We could not send your message. Please try again.');
       trackEvent('generate_lead', { form: 'general_contact', source });
+      trackQuestionnaireSubmit('general_contact');
       setStatus('success');
       form.reset();
     } catch (err) {
@@ -71,7 +73,7 @@ export default function ContactForm({ source = 'website', compact = false, defau
 
   const inputCls = 'mt-2 w-full min-w-0 border border-cream/25 bg-ink px-4 py-3 text-base text-cream outline-none transition focus:border-cream/70';
   return (
-    <form onFocus={() => { if (!started.current) { started.current = true; trackEvent('form_start', { form: 'general_contact', source }); } }} onSubmit={handleSubmit} className="space-y-5" aria-label="Contact Timber + Love">
+    <form onFocus={() => { if (!started.current) { started.current = true; trackEvent('form_start', { form: 'general_contact', source }); } trackQuestionnaireStart('general_contact'); }} onSubmit={handleSubmit} className="space-y-5" aria-label="Contact Timber + Love">
       <p className="text-xs text-text-muted">Fields marked * are required.</p>
       <div className={compact ? 'space-y-5' : 'grid gap-5 sm:grid-cols-2'}>
         <label className="block text-sm text-cream" htmlFor={`${id}-first`}>First Name *<input id={`${id}-first`} className={inputCls} name="firstName" required maxLength={100} autoComplete="given-name" /></label>
