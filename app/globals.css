@@ -4,6 +4,8 @@
 
 :root {
   --font-montserrat: 'Montserrat', sans-serif;
+  /* Content height of the mobile action bar, before the home-indicator inset. */
+  --mobile-bar-h: 48px;
 }
 
 @layer base {
@@ -283,3 +285,16 @@
 .review-rail::-webkit-scrollbar { display: none; }
 
 .photo-card h3 { overflow-wrap: anywhere; }
+
+/* Cookie banner. Below xl it sits on top of the mobile action bar (and the
+   home-indicator inset). Routes without that bar, and xl and up, pin to the
+   bottom. 40vh keeps a focused control reachable on a phone (WCAG 2.4.11). */
+.cookie-banner {
+  bottom: 0;
+  max-height: 40vh;
+}
+@media (max-width: 1279px) {
+  .cookie-banner[data-mobile-bar='true'] {
+    bottom: var(--mobile-bar-offset, calc(var(--mobile-bar-h) + env(safe-area-inset-bottom)));
+  }
+}

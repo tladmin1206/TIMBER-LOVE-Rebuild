@@ -1,5 +1,6 @@
 import NavLink from '@/components/ui/NavLink';
 import Link from 'next/link';
+import { CookieSettingsButton } from '@/components/Analytics';
 import Newsletter from '@/components/forms/Newsletter';
 import Stars from '@/components/ui/Stars';
 import { site, pathways } from '@/lib/site';
@@ -136,6 +137,7 @@ export default function Footer() {
           <div className="flex gap-5">
             <Link href="/privacy-policy/" className="uppercase tracking-[0.14em] transition hover:text-cream">Privacy Policy</Link>
             <Link href="/terms-and-conditions/" className="uppercase tracking-[0.14em] transition hover:text-cream">Terms</Link>
+            <CookieSettingsButton />
           </div>
           <p className="text-center sm:text-right">
             &copy; {new Date().getFullYear()} Timber + Love. All rights reserved.

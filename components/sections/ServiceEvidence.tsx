@@ -1,11 +1,18 @@
 import Link from 'next/link';
-import { clientReviews } from '@/lib/content/home';
 
-/** Evidence belongs to the service it actually describes. No implied investor or cash-sale outcomes. */
+/** Evidence belongs to the service it actually describes. No implied investor or cash-sale outcomes, and no client quote without a source. */
 export default function ServiceEvidence({ service }: { service: 'realty' | 'cash' | 'invest' }) {
   if (service === 'realty') {
-    const review = clientReviews.find(r => r.role === 'Real Estate Client')!;
-    return <section className="bg-bg-primary section"><div className="container-wide grid gap-10 lg:grid-cols-2"><div><p className="eyebrow">Real Estate Client</p><h2 className="h-section mt-4">Local Guidance, Personally Felt</h2><a href="https://timberandloverealty.com/reviews/" className="btn-secondary mt-7" data-track="realty_reviews">Read Realty Client Stories ↗</a></div><figure className="border-l border-cream/40 pl-7"><blockquote className="text-lead">“{review.quote}”</blockquote><figcaption className="mt-6 text-sm text-text-secondary">{review.name} · {review.role}</figcaption></figure></div></section>;
+    return (
+      <section className="bg-bg-primary section">
+        <div className="container-wide max-w-3xl">
+          <p className="eyebrow">Timber + Love Realty</p>
+          <h2 className="h-section mt-4">Local Guidance, Personally Felt</h2>
+          <p className="text-lead mt-5">Client stories for the realty team are published on the realty site. This page does not repeat quotes that are not source-checked here.</p>
+          <a href="https://timberandloverealty.com/reviews/" className="btn-secondary mt-7" data-track="realty_reviews">Read Realty Client Stories ↗</a>
+        </div>
+      </section>
+    );
   }
   return <section className="section-tonal section"><div className="container-wide grid items-center gap-10 lg:grid-cols-2">
     <Link href={service === 'cash' ? '/projects/north-end-gem/' : '/projects/promise-lane-contemporary/'} className="block overflow-hidden">

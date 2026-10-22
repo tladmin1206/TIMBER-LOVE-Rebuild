@@ -1,7 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Script from 'next/script';
+import { CONSENT_KEY, CONSENT_MODE, storedConsent, type ConsentChoice } from '@/lib/analytics';
+import { hasMobileActionBar } from '@/lib/mobile-action-bar';
 
 /**
  * Re-creates the third-party tracking present on the live site so analytics
@@ -14,84 +17,163 @@ import Script from 'next/script';
  * rebuild tracks identically out of the box. Scripts load `afterInteractive`
  * to keep them off the critical rendering path (better Core Web Vitals).
  *
- * Consent (ADA-NS-11): all three set non-essential cookies, so none of them
- * loads until the visitor accepts in <ConsentBanner>. The choice is kept in
- * localStorage (no cookie of our own). NEXT_PUBLIC_CONSENT_MODE=notice switches
- * to notice-only: trackers load at once and the banner just informs. Default
- * is opt-in. Which mode applies is a decision for Hank (see the PR).
+ * Consent: all three set non-essential cookies. The default mode is notice
+ * (NEXT_PUBLIC_CONSENT_MODE unset or "notice"): trackers load, and Decline
+ * turns them off. Set NEXT_PUBLIC_CONSENT_MODE=opt-in to keep them off until
+ * Accept. The choice is kept in localStorage (no cookie of our own).
+ * Which mode is the legal default is pending review; notice is the code default.
  */
 const GOOGLE_TAG_ID = process.env.NEXT_PUBLIC_GOOGLE_TAG_ID || 'GT-P3NNWV8';
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || '898896691730737';
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID || 'lpvs1f5dzy';
 
-export const CONSENT_KEY = 'tl_consent';
-export type Consent = 'granted' | 'denied';
-const NOTICE_ONLY = process.env.NEXT_PUBLIC_CONSENT_MODE === 'notice';
+type ConsentContextValue = {
+  openSettings: () => void;
+  choose: (choice: ConsentChoice) => void;
+  bannerOpen: boolean;
+  noticeOnly: boolean;
+  settingsRequest: number;
+};
 
-export function readConsent(): Consent | null {
-  try {
-    const v = window.localStorage.getItem(CONSENT_KEY);
-    return v === 'granted' || v === 'denied' ? v : null;
-  } catch {
-    return null;
-  }
-}
+const ConsentContext = createContext<ConsentContextValue | null>(null);
 
-export default function Analytics() {
-  const [consent, setConsent] = useState<Consent | null>(null);
+export function ConsentRoot({ children }: { children: React.ReactNode }) {
+  const [consent, setConsent] = useState<ConsentChoice | null>(null);
   const [ready, setReady] = useState(false);
+  const [forced, setForced] = useState(false);
+  const [settingsRequest, setSettingsRequest] = useState(0);
 
   useEffect(() => {
-    setConsent(readConsent());
+    setConsent(storedConsent());
     setReady(true);
   }, []);
 
-  const choose = (c: Consent) => {
+  const choose = (choice: ConsentChoice) => {
     try {
-      window.localStorage.setItem(CONSENT_KEY, c);
+      window.localStorage.setItem(CONSENT_KEY, choice);
     } catch {
       /* private mode: choice lasts for this page view */
     }
-    setConsent(c);
+    setConsent(choice);
+    setForced(false);
   };
 
-  const load = NOTICE_ONLY || consent === 'granted';
+  const openSettings = () => {
+    setForced(true);
+    setSettingsRequest((n) => n + 1);
+  };
+
+  const bannerOpen = ready && (forced || consent === null);
+  const load = ready && (consent === 'granted' || (CONSENT_MODE === 'notice' && consent !== 'denied'));
+
   return (
-    <>
-      {ready && consent === null && <ConsentBanner noticeOnly={NOTICE_ONLY} onChoose={choose} />}
+    <ConsentContext.Provider
+      value={{
+        openSettings,
+        choose,
+        bannerOpen,
+        noticeOnly: CONSENT_MODE === 'notice',
+        settingsRequest,
+      }}
+    >
+      {children}
       {load && <Trackers />}
-    </>
+    </ConsentContext.Provider>
   );
 }
 
-function ConsentBanner({ noticeOnly, onChoose }: { noticeOnly: boolean; onChoose: (c: Consent) => void }) {
+export function CookieSettingsButton() {
+  const ctx = useContext(ConsentContext);
+  return (
+    <button
+      type="button"
+      onClick={() => ctx?.openSettings()}
+      className="bg-transparent p-0 text-xs uppercase tracking-[0.14em] text-inherit transition hover:text-cream"
+    >
+      Cookie settings
+    </button>
+  );
+}
+
+export function ConsentBanner() {
+  const ctx = useContext(ConsentContext);
+  const pathname = usePathname() || '/';
+  const hasBar = hasMobileActionBar(pathname);
+  const banner = useRef<HTMLElement>(null);
+  const heading = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    if (!ctx?.bannerOpen) return;
+    const el = banner.current;
+    if (!el) return;
+
+    const apply = () => {
+      const rect = el.getBoundingClientRect();
+      const bannerHeight = Math.round(el.getBoundingClientRect().height);
+      // Distance from the top of the banner to the bottom of the viewport.
+      // That is the banner's own height plus the mobile bar and safe area it
+      // sits on, so a focused control is scrolled clear of all of it.
+      const obstruction = Math.max(bannerHeight, Math.round(window.innerHeight - rect.top));
+      document.documentElement.style.setProperty('--consent-banner-h', `${bannerHeight}px`);
+      document.documentElement.style.scrollPaddingBottom = `${obstruction}px`;
+    };
+
+    apply();
+    const observer = new ResizeObserver(apply);
+    observer.observe(el);
+    window.addEventListener('resize', apply);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', apply);
+      document.documentElement.style.scrollPaddingBottom = '';
+      document.documentElement.style.removeProperty('--consent-banner-h');
+    };
+  }, [ctx?.bannerOpen, hasBar]);
+
+  useEffect(() => {
+    if (!ctx?.settingsRequest) return;
+    heading.current?.focus();
+  }, [ctx?.settingsRequest]);
+
+  if (!ctx?.bannerOpen) return null;
+
   return (
     <section
+      ref={banner}
+      id="cookie-settings"
       role="region"
-      aria-label="Cookie notice"
-      className="fixed inset-x-0 bottom-16 z-[90] border-t border-border-subtle bg-ink/95 p-4 text-sm text-cream md:bottom-0"
+      aria-labelledby="cookie-settings-heading"
+      data-mobile-bar={hasBar ? 'true' : 'false'}
+      className="cookie-banner fixed inset-x-0 z-[90] overflow-y-auto border-t border-border-subtle bg-ink/95 p-4 text-sm text-cream"
     >
-      <div className="mx-auto flex max-w-5xl flex-col gap-3 md:flex-row md:items-center md:justify-between">
-        <p className="text-cream/85">
-          {noticeOnly
-            ? 'We use cookies for analytics (Google, Meta, Microsoft Clarity) to understand how the site is used. '
-            : 'We would like to use analytics cookies (Google, Meta, Microsoft Clarity) to understand how the site is used. They stay off unless you accept. '}
-          <a href="/privacy-policy/" className="underline underline-offset-2">Privacy Policy</a>
-        </p>
+      <div className="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div className="min-w-0">
+          <h2
+            ref={heading}
+            id="cookie-settings-heading"
+            tabIndex={-1}
+            className="text-xs font-medium uppercase tracking-[0.18em] text-cream outline-none"
+          >
+            Cookie settings
+          </h2>
+          <p className="mt-2 text-cream/85">
+            {ctx.noticeOnly
+              ? 'We use cookies for analytics (Google, Meta, Microsoft Clarity) to understand how the site is used. Decline turns them off. '
+              : 'We would like to use analytics cookies (Google, Meta, Microsoft Clarity) to understand how the site is used. They stay off unless you accept. '}
+            <a href="/privacy-policy/" className="underline underline-offset-2">Privacy Policy</a>
+          </p>
+        </div>
         <div className="flex shrink-0 gap-3">
-          {noticeOnly ? (
-            <button type="button" className="btn-primary min-h-[44px]" onClick={() => onChoose('granted')}>OK</button>
-          ) : (
-            <>
-              <button type="button" className="btn-secondary min-h-[44px]" onClick={() => onChoose('denied')}>Decline</button>
-              <button type="button" className="btn-primary min-h-[44px]" onClick={() => onChoose('granted')}>Accept</button>
-            </>
-          )}
+          <button type="button" className={choiceButtonClass} onClick={() => ctx.choose('denied')}>Decline</button>
+          <button type="button" className={choiceButtonClass} onClick={() => ctx.choose('granted')}>Accept</button>
         </div>
       </div>
     </section>
   );
 }
+
+const choiceButtonClass =
+  'inline-flex min-h-11 min-w-[8.5rem] flex-1 items-center justify-center border border-cream px-5 text-xs uppercase tracking-[0.14em] text-cream sm:flex-none';
 
 function Trackers() {
   return (

@@ -8,7 +8,7 @@ import Footer from '@/components/layout/Footer';
 import MobileBottomBar from '@/components/layout/MobileBottomBar';
 import ModalProvider from '@/components/ui/ModalProvider';
 import Modals from '@/components/ui/Modals';
-import Analytics from '@/components/Analytics';
+import { ConsentBanner, ConsentRoot } from '@/components/Analytics';
 import AnalyticsEvents from '@/components/AnalyticsEvents';
 import JsonLd from '@/components/JsonLd';
 import { organizationSchema, websiteSchema, localBusinessSchema } from '@/lib/schema';
@@ -73,21 +73,23 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={montserrat.variable}>
       <body>
         <JsonLd schema={[organizationSchema, websiteSchema, localBusinessSchema]} />
-        <a href="#content" className="skip-link">Skip to content</a>
-        <ModalProvider>
-          <Header />
-          <HeaderOffset />
-          {/* Bottom padding clears the fixed mobile action bar so the last
-              element of every page, now always a CTA, is never covered. */}
-          <main id="content" className="pb-[calc(48px+env(safe-area-inset-bottom))] xl:pb-0">
-            {children}
-          </main>
-          <Footer />
-          <MobileBottomBar />
-          <Modals />
-        </ModalProvider>
-        <Analytics />
-        <AnalyticsEvents />
+        <ConsentRoot>
+          <a href="#content" className="skip-link">Skip to content</a>
+          <ConsentBanner />
+          <ModalProvider>
+            <Header />
+            <HeaderOffset />
+            {/* Bottom padding clears the fixed mobile action bar so the last
+                element of every page, now always a CTA, is never covered. */}
+            <main id="content" className="pb-[calc(var(--mobile-bar-h)+env(safe-area-inset-bottom))] xl:pb-0">
+              {children}
+            </main>
+            <Footer />
+            <MobileBottomBar />
+            <Modals />
+          </ModalProvider>
+          <AnalyticsEvents />
+        </ConsentRoot>
       </body>
     </html>
   );

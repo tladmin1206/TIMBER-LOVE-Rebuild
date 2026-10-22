@@ -25,6 +25,7 @@ export default function ReviewWall({
   /** When set, shows a "Read all reviews" link (e.g. to the dedicated /reviews/ page). */
   moreHref?: string;
 }) {
+  if (reviews.length === 0) return null;
   return (
     <section className={`${background} section`} aria-labelledby="reviews-heading">
       <div className="container-wide">

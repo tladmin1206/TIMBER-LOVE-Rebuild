@@ -4,10 +4,9 @@ import Gallery from '@/components/ui/Gallery';
 import Reveal from '@/components/ui/Reveal';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
-import ReviewSlider from '@/components/ui/ReviewSlider';
 import EditorialSplit from '@/components/sections/EditorialSplit';
 import Cta from '@/components/ui/Cta';
-import { clientReviews, fanComments } from '@/lib/content/home';
+import { fanComments } from '@/lib/content/home';
 import { projects } from '@/lib/content/projects';
 import { pageMeta } from '@/lib/seo';
 import data from '@/content/the-boise-boys.json';
@@ -97,19 +96,6 @@ export default function Page() {
       <EditorialSplit image="/editorial/luke-clint-studio.webp" imageAlt="Luke Caldwell and Clint Robertson" eyebrow="From the Show to Your Home" title="The Same Care, Off Camera" ratio="natural" tone="primary" href="/shows/" cta="Watch Luke and Clint">
         <p>The homes are only part of the story. Get to know Luke and Clint, revisit the HGTV series, and watch their independent show on YouTube.</p>
       </EditorialSplit>
-
-      {/* Client proof: verified customer reviews only */}
-      <section className="section-tonal border-t border-border-subtle bg-bg-secondary text-center section">
-        <div className="container-wide">
-          <Reveal>
-            <p className="eyebrow">Client Stories</p>
-            <h2 className="h-section mt-4">What Our Clients Say</h2>
-          </Reveal>
-          <div className="mt-10">
-            <ReviewSlider items={clientReviews} />
-          </div>
-        </div>
-      </section>
 
       {/* Fan comments: viewer remarks about the shows. Not testimonials, not
           client reviews, and never Review schema (ADA-NS-09, Hank ruling). */}

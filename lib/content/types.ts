@@ -6,8 +6,13 @@
  * importing from the view layer.
  */
 
-/** A verified client review, as rendered by ReviewSlider and ReviewWall. */
+/**
+ * A verified client review, as rendered by ReviewSlider and ReviewWall.
+ * `kind` is a nominal tag. TypeScript is structural, so without it a fan
+ * comment (same quote/name/role shape) could be passed to ReviewSlider.
+ */
 export type Testimonial = {
+  kind: 'client';
   quote: string;
   name: string;
   role: string;
@@ -20,6 +25,7 @@ export type Testimonial = {
  * never emitted as Review schema (Hank ruling on ADA-NS-09, 2026-10-22).
  */
 export type FanComment = {
+  kind: 'fan';
   quote: string;
   name: string;
   role: 'Boise Boys Viewer';

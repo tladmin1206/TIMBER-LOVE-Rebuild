@@ -5,7 +5,7 @@ import { site } from '@/lib/site';
 
 export const metadata = pageMeta({
   title: 'Start Your Design + Build Project',
-  description: 'Tell the Timber + Love team about your home and your goals. Start a conversation about your Boise remodel, addition, or custom home.',
+  description: 'Planning a custom home or remodel in Boise? Tell Timber + Love about your project, lot, and timeline to start the design and build conversation.',
   path: '/design-and-build-questionnaire/',
 });
 
