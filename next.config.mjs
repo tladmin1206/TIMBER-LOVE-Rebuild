@@ -1,3 +1,10 @@
+import { assertIndexableProductionBuild, robotsHeaderRules } from './lib/robots-headers.mjs';
+
+// Runs when Next loads this file, which is how `next build` starts. A
+// deployment that inherited FORCE_NOINDEX from the shared Replit secrets
+// stops here instead of publishing a noindexed site.
+assertIndexableProductionBuild(process.env);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -47,19 +54,12 @@ const nextConfig = {
         ],
       },
       // ADA-NS-08: noindex every host that is not production (the replit.app
-      // preview, localhost, any other deploy). Keyed on the Host header so the
-      // production hosts stay indexable with no config. FORCE_NOINDEX=1 in the
-      // environment noindexes every host, for a staging deploy that answers on
-      // a production-looking name.
-      ...(process.env.FORCE_NOINDEX === '1'
-        ? [{ source: '/:path*', headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] }]
-        : [
-            {
-              source: '/:path*',
-              missing: [{ type: 'host', value: '(www\\.)?timberandlove\\.com' }],
-              headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
-            },
-          ]),
+      // preview, localhost, any other deploy). Keyed on the Host header so
+      // timberandlove.com and www.timberandlove.com stay indexable.
+      // FORCE_NOINDEX=1 noindexes every host for a staging name, and
+      // lib/robots-headers.mjs refuses the build when that flag is combined
+      // with REPLIT_DEPLOYMENT=1.
+      ...robotsHeaderRules(process.env),
       {
         // Admin only. This MUST stay scoped to /admin: on `/:path*` it would
         // deindex the entire site, which is the opposite of what the rest of

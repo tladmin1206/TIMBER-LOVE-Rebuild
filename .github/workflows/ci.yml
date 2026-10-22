@@ -58,5 +58,8 @@ jobs:
       - name: Verify contact API and lead capture fallback
         run: npm run verify:leads
 
+      - name: Verify production hosts are not noindexed
+        run: npm run verify:robots
+
       - name: Verify site content
         run: npx tsx scripts/verify-site-content.ts
