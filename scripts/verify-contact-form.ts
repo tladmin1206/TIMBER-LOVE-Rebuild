@@ -8,7 +8,7 @@ async function main() {
   const realFetch = globalThis.fetch;
   let requests: RequestInit[] = [];
   const valid = { firstName: 'QA', lastName: 'Test', email: 'qa@example.com', phone: '2085550100', service: 'Design + Build', message: 'Local verification only.', source: 'design-build-inquiry', page: '/design-and-build-questionnaire/', submissionId: '12345678-1234-4234-8234-123456789abc' };
-  const request = (value: unknown) => new Request('http://localhost/api/contact/', { method: 'POST', body: JSON.stringify(value) });
+  const request = (value: unknown) => new Request('http://localhost/api/contact/', { method: 'POST', body: JSON.stringify(value), headers: { 'x-forwarded-for': `10.1.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}` } });
   try {
     delete process.env.RESEND_API_KEY;
     assert.equal((await POST(request(valid))).status, 503, 'Missing email settings must not report success');

@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 import { captureInquiry } from '@/lib/leads/capture';
+import { checkRateLimit, clientIp } from '@/lib/security/rate-limit';
+import { verifyTurnstile } from '@/lib/security/turnstile';
 
 export const runtime = 'nodejs';
 
@@ -16,6 +18,16 @@ export const runtime = 'nodejs';
  * them send it twice or give up.
  */
 export async function POST(req: Request) {
+  const ip = clientIp(req);
+  const limit = await checkRateLimit(ip);
+  if (!limit.allowed) {
+    console.warn('[CONTACT_RATE_LIMITED]', { backend: limit.backend });
+    return NextResponse.json(
+      { ok: false, error: 'Too many messages from this connection. Please wait a few minutes and try again.' },
+      { status: 429, headers: { 'Retry-After': String(limit.retryAfterSec) } }
+    );
+  }
+
   let body: Record<string, unknown>;
   try {
     const raw = await req.text();
@@ -26,6 +38,12 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: false, error: 'Please check your details and try again.' }, { status: 400 });
   }
   if (typeof body.company_website === 'string' && body.company_website.trim()) return NextResponse.json({ ok: true });
+
+  const human = await verifyTurnstile(body['cf-turnstile-response'], ip === 'unknown' ? undefined : ip);
+  if (!human.ok) {
+    console.warn('[CONTACT_TURNSTILE_REJECTED]', { reason: human.reason });
+    return NextResponse.json({ ok: false, error: 'We could not verify this submission. Please refresh the page and try again.' }, { status: 403 });
+  }
 
   const limits: Record<string, number> = { firstName: 100, lastName: 100, email: 254, phone: 40, service: 80, message: 5000, source: 100, page: 1000, submissionId: 36 };
   const lead: Record<string, string> = {};
