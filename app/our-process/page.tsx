@@ -18,7 +18,7 @@ import { faqs } from '@/lib/content/faqs';
 export const metadata = pageMeta({
   title: 'Our Design-Build Process',
   description:
-    'See exactly what happens when you work with Timber and Love, from the first consultation through final walkthrough. One connected team, one clear process.',
+    'See exactly what happens when you work with Timber + Love, from the first consultation through final walkthrough. One connected team, one clear process.',
   path: '/our-process/',
   image: '/editorial/concrete-entry.webp',
 });

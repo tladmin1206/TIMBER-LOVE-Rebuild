@@ -23,7 +23,7 @@ export default function Page() {
       <PageHero
         eyebrow="Vacation Rentals"
         title="Stay With Us"
-        subtitle="A weekend in Boise, a mountain escape, or mornings beside the Pacific. Find a Timber and Love home for your next getaway."
+        subtitle="A weekend in Boise, a mountain escape, or mornings beside the Pacific. Find a Timber + Love home for your next getaway."
         videoId="928750123"
         image="/video-posters/928750123.jpg"
       >
@@ -42,7 +42,7 @@ export default function Page() {
 
       <EditorialSplit
         image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg"
-        imageAlt="Front exterior of the Timber and Love Chalet, a mountain-modern vacation rental designed and built by the studio"
+        imageAlt="Front exterior of the Timber + Love Chalet, a mountain-modern vacation rental designed and built by the studio"
         eyebrow="Mountain Getaway"
         title="Mountain Time, Near McCall"
         cta="Explore the Chalet"
@@ -92,7 +92,7 @@ export default function Page() {
               },
               {
                 src: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Back-scaled.jpg',
-                alt: 'Rear exterior of the Timber and Love Chalet vacation rental',
+                alt: 'Rear exterior of the Timber + Love Chalet vacation rental',
               },
             ]}
             columns={3}

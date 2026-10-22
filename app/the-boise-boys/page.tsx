@@ -16,7 +16,7 @@ import TrustBar from '@/components/sections/TrustBar';
 export const metadata = pageMeta({
   title: 'HGTV: The Boise Boys',
   description:
-    "Timber and Love's work has been documented across HGTV's Boise Boys and Outgrown. Watch the transformations and see how that experience informs our work today.",
+    "Timber + Love's work has been documented across HGTV's Boise Boys and Outgrown. Watch the transformations and see how that experience informs our work today.",
   path: '/the-boise-boys/',
 });
 
@@ -49,7 +49,7 @@ export default function Page() {
           </Reveal>
           <Reveal delay={100}>
             <p className="text-lead">
-              Led by Luke Caldwell, Timber and Love has restored and reimagined Boise homes across multiple seasons of
+              Led by Luke Caldwell, Timber + Love has restored and reimagined Boise homes across multiple seasons of
               HGTV&apos;s Boise Boys and the family-focused series Outgrown. The same hands-on, design-forward approach
               you see on screen is how we work with clients today.
             </p>

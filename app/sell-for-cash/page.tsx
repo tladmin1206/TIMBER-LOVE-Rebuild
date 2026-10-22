@@ -17,7 +17,7 @@ import { faqs } from '@/lib/content/faqs';
 export const metadata = pageMeta({
   title: 'Sell Your Home for Cash',
   description:
-    'Explore a direct home offer through Buy My House, an affiliated Timber and Love site. Learn who a cash sale suits and how the process works before you continue.',
+    'Explore a direct home offer through Buy My House, an affiliated Timber + Love site. Learn who a cash sale suits and how the process works before you continue.',
   path: '/sell-for-cash/',
   image: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Home-Buying-Background-2-min.jpg',
 });
@@ -96,7 +96,7 @@ export default function Page() {
       {/* Editorial split: a direct sale suits homes and situations of every kind */}
       <EditorialSplit
         image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Exterior-scaled.jpg"
-        imageAlt="Exterior of the Firehouse, a Boise Boys renovation by Timber and Love"
+        imageAlt="Exterior of the Firehouse, a Boise Boys renovation by Timber + Love"
         eyebrow="Any Home, Any Condition"
         title="A Path That Fits Your Situation"
         cta="Request a Cash Offer"
@@ -144,7 +144,7 @@ export default function Page() {
               </Cta>
             </div>
             <p className="mt-5 text-xs text-text-muted">
-              Buy My House (buymyhouse.co) is an affiliated Timber and Love site. It opens in a new tab so this page
+              Buy My House (buymyhouse.co) is an affiliated Timber + Love site. It opens in a new tab so this page
               stays open behind it.
             </p>
           </Reveal>

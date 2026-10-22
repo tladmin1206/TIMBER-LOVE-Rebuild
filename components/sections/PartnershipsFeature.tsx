@@ -21,7 +21,7 @@ const SLIDES = [
     nav: 'Americana Soul',
     eyebrow: 'Luke Caldwell · Debut Design Book',
     title: 'Americana Soul',
-    body: 'Designed with comfort and intention, Luke Caldwell’s debut design book shares the philosophy and spaces behind Timber and Love. Bring a piece of the T+L aesthetic into your own home.',
+    body: 'Designed with comfort and intention, Luke Caldwell’s debut design book shares the philosophy and spaces behind Timber + Love. Bring a piece of the T+L aesthetic into your own home.',
     cta: { label: 'Get Your Copy', href: site.book.amazon },
     image: '/editorial/luke-book.webp',
     imageAlt: 'Luke Caldwell holding his design book Americana Soul',
@@ -33,7 +33,7 @@ const SLIDES = [
     title: 'Partnership Opportunities',
     body: 'For appearances, brand partnerships, and press, reach out to our partnerships team. If your project is a good fit, we would love to talk.',
     image: '/editorial/luke-portrait.webp',
-    imageAlt: "Luke Caldwell, designer and founder of Timber and Love",
+    imageAlt: "Luke Caldwell, designer and founder of Timber + Love",
   },
 ] as const;
 

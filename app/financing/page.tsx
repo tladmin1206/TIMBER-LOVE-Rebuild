@@ -15,7 +15,7 @@ import EditorialSplit from '@/components/sections/EditorialSplit';
 export const metadata = pageMeta({
   title: 'Financing Your Project',
   description:
-    'Understand how homeowners typically finance a design-build or remodeling project with Timber and Love in Boise. General guidance, not financial advice.',
+    'Understand how homeowners typically finance a design-build or remodeling project with Timber + Love in Boise. General guidance, not financial advice.',
   path: '/financing/',
   image: '/editorial/estate-breakfast.webp',
 });
@@ -45,8 +45,8 @@ const options = [
 
 const faq = [
   {
-    q: 'Does Timber and Love provide financing?',
-    a: 'Timber and Love is a design-build and real estate company, not a lender. We help you understand how a project is typically financed and plan a realistic budget, then you work directly with your bank, credit union, or a lender of your choice.',
+    q: 'Does Timber + Love provide financing?',
+    a: 'Timber + Love is a design-build and real estate company, not a lender. We help you understand how a project is typically financed and plan a realistic budget, then you work directly with your bank, credit union, or a lender of your choice.',
   },
   {
     q: 'When should I think about financing?',
@@ -112,7 +112,7 @@ export default function Page() {
             ))}
           </div>
           <p className="mt-8 max-w-2xl text-xs leading-relaxed text-text-muted">
-            Timber and Love is not a lender or financial advisor. This information is general and educational. Rates,
+            Timber + Love is not a lender or financial advisor. This information is general and educational. Rates,
             terms, and eligibility vary, so confirm the details that apply to you with a qualified professional.
           </p>
         </div>
@@ -148,7 +148,7 @@ export default function Page() {
       {/* Editorial split: financing exists to make craftsmanship like this attainable */}
       <EditorialSplit
         image="/projects/promise-ln-5106/5106-promise-ln-kitchen-range.jpg"
-        imageAlt="Spanish modern custom kitchen with a marble backsplash and professional range, built by Timber and Love"
+        imageAlt="Spanish modern custom kitchen with a marble backsplash and professional range, built by Timber + Love"
         eyebrow="Worth Planning For"
         title="A Well-Built Home, Within Reach"
         cta="Start a Project"

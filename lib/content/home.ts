@@ -63,7 +63,7 @@ export const servicePromos = [
   {
     key: 'design-build',
     logo: '/wp-content/uploads/2024/03/Timber-and-Love-Entity-Logos-Timber-and-Love-Design-Build-1.png',
-    logoAlt: 'Timber and Love Design + Build',
+    logoAlt: 'Timber + Love Design + Build',
     bg: '/wp-content/uploads/2024/03/TimberandLoveHomeRemodelingCompany-Design-BuildBackgroundImage-ezgif.com-webp-to-jpg-converter-1.jpg',
     cta: 'Learn More',
     href: '/design-and-build/',
@@ -71,7 +71,7 @@ export const servicePromos = [
   {
     key: 'realty',
     logo: '/wp-content/uploads/2024/03/Timber-and-Love-Entity-Logos-Timber-and-Love-Realty-1.png',
-    logoAlt: 'Timber and Love Realty',
+    logoAlt: 'Timber + Love Realty',
     bg: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Realty-Background-1-scaled-1.jpg',
     cta: 'Buy or Sell',
     href: 'https://timberandloverealty.com/',
@@ -107,13 +107,13 @@ export const services = [
   },
   {
     title: 'Buy or Sell',
-    body: 'Real estate guidance through Timber and Love Realty, with local Boise market experience.',
+    body: 'Real estate guidance through Timber + Love Realty, with local Boise market experience.',
     href: '/buy-or-sell/',
     cta: 'Buy or Sell a Home',
   },
   {
     title: 'Vacation Rentals',
-    body: 'Distinctive Timber and Love stays in Boise, McCall, and Oahu.',
+    body: 'Distinctive Timber + Love stays in Boise, McCall, and Oahu.',
     href: '/stay-with-us/',
     cta: 'View Vacation Rentals',
   },
@@ -166,12 +166,10 @@ export const processSteps = [
 ];
 
 export const mission =
-  'At Timber and Love, our mission is to transform spaces, communities, and lives through innovative and high-quality design and construction. We strive to exceed our clients’ expectations by collaborating closely with them and delivering exceptional results through our processes and systems, integrity, and attention to detail. We are committed to making a positive impact on the community and being a leader in the industry through hard work, creativity, and a dedication to excellence.';
+  'At Timber + Love, our mission is to transform spaces, communities, and lives through innovative and high-quality design and construction. We strive to exceed our clients’ expectations by collaborating closely with them and delivering exceptional results through our processes and systems, integrity, and attention to detail. We are committed to making a positive impact on the community and being a leader in the industry through hard work, creativity, and a dedication to excellence.';
 
 export const testimonials: Testimonial[] = [
-  { name: 'Derrick N.', role: 'Team Family Member', quote: 'Timber and Love is a great company and they do great work! Because my wife works for Luke and Clint (and absolutely loves it!) I have been able to check out a few of the homes that they have renovated and I am impressed by the quality and attention they give to the homes, as well as the customers.' },
-  { name: 'Randy T.', role: 'Boise Boys Fan', quote: 'We have not personally had experience with Timber and Love Construction, but we are devoted fans of the Boise boys program on HGTV. We love the interaction between Clint and Luke. They work so well together and are a kick to watch.' },
-  { name: 'Caleb R.', role: 'Remodel Client', quote: 'Luke and Clint and the whole crew at Timber and Love are some of the most amazing people I’ve ever met. You can really see and feel the love that goes into the homes that they transform. They really are making Boise a more beautiful place.' },
+  { name: 'Caleb R.', role: 'Remodel Client', quote: 'Luke and Clint and the whole crew at Timber + Love are some of the most amazing people I’ve ever met. You can really see and feel the love that goes into the homes that they transform. They really are making Boise a more beautiful place.' },
   { name: 'Jean U.', role: 'Boise Boys Fan', quote: 'I love the designs and the building Boise Boys do on their homes. We live a little over 500 miles north west of Boise, and I would love to have Luke design our house in mid century modern.' },
   { name: 'Richard M.', role: 'Boise Boys Fan', quote: '“Boise Boys” best viewing ever offered by HGTV. Love those guys!' },
   { name: 'Greg R.', role: 'Trade Partner', quote: 'Great company in Boise doing amazing work to turn old homes into beautiful new ones.' },
@@ -275,7 +273,6 @@ export const clientReviews: Testimonial[] = [
 
 /** Boise Boys fan commentary: clearly labeled as viewer comments, never as client proof. */
 export const fanComments: Testimonial[] = [
-  { name: 'Randy T.', quote: 'We are devoted fans of the Boise Boys program on HGTV. We love the interaction between Clint and Luke. They work so well together and are a kick to watch.', role: 'Boise Boys Viewer' },
   { name: 'Richard M.', quote: '“Boise Boys”: best viewing ever offered by HGTV. Love those guys!', role: 'Boise Boys Viewer' },
   { name: 'Jean U.', quote: 'I love the designs and the builds the Boise Boys do on their homes. I would love to have Luke design a mid-century modern house for us.', role: 'Boise Boys Viewer' },
 ];
@@ -285,7 +282,7 @@ export const brandEcosystem = [
   'Buy a property and remodel it with our design + build team',
   'Remodel a home before you sell it',
   'Explore real estate investment opportunities',
-  'Experience Timber and Love design firsthand through a vacation stay',
+  'Experience Timber + Love design firsthand through a vacation stay',
 ];
 
 // Favorite Boise Boys projects gallery. Two genuine HGTV Boise Boys homes,

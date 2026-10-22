@@ -10,7 +10,7 @@ import { site } from '@/lib/site';
 export const metadata = pageMeta({
   title: 'Contact',
   description:
-    'Reach the Timber and Love team in Boise. Pick the option closest to your goal: design and build, buying or selling, cash offers, investing, or a vacation stay: or send a general note.',
+    'Reach the Timber + Love team in Boise. Pick the option closest to your goal: design and build, buying or selling, cash offers, investing, or a vacation stay: or send a general note.',
   path: '/contact/',
 });
 
@@ -30,7 +30,7 @@ const paths = [
     title: 'Buy or Sell Real Estate',
     image: '/projects/stucco-in-time/terrace.webp',
     contain: false,
-    line: 'Work with Timber and Love Realty on your next move in the local market.',
+    line: 'Work with Timber + Love Realty on your next move in the local market.',
     href: site.external.realty,
     cta: 'Buy or Sell a Home',
     track: 'contact_realty',
@@ -57,7 +57,7 @@ const paths = [
     title: 'Vacation Rentals & Stays',
     image: '/rentals/caldwell/01-rooftop-deck-mokolii-view.webp',
     contain: false,
-    line: 'Questions about booking a Timber and Love vacation property.',
+    line: 'Questions about booking a Timber + Love vacation property.',
     href: '/stay-with-us/',
     cta: 'View Vacation Rentals',
     track: 'contact_stay',

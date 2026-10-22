@@ -13,7 +13,7 @@ import ProofSection from '@/components/sections/ProofSection';
 export const metadata = pageMeta({
   title: 'Our Work',
   description:
-    'Explore Timber and Love custom homes, HGTV transformations, and renovated retreats in Idaho and Hawaii, with photographs and the story behind each project.',
+    'Explore Timber + Love custom homes, HGTV transformations, and renovated retreats in Idaho and Hawaii, with photographs and the story behind each project.',
   path: '/timber-and-love-gallery/',
 });
 

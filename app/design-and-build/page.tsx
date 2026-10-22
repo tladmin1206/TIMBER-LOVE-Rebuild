@@ -25,10 +25,10 @@ const serviceCategories = [
 ];
 
 export const metadata = pageMeta({
-  title: 'Design-Build Remodeling in Boise | Timber and Love',
+  title: 'Design-Build Remodeling in Boise | Timber + Love',
   absoluteTitle: true,
   description:
-    'Timber and Love designs and builds custom homes and remodels in Boise, Idaho. See our work and start your project.',
+    'Timber + Love designs and builds custom homes and remodels in Boise, Idaho. See our work and start your project.',
   path: '/design-and-build/',
   image: '/projects/promise-ln-5106/5106-promise-ln-exterior-front.jpg',
 });
@@ -41,7 +41,7 @@ export default function Page() {
       faqSchema(faq),
       breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Design + Build', path: '/design-and-build/' }]),
     ]} />
-    <PageHero eyebrow="Timber and Love" title="Your Home. Thoughtfully Designed. Beautifully Built." subtitle="Custom homes and considered renovations in Boise and the Treasure Valley, with design and construction under one roof." image="/video-posters/928472719.jpg" videoId="928472719">
+    <PageHero eyebrow="Timber + Love" title="Your Home. Thoughtfully Designed. Beautifully Built." subtitle="Custom homes and considered renovations in Boise and the Treasure Valley, with design and construction under one roof." image="/video-posters/928472719.jpg" videoId="928472719">
       <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="design_start">Start a Project</Link>
       <a href="#selected-work" className="btn-secondary">Explore Our Work</a>
     </PageHero>
@@ -66,7 +66,7 @@ export default function Page() {
         <Link href="/timber-and-love-gallery/" className="btn-secondary mt-8">View the Full Portfolio</Link>
       </div>
     </section>
-    <EditorialSplit image="/editorial/natural-materials.webp" imageAlt="Natural materials and considered interior details in a Timber and Love home" eyebrow="Materials and Craft" title="The Details You Live With" tone="secondary" ratio="landscape">
+    <EditorialSplit image="/editorial/natural-materials.webp" imageAlt="Natural materials and considered interior details in a Timber + Love home" eyebrow="Materials and Craft" title="The Details You Live With" tone="secondary" ratio="landscape">
       <p>Warm materials, thoughtful proportions, and considered finishes give a home its character. We resolve those choices together, from the layout of a room to the way its smallest details meet.</p>
       <p>The same team carries that design intent through construction, with coordinated selections and regular conversations as your home takes shape.</p>
     </EditorialSplit>

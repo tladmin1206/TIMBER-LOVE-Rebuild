@@ -64,7 +64,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={120} className="flex items-end">
             <p className="text-body">
-              Founded in 2015 by Luke Caldwell of HGTV&apos;s Boise Boys, Timber and Love is Treasure Valley&apos;s
+              Founded in 2015 by Luke Caldwell of HGTV&apos;s Boise Boys, Timber + Love is Treasure Valley&apos;s
               leading luxury design and build firm. We design and build custom homes and high-end remodels, from the
               first drawing to the final walkthrough. Design and construction happen under one roof, so nothing is lost
               between the vision and the build.
@@ -208,7 +208,7 @@ export default function HomePage() {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <SiteImage
                       src={p.cover}
-                      alt={`${p.title}: ${p.category} by Timber and Love`}
+                      alt={`${p.title}: ${p.category} by Timber + Love`}
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />

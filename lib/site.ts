@@ -11,12 +11,12 @@
  */
 
 export const site = {
-  name: 'Timber and Love',
+  name: 'Timber + Love',
   legalName: 'Timber and Love',
   url: 'https://timberandlove.com',
   founded: 2015,
   description:
-    "Timber and Love brings together design, construction, real estate, direct home offers, investment, and distinctive vacation stays. One trusted Boise team for every stage of home and real estate.",
+    "Timber + Love brings together design, construction, real estate, direct home offers, investment, and distinctive vacation stays. One trusted Boise team for every stage of home and real estate.",
   positioning: 'Every Stage of Home and Real Estate. One Trusted Team.',
   phone: '(208) 995-9516',
   phoneHref: 'tel:+12089959516',
@@ -105,7 +105,7 @@ export const pathways: Pathway[] = [
     key: 'buy-sell',
     label: 'Buy or Sell',
     title: 'Buy or Sell a Home',
-    blurb: 'Real estate guidance through Timber and Love Realty, with local Boise market experience.',
+    blurb: 'Real estate guidance through Timber + Love Realty, with local Boise market experience.',
     href: '/buy-or-sell/',
     cta: 'Buy or Sell a Home',
     image: '/projects/promise-ln-5120/5120-promise-ln-exterior-side.jpg',
@@ -123,7 +123,7 @@ export const pathways: Pathway[] = [
     key: 'invest',
     label: 'Invest',
     title: 'Invest in Real Estate',
-    blurb: 'Explore real estate investment and development opportunities with Timber and Love Realty.',
+    blurb: 'Explore real estate investment and development opportunities with Timber + Love Realty.',
     href: '/invest/',
     cta: 'Explore Investment Opportunities',
     image: '/projects/promise-ln-5142/5142-promise-ln-exterior-rear.jpg',
@@ -132,7 +132,7 @@ export const pathways: Pathway[] = [
     key: 'stay',
     label: 'Stay With Us',
     title: 'Book a Vacation Stay',
-    blurb: 'Distinctive Timber and Love vacation properties in Boise, McCall, and Oahu.',
+    blurb: 'Distinctive Timber + Love vacation properties in Boise, McCall, and Oahu.',
     href: '/stay-with-us/',
     cta: 'View Vacation Rentals',
     image: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Stay-With-Us-Background-Image-New-Meadows-1-1.jpg',

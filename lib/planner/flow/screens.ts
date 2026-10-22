@@ -193,7 +193,7 @@ const FINISH_TIER: Screen = {
   ],
   notSure: {
     label: 'Help me decide',
-    appliesDefault: 'We plan for Elevated, where most Timber and Love projects land.',
+    appliesDefault: 'We plan for Elevated, where most Timber + Love projects land.',
     consultationQuestion: 'Which finish level fits your goals and budget?',
   },
 };

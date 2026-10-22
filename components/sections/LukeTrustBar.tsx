@@ -23,7 +23,7 @@ export default function LukeTrustBar({ className = '' }: { className?: string })
             src={LUKE_IMAGE}
             width={1060}
             height={1400}
-            alt="Luke Caldwell of Timber and Love"
+            alt="Luke Caldwell of Timber + Love"
             loading="lazy"
             className="mx-auto h-auto w-full max-w-[280px] md:max-w-[360px]"
           />
@@ -33,7 +33,7 @@ export default function LukeTrustBar({ className = '' }: { className?: string })
               Led by Luke Caldwell
             </h2>
             <p className="mt-5 text-lead">
-              Luke leads design at Timber and Love, the same warm, modern sensibility behind his book Americana Soul and
+              Luke leads design at Timber + Love, the same warm, modern sensibility behind his book Americana Soul and
               HGTV&apos;s Boise Boys and Outgrown. Every project is designed and built by his team, here in the Treasure
               Valley.
             </p>

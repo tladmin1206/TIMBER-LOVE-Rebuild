@@ -9,7 +9,7 @@ import { closingCta } from "@/lib/content/closing";
 export const metadata = pageMeta({
   title: "Shows + Watch",
   description:
-    "Watch Luke and Clint and explore every Boise Boys and Outgrown episode, with artwork, stories, and viewing links from Timber and Love.",
+    "Watch Luke and Clint and explore every Boise Boys and Outgrown episode, with artwork, stories, and viewing links from Timber + Love.",
   path: "/shows/",
   image: "/editorial/luke-clint.webp",
 });

@@ -19,7 +19,7 @@ import { faqs } from '@/lib/content/faqs';
 export const metadata = pageMeta({
   title: 'Service Areas',
   description:
-    'Timber and Love designs, builds, and remodels homes across Boise and the Treasure Valley, including Meridian, Eagle, Nampa, and the surrounding communities.',
+    'Timber + Love designs, builds, and remodels homes across Boise and the Treasure Valley, including Meridian, Eagle, Nampa, and the surrounding communities.',
   path: '/service-areas/',
 });
 
@@ -53,7 +53,7 @@ export default function Page() {
       <PageHero
         eyebrow="Where We Work"
         title="Serving Boise & the Treasure Valley"
-        subtitle="Timber and Love is a Boise-based design-build team working with homeowners across the Treasure Valley. If your home is nearby, we would love to hear about your project."
+        subtitle="Timber + Love is a Boise-based design-build team working with homeowners across the Treasure Valley. If your home is nearby, we would love to hear about your project."
         image="/editorial/midcentury-entry.webp"
         height="short"
       >
@@ -146,7 +146,7 @@ export default function Page() {
 
       <EditorialSplit
         image="/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg"
-        imageAlt="Charcoal modern contemporary custom home with a butterfly roof, designed and built by Timber and Love in the Treasure Valley"
+        imageAlt="Charcoal modern contemporary custom home with a butterfly roof, designed and built by Timber + Love in the Treasure Valley"
         eyebrow="Rooted in the Valley"
         title="Building Across the Treasure Valley"
         cta="Check Your Project"
