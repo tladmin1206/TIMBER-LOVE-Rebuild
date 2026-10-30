@@ -15,10 +15,14 @@ export default function StatCounter({
   prefix = '',
   suffix = '+',
   label,
+  text,
   align = 'center',
   size = 'lg',
 }: {
-  to: number;
+  /** Numeric value to count up to. Omit when `text` is given. */
+  to?: number;
+  /** Static, non-numeric figure (no count-up). Takes precedence over `to`. */
+  text?: string;
   prefix?: string;
   suffix?: string;
   label: string;
@@ -27,13 +31,13 @@ export default function StatCounter({
 }) {
   const ref = useRef<HTMLDivElement | null>(null);
   // Animated value shown only while the count-up is running.
-  const [value, setValue] = useState(to);
+  const [value, setValue] = useState(to ?? 0);
   const [animating, setAnimating] = useState(false);
   const started = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el || label === 'Founded in Boise') return;
+    if (!el || text !== undefined || to === undefined || label === 'Founded in Boise') return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const io = new IntersectionObserver(
@@ -48,7 +52,7 @@ export default function StatCounter({
           const tick = (now: number) => {
             const p = Math.min((now - start) / duration, 1);
             const eased = 1 - Math.pow(1 - p, 3);
-            setValue(Math.round(eased * to));
+            setValue(Math.round(eased * (to ?? 0)));
             if (p < 1) requestAnimationFrame(tick);
             else finish();
           };
@@ -62,20 +66,37 @@ export default function StatCounter({
     );
     io.observe(el);
     return () => io.disconnect();
-  }, [to, label]);
+  }, [to, label, text]);
 
   // Display the true value unless the count-up is actively running.
-  const display = animating ? value : to;
+  const display = animating ? value : to ?? 0;
 
-  const figureSize = size === 'md' ? 'text-3xl sm:text-4xl' : 'text-5xl sm:text-6xl';
+  const isText = text !== undefined;
+  // Text figures sit one size step below numeric ones and balance their lines
+  // so a short token such as "+" never ends up alone at a line end.
+  const figureSize = isText
+    ? size === 'md'
+      ? 'text-2xl sm:text-3xl text-balance'
+      : 'text-4xl sm:text-5xl text-balance'
+    : size === 'md'
+      ? 'text-3xl sm:text-4xl'
+      : 'text-5xl sm:text-6xl';
 
   return (
     <div ref={ref} className={align === 'left' ? 'text-left' : 'text-center'}>
-      <div className={`font-sans ${figureSize} tracking-brand text-cream`}>
-        {prefix}
-        {display}
-        {suffix}
-      </div>
+      {isText ? (
+        <div className={`font-sans ${figureSize} tracking-brand text-cream`}>{text}</div>
+      ) : (
+        <div className={`font-sans ${figureSize} tracking-brand text-cream`}>
+          {/* Screen readers get the final value once; the animating count is hidden from them. */}
+          <span className="sr-only">{`${prefix}${to ?? 0}${suffix}`}</span>
+          <span aria-hidden="true">
+            {prefix}
+            {display}
+            {suffix}
+          </span>
+        </div>
+      )}
       <div className="mt-3 text-xs uppercase tracking-[0.18em] text-cream/70 sm:text-sm">{label}</div>
     </div>
   );

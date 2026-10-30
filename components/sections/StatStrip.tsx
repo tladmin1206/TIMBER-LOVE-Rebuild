@@ -27,7 +27,7 @@ export default function StatStrip({
             <h2 className="h-section mt-4">{title}</h2>
           </Reveal>
         )}
-        <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-4">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-3">
           {stats.map((s) => (
             <StatCounter key={s.label} align="center" {...s} />
           ))}

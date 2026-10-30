@@ -40,8 +40,7 @@ export const heroSlideshow = [
 // Primary brand/realty sources verified 2026-10-05. See docs/content-facts.json.
 export const stats = [
   { to: 2015, prefix: '', suffix: '', label: 'Founded in Boise' },
-  { to: 100, prefix: '', suffix: '+', label: 'Homes Restored' },
-  { to: 250, prefix: '$', suffix: 'M+', label: 'Realty Closed Sales' },
+  { text: 'Design + Build', label: 'Under One Roof' },
   { to: 2, prefix: '', suffix: '', label: 'HGTV Series' },
 ];
 
