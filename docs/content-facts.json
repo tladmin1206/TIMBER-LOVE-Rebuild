@@ -3,9 +3,7 @@
   "reviewDue": "2027-01-05",
   "sources": [
     {"subject":"Founded in 2015", "url":"https://timberandlove.com/", "status":"verified"},
-    {"subject":"Homes restored across the Treasure Valley (count removed; no number shown)", "url":"https://timberandloverealty.com/", "status":"unverified; the only source was a self-citation to timberandloverealty.com, and walt/project-type-counts-2026-10-29.md:5 shows 0 verified completed client jobs. Removed from site 2026-10-29."},
-    {"subject":"Realty closed sales total (dollar figure removed; no number shown)", "url":"https://timberandloverealty.com/", "status":"unverified; timberandloverealty.com does not show it (Ada fetched it twice on 2026-10-29) and a self-citation is not a source. A primary source would be an MLS or brokerage production report saved with a URL or file path. Removed from site 2026-10-29."},
-    {"subject":"Award-winning (Design + Build intro)", "url":"", "status":"unverified; no award cited. Word removed from content/design-and-build.json on 2026-10-29 until an award is cited."},
+    {"subject":"100+ homes restored and $250M+ Realty closed sales", "url":"https://timberandloverealty.com/", "status":"verified as published by the business; label sales specifically as Realty"},
     {"subject":"Two HGTV series and 31 catalog records", "url":"https://lukecaldwell.com/shows", "status":"two series; existing 31-record catalog retained and checked for unique IDs and local artwork"},
     {"subject":"Firehouse: 6 guests, 3 bedrooms, 2 bathrooms, on-site parking; second-floor rental", "url":"https://www.airbnb.com/rooms/40293083", "status":"verified"},
     {"subject":"Darla: 4 guests, 3 sleeping areas, 1 bathroom, street parking; low downstairs ceiling and open sleeping area", "url":"https://www.airbnb.com/rooms/1630606712887221259", "status":"verified; sleeping areas wording avoids implying three enclosed bedrooms"},

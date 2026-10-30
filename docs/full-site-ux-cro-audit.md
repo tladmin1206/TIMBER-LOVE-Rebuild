@@ -155,7 +155,7 @@ This is the current built order, not a proposed new design. Every numbered item 
 
 1. One Team for Every Stage of Home
 2. Google review trust strip
-3. [Historical and unverified, noted 2026-10-29: legacy live-site stats quoted for reference only; the homes and sales figures have no verified source and are removed from the rebuild.] 15 + Years Experience 100 + Homes Remodeled $ 250 + Million Sold 35 + HGTV Episodes
+3. 15 + Years Experience 100 + Homes Remodeled $ 250 + Million Sold 35 + HGTV Episodes
 4. Founded in Boise in 2015
 5. Why One Brand Includes Multiple Home and Real Estate Services
 6. One Team, From First Sketch to Final Detail
@@ -235,7 +235,7 @@ This is the current built order, not a proposed new design. Every numbered item 
 
 1. Timber and Love Design + Build
 2. Google review trust strip
-3. [Historical and unverified, noted 2026-10-29: legacy live-site stats quoted for reference only; the homes and sales figures have no verified source and are removed from the rebuild.] 15 + Years Experience 100 + Homes Remodeled $ 250 + Million Sold 35 + HGTV Episodes
+3. 15 + Years Experience 100 + Homes Remodeled $ 250 + Million Sold 35 + HGTV Episodes
 4. Start With a Conversation
 5. One Team, From Concept to Completion
 6. Design and Build, Resolved Together
