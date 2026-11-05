@@ -2,7 +2,7 @@
 import { useEffect, type RefObject } from "react";
 
 /** Keep keyboard navigation inside an open overlay and return focus on close. */
-export function useDialogFocus(open: boolean, ref: RefObject<HTMLElement>) {
+export function useDialogFocus(open: boolean, ref: RefObject<HTMLElement | null>) {
   useEffect(() => {
     if (!open || !ref.current) return;
     const previous = document.activeElement as HTMLElement | null;

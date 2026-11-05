@@ -476,7 +476,7 @@ function ReviewStep({ answers, files, onEdit, consent, onConsent, consentError }
   );
 }
 
-function SuccessScreen({ headingRef, answers }: { headingRef: React.RefObject<HTMLHeadingElement>; answers: Answers }) {
+function SuccessScreen({ headingRef, answers }: { headingRef: React.RefObject<HTMLHeadingElement | null>; answers: Answers }) {
   return (
     <div className="mx-auto max-w-2xl text-center" aria-live="polite">
       <p className="eyebrow">Inquiry Received</p>

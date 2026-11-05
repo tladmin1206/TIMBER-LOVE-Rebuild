@@ -20,7 +20,7 @@ export default function Reveal({
   children: React.ReactNode;
   className?: string;
   delay?: number;
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   /**
    * Remaining props pass through to the rendered element, so a caller can put
    * an `id`, a `data-*` hook, or ARIA attributes on the revealed element
