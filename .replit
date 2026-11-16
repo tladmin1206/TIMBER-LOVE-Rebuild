@@ -2,7 +2,7 @@
 # Production deploys use the [deployment] build+start commands below.
 run = "npm run dev"
 entrypoint = "app/page.tsx"
-modules = ["nodejs-20", "python-base-3.13"]
+modules = ["nodejs-20", "python-base-3.13", "postgresql-16"]
 hidden = [".next", "node_modules", "_capture"]
 
 [nix]
