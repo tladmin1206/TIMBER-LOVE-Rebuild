@@ -1,17 +1,17 @@
 import VideoBg from '@/components/ui/VideoBg';
 import StatCounter from '@/components/ui/StatCounter';
 import Cta from '@/components/ui/Cta';
-import { heroVideoId, heroStill, heroStillMobile, stats } from '@/lib/content/home';
+import { heroVideoId, heroVideoPoster, stats } from '@/lib/content/home';
 
 /**
  * Homepage hero. Leads with the single thing a stranger needs to understand in
  * the first three seconds: Timber and Love is a luxury design + build firm.
  *
- * Composed mobile first. The photograph owns the top of the screen and the
- * copy is anchored to the bottom, so on a phone the first impression is the
- * work itself, with the name, the positioning line, and both actions all
- * inside the first screen. Phones get a portrait photograph; wider screens get
- * a landscape one. The film is still one tap away.
+ * Composed mobile first. The original brand film plays behind the hero on its
+ * own, and the copy is anchored to the bottom, so on a phone the first
+ * impression is the work itself, with the name, the positioning line, and both
+ * actions all inside the first screen. The film's own opening frame is the
+ * poster, so the still and the moving picture match when playback begins.
  *
  * The track record sits in the hero on large screens, where there is room for
  * a single row. On smaller screens it becomes its own strip directly beneath,
@@ -23,10 +23,8 @@ export default function Hero() {
       <section className="relative isolate flex min-h-[100svh] flex-col justify-end overflow-hidden bg-ink">
         <VideoBg
           videoId={heroVideoId}
-          poster={heroStill}
-          posterMobile={heroStillMobile}
+          poster={heroVideoPoster}
           overlay=""
-          control="hero"
           priority
         />
         {/* Legibility: a floor of ink under the copy, a soft cap under the

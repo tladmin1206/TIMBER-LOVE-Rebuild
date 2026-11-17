@@ -75,7 +75,6 @@ export default function ClosingCta({
           videoId={videoId}
           poster={poster || image}
           overlay="bg-gradient-to-t from-ink via-ink/80 to-ink/45 lg:bg-gradient-to-r lg:from-ink lg:via-ink/80 lg:to-ink/40"
-          control="top"
         />
       ) : (
         <>

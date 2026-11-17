@@ -43,7 +43,7 @@ export default function PageHero({
       }`}
     >
       {videoId ? (
-        <VideoBg videoId={videoId} poster={image} posterMobile={imageMobile} position={imagePosition === 'top' ? 'top' : 'center'} priority overlay="" control="hero" />
+        <VideoBg videoId={videoId} poster={image} posterMobile={imageMobile} position={imagePosition === 'top' ? 'top' : 'center'} priority overlay="" />
       ) : (
         image && (
           <SiteImage
