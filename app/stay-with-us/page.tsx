@@ -25,7 +25,7 @@ export default function Page() {
         title="Stay With Us"
         subtitle="A weekend in Boise, a mountain escape, or mornings beside the Pacific. Find a Timber + Love home for your next getaway."
         videoId="928750123"
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg"
+        image="/video-posters/928750123.jpg"
       >
         <Cta href="#properties">Explore the Properties</Cta>
         <Cta href="/vacation-rentals/" variant="secondary">Compare Homes and Group Sizes</Cta>

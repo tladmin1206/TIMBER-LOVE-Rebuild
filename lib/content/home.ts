@@ -5,19 +5,14 @@ import type { FanComment, Testimonial } from '@/lib/content/types';
 // that sits in a section below the hero.
 export const heroVideoId = '967117381'; // Vimeo: hero background video
 export const heroVideoPoster = '/video-posters/967117381.jpg';
-// Hero stills. The film only starts when a visitor asks for it, so the first
-// impression is a photograph: a landscape frame for wide screens and a
-// portrait frame for phones, both sharp at full bleed.
-export const heroStill = '/editorial/estate-hearth.webp';
-export const heroStillMobile = '/editorial/cedar-fireplace.webp';
 export const introVideoId = '953577619'; // Vimeo: inline "Designing Beauty" player
 export const introVideoPoster = '/video-posters/953577619.jpg';
 
 // Full-bleed background videos used across homepage sections (Vimeo ids + local poster frames).
 export const sectionVideos = {
-  // Stills are sharp photographs: the Vimeo frame grabs are 640px wide and
-  // blur at full bleed. The film replaces the still once a visitor plays it.
-  values: { id: '927639866', poster: '/editorial/mountain-kitchen.webp' },
+  // Each film's own opening frame is its poster, so the still and the moving
+  // picture match when playback begins.
+  values: { id: '927639866', poster: '/video-posters/927639866.jpg' },
   finalCta: { id: '927976789', poster: '/video-posters/927976789.jpg' },
 };
 

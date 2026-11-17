@@ -16,7 +16,7 @@ const START_PROJECT = { label: 'Start a Project', href: '/design-and-build-quest
 const VIEW_WORK = { label: 'View Our Work', href: '/timber-and-love-gallery/' };
 
 /** The brand film used behind hero-weight closing CTAs. */
-export const CLOSING_VIDEO = { videoId: '927976789', poster: '/editorial/firehouse-living.webp' };
+export const CLOSING_VIDEO = { videoId: '927976789', poster: '/video-posters/927976789.jpg' };
 
 export const closingCta: Record<string, ClosingCtaProps> = {
   /** Homepage and other hero-weight pages: video-backed. */

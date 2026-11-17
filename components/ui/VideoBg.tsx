@@ -4,26 +4,20 @@ import { useEffect, useRef, useState } from "react";
 import type Player from "@vimeo/player";
 
 /**
- * Container-sized background video. The Vimeo iframe stays out of the page
- * until the visitor clicks Play film, so the embed does not set cookies on
- * load. A successful iframe load is still not proof of playback.
+ * Container-sized background video that plays on its own: muted, looping, no
+ * controls. The Vimeo iframe is added when the section first scrolls into view
+ * (or immediately for `priority` heroes), so films far down a page cost
+ * nothing until they are reached, and each one pauses while it is off screen.
  *
- * Until then the visitor is looking at a still, so the still has to stand on
- * its own. `poster` may therefore be any sharp photograph (with an optional
- * portrait `posterMobile` for phones) rather than the 640px frame grab Vimeo
- * supplies, which blurs badly when stretched across a full-bleed section.
- *
- * `control` places the Play film button where the section's content is not:
- * heroes anchor their copy to the bottom, so the button sits top right under
- * the header (`hero`); bands sit it in their top padding (`top`) or bottom
- * padding (`bottom`); framed 16:9 films centre it.
+ * The poster is shown until playback is confirmed and stays as the fallback
+ * when a visitor prefers reduced motion or the film cannot load. `posterMobile`
+ * swaps in a portrait still on phones.
  */
 export default function VideoBg({
   videoId,
   poster,
   posterMobile,
   overlay = "bg-ink/55",
-  control = "bottom",
   priority = false,
   fit = "cover",
   position = "center",
@@ -32,7 +26,6 @@ export default function VideoBg({
   poster: string;
   posterMobile?: string;
   overlay?: string;
-  control?: "hero" | "top" | "bottom" | "center";
   priority?: boolean;
   fit?: "cover" | "contain";
   position?: "center" | "top";
@@ -41,7 +34,6 @@ export default function VideoBg({
   const frame = useRef<HTMLIFrameElement>(null);
   const player = useRef<Player | null>(null);
   const [load, setLoad] = useState(false);
-  const [activated, setActivated] = useState(false);
   const [visible, setVisible] = useState(false);
   const [ready, setReady] = useState(false);
   const [reduced, setReduced] = useState(true);
@@ -72,8 +64,9 @@ export default function VideoBg({
     };
   }, []);
   useEffect(() => {
-    if (activated && !reduced) setLoad(true);
-  }, [activated, reduced]);
+    // Load once: on first sight, or straight away for above-the-fold heroes.
+    if ((visible || priority) && !reduced) setLoad(true);
+  }, [visible, priority, reduced]);
   useEffect(() => {
     if (!load || reduced || !frame.current) return;
     let alive = true;
@@ -150,24 +143,6 @@ export default function VideoBg({
         )}
         <div className={`pointer-events-none absolute inset-0 ${overlay}`} />
       </div>
-      {!activated && !reduced && (
-        <button
-          type="button"
-          onClick={() => setActivated(true)}
-          className={`absolute z-20 inline-flex min-h-11 items-center gap-2.5 border border-cream/40 bg-ink/55 px-4 text-[11px] uppercase tracking-[0.16em] text-cream backdrop-blur-sm transition-colors duration-300 hover:border-cream hover:bg-ink/80 ${
-            control === "hero"
-              ? "right-5 top-[calc(var(--header-h,88px)+1rem)] sm:right-6 lg:right-8"
-              : control === "top"
-                ? "right-5 top-3 sm:right-6 sm:top-6 lg:right-8"
-              : control === "center"
-                ? "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                : "bottom-5 right-5 sm:bottom-6 sm:right-6 lg:right-8"
-          }`}
-        >
-          <svg aria-hidden="true" viewBox="0 0 10 12" className="h-2.5 w-2.5 fill-current"><path d="M0 0l10 6-10 6z" /></svg>
-          Play film
-        </button>
-      )}
     </>
   );
 }

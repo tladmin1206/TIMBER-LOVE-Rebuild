@@ -253,7 +253,6 @@ export default function HomePage() {
         <VideoBg
           videoId={sectionVideos.values.id}
           poster={sectionVideos.values.poster}
-          control="top"
           overlay="bg-ink/75 lg:bg-transparent lg:bg-gradient-to-r lg:from-ink/90 lg:via-ink/70 lg:to-ink/50"
         />
         <div className="container-wide relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
