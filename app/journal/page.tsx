@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
 import Reveal from '@/components/ui/Reveal';
@@ -52,7 +53,7 @@ export default function Page() {
               <Link href={featured.href} className="group card-interactive grid overflow-hidden md:grid-cols-2" data-track="journal_featured">
                 <div className="relative aspect-[4/3] overflow-hidden bg-surface md:aspect-auto">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={featured.image} alt={featured.title} loading="lazy" className="h-full w-full object-contain" />
+                  <SiteImage sizes="(min-width: 1024px) 50vw, 100vw" src={featured.image} alt={featured.title} loading="lazy" className="h-full w-full object-contain" />
                 </div>
                 <div className="flex flex-col justify-center p-8 sm:p-10">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs uppercase tracking-[0.16em] text-accent">
@@ -78,7 +79,7 @@ export default function Page() {
                 <Link href={p.href} className="group card-interactive flex h-full flex-col overflow-hidden" data-track="journal_post">
                   <div className="relative aspect-[16/10] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-contain" />
+                    <SiteImage sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-contain" />
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <div className="flex flex-wrap items-center gap-x-2 gap-y-2 text-xs uppercase tracking-[0.14em] text-accent">

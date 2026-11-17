@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
 import Gallery from '@/components/ui/Gallery';
@@ -68,7 +69,7 @@ export default function Page() {
               <Link key={p.slug} href={`/projects/${p.slug}/`} className="group card-interactive block overflow-hidden">
                 <div className="relative aspect-[16/10] overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.cover} alt={`${p.title}: ${p.category}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <SiteImage sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" src={p.cover} alt={`${p.title}: ${p.category}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="p-6">
                   <h3 className="h-card">{p.title}</h3>

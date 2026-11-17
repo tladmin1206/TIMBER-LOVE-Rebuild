@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import Link from 'next/link';
 
 /** Evidence belongs to the service it actually describes. No implied investor or cash-sale outcomes, and no client quote without a source. */
@@ -16,7 +17,7 @@ export default function ServiceEvidence({ service }: { service: 'realty' | 'cash
   }
   return <section className="section-tonal section"><div className="container-wide grid items-center gap-10 lg:grid-cols-2">
     <Link href={service === 'cash' ? '/projects/north-end-gem/' : '/projects/promise-lane-contemporary/'} className="block overflow-hidden">
-      {/* eslint-disable-next-line @next/next/no-img-element */}<img src={service === 'cash' ? '/projects/north-end-gem/sunroom.webp' : '/projects/promise-ln-5142/5142-promise-ln-great-room.jpg'} alt={service === 'cash' ? 'Restored sunroom at the North End Gem' : 'Great room in the contemporary custom home on Promise Lane'} loading="lazy" className="aspect-[4/3] w-full object-cover" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}<SiteImage sizes="(min-width: 1024px) 50vw, 100vw" src={service === 'cash' ? '/projects/north-end-gem/sunroom.webp' : '/projects/promise-ln-5142/5142-promise-ln-great-room.jpg'} alt={service === 'cash' ? 'Restored sunroom at the North End Gem' : 'Great room in the contemporary custom home on Promise Lane'} loading="lazy" className="aspect-[4/3] w-full object-cover" />
     </Link>
     <div><p className="eyebrow">Experience You Can Explore</p><h2 className="h-section mt-4">{service === 'cash' ? 'A Team That Understands a Home’s Potential' : 'Get to Know the Work Behind the Team'}</h2><p className="text-lead mt-5">{service === 'cash' ? 'Our portfolio shows how the team approaches existing homes, from architectural character to finished details. When you request an offer, the cash-buying team reviews your own property and situation.' : 'Explore a completed custom home to understand the team’s design and construction experience. For a specific investment, ask for the project details, structure, risks, and current availability.'}</p><p className="mt-4 text-sm text-text-secondary">{service === 'cash' ? 'A renovation example is not a promise about your offer amount or closing date.' : 'A finished home demonstrates the work. It does not establish investment performance or future returns.'}</p><Link href={service === 'cash' ? '/projects/north-end-gem/' : '/projects/promise-lane-contemporary/'} className="btn-secondary mt-7">Explore This Project</Link></div>
   </div></section>;

@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import Link from 'next/link';
 import Reveal from '@/components/ui/Reveal';
 import { site } from '@/lib/site';
@@ -19,7 +20,7 @@ export default function LukeTrustBar({ className = '' }: { className?: string })
       <div className="container-wide section-tight">
         <Reveal className="mx-auto grid max-w-5xl items-center gap-10 text-center md:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] md:gap-14 md:text-left">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <SiteImage sizes="(min-width: 768px) 360px, 240px"
             src={LUKE_IMAGE}
             width={1060}
             height={1400}

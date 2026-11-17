@@ -98,10 +98,14 @@
      interior page and left two near-identical sizes competing for the same
      rank. Use these instead of ad-hoc text-* sizes on headings. */
   .h-hero {
-    @apply h-display sm:text-7xl lg:text-8xl;
-    /* Phones: the name stays on one line at every width from 320px up. */
-    font-size: clamp(1.9rem, 9.4vw, 3.25rem);
+    @apply h-display text-7xl lg:text-8xl;
     line-height: 1.05;
+  }
+  /* Phones: the name stays on one line at every width from 320px up. */
+  @media (max-width: 639px) {
+    .h-hero {
+      font-size: clamp(1.9rem, 9.4vw, 3.25rem);
+    }
   }
   .h-page {
     @apply h-display text-4xl sm:text-6xl;
@@ -150,7 +154,8 @@
   /* Secondary action sitting directly on photography: a faint ink fill and a
      brighter rule keep it legible over any image without competing with the
      primary. */
-  .btn-on-media {
+  .btn-on-media,
+  .media-card .btn-secondary {
     @apply border-cream/50 bg-ink/30 backdrop-blur-sm;
   }
   /* A group of actions. Stacked and full width on phones, where a comfortable
@@ -299,6 +304,11 @@
 .h-page, .h-section, .h-hero { text-wrap: balance; }
 .btn-primary, .btn-secondary { text-align: center; }
 @media (max-width: 639px) {
+  /* Every primary and secondary action is full width on a phone. Whether a
+     button sat alone, in a pair, or inside a card, its width used to depend on
+     its label, so no two screens lined up. One width gives a consistent edge
+     and a generous tap target everywhere. */
+  .btn-primary:not(.hidden), .btn-secondary:not(.hidden) { display: flex; width: 100%; }
   .section { padding-block: 64px; }
   .section-feature { padding-block: 72px; }
   .h-page { font-size: clamp(1.75rem, 8vw, 2.6rem); }

@@ -66,7 +66,7 @@ export default function Page() {
         <Link href="/timber-and-love-gallery/" className="btn-secondary mt-8">View the Full Portfolio</Link>
       </div>
     </section>
-    <EditorialSplit image="/editorial/natural-materials.webp" imageAlt="Natural materials and considered interior details in a Timber + Love home" eyebrow="Materials and Craft" title="The Details You Live With" tone="secondary" ratio="landscape">
+    <EditorialSplit image="/editorial/oak-vanity.webp" imageAlt="Oak vanity with a stone top and matte black fixtures in a Timber + Love home" eyebrow="Materials and Craft" title="The Details You Live With" tone="secondary" ratio="landscape">
       <p>Warm materials, thoughtful proportions, and considered finishes give a home its character. We resolve those choices together, from the layout of a room to the way its smallest details meet.</p>
       <p>The same team carries that design intent through construction, with coordinated selections and regular conversations as your home takes shape.</p>
     </EditorialSplit>

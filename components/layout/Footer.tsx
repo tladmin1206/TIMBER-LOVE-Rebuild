@@ -127,11 +127,11 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="text-xs uppercase tracking-[0.18em] text-text-muted">Call</h3>
-            <p className="mt-3 text-sm"><a href={site.phoneHref} className="link-underline text-text-secondary transition hover:text-cream">{site.phone}</a></p>
+            <p className="mt-1 text-sm"><a href={site.phoneHref} className="inline-flex min-h-11 items-center text-text-secondary transition-colors hover:text-cream">{site.phone}</a></p>
           </div>
           <div>
             <h3 className="text-xs uppercase tracking-[0.18em] text-text-muted">Email</h3>
-            <p className="mt-3 text-sm"><a href={`mailto:${site.email}`} className="link-underline break-words text-text-secondary transition hover:text-cream">{site.email}</a></p>
+            <p className="mt-1 text-sm"><a href={`mailto:${site.email}`} className="inline-flex min-h-11 items-center break-all text-text-secondary transition-colors hover:text-cream">{site.email}</a></p>
           </div>
         </div>
       </div>
@@ -139,7 +139,7 @@ export default function Footer() {
       {/* Bottom bar: legal on the left, copyright + credit on the right. */}
       <div className="border-t border-border-subtle">
         <div className="container-wide flex flex-col-reverse items-start justify-between gap-3 py-6 text-xs text-text-muted sm:flex-row sm:items-center">
-          <div className="flex flex-wrap items-center gap-x-6 [&>*]:inline-flex [&>*]:min-h-11 [&>*]:items-center [&>*]:whitespace-nowrap">
+          <div className="flex flex-wrap items-center gap-x-5 [&>*]:inline-flex [&>*]:min-h-11 [&>*]:items-center [&>*]:whitespace-nowrap [&>*]:!text-[11px] [&>*]:!tracking-[0.12em]">
             <Link href="/privacy-policy/" className="uppercase tracking-[0.14em] transition-colors hover:text-cream">Privacy Policy</Link>
             <Link href="/terms-and-conditions/" className="uppercase tracking-[0.14em] transition-colors hover:text-cream">Terms</Link>
             <CookieSettingsButton />

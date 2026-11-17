@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
 import PropertyGallery from '@/components/sections/PropertyGallery';
@@ -51,6 +52,11 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
   const host = bookingHost(booking);
   const overview = data.overview ?? data.intro ?? [];
   const images = (data.gallery || []).map((image, i) => typeof image === 'string' ? { src: image, alt: `${data.hero.heading}: photo ${i + 1}` } : image);
+  // The hero already shows the cover photograph. Leading the gallery with the
+  // same frame repeated it within one scroll on a phone, so the gallery opens
+  // on the next photograph and the cover moves to the end of the set.
+  const heroSrc = data.hero.image || images[0]?.src;
+  const galleryImages = images.length > 1 && images[0].src === heroSrc ? [...images.slice(1), images[0]] : images;
   const glanceEntries = Object.entries(data.glance ?? {}).filter(([, v]) => v);
   const self = RENTALS.find((r) => r.name === data.hero.heading);
   const related = RENTALS.filter((r) => r.name !== data.hero.heading)
@@ -97,14 +103,14 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
         height="short"
       >
         <BookButton />
-        <Link href="/stay-with-us/" className="btn-secondary">Back to All Stays</Link>
+        <Link href="/stay-with-us/" className="btn-secondary btn-on-media">Back to All Stays</Link>
       </PageHero>
 
       {/* Gallery */}
       {images.length > 0 && (
         <section className="bg-bg-primary pt-10 sm:pt-14">
           <div className="container-wide">
-            <PropertyGallery images={images} />
+            <PropertyGallery images={galleryImages} />
           </div>
         </section>
       )}
@@ -116,19 +122,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
             {data.destination && <p className="eyebrow">{data.destination}</p>}
             <h2 className="h-section mt-3">{data.hero.heading}</h2>
 
-            {/* At a glance */}
-            {glanceEntries.length > 0 && (
-              <ul className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm text-text-secondary">
-                {glanceEntries.map(([k, v]) => (
-                  <li key={k} className="flex items-center gap-2">
-                    <span className="text-text-muted capitalize">{k.replace(/([A-Z])/g, ' $1')}:</span>
-                    <span className="text-cream">{v}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-
-            <Reveal className="mt-8 max-w-prose space-y-4">
+            <Reveal className="mt-6 max-w-prose space-y-4">
               {overview.map((p, i) => (
                 <p key={i} className="text-lead">{p}</p>
               ))}
@@ -240,7 +234,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
                 <Link key={r.href} href={r.href} className="group card-interactive block overflow-hidden">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={r.image} alt={`${r.name} in ${r.destination}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <SiteImage sizes="(min-width: 640px) 33vw, 100vw" src={r.image} alt={`${r.name} in ${r.destination}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div className="p-5">
                     <h3 className="h-card-sm">{r.name}</h3>

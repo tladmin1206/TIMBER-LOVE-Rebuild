@@ -80,7 +80,8 @@ export default function Page() {
         eyebrow="Contact"
         title="How Can We Help?"
         subtitle="Pick the option closest to your goal and we will point you to the right place, or reach out directly and a member of our team will follow up."
-        image="/editorial/casetta-living.webp"
+        image="/editorial/mountain-living.webp"
+        imageMobile="/editorial/casetta-living.webp"
         height="short"
       >
         <Cta href="/design-and-build-questionnaire/" variant="primary">Start a Design + Build Project</Cta>
@@ -103,7 +104,7 @@ export default function Page() {
             <div className="mt-8 space-y-6">
               <div>
                 <p className="field-label">Call</p>
-                <a href={site.phoneHref} className="link-underline mt-2 inline-block text-lg text-cream">
+                <a href={site.phoneHref} className="mt-1 inline-flex min-h-11 items-center text-lg text-cream underline-offset-4 hover:underline">
                   {site.phone}
                 </a>
               </div>
@@ -111,7 +112,7 @@ export default function Page() {
                 <p className="field-label">Email</p>
                 <a
                   href={`mailto:${site.email}`}
-                  className="link-underline mt-2 inline-block text-lg text-cream"
+                  className="mt-1 inline-flex min-h-11 items-center text-lg text-cream underline-offset-4 hover:underline"
                 >
                   {site.email}
                 </a>

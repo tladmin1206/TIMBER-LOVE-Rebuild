@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import PhotoCard from '@/components/ui/PhotoCard';
 import Link from 'next/link';
 import Reveal from '@/components/ui/Reveal';
@@ -20,7 +21,7 @@ function PathwayCard({ pathway, featured = false }: { pathway: Pathway; featured
       }`}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <SiteImage sizes="(min-width: 1024px) 66vw, 100vw"
         src={pathway.image}
         alt=""
         aria-hidden="true"

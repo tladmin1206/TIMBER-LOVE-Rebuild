@@ -21,10 +21,10 @@ export default function RentalComparison() {
   };
   const results = rentals.filter(r => (region === 'all' || region === r.region) && r.guests >= guests);
   return <>
-    <div className="flex flex-wrap items-end gap-5 border-y border-border-subtle py-6">
-      <label className="text-sm">Destination<select value={region} onChange={e => change(e.target.value, guests)} className="mt-2 block min-h-12 w-52 max-w-full border border-cream/30 bg-ink px-4 text-base"><option value="all">All destinations</option><option>Idaho</option><option>Hawaii</option></select></label>
-      <label className="text-sm">Your group<select value={guests} onChange={e => change(region, Number(e.target.value))} className="mt-2 block min-h-12 w-44 border border-cream/30 bg-ink px-4 text-base">{Array.from({length:11}, (_, i) => <option key={i} value={i+1}>{i+1} {i === 0 ? 'guest' : 'guests'}</option>)}</select></label>
-      <p role="status" aria-live="polite" className="py-3 text-sm text-text-secondary">{results.length} {results.length === 1 ? 'home' : 'homes'} for your trip</p>
+    <div className="flex flex-wrap items-end gap-x-4 gap-y-3 border-y border-border-subtle py-6 sm:gap-5">
+      <label className="min-w-0 flex-1 text-sm sm:flex-none">Destination<select value={region} onChange={e => change(e.target.value, guests)} className="mt-2 block min-h-12 w-full border border-cream/30 bg-ink px-4 text-base sm:w-52"><option value="all">All destinations</option><option>Idaho</option><option>Hawaii</option></select></label>
+      <label className="min-w-0 flex-1 text-sm sm:flex-none">Your group<select value={guests} onChange={e => change(region, Number(e.target.value))} className="mt-2 block min-h-12 w-full border border-cream/30 bg-ink px-4 text-base sm:w-44">{Array.from({length:11}, (_, i) => <option key={i} value={i+1}>{i+1} {i === 0 ? 'guest' : 'guests'}</option>)}</select></label>
+      <p role="status" aria-live="polite" className="w-full text-sm text-text-secondary sm:w-auto sm:py-3">{results.length} {results.length === 1 ? 'home' : 'homes'} for your trip</p>
       {(region !== 'all' || guests !== 1) && <button onClick={() => change('all', 1)} className="link-underline min-h-12 text-sm">Reset filters</button>}
     </div>
     <div className="mt-10 grid items-stretch gap-7 md:grid-cols-2 xl:grid-cols-3">
