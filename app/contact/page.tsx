@@ -80,7 +80,8 @@ export default function Page() {
         eyebrow="Contact"
         title="How Can We Help?"
         subtitle="Pick the option closest to your goal and we will point you to the right place, or reach out directly and a member of our team will follow up."
-        image="/editorial/casetta-living.webp"
+        image="/editorial/mountain-living.webp"
+        imageMobile="/editorial/casetta-living.webp"
         height="short"
       >
         <Cta href="/design-and-build-questionnaire/" variant="primary">Start a Design + Build Project</Cta>
@@ -103,7 +104,7 @@ export default function Page() {
             <div className="mt-8 space-y-6">
               <div>
                 <p className="field-label">Call</p>
-                <a href={site.phoneHref} className="link-underline mt-2 inline-block text-lg text-cream">
+                <a href={site.phoneHref} className="mt-1 inline-flex min-h-11 items-center text-lg text-cream underline-offset-4 hover:underline">
                   {site.phone}
                 </a>
               </div>
@@ -111,7 +112,7 @@ export default function Page() {
                 <p className="field-label">Email</p>
                 <a
                   href={`mailto:${site.email}`}
-                  className="link-underline mt-2 inline-block text-lg text-cream"
+                  className="mt-1 inline-flex min-h-11 items-center text-lg text-cream underline-offset-4 hover:underline"
                 >
                   {site.email}
                 </a>
@@ -173,8 +174,8 @@ export default function Page() {
 
           <div className="mt-14">
             <WhatHappensNext steps={[
-              { step: '01', title: 'We Read Your Note', body: 'Your message gives our team the context to understand what you need.', image: '/video-posters/966721424.jpg' },
-              { step: '02', title: 'The Right Team Responds', body: 'We connect your inquiry with the people who handle that service.', image: '/video-posters/928451971.jpg', contain: true },
+              { step: '01', title: 'We Read Your Note', body: 'Your message gives our team the context to understand what you need.', image: '/editorial/team-studio.webp', position: 'center 82%' },
+              { step: '02', title: 'The Right Team Responds', body: 'We connect your inquiry with the people who handle that service.', image: '/editorial/luke-denim.webp', position: 'center 30%' },
               { step: '03', title: 'Choose Your Next Step', body: 'Get answers to your questions and decide how you would like to continue.', image: '/projects/promise-ln-5106/5106-promise-ln-great-room.jpg' },
             ]} />
           </div>

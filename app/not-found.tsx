@@ -12,7 +12,7 @@ export default function NotFound() {
         <p className="text-lead mt-5">
           The page you were looking for may have moved or no longer exists. Here are a few good places to pick back up.
         </p>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
+        <div className="cta-row-center mt-8">
           <Link href="/" className="btn-primary">Back to Home</Link>
           <Link href="/contact/" className="btn-secondary">Contact Our Team</Link>
         </div>

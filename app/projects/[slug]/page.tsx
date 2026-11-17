@@ -50,7 +50,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
       />
       <PageHero eyebrow={project.category} title={project.title} image={project.cover} height="tall">
         <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
-        <Link href="/timber-and-love-gallery/" className="btn-secondary">All Projects</Link>
+        <Link href="/timber-and-love-gallery/" className="btn-secondary btn-on-media">All Projects</Link>
       </PageHero>
 
       <TrustBar />

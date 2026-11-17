@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import Link from "next/link";
 import { pageMeta } from "@/lib/seo";
 import { episodes, lukeClintChannel } from "@/lib/content/shows";
@@ -36,7 +37,7 @@ export default function ShowsPage() {
           <div className="mt-12 grid items-center gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
             <div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <SiteImage sizes="(min-width: 1024px) 55vw, 100vw"
                 src="/editorial/luke-clint.webp"
                 alt="Official Luke and Clint artwork with Luke Caldwell and Clint Robertson at a demolition site"
                 width={1600}
@@ -52,7 +53,7 @@ export default function ShowsPage() {
                 unexpected discoveries, and plenty of laughs. Come behind the
                 scenes with Luke Caldwell and Clint Robertson.
               </p>
-              <div className="mt-7 flex flex-wrap gap-3">
+              <div className="cta-row mt-7">
                 <a href="#episodes" className="btn-primary">
                   Watch Here
                 </a>
@@ -95,7 +96,7 @@ export default function ShowsPage() {
           <div>
             {/* Keep the complete photograph, including Luke's jump, at every width. */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <SiteImage sizes="(min-width: 1024px) 50vw, 100vw"
               src="/editorial/luke-clint-jump.webp"
               alt="Luke jumps above a sofa while Clint reacts in a home they renovated"
               width={1024}

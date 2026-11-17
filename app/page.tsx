@@ -10,6 +10,7 @@ import PartnershipsFeature from '@/components/sections/PartnershipsFeature';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import Reveal from '@/components/ui/Reveal';
+import PhotoCard from '@/components/ui/PhotoCard';
 import VideoBg from '@/components/ui/VideoBg';
 import InlineVideo from '@/components/ui/InlineVideo';
 import LogoMarquee from '@/components/ui/LogoMarquee';
@@ -45,9 +46,9 @@ export default function HomePage() {
       <Hero />
 
       {/* As Featured On: press credibility as the very first thing after the hero. */}
-      <section className="border-b border-border-subtle bg-bg-primary section-tight">
+      <section className="border-b border-border-subtle bg-bg-primary py-10 sm:py-16">
         <div className="container-wide">
-          <p className="mb-8 text-center text-xs uppercase tracking-[0.2em] text-cream/50">As Featured On</p>
+          <p className="mb-7 text-center text-xs uppercase tracking-[0.2em] text-cream/50">As Featured On</p>
           <LogoMarquee logos={pressLogos} />
         </div>
       </section>
@@ -113,7 +114,7 @@ export default function HomePage() {
               },
             ].map((p, i) => (
               <Reveal key={p.key} delay={i * 100}>
-                <div className="group card-interactive relative isolate flex min-h-[20rem] flex-col justify-end overflow-hidden sm:min-h-[24rem]">
+                <div className="group card-interactive relative isolate flex min-h-[23rem] flex-col justify-end overflow-hidden sm:min-h-[26rem]">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <SiteImage
                     src={p.image}
@@ -122,7 +123,7 @@ export default function HomePage() {
                     loading="lazy"
                     className="absolute inset-0 -z-10 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/55 to-ink/10" />
+                  <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/80 via-[38%] to-transparent to-[72%]" />
                   <div className="p-6 sm:p-9">
                     <h3 className="h-display text-2xl text-text-primary sm:text-4xl">{p.title}</h3>
                     <p className="mt-3 max-w-md text-text-secondary">{p.blurb}</p>
@@ -144,7 +145,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+          <div className="cta-row mt-8 sm:mt-10">
             <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="wwd_plan">
               Start a Project
             </Link>
@@ -177,11 +178,11 @@ export default function HomePage() {
               Explore a custom home, a beam-filled renovation, and a characterful North End transformation. Each begins with the home and the people who live there.
             </p>
           </Reveal>
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 sm:mt-14 md:grid-cols-2 lg:grid-cols-3">
             {featuredProjects.map((p, i) => (
               <Reveal key={p.slug} delay={i * 90}>
                 <Link href={`/projects/${p.slug}/`} className="group card-interactive block h-full overflow-hidden">
-                  <div className="relative aspect-[4/5] overflow-hidden">
+                  <div className="relative aspect-[4/3] overflow-hidden lg:aspect-[4/5]">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <SiteImage
                       src={p.cover}
@@ -199,7 +200,7 @@ export default function HomePage() {
               </Reveal>
             ))}
           </div>
-          <div className="mt-10">
+          <div className="cta-row mt-8 sm:mt-10">
             <Link href="/timber-and-love-gallery/" className="btn-secondary">Explore the Full Portfolio</Link>
           </div>
         </div>
@@ -221,19 +222,18 @@ export default function HomePage() {
               </p>
             </Reveal>
           </div>
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 sm:mt-14 md:grid-cols-3">
             {processSteps.map((step, i) => (
-              <Reveal key={step.num} delay={i * 110} className="media-card relative isolate flex min-h-[26rem] flex-col justify-end overflow-hidden p-7 sm:p-8">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <SiteImage src={step.image} alt="" loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover" />
-                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/80 to-ink/15" />
-                <div className="font-sans text-5xl tracking-brand text-accent/70">{step.num}</div>
-                <h3 className="h-card mt-6">{step.title}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-body">{step.body}</p>
+              <Reveal key={step.num} delay={i * 110} className="h-full">
+                <PhotoCard image={step.image}>
+                  <div className="step-num">{step.num}</div>
+                  <h3 className="h-card mt-3">{step.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-text-secondary">{step.body}</p>
+                </PhotoCard>
               </Reveal>
             ))}
           </div>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+          <div className="cta-row mt-8 sm:mt-10">
             <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="process_plan">
               Start a Project
             </Link>
@@ -253,21 +253,21 @@ export default function HomePage() {
         <VideoBg
           videoId={sectionVideos.values.id}
           poster={sectionVideos.values.poster}
-          position="top"
-          overlay="bg-gradient-to-b from-ink/75 via-ink/50 to-ink/85 lg:bg-gradient-to-r lg:from-ink/85 lg:via-ink/65 lg:to-ink/40"
+          control="top"
+          overlay="bg-ink/75 lg:bg-transparent lg:bg-gradient-to-r lg:from-ink/90 lg:via-ink/70 lg:to-ink/50"
         />
         <div className="container-wide relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Why Choose Us</p>
             <h2 id="values-heading" className="h-section mt-4">Our Values</h2>
             <p className="text-lead mt-5 max-w-md">{mission}</p>
-            <ModalButton modal="work-with-us" className="btn-secondary mt-8">Work With Us</ModalButton>
+            <ModalButton modal="work-with-us" className="btn-secondary btn-on-media mt-8 w-full sm:w-auto">Work With Us</ModalButton>
           </Reveal>
-          <div className="grid gap-5 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-2 sm:gap-5">
             {values.map((v, i) => (
-              <Reveal key={v.title} delay={i * 80} className="surface-card-glass p-6">
+              <Reveal key={v.title} delay={i * 80} className="surface-card-glass p-5 sm:p-6">
                 <h3 className="h-card-sm">{v.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-cream/80">{v.body}</p>
+                <p className="mt-2.5 text-sm leading-relaxed text-cream/80 sm:mt-3">{v.body}</p>
               </Reveal>
             ))}
           </div>
@@ -281,7 +281,7 @@ export default function HomePage() {
             <p className="eyebrow">Your Home, Realized</p>
             <h2 id="start-project-heading" className="h-section mt-4">Let&apos;s Design Something Worth Building</h2>
             <p className="text-lead mt-5">Tell us about your home and your goals, and let’s bring your vision to life.</p>
-            <Link href="/design-and-build-questionnaire/" className="btn-primary mt-8 inline-flex">Start a Project</Link>
+            <Link href="/design-and-build-questionnaire/" className="btn-primary mt-8 flex w-full sm:inline-flex sm:w-auto">Start a Project</Link>
           </Reveal>
         </div>
       </section>

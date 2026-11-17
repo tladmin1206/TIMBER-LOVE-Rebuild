@@ -98,7 +98,14 @@
      interior page and left two near-identical sizes competing for the same
      rank. Use these instead of ad-hoc text-* sizes on headings. */
   .h-hero {
-    @apply h-display text-5xl sm:text-7xl lg:text-8xl;
+    @apply h-display text-7xl lg:text-8xl;
+    line-height: 1.05;
+  }
+  /* Phones: the name stays on one line at every width from 320px up. */
+  @media (max-width: 639px) {
+    .h-hero {
+      font-size: clamp(1.9rem, 9.4vw, 3.25rem);
+    }
   }
   .h-page {
     @apply h-display text-4xl sm:text-6xl;
@@ -143,6 +150,32 @@
   /* Secondary: exploration. */
   .btn-secondary {
     @apply btn border border-border-subtle text-cream hover:border-cream hover:bg-cream hover:text-on-accent;
+  }
+  /* Secondary action sitting directly on photography: a faint ink fill and a
+     brighter rule keep it legible over any image without competing with the
+     primary. */
+  .btn-on-media,
+  .media-card .btn-secondary {
+    @apply border-cream/50 bg-ink/30 backdrop-blur-sm;
+  }
+  /* A group of actions. Stacked and full width on phones, where a comfortable
+     tap target matters more than a compact row; an inline row from `sm` up.
+     Every button group on the site uses this so they all behave the same. */
+  .cta-row {
+    @apply flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center;
+  }
+  .cta-row-center {
+    @apply cta-row sm:justify-center;
+  }
+  /* Bottom padding for full-height heroes: clears the fixed mobile action bar
+     (and the home indicator) below xl, where that bar is shown. */
+  .hero-safe-bottom {
+    padding-bottom: calc(var(--mobile-bar-offset, calc(var(--mobile-bar-h) + env(safe-area-inset-bottom))) + 2rem);
+  }
+  @media (min-width: 1280px) {
+    .hero-safe-bottom {
+      padding-bottom: 3.5rem;
+    }
   }
   /* Tertiary: text link for navigation. */
   .link-underline {
@@ -216,6 +249,11 @@
     @apply border-cream text-cream;
   }
 
+  /* Step number on process and next-step cards: one treatment everywhere. */
+  .step-num {
+    @apply font-sans text-xs tabular-nums tracking-[0.2em] text-text-muted;
+  }
+
   /* Large figure + caption, for stat strips. */
   .stat-figure {
     @apply font-sans text-4xl tracking-brand text-cream sm:text-5xl;
@@ -263,14 +301,14 @@
   color: rgb(var(--tl-copy));
 }
 .media-card { color: #fafafa; }
-.photo-card-overlay {
-  background: linear-gradient(180deg, rgba(11,11,12,.12) 0, rgba(11,11,12,.28) 5rem, rgba(11,11,12,.88) 10rem, rgba(11,11,12,.96) 100%);
-}
-.photo-card .text-text-secondary, .photo-card .text-body { color: #e2e0dc; }
-.photo-card .eyebrow { color: #e2e0dc; }
 .h-page, .h-section, .h-hero { text-wrap: balance; }
 .btn-primary, .btn-secondary { text-align: center; }
 @media (max-width: 639px) {
+  /* Every primary and secondary action is full width on a phone. Whether a
+     button sat alone, in a pair, or inside a card, its width used to depend on
+     its label, so no two screens lined up. One width gives a consistent edge
+     and a generous tap target everywhere. */
+  .btn-primary:not(.hidden), .btn-secondary:not(.hidden) { display: flex; width: 100%; }
   .section { padding-block: 64px; }
   .section-feature { padding-block: 72px; }
   .h-page { font-size: clamp(1.75rem, 8vw, 2.6rem); }

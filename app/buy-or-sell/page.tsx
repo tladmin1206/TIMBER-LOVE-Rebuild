@@ -183,7 +183,7 @@ export default function Page() {
               Start browsing listings or begin a conversation about selling. You will continue to Timber + Love
               Realty, our affiliated real estate site, in a new tab.
             </p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <div className="cta-row-center mt-8">
               <Cta href={site.external.realty} external newTab track="realty_visit">
                 Visit Timber + Love Realty
               </Cta>

@@ -77,10 +77,10 @@ export default function StatCounter({
   const figureSize = isText
     ? size === 'md'
       ? 'text-2xl sm:text-3xl text-balance'
-      : 'text-4xl sm:text-5xl text-balance'
+      : 'text-3xl sm:text-5xl text-balance'
     : size === 'md'
       ? 'text-3xl sm:text-4xl'
-      : 'text-5xl sm:text-6xl';
+      : 'text-4xl sm:text-6xl';
 
   return (
     <div ref={ref} className={align === 'left' ? 'text-left' : 'text-center'}>
@@ -97,7 +97,7 @@ export default function StatCounter({
           </span>
         </div>
       )}
-      <div className="mt-3 text-xs uppercase tracking-[0.18em] text-cream/70 sm:text-sm">{label}</div>
+      <div className="mt-2.5 text-[0.7rem] uppercase leading-relaxed tracking-[0.16em] text-cream/70 sm:mt-3 sm:text-xs">{label}</div>
     </div>
   );
 }

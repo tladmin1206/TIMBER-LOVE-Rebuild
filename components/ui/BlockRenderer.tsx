@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import Reveal from './Reveal';
 
 export type Block =
@@ -38,7 +39,7 @@ export default function BlockRenderer({ blocks }: { blocks: Block[] }) {
             return (
               <Reveal key={i} className="my-8 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={b.src} alt={b.text || ''} loading="lazy" className="w-full object-cover" />
+                <SiteImage sizes="(min-width: 768px) 720px, 100vw" src={b.src} alt={b.text || ''} loading="lazy" className="w-full object-cover" />
               </Reveal>
             );
           case 'p':

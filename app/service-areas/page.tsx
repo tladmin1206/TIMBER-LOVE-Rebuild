@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
 import Cta from '@/components/ui/Cta';
@@ -54,7 +55,8 @@ export default function Page() {
         eyebrow="Where We Work"
         title="Serving Boise & the Treasure Valley"
         subtitle="Timber + Love is a Boise-based design-build team working with homeowners across the Treasure Valley. If your home is nearby, we would love to hear about your project."
-        image="/editorial/midcentury-entry.webp"
+        image="/projects/promise-ln-5120/5120-promise-ln-exterior-front.jpg"
+        imageMobile="/editorial/midcentury-entry.webp"
         height="short"
       >
         <Cta href="/design-and-build-questionnaire/" variant="primary">Check Your Project</Cta>
@@ -104,7 +106,7 @@ export default function Page() {
               <Link key={project.slug} href={`/projects/${project.slug}/`} className="group card-interactive block overflow-hidden">
                 <div className="aspect-[4/3] overflow-hidden">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={project.cover} alt={project.gallery[0]?.alt || project.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <SiteImage sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" src={project.cover} alt={project.gallery[0]?.alt || project.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="p-6">
                   <p className="eyebrow !text-[10px]">{project.location}</p>

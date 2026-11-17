@@ -1,4 +1,5 @@
 "use client";
+import SiteImage from '@/components/ui/SiteImage';
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -61,9 +62,11 @@ export default function Header() {
     setMobile(false);
   };
   return (
+    // No backdrop-filter on this element: it would make the header the
+    // containing block for the fixed mobile menu and clip it to the bar.
     <header
       ref={header}
-      className={`media-card fixed inset-x-0 top-0 z-50 ${scrolled || open || mobile ? "bg-ink shadow-lg" : "bg-gradient-to-b from-ink/95 to-ink/50"}`}
+      className={`media-card fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-300 ${scrolled || open || mobile ? "bg-ink shadow-lg" : "bg-gradient-to-b from-ink/75 to-transparent"}`}
       onBlur={(e) => {
         if (!e.currentTarget.contains(e.relatedTarget as Node)) setOpen(null);
       }}
@@ -133,7 +136,7 @@ export default function Header() {
           aria-label="Open navigation"
           aria-expanded={mobile}
           aria-controls="mobile-menu"
-          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 xl:hidden"
+          className="-mr-2 flex h-11 w-11 shrink-0 flex-col items-center justify-center gap-1.5 xl:hidden"
         >
           <span className="h-px w-6 bg-white" />
           <span className="h-px w-6 bg-white" />
@@ -183,7 +186,7 @@ export default function Header() {
             >
               {/* Keep the complete team portrait visible; architecture can fill its frame. */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <SiteImage sizes="40vw"
                 src={active.image}
                 alt={
                   active.id === "story"

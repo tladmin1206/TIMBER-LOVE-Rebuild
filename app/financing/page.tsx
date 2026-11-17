@@ -80,7 +80,8 @@ export default function Page() {
         eyebrow="Financing"
         title="Financing Your Project"
         subtitle="A remodel or new build is a meaningful investment. Here is a plain-language look at how homeowners typically pay for one, so you can plan with confidence."
-        image="/editorial/estate-breakfast.webp"
+        image="/editorial/craftsman-dining.webp"
+        imageMobile="/editorial/estate-breakfast.webp"
         height="short"
       >
         <Cta href="/design-and-build-questionnaire/" variant="primary">Start a Project</Cta>
@@ -128,7 +129,7 @@ export default function Page() {
               A clear scope makes every financing conversation easier. Tell us about your home and your goals,
               and we can discuss your priorities and the budget you have in mind.
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="cta-row mt-7">
               <Cta href="/design-and-build-questionnaire/" variant="primary">Start a Project</Cta>
               <Cta href="/design-and-build/" variant="secondary">Explore Design + Build</Cta>
             </div>

@@ -1,5 +1,6 @@
 'use client';
 
+import SiteImage from '@/components/ui/SiteImage';
 import { useCallback, useState } from 'react';
 import Link from 'next/link';
 import { site } from '@/lib/site';
@@ -92,7 +93,7 @@ export default function PartnershipsFeature() {
                 {/* Framed image */}
                 <div className="relative mx-auto aspect-[2/3] w-full max-w-sm overflow-hidden border border-border-subtle shadow-2xl shadow-black/60">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={s.image} alt={s.imageAlt} className="h-full w-full object-contain" loading="lazy" />
+                  <SiteImage sizes="(min-width: 640px) 384px, 100vw" src={s.image} alt={s.imageAlt} className="h-full w-full object-contain" loading="lazy" />
                 </div>
               </div>
             );

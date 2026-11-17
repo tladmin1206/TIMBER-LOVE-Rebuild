@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import DesignBuildQuestionnaire from '@/components/forms/DesignBuildQuestionnaire';
 import WhatHappensNext from '@/components/sections/WhatHappensNext';
 import { pageMeta } from '@/lib/seo';
@@ -21,7 +22,7 @@ export default function Page() {
               A beautiful home starts with a conversation. Share what you have in mind, whether it’s a remodel, an addition, or a new home. Our team will help you find the next step.
             </p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/projects/promise-ln-5120/5120-promise-ln-kitchen.jpg" alt="Timber + Love custom kitchen with green millwork and natural wood" className="mt-8 hidden aspect-[4/3] w-full object-cover lg:block" />
+            <SiteImage src="/projects/promise-ln-5120/5120-promise-ln-kitchen.jpg" alt="Timber + Love custom kitchen with green millwork and natural wood" className="mt-8 hidden aspect-[4/3] w-full object-cover lg:block" />
             <p className="mt-6 text-sm text-text-secondary">
               Prefer to talk? <a href={site.phoneHref} className="link-underline text-cream">{site.phone}</a>
             </p>

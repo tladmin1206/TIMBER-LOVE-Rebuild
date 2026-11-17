@@ -5,12 +5,19 @@ import type { FanComment, Testimonial } from '@/lib/content/types';
 // that sits in a section below the hero.
 export const heroVideoId = '967117381'; // Vimeo: hero background video
 export const heroVideoPoster = '/video-posters/967117381.jpg';
+// Hero stills. The film only starts when a visitor asks for it, so the first
+// impression is a photograph: a landscape frame for wide screens and a
+// portrait frame for phones, both sharp at full bleed.
+export const heroStill = '/editorial/estate-hearth.webp';
+export const heroStillMobile = '/editorial/cedar-fireplace.webp';
 export const introVideoId = '953577619'; // Vimeo: inline "Designing Beauty" player
 export const introVideoPoster = '/video-posters/953577619.jpg';
 
 // Full-bleed background videos used across homepage sections (Vimeo ids + local poster frames).
 export const sectionVideos = {
-  values: { id: '927639866', poster: '/video-posters/927639866.jpg' },
+  // Stills are sharp photographs: the Vimeo frame grabs are 640px wide and
+  // blur at full bleed. The film replaces the still once a visitor plays it.
+  values: { id: '927639866', poster: '/editorial/mountain-kitchen.webp' },
   finalCta: { id: '927976789', poster: '/video-posters/927976789.jpg' },
 };
 
@@ -147,19 +154,19 @@ export const processSteps = [
   {
     num: '01',
     title: 'Consultation',
-    image: '/video-posters/966728565.jpg',
+    image: '/editorial/estate-living.webp',
     body: 'Tell us how you live, what you love, and what needs to change. We listen, explore the possibilities, and establish the right starting point.',
   },
   {
     num: '02',
     title: 'Collaboration',
-    image: '/editorial/casetta-shelves.webp',
+    image: '/editorial/collected-details.webp',
     body: 'Work with our designers to shape the layout, materials, and details. Together, we create a clear plan that balances your vision and investment.',
   },
   {
     num: '03',
     title: 'Execution',
-    image: '/video-posters/966901133.jpg',
+    image: '/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg',
     body: 'Our team coordinates the build, keeps you informed, and follows through on the details, from the first day on site to your final walkthrough.',
   },
 ];

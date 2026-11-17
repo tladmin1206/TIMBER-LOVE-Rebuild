@@ -31,7 +31,7 @@ const DEFAULT_IMAGE =
   '/editorial/cedar-kitchen.webp';
 
 function Action({ action, variant }: { action: ClosingAction; variant: 'primary' | 'secondary' }) {
-  const cls = variant === 'primary' ? 'btn-primary' : 'btn-secondary';
+  const cls = variant === 'primary' ? 'btn-primary' : 'btn-secondary btn-on-media';
 
   if (action.external) {
     return (
@@ -69,19 +69,19 @@ export default function ClosingCta({
   surface = 'image',
 }: ClosingCtaProps) {
   return (
-    <section className="media-card relative isolate flex min-h-[52vh] items-center overflow-hidden bg-ink sm:min-h-[56vh] section">
+    <section className="media-card relative isolate flex min-h-[30rem] items-end overflow-hidden bg-ink section lg:min-h-[56vh] lg:items-center">
       {surface === 'solid' ? null : videoId ? (
         <VideoBg
           videoId={videoId}
           poster={poster || image}
-          overlay="bg-gradient-to-r from-ink via-ink/85 to-ink/55"
+          overlay="bg-gradient-to-t from-ink via-ink/80 to-ink/45 lg:bg-gradient-to-r lg:from-ink lg:via-ink/80 lg:to-ink/40"
+          control="top"
         />
       ) : (
         <>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <SiteImage sizes="100vw" src={image} alt="" aria-hidden className="absolute inset-0 -z-10 h-full w-full object-cover" />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-ink via-ink/85 to-ink/55" />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink/70 via-transparent to-ink/40" />
+          <SiteImage sizes="100vw" src={image} alt="" aria-hidden loading="lazy" className="absolute inset-0 -z-10 h-full w-full object-cover" />
+          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/80 to-ink/45 lg:bg-gradient-to-r lg:from-ink lg:via-ink/80 lg:to-ink/40" />
         </>
       )}
 
@@ -91,7 +91,7 @@ export default function ClosingCta({
           <h2 className="h-section mt-4 text-cream">{title}</h2>
           <p className="text-lead mt-5 max-w-xl">{body}</p>
         </Reveal>
-        <Reveal delay={100} className="flex flex-col gap-3 sm:flex-row sm:flex-wrap lg:justify-end">
+        <Reveal delay={100} className="cta-row lg:justify-end">
           <Action action={primary} variant="primary" />
           {secondary && <Action action={secondary} variant="secondary" />}
         </Reveal>

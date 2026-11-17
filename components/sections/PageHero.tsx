@@ -2,12 +2,25 @@ import SiteImage from '@/components/ui/SiteImage';
 import Reveal from '@/components/ui/Reveal';
 import VideoBg from '@/components/ui/VideoBg';
 
-/** Standard interior-page hero: full-bleed image or background video, dark overlay, eyebrow + title. */
+/**
+ * Standard interior-page hero: full-bleed photograph (optionally with a film
+ * behind a Play control), eyebrow, title, and actions.
+ *
+ * Shares one composition with the homepage hero. The photograph owns the top
+ * of the frame and the copy is anchored bottom left, on the same left edge as
+ * the page body beneath it. The overlay is a floor of ink under the copy and a
+ * soft cap under the header, so the middle of the photograph stays clear and
+ * the image is actually seen rather than buried under a uniform dark wash.
+ *
+ * `imageMobile` swaps in a portrait photograph on phones when a landscape
+ * frame would crop to something unrecognisable.
+ */
 export default function PageHero({
   eyebrow,
   title,
   subtitle,
   image,
+  imageMobile,
   imagePosition = 'center',
   videoId,
   height = 'tall',
@@ -17,6 +30,7 @@ export default function PageHero({
   title: string;
   subtitle?: string;
   image: string;
+  imageMobile?: string;
   imagePosition?: string;
   videoId?: string;
   height?: 'tall' | 'short';
@@ -24,34 +38,36 @@ export default function PageHero({
 }) {
   return (
     <section
-      className={`media-card relative isolate flex items-center justify-center overflow-hidden bg-bg-primary ${
-        height === 'tall'
-          ? 'min-h-[58vh] py-24 sm:min-h-[68vh] sm:py-32'
-          : 'min-h-[42vh] py-20 sm:min-h-[48vh] sm:py-28'
+      className={`media-card relative isolate flex flex-col justify-end overflow-hidden bg-ink ${
+        height === 'tall' ? 'min-h-[82svh] lg:min-h-[86vh]' : 'min-h-[64svh] lg:min-h-[68vh]'
       }`}
     >
       {videoId ? (
-        <>
-          <VideoBg videoId={videoId} poster={image} priority overlay="bg-gradient-to-b from-ink/80 via-ink/60 to-ink/90" />
-        </>
+        <VideoBg videoId={videoId} poster={image} posterMobile={imageMobile} position={imagePosition === 'top' ? 'top' : 'center'} priority overlay="" control="hero" />
       ) : (
-        <>
-          {image && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <SiteImage sizes="100vw" src={image} fetchPriority="high" loading="eager" alt="" aria-hidden style={{ objectPosition: imagePosition }} className="absolute inset-0 -z-10 h-full w-full object-cover" />
-          )}
-          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-ink/80 via-ink/60 to-ink/90" />
-        </>
+        image && (
+          <SiteImage
+            sizes="100vw"
+            src={image}
+            mobileSrc={imageMobile}
+            fetchPriority="high"
+            loading="eager"
+            alt=""
+            aria-hidden
+            style={{ objectPosition: imagePosition }}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        )
       )}
-      {/* Center vignette guarantees legible headings over any image brightness. */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_65%_60%_at_center,rgba(11,11,12,0.55),transparent_75%)]" />
-      {/* container-wide matches every page body below, so hero and content
-          share one left edge instead of stepping in and out on scroll. */}
-      <Reveal className="container-wide relative z-10 pt-12 text-center">
-        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-        <h1 className="h-page mx-auto mt-4 max-w-4xl text-cream">{title}</h1>
-        {subtitle && <p className="mx-auto mt-5 max-w-2xl text-body">{subtitle}</p>}
-        {children && <div className="mt-8 flex flex-wrap items-center justify-center gap-4">{children}</div>}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/80 via-[52%] to-ink/15 to-[92%] lg:via-ink/65 lg:via-[40%] lg:to-ink/10 lg:to-[80%]" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-ink/70 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-ink/60 via-ink/15 to-transparent lg:block" />
+
+      <Reveal className="container-wide relative z-10 w-full pb-10 pt-[calc(var(--header-h,88px)+5rem)] sm:pb-14 lg:pb-16">
+        {eyebrow && <p className="eyebrow text-cream/80">{eyebrow}</p>}
+        <h1 className="h-page mt-4 max-w-4xl text-cream">{title}</h1>
+        {subtitle && <p className="mt-5 max-w-2xl text-base leading-relaxed text-cream/85 sm:text-body-lg">{subtitle}</p>}
+        {children && <div className="cta-row mt-8">{children}</div>}
       </Reveal>
     </section>
   );

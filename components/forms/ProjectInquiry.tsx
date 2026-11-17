@@ -493,7 +493,7 @@ function SuccessScreen({ headingRef, answers }: { headingRef: React.RefObject<HT
           <li>· Browse our recent work for ideas.</li>
         </ul>
       </div>
-      <div className="mt-8 flex flex-wrap justify-center gap-3">
+      <div className="cta-row-center mt-8">
         <Link href="/timber-and-love-gallery/" className="btn-secondary">View Our Projects</Link>
         <Link href="/design-and-build/" className="btn-secondary">Explore Design + Build</Link>
       </div>

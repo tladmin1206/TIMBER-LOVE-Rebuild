@@ -1,3 +1,4 @@
+import SiteImage from '@/components/ui/SiteImage';
 import Link from "next/link";
 import { lukeClintChannel } from "@/lib/content/shows";
 export default function LukeClintFeature() {
@@ -10,7 +11,7 @@ export default function LukeClintFeature() {
         <Link href="/shows/" aria-label="Discover Luke and Clint">
           {/* Preserve the official artwork's full composition on every screen. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <SiteImage sizes="(min-width: 1024px) 55vw, 100vw"
             src="/editorial/luke-clint.webp"
             alt="Luke and Clint on a demolition site, with the Luke and Clint show wordmark"
             width={1600}
@@ -36,7 +37,7 @@ export default function LukeClintFeature() {
             From the team behind Boise Boys and Outgrown, it is another way to
             get to know the people and imagination behind the work.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="cta-row mt-8">
             <a
               href={lukeClintChannel}
               target="_blank"

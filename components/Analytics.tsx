@@ -149,7 +149,7 @@ export function ConsentBanner() {
       role="region"
       aria-labelledby="cookie-settings-heading"
       data-mobile-bar={hasBar ? 'true' : 'false'}
-      className="cookie-banner fixed inset-x-0 z-[90] overflow-y-auto border-t border-border-subtle bg-ink/95 p-4 text-sm text-cream"
+      className="cookie-banner fixed inset-x-0 z-[90] overflow-y-auto border-t border-border-subtle bg-ink/95 px-5 py-3.5 text-[13px] leading-snug text-cream backdrop-blur sm:p-4 sm:text-sm"
     >
       <div className="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div className="min-w-0">
@@ -161,7 +161,7 @@ export function ConsentBanner() {
           >
             Cookie settings
           </h2>
-          <p className="mt-2 text-cream/85">
+          <p className="mt-1.5 text-cream/85 sm:mt-2">
             {ctx.noticeOnly
               ? 'We use cookies for analytics (Google, Meta, Microsoft Clarity) to understand how the site is used. Decline turns them off. '
               : 'We would like to use analytics cookies (Google, Meta, Microsoft Clarity) to understand how the site is used. They stay off unless you accept. '}
