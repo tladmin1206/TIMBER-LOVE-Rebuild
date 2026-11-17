@@ -38,6 +38,12 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
 
   const related = relatedProjects(project.slug);
   const story = projectStories[project.slug];
+  // Closing band photograph: a main living space where the set has one,
+  // otherwise the second frame. The last gallery frame is usually a back yard.
+  const closingImage =
+    project.gallery.find((g) => /great-room|living|kitchen/i.test(g.src) && g.src !== project.cover)?.src ??
+    project.gallery[1]?.src ??
+    project.cover;
 
   return (
     <>
@@ -147,7 +153,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
       )}
 
 
-      <ClosingCta {...closingCta.projectDetail} image={project.gallery[project.gallery.length - 1]?.src ?? project.cover} />
+      <ClosingCta {...closingCta.projectDetail} image={closingImage} />
     </>
   );
 }

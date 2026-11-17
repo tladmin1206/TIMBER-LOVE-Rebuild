@@ -31,7 +31,7 @@ const sections = [
   },
   {
     eyebrow: 'Who It Is For',
-    heading: 'People Considering Real Estate Investment', image: '/projects/stucco-in-time/exterior.webp',
+    heading: 'People Considering Real Estate Investment', image: '/projects/due-for-a-raze/exterior.webp',
     body: 'This information is intended for people who are exploring real estate as part of their broader plans and want to understand the options before making any commitment. It is a starting point for a conversation, not a decision you make on the spot.',
   },
   {

@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import episodes from '@/content/hgtv-episodes.json';
+import ContainedImage from '@/components/ui/ContainedImage';
 import { trackEvent } from '@/lib/analytics';
 
 export default function HgtvEpisodeCatalog() {
@@ -43,7 +44,7 @@ export default function HgtvEpisodeCatalog() {
       <div className="mt-10 grid gap-x-7 gap-y-8 md:mt-12 md:grid-cols-2 md:gap-y-12 xl:grid-cols-3">
         {results.map(episode => <article key={episode.id} data-episode={episode.id}>
           <a href={episode.watchUrl} target="_blank" rel="noopener noreferrer" data-track="episode_watch_options" data-external="true" className="group grid h-full grid-cols-[42%_minmax(0,1fr)] items-start gap-x-4 md:flex md:flex-col md:items-stretch" aria-label={`Viewing options for ${episode.show}: ${episode.title} on Apple TV (opens in a new tab)`}>
-            <div className="aspect-video w-full overflow-hidden bg-black">{/* eslint-disable-next-line @next/next/no-img-element */}<img src={episode.image} alt={`${episode.show}: ${episode.title} episode artwork`} width={episode.width} height={episode.height} loading="lazy" className="h-full w-full object-contain transition-opacity group-hover:opacity-80" /></div>
+            <div className="relative aspect-video w-full overflow-hidden bg-black"><ContainedImage src={episode.image} alt={`${episode.show}: ${episode.title} episode artwork`} sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 45vw" className="transition-opacity group-hover:opacity-80" /></div>
             {/* Phones: a compact row, artwork beside the copy, so 31 episodes
                 scan as a list. From md the wrapper dissolves into a card. */}
             <div className="min-w-0 md:contents">

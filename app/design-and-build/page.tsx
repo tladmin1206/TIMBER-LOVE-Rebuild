@@ -17,9 +17,9 @@ import { pageMeta } from '@/lib/seo';
 import faq from '@/content/design-and-build-faq.json';
 const serviceCategories = [
   { heading: 'Whole-Home Remodels', image: '/projects/stucco-in-time/living.webp', body: 'Comprehensive renovations that rework layout, systems, and finishes across an entire home.' },
-  { heading: 'Kitchens & Living Spaces', image: '/projects/promise-ln-5120/5120-promise-ln-kitchen-range-hood.jpg', body: 'Focused remodels of the rooms where daily life happens, from kitchens to primary living areas.' },
+  { heading: 'Kitchens & Living Spaces', image: '/projects/north-end-gem/kitchen.webp', body: 'Focused remodels of the rooms where daily life happens, from kitchens to primary living areas.' },
   { heading: 'Home Additions', image: '/projects/due-for-a-raze/exterior.webp', body: 'Thoughtfully integrated additions that expand living space while matching your home’s existing character.' },
-  { heading: 'Custom Homes', image: '/projects/promise-ln-5106/5106-promise-ln-exterior-rear.jpg', body: 'One-of-a-kind new homes designed and built from the ground up around how you live.' },
+  { heading: 'Custom Homes', image: '/projects/promise-ln-5120/5120-promise-ln-exterior-front.jpg', body: 'One-of-a-kind new homes designed and built from the ground up around how you live.' },
   { heading: 'New Construction', image: '/projects/promise-ln-5142/5142-promise-ln-exterior-angle.jpg', body: 'Ground-up residential construction with design and build coordinated under one in-house team.' },
   { heading: 'Historic Restorations', image: '/projects/north-end-gem/living.webp', body: 'Careful updates to older Boise homes that preserve original character while modernizing for daily life.' },
 ];
@@ -41,7 +41,7 @@ export default function Page() {
       faqSchema(faq),
       breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Design + Build', path: '/design-and-build/' }]),
     ]} />
-    <PageHero eyebrow="Timber + Love" title="Your Home. Thoughtfully Designed. Beautifully Built." subtitle="Custom homes and considered renovations in Boise and the Treasure Valley, with design and construction under one roof." image="/video-posters/928472719.jpg" videoId="928472719">
+    <PageHero eyebrow="Timber + Love" title="Your Home. Thoughtfully Designed. Beautifully Built." subtitle="Custom homes and considered renovations in Boise and the Treasure Valley, with design and construction under one roof." image="/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg" imageMobile="/editorial/cedar-hall.webp" videoId="928472719">
       <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="design_start">Start a Project</Link>
       <a href="#selected-work" className="btn-secondary">Explore Our Work</a>
     </PageHero>

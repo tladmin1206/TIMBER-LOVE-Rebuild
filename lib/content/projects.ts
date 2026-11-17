@@ -264,7 +264,7 @@ export const projects: Project[] = [
   "hgtv": "HGTV’s Boise Boys, Season 2 Episode 6",
   "scope": "Residential transformation",
   "summary": "Exposed beams, a stone fireplace, and generous windows give this Boise home its open, welcoming character. The kitchen and living spaces share light and views.",
-  "cover": "/projects/stucco-in-time/exterior.webp",
+  "cover": "/projects/stucco-in-time/living.webp",
   "gallery": [
     {
       "src": "/projects/stucco-in-time/exterior.webp",

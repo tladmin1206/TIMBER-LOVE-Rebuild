@@ -28,7 +28,7 @@ const paths = [
   },
   {
     title: 'Buy or Sell Real Estate',
-    image: '/projects/stucco-in-time/terrace.webp',
+    image: '/projects/promise-ln-5120/5120-promise-ln-exterior-front.jpg',
     contain: false,
     line: 'Work with Timber + Love Realty on your next move in the local market.',
     href: site.external.realty,
@@ -46,7 +46,7 @@ const paths = [
   },
   {
     title: 'Invest in Real Estate',
-    image: '/projects/promise-ln-5142/5142-promise-ln-exterior-rear.jpg',
+    image: '/projects/promise-ln-5142/5142-promise-ln-exterior-angle.jpg',
     contain: false,
     line: 'Explore investment opportunities and how to get involved.',
     href: site.external.invest,

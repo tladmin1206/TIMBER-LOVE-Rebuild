@@ -10,9 +10,9 @@ export const introVideoPoster = '/video-posters/953577619.jpg';
 
 // Full-bleed background videos used across homepage sections (Vimeo ids + local poster frames).
 export const sectionVideos = {
-  // Each film's own opening frame is its poster, so the still and the moving
-  // picture match when playback begins.
-  values: { id: '927639866', poster: '/video-posters/927639866.jpg' },
+  // Stills are sharp photographs: the Vimeo frame grabs are 640px wide and
+  // blur at full bleed, and the still is what remains if a film cannot play.
+  values: { id: '927639866', poster: '/editorial/mountain-kitchen.webp' },
   finalCta: { id: '927976789', poster: '/video-posters/927976789.jpg' },
 };
 

@@ -108,7 +108,7 @@ export const pathways: Pathway[] = [
     blurb: 'Real estate guidance through Timber + Love Realty, with local Boise market experience.',
     href: '/buy-or-sell/',
     cta: 'Buy or Sell a Home',
-    image: '/projects/promise-ln-5120/5120-promise-ln-exterior-side.jpg',
+    image: '/projects/promise-ln-5120/5120-promise-ln-exterior-front.jpg',
   },
   {
     key: 'sell-cash',
@@ -117,7 +117,7 @@ export const pathways: Pathway[] = [
     blurb: 'Direct offers through Buy My House for homeowners exploring a sale without listing.',
     href: '/sell-for-cash/',
     cta: 'Request a Cash Offer',
-    image: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Home-Buying-Background-2-min.jpg',
+    image: '/projects/north-end-gem/exterior.webp',
   },
   {
     key: 'invest',
@@ -126,7 +126,7 @@ export const pathways: Pathway[] = [
     blurb: 'Explore real estate investment and development opportunities with Timber + Love Realty.',
     href: '/invest/',
     cta: 'Explore Investment Opportunities',
-    image: '/projects/promise-ln-5142/5142-promise-ln-exterior-rear.jpg',
+    image: '/projects/promise-ln-5142/5142-promise-ln-exterior-angle.jpg',
   },
   {
     key: 'stay',
