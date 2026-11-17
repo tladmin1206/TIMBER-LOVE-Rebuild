@@ -36,7 +36,7 @@ export default function LukeClintFeature() {
             From the team behind Boise Boys and Outgrown, it is another way to
             get to know the people and imagination behind the work.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="cta-row mt-8">
             <a
               href={lukeClintChannel}
               target="_blank"

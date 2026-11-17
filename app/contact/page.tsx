@@ -173,8 +173,8 @@ export default function Page() {
 
           <div className="mt-14">
             <WhatHappensNext steps={[
-              { step: '01', title: 'We Read Your Note', body: 'Your message gives our team the context to understand what you need.', image: '/video-posters/966721424.jpg' },
-              { step: '02', title: 'The Right Team Responds', body: 'We connect your inquiry with the people who handle that service.', image: '/video-posters/928451971.jpg', contain: true },
+              { step: '01', title: 'We Read Your Note', body: 'Your message gives our team the context to understand what you need.', image: '/editorial/team-studio.webp', position: 'center 82%' },
+              { step: '02', title: 'The Right Team Responds', body: 'We connect your inquiry with the people who handle that service.', image: '/editorial/luke-denim.webp', position: 'center 30%' },
               { step: '03', title: 'Choose Your Next Step', body: 'Get answers to your questions and decide how you would like to continue.', image: '/projects/promise-ln-5106/5106-promise-ln-great-room.jpg' },
             ]} />
           </div>

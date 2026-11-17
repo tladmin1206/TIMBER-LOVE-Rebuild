@@ -31,6 +31,7 @@ export default function HgtvShows() {
                   poster={show.poster}
                   overlay=""
                   fit="contain"
+                  control="center"
                 />
               </div>
               <div className="mt-5 flex flex-wrap items-center justify-between gap-4">

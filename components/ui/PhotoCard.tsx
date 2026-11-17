@@ -1,7 +1,16 @@
 import SiteImage from '@/components/ui/SiteImage';
 import type { ReactNode } from 'react';
 
-/** A clear photographic opening, with a dark reading surface behind the copy. */
+/**
+ * The site's standard media card: a photograph on top, copy on a solid
+ * surface beneath it.
+ *
+ * Copy never sits on the photograph. Overlaying text meant every image needed
+ * a heavy dark wash to stay legible, which hid the photography the card exists
+ * to show and left half of each card as empty gradient on a phone. Separating
+ * the two keeps the image clean and the text readable at every width, and it
+ * matches the project and rental cards so all cards read as one family.
+ */
 export default function PhotoCard({
   image,
   imagePosition = 'center',
@@ -16,16 +25,20 @@ export default function PhotoCard({
   className?: string;
 }) {
   return (
-    <div className={`photo-card media-card relative isolate flex h-full min-w-0 min-h-[25rem] flex-col overflow-hidden border border-border-subtle bg-ink ${className}`}>
-      {/* Decorative photography supports the adjacent service heading. */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <SiteImage sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" src={image} alt="" aria-hidden="true" loading="lazy" decoding="async"
-        style={{ objectPosition: imagePosition }}
-        className={`pointer-events-none absolute inset-0 h-full w-full ${contain ? 'object-contain' : 'object-cover'}`} />
-      <div aria-hidden="true" className="photo-card-overlay pointer-events-none absolute inset-0" />
-      <div className="relative z-10 flex min-w-0 flex-1 flex-col px-6 pb-7 pt-40 sm:px-8 sm:pb-8">
-        {children}
+    <div className={`photo-card flex h-full min-w-0 flex-col overflow-hidden border border-border-subtle bg-surface/40 ${className}`}>
+      <div className="relative aspect-[3/2] shrink-0 overflow-hidden bg-ink">
+        {/* Decorative photography supports the adjacent heading. */}
+        <SiteImage
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          src={image}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          style={{ objectPosition: imagePosition }}
+          className={`pointer-events-none absolute inset-0 h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.03] ${contain ? 'object-contain' : 'object-cover'}`}
+        />
       </div>
+      <div className="flex min-w-0 flex-1 flex-col p-6 sm:p-7">{children}</div>
     </div>
   );
 }

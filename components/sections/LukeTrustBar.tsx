@@ -25,7 +25,7 @@ export default function LukeTrustBar({ className = '' }: { className?: string })
             height={1400}
             alt="Luke Caldwell of Timber + Love"
             loading="lazy"
-            className="mx-auto h-auto w-full max-w-[280px] md:max-w-[360px]"
+            className="mx-auto h-auto w-full max-w-[240px] md:max-w-[360px]"
           />
           <div>
             <p className="eyebrow">HGTV&apos;s Boise Boys &middot; Founder</p>
@@ -38,20 +38,18 @@ export default function LukeTrustBar({ className = '' }: { className?: string })
               Valley.
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:justify-start">
-              <Link href="/about/" className="link-underline text-sm text-cream" data-track="luke_story">
-                Read Luke&apos;s Story
-              </Link>
-              <div className="flex gap-4 text-xs uppercase tracking-[0.16em]">
-                <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="text-text-secondary transition hover:text-cream">Instagram</a>
-                <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className="text-text-secondary transition hover:text-cream">Facebook</a>
-              </div>
-            </div>
-
-            <div className="mt-6">
+            <div className="cta-row mt-8 sm:justify-center md:justify-start">
               <Link href="/contact/" className="btn-primary" data-track="luke_contact_team">
                 Contact Luke&apos;s Team
               </Link>
+              <Link href="/about/" className="btn-secondary" data-track="luke_story">
+                Read Luke&apos;s Story
+              </Link>
+            </div>
+
+            <div className="mt-6 flex items-center justify-center gap-6 text-xs uppercase tracking-[0.16em] md:justify-start">
+              <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-text-secondary transition-colors hover:text-cream">Instagram</a>
+              <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-text-secondary transition-colors hover:text-cream">Facebook</a>
             </div>
           </div>
         </Reveal>

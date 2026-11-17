@@ -30,7 +30,7 @@ const steps = [
   },
   {
     num: '02',
-    heading: 'The Team Reviews It', image: '/video-posters/966721424.jpg',
+    heading: 'The Team Reviews It', image: '/editorial/team-studio.webp',
     body: 'Buy My House looks over the details you provide and follows up to learn more about the home and your situation.',
   },
   {

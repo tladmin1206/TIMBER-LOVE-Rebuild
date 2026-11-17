@@ -17,13 +17,13 @@ export default function LogoMarquee({ logos }: { logos: Logo[] }) {
 
   return (
     <div
-      className="relative overflow-hidden"
+      className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_8%,#000_92%,transparent)]"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onTouchStart={() => setPaused((p) => !p)}
     >
       <div
-        className="flex w-max animate-marquee items-center gap-16 sm:gap-24"
+        className="flex w-max animate-marquee items-center gap-10 sm:gap-24"
         style={{ animationPlayState: paused ? 'paused' : 'running' }}
       >
         {doubled.map((l, i) => (
@@ -32,7 +32,7 @@ export default function LogoMarquee({ logos }: { logos: Logo[] }) {
             key={i}
             src={l.src}
             alt={i >= logos.length ? '' : l.alt}
-            className="h-11 w-auto shrink-0 object-contain opacity-80 transition hover:opacity-100 sm:h-16"
+            className="h-9 w-auto shrink-0 object-contain opacity-80 transition hover:opacity-100 sm:h-16"
             loading="lazy"
             aria-hidden={i >= logos.length}
           />

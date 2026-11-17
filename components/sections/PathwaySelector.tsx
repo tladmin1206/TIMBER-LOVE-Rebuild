@@ -80,7 +80,7 @@ export default function PathwaySelector() {
             data-track="pathway_help"
             className="group block h-full"
           >
-            <PhotoCard image="/video-posters/966721424.jpg" className="transition-colors group-hover:border-cream/50">
+            <PhotoCard image="/editorial/team-studio.webp" imagePosition="center 82%" className="transition-colors group-hover:border-cream/50">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-cream/60">Not Sure Where to Start?</p>
               <h3 className="h-card mt-4 text-cream">Let&apos;s Find the Right Fit</h3>

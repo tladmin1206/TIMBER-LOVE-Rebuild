@@ -41,7 +41,7 @@ export default function Page() {
       faqSchema(faq),
       breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Design + Build', path: '/design-and-build/' }]),
     ]} />
-    <PageHero eyebrow="Timber + Love" title="Your Home. Thoughtfully Designed. Beautifully Built." subtitle="Custom homes and considered renovations in Boise and the Treasure Valley, with design and construction under one roof." image="/video-posters/928472719.jpg" videoId="928472719">
+    <PageHero eyebrow="Timber + Love" title="Your Home. Thoughtfully Designed. Beautifully Built." subtitle="Custom homes and considered renovations in Boise and the Treasure Valley, with design and construction under one roof." image="/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg" imageMobile="/editorial/cedar-hall.webp" videoId="928472719">
       <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="design_start">Start a Project</Link>
       <a href="#selected-work" className="btn-secondary">Explore Our Work</a>
     </PageHero>

@@ -63,7 +63,7 @@ export default function Header() {
   return (
     <header
       ref={header}
-      className={`media-card fixed inset-x-0 top-0 z-50 ${scrolled || open || mobile ? "bg-ink shadow-lg" : "bg-gradient-to-b from-ink/95 to-ink/50"}`}
+      className={`media-card fixed inset-x-0 top-0 z-50 transition-[background-color,box-shadow] duration-300 ${scrolled || open || mobile ? "bg-ink/95 shadow-lg backdrop-blur" : "bg-gradient-to-b from-ink/75 to-transparent"}`}
       onBlur={(e) => {
         if (!e.currentTarget.contains(e.relatedTarget as Node)) setOpen(null);
       }}

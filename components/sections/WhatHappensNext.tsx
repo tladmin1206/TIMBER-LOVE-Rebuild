@@ -5,21 +5,24 @@ import Reveal from '@/components/ui/Reveal';
 const DEFAULT_STEPS = [
   {
     step: '01',
-    image: '/video-posters/966721424.jpg',
+    image: '/editorial/team-studio.webp',
+    position: 'center 82%',
     contain: false,
     title: 'Our Team Reviews Your Inquiry',
     body: 'A member of our team reads every inquiry personally. We will reach out to learn more about your goals.',
   },
   {
     step: '02',
-    image: '/video-posters/928451971.jpg',
-    contain: true,
+    image: '/editorial/luke-denim.webp',
+    position: 'center 30%',
+    contain: false,
     title: 'A Short Conversation',
     body: 'We discuss your home, your goals, and your budget, and explain whether our team is a fit for the project.',
   },
   {
     step: '03',
-    image: '/video-posters/966728565.jpg',
+    image: '/editorial/concrete-entry.webp',
+    position: 'center',
     contain: false,
     title: 'A Clear Next Step',
     body: 'If it makes sense to continue, we outline scope and process in writing. If it does not, we will tell you that too.',
@@ -30,7 +33,7 @@ export default function WhatHappensNext({
   steps = DEFAULT_STEPS,
   compact = false,
 }: {
-  steps?: { step: string; title: string; body: string; image?: string; contain?: boolean }[];
+  steps?: { step: string; title: string; body: string; image?: string; contain?: boolean; position?: string }[];
   compact?: boolean;
 }) {
   if (compact) {
@@ -50,10 +53,10 @@ export default function WhatHappensNext({
     <div className="grid gap-6 lg:grid-cols-3">
       {steps.map((s, i) => (
         <Reveal key={s.step} delay={i * 110} className="h-full">
-          <PhotoCard image={s.image || DEFAULT_STEPS[i % DEFAULT_STEPS.length].image} contain={s.contain} imagePosition="center top">
-          <div className="font-sans text-4xl tracking-brand text-cream/80">{s.step}</div>
-          <h3 className="h-card mt-6">{s.title}</h3>
-          <p className="mt-4 text-sm leading-relaxed text-text-secondary">{s.body}</p>
+          <PhotoCard image={s.image || DEFAULT_STEPS[i % DEFAULT_STEPS.length].image} contain={s.contain} imagePosition={s.position || 'center'}>
+          <div className="step-num">{s.step}</div>
+          <h3 className="h-card mt-3">{s.title}</h3>
+          <p className="mt-3 text-sm leading-relaxed text-text-secondary">{s.body}</p>
           </PhotoCard>
         </Reveal>
       ))}
