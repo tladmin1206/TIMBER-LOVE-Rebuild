@@ -1,12 +1,33 @@
 import type { ImgHTMLAttributes } from 'react';
 
-const WIDTHS = [384, 640, 750, 828, 1080, 1200, 1920];
-const optimizable = (path: string) => path.startsWith('/') && /\.(jpe?g|png|webp)$/i.test(path);
-const rendition = (path: string, width: number) => `/_next/image?url=${encodeURIComponent(path)}&w=${width}&q=80`;
+/**
+ * Widths rendered ahead of time by scripts/build-images.mjs. Keep in step
+ * with WIDTHS there.
+ */
+const WIDTHS = [384, 640, 828, 1200, 1920];
+
+/**
+ * Photographs under these folders have static renditions in production.
+ * Anything else (remote URLs, SVGs, uploads previewed from the browser) is
+ * served as it is.
+ */
+const RENDERED = /^\/(brand|editorial|external|projects|rentals|shows|video-posters|wp-content)\/.+\.(jpe?g|png|webp)$/i;
+
+// Renditions exist only after `npm run build`. In development the original
+// file is used, so `next dev` needs no extra step.
+const USE_RENDITIONS = process.env.NODE_ENV === 'production';
+
+const optimizable = (path: string) => USE_RENDITIONS && RENDERED.test(path);
+const rendition = (path: string, width: number) => `/_r/${width}${encodeURI(path)}.webp`;
 const srcSetFor = (path: string) => WIDTHS.map((w) => `${rendition(path, w)} ${w}w`).join(', ');
 
 /**
- * Responsive local photography, optimized by Next without changing its composition.
+ * Responsive local photography without changing its composition.
+ *
+ * Sources are static WebP files generated at build time, not Next's on-demand
+ * optimizer. On the autoscale deployment that optimizer left some first-time
+ * resize requests unanswered, and the affected photographs then rendered as
+ * empty boxes for every visitor. A static file cannot hang.
  *
  * `mobileSrc` is art direction, not resolution switching: a phone gets a
  * different photograph (usually a portrait frame) instead of a landscape one
@@ -32,10 +53,14 @@ export default function SiteImage({
       sizes={optimize ? sizes : undefined}
     />
   );
-  if (!mobileSrc || !optimizable(mobileSrc)) return img;
+  if (!mobileSrc) return img;
   return (
     <picture className="contents">
-      <source media="(max-width: 767px)" srcSet={srcSetFor(mobileSrc)} sizes="100vw" />
+      <source
+        media="(max-width: 767px)"
+        srcSet={optimizable(mobileSrc) ? srcSetFor(mobileSrc) : mobileSrc}
+        sizes={optimizable(mobileSrc) ? '100vw' : undefined}
+      />
       {img}
     </picture>
   );

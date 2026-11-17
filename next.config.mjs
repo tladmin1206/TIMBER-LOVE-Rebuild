@@ -53,6 +53,13 @@ const nextConfig = {
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
         ],
       },
+      {
+        // Build-time image renditions (scripts/build-images.mjs). Static
+        // files, safe to cache: a changed photograph gets a new rendition on
+        // the next build, and a month bounds how long an old one can linger.
+        source: '/_r/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=2592000, stale-while-revalidate=86400' }],
+      },
       // ADA-NS-08: noindex every host that is not production (the replit.app
       // preview, localhost, any other deploy). Keyed on the Host header so
       // timberandlove.com and www.timberandlove.com stay indexable.

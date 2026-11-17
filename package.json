@@ -5,7 +5,7 @@
   "description": "Timber + Love, Boise's premier home services by HGTV's Luke Caldwell. Modern Next.js rebuild.",
   "scripts": {
     "dev": "next dev -H 0.0.0.0 -p ${PORT:-3000}",
-    "build": "next build",
+    "build": "node scripts/build-images.mjs && next build",
     "start": "next start -p ${PORT:-3000} -H 0.0.0.0",
     "lint": "next lint",
     "verify:planner": "tsx scripts/verify-planner-pricing.ts && tsx scripts/verify-planner-calibration.ts && tsx scripts/verify-planner-flow.ts && tsx scripts/verify-planner-narrative.ts && tsx scripts/verify-planner-services.ts && tsx scripts/verify-lead-delivery.ts && tsx scripts/verify-no-em-dashes.ts",
@@ -15,7 +15,8 @@
     "check:indexable": "bash scripts/check-production-indexable.sh",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "images": "node scripts/build-images.mjs"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
