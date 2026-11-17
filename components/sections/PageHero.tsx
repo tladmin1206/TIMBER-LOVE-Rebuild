@@ -59,7 +59,7 @@ export default function PageHero({
           />
         )
       )}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/70 via-[40%] to-ink/10 to-[80%]" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/80 via-[52%] to-ink/15 to-[92%] lg:via-ink/65 lg:via-[40%] lg:to-ink/10 lg:to-[80%]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-ink/70 to-transparent" />
       <div className="pointer-events-none absolute inset-0 hidden bg-gradient-to-r from-ink/60 via-ink/15 to-transparent lg:block" />
 
