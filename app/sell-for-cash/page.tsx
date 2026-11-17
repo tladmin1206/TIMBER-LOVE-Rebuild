@@ -19,7 +19,7 @@ export const metadata = pageMeta({
   description:
     'Explore a direct home offer through Buy My House, an affiliated Timber + Love site. Learn who a cash sale suits and how the process works before you continue.',
   path: '/sell-for-cash/',
-  image: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Home-Buying-Background-2-min.jpg',
+  image: '/projects/due-for-a-raze/exterior.webp',
 });
 
 const steps = [
@@ -47,7 +47,7 @@ export default function Page() {
         eyebrow="Sell for Cash"
         title="Sell Your Home for Cash"
         subtitle="A direct home offer can be a simpler path for homeowners who want to sell without listing on the open market. Here is who it suits and how it works."
-        image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Home-Buying-Background-2-min.jpg"
+        image="/projects/due-for-a-raze/exterior.webp"
       >
         <Cta href={site.external.cashOffers} external newTab track="cash_request">
           Request a Cash Offer
@@ -116,7 +116,7 @@ export default function Page() {
 
       {/* Full-bleed photographic statement before the closing ask */}
       <FeatureBand
-        image="/projects/promise-ln-5142/5142-promise-ln-exterior-rear.jpg"
+        image="/projects/north-end-gem/living.webp"
         eyebrow="A Simpler Path"
         title="Sell Quickly, On Your Terms"
         body="Skip the showings and the waiting. See what a direct offer looks like and move at the pace that works for you."

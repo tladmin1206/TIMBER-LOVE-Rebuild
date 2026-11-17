@@ -34,7 +34,7 @@ const sections = [
   },
   {
     eyebrow: 'Selling',
-    heading: 'Sell With Local Guidance', image: '/projects/promise-ln-5120/5120-promise-ln-exterior-rear.jpg',
+    heading: 'Sell With Local Guidance', image: '/projects/due-for-a-raze/exterior.webp',
     body: 'When it is time to sell, presentation and pricing matter. Timber + Love Realty helps sellers prepare a home for the market, position it for the right buyers, and manage the process through to closing. You get straightforward advice grounded in what is actually happening in the Boise market.',
   },
   {
