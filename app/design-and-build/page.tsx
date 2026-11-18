@@ -30,7 +30,6 @@ export const metadata = pageMeta({
   description:
     'Timber + Love designs and builds custom homes and remodels in Boise, Idaho. See our work and start your project.',
   path: '/design-and-build/',
-  image: '/projects/promise-ln-5106/5106-promise-ln-exterior-front.jpg',
 });
 const selected = ['promise-lane-spanish-modern', 'stucco-in-time', 'north-end-gem'].map((slug) => projects.find((p) => p.slug === slug)!);
 

@@ -17,7 +17,6 @@ export const metadata = pageMeta({
   description:
     'Understand how homeowners typically finance a design-build or remodeling project with Timber + Love in Boise. General guidance, not financial advice.',
   path: '/financing/',
-  image: '/editorial/estate-breakfast.webp',
 });
 
 // General financing approaches homeowners commonly consider. Described at a high

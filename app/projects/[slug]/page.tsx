@@ -27,7 +27,6 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
     title: project.title,
     description: project.summary,
     path: `/projects/${project.slug}/`,
-    image: project.cover,
   });
 }
 

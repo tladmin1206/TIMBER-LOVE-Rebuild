@@ -18,7 +18,6 @@ export const metadata = pageMeta({
   description:
     'Timber + Love is a Boise-based brand led by Luke Caldwell of HGTV\'s Boise Boys and Outgrown, connecting design, construction, real estate, cash offers, investment, and vacation rentals under one team.',
   path: '/about/',
-  image: '/wp-content/uploads/2024/03/Timber-and-Love-Design-Build-Luke-Caldwell-1.jpg',
 });
 
 export default function Page() {

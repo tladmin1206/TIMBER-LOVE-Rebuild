@@ -19,7 +19,6 @@ export const metadata = pageMeta({
   description:
     'Explore a direct home offer through Buy My House, an affiliated Timber + Love site. Learn who a cash sale suits and how the process works before you continue.',
   path: '/sell-for-cash/',
-  image: '/projects/due-for-a-raze/exterior.webp',
 });
 
 const steps = [

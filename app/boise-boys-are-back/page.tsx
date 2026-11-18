@@ -9,7 +9,6 @@ export const metadata = pageMeta({
     'Boise Boys are back with a new free streaming show! Luke and Clint return with design tips, home tutorials, and exciting transformations. Get the inside scoop now!',
   path: PATH,
   type: 'article',
-  image: (data as any).heroImage,
 });
 
 export default function Page() {

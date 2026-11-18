@@ -19,8 +19,6 @@ export const metadata = pageMeta({
   description:
     'Learn about real estate investment information available through Timber + Love Realty, an affiliated Timber + Love site, and who it is intended for.',
   path: '/invest/',
-  image:
-    '/editorial/estate-exterior.webp',
 });
 
 const sections = [

@@ -1,9 +1,7 @@
 import type { Metadata } from 'next';
 import { site } from './site';
 
-// Default share image: the light Timber and Love wordmark on the brand dark
-// background, generated at 1200x630 by app/og/route.tsx.
-const DEFAULT_OG = '/og/';
+import { ogCardFor, ogImagePath } from './og-cards';
 
 /**
  * Build per-page metadata with canonical + OG/Twitter, preserving live values.
@@ -14,13 +12,17 @@ export function pageMeta(opts: {
   title: string;
   description?: string;
   path: string; // e.g. "/design-and-build/"
-  image?: string;
   type?: 'website' | 'article';
   noindex?: boolean;
   /** Skip the root "%s - Timber and Love" title template. */
   absoluteTitle?: boolean;
 }): Metadata {
-  const { title, description, path, image = DEFAULT_OG, type = 'website', noindex, absoluteTitle } = opts;
+  const { title, description, path, type = 'website', noindex, absoluteTitle } = opts;
+  // Every page shares its own 1200x630 card: see lib/og-cards.ts for what it
+  // shows and app/og/[[...slug]]/route.tsx for how it is drawn.
+  const image = ogImagePath(path);
+  const card = ogCardFor(path);
+  const alt = `${card.title}: ${card.eyebrow}`;
   const url = `${site.url}${path}`;
   return {
     title: absoluteTitle ? { absolute: title } : title,
@@ -33,13 +35,13 @@ export function pageMeta(opts: {
       title,
       description,
       siteName: site.name,
-      images: [{ url: image }],
+      images: [{ url: image, width: 1200, height: 630, alt, type: 'image/jpeg' }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [image],
+      images: [{ url: image, alt }],
     },
   };
 }
