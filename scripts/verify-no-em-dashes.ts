@@ -46,8 +46,28 @@ function walk(dir: string, ext: RegExp, out: string[] = []): string[] {
 
 const offenders: { file: string; line: number; kind: string; text: string }[] = [];
 
+/**
+ * A prerendered route handler is stored as `<route>.body` beside a
+ * `<route>.meta` that records its headers. Some of those bodies are images
+ * (the share cards under /og/), and reading JPEG bytes as text produces
+ * arbitrary characters, including the occasional false em dash. Only bodies
+ * that are text are copy, so only those are checked.
+ */
+function isBinaryBody(file: string): boolean {
+  if (!file.endsWith('.body')) return false;
+  const meta = file.replace(/\.body$/, '.meta');
+  if (!existsSync(meta)) return false;
+  try {
+    const type = String(JSON.parse(readFileSync(meta, 'utf8'))?.headers?.['content-type'] ?? '');
+    return type !== '' && !/^(text\/|application\/(json|xml|rss\+xml|atom\+xml|manifest\+json))/i.test(type);
+  } catch {
+    return false;
+  }
+}
+
 function scan(files: string[]) {
   for (const file of files) {
+    if (isBinaryBody(file)) continue;
     readFileSync(file, 'utf8')
       .split('\n')
       .forEach((text, i) => {
