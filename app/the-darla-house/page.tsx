@@ -7,7 +7,6 @@ export const metadata = pageMeta({
   description:
     'This cozy and modern cottage is the perfect spot to stay in the North End. A renovated, bright and happy home includes stainless steel appliances, stylish decor, and original character.',
   path: '/the-darla-house/',
-  image: '/wp-content/uploads/2026/04/01-Exterior-Front-1024x683.jpg',
 });
 
 export default function Page() {

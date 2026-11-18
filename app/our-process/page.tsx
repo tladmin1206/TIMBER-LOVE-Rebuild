@@ -20,7 +20,6 @@ export const metadata = pageMeta({
   description:
     'See exactly what happens when you work with Timber + Love, from the first consultation through final walkthrough. One connected team, one clear process.',
   path: '/our-process/',
-  image: '/editorial/concrete-entry.webp',
 });
 
 const phases: ProcessPhase[] = [

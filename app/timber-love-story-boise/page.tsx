@@ -9,7 +9,6 @@ export const metadata = pageMeta({
     'Every successful venture has a compelling origin story, and Timber + Love is no exception. The narrative of this prominent Boise design + build company.',
   path: PATH,
   type: 'article',
-  image: (data as any).heroImage,
 });
 
 export default function Page() {

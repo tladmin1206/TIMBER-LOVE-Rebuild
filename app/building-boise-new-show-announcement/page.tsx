@@ -9,7 +9,6 @@ export const metadata = pageMeta({
     'For immediate release: Luke Caldwell and Clint Robertson reunite for Building Boise, a new independent series. Get the inside scoop.',
   path: PATH,
   type: 'article',
-  image: (data as any).heroImage,
 });
 
 export default function Page() {

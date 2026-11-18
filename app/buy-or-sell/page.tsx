@@ -23,7 +23,6 @@ export const metadata = pageMeta({
   description:
     'Buy or sell a home in Boise with Timber + Love Realty. Local market experience for buyers and sellers, with listings and support on our affiliated real estate site.',
   path: '/buy-or-sell/',
-  image: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Realty-Background-1-scaled-1.jpg',
 });
 
 const sections = [

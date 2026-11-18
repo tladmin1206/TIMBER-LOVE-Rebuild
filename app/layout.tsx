@@ -1,3 +1,4 @@
+import { ogImagePath } from '@/lib/og-cards';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
@@ -53,10 +54,11 @@ export const metadata: Metadata = {
     description: site.description,
     images: [
       {
-        url: '/og/',
+        url: ogImagePath('/'),
         width: 1200,
         height: 630,
-        alt: 'Timber + Love',
+        alt: 'Timber + Love: Luxury Design + Build, Boise, Idaho',
+        type: 'image/jpeg',
       },
     ],
   },
@@ -64,7 +66,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Timber + Love | Boise's Premier Home Services by HGTV's Luke Caldwell",
     description: site.description,
-    images: ['/og/'],
+    images: [ogImagePath('/')],
   },
 };
 

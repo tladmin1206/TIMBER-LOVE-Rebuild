@@ -9,7 +9,6 @@ export const metadata = pageMeta({
     'Answers to the most frequently asked questions about Luke Caldwell of HGTV’s Boise Boys and the Timber + Love team.',
   path: PATH,
   type: 'article',
-  image: (data as any).heroImage,
 });
 
 export default function Page() {

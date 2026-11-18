@@ -12,7 +12,6 @@ export const metadata = pageMeta({
   description:
     "Watch Luke and Clint and explore every Boise Boys and Outgrown episode, with artwork, stories, and viewing links from Timber + Love.",
   path: "/shows/",
-  image: "/editorial/luke-clint.webp",
 });
 export default function ShowsPage() {
   return (
