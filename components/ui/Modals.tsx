@@ -25,7 +25,7 @@ function Shell({
   return (
     <div
       ref={dialog}
-      className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-ink/80 p-4 backdrop-blur-sm animate-fadeIn sm:items-center"
+      className={`fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto overscroll-contain backdrop-blur-sm animate-fadeIn sm:items-center sm:p-4 ${wide ? 'bg-ink p-0 sm:bg-ink/80' : 'bg-ink/80 p-4'}`}
       role="dialog"
       aria-modal="true"
       aria-label={title}
@@ -33,7 +33,14 @@ function Shell({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className={`relative my-auto w-full border border-border-subtle bg-ink p-4 sm:p-9 ${wide ? 'max-w-3xl' : 'max-w-lg'}`}>
+      {/* A wide dialog (the project questionnaire) is a full-screen sheet on a
+          phone: no border, no inset, the form edge to edge, like an app screen.
+          From sm up it is a centred panel. */}
+      <div
+        className={`relative w-full bg-ink sm:my-auto sm:border sm:border-border-subtle sm:p-9 ${
+          wide ? 'min-h-full px-0 pb-6 pt-5 sm:min-h-0 sm:max-w-[680px]' : 'my-auto max-w-lg border border-border-subtle p-4'
+        }`}
+      >
         <button
           onClick={onClose}
           aria-label="Close"
@@ -41,9 +48,11 @@ function Shell({
         >
           ×
         </button>
-        <h2 className="h-card">{title}</h2>
-        {subtitle && <p className="mt-2 text-sm text-body">{subtitle}</p>}
-        <div className="mt-6">{children}</div>
+        <div className={wide ? 'px-5 pr-14 sm:px-0' : ''}>
+          <h2 className="h-card">{title}</h2>
+          {subtitle && <p className="mt-2 text-sm text-body">{subtitle}</p>}
+        </div>
+        <div className={wide ? 'mt-3 sm:mt-6' : 'mt-6'}>{children}</div>
       </div>
     </div>
   );
