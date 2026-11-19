@@ -7,7 +7,15 @@ import { trackQuestionnaireStart, trackQuestionnaireStep, trackQuestionnaireSubm
 const FORM_ID = 'design_build_questionnaire';
 
 const FORM_ORIGIN = 'https://leads.timberandlove.com';
+/**
+ * Embedded version. `transparent=true` makes the form draw white type with no
+ * background of its own, so it is designed to sit directly on the site's ink.
+ * Shown on its own in a browser tab it is white on white, so it is only ever
+ * used inside the frame below.
+ */
 export const DESIGN_BUILD_FORM_URL = `${FORM_ORIGIN}/forms/combined?transparent=true`;
+/** Standalone version with its own background, for the open-in-new-window link. */
+export const DESIGN_BUILD_FORM_DIRECT_URL = `${FORM_ORIGIN}/forms/combined`;
 
 /** The same live questionnaire used on timberandlove.com, including its lead workflow. */
 export default function DesignBuildQuestionnaire() {
@@ -59,11 +67,17 @@ export default function DesignBuildQuestionnaire() {
     <div className="w-full min-w-0">
       {!ready && !delayed && <p role="status" className="mb-4 text-center text-sm text-text-secondary">Loading your project questionnaire…</p>}
       {!ready && delayed && <p role="status" className="mb-4 text-sm leading-relaxed text-text-secondary">The questionnaire is taking a little longer to load. You can open it directly below or call <a href={site.phoneHref} className="underline underline-offset-4">{site.phone}</a>.</p>}
+      {/* No color-scheme on the frame. A dark scheme here made the browser paint
+          an opaque white backdrop behind the transparent form (its scheme is
+          light) and told the form the visitor prefers dark mode, so its white
+          type and icons disappeared into a white box. Left alone, the frame is
+          transparent and the form sits on the ink exactly as it does on
+          timberandlove.com. */}
       <iframe ref={frame} src={DESIGN_BUILD_FORM_URL} title="Timber + Love Design + Build Project Questionnaire"
-        className="block w-full border-0 bg-transparent" style={{ height, colorScheme: 'dark' }} />
+        className="block w-full border-0 bg-transparent" style={{ height }} allow="clipboard-write" />
       <p className="mt-5 text-center text-xs leading-relaxed text-text-secondary">
         Prefer a separate window?{' '}
-        <a href={DESIGN_BUILD_FORM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center underline underline-offset-4">Open the questionnaire ↗</a>
+        <a href={DESIGN_BUILD_FORM_DIRECT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center underline underline-offset-4">Open the questionnaire ↗</a>
       </p>
     </div>
   );
