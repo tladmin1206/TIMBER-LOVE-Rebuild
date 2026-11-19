@@ -12,22 +12,30 @@ export const metadata = pageMeta({
 export default function Page() {
   return (
     <>
-      {/* The questionnaire is the page. It sits directly on the ink, centred
-          and unboxed, which is how the form is designed to be seen: it draws
-          its own white type and Next button on a transparent ground. */}
-      <section id="inquiry" className="bg-ink pb-16 pt-[calc(var(--header-h,88px)+2rem)] sm:pb-24 sm:pt-[calc(var(--header-h,88px)+4.5rem)]">
+      {/* The questionnaire is the page, composed like an app screen.
+          Phones: a slim title row, then the form edge to edge, starting in the
+          first screen with nothing to scroll past. Wider screens: a compact
+          heading over a focused panel. The panel is held under 640px wide on
+          purpose: the hosted form switches to its oversized display type above
+          that width, and at this width it keeps the compact, app-like scale. */}
+      <section id="inquiry" className="min-h-[100svh] bg-ink pb-12 pt-[var(--header-h,76px)] sm:pb-24 sm:pt-[calc(var(--header-h,88px)+3.5rem)]">
         <div className="container-wide">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Let’s Work Together</p>
-            <h1 className="h-page mt-4">Tell Us About Your Project</h1>
-            <p className="text-lead mx-auto mt-4 max-w-xl sm:mt-5">
-              A beautiful home starts with a conversation. Share what you have in mind, whether it’s a remodel, an addition, or a new home. Our team will help you find the next step.
+          <div className="mx-auto max-w-[600px] sm:text-center">
+            <div className="flex items-center justify-between gap-4 sm:block">
+              <p className="eyebrow">Start a Project</p>
+              <a href={site.phoneHref} className="inline-flex min-h-11 items-center text-xs uppercase tracking-[0.14em] text-text-secondary transition-colors hover:text-cream sm:hidden" data-track="questionnaire_call">
+                Call Us
+              </a>
+            </div>
+            <h1 className="h-display text-lg leading-snug text-cream min-[400px]:text-xl sm:mt-4 sm:text-4xl">Tell Us About Your Project</h1>
+            <p className="mt-4 hidden text-base leading-relaxed text-text-secondary sm:block">
+              Share what you have in mind, whether it’s a remodel, an addition, or a new home. Our team will help you find the next step.
             </p>
-            <p className="mt-4 text-sm text-text-secondary">
+            <p className="mt-3 hidden text-sm text-text-secondary sm:block">
               Prefer to talk? <a href={site.phoneHref} className="link-underline text-cream">{site.phone}</a>
             </p>
           </div>
-          <div className="mx-auto mt-8 max-w-3xl border-t border-border-subtle pt-2 sm:mt-14 sm:pt-4">
+          <div className="-mx-5 mt-1 sm:mx-auto sm:mt-10 sm:max-w-[600px] sm:border sm:border-border-subtle sm:bg-cream/[0.02] sm:px-2 sm:pb-2 sm:pt-4">
             <DesignBuildQuestionnaire />
           </div>
         </div>
