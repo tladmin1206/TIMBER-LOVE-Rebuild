@@ -11,22 +11,24 @@ const FORM_ORIGIN = 'https://leads.timberandlove.com';
  * Embedded version. `transparent=true` makes the form draw white type with no
  * background of its own, so it is designed to sit directly on the site's ink.
  * Shown on its own in a browser tab it is white on white, so it is only ever
- * used inside the frame below.
+ * used inside the frame below. `logo=false` leaves out the form's own logo,
+ * since the site header already carries the brand mark.
  */
-export const DESIGN_BUILD_FORM_URL = `${FORM_ORIGIN}/forms/combined?transparent=true`;
+export const DESIGN_BUILD_FORM_URL = `${FORM_ORIGIN}/forms/combined?transparent=true&logo=false`;
 /** Standalone version with its own background, for the open-in-new-window link. */
 export const DESIGN_BUILD_FORM_DIRECT_URL = `${FORM_ORIGIN}/forms/combined`;
 
 /**
- * Height of the hosted form's own logo band, cropped out of view.
+ * Fallback crop for the hosted form's logo band.
  *
- * The form opens every step with a dark Timber + Love logo that all but
- * vanishes on the site's ink, and our page already carries the brand mark in
- * its header. Measured on the live form at 320 to 606px wide and across its
- * first steps: the logo always sits 16 to 80px from the top and the step's
- * content always starts at 96px. Cropping 84px removes the logo and keeps the
- * content's top margin. If the hosted form's layout ever changes, revisit
- * this value (or remove the logo there and set this to 0).
+ * We ask the form to leave its logo out (`logo=false`), and a form version
+ * that honours that says so in its resize messages (`logo: false`). Until
+ * that confirmation arrives, for example while an older form version is
+ * still deployed, the logo band is cropped instead. Measured on the live
+ * form at 320 to 606px wide across its first steps: the logo always sits 16
+ * to 80px from the top and the step's content starts at 96px, so cropping
+ * 84px removes it and keeps the content's top margin. Once the form confirms
+ * the logo is gone, the crop is dropped for the rest of the visit.
  */
 const LOGO_CROP = 84;
 
@@ -38,6 +40,7 @@ export default function DesignBuildQuestionnaire() {
   // the form reports in.
   const [height, setHeight] = useState(460);
   const lastHeight = useRef(0);
+  const [crop, setCrop] = useState(LOGO_CROP);
   const [ready, setReady] = useState(false);
   const [delayed, setDelayed] = useState(false);
   const reported = useRef(new Set<string>());
@@ -51,6 +54,7 @@ export default function DesignBuildQuestionnaire() {
       if (data.type === 'resize' && typeof data.height === 'number' && Number.isFinite(data.height) && data.height >= 200 && data.height <= 12000) {
         // Use the exact reported size. Adding padding here can cause a resize loop.
         const next = Math.ceil(data.height);
+        if (data.logo === false) setCrop(0);
         // A new step (or the step's errors after Next): if the visitor has
         // scrolled past the top of the form, bring the top back into view, as
         // an app would. Changes of a few pixels are left alone so nobody is
@@ -106,9 +110,9 @@ export default function DesignBuildQuestionnaire() {
           type and icons disappeared into a white box. Left alone, the frame is
           transparent and the form sits on the ink exactly as it does on
           timberandlove.com. */}
-      <div ref={box} className="overflow-hidden" style={{ height: Math.max(0, height - LOGO_CROP) }}>
+      <div ref={box} className="overflow-hidden" style={{ height: Math.max(0, height - crop) }}>
         <iframe ref={frame} src={DESIGN_BUILD_FORM_URL} title="Timber + Love Design + Build Project Questionnaire"
-          className="block w-full border-0 bg-transparent" style={{ height, marginTop: -LOGO_CROP }} allow="clipboard-write" />
+          className="block w-full border-0 bg-transparent" style={{ height, marginTop: -crop }} allow="clipboard-write" />
       </div>
       <p className="mt-2 px-5 text-center text-xs leading-relaxed text-text-muted">
         Prefer a separate window?{' '}
