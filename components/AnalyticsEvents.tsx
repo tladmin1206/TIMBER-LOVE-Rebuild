@@ -31,6 +31,8 @@ export default function AnalyticsEvents() {
         /* ignore malformed href */
       }
 
+      // Every phone link counts as a call lead, wherever it sits on the page.
+      if (href?.startsWith('tel:')) trackEvent('call_click', { event_category: 'lead', link_location: target.closest('header,footer,nav') ? 'chrome' : 'page' });
       if (name?.startsWith('book_')) trackEvent('booking_handoff', { property: name.slice(5) });
       if (name) {
         trackEvent(name, { event_category: 'cta' });

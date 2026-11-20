@@ -10,10 +10,9 @@ import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import EditorialSplit from '@/components/sections/EditorialSplit';
 
-export const metadata = pageMeta({
-  title: 'Reviews',
-  description:
-    'Timber + Love client stories are on Google. See the homes and start a design and build project in Boise.',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Timber + Love Reviews | Boise Design-Build Clients",
+  description: "Timber + Love reviews from Boise homeowners are published on Google. Read them there, see the custom homes and remodels behind them, and share your own.",
   path: '/reviews/',
 });
 

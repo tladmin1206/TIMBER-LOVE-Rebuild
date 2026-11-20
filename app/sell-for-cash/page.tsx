@@ -1,3 +1,5 @@
+import { breadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 import PhotoCard from '@/components/ui/PhotoCard';
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
@@ -14,8 +16,8 @@ import FeatureBand from '@/components/sections/FeatureBand';
 import EditorialSplit from '@/components/sections/EditorialSplit';
 import { faqs } from '@/lib/content/faqs';
 
-export const metadata = pageMeta({
-  title: 'Sell Your Home for Cash',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Sell Your House for Cash in Boise | Timber + Love",
   description:
     'Explore a direct home offer through Buy My House, an affiliated Timber + Love site. Learn who a cash sale suits and how the process works before you continue.',
   path: '/sell-for-cash/',
@@ -42,9 +44,10 @@ const steps = [
 export default function Page() {
   return (
     <>
+      <JsonLd schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Sell for Cash', path: '/sell-for-cash/' }])} />
       <PageHero
         eyebrow="Sell for Cash"
-        title="Sell Your Home for Cash"
+        title="Sell Your Boise Home for Cash"
         subtitle="A direct home offer can be a simpler path for homeowners who want to sell without listing on the open market. Here is who it suits and how it works."
         image="/projects/due-for-a-raze/exterior.webp"
       >

@@ -16,7 +16,7 @@ export default function ProcessFilms() {
         {films.map((film, i) => <article key={film.id}>
           <InlineVideo title={film.title} videoId={film.id} poster={`/video-posters/${film.id}.jpg`} />
           <p className="eyebrow mt-6">0{i + 1}</p>
-          <h3 className="h-card-sm mt-3">{film.title}</h3>
+          <p className="h-card-sm mt-3 text-text-primary">{film.title}</p>
           <p className="mt-3 text-sm leading-relaxed text-text-secondary">{film.body}</p>
         </article>)}
       </div>

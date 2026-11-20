@@ -2,10 +2,9 @@ import PropertyPage, { type PropertyContent } from '@/components/sections/Proper
 import { pageMeta } from '@/lib/seo';
 import data from '@/content/the-firehouse.json';
 
-export const metadata = pageMeta({
-  title: 'The Firehouse',
-  description:
-    'Fully renovated on HGTV’s BOISE BOYS is a unique, one of a kind old firehouse located in the historic North End. This 2nd floor apartment in the city’s oldest firehouse offers a one-of-a-kind stay.',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "The Firehouse Boise Rental | As Seen on HGTV | Timber + Love",
+  description: "Stay in The Firehouse, a historic North End Boise firehouse renovated on HGTV's Boise Boys. Sleeps 6 with 3 bedrooms and 2 baths. Check dates and book.",
   path: '/the-firehouse/',
 });
 

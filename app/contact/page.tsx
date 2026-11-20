@@ -1,3 +1,5 @@
+import { breadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 import PhotoCard from '@/components/ui/PhotoCard';
 import PageHero from '@/components/sections/PageHero';
 import Reveal from '@/components/ui/Reveal';
@@ -7,10 +9,9 @@ import WhatHappensNext from '@/components/sections/WhatHappensNext';
 import { pageMeta } from '@/lib/seo';
 import { site } from '@/lib/site';
 
-export const metadata = pageMeta({
-  title: 'Contact',
-  description:
-    'Reach the Timber + Love team in Boise. Pick the option closest to your goal: design and build, buying or selling, cash offers, investing, or a vacation stay: or send a general note.',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Contact Timber + Love | Boise Design-Build and Real Estate",
+  description: "Contact Timber + Love in Boise at (208) 995-9516 or 3024 W Fairview Ave. Choose design-build, real estate, a cash offer or a vacation stay and we will reply.",
   path: '/contact/',
 });
 
@@ -76,6 +77,7 @@ const paths = [
 export default function Page() {
   return (
     <>
+      <JsonLd schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact/' }])} />
       <PageHero
         eyebrow="Contact"
         title="How Can We Help?"

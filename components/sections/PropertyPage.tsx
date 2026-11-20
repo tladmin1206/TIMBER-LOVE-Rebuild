@@ -35,6 +35,25 @@ export type PropertyContent = {
   gallery?: (string | { src: string; alt: string })[];
 };
 
+/**
+ * Alt text from a descriptive photo file name, for galleries that list plain
+ * paths. "...-Boise-Boys-Firehouse-Kitchen-1-scaled.jpg" reads "kitchen".
+ */
+function altFromFile(src: string, name: string, index: number): string {
+  const base = (src.split('/').pop() || '').replace(/\.[a-z0-9]+$/i, '');
+  const words = base
+    .replace(/-(scaled|\d+x\d+)$/i, '')
+    .replace(/^Timber-and-Love-Home-Remodeling-(Contractors-HGTVs-Boise-Boys|Company-Timber-and-Love)-/i, '')
+    .replace(/^\d+-/, '')
+    .replace(/(-\d+)+$/, '')
+    .split('-')
+    .filter(Boolean);
+  const nameWords = new Set(name.toLowerCase().replace(/^the /, '').split(/\s+/));
+  while (words.length && nameWords.has(words[0].toLowerCase())) words.shift();
+  const text = words.join(' ').toLowerCase();
+  return text && !/^\d+$/.test(text) ? `${name}: ${text}` : `${name}: photo ${index + 1}`;
+}
+
 function bookingHost(url?: string): string {
   if (!url) return 'our booking partner';
   try {
@@ -51,7 +70,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
   const booking = data.details?.bookingUrl;
   const host = bookingHost(booking);
   const overview = data.overview ?? data.intro ?? [];
-  const images = (data.gallery || []).map((image, i) => typeof image === 'string' ? { src: image, alt: `${data.hero.heading}: photo ${i + 1}` } : image);
+  const images = (data.gallery || []).map((image, i) => typeof image === 'string' ? { src: image, alt: altFromFile(image, data.hero.heading, i) } : image);
   // The hero already shows the cover photograph. Leading the gallery with the
   // same frame repeated it within one scroll on a phone, so the gallery opens
   // on the next photograph and the cover moves to the end of the set.
@@ -61,7 +80,7 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
   const self = RENTALS.find((r) => r.name === data.hero.heading);
   const related = RENTALS.filter((r) => r.name !== data.hero.heading)
     .sort((a, b) => Number(b.destination === data.destination) - Number(a.destination === data.destination))
-    .slice(0, 3);
+    .slice(0, 4);
   const amenityList = data.amenityGroups?.flatMap((g) => g.items) ?? data.amenities ?? [];
 
   const BookButton = ({ className = 'btn-primary' }: { className?: string }) =>
@@ -83,7 +102,10 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
               path: self.href,
               image: data.hero.image,
               region: data.destination?.includes('HI') ? 'HI' : 'ID',
+              locality: self.locality,
               amenities: amenityList,
+              guests: self.guests,
+              bedrooms: self.bedrooms,
             }),
             breadcrumbSchema([
               { name: 'Home', path: '/' },
@@ -120,12 +142,18 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
         <div className="container-wide grid gap-12 lg:grid-cols-[1.7fr_1fr]">
           <div>
             {data.destination && <p className="eyebrow">{data.destination}</p>}
-            <h2 className="h-section mt-3">{data.hero.heading}</h2>
+            <h2 className="h-section mt-3">About {data.hero.heading}</h2>
 
             <Reveal className="mt-6 max-w-prose space-y-4">
               {overview.map((p, i) => (
                 <p key={i} className="text-lead">{p}</p>
               ))}
+              {self?.projectHref && (
+                <p className="text-sm leading-relaxed text-text-secondary">
+                  Designed and renovated by Timber + Love.{' '}
+                  <Link href={self.projectHref} className="link-underline">See how we renovated {data.hero.heading}</Link>.
+                </p>
+              )}
             </Reveal>
           </div>
 
@@ -228,13 +256,14 @@ export default function PropertyPage({ data }: { data: PropertyContent }) {
             <Reveal className="mb-8">
               <p className="eyebrow">More Stays</p>
               <h2 className="h-section mt-3">Other Timber + Love Rentals</h2>
+              <Link href="/vacation-rentals/" className="link-underline mt-4 inline-flex min-h-11 items-center text-sm">Compare all five homes side by side →</Link>
             </Reveal>
-            <div className="grid gap-6 sm:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {related.map((r) => (
                 <Link key={r.href} href={r.href} className="group card-interactive block overflow-hidden">
                   <div className="relative aspect-[4/3] overflow-hidden">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <SiteImage sizes="(min-width: 640px) 33vw, 100vw" src={r.image} alt={`${r.name} in ${r.destination}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <SiteImage sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" src={r.image} alt={`${r.name} in ${r.destination}`} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   </div>
                   <div className="p-5">
                     <h3 className="h-card-sm">{r.name}</h3>

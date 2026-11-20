@@ -17,8 +17,8 @@ import ProofSection from '@/components/sections/ProofSection';
 import FaqSection from '@/components/sections/FaqSection';
 import { faqs } from '@/lib/content/faqs';
 
-export const metadata = pageMeta({
-  title: 'Service Areas',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Treasure Valley Design-Build | Boise to Eagle | Timber + Love",
   description:
     'Timber + Love designs, builds, and remodels homes across Boise and the Treasure Valley, including Meridian, Eagle, Nampa, and the surrounding communities.',
   path: '/service-areas/',
@@ -53,7 +53,7 @@ export default function Page() {
 
       <PageHero
         eyebrow="Where We Work"
-        title="Serving Boise & the Treasure Valley"
+        title="Design-Build Across Boise and the Treasure Valley"
         subtitle="Timber + Love is a Boise-based design-build team working with homeowners across the Treasure Valley. If your home is nearby, we would love to hear about your project."
         image="/projects/promise-ln-5120/5120-promise-ln-exterior-front.jpg"
         imageMobile="/editorial/midcentury-entry.webp"

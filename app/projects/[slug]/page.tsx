@@ -19,13 +19,43 @@ export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
 }
 
+// Search titles: the project name plus what it is and where, in the
+// Keyword | Benefit | Brand form. Names alone told searchers nothing.
+const SEO_TITLES: Record<string, string> = {
+  'promise-lane-spanish-modern': 'Spanish Modern Custom Home in Idaho | Timber + Love',
+  'promise-lane-modern-farmhouse': 'Modern Farmhouse Custom Home in Idaho | Timber + Love',
+  'promise-lane-contemporary': 'Butterfly Roof Contemporary Home in Idaho | Timber + Love',
+  'casa-de-boise': 'Casa De Boise | Whole-Home Remodel on HGTV | Timber + Love',
+  'the-firehouse': 'Firehouse Renovation in Boise | Boise Boys | Timber + Love',
+  'central-rim': 'Central Rim Home Remodel in Boise | Timber + Love',
+  'stucco-in-time': 'Stucco in Time | Boise Boys Home Remodel | Timber + Love',
+  'due-for-a-raze': 'Due for a Raze | Boise Boys Home Remodel | Timber + Love',
+  'north-end-gem': 'North End Gem | Historic Boise Home Remodel | Timber + Love',
+  'the-darla-house': 'Darla House Cottage Renovation in Boise | Timber + Love',
+  'the-chalet': 'Chalet Cabin Renovation in New Meadows | Timber + Love',
+  'kualoa-beach-house': 'Kualoa Beach House Renovation on Oahu | Timber + Love',
+};
+
+// Search descriptions where the on-page summary runs past ~160 characters.
+const SEO_DESCRIPTIONS: Record<string, string> = {
+  'promise-lane-contemporary':
+    'A bold ground-up contemporary home under a butterfly roof, with charcoal cladding and warm wood outside and oxblood millwork and green marble inside.',
+  'north-end-gem':
+    'A colorful North End Boise home with a curved porch and original character, plus green cabinetry, exposed brick, and a plant-filled sunroom. See the photos.',
+  'the-firehouse':
+    'A historic Boise firehouse reimagined as a residence on HGTV’s Boise Boys, keeping its original character with a modern interior. See the photos.',
+  'promise-lane-spanish-modern':
+    'A ground-up custom home that reinterprets Spanish and Mediterranean architecture with white stucco, arched openings, light oak, and natural stone.',
+};
+
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
   const project = getProject(params.slug);
   if (!project) return pageMeta({ title: 'Project', description: '', path: `/projects/${params.slug}/`, noindex: true });
   return pageMeta({
-    title: project.title,
-    description: project.summary,
+    absoluteTitle: !!SEO_TITLES[project.slug],
+    title: SEO_TITLES[project.slug] ?? project.title,
+    description: SEO_DESCRIPTIONS[project.slug] ?? project.summary,
     path: `/projects/${project.slug}/`,
   });
 }

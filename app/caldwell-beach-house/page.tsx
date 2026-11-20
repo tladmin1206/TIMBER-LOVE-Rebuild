@@ -2,9 +2,9 @@ import PropertyPage from '@/components/sections/PropertyPage';
 import { pageMeta } from '@/lib/seo';
 import data from '@/content/caldwell-beach-house.json';
 
-export const metadata = pageMeta({
-  title: 'The Caldwell Beach House',
-  description: 'Explore The Caldwell Beach House in Kaʻaʻawa, Oahu: 4 bedrooms, 2 bathrooms, and space for 11 guests. View photos and check availability.',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Caldwell Beach House | Ka'a'awa Oahu Rental | Timber + Love",
+  description: "The Caldwell Beach House in Kaʻaʻawa, Oahu sleeps 11 with 4 bedrooms and 2 baths, with ocean and mountain views. See photos and check availability.",
   path: '/caldwell-beach-house/',
 });
 

@@ -454,7 +454,7 @@ export const projects: Project[] = [
   "scope": "Renovation and interior styling",
   "summary": "A renovated oceanfront retreat in Kaʻaʻawa with open views toward Mokoliʻi, a beachside lawn, and bright living spaces beside the Pacific.",
   "cover": "/wp-content/uploads/2025/12/1-Oceanfront-Oahu-vacation-rental-exterior-with-direct-beach-access.png",
-  "stayHref": "/chinamans-ocean-front-beach-house/",
+  "stayHref": "/kualoa-beach-house/",
   "gallery": [
     {
       "src": "/wp-content/uploads/2025/12/1-Oceanfront-Oahu-vacation-rental-exterior-with-direct-beach-access.png",

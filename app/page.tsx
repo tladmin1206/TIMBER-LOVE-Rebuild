@@ -3,6 +3,8 @@ import LukeClintFeature from '@/components/sections/LukeClintFeature';
 import HgtvShows from '@/components/sections/HgtvShows';
 import Link from 'next/link';
 import Hero from '@/components/sections/Hero';
+import { pageMeta } from '@/lib/seo';
+
 import TrustBar from '@/components/sections/TrustBar';
 import LukeTrustBar from '@/components/sections/LukeTrustBar';
 import FeatureBand from '@/components/sections/FeatureBand';
@@ -27,6 +29,14 @@ import {
   hgtvShows,
 } from '@/lib/content/home';
 import { projects } from '@/lib/content/projects';
+
+export const metadata = pageMeta({
+  absoluteTitle: true,
+  title: "Timber + Love | Boise Design-Build by HGTV's Luke Caldwell",
+  description:
+    "Timber + Love is a Boise design-build firm led by HGTV's Luke Caldwell. Custom homes and luxury remodels, designed and built by one team. Start here.",
+  path: '/',
+});
 
 // Lead the homepage with design-build case studies (the custom homes), the
 // clearest proof of the integrated design + build service.
@@ -63,10 +73,11 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={120} className="flex items-end">
             <p className="text-body">
-              Founded in 2015 by Luke Caldwell of HGTV&apos;s Boise Boys, Timber + Love is Treasure Valley&apos;s
-              leading luxury design and build firm. We design and build custom homes and high-end remodels, from the
-              first drawing to the final walkthrough. Design and construction happen under one roof, so nothing is lost
-              between the vision and the build.
+              Founded in 2015 by Luke Caldwell of HGTV&apos;s Boise Boys, Timber + Love offers{' '}
+              <Link href="/design-and-build/" className="link-underline">design-build in Boise</Link> for custom homes
+              and high-end remodels, from the first drawing to the final walkthrough. Design and construction happen
+              under one roof, so nothing is lost between the vision and the build.{' '}
+              <Link href="/reviews/" className="link-underline">Read what our clients say</Link>.
             </p>
           </Reveal>
         </div>

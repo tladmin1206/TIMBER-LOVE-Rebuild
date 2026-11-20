@@ -3,7 +3,6 @@ import SiteImage from '@/components/ui/SiteImage';
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { projectFilters, filterProjects, type ProjectFilterKey } from '@/lib/content/projects';
 
 type FilterKey = ProjectFilterKey;
@@ -17,27 +16,32 @@ const editorialOrder = [
   'the-firehouse', 'kualoa-beach-house', 'casa-de-boise',
 ];
 
+const isFilter = (key: string | null): key is FilterKey => !!key && projectFilters.some((f) => f.key === key);
+
 export default function ProjectGrid() {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const initial = (searchParams.get('filter') as FilterKey) || 'all';
-  const [active, setActive] = useState<FilterKey>(
-    projectFilters.some((f) => f.key === initial) ? initial : 'all'
-  );
+  // The full grid renders on the server with every project, so the links are in
+  // the HTML that search engines read. A ?filter= from a shared link is applied
+  // after hydration; reading it with useSearchParams would turn the whole grid
+  // into client-only output.
+  const [active, setActive] = useState<FilterKey>('all');
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   useEffect(() => {
-    setActive(projectFilters.some((f) => f.key === initial) ? initial : 'all');
-  }, [initial]);
+    const read = () => {
+      const key = new URLSearchParams(window.location.search).get('filter');
+      setActive(isFilter(key) ? key : 'all');
+    };
+    read();
+    window.addEventListener('popstate', read);
+    return () => window.removeEventListener('popstate', read);
+  }, []);
 
   const select = (key: FilterKey) => {
     setActive(key);
-    // Preserve filter state in the URL without a full page reload.
-    const params = new URLSearchParams(Array.from(searchParams.entries()));
-    if (key === 'all') params.delete('filter');
-    else params.set('filter', key);
-    const qs = params.toString();
-    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    // Preserve filter state in the URL without a navigation.
+    const url = new URL(window.location.href);
+    if (key === 'all') url.searchParams.delete('filter');
+    else url.searchParams.set('filter', key);
+    window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash);
   };
 
   /**

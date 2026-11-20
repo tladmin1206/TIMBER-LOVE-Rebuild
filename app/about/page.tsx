@@ -1,3 +1,5 @@
+import { breadcrumbSchema, personSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 import SiteImage from '@/components/ui/SiteImage';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
@@ -13,19 +15,19 @@ import { closingCta } from '@/lib/content/closing';
 import TrustBar from '@/components/sections/TrustBar';
 import StatStrip from '@/components/sections/StatStrip';
 
-export const metadata = pageMeta({
-  title: 'Our Story',
-  description:
-    'Timber + Love is a Boise-based brand led by Luke Caldwell of HGTV\'s Boise Boys and Outgrown, connecting design, construction, real estate, cash offers, investment, and vacation rentals under one team.',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "About Timber + Love | Boise Design-Build Since 2015",
+  description: "Timber + Love is a Boise design-build and real estate brand founded in 2015 and led by Luke Caldwell of HGTV's Boise Boys. Meet the team and our story.",
   path: '/about/',
 });
 
 export default function Page() {
   return (
     <>
+      <JsonLd schema={[personSchema, breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }])]} />
       <PageHero
         eyebrow="Our Story"
-        title="One Team for Every Stage of Home"
+        title="About Timber + Love: One Boise Team for Every Stage of Home"
         subtitle="Timber + Love brings design, construction, real estate, direct home offers, investment, and vacation stays together under one Boise-based brand."
         image="/editorial/estate-living.webp"
         imageMobile="/editorial/luke-estate.webp"
@@ -59,6 +61,10 @@ export default function Page() {
               The through line is the same at every stage: local knowledge of the Treasure Valley, a clear design point
               of view, and a team you can reach directly. Many clients move between these services over time, so keeping
               them under one roof means the next step is never a cold start with a stranger.
+            </p>
+            <p className="text-sm leading-relaxed text-text-secondary">
+              Read <Link href="/timber-love-story-boise/" className="link-underline">the full Timber + Love story</Link>, or
+              see <Link href="/service-areas/" className="link-underline">where we work</Link> across the Treasure Valley.
             </p>
           </Reveal>
         </div>
@@ -137,6 +143,10 @@ export default function Page() {
               His work centers on residential design in the Treasure Valley, pairing a defined aesthetic with hands-on
               involvement in the homes his team designs, builds, and renovates. That same eye carries into the real
               estate, investment, and vacation-stay sides of the brand.
+            </p>
+            <p className="text-sm leading-relaxed text-text-secondary">
+              Read the <Link href="/luke-caldwell-faq/" className="link-underline">frequently asked questions about Luke Caldwell</Link>{' '}
+              and <Link href="/luke-caldwell-boise-community/" className="link-underline">how Luke gives back in Boise</Link>.
             </p>
             <Cta href="/the-boise-boys/" variant="link">Read the HGTV Story →</Cta>
           </Reveal>

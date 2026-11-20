@@ -1,3 +1,5 @@
+import { breadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 import PhotoCard from '@/components/ui/PhotoCard';
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
@@ -18,8 +20,8 @@ import { faqs } from '@/lib/content/faqs';
 
 const realEstateReview = clientReviews.find((r) => r.role === 'Real Estate Client');
 
-export const metadata = pageMeta({
-  title: 'Buy or Sell a Home in Boise',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Timber + Love Realty | Buy or Sell a Home in Boise",
   description:
     'Buy or sell a home in Boise with Timber + Love Realty. Local market experience for buyers and sellers, with listings and support on our affiliated real estate site.',
   path: '/buy-or-sell/',
@@ -28,7 +30,7 @@ export const metadata = pageMeta({
 const sections = [
   {
     eyebrow: 'Buying',
-    heading: 'Find a Home That Fits Your Life', image: '/projects/promise-ln-5106/5106-promise-ln-living-room-fireplace.jpg',
+    heading: 'Buy a Home in Boise', image: '/projects/promise-ln-5106/5106-promise-ln-living-room-fireplace.jpg',
     body: 'Buying a home is a big decision, and it helps to have people who know the area well. Timber + Love Realty works with buyers across Boise to search current listings, compare neighborhoods, and understand what a home is really offering. You set the pace, and the team keeps the details organized so you can make a confident choice.',
   },
   {
@@ -51,6 +53,7 @@ const sections = [
 export default function Page() {
   return (
     <>
+      <JsonLd schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Buy or Sell', path: '/buy-or-sell/' }])} />
       <PageHero
         eyebrow="Buy or Sell"
         title="Buy or Sell a Home in Boise"

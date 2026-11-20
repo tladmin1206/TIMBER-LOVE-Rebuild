@@ -1,3 +1,5 @@
+import { breadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 import { Suspense } from 'react';
 import PageHero from '@/components/sections/PageHero';
 import ProjectGrid from '@/components/gallery/ProjectGrid';
@@ -10,8 +12,8 @@ import FeatureBand from '@/components/sections/FeatureBand';
 import TrustBar from '@/components/sections/TrustBar';
 import ProofSection from '@/components/sections/ProofSection';
 
-export const metadata = pageMeta({
-  title: 'Our Work',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Our Work | Boise Custom Homes and Remodels | Timber + Love",
   description:
     'Explore Timber + Love custom homes, HGTV transformations, and renovated retreats in Idaho and Hawaii, with photographs and the story behind each project.',
   path: '/timber-and-love-gallery/',
@@ -20,9 +22,10 @@ export const metadata = pageMeta({
 export default function Page() {
   return (
     <>
+      <JsonLd schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Our Work', path: '/timber-and-love-gallery/' }])} />
       <PageHero
         eyebrow="Our Work"
-        title="Homes With a Story"
+        title="Our Work: Custom Homes and Remodels With a Story"
         subtitle="Custom homes, HGTV transformations, and distinctive retreats. Explore the variety of our work, from Boise to the Pacific."
         image={projects[0]?.cover}
         height="short"

@@ -84,6 +84,10 @@ export const faqs: Record<string, FaqItem[]> = {
 
   ourProcess: [
     {
+      q: 'How is design-build different from hiring an architect and a contractor separately?',
+      a: 'With design-build, one team owns both the design and the construction. Pricing and buildability are checked while the plans are drawn, decisions run through one point of contact, and nobody hands the project off between firms. Hiring separately means two contracts and two teams to coordinate.',
+    },
+    {
       q: 'What happens after I reach out?',
       a: 'A member of our team reads your inquiry and replies within one business day. From there it is a short conversation about your home, your goals and your budget, so both sides can decide whether it is a good fit before anyone commits.',
     },

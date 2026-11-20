@@ -91,7 +91,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:contents">
         {columns.map((col, i) => (
           <nav key={col.heading} aria-label={col.heading} className={`lg:col-span-2 ${i === 2 ? 'col-span-2' : ''}`}>
-            <h3 className="text-xs uppercase tracking-[0.18em] text-cream sm:text-sm">{col.heading}</h3>
+            <p className="font-light text-xs uppercase tracking-[0.18em] text-cream sm:text-sm">{col.heading}</p>
             <ul className="mt-4 text-sm text-text-secondary sm:mt-6">
               {col.items.map((n) => (
                 /* Props are passed explicitly rather than spread: `services`
@@ -108,7 +108,7 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-3">
-          <h3 className="text-xs uppercase tracking-[0.18em] text-cream sm:text-sm">Stay in the Loop</h3>
+          <p className="font-light text-xs uppercase tracking-[0.18em] text-cream sm:text-sm">Stay in the Loop</p>
           <p className="mt-4 text-sm sm:mt-6 leading-relaxed text-text-secondary">
             Get occasional design inspiration and Timber + Love updates in your inbox.
           </p>
@@ -122,15 +122,15 @@ export default function Footer() {
       <div className="border-t border-border-subtle">
         <div className="container-wide grid gap-7 py-10 sm:grid-cols-3 sm:gap-8">
           <div>
-            <h3 className="text-xs uppercase tracking-[0.18em] text-text-muted">Visit</h3>
+            <p className="font-light text-xs uppercase tracking-[0.18em] text-text-muted">Visit</p>
             <p className="mt-3 text-sm not-italic leading-relaxed text-text-secondary">{site.address.full}</p>
           </div>
           <div>
-            <h3 className="text-xs uppercase tracking-[0.18em] text-text-muted">Call</h3>
+            <p className="font-light text-xs uppercase tracking-[0.18em] text-text-muted">Call</p>
             <p className="mt-1 text-sm"><a href={site.phoneHref} className="inline-flex min-h-11 items-center text-text-secondary transition-colors hover:text-cream">{site.phone}</a></p>
           </div>
           <div>
-            <h3 className="text-xs uppercase tracking-[0.18em] text-text-muted">Email</h3>
+            <p className="font-light text-xs uppercase tracking-[0.18em] text-text-muted">Email</p>
             <p className="mt-1 text-sm"><a href={`mailto:${site.email}`} className="inline-flex min-h-11 items-center break-all text-text-secondary transition-colors hover:text-cream">{site.email}</a></p>
           </div>
         </div>

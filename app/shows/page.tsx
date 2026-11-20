@@ -1,3 +1,6 @@
+import { breadcrumbSchema, tvSeriesSchema } from '@/lib/schema';
+import { site } from '@/lib/site';
+import JsonLd from '@/components/JsonLd';
 import SiteImage from '@/components/ui/SiteImage';
 import Link from "next/link";
 import { pageMeta } from "@/lib/seo";
@@ -7,8 +10,8 @@ import HgtvShows from "@/components/sections/HgtvShows";
 import HgtvEpisodeCatalog from "@/components/sections/HgtvEpisodeCatalog";
 import ClosingCta from "@/components/sections/ClosingCta";
 import { closingCta } from "@/lib/content/closing";
-export const metadata = pageMeta({
-  title: "Shows + Watch",
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Boise Boys Episodes and Where to Watch | Timber + Love",
   description:
     "Watch Luke and Clint and explore every Boise Boys and Outgrown episode, with artwork, stories, and viewing links from Timber + Love.",
   path: "/shows/",
@@ -16,13 +19,16 @@ export const metadata = pageMeta({
 export default function ShowsPage() {
   return (
     <>
+      <JsonLd schema={[
+        breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Shows', path: '/shows/' }]),
+        tvSeriesSchema({ name: 'Boise Boys', url: site.shows.boiseBoys, network: 'HGTV', actors: ['Luke Caldwell', 'Clint Robertson'] }),
+        tvSeriesSchema({ name: 'Outgrown', url: site.shows.outgrown, actors: ['Luke Caldwell'] }),
+      ]} />
       <section className="section-tonal pb-20 pt-32 sm:pb-28 sm:pt-40">
         <div className="container-wide">
           <p className="eyebrow">Timber + Love · On Screen</p>
           <h1 className="h-page mt-4 max-w-4xl">
-            Good Homes.
-            <br />
-            Great Stories.
+            Boise Boys, Outgrown and Luke and Clint: Every Episode
           </h1>
           <nav aria-label="Browse shows" className="mt-8 flex flex-wrap gap-x-7 gap-y-2">
             {[
@@ -51,6 +57,11 @@ export default function ShowsPage() {
                 The partnership you met on HGTV continues with new projects,
                 unexpected discoveries, and plenty of laughs. Come behind the
                 scenes with Luke Caldwell and Clint Robertson.
+              </p>
+              <p className="mt-4 text-sm leading-relaxed text-text-secondary">
+                Read <Link href="/building-boise-new-show-announcement/" className="link-underline">the Building Boise announcement</Link>,
+                look back at <Link href="/boise-boys-are-back/" className="link-underline">when the Boise Boys came back</Link>, or tour{' '}
+                <Link href="/the-boise-boys/" className="link-underline">the homes from the show</Link>.
               </p>
               <div className="cta-row mt-7">
                 <a href="#episodes" className="btn-primary">

@@ -86,6 +86,16 @@ const nextConfig = {
       // 301, not permanent: true, so they match the middleware 301s.
       { source: '/category/boise-boys', destination: '/the-boise-boys/', statusCode: 301 },
       { source: '/category/uncategorized', destination: '/journal/', statusCode: 301 },
+      // Pre-WordPress URL still in Google's index.
+      { source: '/design-build', destination: '/design-and-build/', statusCode: 301 },
+      // The Kualoa rental moved to a slug that matches its name.
+      { source: '/chinamans-ocean-front-beach-house', destination: '/kualoa-beach-house/', statusCode: 301 },
+      // Old Rank Math sitemaps, still submitted in Search Console.
+      ...['sitemap_index', 'page-sitemap', 'post-sitemap', 'category-sitemap', 'elementskit_template-sitemap'].map((name) => ({
+        source: `/${name}.xml`,
+        destination: '/sitemap.xml',
+        statusCode: 301,
+      })),
       // Both legacy terms URLs (/terms-conditons and /terms-conditions) are
       // 301s in middleware.ts. They are not here because `permanent: true`
       // emits 308, which would disagree with each other.

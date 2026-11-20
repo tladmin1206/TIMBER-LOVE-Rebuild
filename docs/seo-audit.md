@@ -6,6 +6,42 @@ Codebase audited: `main` at `8e3b510` (Next.js 15 rebuild), built with `npm run 
 
 ---
 
+## Implementation status (2026-11-20)
+
+Shipped in the follow-up pull request. Verified on a production build with the no-JS crawler, `tsc`, ESLint, the repo's verify scripts, and Lighthouse.
+
+| Item | Status | Result |
+|---|---|---|
+| S-3 legal pages out of sitemap, S-5 real `lastmod` | Done | Sitemap lists 40 indexable URLs, one fixed content date |
+| S-4 gallery grid server-rendered | Done | No-JS gallery HTML now has all 12 project links |
+| Legacy redirects (`/design-build`, old Rank Math sitemaps) | Done | Single 301 hop each |
+| Kualoa slug | Done | `/chinamans-ocean-front-beach-house/` 301s to `/kualoa-beach-house/`; links, sitemap and share card updated |
+| Admin login metadata | Done | Own title, `noindex, nofollow`, no canonical. The layout no longer sets a sitewide canonical, so 404 and admin pages never claim the homepage |
+| T-1, T-2 titles and descriptions | Done | All 40 search pages: titles 46 to 62 characters, keyword first; descriptions 132 to 166 |
+| H1 rewrites, homepage first sentence | Done | 9 H1s rewritten; homepage H1 is "Timber + Love: Luxury Custom Homes and Remodels in Boise" |
+| T-3 footer headings, T-4 duplicate headings | Done | Zero headings in the footer; rental H2 reads "About ..."; article duplicate H2s removed; "FOR IMMEDIATE RELEASE" is a label |
+| C-1, C-2, C-3 unsupported claims | Done | "Leading", "Premier", "prominent", "renowned", "one of the most respected" and every "over 20 years" removed (none has a source in the facts file) |
+| C-4 Boise Boys opening copy | Done | New intro plus a visible three-question FAQ with FAQPage data |
+| C-6 rental alt text | Done | Built from the photo file names ("The Firehouse: kitchen") instead of "photo 2" |
+| E-1 Person, E-2 FAQPage, E-3 dark logo, E-5 breadcrumbs, E-6 article dates and byline, E-7 lodging locality and occupancy, E-8 service area, Shows TVSeries | Done | Validated in the crawl: every page has the expected types |
+| A-9 `/llms.txt`, A-10 named AI crawlers | Done | Generated from the content files at build time |
+| K-2 phone taps | Done | `call_click` event on every `tel:` link sitewide |
+| P-3 homepage keyboard focus | Done | Root cause: the partners slider passed `inert=""`, which React 19 ignores. Lighthouse accessibility on `/` is now 100 |
+| P-1 project page performance | Rechecked | 95 on a rerun (82 earlier was lab variance on this machine). No change made |
+| Section 5 internal links | Done | Weakest page now has 2 linking pages besides navigation; every rental links its renovation story and all four other homes |
+| K-C3 `/vacation-rentals/` | Kept, not merged | Search Console data is needed first. Retitled, given breadcrumbs, and linked from every rental page |
+| K-C6 2024 announcement | Done | Dated note linking to the 2026 announcement |
+
+Still blocked, and why:
+
+- **C-5 reviews page content**: `clientReviews` is empty on purpose (no verified client reviews are in the repo). Add real, attributed reviews to `lib/content/home.ts` and they render on `/reviews/` and `/design-and-build/` automatically.
+- **E-4 extra `sameAs` profiles and Luke's profiles**: only lukecaldwell.com is listed for Luke. Add his Instagram, IMDb or HGTV pages to `personSchema` once confirmed.
+- **Opening hours, Google Business Profile, SPF and DMARC, keyword volumes, K-C4 and K-C6 merge decisions**: need GBP, DNS and Search Console access.
+- **S-1 and S-2**: run at cutover (verify indexable headers; delete `NEXT_PUBLIC_SHARE_IMAGE_ORIGIN`).
+- **"Over 20 years"**: removed rather than guessed. If Luke confirms it, add it to `docs/content-facts.json` with a source and it can go back.
+
+---
+
 ## 1. Coverage summary
 
 | Item | Result |
@@ -207,7 +243,7 @@ Lighthouse SEO scored 69 only because of the staging `noindex` header (`is-crawl
 
 | ID | Severity | Finding | Exact correction | Verify |
 |---|---|---|---|---|
-| K-1 | High | The main conversion, a completed design-build questionnaire, is not tracked on the website. The embed listens only for resize messages. | In the lead app, post `{type: 'submitted'}` to the parent on Form 3 completion; in `DesignBuildQuestionnaire.tsx` call `trackEvent('generate_lead', {form: 'design_build_questionnaire'})` on that message (origin checked). Mark it a key event in GA4. | GA4 DebugView shows the event on a test submission |
+| K-1 | Pass (corrected) | First draft said questionnaire completions were untracked. They are tracked: the lead app posts `timber:lead-submitted` after the server stores the lead, and `DesignBuildQuestionnaire.tsx` sends `generate_lead` to GA4. | None. Confirm `generate_lead` is marked a key event in GA4. | GA4 DebugView on a test submission |
 | K-2 | Medium | Phone taps are not tracked. `tel:` links have no `data-track`. | Add `data-track="call_click"` to every `site.phoneHref` link (Header, Footer, MobileBottomBar, ProjectSummary). | GA4 DebugView shows `call_click` |
 | K-3 | Low | No "How did you hear about us?" field, so AI and podcast referrals cannot be measured. | Add an optional field to Form 3 and the contact form. | Field stored on the lead |
 

@@ -2,10 +2,9 @@ import PropertyPage, { type PropertyContent } from '@/components/sections/Proper
 import { pageMeta } from '@/lib/seo';
 import data from '@/content/chalet.json';
 
-export const metadata = pageMeta({
-  title: 'Timber + Love Chalet',
-  description:
-    'This charming cabin, redesigned and styled by Luke Caldwell from HGTV’s Boise Boys along with his Timber + Love team, offers an inviting retreat ideal for your next getaway.',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Cabin Rental Near McCall | The Chalet by Timber + Love",
+  description: "The Chalet is a cabin rental in New Meadows near McCall, styled by Luke Caldwell of HGTV's Boise Boys. Sleeps 10 with 3 bedrooms. Check dates and book.",
   path: '/timber-and-love-chalet/',
 });
 

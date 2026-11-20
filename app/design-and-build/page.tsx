@@ -25,10 +25,9 @@ const serviceCategories = [
 ];
 
 export const metadata = pageMeta({
-  title: 'Design-Build Remodeling in Boise | Timber + Love',
+  title: "Boise Design-Build | Custom Homes and Remodels | Timber + Love",
   absoluteTitle: true,
-  description:
-    'Timber + Love designs and builds custom homes and remodels in Boise, Idaho. See our work and start your project.',
+  description: "Design-build in Boise for custom homes, whole-home remodels, kitchens and additions. One team designs and builds your home, led by Luke Caldwell. Start now.",
   path: '/design-and-build/',
 });
 const selected = ['promise-lane-spanish-modern', 'stucco-in-time', 'north-end-gem'].map((slug) => projects.find((p) => p.slug === slug)!);
@@ -36,11 +35,11 @@ const selected = ['promise-lane-spanish-modern', 'stucco-in-time', 'north-end-ge
 export default function Page() {
   return <>
     <JsonLd schema={[
-      serviceSchema({ name: 'Design + Build', description: 'Custom homes, home additions, and considered renovations in Boise and the Treasure Valley.', path: '/design-and-build/' }),
+      serviceSchema({ name: 'Design-Build in Boise', description: 'Custom homes, whole-home remodels, kitchens, additions, and historic renovations in Boise and the Treasure Valley, designed and built by one team.', path: '/design-and-build/', serviceType: 'Design-build construction' }),
       faqSchema(faq),
       breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Design + Build', path: '/design-and-build/' }]),
     ]} />
-    <PageHero eyebrow="Timber + Love" title="Your Home. Thoughtfully Designed. Beautifully Built." subtitle="Custom homes and considered renovations in Boise and the Treasure Valley, with design and construction under one roof." image="/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg" imageMobile="/editorial/cedar-hall.webp" videoId="928472719">
+    <PageHero eyebrow="Timber + Love" title="Design-Build in Boise, From First Sketch to Final Walkthrough" subtitle="Timber + Love is a design-build firm in Boise that designs and builds custom homes and remodels under one roof." image="/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg" imageMobile="/editorial/cedar-hall.webp" videoId="928472719">
       <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="design_start">Start a Project</Link>
       <a href="#selected-work" className="btn-secondary">Explore Our Work</a>
     </PageHero>
@@ -48,7 +47,7 @@ export default function Page() {
     <section className="bg-bg-primary section">
       <div className="container-wide grid gap-10 lg:grid-cols-2">
         <div><p className="eyebrow">One Connected Team</p><h2 className="h-section mt-4">From How You Live to the Last Detail</h2></div>
-        <div className="space-y-5 text-lead"><p>Your home should reflect the way you want to live. We bring the architecture, interiors, and construction together so each decision belongs to a coherent whole.</p><p>Start by sharing your goals, location, and investment range. Our team will review your project and talk through fit and next steps.</p><Link href="/our-process/" className="link-underline inline-flex min-h-11 items-center text-sm">Meet the Process →</Link></div>
+        <div className="space-y-5 text-lead"><p>Your home should reflect the way you want to live. We bring the architecture, interiors, and construction together so each decision belongs to a coherent whole.</p><p>We work with homeowners in <Link href="/service-areas/" className="link-underline">homes across the Treasure Valley</Link>. Start by sharing your goals, location, and investment range. Our team will review your project, talk through fit and next steps, and explain <Link href="/financing/" className="link-underline">how clients pay for a project</Link>.</p><Link href="/our-process/" className="link-underline inline-flex min-h-11 items-center text-sm">Meet the Process →</Link></div>
       </div>
     </section>
     <section className="section-tonal section" id="services">
@@ -62,6 +61,7 @@ export default function Page() {
           {/* eslint-disable-next-line @next/next/no-img-element */}<SiteImage sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" src={project.cover} alt={project.gallery[0].alt} loading="lazy" className="aspect-[4/3] w-full object-cover" />
           <div className="p-6"><p className="eyebrow">{project.category}</p><h3 className="h-card-sm mt-3">{project.title}</h3><p className="mt-4 text-sm text-text-secondary">Explore This Home →</p></div>
         </Link>)}</div>
+        <p className="mt-8 max-w-2xl text-sm leading-relaxed text-text-secondary">New construction ranges from the <Link href="/projects/promise-lane-modern-farmhouse/" className="link-underline">modern farmhouse on Promise Lane</Link> to a <Link href="/projects/promise-lane-contemporary/" className="link-underline">contemporary home with a butterfly roof</Link>. Homeowners share their experience in our <Link href="/reviews/" className="link-underline">client reviews</Link>.</p>
         <Link href="/timber-and-love-gallery/" className="btn-secondary mt-8">View the Full Portfolio</Link>
       </div>
     </section>

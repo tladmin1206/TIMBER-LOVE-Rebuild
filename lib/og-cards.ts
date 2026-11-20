@@ -63,7 +63,7 @@ const PAGES: Record<string, OgCard> = {
  */
 const RENTAL_PHOTO: Record<string, Partial<OgCard>> = {
   '/caldwell-beach-house/': { image: '/rentals/caldwell/01-rooftop-deck-mokolii-view.webp' },
-  '/chinamans-ocean-front-beach-house/': { position: 'bottom' },
+  '/kualoa-beach-house/': { position: 'bottom' },
 };
 const PROJECT_PHOTO: Record<string, Partial<OgCard>> = {
   'kualoa-beach-house': { position: 'bottom' },
