@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ProcessFilms from '@/components/sections/ProcessFilms';
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
@@ -15,8 +16,8 @@ import ProofSection from '@/components/sections/ProofSection';
 import FaqSection from '@/components/sections/FaqSection';
 import { faqs } from '@/lib/content/faqs';
 
-export const metadata = pageMeta({
-  title: 'Our Design-Build Process',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Design-Build Process | What Happens and When | Timber + Love",
   description:
     'See exactly what happens when you work with Timber + Love, from the first consultation through final walkthrough. One connected team, one clear process.',
   path: '/our-process/',
@@ -86,7 +87,7 @@ export default function Page() {
 
       <PageHero
         eyebrow="Our Process"
-        title="One Team, One Clear Process"
+        title="Our Design-Build Process, Step by Step"
         subtitle="With design and construction under one roof, your project stays coordinated from the first conversation through the final walkthrough. Here is exactly what to expect."
         image="/editorial/concrete-entry.webp"
         height="short"
@@ -122,6 +123,10 @@ export default function Page() {
             <h2 className="h-section mt-4">What Happens, and When</h2>
           </Reveal>
           <ProcessTimeline phases={phases} />
+          <p className="mx-auto mt-12 max-w-2xl text-center text-sm leading-relaxed text-text-secondary">
+            Planning the budget early helps every phase. See the common{' '}
+            <Link href="/financing/" className="link-underline">financing options</Link> homeowners use for a remodel or custom home.
+          </p>
         </div>
       </section>
 

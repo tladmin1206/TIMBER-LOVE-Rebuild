@@ -1,3 +1,5 @@
+import { breadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 import PageHero from '@/components/sections/PageHero';
 import EditorialSplit from '@/components/sections/EditorialSplit';
 import Gallery from '@/components/ui/Gallery';
@@ -10,8 +12,8 @@ import { closingCta } from '@/lib/content/closing';
 import FaqSection from '@/components/sections/FaqSection';
 import { faqs } from '@/lib/content/faqs';
 
-export const metadata = pageMeta({
-  title: 'Stay With Us',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Vacation Rentals in Boise, McCall and Oahu | Timber + Love",
   description:
     'Find your next getaway in Boise, McCall, or Oahu, including The Kualoa Beach House and The Caldwell Beach House. Explore photos and check availability.',
   path: '/stay-with-us/',
@@ -20,6 +22,7 @@ export const metadata = pageMeta({
 export default function Page() {
   return (
     <>
+      <JsonLd schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Vacation Rentals', path: '/stay-with-us/' }])} />
       <PageHero
         eyebrow="Vacation Rentals"
         title="Stay With Us"

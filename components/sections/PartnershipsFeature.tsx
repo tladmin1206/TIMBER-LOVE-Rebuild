@@ -63,9 +63,9 @@ export default function PartnershipsFeature() {
                 aria-hidden={!isActive}
                 // `inert` keeps keyboard focus out of the invisible slide. Without
                 // it, tabbing landed on links that were announced as hidden and
-                // could not be seen, a genuine keyboard trap. Passed as a string
-                // because React 18 does not recognise it as a boolean DOM prop.
-                {...(!isActive ? ({ inert: '' } as Record<string, string>) : {})}
+                // could not be seen, a genuine keyboard trap. React 19 takes it as
+                // a boolean; the old empty-string form now renders nothing.
+                inert={!isActive}
                 className={`grid items-center gap-10 transition-opacity duration-700 ease-out lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 ${
                   isActive ? 'opacity-100' : 'pointer-events-none absolute inset-0 opacity-0'
                 }`}

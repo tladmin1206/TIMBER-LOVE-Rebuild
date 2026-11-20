@@ -2,10 +2,9 @@ import PropertyPage, { type PropertyContent } from '@/components/sections/Proper
 import { pageMeta } from '@/lib/seo';
 import data from '@/content/the-darla-house.json';
 
-export const metadata = pageMeta({
-  title: 'The Darla House',
-  description:
-    'This cozy and modern cottage is the perfect spot to stay in the North End. A renovated, bright and happy home includes stainless steel appliances, stylish decor, and original character.',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Darla House | North End Boise Cottage Rental | Timber + Love",
+  description: "The Darla House is a bright North End Boise cottage for up to 4 guests, renovated by the Timber + Love team. See photos, amenities and check your dates.",
   path: '/the-darla-house/',
 });
 

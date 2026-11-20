@@ -12,8 +12,8 @@ import { closingCta } from '@/lib/content/closing';
 import ProofSection from '@/components/sections/ProofSection';
 import EditorialSplit from '@/components/sections/EditorialSplit';
 
-export const metadata = pageMeta({
-  title: 'Financing Your Project',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "How to Finance a Remodel or Custom Home | Timber + Love",
   description:
     'Understand how homeowners typically finance a design-build or remodeling project with Timber + Love in Boise. General guidance, not financial advice.',
   path: '/financing/',
@@ -77,8 +77,8 @@ export default function Page() {
 
       <PageHero
         eyebrow="Financing"
-        title="Financing Your Project"
-        subtitle="A remodel or new build is a meaningful investment. Here is a plain-language look at how homeowners typically pay for one, so you can plan with confidence."
+        title="How to Finance a Remodel or Custom Home in Boise"
+        subtitle="Most Boise homeowners pay for a remodel or custom home with savings, a home equity loan or HELOC, a renovation loan, or a construction loan. The right choice depends on your equity, timeline, and project size, so talk to a lender early and plan around a realistic budget."
         image="/editorial/craftsman-dining.webp"
         imageMobile="/editorial/estate-breakfast.webp"
         height="short"

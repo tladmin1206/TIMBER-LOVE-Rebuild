@@ -1,3 +1,6 @@
+import FaqSection from '@/components/sections/FaqSection';
+import { breadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 import SiteImage from '@/components/ui/SiteImage';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
@@ -13,14 +16,30 @@ import { pageMeta } from '@/lib/seo';
 import data from '@/content/the-boise-boys.json';
 import TrustBar from '@/components/sections/TrustBar';
 
-export const metadata = pageMeta({
-  title: 'HGTV: The Boise Boys',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Boise Boys Homes | HGTV Renovations in Boise | Timber + Love",
   description:
     "Timber + Love's work has been documented across HGTV's Boise Boys and Outgrown. Watch the transformations and see how that experience informs our work today.",
   path: '/the-boise-boys/',
 });
 
-const intro = (data.sections as any[])[0]?.paragraphs?.[0] || '';
+const intro =
+  "The Boise Boys are Luke Caldwell and Clint Robertson, whose HGTV series followed their renovations of Boise homes. Timber + Love is Luke's design-build firm, and these are the homes from the show, with photos and the story behind each one.";
+
+const faq = [
+  {
+    q: 'Who are the Boise Boys?',
+    a: "Luke Caldwell and Clint Robertson. Their HGTV series Boise Boys followed them as they renovated homes around Boise, and Luke went on to the family-focused series Outgrown. Today they share new projects on their independent YouTube show, Luke and Clint.",
+  },
+  {
+    q: 'Can you stay in a Boise Boys home?',
+    a: 'Yes. The Firehouse, a historic North End firehouse renovated on the show, is a Timber + Love vacation rental. You can see photos, amenities, and dates on its rental page.',
+  },
+  {
+    q: 'Can Timber + Love design and build my home?',
+    a: 'Yes. Timber + Love is the design-build firm Luke Caldwell leads in Boise. It designs and builds custom homes and remodels across the Treasure Valley with the same approach you saw on the show.',
+  },
+];
 const images = [
   { src: '/editorial/firehouse-landing.webp', alt: 'A bright stair landing at The Firehouse, a Boise Boys renovation' },
   { src: '/editorial/firehouse-entry.webp', alt: 'Collected textures and an entry bench at The Firehouse' },
@@ -33,6 +52,7 @@ const tvProjects = projects.filter((p) => p.tags.includes('hgtv'));
 export default function Page() {
   return (
     <>
+      <JsonLd schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'The Boise Boys', path: '/the-boise-boys/' }])} />
       <PageHero eyebrow="As Seen on HGTV" title="The Boise Boys" subtitle={intro} image={data.hero.image}>
         <Link href="/shows/#boise-boys-episodes" className="btn-primary">Browse Boise Boys Episodes</Link>
         <Link href="/shows/#outgrown-episodes" className="btn-secondary">Browse Outgrown Episodes</Link>
@@ -52,6 +72,11 @@ export default function Page() {
               Led by Luke Caldwell, Timber + Love has restored and reimagined Boise homes across multiple seasons of
               HGTV&apos;s Boise Boys and the family-focused series Outgrown. The same hands-on, design-forward approach
               you see on screen is how we work with clients today.
+            </p>
+            <p className="mt-5 text-sm leading-relaxed text-text-secondary">
+              Learn more about <Link href="/luke-caldwell-faq/" className="link-underline">Luke Caldwell</Link>, watch{' '}
+              <Link href="/shows/" className="link-underline">every Boise Boys episode</Link>, or{' '}
+              <Link href="/the-firehouse/" className="link-underline">stay in The Firehouse</Link>.
             </p>
           </Reveal>
         </div>
@@ -115,6 +140,8 @@ export default function Page() {
           </ul>
         </div>
       </section>
+
+      <FaqSection items={faq} title="About the Boise Boys" />
 
       <ClosingCta {...closingCta.hgtv} />
     </>

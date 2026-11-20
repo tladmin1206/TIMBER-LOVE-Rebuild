@@ -6,7 +6,7 @@ import data from '@/content/terms.json';
 // returns 301 here (see middleware.ts).
 export const metadata = pageMeta({
   title: 'Terms & Conditions',
-  description: 'Timber + Love terms and conditions of use.',
+  description: "Timber + Love terms and conditions for using this website, our forms and our text messages, including eligibility, SMS terms and limits of liability.",
   path: '/terms-and-conditions/',
   noindex: true,
 });

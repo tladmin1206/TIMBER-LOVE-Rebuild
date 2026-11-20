@@ -12,10 +12,9 @@ import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import TrustBar from '@/components/sections/TrustBar';
 
-export const metadata = pageMeta({
-  title: 'Journal',
-  description:
-    'News, stories, and insights from Timber + Love, the Boise design-build and real estate team behind HGTV’s Boise Boys.',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Journal | Luke Caldwell and Timber + Love News",
+  description: "News, stories and insights from Timber + Love, the Boise design-build and real estate team led by Luke Caldwell of HGTV's Boise Boys. Read the latest.",
   path: '/journal/',
 });
 

@@ -1,10 +1,12 @@
+import { breadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 import DesignBuildQuestionnaire from '@/components/forms/DesignBuildQuestionnaire';
 import WhatHappensNext from '@/components/sections/WhatHappensNext';
 import { pageMeta } from '@/lib/seo';
 import { site } from '@/lib/site';
 
-export const metadata = pageMeta({
-  title: 'Start Your Design + Build Project',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Start Your Design-Build Project | Timber + Love",
   description: 'Planning a custom home or remodel in Boise? Tell Timber + Love about your project, lot, and timeline to start the design and build conversation.',
   path: '/design-and-build-questionnaire/',
 });
@@ -12,6 +14,7 @@ export const metadata = pageMeta({
 export default function Page() {
   return (
     <>
+      <JsonLd schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Start a Project', path: '/design-and-build-questionnaire/' }])} />
       {/* The questionnaire is the page, composed like an app screen.
           Phones: a slim title row, then the form edge to edge, starting in the
           first screen with nothing to scroll past. Wider screens: a compact

@@ -1,3 +1,5 @@
+import { breadcrumbSchema } from '@/lib/schema';
+import JsonLd from '@/components/JsonLd';
 import PhotoCard from '@/components/ui/PhotoCard';
 import PageHero from '@/components/sections/PageHero';
 import TrustBar from '@/components/sections/TrustBar';
@@ -14,8 +16,8 @@ import FeatureBand from '@/components/sections/FeatureBand';
 import EditorialSplit from '@/components/sections/EditorialSplit';
 import { faqs } from '@/lib/content/faqs';
 
-export const metadata = pageMeta({
-  title: 'Invest in Real Estate',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Boise Real Estate Investment | With Timber + Love",
   description:
     'Learn about real estate investment information available through Timber + Love Realty, an affiliated Timber + Love site, and who it is intended for.',
   path: '/invest/',
@@ -42,10 +44,11 @@ const sections = [
 export default function Page() {
   return (
     <>
+      <JsonLd schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Invest', path: '/invest/' }])} />
       <PageHero
         eyebrow="Invest"
-        title="Invest in Real Estate"
-        subtitle="Learn about real estate investment information and opportunities available through Timber + Love, and see whether they fit what you are looking for."
+        title="Invest in Boise Real Estate"
+        subtitle="Timber + Love Realty shares Boise real estate investment information and opportunities for people considering an investment property. This page explains who it suits, then sends you to the affiliated realty site for details."
         image="/editorial/estate-exterior.webp"
       >
         <Cta href={site.external.invest} external newTab track="invest_explore">

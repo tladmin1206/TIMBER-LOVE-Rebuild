@@ -3,10 +3,9 @@ import { pageMeta } from '@/lib/seo';
 import data from '@/content/post-building-boise-new-show-announcement.json';
 
 const PATH = '/building-boise-new-show-announcement/';
-export const metadata = pageMeta({
-  title: 'Luke Caldwell and Clint Robertson Reunite for Building Boise: New Independent Series',
-  description:
-    'For immediate release: Luke Caldwell and Clint Robertson reunite for Building Boise, a new independent series. Get the inside scoop.',
+export const metadata = pageMeta({ absoluteTitle: true,
+  title: "Luke and Clint Reunite for Building Boise | Timber + Love",
+  description: "Luke Caldwell and Clint Robertson reunite for Building Boise, an independent series on Treasure Valley renovations. Read the April 2026 announcement.",
   path: PATH,
   type: 'article',
 });

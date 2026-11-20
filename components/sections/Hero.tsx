@@ -36,13 +36,16 @@ export default function Hero() {
 
         <div className="hero-safe-bottom container-wide relative z-10 w-full pt-[calc(var(--header-h,88px)+4rem)]">
           <p className="eyebrow animate-fadeUp text-cream/80">Design + Build &middot; Boise, Idaho</p>
-          <h1 className="h-hero mt-4 animate-fadeUp text-cream [animation-delay:60ms]">Timber + Love</h1>
-          <p className="mt-4 max-w-2xl animate-fadeUp text-[0.95rem] uppercase leading-relaxed tracking-brand text-cream/90 [animation-delay:120ms] sm:text-xl">
-            Treasure Valley&apos;s Leading Luxury Design + Build Firm
-          </p>
+          <h1 className="mt-4 text-cream">
+            <span className="h-hero block animate-fadeUp [animation-delay:60ms]">Timber + Love</span>
+            <span className="sr-only">: </span>
+            <span className="mt-4 block max-w-2xl animate-fadeUp text-[0.95rem] font-normal uppercase leading-relaxed tracking-brand text-cream/90 [animation-delay:120ms] sm:text-xl">
+              Luxury Custom Homes and Remodels in Boise
+            </span>
+          </h1>
           <p className="mt-5 max-w-xl animate-fadeUp text-[0.95rem] leading-relaxed text-cream/85 [animation-delay:200ms] sm:text-base">
-            We design and build custom homes and luxury remodels across the Treasure Valley. One team, from the first
-            drawing to the final walkthrough. Custom, never semi-custom.
+            Timber + Love is a Boise design-build firm that designs and builds custom homes and luxury remodels, led by
+            Luke Caldwell of HGTV&apos;s Boise Boys. One team, from the first drawing to the final walkthrough.
           </p>
 
           <div className="cta-row mt-8 animate-fadeUp [animation-delay:280ms]">
