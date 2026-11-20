@@ -13,6 +13,17 @@
 export const site = {
   name: 'Timber + Love',
   legalName: 'Timber and Love',
+  // Exact name on the Google Business Profile. Used wherever name, address and
+  // phone appear together (footer, contact page, structured data) so NAP
+  // matches the profile character for character. `name` stays the brand mark.
+  gbpName: 'Timber and Love',
+  // Business hours exactly as listed on the Google Business Profile.
+  hours: {
+    label: 'Monday to Friday, 9 AM to 5 PM',
+    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+    opens: '09:00',
+    closes: '17:00',
+  },
   url: 'https://timberandlove.com',
   founded: 2015,
   description:
