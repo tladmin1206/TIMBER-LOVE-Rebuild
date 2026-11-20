@@ -123,7 +123,13 @@ export default function Footer() {
         <div className="container-wide grid gap-7 py-10 sm:grid-cols-3 sm:gap-8">
           <div>
             <p className="font-light text-xs uppercase tracking-[0.18em] text-text-muted">Visit</p>
-            <p className="mt-3 text-sm not-italic leading-relaxed text-text-secondary">{site.address.full}</p>
+            <address className="mt-3 text-sm not-italic leading-relaxed text-text-secondary">
+              {site.gbpName}
+              <br />
+              {site.address.full}
+              <br />
+              <span className="text-text-muted">{site.hours.label}</span>
+            </address>
           </div>
           <div>
             <p className="font-light text-xs uppercase tracking-[0.18em] text-text-muted">Call</p>

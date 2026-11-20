@@ -26,7 +26,8 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   '@id': ORG_ID,
-  name: site.name,
+  name: site.gbpName,
+  alternateName: site.name,
   url: `${site.url}/`,
   logo: LOGO,
   image: DEFAULT_IMAGE,
@@ -36,7 +37,7 @@ export const organizationSchema = {
   telephone: site.phone,
   email: site.email,
   address: postalAddress,
-  sameAs: [site.social.instagram, site.social.facebook],
+  sameAs: [site.social.instagram, site.social.facebook, site.map],
 };
 
 /** Site-wide WebSite node. */
@@ -73,16 +74,25 @@ export const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': ['LocalBusiness', 'GeneralContractor'],
   '@id': `${site.url}/#localbusiness`,
-  name: site.name,
+  name: site.gbpName,
+  alternateName: site.name,
   url: `${site.url}/`,
   telephone: site.phone,
   image: DEFAULT_IMAGE,
   address: postalAddress,
   geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
   hasMap: site.map,
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: site.hours.days,
+      opens: site.hours.opens,
+      closes: site.hours.closes,
+    },
+  ],
   areaServed,
   parentOrganization: { '@id': ORG_ID },
-  sameAs: [site.social.instagram, site.social.facebook],
+  sameAs: [site.social.instagram, site.social.facebook, site.map],
 };
 
 /** BreadcrumbList from an ordered list of { name, path } crumbs. */

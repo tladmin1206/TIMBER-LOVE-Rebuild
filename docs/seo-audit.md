@@ -36,7 +36,9 @@ Still blocked, and why:
 
 - **C-5 reviews page content**: `clientReviews` is empty on purpose (no verified client reviews are in the repo). Add real, attributed reviews to `lib/content/home.ts` and they render on `/reviews/` and `/design-and-build/` automatically.
 - **E-4 extra `sameAs` profiles and Luke's profiles**: only lukecaldwell.com is listed for Luke. Add his Instagram, IMDb or HGTV pages to `personSchema` once confirmed.
-- **Opening hours, Google Business Profile, SPF and DMARC, keyword volumes, K-C4 and K-C6 merge decisions**: need GBP, DNS and Search Console access.
+- **Google Business Profile**: the profile link supplied on 2026-11-20 is now the map link, the Google reviews link, and a `sameAs` entry on the Organization and LocalBusiness data. The profile's own contents (categories, hours, website URL) could not be read from here: the share link host is blocked in this environment.
+- **NAP and hours (done 2026-11-20)**: from the Google Business Profile screenshots: "Timber and Love", 3024 W Fairview Ave, Boise, ID 83702, (208) 995-9516, Monday to Friday 9 AM to 5 PM. Structured data now uses "Timber and Love" as the name ("Timber + Love" as `alternateName`) plus `openingHoursSpecification`; the footer and contact page show name, address and hours together. The profile's 5.0 rating (50 reviews) is not marked up, because the reviews are not on the page.
+- **SPF and DMARC, keyword volumes, K-C4 and K-C6 merge decisions**: need GBP, DNS and Search Console access.
 - **S-1 and S-2**: run at cutover (verify indexable headers; delete `NEXT_PUBLIC_SHARE_IMAGE_ORIGIN`).
 - **"Over 20 years"**: removed rather than guessed. If Luke confirms it, add it to `docs/content-facts.json` with a source and it can go back.
 

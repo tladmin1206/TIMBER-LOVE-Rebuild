@@ -121,7 +121,12 @@ export default function Page() {
               </div>
               <div>
                 <p className="field-label">Visit</p>
-                <p className="mt-2 text-lg text-text-secondary">{site.address.full}</p>
+                <address className="mt-2 text-lg not-italic text-text-secondary">
+                  {site.gbpName}
+                  <br />
+                  {site.address.full}
+                </address>
+                <p className="mt-2 text-sm text-text-muted">{site.hours.label}</p>
               </div>
             </div>
           </Reveal>
