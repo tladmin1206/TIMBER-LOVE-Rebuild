@@ -36,7 +36,7 @@ export const organizationSchema = {
   telephone: site.phone,
   email: site.email,
   address: postalAddress,
-  sameAs: [site.social.instagram, site.social.facebook],
+  sameAs: [site.social.instagram, site.social.facebook, site.map],
 };
 
 /** Site-wide WebSite node. */
@@ -82,7 +82,7 @@ export const localBusinessSchema = {
   hasMap: site.map,
   areaServed,
   parentOrganization: { '@id': ORG_ID },
-  sameAs: [site.social.instagram, site.social.facebook],
+  sameAs: [site.social.instagram, site.social.facebook, site.map],
 };
 
 /** BreadcrumbList from an ordered list of { name, path } crumbs. */

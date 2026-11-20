@@ -36,7 +36,8 @@ Still blocked, and why:
 
 - **C-5 reviews page content**: `clientReviews` is empty on purpose (no verified client reviews are in the repo). Add real, attributed reviews to `lib/content/home.ts` and they render on `/reviews/` and `/design-and-build/` automatically.
 - **E-4 extra `sameAs` profiles and Luke's profiles**: only lukecaldwell.com is listed for Luke. Add his Instagram, IMDb or HGTV pages to `personSchema` once confirmed.
-- **Opening hours, Google Business Profile, SPF and DMARC, keyword volumes, K-C4 and K-C6 merge decisions**: need GBP, DNS and Search Console access.
+- **Google Business Profile**: the profile link supplied on 2026-11-20 is now the map link, the Google reviews link, and a `sameAs` entry on the Organization and LocalBusiness data. The profile's own contents (categories, hours, website URL) could not be read from here: the share link host is blocked in this environment.
+- **Opening hours, SPF and DMARC, keyword volumes, K-C4 and K-C6 merge decisions**: need GBP, DNS and Search Console access.
 - **S-1 and S-2**: run at cutover (verify indexable headers; delete `NEXT_PUBLIC_SHARE_IMAGE_ORIGIN`).
 - **"Over 20 years"**: removed rather than guessed. If Luke confirms it, add it to `docs/content-facts.json` with a source and it can go back.
 

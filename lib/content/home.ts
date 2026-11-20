@@ -1,4 +1,5 @@
 import type { FanComment, Testimonial } from '@/lib/content/types';
+import { site } from '@/lib/site';
 
 // Matches the original homepage: 967117381 is the full-bleed background hero
 // video (warm interior), and 953577619 is the inline "Designing Beauty" player
@@ -228,7 +229,7 @@ export const whyReasons = [
  * Aggregate review rating, pulled from the business's Google / public review
  * profile. TEMP: refresh periodically; confirm the exact live count.
  */
-export const googleReviews = { url: 'https://share.google/Ga7dguR36OVrALLlH' };
+export const googleReviews = { url: site.map };
 
 /**
  * Client quotes stay off the site until each one has a source we can point at.

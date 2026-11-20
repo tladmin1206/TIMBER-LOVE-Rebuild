@@ -29,7 +29,8 @@ export const site = {
     full: '3024 W Fairview Ave, Boise, ID 83702',
   },
   geo: { lat: '43.619900', lng: '-116.227162' },
-  map: 'https://share.google/Ga7dguR36OVrALLlH',
+  // Google Business Profile (share link supplied by the business, 2026-11-20).
+  map: 'https://share.google/UiImcfW5E9rAkhdpx',
   reviewUrl: 'https://g.page/r/CRGHjvpIySGwEB0/review',
   // Partnerships contact, kept as a RECORD ONLY, deliberately not a field:
   //   phone  (310) 990-6549   tel:+13109906549
