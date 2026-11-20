@@ -6,7 +6,9 @@ Updated October 2, 2026. The owner pulls main into Replit and republishes.
 
 The dedicated `/design-and-build-questionnaire/` page and Work With Us dialog embed the **same live questionnaire** used at [timberandlove.com/design-and-build-questionnaire](https://timberandlove.com/design-and-build-questionnaire/):
 
-`https://leads.timberandlove.com/forms/combined?transparent=true`
+`https://leads.timberandlove.com/forms/combined?transparent=true&logo=false`
+
+`logo=false` asks the form to omit its own logo, because the site header already carries the brand mark. A form version that honours it reports `logo: false` in its resize messages; until then the embed crops the logo band instead (see `LOGO_CROP` in `components/forms/DesignBuildQuestionnaire.tsx`). The open-in-new-window link uses the standalone `/forms/combined`, which has its own dark background.
 
 This preserves the original contact fields, project-type choices, conditional remodel/addition/new-home questions, property and planning details, budget and timing, acknowledgments, optional SMS consent, and lead routing. The original application owns validation, submission, confirmation, and consultation scheduling. These inquiries do not go through this repository's short contact endpoint.
 
