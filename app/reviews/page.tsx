@@ -31,12 +31,12 @@ export default function Page() {
       <PageHero
         eyebrow="Reviews"
         title="Trusted by Boise Homeowners"
-        subtitle="Client stories are published on Google. This page points there, and shows the homes behind the work."
+        subtitle="See what Boise homeowners say about working with us on Google, and take a look at the homes behind the reviews."
         image="/editorial/cottage-fireplace.webp"
         height="short"
       >
         <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
-        <a href={site.reviewUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary" data-track="reviews_leave">
+        <a href={site.reviewUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary !border-cream !bg-ink/80 !text-cream ![backdrop-filter:none] [@media(hover:hover)]:hover:!bg-cream [@media(hover:hover)]:hover:!text-on-accent" data-track="reviews_leave">
           Leave a Review ↗
         </a>
       </PageHero>
