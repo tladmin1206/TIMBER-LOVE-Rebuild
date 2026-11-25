@@ -19,19 +19,19 @@ export const metadata = pageMeta({ absoluteTitle: true,
 // so no single questionnaire has to absorb every kind of inquiry.
 const paths = [
   {
-    title: 'Start a Design + Build Project',
+    title: 'Design or Build a House',
     image: '/projects/promise-ln-5106/5106-promise-ln-exterior-entry.jpg',
     contain: false,
     line: 'Custom homes, additions, and whole-home remodels in the Boise area.',
     href: '/design-and-build-questionnaire/',
-    cta: 'Start a Project',
+    cta: 'Tell Us About Your House',
     track: 'contact_designbuild',
   },
   {
     title: 'Buy or Sell Real Estate',
     image: '/projects/promise-ln-5120/5120-promise-ln-exterior-front.jpg',
     contain: false,
-    line: 'Work with Timber + Love Realty on your next move in the local market.',
+    line: 'Buy or sell with Timber + Love Realty.',
     href: site.external.realty,
     cta: 'Buy or Sell a Home',
     track: 'contact_realty',
@@ -40,7 +40,7 @@ const paths = [
     title: 'Sell Your Home for Cash',
     image: '/projects/north-end-gem/exterior.webp',
     contain: false,
-    line: 'A direct offer for homeowners who want a simpler, faster sale.',
+    line: 'A straight cash offer if you need to sell fast.',
     href: site.external.cashOffers,
     cta: 'Request a Cash Offer',
     track: 'contact_cash',
@@ -49,9 +49,9 @@ const paths = [
     title: 'Invest in Real Estate',
     image: '/projects/promise-ln-5142/5142-promise-ln-exterior-angle.jpg',
     contain: false,
-    line: 'Explore investment opportunities and how to get involved.',
+    line: 'Read about investing and how to get involved.',
     href: site.external.invest,
-    cta: 'Explore Investing',
+    cta: 'See Investing',
     track: 'contact_invest',
   },
   {
@@ -81,13 +81,13 @@ export default function Page() {
       <PageHero
         eyebrow="Contact"
         title="How Can We Help?"
-        subtitle="Pick the option closest to your goal and we will point you to the right place, or reach out directly and a member of our team will follow up."
+        subtitle="Pick what fits closest and we'll point you the right way. Or send a note and someone on the team will write back."
         image="/editorial/mountain-living.webp"
         imageMobile="/editorial/casetta-living.webp"
         height="short"
       >
-        <Cta href="/design-and-build-questionnaire/" variant="primary">Start a Design + Build Project</Cta>
-        <Cta href="#general" variant="secondary">Send an Inquiry</Cta>
+        <Cta href="/design-and-build-questionnaire/" variant="primary">Tell Us About Your House</Cta>
+        <Cta href="#general" variant="secondary">Send Us a Note</Cta>
       </PageHero>
 
 
@@ -98,8 +98,7 @@ export default function Page() {
             <p className="eyebrow">Let’s Connect</p>
             <h2 className="h-section mt-4">Send Us a Note</h2>
             <p className="text-lead mt-5">
-              Tell us what you have in mind. From a new home to your next move, our team will connect you
-              with the right people.
+              Tell us what you have in mind, from a new house to your next move. We&apos;ll get you to the right person.
             </p>
 
             <a href="#contact-paths" className="link-underline mt-6 inline-flex min-h-11 items-center text-sm">Find a specific service →</a>
@@ -142,11 +141,10 @@ export default function Page() {
       <section id="contact-paths" className="bg-bg-primary section scroll-mt-24">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Choose Your Path</p>
-            <h2 className="h-section mt-4">Find the Right Starting Point</h2>
+            <p className="eyebrow">Pick one</p>
+            <h2 className="h-section mt-4">What do you need?</h2>
             <p className="text-lead mt-5">
-              Every inquiry has its own best route. Choose the path that matches what you need and we will
-              take it from there.
+              Choose what matches and we&apos;ll take it from there.
             </p>
           </Reveal>
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -181,17 +179,17 @@ export default function Page() {
 
           <div className="mt-14">
             <WhatHappensNext steps={[
-              { step: '01', title: 'We Read Your Note', body: 'Your message gives our team the context to understand what you need.', image: '/editorial/team-studio.webp', position: 'center 82%' },
-              { step: '02', title: 'The Right Team Responds', body: 'We connect your inquiry with the people who handle that service.', image: '/editorial/luke-denim.webp', position: 'center 30%' },
-              { step: '03', title: 'Choose Your Next Step', body: 'Get answers to your questions and decide how you would like to continue.', image: '/projects/promise-ln-5106/5106-promise-ln-great-room.jpg' },
+              { step: '01', title: 'Someone reads it', body: 'A real person on the team reads what you wrote.', image: '/editorial/team-studio.webp', position: 'center 82%' },
+              { step: '02', title: 'The right person writes back', body: 'We pass it to whoever handles that kind of work.', image: '/editorial/luke-denim.webp', position: 'center 30%' },
+              { step: '03', title: 'You decide what\'s next', body: 'Get your questions answered, then decide how you want to go from here.', image: '/projects/promise-ln-5106/5106-promise-ln-great-room.jpg' },
             ]} />
           </div>
 
           <Reveal delay={120} className="surface-card mt-10 flex flex-col items-center gap-6 p-8 text-center lg:flex-row lg:justify-between lg:text-left">
             <div>
-              <h3 className="h-card">Not Ready to Talk Yet?</h3>
+              <h3 className="h-card">Not ready to talk yet?</h3>
               <p className="mt-2 max-w-lg text-sm leading-relaxed text-text-secondary">
-                Explore our completed homes and find inspiration for your own. We are here whenever you are ready.
+                Look through our finished houses first. We&apos;re here when you&apos;re ready.
               </p>
             </div>
             <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
@@ -214,7 +212,7 @@ export default function Page() {
               For appearance requests, brand partnerships, and press, send a note through the form on this page.
             </p>
             <div className="mt-8">
-              <Cta href="#general" variant="primary">Send an Inquiry</Cta>
+              <Cta href="#general" variant="primary">Send Us a Note</Cta>
             </div>
           </Reveal>
         </div>

@@ -57,7 +57,7 @@ export const metadata: Metadata = {
         url: ogImagePath('/'),
         width: 1200,
         height: 630,
-        alt: 'Timber + Love: Luxury Design + Build, Boise, Idaho',
+        alt: 'Timber + Love: Design + Build, Boise, Idaho',
         type: 'image/jpeg',
       },
     ],

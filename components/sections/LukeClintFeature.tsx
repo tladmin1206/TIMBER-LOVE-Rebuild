@@ -34,8 +34,7 @@ export default function LukeClintFeature() {
             and a good laugh to their own YouTube show.
           </p>
           <p className="text-lead mt-4">
-            From the team behind Boise Boys and Outgrown, it is another way to
-            get to know the people and imagination behind the work.
+            Same two guys, now with their own YouTube series.
           </p>
           <div className="cta-row mt-8">
             <a
@@ -47,7 +46,7 @@ export default function LukeClintFeature() {
               Watch on YouTube ↗
             </a>
             <Link href="/shows/" className="btn-secondary">
-              Explore the Shows
+              See the Shows
             </Link>
           </div>
         </div>

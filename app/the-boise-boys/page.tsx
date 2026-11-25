@@ -69,9 +69,7 @@ export default function Page() {
           </Reveal>
           <Reveal delay={100}>
             <p className="text-lead">
-              Led by Luke Caldwell, Timber + Love has restored and reimagined Boise homes across multiple seasons of
-              HGTV&apos;s Boise Boys and the family-focused series Outgrown. The same hands-on, design-forward approach
-              you see on screen is how we work with clients today.
+              We fixed up Boise houses across multiple seasons of HGTV&apos;s Boise Boys and Outgrown. The way you saw us work on screen is how we work with clients today.
             </p>
             <p className="mt-5 text-sm leading-relaxed text-text-secondary">
               Learn more about <Link href="/luke-caldwell-faq/" className="link-underline">Luke Caldwell</Link>, watch{' '}

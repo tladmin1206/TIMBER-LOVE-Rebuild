@@ -12,7 +12,7 @@ import type { ClosingCtaProps } from '@/components/sections/ClosingCta';
  *  - The body answers "why now" in one sentence, not a restatement of the page.
  */
 
-const START_PROJECT = { label: 'Start a Project', href: '/design-and-build-questionnaire/' };
+const START_PROJECT = { label: 'Tell Us About Your House', href: '/design-and-build-questionnaire/' };
 const VIEW_WORK = { label: 'View Our Work', href: '/timber-and-love-gallery/' };
 
 /** The brand film used behind hero-weight closing CTAs. */
@@ -24,7 +24,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     ...CLOSING_VIDEO,
     eyebrow: 'Not Sure Where to Start?',
     title: 'Tell Us About Your Home',
-    body: 'Choose the option closest to your goal, or reach out and our team will point you in the right direction.',
+    body: 'Pick the closest fit, or just reach out and we\'ll point you the right way.',
     primary: { label: 'Contact Timber + Love', href: '/contact/' },
     secondary: VIEW_WORK,
   },
@@ -34,7 +34,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     eyebrow: 'Design + Build',
     title: 'Start With a Conversation',
     body: 'Tell us about your home, your goals, and your budget. We will tell you honestly whether we are the right team for it.',
-    primary: { label: 'Start a Project', href: '/design-and-build-questionnaire/' },
+    primary: { label: 'Tell Us About Your House', href: '/design-and-build-questionnaire/' },
     secondary: VIEW_WORK,
   },
 
@@ -43,7 +43,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     eyebrow: 'Prefer to Talk First?',
     title: 'We Are Happy to Start There',
     body: 'Send a short inquiry or give us a call. Reach out however suits you.',
-    primary: { label: 'Contact Our Team', href: '/contact/' },
+    primary: { label: 'Talk to Us', href: '/contact/' },
     secondary: VIEW_WORK,
   },
 
@@ -52,16 +52,16 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     eyebrow: 'From Reading to Planning',
     title: 'Thinking About Your Own Project?',
     body: 'Our team can tell you what this would look like for your home, your site, and your budget.',
-    primary: { label: 'Talk to Our Team', href: '/contact/' },
+    primary: { label: 'Talk to Us', href: '/contact/' },
     secondary: VIEW_WORK,
   },
 
   hgtv: {
-    eyebrow: 'Bring the Look Home',
-    title: 'Bring Thoughtful Timber + Love Design to Your Home',
-    body: 'See how the design you love on screen translates to your own project.',
+    eyebrow: 'Bring it home',
+    title: 'Want a house like the ones on the show?',
+    body: 'Let\'s talk about yours.',
     image: '/editorial/firehouse-living.webp',
-    primary: { label: 'Explore Design + Build', href: '/design-and-build/' },
+    primary: { label: 'See Design + Build', href: '/design-and-build/' },
     secondary: VIEW_WORK,
   },
 
@@ -76,10 +76,10 @@ export const closingCta: Record<string, ClosingCtaProps> = {
 
   designBuildGallery: {
     eyebrow: 'From Inspiration to Plan',
-    title: 'Build Something Like This',
-    body: 'From a new custom home to a thoughtful renovation, your project starts with a conversation about how you want to live.',
+    title: 'Want something like this?',
+    body: 'Tell us about your house. We\'ll start by talking about how you live in it.',
     image: '/projects/promise-ln-5142/5142-promise-ln-exterior-angle.jpg',
-    primary: { label: 'Start a Project', href: '/design-and-build-questionnaire/' },
+    primary: { label: 'Tell Us About Your House', href: '/design-and-build-questionnaire/' },
     secondary: { label: 'See Our Process', href: '/our-process/' },
   },
 
@@ -88,17 +88,17 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     title: 'Bring This Level of Detail Home',
     body: 'The same team, process, and standard of finish is available for your remodel or new build in the Boise area.',
     image: '/editorial/cottage-kitchen.webp',
-    primary: { label: 'Start a Project', href: '/design-and-build-questionnaire/' },
+    primary: { label: 'Tell Us About Your House', href: '/design-and-build-questionnaire/' },
     secondary: VIEW_WORK,
   },
 
   buyOrSell: {
     eyebrow: 'Timber + Love Realty',
-    title: 'Make Your Next Move With Us',
+    title: 'Thinking about a move?',
     body: 'Buying or selling in the Boise area, you get a team that also designs and builds, so you see a home’s potential, not just its listing.',
     image: '/editorial/estate-exterior.webp',
     primary: { label: 'Buy or Sell a Home', href: site.external.realty, external: true },
-    secondary: { label: 'Talk to Our Team', href: '/contact/' },
+    secondary: { label: 'Talk to Us', href: '/contact/' },
   },
 
   sellForCash: {
@@ -115,8 +115,8 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     title: 'Invest Alongside Our Team',
     body: 'We invest in the same Boise market we design, build, and sell in. Reach out to see what is currently open.',
     image: '/projects/central-rim/exterior.webp',
-    primary: { label: 'Explore Investing', href: site.external.invest, external: true },
-    secondary: { label: 'Talk to Our Team', href: '/contact/' },
+    primary: { label: 'See Investing', href: site.external.invest, external: true },
+    secondary: { label: 'Talk to Us', href: '/contact/' },
   },
 
   stayWithUs: {
@@ -124,14 +124,14 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     title: 'Find Your Next Getaway',
     body: 'Choose the home that fits your trip, explore the details, and check your dates with its booking host.',
     image: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Stay-With-Us-Background-Image-New-Meadows-1-1.jpg',
-    primary: { label: 'Explore the Properties', href: '#properties' },
+    primary: { label: 'See the Houses', href: '#properties' },
     secondary: { label: 'Ask a Question', href: '/contact/' },
   },
 
   vacationRentals: {
     eyebrow: 'Stay With Us',
     title: 'Find Your Place for the Week',
-    body: 'City weekends, mountain mornings, and time by the ocean. Explore our homes and find the right setting for your next trip.',
+    body: 'City weekends, mountain mornings, and time by the ocean. Look through our homes and find the right setting for your next trip.',
     image: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg',
     primary: { label: 'Browse All Properties', href: '/stay-with-us/' },
     secondary: { label: 'Ask a Question', href: '/contact/' },
@@ -142,17 +142,17 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     title: 'Start With a Conversation',
     body: 'The first step is a conversation about your home, your budget, and whether we are the right team for it. Nothing is committed.',
     image: '/editorial/craftsman-dining.webp',
-    primary: { label: 'Start a Project', href: '/design-and-build-questionnaire/' },
+    primary: { label: 'Tell Us About Your House', href: '/design-and-build-questionnaire/' },
     secondary: VIEW_WORK,
   },
 
   financing: {
-    eyebrow: 'Plan the Investment',
+    eyebrow: 'Planning the cost',
     title: 'Start With a Clear Plan',
-    body: 'Tell us about your goals and budget. We will talk through the scope and what to consider before you move forward.',
+    body: 'Tell us about your house and your budget. We\'ll walk through the scope and what to think about before you commit.',
     image: '/editorial/mountain-window.webp',
     primary: START_PROJECT,
-    secondary: { label: 'Talk to Our Team', href: '/contact/' },
+    secondary: { label: 'Talk to Us', href: '/contact/' },
   },
 
   estimate: {
@@ -160,7 +160,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     title: 'Let’s Talk Through Your Project',
     body: 'An estimate is a starting point. A conversation about your home, site, and selections is what turns it into a real scope.',
     image: '/editorial/mountain-bath.webp',
-    primary: { label: 'Start a Project Inquiry', href: '/design-and-build-questionnaire/' },
+    primary: { label: 'Tell Us About Your House', href: '/design-and-build-questionnaire/' },
     secondary: { label: 'See How Financing Works', href: '/financing/' },
   },
 
@@ -170,7 +170,7 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     title: 'Start Your Own Project',
     body: `${site.name} has earned these reviews one home at a time. We would like the chance to earn yours.`,
     image: '/editorial/arched-bedroom.webp',
-    primary: { label: 'Start a Project', href: '/design-and-build-questionnaire/' },
+    primary: { label: 'Tell Us About Your House', href: '/design-and-build-questionnaire/' },
     secondary: VIEW_WORK,
   },
 
@@ -179,17 +179,17 @@ export const closingCta: Record<string, ClosingCtaProps> = {
     title: 'Building Throughout the Boise Area',
     body: 'If your home is in or near the Treasure Valley, we can likely help. Tell us where you are and what you are planning.',
     image: '/projects/stucco-in-time/living.webp',
-    primary: { label: 'Talk to Our Team', href: '/contact/' },
+    primary: { label: 'Talk to Us', href: '/contact/' },
     secondary: VIEW_WORK,
   },
 
   journal: {
     surface: 'solid',
     eyebrow: 'Beyond the Reading',
-    title: 'Ready to Plan Your Own Project?',
-    body: 'Articles can only take you so far. When you want an answer specific to your home, our team is here.',
+    title: 'Got a house in mind?',
+    body: 'Articles only go so far. When you want an answer about your own house, ask us.',
     image: '/editorial/casetta-kitchen.webp',
-    primary: { label: 'Talk to Our Team', href: '/contact/' },
+    primary: { label: 'Talk to Us', href: '/contact/' },
     secondary: VIEW_WORK,
   },
 };

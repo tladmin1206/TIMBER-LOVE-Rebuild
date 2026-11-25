@@ -128,7 +128,7 @@ export default function Header() {
           className="btn-primary hidden !px-5 !text-[11px] xl:inline-flex"
           onClick={close}
         >
-          Start a Conversation
+          Talk to Us
         </Link>
         <button
           ref={toggle}
@@ -199,7 +199,7 @@ export default function Header() {
                 {active.feature}
               </p>
               <span className="mt-3 inline-block text-xs uppercase tracking-widest text-text-secondary">
-                Explore →
+                Take a look →
               </span>
             </Link>
           </div>
@@ -289,7 +289,7 @@ export default function Header() {
             </Link>
             <div className="mt-8 flex flex-col gap-3">
               <Link href="/contact/" aria-current={pathname === "/contact/" ? "page" : undefined} onClick={close} className="btn-primary">
-                Start a Conversation
+                Talk to Us
               </Link>
               <a href={site.phoneHref} className="btn-secondary">
                 Call {site.phone}

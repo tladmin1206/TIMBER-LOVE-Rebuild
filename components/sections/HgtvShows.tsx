@@ -39,7 +39,7 @@ export default function HgtvShows() {
                   href={i === 0 ? "/shows/#boise-boys-episodes" : "/shows/#outgrown-episodes"}
                   className="inline-flex min-h-11 items-center text-xs uppercase tracking-widest underline underline-offset-4"
                 >
-                  Explore Every Episode →
+                  See Every Episode →
                 </Link>
               </div>
             </article>

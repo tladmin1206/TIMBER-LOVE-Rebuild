@@ -66,7 +66,7 @@ export default function ArticlePage({ article, path }: { article: Article; path:
           {path === '/luke-caldwell-faq/' && <nav aria-label="In this article" className="mb-10 border border-border-subtle p-6"><p className="eyebrow">Find an Answer</p><ul className="mt-4 space-y-2">{headings.map(h => <li key={h.id}><a href={`#${h.id}`} className="link-underline inline-flex min-h-11 items-center text-sm">{h.text}</a></li>)}</ul><Link href="/shows/" className="link-underline mt-4 inline-flex min-h-11 items-center text-sm">Discover Luke and Clint and the HGTV Shows →</Link></nav>}
           <BlockRenderer blocks={article.blocks} />
           <div className="mt-14 border-t border-border-subtle pt-10">
-            <p className="eyebrow">Continue the Story</p><div className="cta-row mt-5"><Link href="/timber-and-love-gallery/" className="btn-secondary">Explore Our Work</Link><Link href={showArticle ? '/shows/' : path.includes('community') ? '/about/' : '/design-and-build/'} className="btn-secondary">{showArticle ? 'Watch the Shows' : path.includes('community') ? 'Meet Timber + Love' : 'Explore Design + Build'}</Link></div>
+            <p className="eyebrow">Continue the Story</p><div className="cta-row mt-5"><Link href="/timber-and-love-gallery/" className="btn-secondary">See the Houses</Link><Link href={showArticle ? '/shows/' : path.includes('community') ? '/about/' : '/design-and-build/'} className="btn-secondary">{showArticle ? 'Watch the Shows' : path.includes('community') ? 'Meet Timber + Love' : 'Explore Design + Build'}</Link></div>
           </div>
         </div>
       </article>

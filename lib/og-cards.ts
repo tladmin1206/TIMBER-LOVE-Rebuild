@@ -28,7 +28,7 @@ export type OgCard = {
 const DEFAULT_IMAGE = '/editorial/estate-hearth.webp';
 
 const HOME: OgCard = {
-  eyebrow: 'Luxury Design + Build · Boise, Idaho',
+  eyebrow: 'Design + Build · Boise, Idaho',
   title: 'Timber + Love',
   image: DEFAULT_IMAGE,
 };
@@ -39,7 +39,7 @@ const PAGES: Record<string, OgCard> = {
   '/our-process/': { eyebrow: 'Our Process', title: 'One Team, One Clear Process', image: '/editorial/concrete-entry.webp' },
   '/timber-and-love-gallery/': { eyebrow: 'Our Work', title: 'Homes With a Story', image: '/projects/promise-ln-5106/5106-promise-ln-exterior-front.jpg' },
   '/contact/': { eyebrow: 'Contact', title: 'How Can We Help?', image: '/editorial/mountain-living.webp' },
-  '/reviews/': { eyebrow: 'Reviews', title: 'Trusted by Boise Homeowners', image: '/editorial/cottage-fireplace.webp' },
+  '/reviews/': { eyebrow: 'Reviews', title: 'What Boise homeowners say', image: '/editorial/cottage-fireplace.webp' },
   '/financing/': { eyebrow: 'Financing', title: 'Financing Your Project', image: '/editorial/craftsman-dining.webp' },
   '/service-areas/': { eyebrow: 'Where We Work', title: 'Serving Boise & the Treasure Valley', image: '/projects/promise-ln-5120/5120-promise-ln-exterior-front.jpg' },
   '/stay-with-us/': { eyebrow: 'Vacation Rentals', title: 'Stay With Us', image: '/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg' },
@@ -50,7 +50,7 @@ const PAGES: Record<string, OgCard> = {
   '/buy-or-sell/': { eyebrow: 'Timber + Love Realty', title: 'Buy or Sell a Home in Boise', image: '/projects/due-for-a-raze/exterior.webp' },
   '/sell-for-cash/': { eyebrow: 'Sell for Cash', title: 'Sell Your Home for Cash', image: '/projects/north-end-gem/exterior.webp' },
   '/invest/': { eyebrow: 'Invest', title: 'Invest in Real Estate', image: '/editorial/estate-exterior.webp' },
-  '/design-and-build-questionnaire/': { eyebrow: 'Start a Project', title: 'Tell Us About Your Home', image: '/projects/promise-ln-5120/5120-promise-ln-kitchen.jpg' },
+  '/design-and-build-questionnaire/': { eyebrow: 'Your House', title: 'Tell Us About Your House', image: '/projects/promise-ln-5120/5120-promise-ln-kitchen.jpg' },
   '/privacy-policy/': { eyebrow: 'Timber + Love', title: 'Privacy Policy', image: '/editorial/cedar-kitchen.webp' },
   '/terms-and-conditions/': { eyebrow: 'Timber + Love', title: 'Terms and Conditions', image: '/editorial/cedar-kitchen.webp' },
 };

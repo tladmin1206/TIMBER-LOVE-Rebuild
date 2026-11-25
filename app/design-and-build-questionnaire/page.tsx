@@ -14,7 +14,7 @@ export const metadata = pageMeta({ absoluteTitle: true,
 export default function Page() {
   return (
     <>
-      <JsonLd schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Start a Project', path: '/design-and-build-questionnaire/' }])} />
+      <JsonLd schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Tell Us About Your House', path: '/design-and-build-questionnaire/' }])} />
       {/* The questionnaire is the page, composed like an app screen.
           Phones: a slim title row, then the form edge to edge, starting in the
           first screen with nothing to scroll past. Wider screens: a compact
@@ -25,14 +25,14 @@ export default function Page() {
         <div className="container-wide">
           <div className="mx-auto max-w-[600px] sm:text-center">
             <div className="flex items-center justify-between gap-4 sm:block">
-              <p className="eyebrow">Start a Project</p>
+              <p className="eyebrow">Your house</p>
               <a href={site.phoneHref} className="inline-flex min-h-11 items-center text-xs uppercase tracking-[0.14em] text-text-secondary transition-colors hover:text-cream sm:hidden" data-track="questionnaire_call">
                 Call Us
               </a>
             </div>
-            <h1 className="h-display text-lg leading-snug text-cream min-[400px]:text-xl sm:mt-4 sm:text-4xl">Tell Us About Your Project</h1>
+            <h1 className="h-display text-lg leading-snug text-cream min-[400px]:text-xl sm:mt-4 sm:text-4xl">Tell Us About Your House</h1>
             <p className="mt-4 hidden text-base leading-relaxed text-text-secondary sm:block">
-              Share what you have in mind, whether it’s a remodel, an addition, or a new home. Our team will help you find the next step.
+              Tell us what you have in mind, whether it’s a remodel, an addition or a new house. We’ll help figure out the next step.
             </p>
             <p className="mt-3 hidden text-sm text-text-secondary sm:block">
               Prefer to talk? <a href={site.phoneHref} className="link-underline text-cream">{site.phone}</a>

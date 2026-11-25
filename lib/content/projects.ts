@@ -58,7 +58,7 @@ export const projects: Project[] = [
     scope: 'Design + Build · New Construction',
     style: 'Spanish Modern',
     summary:
-      'A ground-up custom home that reinterprets Spanish and Mediterranean architecture through a warm, modern lens: white stucco, arched openings, and light oak paired with dramatic natural stone.',
+      'We built this one from the ground up. White stucco outside, arched windows and doors, light oak inside, and a vaulted great room at the center.',
     designStory:
       'From the arched entry to the barrel of the great room, this home carries a single, considered idea throughout. Soft white plaster and repeated arches set a Mediterranean tone, while light oak cabinetry, honed marble, and blackened steel keep the interiors firmly modern. Designing and building under one roof let every detail resolve cleanly, from the panelled walls to the tucked-in reading niches.',
     materials: ['White stucco exterior', 'Arched steel windows and doors', 'Light rift-oak cabinetry', 'Natural marble counters and backsplashes', 'Wide-plank oak flooring', 'Handmade tile and brass fixtures'],
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     scope: 'Design + Build · New Construction',
     style: 'Modern Farmhouse',
     summary:
-      'A crisp, ground-up modern farmhouse: white board-and-batten and steep gables outside, soaring light-filled volumes and deep-green millwork accents inside.',
+      'A new modern farmhouse: white board-and-batten, steep gables, black-framed windows and a two-story great room with deep green paneling. Big bright rooms for everyone, and quieter ones when you need them.',
     designStory:
       'This home pairs the familiar warmth of a farmhouse with the discipline of modern proportion. Black-framed windows stack toward double-height ceilings, drawing light deep into the plan, while deep-green panelled millwork and a botanical powder room add moments of quiet drama. As a single design-build team, we tuned the volumes, glazing, and finishes together so the architecture and interiors read as one.',
     materials: ['Board-and-batten siding', 'Black-framed windows and doors', 'Deep-green panelled millwork', 'Natural stone and quartz counters', 'White oak flooring', 'Matte-black and brass hardware'],
@@ -139,7 +139,7 @@ export const projects: Project[] = [
     scope: 'Design + Build · New Construction',
     style: 'Modern Contemporary',
     summary:
-      'A bold, ground-up contemporary home under a sculptural butterfly roof: charcoal cladding and warm wood outside, high-contrast interiors with oxblood millwork and dramatic green marble.',
+      'A new contemporary home under a butterfly roof. Charcoal siding and warm wood outside, oxblood paneling and green marble inside, and a fireplace you can see from two rooms.',
     designStory:
       'The most architectural of the three, this home leads with a single sweeping roofline and a dark, confident material palette. Inside, oxblood panelled walls, a book-matched green marble kitchen, and a double-sided fireplace create a series of memorable rooms rather than a single open box. Coordinating design and construction as one team made the ambitious rooflines, glazing, and stonework possible without compromise.',
     materials: ['Charcoal exterior cladding with wood soffits', 'Butterfly / shed rooflines', 'Book-matched green marble', 'Oxblood panelled millwork', 'Matte-black and brass fixtures', 'Wide-plank oak flooring'],
@@ -181,7 +181,7 @@ export const projects: Project[] = [
     hgtv: "HGTV's Boise Boys, Season 2 Episode 9",
     scope: 'Whole-home remodel',
     summary:
-      'A whole-home remodel in Boise featured on HGTV’s Boise Boys, with reimagined living, kitchen, dining, and work spaces carried by a warm, modern point of view.',
+      'We did this whole-house remodel in Boise on a strict budget, with design ideas borrowed from Spain’s Basque Country. New living, kitchen, dining and work spaces.',
     cover: `${CASA}Front-Exterior-scaled.jpg`,
     featured: true,
     gallery: [
@@ -201,7 +201,7 @@ export const projects: Project[] = [
     hgtv: "HGTV's Boise Boys",
     scope: 'Historic remodel',
     summary:
-      'A historic Boise firehouse reimagined as a distinctive residence, featured on HGTV’s Boise Boys. Original character was preserved alongside a fully modernized interior. It is now a Timber + Love vacation rental.',
+      'A historic Boise firehouse we turned into a home on HGTV’s Boise Boys. It kept its original character and got a fully modernized interior. You can stay there now.',
     cover: `${FIRE}Exterior-scaled.jpg`,
     featured: true,
     stayHref: '/the-firehouse/',
@@ -225,7 +225,7 @@ export const projects: Project[] = [
   "location": "Boise, ID",
   "hgtv": "HGTV’s Boise Boys, Season 1 Episode 2",
   "scope": "Residential transformation",
-  "summary": "Cedar, stone, and long views shape this Boise home, with a wood-lined living area, a statement fireplace, and a terrace that opens the interior to its setting.",
+  "summary": "A dated house on the Central Rim that we reworked to face the valley. Cedar, stone, a statement fireplace and a terrace that makes the most of the view.",
   "cover": "/projects/central-rim/exterior.webp",
   "gallery": [
     {
@@ -263,7 +263,7 @@ export const projects: Project[] = [
   "location": "Boise, ID",
   "hgtv": "HGTV’s Boise Boys, Season 2 Episode 6",
   "scope": "Residential transformation",
-  "summary": "Exposed beams, a stone fireplace, and generous windows give this Boise home its open, welcoming character. The kitchen and living spaces share light and views.",
+  "summary": "Exposed beams, a stone fireplace and big windows. The kitchen and living room share the light and the view.",
   "cover": "/projects/stucco-in-time/living.webp",
   "gallery": [
     {
@@ -301,7 +301,7 @@ export const projects: Project[] = [
   "location": "Boise, ID",
   "hgtv": "HGTV’s Boise Boys, Season 2 Episode 7",
   "scope": "Residential transformation",
-  "summary": "A porch-front Boise home with a dramatic double-height interior, a blue kitchen, and layers of natural wood. Upstairs gathering spaces add another place to settle in.",
+  "summary": "A porch-front Boise house with a double-height living room, a blue kitchen and a lot of natural wood. Upstairs there's another place to settle in.",
   "cover": "/projects/due-for-a-raze/exterior.webp",
   "gallery": [
     {
@@ -339,7 +339,7 @@ export const projects: Project[] = [
   "location": "Boise, ID",
   "hgtv": "HGTV’s Boise Boys, Season 1 Episode 4",
   "scope": "Residential transformation",
-  "summary": "A colorful North End home with a curved porch, original character, and richly layered rooms. Green cabinetry, exposed brick, and a plant-filled sunroom give each space its own identity.",
+  "summary": "A colorful North End house with a curved porch, green kitchen cabinets, exposed brick and a sunroom full of plants.",
   "cover": "/projects/north-end-gem/exterior.webp",
   "gallery": [
     {
@@ -376,7 +376,7 @@ export const projects: Project[] = [
   ],
   "location": "Boise, ID",
   "scope": "Renovation and interior styling",
-  "summary": "A North End cottage refreshed for comfortable stays, preserving its familiar character with a bright interior and welcoming living spaces.",
+  "summary": "A small North End cottage we updated as a vacation rental. It keeps its original proportions, including a low ceiling downstairs, and has a bright kitchen and living room.",
   "cover": "/wp-content/uploads/2026/04/01-Exterior-Front-1024x683.jpg",
   "stayHref": "/the-darla-house/",
   "gallery": [
@@ -414,7 +414,7 @@ export const projects: Project[] = [
   ],
   "location": "New Meadows, ID",
   "scope": "Renovation and interior styling",
-  "summary": "A mountain cabin redesigned and styled by Luke Caldwell and the Timber + Love team, with warm gathering spaces and room to slow down.",
+  "summary": "Luke redesigned and styled this cabin in New Meadows, near McCall. Vaulted ceilings, tall windows, a big table, a loft and a hot tub. Sleeps 10.",
   "cover": "/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg",
   "stayHref": "/timber-and-love-chalet/",
   "gallery": [
@@ -452,7 +452,7 @@ export const projects: Project[] = [
   ],
   "location": "Oahu, HI",
   "scope": "Renovation and interior styling",
-  "summary": "A renovated oceanfront retreat in Kaʻaʻawa with open views toward Mokoliʻi, a beachside lawn, and bright living spaces beside the Pacific.",
+  "summary": "A renovated beach house in Kaʻaʻawa. There's a lawn beside the sand and a view toward Mokoliʻi. Three bedrooms, up to eight guests.",
   "cover": "/wp-content/uploads/2025/12/1-Oceanfront-Oahu-vacation-rental-exterior-with-direct-beach-access.png",
   "stayHref": "/kualoa-beach-house/",
   "gallery": [
@@ -489,7 +489,7 @@ export type ProjectFilterKey = 'all' | 'new-home' | 'remodel' | 'hgtv';
 export const projectFilters: { key: ProjectFilterKey; label: string }[] = [
   { key: 'all', label: 'All Projects' },
   { key: 'new-home', label: 'Custom Homes' },
-  { key: 'remodel', label: 'Renovated Retreats' },
+  { key: 'remodel', label: 'Vacation Homes' },
   { key: 'hgtv', label: 'HGTV Homes' },
 ];
 

@@ -50,7 +50,7 @@ export default function Newsletter() {
   if (status === 'ok') {
     return (
       <p role="status" className="text-sm leading-relaxed text-cream/80">
-        Thank you. Your request for Timber + Love updates has been sent to our team.
+        You&apos;re on the list. Thanks for signing up.
       </p>
     );
   }
@@ -74,7 +74,7 @@ export default function Newsletter() {
         className="w-full min-w-0 border border-border-subtle bg-transparent px-4 py-3 text-cream placeholder:text-text-muted outline-none transition-colors focus:border-cream/70"
       />
       <button type="submit" disabled={status === 'loading'} className="btn-primary w-full disabled:opacity-60">
-        {status === 'loading' ? 'Joining…' : 'Get Notified'}
+        {status === 'loading' ? 'Joining…' : 'Sign Me Up'}
       </button>
       {status === 'err' && (
         <p id="newsletter-error" role="alert" className="field-error">

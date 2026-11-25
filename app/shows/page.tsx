@@ -54,9 +54,7 @@ export default function ShowsPage() {
               <p className="eyebrow">Now on YouTube</p>
               <h2 className="h-section mt-4">Luke and Clint</h2>
               <p className="text-lead mt-5">
-                The partnership you met on HGTV continues with new projects,
-                unexpected discoveries, and plenty of laughs. Come behind the
-                scenes with Luke Caldwell and Clint Robertson.
+                The two guys you met on HGTV are back with new projects, surprises on the job and plenty of laughs. Come behind the scenes with Luke and Clint.
               </p>
               <p className="mt-4 text-sm leading-relaxed text-text-secondary">
                 Read <Link href="/building-boise-new-show-announcement/" className="link-underline">the Building Boise announcement</Link>,
@@ -119,9 +117,7 @@ export default function ShowsPage() {
             <p className="eyebrow">Where It Began</p>
             <h2 className="h-section mt-4">From Boise to Your Screen</h2>
             <p className="text-lead mt-5">
-              Boise Boys introduced Luke and Clint’s different perspectives and
-              shared love of transforming homes. Outgrown brought that same care
-              to families who needed more from the homes they already loved.
+              Boise Boys followed Luke and Clint fixing up outdated Boise houses. Outgrown followed families who needed more from the home they already loved.
             </p>
             <Link href="/the-boise-boys/" className="btn-secondary mt-6">
               Read the HGTV Story
@@ -133,15 +129,14 @@ export default function ShowsPage() {
       <HgtvEpisodeCatalog />
       <section className="section-tonal section-tight">
         <div className="container-wide grid gap-6 md:grid-cols-2">
-          <h2 className="h-card">Inspired by Something You Saw?</h2>
+          <h2 className="h-card">See a house you liked on the show?</h2>
           <p className="text-lead">
-            Explore the real homes behind the work, then imagine what might be
-            possible in yours.{" "}
+            Here are the real ones.{" "}
             <Link
               href="/timber-and-love-gallery/"
               className="underline underline-offset-4"
             >
-              Visit our portfolio.
+              See the houses.
             </Link>
           </p>
         </div>

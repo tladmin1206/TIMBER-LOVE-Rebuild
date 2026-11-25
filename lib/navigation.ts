@@ -12,17 +12,17 @@ export const navigationGroups = [
           {
             label: "Design + Build",
             href: "/design-and-build/",
-            description: "Custom homes, additions, and considered renovations.",
+            description: "Custom homes, additions and renovations.",
           },
           {
             label: "Our Work",
             href: "/timber-and-love-gallery/",
-            description: "Explore the homes and the details.",
+            description: "See the houses.",
           },
           {
             label: "Our Process",
             href: "/our-process/",
-            description: "One connected team, from concept to completion.",
+            description: "How a job goes, start to finish.",
           },
         ],
       },
@@ -30,14 +30,14 @@ export const navigationGroups = [
         title: "Plan Your Project",
         links: [
           {
-            label: "Start a Project",
+            label: "Tell Us About Your House",
             href: "/design-and-build-questionnaire/",
-            description: "Tell us about your home and your goals.",
+            description: "Tell us about your house and what you want it to feel like.",
           },
           {
             label: "Financing",
             href: "/financing/",
-            description: "Consider ways to fund your project.",
+            description: "How people pay for a remodel.",
           },
           {
             label: "Service Areas",
@@ -66,7 +66,7 @@ export const navigationGroups = [
           {
             label: "Sell for Cash",
             href: "/sell-for-cash/",
-            description: "Explore a direct offer through Buy My House.",
+            description: "A straight cash offer through Buy My House.",
           },
           {
             label: "Invest",
@@ -76,12 +76,12 @@ export const navigationGroups = [
         ],
       },
       {
-        title: "Experience the Design",
+        title: "Stay With Us",
         links: [
           {
             label: "Stay With Us",
             href: "/stay-with-us/",
-            description: "Distinctive stays in Idaho and Hawaii.",
+            description: "Our vacation homes in Boise, McCall and Oahu.",
           },
           {
             label: "Compare Vacation Homes",
@@ -110,7 +110,7 @@ export const navigationGroups = [
           {
             label: "Our Story",
             href: "/about/",
-            description: "The people and point of view behind the work.",
+            description: "Who we are and how this got started.",
           },
           {
             label: "Client Stories",
@@ -140,12 +140,12 @@ export const navigationGroups = [
           {
             label: "Press + Partnerships",
             href: "/contact/#press",
-            description: "Create something with us.",
+            description: "Press, appearances and brand partnerships.",
           },
           {
             label: "Contact",
             href: "/contact/",
-            description: "Start a conversation with our team.",
+            description: "Talk to the team.",
           },
         ],
       },
