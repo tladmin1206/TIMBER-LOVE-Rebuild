@@ -72,7 +72,7 @@ export async function POST(req: Request) {
     // private contact details, and do not pretend a console entry is capture.
     console.error('[CONTACT_CAPTURE_FAILED]', { channels: result.channels, reasons: result.reasons });
     return NextResponse.json(
-      { ok: false, error: 'Your inquiry could not be sent right now. Please try again or contact our team directly.' },
+      { ok: false, error: 'That didn\'t go through. Try again, or call us.' },
       { status: 503, headers: { 'Retry-After': '30' } }
     );
   }

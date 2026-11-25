@@ -39,13 +39,13 @@ const SEO_TITLES: Record<string, string> = {
 // Search descriptions where the on-page summary runs past ~160 characters.
 const SEO_DESCRIPTIONS: Record<string, string> = {
   'promise-lane-contemporary':
-    'A bold ground-up contemporary home under a butterfly roof, with charcoal cladding and warm wood outside and oxblood millwork and green marble inside.',
+    'A new contemporary home under a butterfly roof, with charcoal siding and warm wood outside and oxblood paneling and green marble inside.',
   'north-end-gem':
-    'A colorful North End Boise home with a curved porch and original character, plus green cabinetry, exposed brick, and a plant-filled sunroom. See the photos.',
+    'A colorful North End Boise house with a curved porch, green kitchen cabinets, exposed brick and a sunroom full of plants. See the photos.',
   'the-firehouse':
-    'A historic Boise firehouse reimagined as a residence on HGTV’s Boise Boys, keeping its original character with a modern interior. See the photos.',
+    'A historic Boise firehouse we turned into a home on HGTV’s Boise Boys. Original character, modern inside. See the photos.',
   'promise-lane-spanish-modern':
-    'A ground-up custom home that reinterprets Spanish and Mediterranean architecture with white stucco, arched openings, light oak, and natural stone.',
+    'A custom home we built from the ground up, with white stucco, arched windows and doors, light oak and natural stone.',
 };
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }) {
@@ -84,8 +84,8 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
         ])}
       />
       <PageHero eyebrow={project.category} title={project.title} image={project.cover} height="tall">
-        <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
-        <Link href="/timber-and-love-gallery/" className="btn-secondary btn-on-media">All Projects</Link>
+        <Cta href="/design-and-build-questionnaire/" variant="primary">Tell Us About Your House</Cta>
+        <Link href="/timber-and-love-gallery/" className="btn-secondary btn-on-media">See All Houses</Link>
       </PageHero>
 
       <TrustBar />
@@ -138,8 +138,8 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
       </section>
 
       {story && <section className="section-tonal section border-t border-border-subtle"><div className="container-wide">
-        <p className="eyebrow">A Closer Look</p><h2 className="h-section mt-4">The Home, the Details, the Experience</h2>
-        <div className="mt-10 grid gap-8 lg:grid-cols-3">{[['The Design Idea', story.idea], ['The Design Response', story.response], ['The Finished Home', story.result]].map(([title, body]) => <div key={title} className="border-t border-border-subtle pt-6"><h3 className="h-card-sm">{title}</h3><p className="mt-4 text-sm leading-relaxed text-text-secondary">{body}</p></div>)}</div>
+        <p className="eyebrow">Up close</p><h2 className="h-section mt-4">A closer look at the house</h2>
+        <div className="mt-10 grid gap-8 lg:grid-cols-3">{[['The idea', story.idea], ['What you\'ll notice', story.response], ['The finished house', story.result]].map(([title, body]) => <div key={title} className="border-t border-border-subtle pt-6"><h3 className="h-card-sm">{title}</h3><p className="mt-4 text-sm leading-relaxed text-text-secondary">{body}</p></div>)}</div>
         {project.materials && <div className="mt-10 border-t border-border-subtle pt-6"><p className="field-label">Materials and Finishes</p><p className="mt-4 text-sm leading-relaxed text-text-secondary">{project.materials.join(' · ')}</p></div>}
         {project.hgtv && <Link href="/shows/#hgtv-library" className="link-underline mt-7 inline-flex min-h-11 items-center text-sm">Find the Episode in Our HGTV Collection →</Link>}
       </div></section>}
@@ -149,7 +149,7 @@ export default async function ProjectPage(props: { params: Promise<{ slug: strin
         <div className="container-wide">
           <Reveal className="mb-10">
             <p className="eyebrow">The Space</p>
-            <h2 className="h-section mt-4">Take a Look Inside</h2>
+            <h2 className="h-section mt-4">Look inside</h2>
           </Reveal>
           <Gallery images={project.gallery} columns={3} />
         </div>

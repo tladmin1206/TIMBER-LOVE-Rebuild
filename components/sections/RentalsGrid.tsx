@@ -25,7 +25,7 @@ export default function RentalsGrid() {
                     <h4 className="h-card mt-3">{r.name}</h4>
                     {r.facts && <p className="mt-3 text-sm text-text-secondary">{r.facts}</p>}
                     <p className="mt-3 text-sm leading-relaxed text-body">{r.blurb}</p>
-                    <span className="mt-auto pt-6 text-xs uppercase tracking-[0.16em] text-cream">Explore This Stay <span aria-hidden="true">→</span></span>
+                    <span className="mt-auto pt-6 text-xs uppercase tracking-[0.16em] text-cream">See This Stay <span aria-hidden="true">→</span></span>
                   </div>
                 </Link>
               </Reveal>

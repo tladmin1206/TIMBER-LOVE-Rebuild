@@ -19,25 +19,25 @@ import { faqs } from '@/lib/content/faqs';
 export const metadata = pageMeta({ absoluteTitle: true,
   title: "Sell Your House for Cash in Boise | Timber + Love",
   description:
-    'Explore a direct home offer through Buy My House, an affiliated Timber + Love site. Learn who a cash sale suits and how the process works before you continue.',
+    'Thinking about selling your Boise house for cash? Here\'s who it suits, how it works and what happens when you ask for an offer through Buy My House.',
   path: '/sell-for-cash/',
 });
 
 const steps = [
   {
     num: '01',
-    heading: 'Share Your Property', image: '/projects/north-end-gem/sunroom.webp',
-    body: 'You start by telling Buy My House about the home, including its location and condition. This gives the team the basic information they need to review your property.',
+    heading: 'Tell them about the house', image: '/projects/north-end-gem/sunroom.webp',
+    body: 'Where it is and what shape it\'s in.',
   },
   {
     num: '02',
-    heading: 'The Team Reviews It', image: '/editorial/team-studio.webp',
-    body: 'Buy My House looks over the details you provide and follows up to learn more about the home and your situation.',
+    heading: 'They take a look', image: '/editorial/team-studio.webp',
+    body: 'They look over what you sent and follow up with questions.',
   },
   {
     num: '03',
-    heading: 'You Talk Through Options', image: '/projects/central-rim/terrace.webp',
-    body: 'From there, you can discuss whether a direct sale makes sense for you. There is no obligation to move forward, and you stay in control of the decision.',
+    heading: 'You decide', image: '/projects/central-rim/terrace.webp',
+    body: 'Talk it through. There\'s no obligation to move forward, and it\'s your call.',
   },
 ];
 
@@ -48,7 +48,7 @@ export default function Page() {
       <PageHero
         eyebrow="Sell for Cash"
         title="Sell Your Boise Home for Cash"
-        subtitle="A direct home offer can be a simpler path for homeowners who want to sell without listing on the open market. Here is who it suits and how it works."
+        subtitle="A cash offer can be the simpler way to sell if you don't want to list. Here's who it suits and how it works."
         image="/projects/due-for-a-raze/exterior.webp"
       >
         <Cta href={site.external.cashOffers} external newTab track="cash_request">
@@ -65,10 +65,7 @@ export default function Page() {
             <p className="eyebrow">Who It Is For</p>
             <h2 className="h-section mt-4">A Simpler Way to Sell</h2>
             <p className="text-lead mt-5">
-              A direct home offer can suit people who value a straightforward process over the traditional listing
-              route. That might be an owner facing a move on a tight timeline, someone with a property that needs work,
-              or a homeowner who simply prefers to skip showings and open houses. If any of that sounds like you, it is
-              worth a look.
+              It fits a job move, an estate, or a house that needs real work. It also fits anyone who&apos;d rather skip the showings.
             </p>
           </Reveal>
         </div>
@@ -78,8 +75,8 @@ export default function Page() {
       <section className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">How It Works</p>
-            <h2 className="h-section mt-4">A High-Level Look at the Process</h2>
+            <p className="eyebrow">The steps</p>
+            <h2 className="h-section mt-4">How it works</h2>
           </Reveal>
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
             {steps.map((s, i) => (
@@ -99,29 +96,27 @@ export default function Page() {
       <EditorialSplit
         image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Contractors-HGTVs-Boise-Boys-Firehouse-Exterior-scaled.jpg"
         imageAlt="Exterior of the Firehouse, a Boise Boys renovation by Timber + Love"
-        eyebrow="Any Home, Any Condition"
-        title="A Path That Fits Your Situation"
+        eyebrow="Condition"
+        title="Any house, any condition"
         cta="Request a Cash Offer"
         href={site.external.cashOffers}
         tone="primary"
         ratio="landscape"
       >
         <p>
-          A direct sale is not only for one kind of house. Homes at every stage, from move-in ready to in need of real
-          work, can be a fit when the timeline or the situation calls for a simpler route.
+          Move-in ready or needs real work, it can be a fit if you need to sell without the hassle.
         </p>
         <p>
-          There is no staging to arrange and no open houses to sit through. You share the property, the team reviews it,
-          and you decide whether a direct offer is right for you.
+          No staging, no open houses. You share the house, they review it, and you decide.
         </p>
       </EditorialSplit>
 
       {/* Full-bleed photographic statement before the closing ask */}
       <FeatureBand
         image="/projects/north-end-gem/living.webp"
-        eyebrow="A Simpler Path"
-        title="Sell Quickly, On Your Terms"
-        body="Skip the showings and the waiting. See what a direct offer looks like and move at the pace that works for you."
+        eyebrow="Faster"
+        title="Sell fast, skip the showings"
+        body="See what a cash offer looks like. You decide if it works."
         cta="Get a Cash Offer"
         href={site.external.cashOffers}
         height="short"
@@ -134,11 +129,9 @@ export default function Page() {
         <div className="container-wide max-w-2xl text-center">
           <Reveal>
             <p className="eyebrow">What Happens Next</p>
-            <h2 className="h-section mt-4">Continue to Buy My House</h2>
+            <h2 className="h-section mt-4">Buy My House</h2>
             <p className="text-lead mt-5">
-              When you request a cash offer, you continue to Buy My House at buymyhouse.co, an affiliated Timber and
-              Love site. There you can share details about your home and start a conversation with their team. Nothing
-              is decided by clicking through, and you are never committed to a sale.
+              When you ask for an offer, you&apos;ll go to buymyhouse.co to share details about your house and talk to their team. Nothing is decided by clicking through, and you&apos;re never committed to a sale.
             </p>
             <div className="mt-8 flex justify-center">
               <Cta href={site.external.cashOffers} external newTab track="cash_request">

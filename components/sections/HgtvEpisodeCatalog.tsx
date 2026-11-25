@@ -33,8 +33,8 @@ export default function HgtvEpisodeCatalog() {
   return <section id="hgtv-library" className="bg-bg-primary section scroll-mt-28 border-t border-border-subtle">
     <div className="container-wide">
       <span id="boise-boys-episodes" className="block scroll-mt-28" /><span id="outgrown-episodes" className="block scroll-mt-28" />
-      <p className="eyebrow">The Complete HGTV Collection</p><h2 className="h-section mt-4">Find Your Next Episode</h2>
-      <p className="text-lead mt-5 max-w-3xl">Every Boise Boys and Outgrown episode, including the Father’s Day special. Filter the collection and follow an episode for viewing options on Apple TV.</p>
+      <p className="eyebrow">The Complete HGTV Collection</p><h2 className="h-section mt-4">Pick an episode</h2>
+      <p className="text-lead mt-5 max-w-3xl">Every Boise Boys and Outgrown episode, including the Father’s Day special. Filter, pick one and follow it for viewing options on Apple TV.</p>
       <div className="mt-9 flex flex-wrap items-end gap-x-4 gap-y-3 border-y border-border-subtle py-6 sm:gap-5">
         <label className="min-w-0 flex-1 text-sm sm:flex-none">Show<select value={show} onChange={e => change(e.target.value, 'all')} className="mt-2 block min-h-12 w-full border border-cream/30 bg-ink px-4 text-base sm:w-52"><option value="all">Both shows</option><option>Boise Boys</option><option>Outgrown</option></select></label>
         <label className="min-w-0 flex-1 text-sm sm:flex-none">Season<select value={season} onChange={e => change(show, e.target.value)} className="mt-2 block min-h-12 w-full border border-cream/30 bg-ink px-4 text-base sm:w-44"><option value="all">All seasons</option>{seasons.map(s => <option key={s} value={s}>Season {s}</option>)}{collection.some(e => e.episode >= 100) && <option value="specials">Specials</option>}</select></label>

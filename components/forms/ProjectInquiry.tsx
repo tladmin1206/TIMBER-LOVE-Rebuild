@@ -495,7 +495,7 @@ function SuccessScreen({ headingRef, answers }: { headingRef: React.RefObject<HT
       </div>
       <div className="cta-row-center mt-8">
         <Link href="/timber-and-love-gallery/" className="btn-secondary">View Our Projects</Link>
-        <Link href="/design-and-build/" className="btn-secondary">Explore Design + Build</Link>
+        <Link href="/design-and-build/" className="btn-secondary">See Design + Build</Link>
       </div>
     </div>
   );

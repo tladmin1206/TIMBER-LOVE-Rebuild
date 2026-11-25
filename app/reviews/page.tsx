@@ -30,12 +30,12 @@ export default function Page() {
 
       <PageHero
         eyebrow="Reviews"
-        title="Trusted by Boise Homeowners"
+        title="What Boise homeowners say"
         subtitle="See what Boise homeowners say about working with us on Google, and take a look at the homes behind the reviews."
         image="/editorial/cottage-fireplace.webp"
         height="short"
       >
-        <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
+        <Cta href="/design-and-build-questionnaire/" variant="primary">Tell Us About Your House</Cta>
         <a href={site.reviewUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary !border-cream !bg-ink/80 !text-cream ![backdrop-filter:none] [@media(hover:hover)]:hover:!bg-cream [@media(hover:hover)]:hover:!text-on-accent" data-track="reviews_leave">
           Leave a Review ↗
         </a>
@@ -48,15 +48,15 @@ export default function Page() {
         image="/projects/promise-ln-5106/5106-promise-ln-living-room-fireplace.jpg"
         imageAlt="Bright living room with a marble fireplace and oak details in a Spanish modern custom home by Timber + Love"
         eyebrow="The Homes"
-        title="The Homes People Love to Live In"
-        cta="Explore the Homes"
+        title="Houses people love living in"
+        cta="See the Houses"
         href="/timber-and-love-gallery/"
         reverse
         tone="secondary"
         ratio="landscape"
       >
         <p>
-          Finished homes are the proof you can walk through: the kitchens people gather in, the light-filled rooms, and the details that hold up after the crew leaves.
+          The proof is in the finished houses: the kitchens people end up in, and the details that hold up after the crew leaves.
         </p>
         <p>
           Read client stories on Google. The homes are here.

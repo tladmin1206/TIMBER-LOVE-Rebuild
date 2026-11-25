@@ -31,11 +31,10 @@ export default function LukeClintFeature() {
           <p className="text-lead mt-6">
             You know the homes. Now come along for what happens next. Luke
             Caldwell and Clint Robertson bring their love of renovation, design,
-            and a good laugh to their own YouTube show.
+            and a good laugh to their own YouTube series.
           </p>
           <p className="text-lead mt-4">
-            From the team behind Boise Boys and Outgrown, it is another way to
-            get to know the people and imagination behind the work.
+            They&apos;re the same two guys you know from Boise Boys and Outgrown.
           </p>
           <div className="cta-row mt-8">
             <a
@@ -47,7 +46,7 @@ export default function LukeClintFeature() {
               Watch on YouTube ↗
             </a>
             <Link href="/shows/" className="btn-secondary">
-              Explore the Shows
+              See the Shows
             </Link>
           </div>
         </div>

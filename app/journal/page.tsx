@@ -38,7 +38,7 @@ export default function Page() {
       <PageHero
         eyebrow="Journal"
         title="Stories From Timber + Love"
-        subtitle="News, design thinking, and the story behind the Boise team building homes on and off screen."
+        subtitle="News, design ideas and the story behind the team, on screen and off."
         image="/editorial/collected-details.webp"
         height="short"
       />
@@ -64,7 +64,7 @@ export default function Page() {
                   <h2 className="h-card mt-4">{featured.title}</h2>
                   <p className="mt-4 text-sm leading-relaxed text-text-secondary">{featured.excerpt}</p>
                   <span className="mt-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-cream">
-                    Read the Story
+                    Read it
                     <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
                   </span>
                 </div>
@@ -101,20 +101,18 @@ export default function Page() {
       <EditorialSplit
         image="/projects/promise-ln-5120/5120-promise-ln-living-green-panel.jpg"
         imageAlt="Living room with green paneled millwork in a modern farmhouse custom home by Timber + Love"
-        eyebrow="Design Notes"
-        title="Details Worth Writing About"
-        cta="See Our Work"
+        eyebrow="Design notes"
+        title="Why we made the choices we made"
+        cta="See the Houses"
         href="/timber-and-love-gallery/"
         tone="secondary"
         ratio="landscape"
       >
         <p>
-          The stories we tell here start in rooms like this one, where a run of green paneling becomes the
-          quiet backbone of a whole living space.
+          This is where we explain what we kept, what we changed and why.
         </p>
         <p>
-          Our journal is a look behind those decisions: the material studies, the on-set moments, and the ideas
-          that carry from one home to the next.
+          Plus a few stories from the set.
         </p>
       </EditorialSplit>
 

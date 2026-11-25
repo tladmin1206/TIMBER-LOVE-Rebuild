@@ -53,7 +53,7 @@ const faq = [
   },
   {
     q: 'Can I get an idea of cost before I talk to a lender?',
-    a: 'Start by talking with our team about your goals, scope, and budget. We can help you understand what needs to be defined before you discuss financing with your lender.',
+    a: 'Start by talking with us about your goals, the scope and your budget. We\'ll help you figure out what needs to be pinned down before you talk to your lender.',
   },
   {
     q: 'Is this financial advice?',
@@ -78,12 +78,12 @@ export default function Page() {
       <PageHero
         eyebrow="Financing"
         title="How to Finance a Remodel or Custom Home in Boise"
-        subtitle="Most Boise homeowners pay for a remodel or custom home with savings, a home equity loan or HELOC, a renovation loan, or a construction loan. The right choice depends on your equity, timeline, and project size, so talk to a lender early and plan around a realistic budget."
+        subtitle="Most Boise homeowners pay for a remodel or custom home with savings, a home equity loan or HELOC, a renovation loan, or a construction loan. The right choice depends on your equity, your timeline and the size of the job, so talk to a lender early and plan around a real budget."
         image="/editorial/craftsman-dining.webp"
         imageMobile="/editorial/estate-breakfast.webp"
         height="short"
       >
-        <Cta href="/design-and-build-questionnaire/" variant="primary">Start a Project</Cta>
+        <Cta href="/design-and-build-questionnaire/" variant="primary">Tell Us About Your House</Cta>
         <Cta href="/our-process/" variant="secondary">Our Process</Cta>
       </PageHero>
 
@@ -94,10 +94,9 @@ export default function Page() {
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Ways to Finance</p>
-            <h2 className="h-section mt-4">Common Ways Homeowners Pay for a Project</h2>
+            <h2 className="h-section mt-4">How people pay for a remodel</h2>
             <p className="text-lead mt-4">
-              Every situation is different. These are the approaches we see most often, described at a high level to help
-              you start the conversation with your lender.
+              Every situation is different. These are the ones we see most. Use them as a starting point with your lender.
             </p>
           </Reveal>
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -122,15 +121,14 @@ export default function Page() {
       <section className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <p className="eyebrow">Plan With Confidence</p>
-            <h2 className="h-section mt-4">Start With a Realistic Number</h2>
+            <p className="eyebrow">Plan the cost</p>
+            <h2 className="h-section mt-4">Start with a real number</h2>
             <p className="text-lead mt-4">
-              A clear scope makes every financing conversation easier. Tell us about your home and your goals,
-              and we can discuss your priorities and the budget you have in mind.
+              The clearer the scope, the easier the talk with your lender. Tell us about the house and what you&apos;d like to spend.
             </p>
             <div className="cta-row mt-7">
-              <Cta href="/design-and-build-questionnaire/" variant="primary">Start a Project</Cta>
-              <Cta href="/design-and-build/" variant="secondary">Explore Design + Build</Cta>
+              <Cta href="/design-and-build-questionnaire/" variant="primary">Tell Us About Your House</Cta>
+              <Cta href="/design-and-build/" variant="secondary">See Design + Build</Cta>
             </div>
           </Reveal>
           <Reveal delay={100} className="surface-card p-8">
@@ -149,20 +147,18 @@ export default function Page() {
       <EditorialSplit
         image="/projects/promise-ln-5106/5106-promise-ln-kitchen-range.jpg"
         imageAlt="Spanish modern custom kitchen with a marble backsplash and professional range, built by Timber + Love"
-        eyebrow="Worth Planning For"
-        title="A Well-Built Home, Within Reach"
-        cta="Start a Project"
+        eyebrow="Plan for it"
+        title="Plan for the finishes you'll notice"
+        cta="Tell Us About Your House"
         href="/design-and-build-questionnaire/"
         tone="primary"
         ratio="landscape"
       >
         <p>
-          Financing is not the goal. The home is. A kitchen finished to this level, with real materials and careful
-          detailing, is exactly the kind of result a clear budget is meant to make attainable.
+          Financing is not the goal. The home is.
         </p>
         <p>
-          When you know your range up front, you can plan for the finishes that matter to you instead of guessing, and
-          the project stays grounded in what you are comfortable spending.
+          Know your range early and you can spend on the things you&apos;ll actually notice.
         </p>
       </EditorialSplit>
 

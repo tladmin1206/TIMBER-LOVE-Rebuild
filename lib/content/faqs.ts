@@ -93,7 +93,7 @@ export const faqs: Record<string, FaqItem[]> = {
     },
     {
       q: 'Do I need to know exactly what I want first?',
-      a: 'No. Most people arrive with a room that is not working and a rough sense of budget. Turning that into a defined scope is the work: arriving with it already solved is the exception, not the expectation.',
+      a: 'No. Most people arrive with a room that is not working and a rough sense of budget. Turning that into a plan is our job. Almost nobody shows up with it figured out.',
     },
     {
       q: 'How involved will I be?',

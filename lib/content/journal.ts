@@ -18,7 +18,7 @@ const posts: JournalPost[] = [
     href: '/timber-love-story-boise/',
     date: '2026-04-14',
     image: '/editorial/team-studio.webp',
-    excerpt: 'Every venture has an origin story. Here is how Timber + Love grew from a hands-on real estate and renovation practice into one connected home and real estate brand.',
+    excerpt: 'Here\'s how Timber + Love grew from a hands-on real estate and renovation practice into one home and real estate brand.',
     tag: 'Brand Story',
   },
   {

@@ -90,7 +90,7 @@ export default function PathwaySelector() {
               </p>
             </div>
             <span className="mt-6 inline-flex w-max items-center gap-2 bg-cream px-5 py-2.5 text-xs uppercase tracking-[0.16em] text-ink transition-colors group-hover:bg-cream/85">
-              Talk to Our Team
+              Talk to Us
               <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">→</span>
             </span>
             </PhotoCard>

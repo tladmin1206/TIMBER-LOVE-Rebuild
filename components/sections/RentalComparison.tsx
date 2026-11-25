@@ -29,7 +29,7 @@ export default function RentalComparison() {
     </div>
     <div className="mt-10 grid items-stretch gap-7 md:grid-cols-2 xl:grid-cols-3">
       {results.map(r => <article key={r.href} className="flex flex-col overflow-hidden border border-border-subtle bg-surface/40">
-        <Link href={r.href} data-track="property_view" className="group block overflow-hidden" aria-label={`Explore ${r.name}`}>
+        <Link href={r.href} data-track="property_view" className="group block overflow-hidden" aria-label={`See ${r.name}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}<SiteImage sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw" src={r.image} alt={`${r.name} in ${r.destination}`} loading="lazy" className="aspect-[3/2] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
         </Link>
         <div className="flex flex-1 flex-col p-6"><p className="eyebrow !text-[10px]">{r.destination}</p><h2 className="h-card-sm mt-3"><Link href={r.href}>{r.name}</Link></h2><p className="mt-4 text-sm text-cream">{r.facts}</p><p className="mt-4 text-sm leading-relaxed text-text-secondary">{r.blurb}</p>

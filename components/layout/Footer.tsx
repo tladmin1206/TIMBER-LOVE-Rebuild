@@ -67,8 +67,7 @@ export default function Footer() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={WORDMARK} alt="Timber + Love" className="h-14 w-auto" loading="lazy" />
           <p className="mt-6 max-w-xs text-sm leading-relaxed text-text-secondary">
-            One trusted Boise team for every stage of home and real estate. Design, build, buy, sell, invest, and stay,
-            led by Luke Caldwell of HGTV&apos;s Boise Boys.
+            Design, build, buy, sell, invest or stay. One Boise team, led by Luke Caldwell of HGTV&apos;s Boise Boys.
           </p>
           <div className="mt-4 flex gap-6 text-xs uppercase tracking-[0.16em]">
             <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-text-secondary transition-colors hover:text-cream">Instagram</a>
@@ -108,9 +107,9 @@ export default function Footer() {
         </div>
 
         <div className="lg:col-span-3">
-          <p className="font-light text-xs uppercase tracking-[0.18em] text-cream sm:text-sm">Stay in the Loop</p>
+          <p className="font-light text-xs uppercase tracking-[0.18em] text-cream sm:text-sm">Stay in the loop</p>
           <p className="mt-4 text-sm sm:mt-6 leading-relaxed text-text-secondary">
-            Get occasional design inspiration and Timber + Love updates in your inbox.
+            Now and then we send design ideas and news from the team.
           </p>
           <div className="mt-5">
             <Newsletter />
