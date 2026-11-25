@@ -6,8 +6,19 @@ import { site } from '@/lib/site';
 // that sits in a section below the hero.
 export const heroVideoId = '967117381'; // Vimeo: hero background video
 export const heroVideoPoster = '/video-posters/967117381.jpg';
-export const introVideoId = '953577619'; // Vimeo: inline "Designing Beauty" player
-export const introVideoPoster = '/video-posters/953577619.jpg';
+export const introVideoId = '953577619'; // Vimeo: former inline "Designing Beauty" player (kept for reference)
+// Inline "Who We Are" film: self-hosted drone clip of the Boise homes with the
+// foreground lot edited to lawn (Jared 11/25). Muted, continuous loop.
+export const introFilm = {
+  sources: {
+    webm1080: '/videos/who-we-are-v1-1080.webm',
+    mp41080: '/videos/who-we-are-v1-1080.mp4',
+    webm720: '/videos/who-we-are-v1-720.webm',
+    mp4720: '/videos/who-we-are-v1-720.mp4',
+  },
+  poster: '/videos/who-we-are-v1-poster.jpg',
+};
+export const introVideoPoster = introFilm.poster;
 
 // Full-bleed background videos used across homepage sections (Vimeo ids + local poster frames).
 export const sectionVideos = {

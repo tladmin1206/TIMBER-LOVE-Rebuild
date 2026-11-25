@@ -14,7 +14,7 @@ import { closingCta } from '@/lib/content/closing';
 import Reveal from '@/components/ui/Reveal';
 import PhotoCard from '@/components/ui/PhotoCard';
 import VideoBg from '@/components/ui/VideoBg';
-import InlineVideo from '@/components/ui/InlineVideo';
+import LoopVideo from '@/components/ui/LoopVideo';
 import LogoMarquee from '@/components/ui/LogoMarquee';
 import ModalButton from '@/components/ui/ModalButton';
 import { site } from '@/lib/site';
@@ -23,8 +23,7 @@ import {
   processSteps,
   mission,
   pressLogos,
-  introVideoId,
-  introVideoPoster,
+  introFilm,
   sectionVideos,
   hgtvShows,
 } from '@/lib/content/home';
@@ -83,7 +82,7 @@ export default function HomePage() {
         </div>
         <div className="container-wide mt-12">
           <Reveal>
-            <InlineVideo videoId={introVideoId} poster={introVideoPoster} />
+            <LoopVideo sources={introFilm.sources} poster={introFilm.poster} title="Timber + Love homes in Boise" />
           </Reveal>
         </div>
       </section>
