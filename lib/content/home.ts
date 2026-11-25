@@ -11,12 +11,21 @@ export const introVideoId = '953577619'; // Vimeo: former inline "Designing Beau
 // foreground lot edited to lawn (Jared 11/25). Muted, continuous loop.
 export const introFilm = {
   sources: {
-    webm1080: '/videos/who-we-are-v1-1080.webm',
-    mp41080: '/videos/who-we-are-v1-1080.mp4',
-    webm720: '/videos/who-we-are-v1-720.webm',
-    mp4720: '/videos/who-we-are-v1-720.mp4',
+    webm1080: '/videos/timber-and-love-custom-homes-boise.webm',
+    mp41080: '/videos/timber-and-love-custom-homes-boise.mp4',
+    webm720: '/videos/timber-and-love-custom-homes-boise-720p.webm',
+    mp4720: '/videos/timber-and-love-custom-homes-boise-720p.mp4',
   },
-  poster: '/videos/who-we-are-v1-poster.jpg',
+  poster: '/videos/timber-and-love-custom-homes-boise-poster.jpg',
+  // Accessible name and tooltip for the film (videos have no alt attribute).
+  label: 'Aerial view of new custom homes on a Boise street, built by Timber + Love design-build',
+  title: 'Timber + Love custom homes in Boise, Idaho',
+  // VideoObject structured data fields.
+  name: 'Timber + Love custom homes in Boise, Idaho',
+  description:
+    'A drone flyover of new custom homes on a Boise, Idaho street. Timber + Love is a Boise design-build firm founded in 2015 by Luke Caldwell of HGTV\'s Boise Boys, building custom homes and high-end remodels.',
+  uploadDate: '2026-11-25',
+  duration: 'PT17S',
 };
 export const introVideoPoster = introFilm.poster;
 

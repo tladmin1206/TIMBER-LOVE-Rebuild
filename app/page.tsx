@@ -15,6 +15,7 @@ import Reveal from '@/components/ui/Reveal';
 import PhotoCard from '@/components/ui/PhotoCard';
 import VideoBg from '@/components/ui/VideoBg';
 import LoopVideo from '@/components/ui/LoopVideo';
+import JsonLd from '@/components/JsonLd';
 import LogoMarquee from '@/components/ui/LogoMarquee';
 import ModalButton from '@/components/ui/ModalButton';
 import { site } from '@/lib/site';
@@ -82,7 +83,25 @@ export default function HomePage() {
         </div>
         <div className="container-wide mt-12">
           <Reveal>
-            <LoopVideo sources={introFilm.sources} poster={introFilm.poster} title="Timber + Love homes in Boise" />
+            <LoopVideo
+              sources={introFilm.sources}
+              poster={introFilm.poster}
+              title={introFilm.title}
+              label={introFilm.label}
+            />
+            <JsonLd
+              schema={{
+                '@context': 'https://schema.org',
+                '@type': 'VideoObject',
+                name: introFilm.name,
+                description: introFilm.description,
+                thumbnailUrl: [`${site.url}${introFilm.poster}`],
+                contentUrl: `${site.url}${introFilm.sources.mp41080}`,
+                uploadDate: introFilm.uploadDate,
+                duration: introFilm.duration,
+                publisher: { '@type': 'Organization', name: 'Timber + Love', url: site.url },
+              }}
+            />
           </Reveal>
         </div>
       </section>

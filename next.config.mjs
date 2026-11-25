@@ -61,11 +61,11 @@ const nextConfig = {
         headers: [{ key: 'Cache-Control', value: 'public, max-age=2592000, stale-while-revalidate=86400' }],
       },
       {
-        // Self-hosted films (public/videos). File names carry a version
-        // (who-we-are-v1-...), so a new cut ships under a new name and the
-        // old one can be cached for a year without going stale.
+        // Self-hosted films (public/videos). A week in the browser, then a
+        // quiet revalidate, so a recut under the same descriptive file name
+        // reaches visitors within days.
         source: '/videos/:path*',
-        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=604800, stale-while-revalidate=86400' }],
       },
       // ADA-NS-08: noindex every host that is not production (the replit.app
       // preview, localhost, any other deploy). Keyed on the Host header so

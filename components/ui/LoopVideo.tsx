@@ -26,11 +26,14 @@ export default function LoopVideo({
   poster,
   className = '',
   title = 'Timber + Love',
+  label,
 }: {
   sources: LoopVideoSources;
   poster: string;
   className?: string;
   title?: string;
+  /** Descriptive accessible name; falls back to the title. */
+  label?: string;
 }) {
   const video = useRef<HTMLVideoElement>(null);
   const [reduced, setReduced] = useState(false);
@@ -89,7 +92,8 @@ export default function LoopVideo({
         controls={reduced}
         disablePictureInPicture
         disableRemotePlayback
-        aria-label={title}
+        aria-label={label ?? title}
+        title={title}
       >
         {sources.webm720 && <source src={sources.webm720} type="video/webm" media={mobile} />}
         {sources.mp4720 && <source src={sources.mp4720} type="video/mp4" media={mobile} />}
