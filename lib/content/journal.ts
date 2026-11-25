@@ -34,7 +34,7 @@ const posts: JournalPost[] = [
     href: '/building-boise-new-show-announcement/',
     date: '2026-04-12',
     image: '/editorial/luke-clint.webp',
-    excerpt: 'Luke Caldwell and Clint Robertson team up again for Building Boise, a new independent series. Here is what to expect.',
+    excerpt: 'Luke Caldwell and Clint Robertson team up again for Building Boise, a new YouTube series. Here is what to expect.',
     tag: 'News',
   },
   {

@@ -29,7 +29,7 @@ const intro =
 const faq = [
   {
     q: 'Who are the Boise Boys?',
-    a: "Luke Caldwell and Clint Robertson. Their HGTV series Boise Boys followed them as they renovated homes around Boise, and Luke went on to the family-focused series Outgrown. Today they share new projects on their independent YouTube show, Luke and Clint.",
+    a: "Luke Caldwell and Clint Robertson. Their HGTV series Boise Boys followed them as they renovated homes around Boise, and Luke went on to the family-focused series Outgrown. Today they share new projects on their YouTube series, Luke and Clint.",
   },
   {
     q: 'Can you stay in a Boise Boys home?',
@@ -120,7 +120,7 @@ export default function Page() {
 
       {/* Full-bleed photographic statement: from the show to working with clients. */}
       <EditorialSplit image="/editorial/luke-clint-studio.webp" imageAlt="Luke Caldwell and Clint Robertson" eyebrow="From the Show to Your Home" title="The Same Care, Off Camera" ratio="natural" tone="primary" href="/shows/" cta="Watch Luke and Clint">
-        <p>The homes are only part of the story. Get to know Luke and Clint, revisit the HGTV series, and watch their independent show on YouTube.</p>
+        <p>The homes are only part of the story. Get to know Luke and Clint, revisit the HGTV series, and watch their YouTube series.</p>
       </EditorialSplit>
 
       {/* Fan comments: viewer remarks about the shows. Not testimonials, not
