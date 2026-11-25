@@ -31,10 +31,10 @@ export default function LukeClintFeature() {
           <p className="text-lead mt-6">
             You know the homes. Now come along for what happens next. Luke
             Caldwell and Clint Robertson bring their love of renovation, design,
-            and a good laugh to their own YouTube show.
+            and a good laugh to their own YouTube series.
           </p>
           <p className="text-lead mt-4">
-            Same two guys, now with their own YouTube series.
+            They&apos;re the same two guys you know from Boise Boys and Outgrown.
           </p>
           <div className="cta-row mt-8">
             <a

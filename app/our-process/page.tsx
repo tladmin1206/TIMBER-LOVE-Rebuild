@@ -45,7 +45,7 @@ const phases: ProcessPhase[] = [
   {
     title: 'Plans and materials',
     body: 'We tighten up the plans, then sit down with Luke and the team to pick materials, fixtures and finishes before anything gets built.',
-    receive: 'Plans and materials you've signed off on',
+    receive: 'Plans and materials you\'ve signed off on',
     decision: "Approve selections and developed plans.",
   },
   {

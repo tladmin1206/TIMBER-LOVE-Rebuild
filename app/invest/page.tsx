@@ -63,7 +63,7 @@ export default function Page() {
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">What you can find there</p>
-            <h2 className="h-section mt-4">What's on the realty site</h2>
+            <h2 className="h-section mt-4">What&apos;s on the realty site</h2>
             
           </Reveal>
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
