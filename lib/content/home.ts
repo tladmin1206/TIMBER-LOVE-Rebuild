@@ -25,7 +25,7 @@ export const introFilm = {
   description:
     'A drone flyover of new custom homes on a Boise, Idaho street. Timber + Love is a Boise design-build firm founded in 2015 by Luke Caldwell of HGTV\'s Boise Boys, building custom homes and high-end remodels.',
   uploadDate: '2026-11-25',
-  duration: 'PT17S',
+  duration: 'PT36S',
 };
 export const introVideoPoster = introFilm.poster;
 
