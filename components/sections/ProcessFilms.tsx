@@ -1,9 +1,9 @@
 import InlineVideo from '@/components/ui/InlineVideo';
 
 const films = [
-  { title: 'Concept Development', id: '966721424', body: 'Understand the home, explore layouts, and establish a direction.' },
-  { title: 'Design Development', id: '966728565', body: 'Bring the plans, materials, and selections together before building.' },
-  { title: 'Construction', id: '966901133', body: 'Follow the coordination and care that turn the design into a home.' },
+  { title: 'First sketches', id: '966721424', body: 'Get to know the house and try a few layouts.' },
+  { title: 'Plans and materials', id: '966728565', body: 'Settle the details before we build.' },
+  { title: 'Construction', id: '966901133', body: 'See how a drawing becomes a house.' },
 ];
 
 export default function ProcessFilms() {

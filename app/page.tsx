@@ -34,7 +34,7 @@ export const metadata = pageMeta({
   absoluteTitle: true,
   title: "Timber + Love | Boise Design-Build by HGTV's Luke Caldwell",
   description:
-    "Timber + Love is a Boise design-build firm led by HGTV's Luke Caldwell. Custom homes and luxury remodels, designed and built by one team. Start here.",
+    "Timber + Love is a Boise design-build firm led by Luke Caldwell of HGTV's Boise Boys. We design and build custom homes and remodels with one team. Tell us about your house.",
   path: '/',
 });
 
@@ -68,15 +68,14 @@ export default function HomePage() {
       <section className="section-tonal border-t border-border-subtle section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <p className="eyebrow">Who We Are</p>
-            <h2 className="h-section mt-4">A Luxury Design + Build Firm</h2>
+            <p className="eyebrow">Since 2015</p>
+            <h2 className="h-section mt-4">Who we are</h2>
           </Reveal>
           <Reveal delay={120} className="flex items-end">
             <p className="text-body">
-              Founded in 2015 by Luke Caldwell of HGTV&apos;s Boise Boys, Timber + Love offers{' '}
-              <Link href="/design-and-build/" className="link-underline">design-build in Boise</Link> for custom homes
-              and high-end remodels, from the first drawing to the final walkthrough. Design and construction happen
-              under one roof, so nothing is lost between the vision and the build.{' '}
+              Luke Caldwell of HGTV&apos;s Boise Boys started Timber + Love in Boise in 2015. The people who draw your house are
+              the people who build it, and you can see how that works on our{' '}
+              <Link href="/design-and-build/" className="link-underline">design-build page</Link>.{' '}
               <Link href="/reviews/" className="link-underline">Read what our clients say</Link>.
             </p>
           </Reveal>
@@ -114,10 +113,9 @@ export default function HomePage() {
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">What We Do</p>
-            <h2 id="wwd-heading" className="h-section mt-4">Custom Homes and Luxury Remodels</h2>
+            <h2 id="wwd-heading" className="h-section mt-4">New homes and remodels</h2>
             <p className="text-lead mt-5">
-              Two ways we work, one team behind both. Every project is fully custom, designed and built in house from
-              the first concept to the final detail.
+              Two ways to work with us, one team behind both. Everything is designed and built in house.
             </p>
           </Reveal>
 
@@ -126,8 +124,8 @@ export default function HomePage() {
               {
                 key: 'new-builds',
                 title: 'New Builds',
-                blurb: 'Custom homes designed and built from the ground up, tailored to exactly how you live.',
-                cta: 'Explore New Builds',
+                blurb: 'A new home drawn around how your family really lives, from the lot up.',
+                cta: 'See New Builds',
                 href: '/design-and-build/',
                 image:
                   '/projects/promise-ln-5106/5106-promise-ln-exterior-front.jpg',
@@ -135,7 +133,7 @@ export default function HomePage() {
               {
                 key: 'remodels',
                 title: 'Remodels',
-                blurb: 'Whole-home renovations and high-end remodels that reimagine the home you already have.',
+                blurb: 'For the house you already have: whole-home renovations, kitchens, additions and updates.',
                 cta: 'See Our Remodels',
                 href: '/timber-and-love-gallery/',
                 image:
@@ -176,10 +174,10 @@ export default function HomePage() {
 
           <div className="cta-row mt-8 sm:mt-10">
             <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="wwd_plan">
-              Start a Project
+              Tell Us About Your House
             </Link>
             <Link href="/contact/" className="btn-secondary" data-track="wwd_consult">
-              Talk to Our Team
+              Talk to Us
             </Link>
           </div>
         </div>
@@ -188,9 +186,9 @@ export default function HomePage() {
       {/* Full-bleed photographic statement: design + build under one roof. */}
       <FeatureBand
         image="/editorial/cedar-kitchen.webp"
-        eyebrow="One Team, One Roof"
-        title="Designed and Built Under One Roof"
-        body="From the first sketch to the final fixture, our designers and builders work together on every detail, so nothing is lost between the vision and the finished home."
+        eyebrow="One team"
+        title="Designers and builders on one team"
+        body="Our designers and builders work side by side from the first sketch. We check what it will cost and how it gets built while the plans are still on paper, not after."
       />
 
       <LukeTrustBar />
@@ -202,9 +200,9 @@ export default function HomePage() {
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Featured Work</p>
-            <h2 className="h-section mt-4">Different Homes. One Considered Approach.</h2>
+            <h2 className="h-section mt-4">Three of our favorites</h2>
             <p className="text-lead mt-5">
-              Explore a custom home, a beam-filled renovation, and a characterful North End transformation. Each begins with the home and the people who live there.
+              A new custom home, a renovation full of beams, and a North End house with a character of its own. Every one started with the people who live there.
             </p>
           </Reveal>
           <div className="mt-10 grid gap-6 sm:mt-14 md:grid-cols-2 lg:grid-cols-3">
@@ -230,7 +228,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="cta-row mt-8 sm:mt-10">
-            <Link href="/timber-and-love-gallery/" className="btn-secondary">Explore the Full Portfolio</Link>
+            <Link href="/timber-and-love-gallery/" className="btn-secondary">See the Houses</Link>
           </div>
         </div>
       </section>
@@ -241,13 +239,11 @@ export default function HomePage() {
           <div className="grid gap-8 lg:grid-cols-2 lg:items-end">
             <Reveal>
               <p className="eyebrow">Let&apos;s Work Together</p>
-              <h2 className="h-section mt-4">Get Started In 3 Simple Steps</h2>
+              <h2 className="h-section mt-4">How it starts</h2>
             </Reveal>
             <Reveal delay={120} className="flex items-end">
               <p className="text-body">
-                Every home we design and build starts the same way: a simple, three-step process, then collaboration,
-                creativity, and precision as we bring it to life. Tell us what you have in mind,
-                and our team will help you find the right starting point.
+                Tell us what you have in mind. We&apos;ll talk it through and point you to the right starting place.
               </p>
             </Reveal>
           </div>
@@ -264,10 +260,10 @@ export default function HomePage() {
           </div>
           <div className="cta-row mt-8 sm:mt-10">
             <Link href="/design-and-build-questionnaire/" className="btn-primary" data-track="process_plan">
-              Start a Project
+              Tell Us About Your House
             </Link>
             <Link href="/our-process/" className="btn-secondary" data-track="process_learn">
-              See How It Works
+              See How a Job Goes
             </Link>
           </div>
         </div>
@@ -286,7 +282,7 @@ export default function HomePage() {
         />
         <div className="container-wide relative z-10 grid gap-12 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <p className="eyebrow">Why Choose Us</p>
+            <p className="eyebrow">How we run it</p>
             <h2 id="values-heading" className="h-section mt-4">Our Values</h2>
             <p className="text-lead mt-5 max-w-md">{mission}</p>
             <ModalButton modal="work-with-us" className="btn-secondary btn-on-media mt-8 w-full sm:w-auto">Work With Us</ModalButton>
@@ -306,10 +302,10 @@ export default function HomePage() {
       <section className="bg-ink section" aria-labelledby="start-project-heading">
         <div className="container-wide">
           <Reveal className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow">Your Home, Realized</p>
-            <h2 id="start-project-heading" className="h-section mt-4">Let&apos;s Design Something Worth Building</h2>
-            <p className="text-lead mt-5">Tell us about your home and your goals, and let’s bring your vision to life.</p>
-            <Link href="/design-and-build-questionnaire/" className="btn-primary mt-8 flex w-full sm:inline-flex sm:w-auto">Start a Project</Link>
+            <p className="eyebrow">Tell us about it</p>
+            <h2 id="start-project-heading" className="h-section mt-4">Let&apos;s Talk About Your House</h2>
+            <p className="text-lead mt-5">Tell us about your house and what you want it to feel like when we&apos;re done.</p>
+            <Link href="/design-and-build-questionnaire/" className="btn-primary mt-8 flex w-full sm:inline-flex sm:w-auto">Tell Us About Your House</Link>
           </Reveal>
         </div>
       </section>

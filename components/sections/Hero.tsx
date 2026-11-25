@@ -40,17 +40,16 @@ export default function Hero() {
             <span className="h-hero block animate-fadeUp [animation-delay:60ms]">Timber + Love</span>
             <span className="sr-only">: </span>
             <span className="mt-4 block max-w-2xl animate-fadeUp text-[0.95rem] font-normal uppercase leading-relaxed tracking-brand text-cream/90 [animation-delay:120ms] sm:text-xl">
-              Luxury Custom Homes and Remodels in Boise
+              Custom Homes and Remodels in Boise
             </span>
           </h1>
           <p className="mt-5 max-w-xl animate-fadeUp text-[0.95rem] leading-relaxed text-cream/85 [animation-delay:200ms] sm:text-base">
-            Timber + Love is a Boise design-build firm that designs and builds custom homes and luxury remodels, led by
-            Luke Caldwell of HGTV&apos;s Boise Boys. One team, from the first drawing to the final walkthrough.
+            We&apos;re a Boise design-build firm, led by Luke Caldwell of HGTV&apos;s Boise Boys. We design and build custom homes and remodels. One team, from the first drawing to the final walkthrough.
           </p>
 
           <div className="cta-row mt-8 animate-fadeUp [animation-delay:280ms]">
             <Cta href="/design-and-build-questionnaire/" variant="primary" track="hero_plan_project">
-              Start a Project
+              Tell Us About Your House
             </Cta>
             <Cta href="/timber-and-love-gallery/" variant="secondary" className="btn-on-media" track="hero_explore_work">
               See Our Work

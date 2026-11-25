@@ -18,7 +18,7 @@ const posts: JournalPost[] = [
     href: '/timber-love-story-boise/',
     date: '2026-04-14',
     image: '/editorial/team-studio.webp',
-    excerpt: 'Every venture has an origin story. Here is how Timber + Love grew from a hands-on real estate and renovation practice into one connected home and real estate brand.',
+    excerpt: 'Here\'s how Timber + Love grew from a hands-on real estate and renovation practice into one home and real estate brand.',
     tag: 'Brand Story',
   },
   {
@@ -34,7 +34,7 @@ const posts: JournalPost[] = [
     href: '/building-boise-new-show-announcement/',
     date: '2026-04-12',
     image: '/editorial/luke-clint.webp',
-    excerpt: 'Luke Caldwell and Clint Robertson team up again for Building Boise, a new independent series. Here is what to expect.',
+    excerpt: 'Luke Caldwell and Clint Robertson team up again for Building Boise, a new YouTube series. Here is what to expect.',
     tag: 'News',
   },
   {

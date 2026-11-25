@@ -34,9 +34,8 @@ export default function LukeTrustBar({ className = '' }: { className?: string })
               Led by Luke Caldwell
             </h2>
             <p className="mt-5 text-lead">
-              Luke leads design at Timber + Love, the same warm, modern sensibility behind his book Americana Soul and
-              HGTV&apos;s Boise Boys and Outgrown. Every project is designed and built by his team, here in the Treasure
-              Valley.
+              Luke leads design at Timber + Love. He wrote Americana Soul and co-hosted HGTV&apos;s Boise Boys. Every project
+              is designed and built by his team, here in Boise.
             </p>
 
             <div className="cta-row mt-8 sm:justify-center md:justify-start">

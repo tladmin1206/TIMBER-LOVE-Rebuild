@@ -16,7 +16,7 @@ import { pathways } from '@/lib/site';
 export default function CrossPathways({
   keys,
   eyebrow = 'Also Considering?',
-  title = 'One Team, Every Stage of Home',
+  title = 'One team, a few ways to help',
   lede = 'Plenty of people arrive for one thing and leave having found another. If either of these is closer to what you need, start there instead.',
 }: {
   keys: string[];

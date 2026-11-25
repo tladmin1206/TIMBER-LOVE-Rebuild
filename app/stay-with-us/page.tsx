@@ -15,7 +15,7 @@ import { faqs } from '@/lib/content/faqs';
 export const metadata = pageMeta({ absoluteTitle: true,
   title: "Vacation Rentals in Boise, McCall and Oahu | Timber + Love",
   description:
-    'Find your next getaway in Boise, McCall, or Oahu, including The Kualoa Beach House and The Caldwell Beach House. Explore photos and check availability.',
+    'Vacation homes in Boise, McCall and Oahu, including The Kualoa Beach House and The Caldwell Beach House. See photos and check availability.',
   path: '/stay-with-us/',
 });
 
@@ -26,18 +26,18 @@ export default function Page() {
       <PageHero
         eyebrow="Vacation Rentals"
         title="Stay With Us"
-        subtitle="A weekend in Boise, a mountain escape, or mornings beside the Pacific. Find a Timber + Love home for your next getaway."
+        subtitle="A weekend in Boise, a few days in the mountains, or mornings beside the Pacific. Pick a Timber + Love home for your next trip."
         videoId="928750123"
         image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg"
       >
-        <Cta href="#properties">Explore the Properties</Cta>
+        <Cta href="#properties">See the Houses</Cta>
         <Cta href="/vacation-rentals/" variant="secondary">Compare Homes and Group Sizes</Cta>
       </PageHero>
       <section id="properties" className="bg-bg-primary section scroll-mt-24">
         <div className="container-wide">
           <Reveal className="mb-12 max-w-2xl">
-            <p className="eyebrow">Our Rentals</p>
-            <h2 className="h-section mt-4">Find Your Perfect Stay</h2>
+            <p className="eyebrow">Our vacation homes</p>
+            <h2 className="h-section mt-4">Pick a house</h2>
           </Reveal>
           <RentalsGrid />
         </div>
@@ -46,19 +46,18 @@ export default function Page() {
       <EditorialSplit
         image="/wp-content/uploads/2024/03/Timber-and-Love-Home-Remodeling-Company-Timber-and-Love-Chalet-Exterior-Front-scaled.jpg"
         imageAlt="Front exterior of the Timber + Love Chalet, a mountain-modern vacation rental designed and built by the studio"
-        eyebrow="Mountain Getaway"
-        title="Mountain Time, Near McCall"
-        cta="Explore the Chalet"
+        eyebrow="The Chalet"
+        title="Mountain time, near McCall"
+        cta="See the Chalet"
         href="/timber-and-love-chalet/"
         tone="secondary"
         ratio="landscape"
       >
         <p>
-          Settle into the Chalet for a change of pace in Idaho’s mountains. Gather with your favorite people,
-          head out to explore, and come back to a home of your own for the evening.
+          A hot tub, room for ten, and a big table to sit around.
         </p>
         <p>
-          Browse the rooms, amenities, and details to see whether it is the right fit for your trip.
+          See the rooms and amenities and check your dates.
         </p>
       </EditorialSplit>
 
@@ -66,9 +65,9 @@ export default function Page() {
         <div className="container-wide">
           <Reveal className="mb-12 max-w-2xl">
             <p className="eyebrow">A Look Inside</p>
-            <h2 className="h-section mt-4">From the Boise Foothills to the Oahu Shore</h2>
+            <h2 className="h-section mt-4">Boise, McCall or Oahu</h2>
             <p className="text-lead mt-4">
-              Find a setting that feels like your kind of getaway, from a historic city stay to a home beside the water.
+              Pick a place, then pick a house.
             </p>
           </Reveal>
           <Gallery

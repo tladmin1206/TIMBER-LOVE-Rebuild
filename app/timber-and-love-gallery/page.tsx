@@ -15,7 +15,7 @@ import ProofSection from '@/components/sections/ProofSection';
 export const metadata = pageMeta({ absoluteTitle: true,
   title: "Our Work | Boise Custom Homes and Remodels | Timber + Love",
   description:
-    'Explore Timber + Love custom homes, HGTV transformations, and renovated retreats in Idaho and Hawaii, with photographs and the story behind each project.',
+    'Timber + Love custom homes, HGTV remodels and vacation homes in Idaho and Hawaii, with photos of each one.',
   path: '/timber-and-love-gallery/',
 });
 
@@ -25,8 +25,8 @@ export default function Page() {
       <JsonLd schema={breadcrumbSchema([{ name: 'Home', path: '/' }, { name: 'Our Work', path: '/timber-and-love-gallery/' }])} />
       <PageHero
         eyebrow="Our Work"
-        title="Our Work: Custom Homes and Remodels With a Story"
-        subtitle="Custom homes, HGTV transformations, and distinctive retreats. Explore the variety of our work, from Boise to the Pacific."
+        title="Our Work"
+        subtitle="Custom homes, HGTV remodels and a few places you can stay. Boise to Oahu."
         image={projects[0]?.cover}
         height="short"
       />
@@ -38,9 +38,9 @@ export default function Page() {
         <div className="container-wide">
           <Reveal className="max-w-2xl">
             <p className="eyebrow">Featured Projects</p>
-            <h2 className="h-section mt-4">Selected Work</h2>
+            <h2 className="h-section mt-4">Our houses</h2>
             <p className="text-lead mt-4">
-              {projects.length} distinct homes, each with its own character. Explore new construction, renovated retreats, and the homes featured on HGTV’s Boise Boys.
+              {projects.length} houses so far. New builds, vacation homes and the Boise Boys remodels.
             </p>
           </Reveal>
           <div className="mt-10">
@@ -54,9 +54,9 @@ export default function Page() {
       {/* A photographic transition from the projects to client stories. */}
       <FeatureBand
         image="/wp-content/uploads/2024/05/Timber-and-Love-Boise-Home-Remodeling-Boise-Boys-Season-1-Episode-2-All-in-On-Boises-Central-Rim-Main-Living-Space-1-scaled.jpg"
-        eyebrow="Designed and Built by Us"
-        title="Where the Details Live"
-        body="Every project is fully custom, designed and built in house from the first concept to the final detail."
+        eyebrow="In house"
+        title="Designed and built by us"
+        body="We design and build everything in house."
         align="left"
         height="short"
       />

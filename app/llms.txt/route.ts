@@ -13,7 +13,7 @@ export function GET() {
   const lines = [
     `# ${site.name}`,
     '',
-    `> ${site.name} is a design-build firm in Boise, Idaho, founded in ${site.founded} and led by Luke Caldwell of HGTV's Boise Boys. It designs and builds custom homes and luxury remodels across the Treasure Valley, and connects clients to affiliated real estate, cash offer, investment and vacation rental services.`,
+    `> ${site.name} is a design-build firm in Boise, Idaho, founded in ${site.founded} and led by Luke Caldwell of HGTV's Boise Boys. It designs and builds custom homes and remodels across the Treasure Valley, and connects clients to affiliated real estate, cash offer, investment and vacation rental services.`,
     '',
     `- Business name: ${site.gbpName} (brand mark: ${site.name})`,
     `- Address: ${site.address.full}`,

@@ -25,7 +25,7 @@ export const introFilm = {
   description:
     'A drone flyover of new custom homes on a Boise, Idaho street. Timber + Love is a Boise design-build firm founded in 2015 by Luke Caldwell of HGTV\'s Boise Boys, building custom homes and high-end remodels.',
   uploadDate: '2026-11-25',
-  duration: 'PT17S',
+  duration: 'PT36S',
 };
 export const introVideoPoster = introFilm.poster;
 
@@ -125,7 +125,7 @@ export const services = [
     title: 'Design + Build',
     body: 'Custom homes, additions, and whole-home renovations from one connected in-house team.',
     href: '/design-and-build/',
-    cta: 'Explore Design + Build',
+    cta: 'See Design + Build',
   },
   {
     title: 'Buy or Sell',
@@ -135,7 +135,7 @@ export const services = [
   },
   {
     title: 'Vacation Rentals',
-    body: 'Distinctive Timber + Love stays in Boise, McCall, and Oahu.',
+    body: 'Our vacation homes in Boise, McCall and Oahu.',
     href: '/stay-with-us/',
     cta: 'View Vacation Rentals',
   },
@@ -150,45 +150,45 @@ export const services = [
 export const values = [
   {
     title: 'Integrity',
-    body: 'Honesty and transparency are at the heart of everything we do. We ensure our clients are always informed and confident in our work. Our commitment to integrity builds trust and strong relationships with everyone we work with, from clients to partners and the community.',
+    body: 'We tell you what it costs and what we\'d do. If we\'re not the right fit, we\'ll say so.',
   },
   {
     title: 'Quality',
-    body: 'We strive to deliver exceptional quality with every project. Whether a build or remodel, our clients benefit from our meticulous attention to detail and dedication to high standards. We take pride in our work, ensuring visions are realized with excellence and precision.',
+    body: 'We take pride in the work, from the framing to the last piece of trim. Build it right and make it look like it belongs.',
   },
   {
     title: 'Community',
-    body: 'Our strong community ties drive us to make a meaningful difference. We focus on building lasting relationships and addressing local needs, ensuring our efforts contribute to the growth and well-being of our neighborhoods. Together, we create spaces where everyone can thrive.',
+    body: 'Boise is where we work, and we care about the neighborhoods we build in.',
   },
   {
-    title: 'Client-Focused',
-    body: 'Our client’s needs and visions are our priority and at the heart of everything we do. Through attentive listening and clear communication, we strive to ensure smooth, positive experiences that make clients feel appreciated and respected every step of the way.',
+    title: 'Your house, your call',
+    body: 'We ask a lot of questions. You decide how involved you want to be.',
   },
 ];
 
 export const processSteps = [
   {
     num: '01',
-    title: 'Consultation',
+    title: 'Talk',
     image: '/editorial/estate-living.webp',
-    body: 'Tell us how you live, what you love, and what needs to change. We listen, explore the possibilities, and establish the right starting point.',
+    body: 'Tell us how you live and what\'s bothering you about the house. We listen first.',
   },
   {
     num: '02',
-    title: 'Collaboration',
+    title: 'Plan',
     image: '/editorial/collected-details.webp',
-    body: 'Work with our designers to shape the layout, materials, and details. Together, we create a clear plan that balances your vision and investment.',
+    body: 'You and our designers work out the layout, the materials and the details. You end up with a plan and a price you can both stand behind.',
   },
   {
     num: '03',
-    title: 'Execution',
+    title: 'Build',
     image: '/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg',
-    body: 'Our team coordinates the build, keeps you informed, and follows through on the details, from the first day on site to your final walkthrough.',
+    body: 'We build it, we keep you posted, and we walk the finished house with you.',
   },
 ];
 
 export const mission =
-  'At Timber + Love, our mission is to transform spaces, communities, and lives through innovative and high-quality design and construction. We strive to exceed our clients’ expectations by collaborating closely with them and delivering exceptional results through our processes and systems, integrity, and attention to detail. We are committed to making a positive impact on the community and being a leader in the industry through hard work, creativity, and a dedication to excellence.';
+  'We do honest work on people\'s homes in Boise, and we tell you straight if we\'re not the right fit.';
 
 /**
  * Curated featured projects for the homepage "Featured Work" section. These are
@@ -269,7 +269,7 @@ export const fanComments: FanComment[] = [
 export const brandEcosystem = [
   'Buy a property and remodel it with our design + build team',
   'Remodel a home before you sell it',
-  'Explore real estate investment opportunities',
+  'Look at real estate investment opportunities',
   'Experience Timber + Love design firsthand through a vacation stay',
 ];
 

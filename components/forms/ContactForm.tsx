@@ -46,7 +46,7 @@ export default function ContactForm({ source = 'website', compact = false, defau
         signal: AbortSignal.timeout(25000),
       });
       const result = await res.json();
-      if (!res.ok || result.ok !== true) throw new Error(result.error || 'We could not send your message. Please try again.');
+      if (!res.ok || result.ok !== true) throw new Error(result.error || 'That didn\'t go through. Try again, or call us.');
       trackEvent('generate_lead', { form: 'general_contact', source });
       trackQuestionnaireSubmit('general_contact');
       setStatus('success');
@@ -56,7 +56,7 @@ export default function ContactForm({ source = 'website', compact = false, defau
       setStatus('error');
       // A Turnstile token is single use; get a fresh one for the retry.
       if (TURNSTILE_SITE_KEY) window.turnstile?.reset();
-      setError(err instanceof Error && err.name !== 'TimeoutError' && err.name !== 'TypeError' ? err.message : 'We could not confirm your message was sent. Please try again.');
+      setError(err instanceof Error && err.name !== 'TimeoutError' && err.name !== 'TypeError' ? err.message : 'That didn\'t go through. Try again, or call us.');
     } finally {
       sending.current = false;
     }
@@ -64,10 +64,10 @@ export default function ContactForm({ source = 'website', compact = false, defau
 
   if (status === 'success') return (
     <div ref={successRef} role="status" tabIndex={-1} className="py-10 text-center focus:outline-none">
-      <p className="h-card text-cream">Thank You for Reaching Out</p>
-      <p className="mt-4 text-body">Your inquiry has been sent to our team. We look forward to learning more and will be in touch.</p>
+      <p className="h-card text-cream">Got it, thanks.</p>
+      <p className="mt-4 text-body">Someone on our team will read this and write back.</p>
       <p className="mt-4 text-sm text-text-muted">Prefer to talk? <a href={site.phoneHref} className="link-underline text-cream">{site.phone}</a></p>
-      <Link href="/timber-and-love-gallery/" className="btn-secondary mt-8">View Our Work</Link>
+      <Link href="/timber-and-love-gallery/" className="btn-secondary mt-8">See the Houses</Link>
     </div>
   );
 
@@ -90,7 +90,7 @@ export default function ContactForm({ source = 'website', compact = false, defau
         </select>
       </label>
       <label className="block text-sm text-cream" htmlFor={`${id}-message`}>How Can We Help? *
-        <textarea id={`${id}-message`} className={`${inputCls} resize-y placeholder:text-cream/45`} name="message" rows={4} required maxLength={5000} placeholder="Tell us a little about your home, location, and what you have in mind." />
+        <textarea id={`${id}-message`} className={`${inputCls} resize-y placeholder:text-cream/45`} name="message" rows={4} required maxLength={5000} placeholder="Tell us about the house, what's bothering you about it and what you'd like it to feel like when it's done." />
       </label>
       <input type="text" name="company_website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       {TURNSTILE_SITE_KEY && (
@@ -99,10 +99,10 @@ export default function ContactForm({ source = 'website', compact = false, defau
           <div className="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY} data-theme="dark" data-size="flexible" />
         </>
       )}
-      {status === 'error' && <div className="field-error space-y-2" role="alert"><p>{error}</p><p>Or reach us at <a className="link-underline" href={site.phoneHref}>{site.phone}</a> or <a className="link-underline break-all" href={`mailto:${site.email}`}>{site.email}</a>.</p></div>}
+      {status === 'error' && <div className="field-error space-y-2" role="alert"><p>{error}</p><p>Or call us at <a className="link-underline" href={site.phoneHref}>{site.phone}</a> or email <a className="link-underline break-all" href={`mailto:${site.email}`}>{site.email}</a>.</p></div>}
       <p className="text-xs leading-relaxed text-text-muted">By submitting, you agree that our team may contact you about your inquiry. <Link href="/privacy-policy/" className="link-underline">Privacy Policy</Link></p>
       <button type="submit" disabled={status === 'submitting'} aria-busy={status === 'submitting'} className="btn-primary w-full disabled:opacity-60">
-        {status === 'submitting' && <Spinner />}{status === 'submitting' ? 'Sending…' : 'Send Inquiry'}
+        {status === 'submitting' && <Spinner />}{status === 'submitting' ? 'Sending…' : 'Send Note'}
       </button>
     </form>
   );

@@ -10,7 +10,6 @@ import { site } from '@/lib/site';
 import ClosingCta from '@/components/sections/ClosingCta';
 import { closingCta } from '@/lib/content/closing';
 import FeatureBand from '@/components/sections/FeatureBand';
-import EditorialSplit from '@/components/sections/EditorialSplit';
 import Link from 'next/link';
 import { projects } from '@/lib/content/projects';
 import ProofSection from '@/components/sections/ProofSection';
@@ -54,12 +53,12 @@ export default function Page() {
       <PageHero
         eyebrow="Where We Work"
         title="Design-Build Across Boise and the Treasure Valley"
-        subtitle="Timber + Love is a Boise-based design-build team working with homeowners across the Treasure Valley. If your home is nearby, we would love to hear about your project."
+        subtitle="Timber + Love is a Boise-based design-build team working with homeowners across the Treasure Valley. If your house is nearby, we'd like to hear about it."
         image="/projects/promise-ln-5120/5120-promise-ln-exterior-front.jpg"
         imageMobile="/editorial/midcentury-entry.webp"
         height="short"
       >
-        <Cta href="/design-and-build-questionnaire/" variant="primary">Check Your Project</Cta>
+        <Cta href="/design-and-build-questionnaire/" variant="primary">Tell Us About Your House</Cta>
         <Cta href="/contact/" variant="secondary">Contact Us</Cta>
       </PageHero>
 
@@ -72,8 +71,7 @@ export default function Page() {
             <p className="eyebrow">Communities We Serve</p>
             <h2 className="h-section mt-4">Across the Treasure Valley</h2>
             <p className="text-lead mt-4">
-              Based in Boise since {site.founded}, our team knows the neighborhoods, the housing stock, and the way this
-              market builds. We work with homeowners throughout the surrounding communities.
+              We&apos;ve worked out of Boise since {site.founded} and know the neighborhoods and the houses in them. We work with homeowners in the surrounding communities too.
             </p>
           </Reveal>
           <ul className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -85,8 +83,7 @@ export default function Page() {
             ))}
           </ul>
           <p className="mt-8 max-w-2xl text-sm text-text-secondary">
-            Not sure if your home is in our area? Share your location and a few details about your project.
-            Our team will confirm how we can help.
+            Not sure if your house is in our area? Tell us where it is and what you have in mind, and we&apos;ll tell you.
           </p>
         </div>
       </section>
@@ -95,10 +92,10 @@ export default function Page() {
       <section className="section-tonal border-t border-border-subtle bg-bg-secondary section">
         <div className="container-wide">
           <Reveal className="max-w-2xl">
-            <p className="eyebrow">A Look Across the Valley</p>
-            <h2 className="h-section mt-4">Different Homes. Distinctive Character.</h2>
+            <p className="eyebrow">Around the valley</p>
+            <h2 className="h-section mt-4">A few of our houses</h2>
             <p className="text-lead mt-4">
-              Six individual homes, from a new custom build to Boise renovations with character and history. Open a project to explore its photographs and story.
+              A few of our houses, from a new build to old Boise homes with some history.
             </p>
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -111,7 +108,7 @@ export default function Page() {
                 <div className="p-6">
                   <p className="eyebrow !text-[10px]">{project.location}</p>
                   <h3 className="h-card-sm mt-3">{project.title}</h3>
-                  <span className="mt-4 inline-block text-xs uppercase tracking-[.14em] text-text-secondary">View the Home →</span>
+                  <span className="mt-4 inline-block text-xs uppercase tracking-[.14em] text-text-secondary">See the house →</span>
                 </div>
               </Link>
             ))}
@@ -122,9 +119,9 @@ export default function Page() {
       {/* Full-bleed photographic statement: our reach across the valley. */}
       <FeatureBand
         image="/projects/due-for-a-raze/living.webp"
-        eyebrow="A Place to Call Home"
-        title="Designed for Life in Idaho"
-        body="From Boise's historic neighborhoods to new homes along the foothills, we build where our clients live."
+        eyebrow="Where we build"
+        title="From the North End to the foothills"
+        body="We build where our clients live."
         align="left"
         height="short"
       />
@@ -134,39 +131,16 @@ export default function Page() {
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
             <p className="eyebrow">Local Knowledge</p>
-            <h2 className="h-section mt-4">A Team That Knows Boise Homes</h2>
+            <h2 className="h-section mt-4">We know Boise houses</h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-lead">
-              From historic North End remodels to new construction on the edge of the foothills, we have spent years
-              working with the kinds of homes and permitting that make the Treasure Valley distinct. That local
-              perspective shows up in more realistic plans, budgets, and timelines.
+              We know the older North End houses, the new lots near the foothills and how permits go here. That keeps plans, budgets and schedules honest.
             </p>
           </Reveal>
         </div>
       </section>
 
-      <EditorialSplit
-        image="/projects/promise-ln-5142/5142-promise-ln-exterior-front.jpg"
-        imageAlt="Charcoal modern contemporary custom home with a butterfly roof, designed and built by Timber + Love in the Treasure Valley"
-        eyebrow="Rooted in the Valley"
-        title="Building Across the Treasure Valley"
-        cta="Check Your Project"
-        href="/design-and-build-questionnaire/"
-        reverse
-        tone="primary"
-        ratio="landscape"
-      >
-        <p>
-          Whether your home sits in an established Boise neighborhood or on a new lot near the foothills, we bring the
-          same design-build team to the table. One group of designers and builders, from the first sketch through the
-          final walkthrough.
-        </p>
-        <p>
-          That continuity is what lets us plan realistically for the sites, styles, and permitting that make each
-          Treasure Valley community its own.
-        </p>
-      </EditorialSplit>
 
       <ProofSection />
 

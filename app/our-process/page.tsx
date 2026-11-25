@@ -19,57 +19,57 @@ import { faqs } from '@/lib/content/faqs';
 export const metadata = pageMeta({ absoluteTitle: true,
   title: "Design-Build Process | What Happens and When | Timber + Love",
   description:
-    'See exactly what happens when you work with Timber + Love, from the first consultation through final walkthrough. One connected team, one clear process.',
+    'What happens, and when, from the first call to the final walkthrough. One team the whole way.',
   path: '/our-process/',
 });
 
 const phases: ProcessPhase[] = [
   {
-    title: 'Initial Fit & Consultation',
-    body: 'We start with a conversation about your goals, your home, your timeline, and your budget. This is where we make sure we are a good fit for each other before anyone commits to anything.',
-    receive: 'A clear sense of fit and next steps',
+    title: 'Do we fit?',
+    body: 'We start by talking about your goals, your house, your timeline and your budget. Before anyone commits to anything, we both figure out if we\'re a good fit.',
+    receive: 'A straight answer on fit, and what comes next',
     decision: "Share your goals, budget, and preferred timing.",
   },
   {
-    title: 'Existing Conditions & Discovery',
-    body: 'Our team documents your home as it is today. We measure, note existing conditions, and gather the details that shape what is possible and what to plan for.',
-    receive: 'Accurate as-built understanding of your home',
+    title: 'We measure your house',
+    body: 'We come out and measure the house and note what\'s really there: old wiring, walls that aren\'t square, whatever it turns out to be.',
+    receive: 'A measured, documented house',
     decision: "Confirm priorities and any known issues with the home.",
   },
   {
-    title: 'Concept Development',
-    body: 'We translate your goals into an initial design direction, testing layouts and ideas against how you actually want to live in the space.',
-    receive: 'A concept direction to react to and refine',
+    title: 'First sketches',
+    body: 'We sketch a first idea and test it against how you actually live in the house.',
+    receive: 'A first sketch you can react to',
     decision: "Review the proposed layout and design direction.",
   },
   {
-    title: 'Design Development & Selections',
-    body: 'We refine the plans and, in a design presentation with Luke and the team, review materials, fixtures, and finishes so the details reflect your vision before construction.',
-    receive: 'Developed plans and a materials palette you approve',
+    title: 'Plans and materials',
+    body: 'We tighten up the plans, then sit down with Luke and the team to pick materials, fixtures and finishes before anything gets built.',
+    receive: 'Plans and materials you\'ve signed off on',
     decision: "Approve selections and developed plans.",
   },
   {
-    title: 'Pricing & Construction Planning',
-    body: 'With the design settled, we build a detailed scope and pricing plan and map out the construction schedule so you can review the investment and sequence before work begins.',
-    receive: 'A clear scope, price, and schedule',
+    title: 'Price and schedule',
+    body: 'Once the design is settled, you get the scope, the price and the schedule before any work starts.',
+    receive: 'The scope, the price and the schedule',
     decision: "Review the scope, pricing, and proposed schedule.",
   },
   {
-    title: 'Permitting & Procurement',
-    body: 'We submit for the permits your project requires and strategically source and order materials so the right things arrive at the right time.',
-    receive: 'Approvals in motion and materials secured',
+    title: 'Permits and ordering',
+    body: 'We file for permits and order materials so the right things show up when the crew needs them.',
+    receive: 'Permits filed and materials ordered',
     decision: "Stay available for decisions required by the permit or purchasing process.",
   },
   {
     title: 'Construction',
-    body: 'Our team manages the build day to day, coordinating trades, holding quality standards, and keeping you informed as your home takes shape.',
-    receive: 'Steady progress and clear communication',
+    body: 'We run the job every day: the trades, the schedule, the quality. You get updates as it comes together.',
+    receive: 'Steady progress and regular updates',
     decision: "Review progress and agree any changes before they proceed.",
   },
   {
-    title: 'Final Walkthrough & Completion',
-    body: 'We walk the finished project with you, address any final details, and hand back a home that is ready to live in and enjoy.',
-    receive: 'A finished home, done right',
+    title: 'Final walkthrough',
+    body: 'We walk the finished house with you, fix the last small things and hand it back ready to live in.',
+    receive: 'A finished house you can move back into',
     decision: "Walk the home with us and review the final detail list.",
   },
 ];
@@ -87,13 +87,13 @@ export default function Page() {
 
       <PageHero
         eyebrow="Our Process"
-        title="Our Design-Build Process, Step by Step"
-        subtitle="With design and construction under one roof, your project stays coordinated from the first conversation through the final walkthrough. Here is exactly what to expect."
+        title="How a job goes, step by step"
+        subtitle="The same team designs and builds, so nobody has to translate between the two. Here&apos;s what to expect."
         image="/editorial/concrete-entry.webp"
         height="short"
       >
-        <Cta href="/design-and-build-questionnaire/" variant="primary">Start Your Project</Cta>
-        <Cta href="/timber-and-love-gallery/" variant="secondary">View Our Work</Cta>
+        <Cta href="/design-and-build-questionnaire/" variant="primary">Tell Us About Your House</Cta>
+        <Cta href="/timber-and-love-gallery/" variant="secondary">See the Houses</Cta>
       </PageHero>
 
       <TrustBar />
@@ -102,14 +102,12 @@ export default function Page() {
       <section className="bg-bg-primary section">
         <div className="container-wide grid gap-10 lg:grid-cols-2 lg:items-center">
           <Reveal>
-            <p className="eyebrow">The Design-Build Advantage</p>
-            <h2 className="h-section mt-4">Why One Team Makes the Difference</h2>
+            <p className="eyebrow">Why design-build</p>
+            <h2 className="h-section mt-4">Why one team</h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-lead">
-              When the same team designs and builds, there are fewer gaps between the vision and the finished result.
-              You get one point of contact, earlier feasibility input, more coordinated selections, and clear ownership
-              from concept through completion.
+              When one team does both, fewer things fall through the cracks. You have one person to call. Someone tells you what&apos;s buildable while the plans are still being drawn. And if something goes wrong, there&apos;s no other firm to point at.
             </p>
           </Reveal>
         </div>
